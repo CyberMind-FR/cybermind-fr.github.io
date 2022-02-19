@@ -4,7 +4,7 @@ date: 2022-02-19 17:16:01
 ---
 **Kerma Gérald**
 
-*Consultant en Cyber Sécurité et Développeur en Logiciel Libre - Maurienne Savoie*
+*Consultant en Cyber Sécurité et Développeur en Logiciel Libre - Maurienne, Savoie, France*
 
 Expertises et solutions de sécurité informatique, sur mesure, pour TPE/PME.
 
