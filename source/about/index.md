@@ -2,13 +2,11 @@
 title: about
 date: 2022-02-19 17:16:01
 ---
+**Kerma Gérald**
 
-Kerma Gérald
+*Consultant en Cyber Sécurité et Développeur en Logiciel Libre - Maurienne Savoie*
 
-Consultant en Cyber Sécurité et Développeur en Logiciel Libre - Maurienne Savoie
-
-
-Mon activité principale est le développement sur mesure de logiciels informatique et de solutions dans le domaine de la cybersécurité. 
+Mon activité principale est le développement sur mesure de logiciels informatique et de solutions dans le domaine de la cybersécurité.
 
 Expertise et solutions de sécurité informatique, sur mesure, pour TPE/PME.
 
@@ -21,8 +19,6 @@ Mes différents types de services numériques sont accès principalement sur 3 a
 - Développement et logiciels (initiation)
   Sur mesure ou à partir de solutions libre et opensource (formation, sites web, logiciels libres, ...)
 
-
-
 Quelques références clients de mon activité:
 
 - Thales
@@ -31,8 +27,6 @@ Quelques références clients de mon activité:
 - CEA
 - PrimX
 
-
-
 Quelques partenaires matériels et logiciels:
 
 - CrowdSec
@@ -40,7 +34,6 @@ Quelques partenaires matériels et logiciels:
 - LinuxMint
 - Global Scale Technologies
 - Marvell
-
+- NXP
 
 Actuellement, je développe un matériel réseau de sécurisation, en partenariat avec CrowdSec et GlobalScaleTechnologies.
-
