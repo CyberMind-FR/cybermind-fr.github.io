@@ -149,10 +149,10 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/CyberMind-FR || fab fa-github
-  E-Mail: mailto:info@cybermind.fr || fa fa-envelope
   Twitter: https://twitter.com/CyberMindFR || fab fa-twitter
   YouTube: https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about || fab fa-youtube
   LinkedIn: https://www.linkedin.com/company/Cybermindfr || fab fa-linkedin
+  E-Mail: mailto:info@cybermind.fr?contact || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
