@@ -107,3 +107,7 @@ deploy:
    type: git   
    repo: git@github.com:CyberMind-FR/cybermind-fr.github.io.git
    branch: gh-pages # GitPages require personal website branch to be master
+
+# CNAME
+## https://github.com/bapti/hexo-generator-cname
+cname: cybermind.fr
