@@ -8,7 +8,9 @@ subtitle: 'Développeur Embarqué / Consultant en CyberSécurité @CyberMindFR'
 description: 'Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.'
 keywords: #OpenSource #CyberSécurity
 author: 'Gérald Kerma'
-language: fr
+language: 
+- fr
+- en
 timezone: 'Europe/Paris'
 
 # URL
