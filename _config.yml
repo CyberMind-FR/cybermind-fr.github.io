@@ -111,3 +111,12 @@ deploy:
 # CNAME
 ## https://github.com/bapti/hexo-generator-cname
 cname: cybermind.fr
+
+# # hexo-generator-archive
+archive_generator:
+  enabled: false
+  per_page: 10
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
