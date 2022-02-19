@@ -90,8 +90,8 @@ open_graph:
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-#  archives: /archives/ || fa fa-archive
   about: /about/ || fa fa-user
+  archives: /archives/ || fa fa-archive
 #  tags: /tags/ || fa fa-tags
 #  categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
