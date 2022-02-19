@@ -138,7 +138,7 @@ avatar:
   # If true, the avatar will be displayed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
-  rotated: false
+  rotated: true
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
@@ -150,12 +150,13 @@ site_state: true
 social:
   GitHub: https://github.com/CyberMind-FR || fab fa-github
   E-Mail: mailto:info@cybermind.fr || fa fa-envelope
+  Twitter: https://twitter.com/CyberMindFR || fab fa-twitter
+  YouTube: https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about || fab fa-youtube
+  LinkedIn: https://www.linkedin.com/company/Cybermindfr || fab fa-linkedin
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
-  Twitter: https://twitter.com/CyberMindFR || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
-  YouTube: https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
 
