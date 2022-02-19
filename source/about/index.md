@@ -13,11 +13,11 @@ Expertise et solutions de sécurité informatique, sur mesure, pour TPE/PME.
 Mes différents types de services numériques sont accès principalement sur 3 axes:
 
 - Assistance informatique (accompagnement)
-  Infogérance ou dépannage et installation de tout type de matériel informatique (ordinateur, tablette, box, smartphone, ...)
+  *Infogérance ou dépannage et installation de tout type de matériel informatique (ordinateur, tablette, box, smartphone, ...)*
 - Conseil de CyberSécurité (sensibilisation)
-  Audit, expertise et veille technologique (récupération de données, cryptolocker, ransomware, virus, ...)
+  *Audit, expertise et veille technologique (récupération de données, cryptolocker, ransomware, virus, ...)*
 - Développement et logiciels (initiation)
-  Sur mesure ou à partir de solutions libre et opensource (formation, sites web, logiciels libres, ...)
+  *Sur mesure ou à partir de solutions libre et opensource (formation, sites web, logiciels libres, ...)*
 
 Quelques références clients de mon activité:
 
