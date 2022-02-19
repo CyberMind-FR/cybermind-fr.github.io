@@ -15,7 +15,7 @@ timezone: 'Europe/Paris'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: 'https://cybermind-fr.github.io/'
+url: 'https://cybermind.fr/'
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
