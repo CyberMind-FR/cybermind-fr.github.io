@@ -91,7 +91,7 @@ open_graph:
 menu:
 #  home: / || fa fa-home
 #  archives: /archives/ || fa fa-archive
-  about: /about/ || fa fa-user
+  about: / || fa fa-user
 #  tags: /tags/ || fa fa-tags
 #  categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
