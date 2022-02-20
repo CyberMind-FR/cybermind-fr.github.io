@@ -91,11 +91,11 @@ open_graph:
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
-  contact: /contacts/ || fa fa-contact
-  services: /services/ || fa fa-services
-  projects: /projects/ || fa fa-projects
+  contact: /contacts/ || fa fa-globe
+  services: /services/ || fa fa-calendar
+  projects: /projects/ || fa fa-sitemap
   archives: /archives/ || fa fa-archive
-  legal: /legal/ || fa fa-legal
+  legal: /legal/ || fa fa-heartbeat
 #  tags: /tags/ || fa fa-tags
 #  categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
