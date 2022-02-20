@@ -11,5 +11,5 @@ Garantie : « devoir de meilleur effort, sans obligation de résultat. » \
 \
 N° SIRET : 409 743 275 00037 \
 Code APE : 6202A \
-TVA non applicable : article 293 B du CGI. \
+TVA non applicable : article 293 B du CGI.
 
