@@ -9,6 +9,6 @@ l’Église \
 73130 Notre-Dame-du-Cruet \
 06.51.27.66.88 \
 Gérald Kerma \
-<contact@cybermind.fr> \
+<contact@cybermind.fr>
 
 
