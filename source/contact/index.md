@@ -11,6 +11,6 @@ l’Église \
 Gérald Kerma \
 <contact@cybermind.fr> \
 \
-![NDdC](/uploads/images/NDDC_H240.png =x50 "NDdC")
+![NDdC](/uploads/images/NDDC_H240.png =x50)
 
 
