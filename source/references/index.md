@@ -11,11 +11,12 @@ date: 2022-0222
 
 - Quelques contributions :
   - OpenWrt
-  - Linux (kernel.org)
-  - u-Boot (Denx)
+  - CrowdSec
   - Debian
   - SynoCommunity
-  - CrowdSec
+  - Linux (kernel.org)
+  - u-Boot (Denx)
+  - Ubuntu
 
 - Quelques outils et solutions utilisées :
   - LinuxMint
@@ -24,8 +25,14 @@ date: 2022-0222
   - NextCloud
 
 - Quelques références clients de mon activité :
-  - Thales (Thales Corporate, Thales Global Services, Thales Informations Services...) 
-  - McAfee et Intel Security
+  - Thales
+    - Thales Corporate
+    - Thales Global Services
+    - Thales Informations Services 
+  - McAfee & Intel Security
   - BNP Paribas
   - CEA
   - Prim'X
+  - Sun MicroSystems
+  - Andersen Consulting
+  - Éditions Francis Lefebvre
