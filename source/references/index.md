@@ -2,8 +2,6 @@
 title: References
 date: 2022-0222
 ---
-Quelques références : \
-\
 Quelques partenaires matériels et logiciels :
 - CrowdSec
 - Global Scale Technologies
