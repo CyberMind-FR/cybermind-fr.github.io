@@ -91,8 +91,9 @@ open_graph:
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
-  Contact: /contact/ || fa fa-globe
+  Contact: /contact/ || fa fa-contact
   Services: /services/ || fa fa-calendar
+  References: /references/ || fa fa-globe
   Projects: /projects/ || fa fa-sitemap
   Blog: /archives/ || fa fa-archive
   Support: /legal/ || fa fa-heartbeat
