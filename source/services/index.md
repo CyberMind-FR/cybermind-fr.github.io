@@ -5,13 +5,13 @@ date: 2022-0220
 
 **CyberMind**
 
-Accompagnement en Solutions Innovantes.
+Support in Innovative Solutions.
 
-Conceptions et Développements en Logiciels Libres.
+Designs and Developments in Free Software.
 
-Solutions de CyberSécurité de type Conseils et Développements :
-- Développement et logiciels libres : *Développement spécifiques, sur mesure, de solutions libres et opensources*
-- Conseil en CyberSécurité : *Conseil, expertise, audit et veille technologique*
-- Assistance informatique : *Infogérance, supervision, télé-assistance*
+Consulting and Development Cybersecurity Solutions:
+- Development and free software: * Specific, tailor-made development of free and open source solutions *
+- CyberSecurity Consulting: *Advice, expertise, audit and technology watch*
+- IT assistance: *Outsourcing, supervision, tele-assistance*
 
-Tarifs : ~ 2.000 € \ Jour (+frais)
+Rates: ~ €2,000 \ Day (+ fees) 

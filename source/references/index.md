@@ -3,13 +3,13 @@ title: References
 date: 2022-0222
 ---
 
-- Quelques partenaires matériels et logiciels :
+- Some hardware and software partners:
   - CrowdSec
   - Global Scale Technologies
   - Marvell
   - NXP
 
-- Quelques contributions :
+- Some contributions:
   - OpenWrt
   - CrowdSec
   - Debian
@@ -18,13 +18,13 @@ date: 2022-0222
   - u-Boot (Denx)
   - Ubuntu
 
-- Quelques outils et solutions utilisées :
+- Some tools and solutions used:
   - LinuxMint
   - GitHub
   - Docker
   - NextCloud
 
-- Quelques références clients de mon activité :
+- Some client references of my activity:
   - Thales
     - Thales Corporate
     - Thales Global Services

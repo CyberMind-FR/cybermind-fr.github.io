@@ -5,6 +5,6 @@ date: 2022-02-19 17:16:01
 
 **Kerma Gérald**
 
-Accompagnement en Solutions Innovantes.
+Support in Innovative Solutions.
 
-Conceptions et Développements en Logiciels Libres.
+Designs and Developments in Free Software.
