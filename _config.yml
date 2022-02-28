@@ -63,7 +63,7 @@ prismjs:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: 'about'
   per_page: 10
   order_by: -date
 
@@ -121,11 +121,9 @@ archive_generator:
   daily: false
   order_by: -date
 
-
-# hexo-generator-i18n
 ## https://github.com/Jamling/hexo-generator-i18n
 # hexo default is empty, change to exact languages, and add xx.yml under your theme languages dir.
-language: [fr,en]
+##language: [fr,en]
 # config hexo-generator-i18n option (optional, this is default option)
 i18n:
   type: [page, post]
