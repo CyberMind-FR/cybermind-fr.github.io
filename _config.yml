@@ -4,10 +4,11 @@
 
 # Site
 title: 'CyberMind.FR'
-subtitle: 'Développeur Embarqué / Consultant en CyberSécurité @CyberMindFR'
+subtitle: 'Embedded Developer / CyberSecurity Consultant @CyberMindFR'
+##subtitle: 'Développeur Embarqué / Consultant en CyberSécurité @CyberMindFR'
 description: 'Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.'
 keywords: #OpenSource, #CyberSecurity
-author: 'Gérald Kerma'
+author: 'CyberMind'
 ##language: fr
 language:
   - en

@@ -1,5 +1,5 @@
 ---
-title: À propos de CyberMind
+title: About CyberMind
 date: 2022-02-19 17:16:01
 ---
 

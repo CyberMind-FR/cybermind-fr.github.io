@@ -1,5 +1,5 @@
 ---
-title: References
+title: Références
 date: 2022-0222
 ---
 

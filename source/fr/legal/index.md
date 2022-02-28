@@ -1,5 +1,5 @@
 ---
-title: Legal
+title: Légals
 date: 2022-0220
 ---
 
