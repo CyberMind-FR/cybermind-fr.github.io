@@ -1,7 +1,7 @@
 ---
 title: Bienvenue
 date: 2022-02-19 20:00:00
-tags:
+tags: news
 ---
 
 Développement en cours…

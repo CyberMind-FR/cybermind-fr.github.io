@@ -8,15 +8,15 @@ subtitle: 'Développeur Embarqué / Consultant en CyberSécurité @CyberMindFR'
 description: 'Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.'
 keywords: #OpenSource #CyberSécurity
 author: 'Gérald Kerma'
-language: 
-- fr
-- en
+##language: fr
+language: [fr,en]
 timezone: 'Europe/Paris'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: 'https://cybermind.fr/'
-permalink: :year/:month/:day/:title/
+##permalink: :year/:month/:day/:title/
+permalink: :lang/:year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
@@ -33,7 +33,8 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+##new_post_name: :title.md # File name of new posts
+new_post_name: :lang/:title.md # File name of new posts
 default_layout: true
 titlecase: false # Transform title into titlecase
 external_link:
