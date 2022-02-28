@@ -14,7 +14,7 @@ Voici une petite interview de Gérald pour mieux le connaître.
 
 ## Salut Gérald, peux-tu parler de toi à notre communauté ?
 
-Vous pouvez aussi m'appeler Gandalf, edoukki, drEagle, Geronimo, Guignol… Je prends le nom de "Gandalf des Conjurers", ma propre "équipe de hackers" à l'adolescence alors que j'étais déjà dans le monde de l'informatique en tant qu'avatar secret.
+Vous pouvez aussi m'appeler Gandalf, edoukki, drEagle, Geronimo, Guignol… Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers » à l'adolescence alors que j'étais déjà dans le monde de l'informatique en tant qu'avatar secret.
 
 Durant mes premières années, j'ai appris l'informatique en autodidacte à Paris sur les ordinateurs en libre accès du Palais de la découverte… Je me suis mis à l'informatique avec Commodore 64, et j'ai appris en autodidacte Pascal avec les algorithmes de transformations ZIP et FFT. Plus tard, j'ai écrit mes premiers jeux sur les Labyrinthes. Rapidement, j'ai ensuite écrit des outils de développement sur le premier ordinateur IBM/PC. J'avais un XT, très moderne, avec un énorme disque dur de 40 Mo. J'ai fait mes premiers dollars avec Shareware sur Apple/MacIntosh sur des outils innovants dans le monde des logiciels d'interface humaine. Ils ont été distribués dans les magazines français et les BSS du monde entier.
 
@@ -32,7 +32,7 @@ De retour aux premiers besoins de l'esprit créatif, je quitte Paris pour la Sav
 
 J'ai découvert très tôt la solution CrowdSec Software et c'était un très bon composant candidat pour mon propre projet. J'ai envoyé un e-mail à l'équipe pour proposer mes propres services et expériences avec les systèmes embarqués comme OpenWrt et le conseil des développeurs ARM. Je leur ai donné des références pour certains articles écrits pour Diamond Editions. Ils ont rapidement répondu et nous nous sommes lancés dans des projets de collaboration mutuelle. J'ai appris la solution en portant l'agent CrowdSec et le videur de pare-feu CrowdSec sur le système OpenWrt.
 
-CrowdSec et OpenWrt étaient tous deux candidats pour mon propre projet "Security Box", et m'ont également donné l'opportunité de mieux comprendre et de tester plus en profondeur la solution.
+CrowdSec et OpenWrt étaient tous deux candidats pour mon propre projet « Security Box », et m'ont également donné l'opportunité de mieux comprendre et de tester plus en profondeur la solution.
 
 ## Comment voyez-vous votre mission chez CrowdSec ?
 
