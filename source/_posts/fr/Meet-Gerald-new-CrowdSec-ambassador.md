@@ -15,7 +15,7 @@ Voici une petite interview de Gérald pour mieux le connaître.
 
 ## Salut Gérald, peux-tu parler de toi à notre communauté ?
 
-Vous pouvez aussi m’appeler Gandalf, Edoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.
+Vous pouvez aussi m’appeler Gandalf, Erdoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.
 
 Durant mes premières années, j’ai appris l’informatique en autodidacte à Paris sur les ordinateurs en libre accès du Palais de la découverte. Je me suis mis à l’informatique avec un Commodore 64, puis j’ai appris en autodidacte, le language Pascal, avec les algorithmes de transformations ZIP et FFT. Plus tard, j’ai écrit mes premiers jeux sur les Labyrinthes. Rapidement, j’ai ensuite écrit des outils de développement sur le premier ordinateur IBM/PC. J’avais un XT très moderne, avec un « énorme » disque dur de 40 Mo. J’ai fait mes premiers dollars avec des sharewares, sur Apple/MacIntosh, sur des outils innovants dans le monde des logiciels d’interface utilisateur. Ils ont été distribués dans les magazines français et les BSS du monde entier.
 

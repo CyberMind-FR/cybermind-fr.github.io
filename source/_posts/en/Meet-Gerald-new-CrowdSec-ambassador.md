@@ -14,7 +14,7 @@ Here is a little interview with Gérald to get to know him better.
 
 ## Hey Gérald, can you tell our community about yourself?
 
-You can also call me Gandalf, edoukki, drEagle, Geronimo, Guignol…I take the name of “Gandalf from the Conjurers,” my own “hackers team” in my teenage years when I was already in the computer world as a secret avatar.
+You can also call me Gandalf, erdoukki, drEagle, Geronimo, Guignol…I take the name of “Gandalf from the Conjurers,” my own “hackers team” in my teenage years when I was already in the computer world as a secret avatar.
 
 During my early years, I self-taught computer science in Paris on the free access computers at “Palais de la découverte”… I got into computers with Commodore 64, and I self-learned Pascal with ZIP and FFT transforms algorithms. Later I wrote my first games about Labyrinths. Quickly then I wrote developer tools on the first IBM/PC Computer. I had an XT, a very modern one, with a huge hard drive of 40 Mb. I made my first dollars with Shareware on Apple/MacIntosh on innovative tools in the world of Human Interface Software. They were distributed in French Magazines and BSS around the globe.
 
