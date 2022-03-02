@@ -46,7 +46,7 @@ J’ai déjà partagé quelques projets avec la communauté CrowdSec, et CrowdSe
 
 ## Un fait amusant sur vous-même ?
 
-J’ai ma propre philosophie de vie et mes règles. Je peux être décrit comme un épicurien. J’écris de la poésie, je peints, je fais de la gravure sur du bois et sur des ardoise avec application d’or.
+J’ai ma propre philosophie de vie et mes règles. Je peux être décrit comme un épicurien. J’écris de la poésie, je peints, je fais de la gravure laser sur du bois et sur des ardoises gravée à l'or.
 
 J’ai aussi mes propres règles techniques et méthodes qui sont très proches des Creative Mind Educative Concepts. Quand j’ai quitté les projets Thales, j’ai dit à mes ex-collègues que je partais étudier de vraies solutions à leur rapporter. J’ai ouvert une nouvelle entreprise, CyberMind, et j’ai commencé à porter une casquette blanche pour montrer de quel côté j'étais.
 
