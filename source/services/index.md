@@ -5,13 +5,12 @@ date: 2022-0220
 
 **CyberMind**
 
-Support in Innovative Solutions.
+If you want specific development based on freely licensed software.
 
-Designs and Developments in Free Software.
+If you want to outsource your services for the security of your Information Systems.
 
-Consulting and Development Cybersecurity Solutions:
-- Development and free software: *Specific, tailor-made development of free and open source solutions*
-- CyberSecurity Consulting: *Advice, expertise, audit and technology watch*
-- IT assistance: *Outsourcing, supervision, tele-assistance*
+Or for any other requests for advanced expertise in the IT field.
 
-Rates: ~ €2,000 \ Day (+ fees)
+Call us at CyberMind to study a solution adapted to your needs...
+
+Rates ~ 2.000 € \ Day (+ fees, licenses, materials)

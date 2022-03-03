@@ -3,4 +3,6 @@ title: Projects
 date: 2022-0220
 ---
 
-Currently, I am developing network security hardware, in partnership with CrowdSec and GlobalScaleTechnologies.
+In the principles of support in innovative solutions of CyberSecurity and designs and developments based on free software...
+
+CyberMind is currently developing security network hardware, in partnership with CrowdSec and GlobalScaleTechnologies.

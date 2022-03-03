@@ -4,14 +4,12 @@ date: 2022-0220
 ---
 
 **CyberMind**
+Si vous souhaitez un développement spécifique basées sur des logiciels en licence libres.
 
-Accompagnement en Solutions Innovantes.
+Si vous souhaitez externaliser vos services pour la Sécurité de vos Systèmes d'Information.
 
-Conceptions et Développements en Logiciels Libres.
+Ou pour toutes autres demandes d'expertise avancée dans le domaine informatique.
 
-Solutions de CyberSécurité de type Conseils et Développements :
-- Développement et logiciels libres : *Développement spécifiques, sur mesure, de solutions libres et opensources*
-- Conseil en CyberSécurité : *Conseil, expertise, audit et veille technologique*
-- Assistance informatique : *Infogérance, supervision, télé-assistance*
+Faites appel à CyberMind pour étudier une solution adapatée à vos besoins...
 
-Tarifs : ~ 2.000 € \ Jour (+frais)
+Tarifs ~ 2.000 € \ Jour ( + frais, licences, matériels )

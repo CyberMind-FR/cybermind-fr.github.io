@@ -1,7 +1,8 @@
 ---
 title: >-
-  MochaBin-5G@GlobalScaleTechnologies - New CrowdFunded Armada SoC based Devdel
-  Board (Quick) UnBoxing
+  MochaBin-5G@GlobalScaleTechnologies
+  - New CrowdFunded Armada SoC based Devel Board
+  (Quick) UnBoxing
 date: 2022-03-03 09:55:32
 tags:
 ---
