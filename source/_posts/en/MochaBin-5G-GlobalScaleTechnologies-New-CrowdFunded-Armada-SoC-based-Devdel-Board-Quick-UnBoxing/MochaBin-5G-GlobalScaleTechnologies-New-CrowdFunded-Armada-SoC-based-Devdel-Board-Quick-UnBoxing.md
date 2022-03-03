@@ -35,4 +35,11 @@ Stay tune...
 
 More to come...
 
+Some details of interest:
+- https://globalscaletechnologies.com/product/mochabin/
+- https://forum.openwrt.org/t/mochabin-5g-kickstarter/108178
+- https://www.cnx-software.com/2021/10/03/mochabin-5g-openwrt-ubuntu-sbc-10gbe-wifi-6-5g/
+- https://www.kickstarter.com/projects/874883570/mochabin-5g
+- https://www.indiegogo.com/projects/mochabin-5g
+
 :-]
