@@ -42,5 +42,6 @@ Some details of interest:
 - https://www.cnx-software.com/2021/10/03/mochabin-5g-openwrt-ubuntu-sbc-10gbe-wifi-6-5g/
 - https://www.kickstarter.com/projects/874883570/mochabin-5g
 - https://www.indiegogo.com/projects/mochabin-5g
+- https://openwrt.org/toh/hwdata/globalscale/globalscale_mochabin
 
 :-]
