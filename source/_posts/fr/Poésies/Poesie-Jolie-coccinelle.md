@@ -15,3 +15,5 @@ que se ferme un sombre ciel pour y peindre à nouveau
 une voute étoilée où je cours m'envoler
 
 201806131300@Limours
+
+<img src="/uploads/images/Kerma/Ardoise_Kerma_2020_Coccinelle_Oser-La-Paix.jpeg" width="1536px" heigth="2048px">
