@@ -16,6 +16,7 @@ What I have personnaly done to help U-Boot better work on some embedded devices 
 - GuruPlug
 - RaidSonic ICY BOX NAS6210 and NAS6220
 - LS421DE
+- ZYXEL NSA310S
 - ...
 
 When ?
@@ -31,3 +32,4 @@ When ?
 - 2014/12/03: [[U-Boot] [PATCH 1/1] ARM: kirkwood: mvebu_mmc: Speed up access time](https://lists.denx.de/pipermail/u-boot/2014-December/197643.html)
 - 2014/12/17: [[U-Boot] [PATCH v3 0/6] SHEEVAPLUG : REFRESH 201412](https://lists.denx.de/pipermail/u-boot/2014-December/199135.html)
 - ...
+- 2014/08/01-2015/11/29: [erdoukki@u-boot](https://github.com/u-boot/u-boot/commits?author=erdoukki)
