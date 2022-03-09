@@ -19,7 +19,10 @@ What I have personnaly done to help OpenWrt better work with some softwares:
 
 What ?
 
-- Packages
-  - 2014/12/23-...: https://github.com/openwrt/packages/commits?author=erdoukki
+- Package(s)
+  - 2014-... : https://github.com/openwrt/packages/commits?author=erdoukki
 - OpenWrt
-  - 2021 : https://github.com/openwrt/openwrt/commits?author=erdoukki
+  - 2021-... : https://github.com/openwrt/openwrt/commits?author=erdoukki
+
+- Wiki
+  - [CrowdSec](https://openwrt.org/docs/guide-user/services/crowdsec)

@@ -8,6 +8,8 @@ date: 2022-0222
   - Global Scale Technologies
   - Marvell
   - NXP
+  - [GL.iNet](https://www.gl-inet.com/about-us/)
+  - Genesi Group: [EFIKA MX Smartbook](https://genesi.company/products/smartbook) & [EFIKA MX Smarttop](https://genesi.company/products/efika)
 
 - Quelques contributions :
   - OpenWrt
