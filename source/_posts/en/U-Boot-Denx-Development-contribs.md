@@ -15,7 +15,6 @@ What I have personnaly done to help U-Boot better work on some embedded devices 
 - SheevaPlug and derivatives
 - GuruPlug
 - RaidSonic ICY BOX NAS6210 and NAS6220
-- LS421DE
 - ZYXEL NSA310S
 - ...
 
