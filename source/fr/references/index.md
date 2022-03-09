@@ -25,14 +25,35 @@ date: 2022-0222
   - NextCloud
 
 - Quelques références clients de mon activité :
-  - Thales
+  - [REEPOST](http://www.reepoststudio.fr/)
+  - [CVA ENGINEERING](https://www.group-cva.com/)
+  - [Alma Mater](http://www.almamater.fr/)
+    - [MARKEN TRADING / Derrière La Porte](http://www.derrierelaporte.com)
+  - [Clic’issimo](https://clicissimo.com)
+    - [JeResilieMonContrat](https://www.jeresiliemoncontrat.com/)
+  - BNP Paribas IT Risk Management & CyberDefense
+  - ALTEN SIRT / IT Services
+  - [Thales Group](https://www.thalesgroup.com/)
     - Thales Corporate
     - Thales Global Services
-    - Thales Informations Services 
+    - Thales Informations Systems
+    - Thales Services
   - McAfee & Intel Security
-  - BNP Paribas
-  - CEA
   - Prim'X
+  - [CEA Paris-Saclay](https://www.cea.fr/Pages/le-cea/les-centres-cea/paris-saclay.aspx)
+  - [Danone Research](https://www.danone.com)
+  - HEDRA
+  - Apple
   - Sun MicroSystems
-  - Andersen Consulting
   - Éditions Francis Lefebvre
+  - Andersen Consulting
+  - Orange Group & France Telecom
+  - Thomson CSF-LCR
+
+- Quelques certifications:
+  - [CyberMalveillance (Gouv.fr)](https://www.cybermalveillance.gouv.fr/resultat-recherche-prestataire?search=cybermind)
+  - [France Num (Gouv.fr)](https://www.francenum.gouv.fr/trouver-un-accompagnement/cybermindfr)
+  - [Certified Ethical Hacker](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)
+
+- Quelques publications:
+  - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
