@@ -1,5 +1,5 @@
 ---
-title: 'MétaDeChoc.FR - Élizabeth Feytit : New Age ou la secte aux 1.000 gourous...'
+title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous...'
 lang: fr
 date: 2022-03-14 12:32:46
 tags:
