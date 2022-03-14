@@ -17,3 +17,5 @@ Et même si vous n'êtes pas un "adepte" de la "secte au 1.000 gourous" (™ & �
 C'est quoi la zététique, "la critique", les concepts "new age", la spiritualité, les croyances, la vérité, la science...
 
 Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast [MétaDeChoc.fr](https://metadechoc.fr/) d'Élisabeth Feytit !
+
+<img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
