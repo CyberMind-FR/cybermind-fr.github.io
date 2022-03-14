@@ -1,5 +1,5 @@
 ---
-title: 'MétaDeChoc.FR - élizabeth Feytit : New Age ou la secte aux 1.000 gourous...'
+title: 'MétaDeChoc.FR - Élizabeth Feytit : New Age ou la secte aux 1.000 gourous...'
 lang: fr
 date: 2022-03-14 12:32:46
 tags:
@@ -12,7 +12,7 @@ Une de celle qui fait tant de bien.
 - mieux que Milivudes et son insatiable silence...
 - mieux que l'AFP et ses BUZZ généralisés...
 
-et même si vous n'êtes pas un "adepte" de la "secte au 1.000 gourous" ™ & © ME
+et même si vous n'êtes pas un "adepte" de la "secte au 1.000 gourous" (™ & © [ME](mailto:gandalf@gk2.net))
 
 C'est quoi la zététique, "la critique", les concepts "new age", la spiritualité, les croyances, la vérité, la science...
 
