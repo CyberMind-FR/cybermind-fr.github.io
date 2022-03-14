@@ -11,9 +11,14 @@ APE code: 6202A
 
 Banking information : \
 IBAN: FR76 1027 8062 2100 0514 2324 114 \
-BIC: CMCIFR2A\
-[PAYPAL](HTTPS://PAYPAL.ME/KERMA)\
-[PATREON](https://patreon.com/cybermind)\
+BIC: CMCIFR2A
+
+* [PAYPAL](HTTPS://PAYPAL.ME/KERMA)
+* [PATREON](https://patreon.com/cybermind)
+* [LIBERAPAY](https://liberapay.com/CyberMind/)
+* [UTIP](https://www.utip.io/CyberMind/)
+* [TIPEEE](https://fr.tipeee.com/cybermind/)
+
 VAT not applicable: article 293 B of the CGI.
 
 Accommodation: \
