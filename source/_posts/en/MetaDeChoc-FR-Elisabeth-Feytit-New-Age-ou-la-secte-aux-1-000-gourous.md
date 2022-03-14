@@ -1,21 +1,21 @@
 ---
-title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age or the secte of 1.000 gourous…'
+title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…'
 lang: en
-date: 2022-03-14 18:00:00
+date: 2022-03-14 18:00:01
 tags:
 ---
 
-"Une claque dans la gueule !?"
+"A slap in the face!?"
 
-Une de celle qui fait tant de bien.
+One of the ones that does so much good.
 
-- mieux que [Miviludes](https://fr.wikipedia.org/wiki/Mission_interminist%C3%A9rielle_de_vigilance_et_de_lutte_contre_les_d%C3%A9rives_sectaires) et son insatiable silence…
-- mieux que l'[AFP](https://fr.wikipedia.org/wiki/Agence_France-Presse) et ses BUZZ généralisés…
+- better than [Miviludes](https://en.wikipedia.org/wiki/MIVILUDES) and its insatiable silence…
+- better than [AFP](https://en.wikipedia.org/wiki/Agence_France-Presse) and its widespread BUZZ…
 
-Et même si vous n'êtes pas un "adepte" de la "secte au 1.000 gourous" (™ & © [ME](mailto:gandalf@gk2.net))
+And even if you are not a "follower" of the "cult of 1,000 gurus" (™ & © [ME](mailto:gandalf@gk2.net))
 
-C'est quoi la [zététique](https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique), "la critique", les concepts "new age", la spiritualité, les croyances, la vérité, la science…
+What is [zététique](https://en.wikipedia.org/wiki/Zététique), "criticism", "new age" concepts, spirituality, beliefs, truth, science…
 
-Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast [MétaDeChoc.fr](https://metadechoc.fr/) d'Élisabeth Feytit !
+So many other questions that find their (beginning of) answer on the fabulous podcast [MétaDeChoc.fr](https://metadechoc.fr/) by Élisabeth Feytit! 
 
 <img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
