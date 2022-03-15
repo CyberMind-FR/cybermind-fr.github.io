@@ -20,3 +20,6 @@ Enclosure:
 
 Pre-Order:
 [Get MOCHAbin on InDemand](https://www.indiegogo.com/projects/mochabin-5g/x/5319710#/)
+
+My second order from IndieGoGo:
+<img src="/uploads/images/MochaBin-5G/MOCHAbin-IndieGoGo.png" width="792px" heigth="1361px">
