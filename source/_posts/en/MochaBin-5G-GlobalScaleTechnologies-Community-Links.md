@@ -17,3 +17,6 @@ MOCHAbin-V1-1-0 Product Block Diagram:
 
 Enclosure:
 <img src="/uploads/images/MochaBin-5G/MOCHABIN_V1-1-0/Original ID renderings.jpg" width="1506px" heigth="776px">
+
+Pre-Order:
+[Get MOCHAbin on InDemand](https://www.indiegogo.com/projects/mochabin-5g/x/5319710#/)
