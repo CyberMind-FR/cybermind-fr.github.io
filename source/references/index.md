@@ -1,7 +1,22 @@
 ---
 title: References
 date: 2022-0222
+lang: en
 ---
+
+- Some (external) links:
+  - [GitHub CyberMind-FR](https://github.com/CyberMind-FR)
+  - [Twitter CyberMindFR](https://twitter.com/CyberMindFR)
+  - [LinkedIn CyberMindFR](https://www.linkedin.com/company/Cybermindfr)
+  - [Youtube CyberMind](https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about)
+
+- Some certifications:
+  - [CyberMalveillance (Gouv.fr)](https://www.cybermalveillance.gouv.fr/resultat-recherche-prestataire?search=cybermind)
+  - [France Num (Gouv.fr)](https://www.francenum.gouv.fr/trouver-un-accompagnement/cybermindfr)
+  - [Certified Ethical Hacker](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)
+
+- Some publications:
+  - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
 
 - Some hardware and software partners:
   - CrowdSec
@@ -51,11 +66,3 @@ date: 2022-0222
   - Andersen Consulting
   - Orange Group & France Telecom
   - Thomson CSF-LCR
-
-- Some certifications:
-  - [CyberMalveillance (Gouv.fr)](https://www.cybermalveillance.gouv.fr/resultat-recherche-prestataire?search=cybermind)
-  - [France Num (Gouv.fr)](https://www.francenum.gouv.fr/trouver-un-accompagnement/cybermindfr)
-  - [Certified Ethical Hacker](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)
-
-- Some publications:
-  - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
