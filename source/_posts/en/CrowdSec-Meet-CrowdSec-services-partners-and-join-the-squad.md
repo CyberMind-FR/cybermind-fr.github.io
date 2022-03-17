@@ -1,5 +1,5 @@
 ---
-title: Meet CrowdSec services partners and join the squad!
+title: Crowdsec - Meet CrowdSec services partners and join the squad!
 lang: en
 date: 2022-03-17 11:22:34
 tags:
