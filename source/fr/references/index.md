@@ -19,27 +19,29 @@ lang: fr
   - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
 
 - Quelques partenaires matériels et logiciels :
-  - CrowdSec
-  - Global Scale Technologies
+  - [CrowdSec](https://crowdsec.net)
+    - [CrowdSec Partenaire](https://crowdsec.net/blog/meet-crowdsec-services-partners-and-join-the-squad/)
+    - [CrowdSec Ambassadeur](https://crowdsec.net/blog/meet-gerald-new-crowdsec-ambassador/)
+  - [Global Scale Technologies](https://globalscaletechnologies.com/)
   - Marvell
   - NXP
   - [GL.iNet](https://www.gl-inet.com/about-us/)
   - Genesi Group: [EFIKA MX Smartbook](https://genesi.company/products/smartbook) & [EFIKA MX Smarttop](https://genesi.company/products/efika)
 
 - Quelques contributions :
-  - OpenWrt
-  - CrowdSec
-  - Debian
-  - SynoCommunity
-  - Linux (kernel.org)
-  - u-Boot (Denx)
-  - Ubuntu
+  - [OpenWrt](https://openwrt.org/)
+  - [CrowdSec](https://crowdsec.net)
+  - [Debian](https://www.debian.org/)
+  - [SynoCommunity](https://synocommunity.com/)
+  - [Linux (kernel.org)](https://www.kernel.org/)
+  - [u-Boot (Denx)](https://www.denx.de/wiki/U-Boot)
+  - [Ubuntu](https://ubuntu.com/)
 
 - Quelques outils et solutions utilisées :
-  - LinuxMint
-  - GitHub
-  - Docker
-  - NextCloud
+  - [LinuxMint](https://linuxmint.com/)
+  - [GitHub](https://github.com/)
+  - [Docker](https://www.docker.com/)
+  - [NextCloud](https://nextcloud.com/)
 
 - Quelques références clients de mon activité :
   - [REEPOST](http://www.reepoststudio.fr/)
