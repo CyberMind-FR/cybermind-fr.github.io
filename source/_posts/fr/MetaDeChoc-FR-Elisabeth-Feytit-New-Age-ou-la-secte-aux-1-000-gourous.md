@@ -19,3 +19,6 @@ C'est quoi la [zététique](https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique), 
 Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast [MétaDeChoc.fr](https://metadechoc.fr/) d'Élisabeth Feytit !
 
 <img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
+
+Mon florilège:
+- [SHOCKING #16 - Contes et légendes de l’intelligence](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)

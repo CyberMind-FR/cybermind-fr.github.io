@@ -19,3 +19,6 @@ What is [zététique](https://en.wikipedia.org/wiki/Zététique), "criticism", "
 So many other questions that find their (beginning of) answer on the fabulous podcast [MétaDeChoc.fr](https://metadechoc.fr/) by Élisabeth Feytit! 
 
 <img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
+
+My playlist:
+- [SHOCKING #16 - Contes et légendes de l’intelligence](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)
