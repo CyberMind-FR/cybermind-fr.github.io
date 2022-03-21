@@ -699,7 +699,7 @@ Disable the FireWall from WAN:
 root@OpenWrt:/# service firewall stop
 ```
 
-[Access Web-UI (LuCI) from FireFox](http://openwrt.local/cgi-bin/luci/
+[Access Web-UI (LuCI) from FireFox](http://openwrt.local/cgi-bin/luci/)
 
 Openwrt / LuCI / Login:
 <img src="/uploads/images/MochaBin-5G/OpenWrt-FirstFlash/MOCHAbin-FirstTry-OpenWrt - Overview - LuCI-LOGIN.png" width="1000px" heigth="1000px">

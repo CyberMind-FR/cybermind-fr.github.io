@@ -1058,7 +1058,6 @@ usbboot - boot from USB device
 version - print monitor, compiler and linker version
 ```
 
-
 ```
 Marvell>> print
 arch=arm
