@@ -9,7 +9,7 @@ I prefer my own method to flash from u-boot, than the one from the commit!
 
 <details>
   <summary>Click to expand first Flash to master OpenWrt from factory U-Boot...</summary>
-
+```
 Marvell>> usb reset
 resetting USB...
 USB0:   Register 2000120 NbrPorts 2
@@ -98,11 +98,12 @@ Marvell>> setenv console 'console=ttyS0,115200'
 Marvell>> saveenv
 Saving Environment to SPI Flash... Erasing SPI flash...Writing to SPI flash...done
 OK
-
+```
 </details>
 
 <details>
   <summary>Click to expand first login to factory Ubuntu with some few commands...</summary>
+```
 BootROM - 2.03
 Starting CP-0 IOROM 1.07
 Booting from SPI NOR flash 1 (0x32)
@@ -690,14 +691,9 @@ root@OpenWrt:/# ip a
     inet6 fe80::251:82ff:fe11:2200/64 scope link
        valid_lft forever preferred_lft forever
 root@OpenWrt:/#
-
+```
 </details>
 
-
-<details>
-  <summary>Click to expand first login to factory Ubuntu with some few commands...</summary>
-root@OpenWrt:/# service firewall stop
-</details>
 Disable the FireWall from WAN:
 ```
 root@OpenWrt:/# service firewall stop
@@ -723,6 +719,7 @@ Openwrt / LuCI / System / Backup - Flash Firmware:
 [OpenWrt commit "mvebu: add Globalscale MOCHAbin"](https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=78cf3e53b1f4ea6428925302d78f743a693d5fb1)
 <details>
   <summary>Click to expand OpenWrt commit details "mvebu: add Globalscale MOCHAbin"...</summary>
+```
  mvebu: add Globalscale MOCHAbin
 
 Globalscale MOCHAbin is a Armada 7040 based development board.
@@ -817,6 +814,7 @@ $ reset
 OpenWrt should boot from eMMC now.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+```
 </details>
 
 More References:

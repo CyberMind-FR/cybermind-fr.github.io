@@ -13,6 +13,7 @@ MOCHAbin-V1-2-0 #22 Early Bird - M2 ADD ON SSD 1Tb:
 
 <details>
   <summary>Click to expand first full boot to factory Ubuntu...</summary>
+```
 U-Boot 2018.03-devel-18.12.3-ga49bd540df (Dec 30 2021 - 16:06:18 +0800)
 
 Model: Marvell Armada 7040 Mochabin development board
@@ -531,10 +532,12 @@ the default root password is 'admin'.
 ######################################
 
 moca112202 login:
+```
 </details>
 
 <details>
   <summary>Click to expand first login to factory Ubuntu with some few commands...</summary>
+```
 moca112202 login: root
 Password:
 Last login: Sat Jan 15 17:44:07 UTC 2022 on ttyS0
@@ -561,13 +564,19 @@ Do you want to change default password? [Y/n]: n
 Thanks! Enjoy it.
 
 root@moca112202:~#
+```
 
+```
 root@moca112202:~# uname -ar
 Linux moca112200 5.4.108-00028-gaa0ecb9744ee #1 SMP PREEMPT Thu Dec 30 14:46:14 CST 2021 aarch64 aarch64 aarch64 GNU/Linux
+```
 
+```
 root@moca112202:~# cat /proc/cmdline
 console=ttyS0,115200 earlycon=uart8250,mmio32,0xf0512000 root=PARTUUID=89708921-01 rw rootwait net.ifnames=0 biosdevname=0
+```
 
+```
 root@moca112202:~# cat /proc/cpuinfo
 processor       : 0
 BogoMIPS        : 50.00
@@ -604,17 +613,23 @@ CPU architecture: 8
 CPU variant     : 0x0
 CPU part        : 0xd08
 CPU revision    : 1
+```
 
+```
 root@moca112202:~# cat /proc/mtd
 dev:    size   erasesize  name
 mtd0: 003e0000 00001000 "u-boot"
 mtd1: 00010000 00001000 "hw-info"
 mtd2: 00010000 00001000 "u-boot-env"
+```
 
+```
 root@moca112202:~# cat /etc/fw_env.config
 # MTD device name   Device offset   Env. size   Flash sector size  Number of sectors
 /dev/mtdblock2      0x0000          0x10000     0x1000             16
+```
 
+```
 root@moca112202:~# fw_printenv
 arch=arm
 baudrate=115200
@@ -658,20 +673,25 @@ stderr=serial@512000
 stdin=serial@512000
 stdout=serial@512000
 vendor=Marvell
-root@moca112202:~#
+```
 
+```
 root@moca112202:~# lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
 Description:    Ubuntu 18.04 LTS
 Release:        18.04
 Codename:       bionic
+```
 
+```
 root@moca112202:~# free -h
               total        used        free      shared  buff/cache   available
 Mem:           7.8G         87M        7.6G        3.0M         95M        7.6G
 Swap:            0B          0B          0B
+```
 
+```
 root@moca112202:~# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -711,7 +731,9 @@ root@moca112202:~# ip a
     link/ether 00:51:82:11:22:01 brd ff:ff:ff:ff:ff:ff
     inet 192.168.84.1/24 brd 192.168.84.255 scope global br0
        valid_lft forever preferred_lft forever
+```
 
+```
 root@moca112202:~# lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    1 931.5G  0 disk
@@ -722,11 +744,15 @@ mmcblk0      179:0    0  14.7G  0 disk
 `-mmcblk0p1  179:1    0  14.7G  0 part /
 mmcblk0boot0 179:32   0     4M  1 disk
 mmcblk0boot1 179:64   0     4M  1 disk
+```
 
+```
 root@moca112202:~# blkid
 /dev/mmcblk0: PTUUID="89708921" PTTYPE="dos"
 /dev/mmcblk0p1: LABEL="rootfs" UUID="136f4d0c-df1f-4617-96f1-1e18ff2578fd" TYPE="ext4" PARTUUID="89708921-01"
+```
 
+```
 root@moca112202:~# lsusb
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -734,10 +760,14 @@ Bus 004 Device 002: ID 0424:5434 Standard Microsystems Corp. Hub
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 002: ID 0424:2134 Standard Microsystems Corp. Hub
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
 
+```
 root@moca112202:~# lspci
 00:00.0 PCI bridge: Marvell Technology Group Ltd. Device 0110
+```
 
+```
 root@moca112202:~# lscpu
 Architecture:        aarch64
 Byte Order:          Little Endian
@@ -756,15 +786,23 @@ CPU min MHz:         350.0000
 BogoMIPS:            50.00
 NUMA node0 CPU(s):   0-3
 Flags:               fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+```
 
 </details>
 
 <details>
   <summary>Click to expand first play with leds on factory Ubuntu...</summary>
+```
 root@moca112202:~# pwd
 /root
+```
+
+```
 root@moca112202:~# ls
 leds-test.sh
+```
+
+```
 root@moca112202:~# cat leds-test.sh
 #!/bin/bash
 
@@ -832,6 +870,7 @@ do
     done
     sleep 0.3
 done
+```
 
 </details>
 
@@ -845,6 +884,7 @@ gke@PRECISION:~/DEVEL/GST/MOCHAbin$ minicom -D /dev/ttyUSB0
 ```
 <details>
   <summary>Click to expand first init to factory U-Boot with some few commands...</summary>
+```
 Bienvenue avec minicom 2.7.1
 
 OPTIONS: I18n
@@ -852,8 +892,9 @@ Compilé le Dec 23 2019, 02:06:26.
 Port /dev/ttyUSB0, 12:58:10
 
 Tapez CTRL-A Z pour voir l'aide concernant les touches spéciales
+```
 
-
+```
 BootROM - 2.03
 Starting CP-0 IOROM 1.07
 Booting from SPI NOR flash 1 (0x32)
@@ -897,14 +938,17 @@ Model: Marvell Armada 7040 Mochabin development board
 Net:   eth0: mvpp2-0 [PRIME], eth1: mvpp2-1, eth2: mvpp2-2
 Hit any key to stop autoboot:  0
 Marvell>>
-Marvell>>
+```
 
+```
 Marvell>> version
 U-Boot 2018.03-devel-18.12.3-ga49bd540df (Dec 30 2021 - 16:06:18 +0800)
 
 aarch64-linux-gnu-gcc (Linaro GCC 7.3-2018.05) 7.3.1 20180425 [linaro-7.3-2018.]
 GNU ld (Linaro_Binutils-2018.05) 2.28.2.20170706
+```
 
+```
 Marvell>> help
 ?       - alias for 'help'
 avs     - Set/Get Adaptive Voltage Scaling (AVS) value
@@ -1012,8 +1056,10 @@ unzip   - unzip a memory region
 usb     - USB sub-system
 usbboot - boot from USB device
 version - print monitor, compiler and linker version
-Marvell>>
+```
 
+
+```
 Marvell>> print
 arch=arm
 baudrate=115200
@@ -1059,8 +1105,9 @@ stdout=serial@512000
 vendor=Marvell
 
 Environment size: 1702/65532 bytes
-Marvell>>
+```
 
+```
 Marvell>> base
 Base Address: 0x00000000
 Marvell>> bdinfo
@@ -1080,7 +1127,9 @@ irq_sp      = 0x7F625220
 sp start    = 0x7F625220
 Early malloc usage: 3b8 / 2000
 fdt_blob = 000000007f625230
+```
 
+```
 Marvell>> mmcinfo
 Device: sdhci@6e0000
 Manufacturer ID: 45
@@ -1098,21 +1147,34 @@ HC WP Group Size: 8 MiB
 User Capacity: 14.7 GiB WRREL
 Boot Capacity: 4 MiB ENH
 RPMB Capacity: 4 MiB ENH
+```
 
+```
 Marvell>> mmc list
 sdhci@6e0000: 0 (eMMC)
+```
+
+```
 Marvell>> mmc dev
 switch to partitions #0, OK
 mmc0(part 0) is current device
+```
+
+```
 Marvell>> mmc part
 
 Partition Map for MMC device 0  --   Partition Type: DOS
 
 Part    Start Sector    Num Sectors     UUID            Type
   1     2048            30775296        89708921-01     83 Boot
+```
 
+```
 Marvell>> fstype mmc 0:1
 ext4
+```
+
+```
 Marvell>> ext4ls mmc 0:1
 <DIR>       4096 .
 <DIR>       4096 ..
@@ -1135,14 +1197,18 @@ Marvell>> ext4ls mmc 0:1
 <DIR>       4096 tmp
 <DIR>       4096 usr
 <DIR>       4096 var
+```
 
+```
 Marvell>> ext4ls mmc 0:1 /boot
 <DIR>       4096 .
 <DIR>       4096 ..
            23512 armada-7040-mochabin.dtb
 <DIR>       4096 bootloader
         16519680 Image
+```
 
+```
 Marvell>> map
 AP-0 address decoding:
 -----------
@@ -1178,15 +1244,18 @@ AP-0 CP-0 AMB addr.decode:
 bank  attribute     base          size
 --------------------------------------------
 amb   0x001a        0xf9000000    0x01000000
-Marvell>>
+```
 
+```
 Marvell>> sspi
 SF: Detected w25q32bv with page size 256 Bytes, erase size 4 KiB, total 4 MiB
+```
 
+```
 Marvell>> scsi scan
 scanning bus for devices...
   Device 0: (1:0) Vendor: ATA Prod.: WDC  WDS100T1R0B Rev: 4110
             Type: Hard Disk
             Capacity: 953869.7 MB = 931.5 GB (1953525168 x 512)
-
+```
 </details>
