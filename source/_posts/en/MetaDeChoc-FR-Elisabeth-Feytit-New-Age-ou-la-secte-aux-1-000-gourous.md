@@ -22,3 +22,4 @@ So many other questions that find their (beginning of) answer on the fabulous po
 
 My playlist:
 - [SHOCKING #16 - Contes et légendes de l’intelligence](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)
+- [SHOCKING #5 - Une vie en anthroposophie](https://metadechoc.fr/podcast/une-vie-en-anthroposophie)
