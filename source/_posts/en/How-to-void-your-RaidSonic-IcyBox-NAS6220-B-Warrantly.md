@@ -10,6 +10,13 @@ tags: ARM,ARMADA,NAS
 
 The *why* of all of this is here : [[wiki:notes:lecloud|]]
 
+
+==== References ====
+
+[Comment perdre la garantie de son NAS (GNU/Linux Magazine) n°156 - janvier 2013 - Par Kerma Gérald)](https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-156/comment-perdre-la-garantie-de-son-nas)
+
+Les serveurs de stockage externe, ou NAS (« Network Attached Storage ») sont devenus une partie importante des réseaux personnels et des petites entreprises.
+
 ==== Requirements ====
 
 Some linux knowledges, debian administration skills, and cross-toolchain compilations.
