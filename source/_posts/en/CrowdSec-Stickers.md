@@ -2,7 +2,9 @@
 title: CrowdSec - Stickers
 lang: en
 date: 2022-03-15 09:00:00
-tags: crowdsecurity
+tags:
+- CrowdSecurity
+- CrowdSec
 ---
 
 Thank you @CrowdSec for this funny "Propaganda" Kit and so funny gift :

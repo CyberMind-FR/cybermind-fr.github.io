@@ -2,7 +2,10 @@
 title: DouDouLinux - Development contribs
 lang: en
 date: 2011-11-09 00:00:00
-tags: Linux Debian DouDouLinux
+tags: 
+- Linux
+- Debian
+- DouDouLinux
 ---
 
 Here a list of contributions on the Master [DouDouLinux](http://www.doudoulinux.org/)

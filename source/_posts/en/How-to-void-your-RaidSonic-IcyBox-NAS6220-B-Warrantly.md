@@ -4,7 +4,10 @@ title: >-
  - How to void your RaidSonic IcyBox NAS6220-B Warrantly...
 lang: en
 date: 2014-09-24 00:00:00
-tags: ARM ARMADA NAS
+tags: 
+- ARM
+- ARMADA
+- NAS
 ---
 ====== How to void your RaidSonic IcyBox NAS6220-B Warrantly... ======
 

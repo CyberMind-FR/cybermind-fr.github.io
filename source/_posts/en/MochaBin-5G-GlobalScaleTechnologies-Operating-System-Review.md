@@ -2,7 +2,9 @@
 title: MochaBin-5G@GlobalScaleTechnologies - Operating System Review
 lang: en
 date: 2022-03-08 09:30:00
-tags: MOCHAbin armada
+tags:
+- MOCHAbin
+- Armada
 ---
 
 OpenWrt (SnapShot):

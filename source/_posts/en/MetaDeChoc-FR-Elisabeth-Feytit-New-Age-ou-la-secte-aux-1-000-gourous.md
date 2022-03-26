@@ -2,7 +2,10 @@
 title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…'
 lang: en
 date: 2022-03-14 18:00:01
-tags: podcast zététique sceptique
+tags:
+- podcast
+- zététique
+- sceptique
 ---
 
 "A slap in the face!?"

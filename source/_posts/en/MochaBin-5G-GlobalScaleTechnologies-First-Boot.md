@@ -2,7 +2,9 @@
 title: MochaBin-5G@GlobalScaleTechnologies - First Boot
 lang: en
 date: 2022-03-21 16:44:23
-tags: MOCHAbin armada
+tags:
+- MOCHAbin
+- Armada
 ---
 
 MOCHAbin-V1-2-0 #22 Early Bird - first tests:

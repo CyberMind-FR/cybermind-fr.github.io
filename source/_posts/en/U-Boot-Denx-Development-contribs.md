@@ -2,7 +2,9 @@
 title: U-Boot@Denx - Development contribs
 lang: en
 date: 2010-08-14 00:00:00
-tags: u-boot Denx
+tags:
+- U-Boot
+- Denx
 ---
 
 Here a list of contributions on the Master [U-Boot Denx](https://www.denx.de/wiki/U-Boot)

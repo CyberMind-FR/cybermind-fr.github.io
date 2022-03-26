@@ -2,7 +2,9 @@
 title: MochaBin-5G@GlobalScaleTechnologies - First Flash
 lang: en
 date: 2022-03-21 17:07:07
-tags: MOCHAbin armada
+tags:
+- MOCHAbin
+- Armada
 ---
 
 I prefer my own method to flash from u-boot, than the one from the commit!
