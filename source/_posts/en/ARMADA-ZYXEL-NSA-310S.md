@@ -2,7 +2,7 @@
 title: 'ARMADA : ZYXEL NSA 310S'
 lang: en
 date: 2015-02-05 00:00:00
-tags: ARM,ARMADA,NAS
+tags: ARM ARMADA NAS
 ---
 ====== ARMADA : ZYXEL NSA 310S ======
 

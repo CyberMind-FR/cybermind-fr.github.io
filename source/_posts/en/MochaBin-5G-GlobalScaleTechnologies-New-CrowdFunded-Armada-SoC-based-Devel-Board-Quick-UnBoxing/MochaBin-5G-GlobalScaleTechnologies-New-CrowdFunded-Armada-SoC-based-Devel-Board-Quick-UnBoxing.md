@@ -4,7 +4,7 @@ title: >-
   - New CrowdFunded Armada SoC based Devel Board
   (Quick) UnBoxing
 date: 2022-03-03 09:55:32
-tags: MOCHAbin,armada
+tags: MOCHAbin armada
 ---
 
 A quick report of my just today morning received MochaBin-5 from the very first 20th CrowdFunders !

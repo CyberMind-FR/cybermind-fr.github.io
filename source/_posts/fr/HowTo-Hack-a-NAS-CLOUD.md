@@ -2,7 +2,7 @@
 title: HowTo Hack a NAS CLOUD
 lang: fr
 date: 2014-09-24 00:00:00
-tags: ARM,ARMADA,NAS,CLOUD
+tags: ARM ARMADA NAS CLOUD
 ---
 ====== HowTo Hack a NAS CLOUD ======
 

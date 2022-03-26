@@ -2,7 +2,7 @@
 title: OpenWrt - Development contribs
 lang: en
 date: 2014-12-23 00:00:00
-tags: OpenWrt, packages
+tags: OpenWrt packages
 ---
 
 Here a list of contributions on the Master [OpenWrt](https://openwrt.org/)

@@ -1,7 +1,7 @@
 ---
 title: 'Meet Gérald, new CrowdSec ambassador'
 date: 2022-02-24 20:00:00
-tags: news,crowdsecurity
+tags: news crowdsecurity
 ---
 
 <img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">
