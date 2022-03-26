@@ -89,18 +89,15 @@ open_graph:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  Home || fa fa-home:
-    Home: / || fa fa-home
-    About: /about/ || fa fa-user
-    Contact: /contact/ || fa fa-envelope
-  Services || fa fa-calendar:
-    Services: /services/ || fa fa-calendar
-    References: /references/ || fa fa-globe
-    Projects: /projects/ || fa fa-sitemap
-  Blog || fa fa-archive:
-    Archives: /archives/ || fa fa-archive
-    Tags: /tags/ || fa fa-tags
-    Categories: /categories/ || fa fa-th
+  home: / || fa fa-home
+  About: /about/ || fa fa-user
+  Contact: /contact/ || fa fa-envelope
+  Services: /services/ || fa fa-calendar
+  References: /references/ || fa fa-globe
+  Projects: /projects/ || fa fa-sitemap
+  Blog: /archives/ || fa fa-archive
+  Tags: /tags/ || fa fa-tags
+  Categories: /categories/ || fa fa-th
   Support: /legal/ || fa fa-heartbeat
 #  schedule: /schedule/ || fa fa-calendar
 #  sitemap: /sitemap.xml || fa fa-sitemap
