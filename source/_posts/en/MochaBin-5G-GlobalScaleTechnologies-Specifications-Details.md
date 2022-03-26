@@ -2,7 +2,7 @@
 title: MochaBin-5G@GlobalScaleTechnologies - Specifications Details
 lang: en
 date: 2022-03-08 09:00:00
-tags:
+tags: MOCHAbin,armada
 ---
 
 Specifications:

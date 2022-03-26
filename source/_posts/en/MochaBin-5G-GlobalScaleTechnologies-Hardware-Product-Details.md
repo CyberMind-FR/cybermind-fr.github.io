@@ -2,7 +2,7 @@
 title: MochaBin-5G@GlobalScaleTechnologies - Hardware Product Details
 lang: en
 date: 2022-03-08 08:30:00
-tags:
+tags: MOCHAbin,armada
 ---
 
 SoC

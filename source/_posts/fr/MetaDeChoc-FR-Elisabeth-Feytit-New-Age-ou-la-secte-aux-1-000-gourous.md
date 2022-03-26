@@ -2,7 +2,7 @@
 title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…'
 lang: en
 date: 2022-03-14 18:00:02
-tags:
+tags: podcast,zététique,sceptique
 ---
 
 "Une claque dans la gueule !?"

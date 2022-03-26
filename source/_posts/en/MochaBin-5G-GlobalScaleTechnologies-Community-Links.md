@@ -2,7 +2,7 @@
 title: MochaBin-5G@GlobalScaleTechnologies - Community Links
 lang: en
 date: 2022-03-15 22:20:00
-tags:
+tags: MOCHAbin,armada
 ---
 
 GlobalScaleTechnologies:

@@ -2,7 +2,7 @@
 title: Gk2.COM - Fournisseur Internet - 04 juin 1998
 lang: fr
 date: 1998-06-04 00:00:00
-tags:
+tags: GK2
 ---
 
 GK2.COM
