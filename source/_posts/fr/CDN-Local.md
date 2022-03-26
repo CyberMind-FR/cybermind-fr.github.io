@@ -9,13 +9,13 @@ tags:
 
 = CDN Local =
 
-à l'origine le billet suivant m'a beaucoup interpelé :
+À l'origine le billet suivant m'a beaucoup interpelé :
 [Héberger son propre CDN local](http://blog-libre.org/index.php/post/2014/10/29/heberger-son-propre-cdn-local)
 
-<quote>
+<blockquote>
 Dernièrement, je vous parlais d’une petite astuce de pistage et m’interrogeais sur la recherche d’une solution à cette problématique.
 Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ressources de plus en plus utilisées (script jquery par exemple) à partir d’autres CDN ou du site de leur éditeur respectif.
-</quote>
+</blockquote>
 
 Un CDN, ou [Content delivery network](https://fr.wikipedia.org/wiki/Content_delivery_network) est une manière simple de se faire tracer.
 
