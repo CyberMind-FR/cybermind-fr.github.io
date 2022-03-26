@@ -8,14 +8,7 @@ tags: ARM,ARMADA,NAS
 
 **All informations in this page are given "as-is", without warrantly, and can be harmfull !**
 
-The *why* of all of this is here : [[wiki:notes:lecloud|]]
-
-
-==== References ====
-
-[Comment perdre la garantie de son NAS (GNU/Linux Magazine) n°156 - janvier 2013 - Par Kerma Gérald)](https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-156/comment-perdre-la-garantie-de-son-nas)
-
-Les serveurs de stockage externe, ou NAS (« Network Attached Storage ») sont devenus une partie importante des réseaux personnels et des petites entreprises.
+The *why* of all of this is here : "lecloud"
 
 ==== Requirements ====
 
@@ -36,7 +29,7 @@ The ICYBOX NAS 6220 B is made with a Marvel Kirkwood 88F6281 (same µC as the Se
 
 I just bought one and want to put Debian on it.
 
-I started with this thread [[http://forum.nas-portal.org/showthread.php?12855-Ib-nas6220-b|Ib-nas6220-b thread @ NAS-Portal.org]] and a small Genesi SmartBook to hack this cool NAS.
+I started with this [thread @ NAS-Portal.org](http://forum.nas-portal.org/showthread.php?12855-Ib-nas6220-b|Ib-nas6220-b) and a small Genesi SmartBook to hack this cool NAS.
 === NO CLOUD at HOME ===
 
 After had bought this small NAS, I discovered that a **VPN Tunnel is made with China at bootup** !
@@ -73,25 +66,31 @@ OS-Type
 
 ==== References ====
 
-  * [[http://wiki.nas-portal.org/index.php/IB-NAS6220-B|wiki @ NAS-Portal.org]]
-  * [[http://www.raidsonic.de/data/products/icybox/IB-NAS6220/datasheet_ib-nas6220_e.pdf|Datasheet of NAS6220]]
-  * [[http://www.raidsonic.de/data/datasheet/icybox/EN/datasheet_ib-nas6210_e.pdf|Datasheet of NAS6210]]
-  * [[http://simon.baatz.info/raidsonic-icy-box-ib-nas6210-my-new-sheevaplug/|RaidSonic ICY BOX IB-NAS6210, my “new” SheevaPlug]]
+  * [wiki @ NAS-Portal.org](http://wiki.nas-portal.org/index.php/IB-NAS6220-B)
+  * [Datasheet of NAS6220](http://www.raidsonic.de/data/products/icybox/IB-NAS6220/datasheet_ib-nas6220_e.pdf)
+  * [Datasheet of NAS6210](http://www.raidsonic.de/data/datasheet/icybox/EN/datasheet_ib-nas6210_e.pdf)
+  * [RaidSonic ICY BOX IB-NAS6210, my “new” SheevaPlug](http://simon.baatz.info/raidsonic-icy-box-ib-nas6210-my-new-sheevaplug/)
+
+==== Publication ====
+
+[Comment perdre la garantie de son NAS (GNU/Linux Magazine) n°156 - janvier 2013 - Par Kerma Gérald)](https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-156/comment-perdre-la-garantie-de-son-nas)
+
+Les serveurs de stockage externe, ou NAS (« Network Attached Storage ») sont devenus une partie importante des réseaux personnels et des petites entreprises.
 
 ===== Hardware modifications =====
 
 Customized IB6220 :
 
 
-{{:wiki:notes:ib6220-inside.jpg?w=200|}}
+:wiki:notes:ib6220-inside.jpg?w=200|
 
 ==== Add JTAG ====
 
-{{::ib6220-jtag.jpg?200|}}
+::ib6220-jtag.jpg?200|
 
 ==== Add Serial ====
 
-{{::ib6220-serial-uart.jpg?200|}}
+::ib6220-serial-uart.jpg?200|
 
 Pinout of the J2 serial port\\
 Pin 1	3.3V (pin 1 has a white stripe next to it)\\
@@ -107,13 +106,13 @@ RXD and TXD are (LV)TTL signals (0V/3.3V), not RS-232 signals (+/-12V). This mea
 
 Passerelle USB/série BOB-FT232R (110553-91) 
 
-{{:wiki:notes:110553-91.jpg?nolink&200|}}
+:wiki:notes:110553-91.jpg?nolink&200|
 
 [[http://www.elektor.fr/products/kits-modules/modules/110553-91-ft232r-usb-serial-bob.1913324.lynkx]]
 
 Connector : H4PL / H4PL (AKA MPC 2 / MPC 2)
 
-{{:wiki:notes:mpc2_4wire.jpeg?nolink&200|}}
+:wiki:notes:mpc2_4wire.jpeg?nolink&200|
 ===== U-Boot =====
 
 ==== Default U-Boot ====
@@ -658,9 +657,9 @@ $ make u-boot.kwb
 </code>
 
 ==== Stuff ====
-{{:wiki:notes:nas6220.tar.gz|All the needed stuff...}}
+:wiki:notes:nas6220.tar.gz|All the needed stuff...
 
-{{:wiki:notes:debian-installer.tar.gz|}}
+:wiki:notes:debian-installer.tar.gz|
 
 ===== Notes =====
 
@@ -674,15 +673,15 @@ How To flash a firmware to Nand [1]
 
 Genesi Debug Board (available at  [[https://newit.co.uk/shop/proddetail.php?prod=debug|NewIT]])
 
-{{:wiki:notes:store_smarttop_debug.png|}}
+:wiki:notes:store_smarttop_debug.png|
 
 OpenOCD JTAG (available at  [[http://shop.kernelconcepts.de/product_info.php?products_id=132|KernelConcept]])
 
-{{:wiki:notes:openocd-jtag.jpeg|}}
+:wiki:notes:openocd-jtag.jpeg|
 
 GuruPlug JTAG Board (available at [[https://www.globalscaletechnologies.com/p-28-guruplug-jtag.aspx|GlobalScale]])
 
-{{:wiki:notes:28.jpg|}}
+:wiki:notes:28.jpg|
 
 ===== TODO =====
 
@@ -697,7 +696,7 @@ Done (Thanks to Luka Perkov) : [[http://lists.denx.de/pipermail/u-boot/2012-Apri
 
 [[http://git.denx.de/?p=u-boot/u-boot-marvell.git;a=commit;h=bbdbe3108da28dcd14dbff77473e6d5730ef5fc0|kirkwood: add NAS62x0 board support]]
 
-{{:wiki:notes:capture.png|}}
+:wiki:notes:capture.png|
 
 UpStream :
 http://lists.denx.de/pipermail/u-boot/2012-May/124403.html \\
@@ -732,4 +731,4 @@ soon upstream (3.5 ?)\\
 Stable now just need a small patch (runit.diff) from http://lists.infradead.org/pipermail/linux-arm-kernel/2012-June/103272.html
 
 Here is a built package of the 3.5.1 (stable) kirkwood kernel.
-{{::ib62x0:linux-kernel-custom.tar.gz|}}
+::ib62x0:linux-kernel-custom.tar.gz|

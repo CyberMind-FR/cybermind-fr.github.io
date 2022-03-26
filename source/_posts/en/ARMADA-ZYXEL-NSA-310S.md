@@ -9,7 +9,8 @@ tags: ARM,ARMADA,NAS
 <code>The NS310S is a 88F6282 (ARMADA 300).
 </code>
 
-{{:hard:arm:armada:nsa310_front_400.jpg?direct&200}}{{:hard:arm:armada:nsa310_rear_400.jpg?direct&200}}
+nsa310_front_400.jpg?direct&200
+nsa310_rear_400.jpg?direct&200
 
 ===== Serial debug console =====
 
@@ -65,7 +66,8 @@ copy u-boot from source code trunk
 cp -R trunk/sysapps/u-boot-3.6.0_STG315 .
 </code>
 
-fix source code files (get them from u-boot-3.6.0_stg315-fix.tar.gz) and copy files into u-boot-3.6.0_STG315 {{:hard:arm:armada:u-boot-3.6.0_stg315-fix.tar.gz|u-boot-3.6.0_stg315-fix.tar.gz}}
+fix source code files (get them from u-boot-3.6.0_stg315-fix.tar.gz) and copy files into u-boot-3.6.0_STG315 
+u-boot-3.6.0_stg315-fix.tar.gz
 
 <code>
 cd u-boot-3.6.0_STG315
