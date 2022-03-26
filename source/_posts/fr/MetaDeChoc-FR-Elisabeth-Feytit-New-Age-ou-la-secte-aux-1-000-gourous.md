@@ -21,5 +21,7 @@ Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux p
 <img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
 
 Mon florilège:
+- [SHOCKING #11 - L’astrologie, ça marche !… Trop.](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/)
 - [SHOCKING #16 - Contes et légendes de l’intelligence](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)
 - [SHOCKING #5 - Une vie en anthroposophie](https://metadechoc.fr/podcast/une-vie-en-anthroposophie)
+- [SHOCKING #1 - La zététique rend-elle insensible ?](https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/)
