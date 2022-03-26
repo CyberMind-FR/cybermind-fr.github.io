@@ -6,9 +6,9 @@ title: >-
 lang: en
 date: 2012-03-02 00:00:00
 tags:
-- cybersecurity
-- vulnerability
-- by-design
+- CyberSecurity
+- Vulnerability
+- By-Design
 ---
 ====== Permissions Fault after privilege's escalation ======
 A "By Design" Reproductible Integrity Vulnerability.
