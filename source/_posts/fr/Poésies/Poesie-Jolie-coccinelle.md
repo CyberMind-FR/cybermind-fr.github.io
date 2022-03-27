@@ -13,9 +13,9 @@ Toi qui court sur le vent et s’accroche fermement.
 Toi qui roule comme le dé, sur des pistes endiablées.
 Rouge, vif, écarlate, ou couleurs d’ailleurs.
 Jolie coccinelle, m’apporte un bout de ciel.
-Envole toi avec le soleil et emporte moi dans un voeu.
+Envole toi avec le soleil et emporte moi dans un voeu,
 Un seul me suffit, si c’est au souvenir d’ici.
-Que se ferme un sombre ciel, pour y peindre à nouveau.
+Que se ferme un sombre ciel, pour y peindre à nouveau,
 Une voute étoilée, où je cours m’envoler…
 
 201806131300@Limours
