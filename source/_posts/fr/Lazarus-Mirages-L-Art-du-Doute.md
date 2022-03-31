@@ -7,7 +7,7 @@ tags:
 - sceptique
 ---
 
-Je vous partage ce formidable site qui vient tout juste de rennaître de ses cendres !
+Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !
 
 <img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px">
 
