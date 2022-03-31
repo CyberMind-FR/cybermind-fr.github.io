@@ -1,5 +1,5 @@
 ---
-title: 'Lazarus-Mirages: L Art du Doute'
+title: Lazarus-Mirages - L'Art du Doute
 lang: fr
 date: 2022-04-01 00:00:00
 tags: 
