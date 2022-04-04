@@ -28,3 +28,4 @@ My playlist:
 - [SHOCKING #16 - Contes et légendes de l’intelligence](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)
 - [SHOCKING #5 - Une vie en anthroposophie](https://metadechoc.fr/podcast/une-vie-en-anthroposophie)
 - [SHOCKING #1 - La zététique rend-elle insensible ?](https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/)
+- [SHOCKING #21 - Coaching : l’eldorado de la manipulation mentale](https://metadechoc.fr/podcast/coaching-eldorado-de-la-manipulation-mentale/)
