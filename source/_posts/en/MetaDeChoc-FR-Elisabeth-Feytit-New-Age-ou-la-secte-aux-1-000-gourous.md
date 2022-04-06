@@ -29,3 +29,4 @@ My playlist:
 - [SHOCKING #5 - Une vie en anthroposophie](https://metadechoc.fr/podcast/une-vie-en-anthroposophie)
 - [SHOCKING #1 - La zététique rend-elle insensible ?](https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/)
 - [SHOCKING #21 - Coaching : l’eldorado de la manipulation mentale](https://metadechoc.fr/podcast/coaching-eldorado-de-la-manipulation-mentale/)
+- [STREAM #1 - Une vie en anthroposophie – Live](https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/)
