@@ -1,7 +1,7 @@
 ---
 title: Préface - Une vie en anthroposophie
 lang: fr
-date: 1970-01-01 06:37:00
+date: 2022-04-06 12:00:00
 tags:
 - livre
 - zététique
