@@ -73,14 +73,14 @@ C’est un phénomène encore insuffisamment connu : les dérives sectaires cons
 
 Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un domaine menacé par les dérives sectaires : c’est la conclusion d’une [enquête publiée en janvier 2022](http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/) par l’Union nationale de défense des familles et de l’individu et l’institut de sondage Odoxa, menée auprès de 1 006 adultes. Même si ces craintes sont plus importantes encore dans le domaine de la religion (74 %) et du développement personnel (50 %), elles sont en tout cas très fondées : la santé est désormais le sujet de préoccupation le plus important pour la Mission interministérielle de vigilance et de lutte contre les dérives sectaires ([Miviludes](https://www.miviludes.interieur.gouv.fr/sites/default/files/publications/francais/guide_sante_mars_2018_web.pdf)), puisqu’elle concerne près de 38 % des signalements reçus entre 2019 et 2020. « Il est vraiment temps que la recherche médicale étudie en profondeur ce risque », alerte Bruno Falissard1, psychiatre et directeur du Centre de recherche en épidémiologie et santé des populations à Villejuif.
 
-{% pdf "https://www.miviludes.interieur.gouv.fr/sites/default/files/publications/francais/guide_sante_mars_2018_web.pdf" %}
+{% pdf "/uploads/images/LaSecteAux1000Gourous/guide_sante_mars_2018_web.pdf" %}
 
 # Sondage UNADFI - Les Français et le phénomène sectaire (PDF)
 
 [Les Français et le phénomène sectaire - Sondage ODOXA pour l'UNADFI](http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/)
 Publié le 17/01/2022
 
-{% pdf "http://www.odoxa.fr/wp-content/uploads/2022/01/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" %}
+{% pdf "/uploads/images/LaSecteAux1000Gourous/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" %}
 
 # Soins non conventionnels : des dérives inquiétantes (Audio)
 
@@ -117,7 +117,7 @@ Quelles sont les difficultés pour se reconstruire après un passage dans une se
 Guide "Droits en Psychiatrie" "les Dérives sectaires et psychiatrie"
 21 mars 2022
 
-{% pdf "https://www.psycom.org/wp-content/uploads/2020/10/Derives-sectaires-et-psychiatrie-2022.pdf" %}
+{% pdf "/uploads/images/LaSecteAux1000Gourous/Derives-sectaires-et-psychiatrie-2022.pdf" %}
 
 # PSYCOM - Exercer son esprit critique (PDF)
 
@@ -126,7 +126,7 @@ Guide "Droits en Psychiatrie" "les Dérives sectaires et psychiatrie"
 La santé mentale et le numérique - "Exercer son esprit critique"
 22 février 2022
 
-{% pdf "https://www.psycom.org/wp-content/uploads/2020/11/Sante-mentale-et-numerique-2020.pdf" %}
+{% pdf "/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" %}
 
 # Christophe André - 3 conseils pour traverser une dépression (Vidéo)
 
@@ -254,8 +254,6 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker
 
 {% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - Santé mentale - Fondation Pierre Deniker (zoom).png" 628 458 '"Santé mentale - Fondation Pierre Deniker" "Santé mentale - Fondation Pierre Deniker (statistiques)"' %}
 
-{% img "/uploads/images/LaSecteAux1000Gourous/Les-français-et-la-dépression.png" 416 1041 '"Les Français et la dépression" "Santé mentale - Les Français et la dépression (Infographie)"' %}
-
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" %}
 
 #  Bref. #80 - Bref. J'ai fait une dépression. (Vidéo)
@@ -267,7 +265,7 @@ bref. 80 - Bref. J'ai fait une dépression.
 {% endyoutuber %}
 
 <details>
-  <summary>[BONUS] 80. Bref. J'ai fait une dépression….</summary>
+  <summary>[BONUS] 80. Bref. J'ai fait une dépression… (Développer pour le BONUS !)</summary>
 Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
 14 oct. 2014
 
