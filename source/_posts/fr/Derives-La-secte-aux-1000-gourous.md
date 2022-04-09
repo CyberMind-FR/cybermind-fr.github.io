@@ -41,7 +41,8 @@ Aujourd'hui !
 
 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant
 
-{% youtuber video F2RWJMN8wZQ&t=2935s false %}
+{% youtuber video F2RWJMN8wZQ false %}
+  start: 2935
 {% endyoutuber %}
 
 [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
@@ -53,7 +54,8 @@ Méta de Choc
 L'Univers a parlé — SCOOP ! 6
 29 janv. 2021
 
-{% youtuber video bB1JuDaC9Kk&t=150s false %}
+{% youtuber video bB1JuDaC9Kk false %}
+  start: 150
 {% endyoutuber %}
 
 De la spiritualité et du drame. 
