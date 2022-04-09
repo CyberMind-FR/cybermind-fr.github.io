@@ -34,6 +34,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - lib/**/*
 
 # Writing
 ##new_post_name: :title.md # File name of new posts
@@ -132,16 +133,3 @@ archive_generator:
 i18n:
   type: [page, post]
   generator: [archive, category, tag, index]
-
-tagTwitter:
-  id: CyberMindFR
-
-youtuber:
-  allowfullscreen: yes,
-  privacy_mode: yes,
-  autoplay: 0
-
-pdf:
-  enable: true          # default: true
-  width: '100%'         # default: 100%
-  height: '1024px'      # default: 550px
