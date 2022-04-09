@@ -171,7 +171,7 @@ Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez
 [{% img "/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" 270 270 %}](https://monpsy.sante.gouv.fr/patients "MonPsy.sante.gouv.fr - Visiter !")
 
 Découvrir MonPsy en vidéo (Durée 2 minutes)
-{% video <iframe width="960" height="540" src="https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" frameborder="0" allowfullscreen></iframe> %}
+{% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
 [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
 
