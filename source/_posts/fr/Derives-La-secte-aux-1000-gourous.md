@@ -93,7 +93,7 @@ Soins non conventionnels : des dérives inquiétantes
 
 durée : 00:02:59 - C'est ma santé - Naturopathie, réflexologie, Reiki, thérapie "quantique", "biorésonance", "géobiologie", magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats "alarmants". Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre.
 
-{% aplayer "C'est ma santé" "Géraldine Zamansky" "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3" "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg" false %}
+{% aplayer "C'est ma santé" "Géraldine Zamansky" "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3" "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg" %}
 
 Naturopathie, réflexologie, Reiki, thérapie "quantique", "biorésonance", "géobiologie", magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats "alarmants". Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre. 
 
