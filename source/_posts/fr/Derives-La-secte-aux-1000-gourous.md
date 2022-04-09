@@ -19,14 +19,14 @@ tags:
 
 #LaSecteAux1000Gourous
 
-# 0 Introduction
+# 0 - Introduction
 
 Que ce soit de l'alcool, de la drogue, des drogues ou des croyances, se libérer d'une dépendance est un combat de tous les jours.
 Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui peut favoriser une depression, des depressions.
 Long et difficile est le chemin de la libération, vers la liberté.
 Long et difficile sera le chemin vers la libération, de la liberté.
 
-# 1 - Confidences d'une ex-gourou, avec Jessica Schab
+# 1 - Confidences d'une ex-gourou, avec Jessica Schab (Vidéo)
 
 #Spiritualité #Gourou #Enfantcristal
 Méta de Choc
