@@ -19,14 +19,14 @@ tags:
 
 #LaSecteAux1000Gourous
 
-# 0 - Introduction
+Introduction
 
 Que ce soit de l'alcool, de la drogue, des drogues ou des croyances, se libérer d'une dépendance est un combat de tous les jours.
 Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui peut favoriser une depression, des depressions.
 Long et difficile est le chemin de la libération, vers la liberté.
 Long et difficile sera le chemin vers la libération, de la liberté.
 
-# 1 - Confidences d'une ex-gourou, avec Jessica Schab (Vidéo)
+# Confidences d'une ex-gourou, avec Jessica Schab (Vidéo)
 
 #Spiritualité #Gourou #Enfantcristal
 Méta de Choc
@@ -45,7 +45,7 @@ Aujourd'hui !
 
 [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
 
-# 2 - L'Univers a parlé - Ex-Ex-Gourou (Vidéo)
+# L'Univers a parlé - Ex-Ex-Gourou (Vidéo)
 
 #spiritualité #drame #film
 Méta de Choc
@@ -59,7 +59,7 @@ Des révélations en veux-tu en voilà.
 
 [SCOOP ! #6 - L'Univers a parlé](https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/)
 
-# 3 - Dérives sectaires en santé : une période de crise (Site)
+# Dérives sectaires en santé : une période de crise (Site)
 
 Centre Contre les Manipulations Mentales (CCMM)
 9 Avr 2022
@@ -71,14 +71,14 @@ Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un dom
 
 {% pdf "https://www.miviludes.interieur.gouv.fr/sites/default/files/publications/francais/guide_sante_mars_2018_web.pdf" %}
 
-# 4 - Sondage UNADFI - Les Français et le phénomène sectaire (PDF)
+# Sondage UNADFI - Les Français et le phénomène sectaire (PDF)
 
 [Les Français et le phénomène sectaire - Sondage ODOXA pour l'UNADFI](http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/)
 Publié le 17/01/2022
 
 {% pdf "http://www.odoxa.fr/wp-content/uploads/2022/01/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" %}
 
-# 5 - Soins non conventionnels : des dérives inquiétantes (Audio)
+# Soins non conventionnels : des dérives inquiétantes (Audio)
 
 Article rédigé par
 Géraldine Zamansky - franceinfo
@@ -99,7 +99,7 @@ Deux ans après le début de la crise sanitaire, une enquête officielle alerte 
 
 [Lire l'article complet](https://www.francetvinfo.fr/replay-radio/c-est-ma-sante/soins-non-conventionnels-des-derives-inquietantes_5005274.html)
 
-# 6 - CCMM National - L'après secte (Vidéo)
+# CCMM National - L'après secte (Vidéo)
 
 CCMM National
 Episode 8 - L'après secte
@@ -107,14 +107,14 @@ Sortie le 14 mars 2022
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
 {% youtube video 6pNkJ8RnCrs false %}
 
-# 7 - PSYCOM - les Dérives sectaires et psychiatrie (PDF)
+# PSYCOM - les Dérives sectaires et psychiatrie (PDF)
 
 Guide "Droits en Psychiatrie" "les Dérives sectaires et psychiatrie"
 21 mars 2022
 
 {% pdf "https://www.psycom.org/wp-content/uploads/2020/10/Derives-sectaires-et-psychiatrie-2022.pdf" %}
 
-# 8 - PSYCOM - Exercer son esprit critique (PDF)
+# PSYCOM - Exercer son esprit critique (PDF)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - La santé mentale et le numérique - Psycom - Santé Mentale Info.png" 890 431 %}
 
@@ -123,7 +123,7 @@ La santé mentale et le numérique - "Exercer son esprit critique"
 
 {% pdf "https://www.psycom.org/wp-content/uploads/2020/11/Sante-mentale-et-numerique-2020.pdf" %}
 
-# 9 - Christophe André - 3 conseils pour traverser une dépression (Vidéo)
+# Christophe André - 3 conseils pour traverser une dépression (Vidéo)
 
 #Dépression #Santé #LesConseilsduPsy
 3 conseils pour traverser une dépression
@@ -140,13 +140,13 @@ Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour
 - Conseil 2 : Bien choisir son entourage.
 - Conseil 3 : Maîtriser ses ruminations.
 
-# 10 - Que Choisir Santé - DÉPRESSION - Comment faire face (Article)
+# Que Choisir Santé - DÉPRESSION - Comment faire face (Article)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/QCSanté-163-202109.png" 266 363 %}
 
 [Que Choisir Santé N° 163 - septembre 2021](https://kiosque.quechoisir.org/magazine-sante-quechoisir-163-septembre-2021/)
 
-# 11 - ARTE Alternatives - la dépression (Vidéo)
+# ARTE Alternatives - la dépression (Vidéo)
 
 ARTE Alternatives - Web-magazine de solutions
 No.2 : la dépression
@@ -159,7 +159,7 @@ Comment soutenir un ami, un compagnon ou un frère dépressif ?
 Pudiques, des "aidants", comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.
 [Les aidants : soutenir, tenir et guérir (Arte)](https://www.arte.tv/fr/videos/081327-081-A/les-aidants-soutenir-tenir-et-guerir/)
 
-# 12 - MONPSY.SANTE.GOUV.FR (Site)
+# MONPSY.SANTE.GOUV.FR (Site)
 
 Depuis le 5 avril 2022
 Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.
@@ -171,7 +171,7 @@ Découvrir MonPsy en vidéo (Durée 2 minutes)
 
 [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
 
-# 13 - Vivre avec un chien noir (Vidéo)
+# Vivre avec un chien noir (Vidéo)
 
 "La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité"
 Constitution de l’Organisation mondiale de la santé (OMS)
@@ -199,7 +199,7 @@ In collaboration with WHO to mark World Mental Health Day, writer and illustrato
 « J'avais un chien noir, son nom était dépression »
 {% youtube video XiCrniLQGYc false %}
 
-# 14 - 6 idées reçues sur la dépression (Vidéo)
+# 6 idées reçues sur la dépression (Vidéo)
 
 6 BULLSHITS sur la DÉPRESSION - PSYCHOPTIK #5
 Le PsyLab
@@ -212,13 +212,13 @@ La vidéo de la Tronche en Biais sur les biais de confirmation:
 
 {% youtube video 6cxEu-OP5mM false %}
 
-# 15 - Imagerie fonctionnelle dans la dépression (Image)
+# Imagerie fonctionnelle dans la dépression (Image)
 
 En anglais: (A quick informative overview of the biology behind depression)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" 400 400 '"Imagerie fonctionnelle dans la dépression" "Imagerie fonctionnelle dans la dépression"' %}
 
-# 16 - La Campagne #EtToiCaVa (Vidéo)
+# La Campagne #EtToiCaVa (Vidéo)
 
 Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)
 
@@ -232,7 +232,7 @@ L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en Fra
 
 La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.
 
-# 17 - Campagne Dépression #EtToiCaVa (Site)
+# Campagne Dépression #EtToiCaVa (Site)
 
 Campagne Dépression 2019 de la Fondation Pierre Deniker
 
@@ -246,7 +246,7 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker
 
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" %}
 
-# 18 - Bref. #80 - Bref. J'ai fait une dépression. (Vidéo)
+#  Bref. #80 - Bref. J'ai fait une dépression. (Vidéo)
 
 bref. 80 - Bref. J'ai fait une dépression.
 13 oct. 2017
@@ -261,7 +261,7 @@ Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref
 {% youtube video wdQWBWaymt0 false %}
 </details>
 
-# 19 - Élections 2022 (demain 1/2 tour) (PDF)
+# Élections 2022 (demain 1/2 tour) (PDF)
 
 [Élection présidentielle 2022 : les réponses des candidats aux questions de l’Afis](https://afis.org/Election-presidentielle-2022-les-reponses-des-candidats-aux-questions-de-l-Afis)
 Publié en ligne le 13 mars 2022
@@ -283,14 +283,14 @@ C'est assez intéressant de voir le niveau des réponses…
 De compétence(s)…
 Mais, pas que…
 
-# 20 - New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)
+# New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)
 
 -> [MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…](https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/)
 Publié le 14 Mars 2022
 
 Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” (™ & © ME)
 
-# 21 - À suivre…
+# À suivre…
 
 À suivre… -> [#LaSecteAux1000Gourous@CyberMindFR](https://cybermind.fr/tags/LaSecteAux1000Gourous/)
 [#LaSecteAux1000Gourous](https://twitter.com/hashtag/LaSecteAux1000Gourous?src=hashtag_click)
