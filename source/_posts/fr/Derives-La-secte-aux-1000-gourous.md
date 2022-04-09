@@ -42,6 +42,7 @@ Aujourd'hui !
 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant
 
 {% youtuber video F2RWJMN8wZQ&t=2935s false %}
+{% endyoutuber %}
 
 [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
 
@@ -53,6 +54,7 @@ L'Univers a parlé — SCOOP ! 6
 29 janv. 2021
 
 {% youtuber video bB1JuDaC9Kk&t=150s false %}
+{% endyoutuber %}
 
 De la spiritualité et du drame. 
 Des révélations en veux-tu en voilà. 
@@ -91,7 +93,7 @@ Soins non conventionnels : des dérives inquiétantes
 
 durée : 00:02:59 - C'est ma santé - Naturopathie, réflexologie, Reiki, thérapie "quantique", "biorésonance", "géobiologie", magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats "alarmants". Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre.
 
-{% aplayer "C'est ma santé" "Géraldine Zamansky" https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3 https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg false %}
+{% aplayer "C'est ma santé" "Géraldine Zamansky" "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3" "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg" false %}
 
 Naturopathie, réflexologie, Reiki, thérapie "quantique", "biorésonance", "géobiologie", magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats "alarmants". Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre. 
 
@@ -106,6 +108,7 @@ Episode 8 - L'après secte
 Sortie le 14 mars 2022
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
 {% youtuber video 6pNkJ8RnCrs false %}
+{% endyoutuber %}
 
 # PSYCOM - les Dérives sectaires et psychiatrie (PDF)
 
@@ -131,6 +134,7 @@ La santé mentale et le numérique - "Exercer son esprit critique"
 Mon Sherpa
 
 {% youtuber video R6wjZpZkNPQ false %}
+{% endyoutuber %}
 
 Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.
 "Le premier point à rappeler par rapport à la dépression, c'est que c'est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments."
@@ -189,6 +193,7 @@ Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Joh
 
 « Vivre avec un chien noir »
 {% youtuber video 2VRRx7Mtep8 false %}
+{% endyoutuber %}
 
 « J'avais un chien noir, son nom était dépression »
 At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
@@ -199,6 +204,7 @@ In collaboration with WHO to mark World Mental Health Day, writer and illustrato
 
 « J'avais un chien noir, son nom était dépression »
 {% youtuber video XiCrniLQGYc false %}
+{% endyoutuber %}
 
 # 6 idées reçues sur la dépression (Vidéo)
 
@@ -208,16 +214,18 @@ Le PsyLab
 6 idées reçues sur la dépression
 
 {% youtuber video KMNXqj3QmxU false %}
+{% endyoutuber %}
 
 La vidéo de la Tronche en Biais sur les biais de confirmation:
 
 {% youtuber video 6cxEu-OP5mM false %}
+{% endyoutuber %}
 
 # Imagerie fonctionnelle dans la dépression (Image)
 
 En anglais: (A quick informative overview of the biology behind depression)
 
-{% img "/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" 400 400 '"Imagerie fonctionnelle dans la dépression" "Imagerie fonctionnelle dans la dépression"' %}
+{% img "/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" 400 400 "Imagerie fonctionnelle dans la dépression" %}
 
 # La Campagne #EtToiCaVa (Vidéo)
 
@@ -228,6 +236,7 @@ Scénario : Astrid Chevance et Marie-Stéphane Cattaneo
 Réalisation : Marie-Stéphane Cattaneo
 
 {% youtuber video 2YR8J1xqDNs false %}
+{% endyoutuber %}
 
 L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.
 
@@ -253,6 +262,7 @@ bref. 80 - Bref. J'ai fait une dépression.
 13 oct. 2017
 
 {% youtuber video DwfwmxOF_3E false %}
+{% endyoutuber %}
 
 <details>
   <summary>[BONUS] 80. Bref. J'ai fait une dépression….</summary>
@@ -260,6 +270,7 @@ Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref
 14 oct. 2014
 
 {% youtuber video wdQWBWaymt0 false %}
+{% endyoutuber %}
 </details>
 
 # Élections 2022 (demain 1/2 tour) (PDF)
