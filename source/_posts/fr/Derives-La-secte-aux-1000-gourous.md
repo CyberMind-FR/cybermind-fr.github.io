@@ -1,7 +1,7 @@
 ---
 title: Dérives - La secte aux 1000 gourous
 lang: fr
-date: 1970-01-01 06:37:00
+date: 2022-04-09 19:30:00
 tags:
 - Dérives sectaires
 - Médecines alternatives
