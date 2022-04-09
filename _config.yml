@@ -132,3 +132,11 @@ archive_generator:
 i18n:
   type: [page, post]
   generator: [archive, category, tag, index]
+
+tagTwitter:
+  id: CyberMindFR
+
+youtuber:
+  allowfullscreen: yes,
+  privacy_mode: yes,
+  autoplay: 1

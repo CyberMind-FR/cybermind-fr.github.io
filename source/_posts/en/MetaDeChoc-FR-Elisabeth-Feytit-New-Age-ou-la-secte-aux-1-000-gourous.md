@@ -34,6 +34,8 @@ My playlist:
 - [SHOCKING #1 - La zététique rend-elle insensible ?](https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/)
 - [SHOCKING #21 - Coaching : l’eldorado de la manipulation mentale](https://metadechoc.fr/podcast/coaching-eldorado-de-la-manipulation-mentale/)
 - [STREAM #1 - Une vie en anthroposophie – Live](https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/)
+- [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
+- [SCOOP ! #6 - L'Univers a parlé](https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/)
 
-To be continued...
+To be continued…
 #LaSecteAux1000Gourous
