@@ -139,4 +139,4 @@ tagTwitter:
 youtuber:
   allowfullscreen: yes,
   privacy_mode: yes,
-  autoplay: 1
+  autoplay: 0
