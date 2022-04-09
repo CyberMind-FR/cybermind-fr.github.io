@@ -63,7 +63,7 @@ Des révélations en veux-tu en voilà.
 
 [SCOOP ! #6 - L'Univers a parlé](https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/)
 
-# Dérives sectaires en santé : une période de crise (Site)
+# Dérives sectaires en santé : une période de crise (PDF)
 
 Centre Contre les Manipulations Mentales (CCMM)
 9 Avr 2022

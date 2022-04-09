@@ -140,3 +140,8 @@ youtuber:
   allowfullscreen: yes,
   privacy_mode: yes,
   autoplay: 0
+
+pdf:
+  enable: true          # default: true
+  width: '100%'         # default: 100%
+  height: '1024px'      # default: 550px
