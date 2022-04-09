@@ -41,7 +41,7 @@ Aujourd'hui !
 
 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant
 
-{% youtube video F2RWJMN8wZQ&t=2935s false %}
+{% youtuber video F2RWJMN8wZQ&t=2935s false %}
 
 [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
 
@@ -52,7 +52,7 @@ Méta de Choc
 L'Univers a parlé — SCOOP ! 6
 29 janv. 2021
 
-{% youtube video bB1JuDaC9Kk&t=150s false %}
+{% youtuber video bB1JuDaC9Kk&t=150s false %}
 
 De la spiritualité et du drame. 
 Des révélations en veux-tu en voilà. 
@@ -105,7 +105,7 @@ CCMM National
 Episode 8 - L'après secte
 Sortie le 14 mars 2022
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
-{% youtube video 6pNkJ8RnCrs false %}
+{% youtuber video 6pNkJ8RnCrs false %}
 
 # PSYCOM - les Dérives sectaires et psychiatrie (PDF)
 
@@ -130,7 +130,7 @@ La santé mentale et le numérique - "Exercer son esprit critique"
 5 mars 2020
 Mon Sherpa
 
-{% youtube video R6wjZpZkNPQ false %}
+{% youtuber video R6wjZpZkNPQ false %}
 
 Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.
 "Le premier point à rappeler par rapport à la dépression, c'est que c'est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments."
@@ -167,7 +167,7 @@ Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez
 [{% img "/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" 270 270 %}](https://monpsy.sante.gouv.fr/patients "MonPsy.sante.gouv.fr - Visiter !")
 
 Découvrir MonPsy en vidéo (Durée 2 minutes)
-{% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
+{% video <iframe width="960" height="540" src="https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" frameborder="0" allowfullscreen></iframe> %}
 
 [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
 
@@ -188,16 +188,17 @@ Des millions de personnes dans le monde vivent avec la dépression. « Vivre ave
 Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
 
 « Vivre avec un chien noir »
-{% youtube video 2VRRx7Mtep8 false %}
+{% youtuber video 2VRRx7Mtep8 false %}
 
 « J'avais un chien noir, son nom était dépression »
 At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
 
 In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
-[{% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
+{% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}
+[Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
 
 « J'avais un chien noir, son nom était dépression »
-{% youtube video XiCrniLQGYc false %}
+{% youtuber video XiCrniLQGYc false %}
 
 # 6 idées reçues sur la dépression (Vidéo)
 
@@ -206,11 +207,11 @@ Le PsyLab
 24 févr. 2017
 6 idées reçues sur la dépression
 
-{% youtube video KMNXqj3QmxU false %}
+{% youtuber video KMNXqj3QmxU false %}
 
 La vidéo de la Tronche en Biais sur les biais de confirmation:
 
-{% youtube video 6cxEu-OP5mM false %}
+{% youtuber video 6cxEu-OP5mM false %}
 
 # Imagerie fonctionnelle dans la dépression (Image)
 
@@ -226,7 +227,7 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)
 Scénario : Astrid Chevance et Marie-Stéphane Cattaneo 
 Réalisation : Marie-Stéphane Cattaneo
 
-{% youtube video 2YR8J1xqDNs false %}
+{% youtuber video 2YR8J1xqDNs false %}
 
 L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.
 
@@ -251,14 +252,14 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker
 bref. 80 - Bref. J'ai fait une dépression.
 13 oct. 2017
 
-{% youtube video DwfwmxOF_3E false %}
+{% youtuber video DwfwmxOF_3E false %}
 
 <details>
   <summary>[BONUS] 80. Bref. J'ai fait une dépression….</summary>
 Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
 14 oct. 2014
 
-{% youtube video wdQWBWaymt0 false %}
+{% youtuber video wdQWBWaymt0 false %}
 </details>
 
 # Élections 2022 (demain 1/2 tour) (PDF)
