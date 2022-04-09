@@ -6,7 +6,7 @@ tags:
 - podcast
 - zététique
 - sceptique
-- #LaSecteAux1000Gourous
+- LaSecteAux1000Gourous
 ---
 
 #LaSecteAux1000Gourous
