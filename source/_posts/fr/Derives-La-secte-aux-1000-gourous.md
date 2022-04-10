@@ -28,10 +28,10 @@ Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui
 Long et difficile est le chemin de la libération, vers la liberté.
 Long et difficile sera le chemin vers la libération, de la liberté.
 
-C'est un soir de début de confinement de COVID, lors d'une promenade d'amoureux, avec mon amie, que m'ai venu ce nom impossible de "La Secte Aux 1000 Gourous" !
+C'est un soir de début de confinement de COVID, lors d'une promenade en amoureux, avec mon amie, que m'ai venu ce nom impossible de "La Secte Aux 1000 Gourous" !
 *Je réalisais à ce moment là que non seulement les complotistes de tout bords, plus souvent extrémistes d'ailleurs, construisaient toujours plus d'hypothèses abérantes pour nourrir et justifier leur délires. Mais que leur imagination absurdes rendraient les **vrais** combats impossible et que la moindre hypothèse deviendrait difficile à être simplement discutée.*
 
-Elle m'a demander d'arrêter et de changer de sujet car je lui faisait peur avait-t-elle dit alors !
+Elle m'a demandé d'arrêter et de changer de sujet car je lui faisait peur avait-t-elle précisé alors !
 *Elle avait raison, car c'est pour le moins effrayant, surtout de constater qu'aujourd'hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d'office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse **et** à une Terre plate ! Quand vous devez voir l'invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d'air seulement et qu'il est impératif de soumettre votre mental.*
 
 **STOP**
