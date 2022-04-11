@@ -286,7 +286,7 @@ Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref
 {% endyoutuber %}
 </details>
 
-# Élections 2022 (demain 1/2 tour) (PDF)
+# Élections 2022 (demain 1/2 tour) (Site)
 
 [Élection présidentielle 2022 : les réponses des candidats aux questions de l’Afis](https://afis.org/Election-presidentielle-2022-les-reponses-des-candidats-aux-questions-de-l-Afis)
 Publié en ligne le 13 mars 2022
@@ -294,7 +294,8 @@ Mise à jour le 8 avril 2022
 AFIS-SCIENCE
 Association Française pour l’Information Scientifique
 
-## Les réponses des candidats
+# Les réponses des candidats (PDF)
+
 Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues
 - [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
 - [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
@@ -313,7 +314,32 @@ Mais, pas que…
 -> [MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…](https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/)
 Publié le 14 Mars 2022
 
-Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” (™ & © ME)
+Et même si vous n’êtes pas un "adepte" de la "secte au 1.000 gourous" [#LSA1KG](https://twitter.com/hashtag/LSA1KG) (™ & © ME)
+
+# Les émotions sont-elles rationnelles (Site)
+
+[https://www.afis.org/Les-emotions-sont-elles-rationnelles ?](https://afis.org/https://www.afis.org/Les-emotions-sont-elles-rationnelles)
+Publié en ligne le 9 avril 2022
+AFIS-SCIENCE
+Association Française pour l’Information Scientifique
+#afis #science
+
+{% twitter 1513524016945917963 afis_science %}
+
+Le doux rêve des zététiciens serait un monde où la raison règne en maîtresse, débarrassée des vilaines émotions, archaïsmes organiques.
+Ou pas. 
+Article de [Thomas.C.Durand](https://www.afis.org/Thomas-C-Durand) [@TroncheBiais](https://twitter.com/TroncheBiais), [@Acermendax](https://twitter.com/Acermendax), paru dans la revue « Science et pseudo-sciences » n°338 d'octobre 2021, est désormais en ligne, en accès libre.
+
+# RAISON versus EMOTION (Vidéo)
+
+La Tronche en Biais
+TenL#107
+Diffusée en direct le 20 déc. 2021
+
+Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c'est occulter une partie du réel qui nous manquerait cruellement s'il était en notre pouvoir de l'amputer (ce qui n'est pas le cas).
+
+{% youtuber video I7I8Tec1G4U false %}
+{% endyoutuber %}
 
 # À suivre…
 
