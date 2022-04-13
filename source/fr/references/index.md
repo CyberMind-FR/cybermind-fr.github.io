@@ -18,7 +18,7 @@ lang: fr
 
 - Quelques publications:
   - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
-  
+  - [3D Designs @ Thingiverse](https://www.thingiverse.com/cybermindfr/designs)
 - Quelques partenaires matériels et logiciels :
   - [CrowdSec](https://crowdsec.net)
     - [CrowdSec Partenaire](https://crowdsec.net/blog/meet-crowdsec-services-partners-and-join-the-squad/)

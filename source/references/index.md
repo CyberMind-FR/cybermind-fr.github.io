@@ -18,6 +18,7 @@ lang: en
 
 - Some publications:
   - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
+  - [3D Designs @ Thingiverse](https://www.thingiverse.com/cybermindfr/designs)
 
 - Some hardware and software partners:
   - [CrowdSec](https://crowdsec.net)
