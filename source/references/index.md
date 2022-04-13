@@ -8,6 +8,7 @@ lang: en
   - [GitHub CyberMind-FR](https://github.com/CyberMind-FR)
   - [Twitter CyberMindFR](https://twitter.com/CyberMindFR)
   - [LinkedIn CyberMindFR](https://www.linkedin.com/company/Cybermindfr)
+  - [Thingiverse](https://www.thingiverse.com/CyberMindFR)
   - [Youtube CyberMind](https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about)
 
 - Some certifications:

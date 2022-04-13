@@ -8,6 +8,7 @@ lang: fr
   - [GitHub CyberMind-FR](https://github.com/CyberMind-FR)
   - [Twitter CyberMindFR](https://twitter.com/CyberMindFR)
   - [LinkedIn CyberMindFR](https://www.linkedin.com/company/Cybermindfr)
+  - [Thingiverse](https://www.thingiverse.com/CyberMindFR)
   - [Youtube CyberMind](https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about)
 
 - Quelques certifications:
@@ -17,7 +18,7 @@ lang: fr
 
 - Quelques publications:
   - [Éditions Diamond](https://connect.ed-diamond.com/auteur/kerma-gerald)
-
+  
 - Quelques partenaires matériels et logiciels :
   - [CrowdSec](https://crowdsec.net)
     - [CrowdSec Partenaire](https://crowdsec.net/blog/meet-crowdsec-services-partners-and-join-the-squad/)
