@@ -35,7 +35,7 @@ Elle m'a demandé d'arrêter et de changer de sujet car je lui faisait peur avai
 *Elle avait raison, car c'est pour le moins effrayant, surtout de constater qu'aujourd'hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d'office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse **et** à une Terre plate ! Quand vous devez voir l'invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d'air seulement et qu'il est impératif de soumettre votre mental.*
 
 **STOP**
-
+<!-- more -->
 Je suis un fervent défenseur de la Liberté, des Libertés.
 *Depuis toujours mon cœur est pour une connaissance libre et partagée, commune et collaborative, libératoire par principe. Mais les principes sont comme les croyances, comme les promesses, ils ne servent que ceux qui les croient, ceux qui les défendent ! Alors, cela fait déjà quelques années que j'essaie de contribuer activement, à défendre ses valeurs, mes valeurs, par les actions, par la démonstration, par l'exemple plus que par la parole. D'ailleurs, j'arrêt de parler, de m'écouter, chose que j'adore pourtant, même si je ne suis pas toujours d'accord avec moi. J'arrête, pour l'instant, de tergiverser pour vous laisser découvrir ce **"nouveau"** sujet, un sujet de l'actualité des élections 2022 en France. Terre de liberté, berceau des libertés, inspiratrice de **la** Liberté ! Le début d'un nouveau combat, d'une nouvelle lutte, pour la défense de la **liberté** !*
 

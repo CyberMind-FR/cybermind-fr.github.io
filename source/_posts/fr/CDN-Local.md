@@ -17,6 +17,8 @@ Dernièrement, je vous parlais d’une petite astuce de pistage et m’interroge
 Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ressources de plus en plus utilisées (script jquery par exemple) à partir d’autres CDN ou du site de leur éditeur respectif.
 </blockquote>
 
+<!-- more -->
+
 Un CDN, ou [Content delivery network](https://fr.wikipedia.org/wiki/Content_delivery_network) est une manière simple de se faire tracer.
 
 Tous les sites utilises ces contenus pour créer et diffuser leur pages, et nous, utilisateurs, sommes ainsi surveillables par les hébergeur de ces CDN (google entre autre) !

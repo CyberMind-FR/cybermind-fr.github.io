@@ -15,7 +15,7 @@ Nous sommes ravis d’accueillir Gérald Kerma en tant que nouvel ambassadeur Cr
 Gérald est basé en France et a plus de 25 années d’expérience dans la cybersécurité. Il est également contributeur au projet OpenWrt. Gérald a créé un portage OpenWrt pour CrowdSec.
 
 Voici une petite interview de Gérald pour mieux le connaître.
-
+<!-- more -->
 ## Salut Gérald, peux-tu parler de toi à notre communauté ?
 
 Vous pouvez aussi m’appeler Gandalf, Erdoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.
