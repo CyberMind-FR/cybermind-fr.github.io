@@ -621,7 +621,7 @@ livere_uid: # <your_uid>
 # For more information: https://gitalk.github.io
 gitalk:
   enable: true
-  github_id: erdoukki # GitHub repo owner
+  github_id: CyberMind-FR # GitHub repo owner
   repo: cybermind-fr.Gitalk # Repository name to store issues
   client_id: f920f0de18e6b7cfc51b # GitHub Application Client ID
   client_secret: GITALK_TOKEN # GitHub Application Client Secret
