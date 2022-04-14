@@ -2,6 +2,7 @@
 title: Projets
 date: 2022-0220
 lang: fr
+comments: false
 ---
 
 Dans les principes d'accompagnement en solutions innovantes de CyberSécurité et de conceptions et développements basée sur des logiciels libre...

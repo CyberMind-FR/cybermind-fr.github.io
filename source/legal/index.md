@@ -1,6 +1,7 @@
 ---
 title: Legals
 date: 2022-0220
+comments: false
 ---
 
 Guarantee: « Duty of best effort, without obligation of result. »

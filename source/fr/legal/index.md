@@ -1,6 +1,7 @@
 ---
 title: Légals
 date: 2022-0220
+comments: false
 ---
 
 Garantie : « Devoir de meilleur effort, sans obligation de résultat. »

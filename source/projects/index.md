@@ -2,6 +2,7 @@
 title: Projects
 date: 2022-0220
 lang: en
+comments: false
 ---
 
 In the principles of support in innovative solutions of CyberSecurity and designs and developments based on free software...
