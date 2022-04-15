@@ -32,9 +32,9 @@ Restez à l'écoute!
 -> Alors, profitez-en ou améliorez-le par vous-même.
 
 🍿 Faits amusants ?
--> Restez à l'écoute pour en savoir plus (ou faites-le vous-même…) 😎
+-> Restez à l'écoute pour en savoir plus (ou faites-le vous-même…)
 
-🧙 N'oubliez pas, à utiliser à vos risques et périls…
+🧙 N'oubliez pas, à utiliser à vos risques et périls… 😎
 
 ![erdoukki's GitHub stats](https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
 

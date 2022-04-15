@@ -30,9 +30,9 @@ Stay tune!
 -> So, Enjoy or made it better by yourself.
 
 🍿 Fun facts ?
--> Stay tuned for more (or do it yourself…) 😎
+-> Stay tuned for more (or do it yourself…)
 
-🧙 Remember, use it at your own risks… 
+🧙 Remember, use it at your own risks… 😎
 
 ![erdoukki's GitHub stats](https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
 
