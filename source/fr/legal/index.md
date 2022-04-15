@@ -6,12 +6,12 @@ comments: false
 
 Garantie : « Devoir de meilleur effort, sans obligation de résultat. »
 
-Informations légales : \
+Informations légales : CYBERMIND \
 N° SIRET : 409 743 275 00037 \
 Code APE : 6202A
 
 Informations bancaires : \
-IBAN: FR76 1027 8062 2100 0514 2324 114 \
+IBAN: FR76 1027 8088 9400 0205 6360 163 \
 BIC: CMCIFR2A
 
 * [PAYPAL](HTTPS://PAYPAL.ME/KERMA)
