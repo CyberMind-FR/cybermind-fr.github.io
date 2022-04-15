@@ -45,13 +45,13 @@ Je vous partage ce formidable site qui vient tout juste de renaître de ses cend
 
 -> [ACCÉDER AU SITE (2022)](https://www.lazarus-mirages.fr/) <-
 
-	L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l'auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s'éteindre en 2020…
+> L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l'auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s'éteindre en 2020…
 
 <!-- more -->
 
-Mais grâce au superbe travail de deux chevaliers Jedi - Brendan BOBIS et Nicolas ZAGULAJEW - le site renaît aujourd'hui totalement de ses cendres et en version optimisée.
-
-Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement "complotiste" ayant effrayé plus d'un internaute... et y entrer sans aucune crainte !
+> Mais grâce au superbe travail de deux chevaliers Jedi - Brendan BOBIS et Nicolas ZAGULAJEW - le site renaît aujourd'hui totalement de ses cendres et en version optimisée.
+>
+> Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement "complotiste" ayant effrayé plus d'un internaute... et y entrer sans aucune crainte !
 
 - Pour le Dossier de presse d'origine du lancement de l’expérience, vous pouvez le télécharger [ici](https://www.lazarus-mirages.com/assets/pdf/dossier-presse-lazarus.pdf).
 - Et pour quelques détails sur les péripéties, rendez-vous [ici](http://sites.unice.fr/site/broch/Lazarus-Mirages/Lazarus.html). 
@@ -83,17 +83,17 @@ Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe pré
 
 Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric Jean](https://patricjean.com/2021/12/22/lazarus-mirage/)
 
-	Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.
+> Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.
+>
+> **Phénomènes paranormaux, miracles, superstitions, pseudosciences, manipulations médiatiques, politiques et commerciales pullulent.**
+>
+> **Nous avons tous notre part d’irrationnel. Et nous sommes tous victimes de nos croyances.**
+>
+> Lazarus-Mirages était un site web mais aussi deux films documentaires de 52 minutes diffusés en télévision, une dizaine d’applications interactives, le pilote d’une émission hebdomadaire, un jeu en ligne, des entretiens avec des scientifiques, des incursions dans le monde réel, un blog, des débats sur les réseaux sociaux et une série de vidéos.
+>
+> Un ensemble de vecteurs au service d’un projet : le scepticisme.
+>
+> Lazarus, mystérieux personnage masqué et anonyme entraine le public à voir au-delà des croyances, des stéréotypes, des discours religieux, politiques ou économiques consensuels. La zététique…
 
-	**Phénomènes paranormaux, miracles, superstitions, pseudosciences, manipulations médiatiques, politiques et commerciales pullulent.**
-
-	**Nous avons tous notre part d’irrationnel. Et nous sommes tous victimes de nos croyances.**
-
-	Lazarus-Mirages était un site web mais aussi deux films documentaires de 52 minutes diffusés en télévision, une dizaine d’applications interactives, le pilote d’une émission hebdomadaire, un jeu en ligne, des entretiens avec des scientifiques, des incursions dans le monde réel, un blog, des débats sur les réseaux sociaux et une série de vidéos.
-
-	Un ensemble de vecteurs au service d’un projet : le scepticisme.
-
-	Lazarus, mystérieux personnage masqué et anonyme entraine le public à voir au-delà des croyances, des stéréotypes, des discours religieux, politiques ou économiques consensuels. La zététique…
-	
 [Lire la suite sur le site de Patric Jean (et accéder aux contenu)...](https://patricjean.com/2021/12/22/lazarus-mirage/)
 
