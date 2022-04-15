@@ -5,8 +5,37 @@ date: 2022-04-01 00:00:00
 tags: 
 - zététique
 - sceptique
-categories: Mind
+- anarchie
+- arnaque
+- astrologie
+- cerveau féminin
+- croyance
+- démocratie
+- debunker
+- discours politique
+- effet puits
+- guérisseurs
+- hasard
+- henri broch
+- homéopathie
+- jean-léon beauvois
+- lourdeslune
+- miracle
+- momie
+- nicolas d'alessandro
+- normand baillargeon
+- paranormal
+- patric jean
+- pouvoir
+- pseudoscience
+- richard monvoisin
+- télépathie
+categories: 
+- Mind
+- Films
 ---
+
+# Lazarus Mirage - Introduction #
 
 Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !
 
@@ -28,7 +57,7 @@ Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe pré
 - Et pour quelques détails sur les péripéties, rendez-vous [ici](http://sites.unice.fr/site/broch/Lazarus-Mirages/Lazarus.html). 
 
 
-Quelques "amis" de Lazarus:
+## Quelques "amis" de Lazarus ##
 - [Laboratoire de Zététique  &  Centre d'Analyse Zététique](http://www.unice.fr/zetetique)
 - [CORTEX: Esprit critique & sciences](https://cortecs.org/)
 - [Bruxelles Laïque](http://www.bxllaique.be/)
@@ -44,9 +73,28 @@ Quelques "amis" de Lazarus:
 - [SEEKS Project](https://beniz.github.io/seeks)
 - [Global Freedom Movement](https://globalfree.wordpress.com/)
 
-Quelques liens:
+## Quelques liens ##
 - [Twitter Lazarus-Mirages](https://twitter.com/Lazarus_mirages)
 - [Blog Libération Lazarus (archive 2014)](https://web.archive.org/web/20140406222321/http://lazarus.blogs.liberation.fr/)
 - [Blog OWNI Lazarus (archive 2013)](https://web.archive.org/web/20130911204840/http://lazarus.owni.fr/)
 
 ...Plus à venir...
+
+## Expérience transmédia - Patric Jean ##
+
+Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric Jean](https://patricjean.com/2021/12/22/lazarus-mirage/)
+
+	Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.
+
+	**Phénomènes paranormaux, miracles, superstitions, pseudosciences, manipulations médiatiques, politiques et commerciales pullulent.**
+
+	**Nous avons tous notre part d’irrationnel. Et nous sommes tous victimes de nos croyances.**
+
+	Lazarus-Mirages était un site web mais aussi deux films documentaires de 52 minutes diffusés en télévision, une dizaine d’applications interactives, le pilote d’une émission hebdomadaire, un jeu en ligne, des entretiens avec des scientifiques, des incursions dans le monde réel, un blog, des débats sur les réseaux sociaux et une série de vidéos.
+
+	Un ensemble de vecteurs au service d’un projet : le scepticisme.
+
+	Lazarus, mystérieux personnage masqué et anonyme entraine le public à voir au-delà des croyances, des stéréotypes, des discours religieux, politiques ou économiques consensuels. La zététique…
+	
+[Lire la suite sur le site de Patric Jean (et accéder aux contenu)...](https://patricjean.com/2021/12/22/lazarus-mirage/)
+
