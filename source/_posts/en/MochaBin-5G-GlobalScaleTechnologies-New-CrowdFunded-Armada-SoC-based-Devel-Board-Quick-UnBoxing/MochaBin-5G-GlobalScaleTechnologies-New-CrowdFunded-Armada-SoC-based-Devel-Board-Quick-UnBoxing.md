@@ -7,12 +7,14 @@ date: 2022-03-03 09:55:32
 tags:
 - MOCHAbin
 - armada
+categories: Cyber
 ---
 
 A quick report of my just today morning received MochaBin-5 from the very first 20th CrowdFunders !
 
 <img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0001.jpeg" width="768px" heigth="1024px">
 DHL Package...
+<!-- more -->
 
 <img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0002.jpeg" width="768px" heigth="1024px">
 Custom individual box !

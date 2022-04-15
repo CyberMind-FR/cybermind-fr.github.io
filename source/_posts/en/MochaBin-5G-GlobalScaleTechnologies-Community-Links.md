@@ -5,11 +5,13 @@ date: 2022-03-15 22:20:00
 tags:
 - MOCHAbin
 - Armada
+categories: Cyber
 ---
 
 GlobalScaleTechnologies:
 * [MOCHAbin Wiki](https://espressobin.net/mochabin_wiki/tiki-index.php)
 * [MOCHAbin Forum](https://espressobin.net/forums/forum/mochabin-forum/)
+<!-- more -->
 
 MOCHAbin-V1-1-0 I-O:
 <img src="/uploads/images/MochaBin-5G/MOCHABIN_V1-1-0/Mochabin IO.jpg" width="1500px" heigth="1350px">

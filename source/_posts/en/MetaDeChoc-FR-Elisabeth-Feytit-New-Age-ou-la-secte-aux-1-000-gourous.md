@@ -8,6 +8,8 @@ tags:
 - sceptique
 - LaSecteAux1000Gourous
 - #LaSecteAux1000Gourous
+- LSA1KG
+categories: Mind
 ---
 
 #LaSecteAux1000Gourous
@@ -20,6 +22,7 @@ One of the ones that does so much good.
 - better than [AFP](https://en.wikipedia.org/wiki/Agence_France-Presse) and its widespread BUZZ…
 
 And even if you are not a "follower" of the "cult of 1,000 gurus" (™ & © [ME](mailto:gandalf@gk2.net))
+<!-- more -->
 
 What is [zététique](https://en.wikipedia.org/wiki/Zététique), "criticism", "new age" concepts, spirituality, beliefs, truth, science…
 

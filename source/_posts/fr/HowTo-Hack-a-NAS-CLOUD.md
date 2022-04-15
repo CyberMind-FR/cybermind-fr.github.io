@@ -7,6 +7,7 @@ tags:
 - Aramada
 - NAS
 - CLOUD
+categories: Cyber
 ---
 ====== HowTo Hack a NAS CLOUD ======
 
@@ -20,6 +21,7 @@ Son gros avantage, qui m'a fait le choisir, est que le CPU est un Kirkwood de Ma
 Le même processeur que les SheevaPlug et GuruPlug.
 
 Ce choix est donc ciblé pour le "hack".
+<!-- more -->
 
 Premières impressions :
   * silencieux,

@@ -3,6 +3,7 @@ title: bienvenue
 date: 2022-02-19 20:00:00
 tags: news
 comments: false
+categories: Cyber
 ---
 
 Développement en cours…
@@ -14,6 +15,7 @@ Restez à l'écoute!
 **Voici quelques idées que vous devez connaître sur les règles de CyberMind :**
 
 🙋‍♀️ Une courte introduction - Code Open Source
+<!-- more -->
 
 🌈 Consignes personnelles - CyberSecurity expérimenté, gratuit comme dans la bière gratuite, contributeur de code de longue date.
 

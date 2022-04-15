@@ -5,6 +5,7 @@ tags:
 - news
 - CrowdSecurity
 - CrowdSec
+categories: Cyber
 ---
 
 <img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">

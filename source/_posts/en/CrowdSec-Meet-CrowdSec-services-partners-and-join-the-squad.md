@@ -6,6 +6,7 @@ tags:
 - news
 - CrowdSecurity
 - CrowdSec
+categories: Cyber
 ---
 
 From day one, open-source has been a key pillar of CrowdSec. Our team works full-time on editing open-source software and actively promoting community building and development. But, to be able to spread the love broader, we rely on our international network of partners who are in charge of providing exceptional support to our clients.

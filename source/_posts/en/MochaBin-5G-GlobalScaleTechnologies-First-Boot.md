@@ -9,6 +9,7 @@ tags:
 
 MOCHAbin-V1-2-0 #22 Early Bird - first tests:
 <img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_FirstBoot.jpeg" width="768px" heigth="1024px">
+<!-- more -->
 
 MOCHAbin-V1-2-0 #22 Early Bird - M2 ADD ON SSD 1Tb:
 <img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_M2-1Tb-SSD-ADDON.jpeg" width="1024px" heigth="168px">

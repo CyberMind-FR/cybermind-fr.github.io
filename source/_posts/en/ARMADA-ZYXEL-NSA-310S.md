@@ -6,6 +6,7 @@ tags:
 - ARM
 - ARMADA
 - NAS
+categories: Cyber
 ---
 ====== ARMADA : ZYXEL NSA 310S ======
 
@@ -14,6 +15,7 @@ tags:
 
 nsa310_front_400.jpg?direct&200
 nsa310_rear_400.jpg?direct&200
+<!-- more -->
 
 ===== Serial debug console =====
 

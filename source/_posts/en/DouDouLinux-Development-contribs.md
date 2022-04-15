@@ -6,6 +6,7 @@ tags:
 - Linux
 - Debian
 - DouDouLinux
+categories: Cyber
 ---
 
 Here a list of contributions on the Master [DouDouLinux](http://www.doudoulinux.org/)
@@ -13,6 +14,8 @@ Here a list of contributions on the Master [DouDouLinux](http://www.doudoulinux.
 [What is DouDouLinux ?](http://www.doudoulinux.fr/web/english/about/more-about/article/team-and-contributors.html)
 
 DoudouLinux is a community project in which any motivated person as well as organizations can contribute in order to improve it, particularly concerning translations. It is not necessary to get involved for the long-term to contribute, you can just bring what you think to be able to bring. As we have many ideas to develop DoudouLinux, nearly anyone can bring something to our project, this is not restricted to translations. Of course if you feel motivated to participate for a long time, this is possible too!
+
+<!-- more -->
 
 What I have personnaly done to help DouDouLinux better work on some embedded devices like:
 - Efika Genesi IMX53 (ARMEL/ARMHF) ports

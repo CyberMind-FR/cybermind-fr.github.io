@@ -8,12 +8,15 @@ tags:
 - ARM
 - ARMADA
 - NAS
+categories: Cyber
 ---
 ====== How to void your RaidSonic IcyBox NAS6220-B Warrantly... ======
 
 **All informations in this page are given "as-is", without warrantly, and can be harmfull !**
 
 The *why* of all of this is here : "lecloud"
+
+<!-- more -->
 
 ==== Requirements ====
 

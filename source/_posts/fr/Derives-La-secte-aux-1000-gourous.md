@@ -16,6 +16,7 @@ tags:
 - LaSecteAux1000Gourous
 - #LaSecteAux1000Gourous
 - LSA1KG
+categories: Mind
 ---
 
 #LaSecteAux1000Gourous

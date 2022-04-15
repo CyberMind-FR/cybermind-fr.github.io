@@ -8,6 +8,8 @@ tags:
 - sceptique
 - LaSecteAux1000Gourous
 - #LaSecteAux1000Gourous
+- LSA1KG
+categories: Mind
 ---
 
 #LaSecteAux1000Gourous
@@ -20,6 +22,7 @@ Une de celle qui fait tant de bien.
 - mieux que l'[AFP](https://fr.wikipedia.org/wiki/Agence_France-Presse) et ses BUZZ généralisés…
 
 Et même si vous n'êtes pas un "adepte" de la "secte au 1.000 gourous" (™ & © [ME](mailto:gandalf@gk2.net))
+<!-- more -->
 
 C'est quoi la [zététique](https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique), "la critique", les concepts "new age", la spiritualité, les croyances, la vérité, la science…
 

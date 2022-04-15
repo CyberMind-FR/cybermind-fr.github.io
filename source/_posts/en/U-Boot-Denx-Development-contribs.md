@@ -5,6 +5,7 @@ date: 2010-08-14 00:00:00
 tags:
 - U-Boot
 - Denx
+categories: Cyber
 ---
 
 Here a list of contributions on the Master [U-Boot Denx](https://www.denx.de/wiki/U-Boot)
@@ -12,6 +13,7 @@ Here a list of contributions on the Master [U-Boot Denx](https://www.denx.de/wik
 [What is U-Boot ?](https://en.wikipedia.org/wiki/Das_U-Boot)
 
 Das U-Boot (subtitled "the Universal Boot Loader" and often shortened to U-Boot; see History for more about the name) is an open-source, primary boot loader used in embedded devices to package the instructions to boot the device's operating system kernel. It is available for a number of computer architectures, including 68k, ARM, Blackfin, MicroBlaze, MIPS, Nios, SuperH, PPC, RISC-V and x86. 
+<!-- more -->
 
 What I have personnaly done to help U-Boot better work on some embedded devices like:
 - SheevaPlug and derivatives

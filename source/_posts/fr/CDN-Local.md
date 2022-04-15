@@ -5,6 +5,7 @@ date: 2014-11-11 00:00:00
 tags: 
 - CLOUD
 - CyberSecurity
+categories: Cyber
 ---
 
 = CDN Local =

@@ -4,10 +4,12 @@ lang: fr
 date: 1998-06-04 00:00:00
 tags:
 - GK2
+categories: Cyber
 ---
 
 GK2.COM
 <img src="/uploads/images/GK2.NET/Title.gif" width="492px" heigth="78px">
+<!-- more -->
 
 [GK2.COM @199806](https://web.archive.org/web/19980624073923/http://www.gk2.com/)
 <img src="/uploads/images/GK2.NET/Screenshot 2022-03-16 at 16-51-16 En construction.png" width="569px" heigth="268px">

@@ -5,6 +5,7 @@ date: 2022-04-01 00:00:00
 tags: 
 - zététique
 - sceptique
+categories: Mind
 ---
 
 Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !

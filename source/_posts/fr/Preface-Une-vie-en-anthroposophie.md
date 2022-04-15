@@ -9,6 +9,7 @@ tags:
 - dérive
 - secte
 - alerte
+categories: Mind
 ---
 # Livre : Une vie en anthroposophie
 ## La face cachée des écoles Steiner-Waldorf 

@@ -9,12 +9,14 @@ tags:
 - CyberSecurity
 - Vulnerability
 - By-Design
+categories: Cyber
 ---
 ====== Permissions Fault after privilege's escalation ======
 A "By Design" Reproductible Integrity Vulnerability.
 Discovered on the 2th of march 2012.
 
 <del>secure@microsoft.com</del>
+<!-- more -->
 
 ===== Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) =====
 

@@ -5,6 +5,7 @@ tags:
 - news
 - CrowdSecurity
 - CrowdSec
+categories: Cyber
 ---
 
 <img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">
@@ -14,6 +15,7 @@ tags:
 We are thrilled to welcome Gérald Kerma as a new CrowdSec Ambassador! Gérald is based in France and has over 25 years of experience in cybersecurity. He is also a contributor to the OpenWrt project. Gérald created [an OpenWrt port for CrowdSec](https://openwrt.org/docs/guide-user/services/crowdsec). 
 
 Here is a little interview with Gérald to get to know him better.  
+<!-- more -->
 
 ## Hey Gérald, can you tell our community about yourself?
 
