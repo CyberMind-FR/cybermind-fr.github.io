@@ -35,15 +35,13 @@ categories:
 - Films
 ---
 
-# Lazarus Mirage - Introduction #
+# Lazarus Mirage #
 
 Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !
 
--> [LAZARUS-MIRAGES](https://www.lazarus-mirages.fr/) <-
+## Lazarus Mirage - Introduction ##
 
-<img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px">
-
--> [ACCÉDER AU SITE (2022)](https://www.lazarus-mirages.fr/) <-
+[<img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px">](https://www.lazarus-mirages.fr/)
 
 > L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l'auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s'éteindre en 2020…
 
@@ -53,10 +51,17 @@ Je vous partage ce formidable site qui vient tout juste de renaître de ses cend
 >
 > Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement "complotiste" ayant effrayé plus d'un internaute... et y entrer sans aucune crainte !
 
+## Lazarus Mirage - Le site (2022) ##
+
+- [Le nouveau Site Lazarus-Mirages (2022)](https://www.lazarus-mirages.fr/)
+
+# Quelques compléments #
+
 - Pour le Dossier de presse d'origine du lancement de l’expérience, vous pouvez le télécharger [ici](https://www.lazarus-mirages.com/assets/pdf/dossier-presse-lazarus.pdf).
 - Et pour quelques détails sur les péripéties, rendez-vous [ici](http://sites.unice.fr/site/broch/Lazarus-Mirages/Lazarus.html). 
 
 ## Quelques "amis" de Lazarus ##
+
 - [Laboratoire de Zététique  &  Centre d'Analyse Zététique](http://www.unice.fr/zetetique)
 - [CORTEX: Esprit critique & sciences](https://cortecs.org/)
 - [Bruxelles Laïque](http://www.bxllaique.be/)
@@ -73,13 +78,14 @@ Je vous partage ce formidable site qui vient tout juste de renaître de ses cend
 - [Global Freedom Movement](https://globalfree.wordpress.com/)
 
 ## Quelques liens ##
+
 - [Twitter Lazarus-Mirages](https://twitter.com/Lazarus_mirages)
 - [Blog Libération Lazarus (archive 2014)](https://web.archive.org/web/20140406222321/http://lazarus.blogs.liberation.fr/)
 - [Blog OWNI Lazarus (archive 2013)](https://web.archive.org/web/20130911204840/http://lazarus.owni.fr/)
 
 ...Plus à venir...
 
-## Expérience transmédia - Patric Jean ##
+# Expérience transmédia - Patric Jean #
 
 Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric Jean](https://patricjean.com/2021/12/22/lazarus-mirage/)
 
