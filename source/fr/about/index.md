@@ -5,6 +5,7 @@ comments: false
 ---
 
 **CyberMind propose des développements de logiciels libres spécifiques et des solutions de cybersécurité sur-mesure...**
+*En plus des domaines de vulgarisations techniques de conceptions de solutions innovantes...*
 
 CyberMind, c'est, surtout, mais pas que, 2 catégories :
 - pour le ["Cyber"](https://cybermind.fr/categories/Cyber/) 🤖 + 🎲 = 💡

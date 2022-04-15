@@ -5,6 +5,7 @@ comments: false
 ---
 
 **CyberMind propose specific free softwares developments and custom CyberSecurity solutions...**
+*In addition to the areas of technical popularization of innovative solution designs...*
 
 CyberMind, it is, mainly, but not only, 2 categories :
 - for the ["Cyber"](https://cybermind.fr/categories/Cyber/) 🤖 + 🎲 = 💡
