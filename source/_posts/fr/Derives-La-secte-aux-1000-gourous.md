@@ -57,8 +57,6 @@ Aujourd'hui !
 
 {% youtuber video F2RWJMN8wZQ %}
   startSeconds: 2935,
-  controls: 2,
-  privacy_mode: yes,
 {% endyoutuber %}
 
 [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/)
@@ -72,8 +70,6 @@ L'Univers a parlé — SCOOP ! 6
 
 {% youtuber video bB1JuDaC9Kk %}
   startSeconds: 150,
-  controls: 2,
-  privacy_mode: yes,
 {% endyoutuber %}
 
 De la spiritualité et du drame. 
