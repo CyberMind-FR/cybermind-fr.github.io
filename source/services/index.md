@@ -14,4 +14,4 @@ Or for any other requests for advanced expertise in the IT field.
 
 Call us at CyberMind to study a solution adapted to your needs...
 
-Rates ~ 2.000 € \ Day (+ fees, licenses, materials)
+Rates ~ 1,500 € per Day (+ fees)
