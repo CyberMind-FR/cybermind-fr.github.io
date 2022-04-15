@@ -45,6 +45,7 @@ Je vous partage ce formidable site qui vient tout juste de renaître de ses cend
 
 > L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l'auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s'éteindre en 2020…
 <!-- more -->
+>
 > Mais grâce au superbe travail de deux chevaliers Jedi - Brendan BOBIS et Nicolas ZAGULAJEW - le site renaît aujourd'hui totalement de ses cendres et en version optimisée.
 >
 > Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement "complotiste" ayant effrayé plus d'un internaute... et y entrer sans aucune crainte !
