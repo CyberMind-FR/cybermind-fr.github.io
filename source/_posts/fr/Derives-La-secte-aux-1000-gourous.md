@@ -55,9 +55,9 @@ Aujourd'hui !
 
 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant
 
-{% youtuber video F2RWJMN8wZQ false %}
+{% youtuber video F2RWJMN8wZQ %}
   startSeconds: 2935,
-  controls: 1,
+  controls: 2,
   privacy_mode: yes,
 {% endyoutuber %}
 
@@ -70,9 +70,9 @@ Méta de Choc
 L'Univers a parlé — SCOOP ! 6
 29 janv. 2021
 
-{% youtuber video bB1JuDaC9Kk false %}
+{% youtuber video bB1JuDaC9Kk %}
   startSeconds: 150,
-  controls: 1,
+  controls: 2,
   privacy_mode: yes,
 {% endyoutuber %}
 
@@ -127,7 +127,7 @@ CCMM National
 Episode 8 - L'après secte
 Sortie le 14 mars 2022
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
-{% youtuber video 6pNkJ8RnCrs false %}
+{% youtuber video 6pNkJ8RnCrs %}
 {% endyoutuber %}
 
 # PSYCOM - les Dérives sectaires et psychiatrie (PDF)
@@ -153,7 +153,7 @@ La santé mentale et le numérique - "Exercer son esprit critique"
 5 mars 2020
 Mon Sherpa
 
-{% youtuber video R6wjZpZkNPQ false %}
+{% youtuber video R6wjZpZkNPQ %}
 {% endyoutuber %}
 
 Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.
@@ -212,7 +212,7 @@ Des millions de personnes dans le monde vivent avec la dépression. « Vivre ave
 Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
 
 « Vivre avec un chien noir »
-{% youtuber video 2VRRx7Mtep8 false %}
+{% youtuber video 2VRRx7Mtep8 %}
 {% endyoutuber %}
 
 « J'avais un chien noir, son nom était dépression »
@@ -223,7 +223,7 @@ In collaboration with WHO to mark World Mental Health Day, writer and illustrato
 [Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
 
 « J'avais un chien noir, son nom était dépression »
-{% youtuber video XiCrniLQGYc false %}
+{% youtuber video XiCrniLQGYc %}
 {% endyoutuber %}
 
 # 6 idées reçues sur la dépression (Vidéo)
@@ -233,12 +233,12 @@ Le PsyLab
 24 févr. 2017
 6 idées reçues sur la dépression
 
-{% youtuber video KMNXqj3QmxU false %}
+{% youtuber video KMNXqj3QmxU %}
 {% endyoutuber %}
 
 La vidéo de la Tronche en Biais sur les biais de confirmation:
 
-{% youtuber video 6cxEu-OP5mM false %}
+{% youtuber video 6cxEu-OP5mM %}
 {% endyoutuber %}
 
 # Imagerie fonctionnelle dans la dépression (Image)
@@ -255,7 +255,7 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)
 Scénario : Astrid Chevance et Marie-Stéphane Cattaneo 
 Réalisation : Marie-Stéphane Cattaneo
 
-{% youtuber video 2YR8J1xqDNs false %}
+{% youtuber video 2YR8J1xqDNs %}
 {% endyoutuber %}
 
 L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.
@@ -279,7 +279,7 @@ Campagne Dépression 2019 de la Fondation Pierre Deniker
 bref. 80 - Bref. J'ai fait une dépression.
 13 oct. 2017
 
-{% youtuber video DwfwmxOF_3E false %}
+{% youtuber video DwfwmxOF_3E %}
 {% endyoutuber %}
 
 <details>
@@ -287,7 +287,7 @@ bref. 80 - Bref. J'ai fait une dépression.
 Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
 14 oct. 2014
 
-{% youtuber video wdQWBWaymt0 false %}
+{% youtuber video wdQWBWaymt0 %}
 {% endyoutuber %}
 </details>
 
@@ -343,7 +343,7 @@ Diffusée en direct le 20 déc. 2021
 
 Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c'est occulter une partie du réel qui nous manquerait cruellement s'il était en notre pouvoir de l'amputer (ce qui n'est pas le cas).
 
-{% youtuber video I7I8Tec1G4U false %}
+{% youtuber video I7I8Tec1G4U %}
 {% endyoutuber %}
 
 # À suivre…
