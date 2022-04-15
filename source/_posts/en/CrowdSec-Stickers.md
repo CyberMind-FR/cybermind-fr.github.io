@@ -5,6 +5,7 @@ date: 2022-03-15 09:00:00
 tags:
 - CrowdSecurity
 - CrowdSec
+- SECUBOX
 categories: Cyber
 ---
 

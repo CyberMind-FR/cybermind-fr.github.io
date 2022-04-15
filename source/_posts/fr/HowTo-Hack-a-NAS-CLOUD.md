@@ -7,6 +7,7 @@ tags:
 - Aramada
 - NAS
 - CLOUD
+- SECUBOX
 categories: Cyber
 ---
 ====== HowTo Hack a NAS CLOUD ======

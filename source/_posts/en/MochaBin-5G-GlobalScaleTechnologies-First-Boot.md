@@ -5,6 +5,8 @@ date: 2022-03-21 16:44:23
 tags:
 - MOCHAbin
 - Armada
+- SECUBOX
+categories: Cyber
 ---
 
 MOCHAbin-V1-2-0 #22 Early Bird - first tests:

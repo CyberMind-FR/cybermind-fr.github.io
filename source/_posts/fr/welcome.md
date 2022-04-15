@@ -1,9 +1,13 @@
 ---
 title: bienvenue
 date: 2022-02-19 20:00:00
-tags: news
+tags: 
+- news
+- SECUBOX
 comments: false
-categories: Cyber
+categories: 
+- Cyber
+- Mind
 ---
 
 Développement en cours…

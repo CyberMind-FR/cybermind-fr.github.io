@@ -5,3 +5,13 @@ comments: false
 ---
 
 **CyberMind propose des développements de logiciels libres spécifiques et des solutions de cybersécurité sur-mesure...**
+
+CyberMind, c'est, surtout, mais pas que, 2 catégories :
+- pour le ["Cyber"](https://cybermind.fr/categories/Cyber/) 🤖 + 🎲 = 💡
+- pour le ["Mind"](https://cybermind.fr/categories/Mind/) 🧠 + 🧩 = 👀
+- mais, CyberMind, c'est aussi, entre autres;
+  - L'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽
+  - L'analyse, (en cours) sur ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/) 🔐 & 🧭
+
+Les articles seront ajoutés et peuvent être mis à jour...
+Donc, restez à l'écoute & profitez ! (🤖 = 📻 + 🎉) & ( 🪤 + ⏳ = 🧠)

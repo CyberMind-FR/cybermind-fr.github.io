@@ -5,6 +5,7 @@ tags:
 - news
 - CrowdSecurity
 - CrowdSec
+- SECUBOX
 categories: Cyber
 ---
 
