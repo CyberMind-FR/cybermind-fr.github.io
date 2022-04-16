@@ -451,7 +451,7 @@ Ou pas.
   <summary>Cliquer pour afficher les détails de l'article…</summary>
 
 Article de l'AFIS (Association Française pour l’Information Scientifique)[Les émotions sont-elles rationnelles ?](https://afis.org/https://www.afis.org/Les-emotions-sont-elles-rationnelles)
->* Article paru dans la revue « Science et pseudo-sciences » n°338 d'octobre 2021, désormais en ligne, en accès libre.
+>* Article paru dans la revue n°338 d'octobre 2021.
 >* Publié en ligne le 9 avril 2022
 >* AFIS-SCIENCE
 >* Association Française pour l’Information Scientifique
@@ -462,7 +462,7 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 >* [@Acermendax](https://twitter.com/Acermendax)
 
 {% twitter 1513524016945917963 afis_science %}
-<details>
+</details>
 
 ### RAISON versus EMOTION (Vidéo La Tronche en Biais) ###
 
