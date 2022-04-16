@@ -265,9 +265,6 @@ Visiter le site [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?ta
 >"La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité"
 >Constitution de l’Organisation mondiale de la santé (OMS)
 
-Pour plus d'informations sur la santé mentale, veuillez visiter : 
-[Une base d’informations accessibles au grand public de l’OMS sur la dépression](https://www.who.int/fr/health-topics/depression)
-
 >Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu'il faut faire, ce qu'il ne faut pas faire et où aller pour obtenir de l'aide.
 <details>
   <summary>Cliquer pour afficher les vidéos…</summary>
@@ -299,6 +296,9 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 {% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}
 Visister le site de [Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
 </details>
+
+Pour plus d'informations sur la santé mentale, veuillez visiter : 
+[Une base d’informations accessibles au grand public de l’OMS sur la dépression](https://www.who.int/fr/health-topics/depression)
 
 ## 6 idées reçues sur la dépression (Vidéos Psychoptik & La tronche en Biais) ##
 
@@ -407,27 +407,26 @@ Mais, pas que…
 
 <details>
   <summary>Clicker pour afficher les réponses des candidats</summary>
-Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues
+Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues:
 <details>
+- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
   <summary>Clicker pour afficher les réponses des candidats</summary>
 {% pdf "https://www.afis.org/IMG/pdf/macron_emmanuel.pdf" %}
-</details>
-- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
-<details>
-  <summary>Clicker pour afficher les réponses des candidats</summary>
-{% pdf "https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf" %}
 </details>
 - [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
 <details>
   <summary>Clicker pour afficher les réponses des candidats</summary>
-{% pdf "https://www.afis.org/IMG/pdf/roussel_fabien.pdf" %}
+{% pdf "https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf" %}
 </details>
 - [Fabien Roussel](https://www.afis.org/IMG/pdf/roussel_fabien.pdf)
 <details>
-  <summary>Clicker pour afficher la réponse de Jean-Luc Mélenchon</summary>
-{% pdf "https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf" %}
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+{% pdf "https://www.afis.org/IMG/pdf/roussel_fabien.pdf" %}
 </details>
 - [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
+<details>
+  <summary>Clicker pour afficher la réponse de Jean-Luc Mélenchon</summary>
+{% pdf "https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf" %}
 </details>
 </details>
 
