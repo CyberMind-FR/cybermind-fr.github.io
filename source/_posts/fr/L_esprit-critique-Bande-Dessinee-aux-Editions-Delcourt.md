@@ -2,7 +2,7 @@
 title: L’esprit critique - Bande Dessinée aux Éditions Delcourt
 lang: fr
 date: 2022-04-16 00:00:00
-author: 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F)
+author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
 - zététique
 - sceptique
