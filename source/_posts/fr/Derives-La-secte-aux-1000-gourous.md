@@ -151,7 +151,7 @@ Accéder au sondage ["Les Français et le phénomène sectaire (Sondage ODOXA po
 
 # S'en sortir ! (1/2) - Se libérer de l'emprise #
 
-## L'après secte (Vidéo CCMM)##
+## L'après secte (Vidéo CCMM) ##
 
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
 
