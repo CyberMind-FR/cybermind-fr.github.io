@@ -87,6 +87,8 @@ Je vous partage ce formidable site qui vient tout juste de renaître de ses cend
 # Expérience transmédia - Patric Jean #
 
 Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric Jean](https://patricjean.com/2021/12/22/lazarus-mirage/)
+<details>
+  <summary>Cliquer pour afficher les détails…</summary>
 
 > Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.
 >
@@ -102,3 +104,4 @@ Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric 
 
 [Lire la suite sur le site de Patric Jean (et accéder aux contenu)...](https://patricjean.com/2021/12/22/lazarus-mirage/)
 
+</details>

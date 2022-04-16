@@ -18,6 +18,8 @@ tags:
 - LSA1KG
 - Spiritualité
 - Enfantcristal
+- Santé
+- LesConseilsduPsy
 categories: Mind
 ---
 
@@ -147,20 +149,23 @@ Accéder au sondage ["Les Français et le phénomène sectaire (Sondage ODOXA po
 
 [Lire l'article complet](https://www.francetvinfo.fr/replay-radio/c-est-ma-sante/soins-non-conventionnels-des-derives-inquietantes_5005274.html)
 
-# S'en sortir ! #
+# S'en sortir ! (1/2) - Se libérer de l'emprise #
 
 ## L'après secte (Vidéo CCMM)##
 
 Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.
 
+<details>
+  <summary>Cliquer pour afficher la vidéo…</summary>
 >* CCMM National
 >*Episode 8 - L'après secte
 >*Sortie le 14 mars 2022
 
 {% youtuber video 6pNkJ8RnCrs %}
 {% endyoutuber %}
+</details>
 
-## PSYCOM - les Dérives sectaires et psychiatrie (Guide PSYCOM) ##
+## les Dérives sectaires et psychiatrie (Guide PSYCOM) ##
 
 Guide **"les Dérives sectaires et psychiatrie"** de la collection ***"Droits en Psychiatrie"*** 
 
@@ -171,153 +176,192 @@ Guide **"les Dérives sectaires et psychiatrie"** de la collection ***"Droits en
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Derives-sectaires-et-psychiatrie-2022.pdf" %}
 </details>
 
-# PSYCOM - Exercer son esprit critique (Guide PSYCOM)
+## Exercer son esprit critique (Guides PSYCOM) ##
 
 Guide **"Exercer son esprit critique"** de la collection ***"La santé mentale et le numérique"***
+
+{% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - La santé mentale et le numérique - Psycom - Santé Mentale Info.png" 890 431 %}
 
 <details>
   <summary>Cliquer pour afficher le PDF…</summary>
 >* 22 février 2022
 
-{% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - La santé mentale et le numérique - Psycom - Santé Mentale Info.png" 890 431 %}
+{% pdf "/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" %}
 </details>
 
-<details>
-  <summary>Cliquer pour afficher le PDF…</summary>
-{% pdf "/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" %}
+# S'en sortir ! (2/2) - Comprendre & soigner la dépression #
 
-# Christophe André - 3 conseils pour traverser une dépression (Vidéo)
-
-#Dépression #Santé #LesConseilsduPsy
-3 conseils pour traverser une dépression
-5 mars 2020
-Mon Sherpa
-
-{% youtuber video R6wjZpZkNPQ %}
-{% endyoutuber %}
+## Christophe André - 3 conseils pour traverser une dépression (Vidéo) ##
 
 Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.
 "Le premier point à rappeler par rapport à la dépression, c'est que c'est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments."
+
+<details>
+  <summary>Cliquer pour afficher les conseils & la Vidéo…</summary>
 
 3 conseils pour traverser une dépression:
 - Conseil 1 : Ne pas rester inactif face à la dépression.
 - Conseil 2 : Bien choisir son entourage.
 - Conseil 3 : Maîtriser ses ruminations.
 
-# Que Choisir Santé - DÉPRESSION - Comment faire face (Article)
+>* #Dépression #Santé #LesConseilsduPsy
+>* 3 conseils pour traverser une dépression
+>* 5 mars 2020
+>* Mon Sherpa
 
-{% img "/uploads/images/LaSecteAux1000Gourous/QCSanté-163-202109.png" 266 363 %}
+{% youtuber video R6wjZpZkNPQ %}
+{% endyoutuber %}
+</details>
+
+## Comment faire face à la dépression (Article Que Choisir Santé) ##
 
 [Que Choisir Santé N° 163 - septembre 2021](https://kiosque.quechoisir.org/magazine-sante-quechoisir-163-septembre-2021/)
 
-# ARTE Alternatives - la dépression (Vidéo)
+{% img "/uploads/images/LaSecteAux1000Gourous/QCSanté-163-202109.png" 266 363 %}
 
-ARTE Alternatives - Web-magazine de solutions
-No.2 : la dépression
+## La dépression (Vidéo ARTE Alternatives) ##
+
 Et si on changeait de perspective pour parler des problèmes du monde ? Sans tomber dans l’optimisme forcené, on vous fait rencontrer ici des citoyens qui se battent à leur échelle pour un monde plus sain. On vous trouve des solutions, des alternatives, sur tous les sujets. 
-Pour ce second numéro, on a choisi un thème peu positif a priori : la dépression.
-[Web-magazine de solutions : No.2 : la dépression (Arte)](https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/)
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
 
-Les aidants : soutenir, tenir et guérir
+Pour ce second numéro, on a choisi un thème peu positif a priori : la dépression.
+
+>* ARTE Alternatives - Web-magazine de solutions
+>* No.2 : la dépression
+
+[Web-magazine de solutions : No.2 : la dépression (Arte)](https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/)
+<details>
+
 Comment soutenir un ami, un compagnon ou un frère dépressif ?
 Pudiques, des "aidants", comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
+
+Les aidants : soutenir, tenir et guérir
 [Les aidants : soutenir, tenir et guérir (Arte)](https://www.arte.tv/fr/videos/081327-081-A/les-aidants-soutenir-tenir-et-guerir/)
+</details>
 
-# MONPSY.SANTE.GOUV.FR (Site)
+## Découvrir MonPsy (Site gouv.fr) ##
 
-Depuis le 5 avril 2022
-Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.
+**Depuis le 5 avril 2022**
+***Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.***
 
 [{% img "/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" 270 270 %}](https://monpsy.sante.gouv.fr/patients "MonPsy.sante.gouv.fr - Visiter !")
 
+<details>
+  <summary>Cliquer pour afficher la vidéo de présenation…</summary>
 Découvrir MonPsy en vidéo (Durée 2 minutes)
 {% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
+</details>
 
-[MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
+Visiter le site [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
 
-# Vivre avec un chien noir (Vidéo)
+# Briser les tabous - Comprendre la dépresion #
 
-"La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité"
-Constitution de l’Organisation mondiale de la santé (OMS)
+## Vivre avec un chien noir (Vidéo OMS) ##
+
+**World Health Organization (WHO)**
+>"La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité"
+>Constitution de l’Organisation mondiale de la santé (OMS)
 
 Pour plus d'informations sur la santé mentale, veuillez visiter : 
 [Une base d’informations accessibles au grand public de l’OMS sur la dépression](https://www.who.int/fr/health-topics/depression)
 
-World Health Organization (WHO)
-4 sept. 2014
-Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu'il faut faire, ce qu'il ne faut pas faire et où aller pour obtenir de l'aide.
+>Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu'il faut faire, ce qu'il ne faut pas faire et où aller pour obtenir de l'aide.
+<details>
+  <summary>Cliquer pour afficher les vidéos…</summary>
+>
+>« Vivre avec un chien noir » fait suite à « J'ai eu un chien noir, il s'appelait dépression », qui offre des conseils pratiques pour accepter et surmonter la dépression.
+>
+>Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
 
-« Vivre avec un chien noir » fait suite à « J'ai eu un chien noir, il s'appelait dépression », qui offre des conseils pratiques pour accepter et surmonter la dépression.
-
-Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
-
-« Vivre avec un chien noir »
+<details>
+  <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
+###**« Vivre avec un chien noir »**###
+>* 4 sept. 2014
 {% youtuber video 2VRRx7Mtep8 %}
 {% endyoutuber %}
+</details>
 
-« J'avais un chien noir, son nom était dépression »
-At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
+<details>
+  <summary>Cliquer pour afficher la vidéo "J'avais un chien noir, son nom était dépression"…</summary>
+>« J'avais un chien noir, son nom était dépression »
+>At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
+>
+>In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
 
-In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
-{% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}
-[Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
-
-« J'avais un chien noir, son nom était dépression »
+###**« J'avais un chien noir, son nom était dépression »**###
 {% youtuber video XiCrniLQGYc %}
 {% endyoutuber %}
+</details>
 
-# 6 idées reçues sur la dépression (Vidéo)
+{% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}
+Visister le site de [Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
+
+## 6 idées reçues sur la dépression (Vidéos Psychoptik & La tronche en Biais) ##
 
 6 BULLSHITS sur la DÉPRESSION - PSYCHOPTIK #5
-Le PsyLab
-24 févr. 2017
-6 idées reçues sur la dépression
-
+<details>
+  <summary>Cliquer pour afficher la vidéo…</summary>
+>* Le PsyLab
+>* 24 févr. 2017
 {% youtuber video KMNXqj3QmxU %}
 {% endyoutuber %}
+
+**Comprendre les biais de confirmation**
+<details>
+  <summary>Cliquer pour afficher la vidéo de la Tronche en Biais…</summary>
 
 La vidéo de la Tronche en Biais sur les biais de confirmation:
 
 {% youtuber video 6cxEu-OP5mM %}
 {% endyoutuber %}
+</details>
+</details>
 
-# Imagerie fonctionnelle dans la dépression (Image)
+## Imagerie fonctionnelle dans la dépression (Image) ##
 
 En anglais: (A quick informative overview of the biology behind depression)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" 400 400 "Imagerie fonctionnelle dans la dépression" %}
 
-# La Campagne #EtToiCaVa (Vidéo)
+## La Campagne #EtToiCaVa (Fondation Pierre Deniker)##
+
+### La Campagne #EtToiCaVa (Vidéo)###
 
 Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)
 
-#EtToiCaVa - Et toi ça va ? (Le court-métrage)
-Scénario : Astrid Chevance et Marie-Stéphane Cattaneo 
-Réalisation : Marie-Stéphane Cattaneo
+> L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.
+
+> La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.
+
+>* #EtToiCaVa - Et toi ça va ? (Le court-métrage)
+>* Scénario : Astrid Chevance et Marie-Stéphane Cattaneo 
+>* Réalisation : Marie-Stéphane Cattaneo
 
 {% youtuber video 2YR8J1xqDNs %}
 {% endyoutuber %}
 
-L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.
+### Campagne Dépression #EtToiCaVa (Site) ###
 
-La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.
+**#EtToiCaVa - Et toi ça va ?**
+***Campagne Dépression 2019 de la Fondation Pierre Deniker***
 
-# Campagne Dépression #EtToiCaVa (Site)
-
-Campagne Dépression 2019 de la Fondation Pierre Deniker
-
-#EtToiCaVa - Et toi ça va ?
+<details>
+  <summary>Cliquer pour afficher la vidéo de la campagne…</summary>
 
 [Campagne Dépression de la Fondation Pierre Deniker "Ensemble, parlons de la dépression."](https://fondationpierredeniker.org/sensibilisation/et-toi-ca-va/)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - Santé mentale - Fondation Pierre Deniker (zoom).png" 628 458 '"Santé mentale - Fondation Pierre Deniker" "Santé mentale - Fondation Pierre Deniker (statistiques)"' %}
 
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" %}
+</details>
 
-#  Bref. #80 - Bref. J'ai fait une dépression. (Vidéo)
+## En rire avec Bref. #80 - Bref. J'ai fait une dépression. (Vidéo) ##
 
-bref. 80 - Bref. J'ai fait une dépression.
-13 oct. 2017
+>* bref. 80 - Bref. J'ai fait une dépression.
+>* 13 oct. 2017
 
 {% youtuber video DwfwmxOF_3E %}
 {% endyoutuber %}
@@ -331,22 +375,28 @@ Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref
 {% endyoutuber %}
 </details>
 
-# Élections 2022 (demain 1/2 tour) (Site)
+# Conclusion #
+
+**Enfin la liberté ?**
+
+<details>
+  <summary>Cliquer pour afficher le contenu…</summary>
+
+# Persévérer - Après (1/4) - Les doutes & la solitude #
+
+## Actualité ##
+
+### Élections 2022 (demain 1/2 tour) (AFIS) ###
 
 [Élection présidentielle 2022 : les réponses des candidats aux questions de l’Afis](https://afis.org/Election-presidentielle-2022-les-reponses-des-candidats-aux-questions-de-l-Afis)
-Publié en ligne le 13 mars 2022
-Mise à jour le 8 avril 2022
-AFIS-SCIENCE
-Association Française pour l’Information Scientifique
+>* Publié en ligne le 13 mars 2022
+>* Mise à jour le 8 avril 2022
+>* AFIS-SCIENCE
+>* Association Française pour l’Information Scientifique
 
-# Les réponses des candidats (PDF)
+#### Les réponses des candidats (PDF) ####
 
-Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues
-- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
-- [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
-- [Fabien Roussel](https://www.afis.org/IMG/pdf/roussel_fabien.pdf)
-- [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
-
+**L'Afis a envoyé une liste de questions aux candidats pour la présidentielle 2022.**
 4 seulement ont répondus !
 4 seulement !
 Mais…
@@ -354,22 +404,51 @@ C'est assez intéressant de voir le niveau des réponses…
 De compétence(s)…
 Mais, pas que…
 
-# New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+{% pdf "https://www.afis.org/IMG/pdf/macron_emmanuel.pdf" %}
+</details>
+- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+{% pdf "https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf" %}
+</details>
+- [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+{% pdf "https://www.afis.org/IMG/pdf/roussel_fabien.pdf" %}
+</details>
+- [Fabien Roussel](https://www.afis.org/IMG/pdf/roussel_fabien.pdf)
+<details>
+  <summary>Clicker pour afficher la réponse de Jean-Luc Mélenchon</summary>
+{% pdf "https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf" %}
+</details>
+- [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
+</details>
+
+# Persévérer - Après (2/4) - Les confirmations & les libérations #
+
+## New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence) ##
 
 MétaDeChoc d'Élisabeth Feytit, relire le premier article sur **LSA1KG**, l'article [MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…](https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/)
 >* Publié le 14 Mars 2022
 
 >Et même si vous n’êtes pas un "adepte" de la "secte au 1.000 gourous" [#LSA1KG](https://twitter.com/hashtag/LSA1KG) (™ & © ME)
 
-# Les émotions #
+# Persévérer - Après (3/4) - Les recherches & les associations #
 
-## Les émotions sont-elles rationnelles (Article AFIS)##
+## Les émotions ##
+
+### Les émotions sont-elles rationnelles (Article AFIS) ###
 
 >Le doux rêve des zététiciens serait un monde où la raison règne en maîtresse, débarrassée des vilaines émotions, archaïsmes organiques.
 Ou pas. 
-
 <details>
   <summary>Cliquer pour afficher les détails de l'article…</summary>
+
 Article de l'AFIS (Association Française pour l’Information Scientifique)[Les émotions sont-elles rationnelles ?](https://afis.org/https://www.afis.org/Les-emotions-sont-elles-rationnelles)
 >* Article paru dans la revue « Science et pseudo-sciences » n°338 d'octobre 2021, désormais en ligne, en accès libre.
 >* Publié en ligne le 9 avril 2022
@@ -384,12 +463,12 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 {% twitter 1513524016945917963 afis_science %}
 <details>
 
-## RAISON versus EMOTION (Vidéo La Tronche en Biais) ##
+### RAISON versus EMOTION (Vidéo La Tronche en Biais) ###
 
 >Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c'est occulter une partie du réel qui nous manquerait cruellement s'il était en notre pouvoir de l'amputer (ce qui n'est pas le cas).
-
 <details>
   <summary>Cliquer pour afficher le Vidép…</summary>
+
 >* La Tronche en Biais
 >* TenL#107
 >* Diffusée en direct le 20 déc. 2021
@@ -398,10 +477,15 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 {% endyoutuber %}
 </details>
 
-# À suivre… #
+# Persévérer - Après (4/4) - La reconstrucion & la liberté #
 
+## Pour approfondir ici & ailleurs ! ##
+
+- Sur les sujets de la [**Zététique**](https://cybermind.fr/tags/zetetique/)
+- …
 <details>
-  <summary>Cliquer pour afficher les compléments…</summary>
+  <summary>Cliquer pour afficher d'autres compléments…</summary>
+
 À suivre… -> [#LaSecteAux1000Gourous@CyberMindFR](https://cybermind.fr/tags/LaSecteAux1000Gourous/)
 [#LaSecteAux1000Gourous](https://twitter.com/hashtag/LaSecteAux1000Gourous?src=hashtag_click)
 [@CyberMindFR](https://twitter.com/CyberMindFR)
@@ -409,7 +493,9 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 {% twitter 1512782498840854530 %}
 </details>
 
-## Pour approfondir ! ##
+## À suivre sur @CyberMindFR… ##
 
-- Sur les sujets de la [**Zététique**](https://cybermind.fr/tags/zetetique/)
+- D'autres billets suivront sur ce journal à propos de ["La Secte Aux 1.000 Gourous" !](tps://cybermind.fr/tags/LS1AKG/)
 - …
+
+</details>
