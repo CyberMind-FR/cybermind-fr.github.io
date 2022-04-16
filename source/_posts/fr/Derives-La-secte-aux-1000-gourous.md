@@ -298,6 +298,7 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 
 {% img "/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" 283 52 %}
 Visister le site de [Matthew Jon Stone - WebSite](http://matthewjohnstone.com.au/ "Matthew Jon Stone - Click to Visit!")
+</details>
 
 ## 6 idées reçues sur la dépression (Vidéos Psychoptik & La tronche en Biais) ##
 
