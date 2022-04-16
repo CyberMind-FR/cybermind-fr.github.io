@@ -181,11 +181,10 @@ Guide **"les Dérives sectaires et psychiatrie"** de la collection ***"Droits en
 
 Guide **"Exercer son esprit critique"** de la collection ***"La santé mentale et le numérique"***
 
-{% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - La santé mentale et le numérique - Psycom - Santé Mentale Info.png" 890 431 %}
-
 <details>
   <summary>Cliquer pour afficher le PDF…</summary>
 >* 22 février 2022
+{% img "/uploads/images/LaSecteAux1000Gourous/Screenshot - La santé mentale et le numérique - Psycom - Santé Mentale Info.png" 890 431 %}
 
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" %}
 </details>
