@@ -21,16 +21,16 @@ categories:
 ---
 
 Merci à l'[Afis Science - Association française pour l’information scientifique](https://www.afis.org/) et à [Kévin Moris](https://www.afis.org/Kevin-Moris) grace à qui j'ai pu découvrir une formidable bande dessinée [L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)](https://www.afis.org/L-esprit-critique-5140)
->* L’esprit critique*
->* Publié en ligne le 3 avril 2022 *
+>* *L’esprit critique*
+>* *Publié en ligne le 3 avril 2022 *
 
 > L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée
 > La lecture est très utile pour une initiation à l'esprit critique dès le lycée. Et on pourra se référer à d'autres livres ou sites Internet qui sont proposés en fin d'ouvrage.
 <!-- more -->
 
 [**L’esprit critique**](https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique/album-l-esprit-critique)
->* Isabelle Bauthian (scénario), Gally (dessin)*
->* Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €*
+>* *Isabelle Bauthian (scénario), Gally (dessin)*
+>* *Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €*
 
 Je vous conseil vraiment la lecture de cette ouvrage qui n'a rien à envier des longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
 Le propos ici est serein et amusant.
@@ -40,7 +40,7 @@ C'est aussi, peut-être, une belle solution pour accueillir à nouveau quelques 
 Car plutôt que de chercher pourquoi se confondre dans les directions, les volontés, les émotions, les pensées.
 Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.
 
-![L’esprit critique](/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg){ width=100%,height:100% }
+![L’esprit critique](/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg)
 
 >Merci à l'AFIS.
 >Merci à Kévin Moris.
