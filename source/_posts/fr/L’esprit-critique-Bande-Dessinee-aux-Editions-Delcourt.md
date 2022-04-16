@@ -40,7 +40,7 @@ Merci à l'[Afis Science - Association française pour l’information scientifi
   <summary>Cliquer pour afficher l'extrait PDF…</summary>
 En attendant, voici déjà un extrait:
 
-{% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique.pdf" %}
+{% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" %}
 
 Je vous conseil vraiement la lecture de cette ouvrage qui n'a rien à envier des longues proses innaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
 Le propos ici est serein et amusant.
