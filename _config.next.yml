@@ -218,7 +218,7 @@ footer:
     color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright: 🧙 -- [Gandalf (from "The Conjurers")]
+  copyright: 🧙 -- Gandalf (from "The Conjurers")
 
   # Powered by Hexo & NexT
   powered: true

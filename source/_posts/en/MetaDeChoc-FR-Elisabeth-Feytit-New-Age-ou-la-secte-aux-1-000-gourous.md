@@ -2,7 +2,7 @@
 title: 'MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…'
 lang: en
 date: 2022-03-14 18:00:01
-author: Gandalf (from "The Conjurers")
+author: 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F)
 tags:
 - podcast
 - zététique
