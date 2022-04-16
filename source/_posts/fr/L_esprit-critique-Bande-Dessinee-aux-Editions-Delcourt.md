@@ -15,6 +15,8 @@ tags:
 - Bande Dessinée
 - Esprit critique
 - pseudoscience
+- LSA1KG
+- The Conjurers
 categories:
 - Mind
 - Livres
