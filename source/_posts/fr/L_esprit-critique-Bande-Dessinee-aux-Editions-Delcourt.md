@@ -24,9 +24,9 @@ categories:
 
 # Introduction - Pourquoi LSA1KG ?
 
-Ma compagne me questionnait récemment, après la découvert du monde de la zététique, de la necessité de son enseignement, pour les enfants entre autres. Je crois que c'est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois, zététique.
-C'est ce qui m'a motivé personnellement ou m'a excusé devrais-je avouer, à me plonger profondément et intéssement, surtout précipitemment, dans une adhésion aux croyances new-age, dites spirituelles.
-J'ai faillit oublier que la Magie est personnelle, qu'elle doit rester intime. Enfin, ce n'est qu'une opinion personnelle qui n'engage que moi et qui, surtout, ne veut s'imposer à personne.
+Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c'est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.
+C'est ce qui m'a motivé personnellement ou m'a excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.
+J'ai failli oublier que la Magie est personnelle, qu'elle doit rester intime. Enfin, ce n'est qu'une opinion personnelle qui n'engage que moi et qui, surtout, ne veut s'imposer à personne.
 
 # Vulgarisation Zététique
 
