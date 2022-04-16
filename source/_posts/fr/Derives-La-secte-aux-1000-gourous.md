@@ -2,6 +2,7 @@
 title: Dérives - La secte aux 1000 gourous
 lang: fr
 date: 2022-04-09 19:30:00
+author: Gandalf (from "The Conjurers")
 tags:
 - Dérives sectaires
 - Médecines alternatives
@@ -13,14 +14,13 @@ tags:
 - Gourou
 - zététique
 - Sceptique
-- LaSecteAux1000Gourous
-- #LaSecteAux1000Gourous
 - LSA1KG
 - Spiritualité
 - Enfantcristal
 - Santé
 - LesConseilsduPsy
 - The Conjurers
+- LSA1KG
 categories: Mind
 ---
 
@@ -490,15 +490,17 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 
 À suivre… -> [#LaSecteAux1000Gourous@CyberMindFR](https://cybermind.fr/tags/LaSecteAux1000Gourous/)
 [#LaSecteAux1000Gourous](https://twitter.com/hashtag/LaSecteAux1000Gourous?src=hashtag_click)
-[@CyberMindFR](https://twitter.com/CyberMindFR)
 
+[@CyberMindFR](https://twitter.com/CyberMindFR)
 {% twitter 1512782498840854530 %}
 </details>
 
-## À suivre sur @CyberMindFR… ##
+# À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront sur ce journal à propos de ["La Secte Aux 1.000 Gourous" !](tps://cybermind.fr/tags/LS1AKG/)
+- D'autres billets suivront sur ce journal à propos de ["La Secte Aux 1.000 Gourous" ! (À suivre…) -> #LSA1KG](https://cybermind.fr/tags/LSA1KG/)
 - …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
 </details>
 
