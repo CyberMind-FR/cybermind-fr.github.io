@@ -37,8 +37,8 @@ Merci à l'[Afis Science - Association française pour l’information scientifi
 [Peut-être une série à venir ?](https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique)
 
 <details>
-  <summary>Cliquer pour afficher l'extrait PDF…</summary>
-En attendant, voici déjà un extrait:
+  <summary>Cliquer pour afficher un extrait PDF…</summary>
+En attendant, voici déjà l'extrait:
 
 {% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" %}
 
@@ -59,4 +59,4 @@ Un idéal pouura apparaître à justement reprendre la force du doute et le pouv
 >Merci à L'ESPRIT CRITIQUE.
 </details>
 
-et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET!"**
+et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET !"**
