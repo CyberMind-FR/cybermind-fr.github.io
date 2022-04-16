@@ -276,9 +276,9 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 >
 >Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
 
+###**"Vivre avec un chien noir"**###
 <details>
   <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
-###**« Vivre avec un chien noir »**###
 >* 4 sept. 2014
 {% youtuber video 2VRRx7Mtep8 %}
 {% endyoutuber %}
@@ -291,7 +291,7 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 >
 >In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
 
-###**« J'avais un chien noir, son nom était dépression »**###
+###**"J'avais un chien noir, son nom était dépression"**###
 {% youtuber video XiCrniLQGYc %}
 {% endyoutuber %}
 </details>
