@@ -276,7 +276,7 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 >
 >Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
 
-###**"Vivre avec un chien noir"**###
+### **"Vivre avec un chien noir"** ###
 <details>
   <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
 >* 4 sept. 2014
@@ -291,7 +291,7 @@ Pour plus d'informations sur la santé mentale, veuillez visiter :
 >
 >In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
 
-###**"J'avais un chien noir, son nom était dépression"**###
+### **"J'avais un chien noir, son nom était dépression"** ###
 {% youtuber video XiCrniLQGYc %}
 {% endyoutuber %}
 </details>
@@ -327,9 +327,9 @@ En anglais: (A quick informative overview of the biology behind depression)
 
 {% img "/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" 400 400 "Imagerie fonctionnelle dans la dépression" %}
 
-## La Campagne #EtToiCaVa (Fondation Pierre Deniker)##
+## La Campagne #EtToiCaVa (Fondation Pierre Deniker) ##
 
-### La Campagne #EtToiCaVa (Vidéo)###
+### La Campagne #EtToiCaVa (Vidéo) ###
 
 Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)
 
