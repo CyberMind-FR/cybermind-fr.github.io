@@ -497,7 +497,7 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront sur ce journal à propos de ["La Secte Aux 1.000 Gourous" ! (À suivre…) -> #LSA1KG](https://cybermind.fr/tags/LSA1KG/)
+- D'autres billets suivront à propos de ["La Secte Aux 1.000 Gourous" ! (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/)
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
