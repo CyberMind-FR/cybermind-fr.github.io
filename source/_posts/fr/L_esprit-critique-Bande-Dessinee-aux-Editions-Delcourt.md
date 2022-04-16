@@ -22,7 +22,7 @@ categories:
 
 Merci à l'[Afis Science - Association française pour l’information scientifique](https://www.afis.org/) et à [Kévin Moris](https://www.afis.org/Kevin-Moris) grace à qui j'ai pu découvrir une formidable bande dessinée [L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)](https://www.afis.org/L-esprit-critique-5140)
 >* *L’esprit critique*
->* *Publié en ligne le 3 avril 2022 *
+>* *Publié en ligne le 3 avril 2022*
 
 > L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée
 > La lecture est très utile pour une initiation à l'esprit critique dès le lycée. Et on pourra se référer à d'autres livres ou sites Internet qui sont proposés en fin d'ouvrage.
