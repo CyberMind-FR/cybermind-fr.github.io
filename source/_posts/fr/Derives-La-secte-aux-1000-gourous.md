@@ -193,8 +193,8 @@ Guide **"Exercer son esprit critique"** de la collection ***"La santé mentale e
 
 ## Christophe André - 3 conseils pour traverser une dépression (Vidéo) ##
 
-Les Conseils du Psy : le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.
-"Le premier point à rappeler par rapport à la dépression, c'est que c'est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments."
+**Les Conseils du Psy :** ***le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.***
+> "Le premier point à rappeler par rapport à la dépression, c'est que c'est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments."
 
 <details>
   <summary>Cliquer pour afficher les conseils & la Vidéo…</summary>
