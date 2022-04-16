@@ -32,23 +32,15 @@ Merci à l'[Afis Science - Association française pour l’information scientifi
 >* Isabelle Bauthian (scénario), Gally (dessin)*
 >* Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €*
 
-![L’esprit critique](/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg){ width=100%,height:100% }
-
-[Peut-être une série à venir ?](https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique)
-
-<details>
-  <summary>Cliquer pour afficher un extrait PDF…</summary>
-En attendant, voici déjà l'extrait:
-
-{% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" %}
-
-Je vous conseil vraiement la lecture de cette ouvrage qui n'a rien à envier des longues proses innaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
+Je vous conseil vraiment la lecture de cette ouvrage qui n'a rien à envier des longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
 Le propos ici est serein et amusant.
 Il cherche à concilier les mondes spirituels et raisonnables dans leurs théories mutuelles.
 C'est le seul moyen pour entamer comprendre l'esprit critique et les croyances des zététiciens autant que l'intérêt de leurs pratiques.
-C'est aussi, peut-être, une belle solution pour acceuillir à nouveau quelques âmes perdues le long des chemins de traverses.
+C'est aussi, peut-être, une belle solution pour accueillir à nouveau quelques âmes perdues le long des chemins de traverses.
 Car plutôt que de chercher pourquoi se confondre dans les directions, les volontés, les émotions, les pensées.
-Un idéal pouura apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.
+Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.
+
+![L’esprit critique](/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg){ width=100%,height:100% }
 
 >Merci à l'AFIS.
 >Merci à Kévin Moris.
@@ -57,6 +49,14 @@ Un idéal pouura apparaître à justement reprendre la force du doute et le pouv
 >Merci à Gally.
 >Merci à Paul.
 >Merci à L'ESPRIT CRITIQUE.
+
+[Peut-être une série à venir ?](https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique)
+
+<details>
+  <summary>Cliquer pour afficher un extrait PDF…</summary>
+En attendant, voici déjà l'extrait:
+
+{% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" %}
 </details>
 
 et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET !"**
