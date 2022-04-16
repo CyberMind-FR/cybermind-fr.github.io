@@ -231,7 +231,7 @@ Pour ce second numéro, on a choisi un thème peu positif a priori : la dépress
 >* No.2 : la dépression
 
 [Web-magazine de solutions : No.2 : la dépression (Arte)](https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/)
-<details>
+</details>
 
 Comment soutenir un ami, un compagnon ou un frère dépressif ?
 Pudiques, des "aidants", comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.
