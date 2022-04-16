@@ -429,6 +429,7 @@ Par ordre chronologique de réception. Mise à jour à mesure des réponses reç
 </details>
 - [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
 </details>
+</details>
 
 # Persévérer - Après (2/4) - Les confirmations & les libérations #
 
