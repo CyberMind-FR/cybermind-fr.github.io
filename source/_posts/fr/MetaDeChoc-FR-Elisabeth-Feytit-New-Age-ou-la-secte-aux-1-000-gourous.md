@@ -9,6 +9,7 @@ tags:
 - LaSecteAux1000Gourous
 - #LaSecteAux1000Gourous
 - LSA1KG
+- The Conjurers
 categories: Mind
 ---
 
@@ -42,3 +43,7 @@ Mon florilège:
 
 À suivre…
 #LaSecteAux1000Gourous
+
+⚠️ Attention, cette page risques d'être mise à jour régulièrement ! 👀
+
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

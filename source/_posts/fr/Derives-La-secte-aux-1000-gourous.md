@@ -20,6 +20,7 @@ tags:
 - Enfantcristal
 - Santé
 - LesConseilsduPsy
+- The Conjurers
 categories: Mind
 ---
 
@@ -500,3 +501,5 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 - …
 
 </details>
+
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

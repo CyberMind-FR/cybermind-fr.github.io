@@ -81,4 +81,4 @@ et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET
 
 Je vais terminer la lecture, avant !
 
-🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F)
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022
