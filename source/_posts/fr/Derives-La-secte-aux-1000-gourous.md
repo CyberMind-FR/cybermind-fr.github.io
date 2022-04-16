@@ -24,7 +24,7 @@ tags:
 categories: Mind
 ---
 
-**#LaSecteAux1000Gourous (LSA1KG)**
+**#LaSecteAux1000Gourous (#LSA1KG)**
 
 # Introduction (Journal) #
 
@@ -41,7 +41,7 @@ C'est un soir de début de confinement de COVID, lors d'une promenade en amoureu
 Elle m'a brusquement demandé d'arrêter et de vite changer de sujet car je lui faisait peur avait-t-elle précisé alors !
 *Elle avait raison, car c'est pour le moins effrayant, surtout de constater qu'aujourd'hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d'office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse **et** à une Terre plate ! Quand vous devez voir l'invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d'air seulement et qu'il est impératif de soumettre votre mental.*
 
-##**STOP**##
+## **STOP** ##
 <!-- more -->
 
 ***Je suis un fervent défenseur de la Liberté, des Libertés.***
