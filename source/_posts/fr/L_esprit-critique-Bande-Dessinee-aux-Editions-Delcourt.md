@@ -20,6 +20,14 @@ categories:
 - Livres
 ---
 
+# Introduction - Pourquoi LSA1KG ?
+
+Ma compagne me questionnait récemment, après la découvert du monde de la zététique, de la necessité de son enseignement, pour les enfants entre autres. Je crois que c'est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois, zététique.
+C'est ce qui m'a motivé personnellement ou m'a excusé devrais-je avouer, à me plonger profondément et intéssement, surtout précipitemment, dans une adhésion aux croyances new-age, dites spirituelles.
+J'ai faillit oublier que la Magie est personnelle, qu'elle doit rester intime. Enfin, ce n'est qu'une opinion personnelle qui n'engage que moi et qui, surtout, ne veut s'imposer à personne.
+
+# Vulgarisation Zététique
+
 Merci à l'[Afis Science - Association française pour l’information scientifique](https://www.afis.org/) et à [Kévin Moris](https://www.afis.org/Kevin-Moris) grace à qui j'ai pu découvrir une formidable bande dessinée [L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)](https://www.afis.org/L-esprit-critique-5140)
 >* *L’esprit critique*
 >* *Publié en ligne le 3 avril 2022*
@@ -27,6 +35,8 @@ Merci à l'[Afis Science - Association française pour l’information scientifi
 > L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée
 > La lecture est très utile pour une initiation à l'esprit critique dès le lycée. Et on pourra se référer à d'autres livres ou sites Internet qui sont proposés en fin d'ouvrage.
 <!-- more -->
+
+## Une bande dessinnée de 7 à 77 ans
 
 [**L’esprit critique**](https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique/album-l-esprit-critique)
 >* *Isabelle Bauthian (scénario), Gally (dessin)*
@@ -41,6 +51,8 @@ Car plutôt que de chercher pourquoi se confondre dans les directions, les volon
 Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.
 
 ![L’esprit critique](/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg)
+
+## Merci & plus encore, toujours
 
 >Merci à l'AFIS.
 >Merci à Kévin Moris.
@@ -59,4 +71,12 @@ En attendant, voici déjà l'extrait:
 {% pdf "/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" %}
 </details>
 
+## Une claque, oui, mais une qui réveil de l'éveil
+
 et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET !"**
+
+# À suivre,
+
+Je vais terminer la lecture, avant !
+
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F)

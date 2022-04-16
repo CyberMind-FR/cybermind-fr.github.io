@@ -36,6 +36,6 @@ Restez à l'écoute!
 
 🧙 N'oubliez pas, à utiliser à vos risques et périls… 😎
 
-![erdoukki's GitHub stats](https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
+![Gandalf's GitHub stats](https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
 
-![erdoukki's GitHub langs stats](https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
+![Gandalf's GitHub langs stats](https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham)
