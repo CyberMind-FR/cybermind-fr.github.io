@@ -69,9 +69,9 @@ Aujourd'hui !
 {% youtuber video F2RWJMN8wZQ %}
   startSeconds: 2935,
 {% endyoutuber %}
-</details>
 
 Pour l'article [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.fr/podcast/confidences-dune-ex-gourou/) complet avec les références sur MétaDeChoc.
+</details>
 
 ## La (re)Chute - L'Univers a parlé - Ex-Ex-Gourou (Vidéo MétaDeChoc) ##
 
@@ -90,9 +90,9 @@ Pour l'article [SHOCKING #6 - Confidences d’une ex-gourou](https://metadechoc.
 
 >De la spiritualité et du drame. 
 >Des révélations en veux-tu en voilà. 
-</details>
 
 Pour l'article [SCOOP ! #6 - L'Univers a parlé](https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/) complet avec les références sur MétaDeChoc.
+</details>
 
 # Dérives #
 ## Dérives sectaires en santé : une période de crise (Article CCMM) ##
@@ -109,9 +109,8 @@ Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un dom
 
 {% pdf "/uploads/images/LaSecteAux1000Gourous/guide_sante_mars_2018_web.pdf" %}
 
-</details>
-
 [Atteinte aux Droits Humains, CCMM, covid et santé mentale, emprise mentale, EXERCICE ILLEGAL DE LA MEDECINE, lutte contre l'emprise mentale et les dérives sectaires, Manipulation mentale, Santé et bien-être, sectes et covid](https://www.ccmm.asso.fr/derives-sectaires-en-sante-une-periode-de-crise/)
+</details>
 
 ## Les Français et le phénomène sectaire (Sondage UNADFI) ##
 
@@ -124,8 +123,8 @@ Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un dom
 
 {% pdf "/uploads/images/LaSecteAux1000Gourous/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" %}
 
-</details>
 Accéder au sondage ["Les Français et le phénomène sectaire (Sondage ODOXA pour l'UNADFI)"](http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/)
+</details>
 
 ## Soins non conventionnels : des dérives inquiétantes (Podcast FranceInfo) ##
 
@@ -145,7 +144,6 @@ Accéder au sondage ["Les Français et le phénomène sectaire (Sondage ODOXA po
 > Deux ans après le début de la crise sanitaire, une enquête officielle alerte sur un risque aggravé par cette période éprouvante. Le risque de croire les promesses – parfois dangereuses – des soins dits "non conventionnels". Comme le recours aux flux d’énergie ou l’hydrothérapie du colon par exemple. Décryptage avec Géraldine Zamansky, journaliste au Magazine de la Santé sur France 5.
 
 {% aplayer "C'est ma santé" "Géraldine Zamansky" "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3" "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg" %}
-
 </details>
 
 [Lire l'article complet](https://www.francetvinfo.fr/replay-radio/c-est-ma-sante/soins-non-conventionnels-des-derives-inquietantes_5005274.html)
@@ -253,9 +251,9 @@ Les aidants : soutenir, tenir et guérir
   <summary>Cliquer pour afficher la vidéo de présenation…</summary>
 Découvrir MonPsy en vidéo (Durée 2 minutes)
 {% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
-</details>
 
 Visiter le site [MonPsy.sante.gouv.fr - FAQ](https://monpsy.sante.gouv.fr/faq?tab=patient)
+</details>
 
 # Briser les tabous - Comprendre la dépresion #
 
@@ -500,7 +498,6 @@ Article de l'AFIS (Association Française pour l’Information Scientifique)[Les
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
-
 </details>
 
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022
