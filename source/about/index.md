@@ -17,4 +17,4 @@ CyberMind, it is, mainly, but not only, 2 categories :
 Some articles will be add and also can be updated...
 So, stay tuned & enjoy ! (🤖 = 📻 + 🎉) & ( 🪤 + ⏳ = 🧠)
 
-[<--- Start here... --->](https://cybermind.fr/2022/02/19/welcome/)
+[<--- Start here... --->](https://cybermind.fr/en/Cyber/Mind/welcome/)
