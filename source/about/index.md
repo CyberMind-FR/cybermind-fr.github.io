@@ -11,7 +11,7 @@ lang: en
 CyberMind, it is, mainly, but not only, 2 categories :
 - for the ["Cyber"](https://cybermind.fr/categories/Cyber/)   🤖 + 🎲 = 💡 -> 💧
 - for the ["Mind"](https://cybermind.fr/categories/Mind/)     🧠 + 🧩 = 🧙 -> 🔥
-- but, CyberMind, it is also, entre autres;
+- but, CyberMind, it is also, inter alia;
   - An analysis, (work in progress) about ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/) 🔐 & 🕸️ -> 🐭 & 🦉
   - A study, (work in progress) about ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/)     🛸 & 👽 -> 🦄 & 🧚‍♀️
 
