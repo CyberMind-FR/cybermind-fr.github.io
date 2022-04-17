@@ -90,15 +90,18 @@ open_graph:
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  About: /about/ || fa fa-user
-  Contact: /contact/ || fa fa-envelope
-  Services: /services/ || fa fa-calendar
-  References: /references/ || fa fa-globe
-  Projects: /projects/ || fa fa-sitemap
-  Blog: /archives/ || fa fa-archive
-  Tags: /tags/ || fa fa-tags
-  Categories: /categories/ || fa fa-th
-  Support: /legal/ || fa fa-heartbeat
+  Link:
+    - About: /about/ || fa fa-user
+    - Contact: /contact/ || fa fa-envelope
+    - Support: /legal/ || fa fa-heartbeat
+  Business:
+    - Services: /services/ || fa fa-calendar
+    - References: /references/ || fa fa-globe
+    - Projects: /projects/ || fa fa-sitemap
+  Comments:
+    - Blog: /archives/ || fa fa-archive
+    - Tags: /tags/ || fa fa-tags
+    - Categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
 #  sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -188,7 +191,7 @@ links:
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true
+  number: false
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: true
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
@@ -274,11 +277,14 @@ reward_settings:
   animation: true
   comment: Buy me a coffee
 
-reward:
+##reward:
   #wechatpay: /images/wechatpay.png
   #alipay: /images/alipay.png
-  paypal: /images/paypal.png
+##  paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
+# Reward (Donate)
+# If enable true, reward would be displayed in every posts and pages by default.
+# You can show or hide reward in a specific page throuth `reward: true | false` in Front Matter.
 
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
@@ -585,8 +591,8 @@ comments:
     #disqus:
     #  text: Load Disqus
     #  order: -1
-    #gitalk:
-    #  order: -2
+    gitalk:
+      order: -2
 
 # Disqus
 # For more information: https://disqus.com
@@ -745,7 +751,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -804,7 +810,7 @@ note:
   #  - modern    bootstrap callout new (v2-v3) alert style.
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
-  style: simple
+  style: modern
   icons: false
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
@@ -825,7 +831,7 @@ tabs:
 pdf:
   enable: true          # default: true
   width: '100%'         # default: 100%
-  height: '1024px'      # default: 550px
+  height: '550px'      # default: 550px
 
 # Mermaid tag
 mermaid:
@@ -857,7 +863,7 @@ motion:
 # Progress bar in the top during page loading.
 # For more information: https://github.com/CodeByZach/pace
 pace:
-  enable: false
+  enable: true
   # All available colors:
   # black | blue | green | orange | pink | purple | red | silver | white | yellow
   color: blue
@@ -888,7 +894,7 @@ vendors:
   # The default CDN provider of third-party plugins.
   # Available values: local | jsdelivr | unpkg | cdnjs | custom
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: jsdelivr
+  plugins: local
   # Custom CDN URL
   # For example:
   # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
