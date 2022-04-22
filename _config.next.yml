@@ -633,7 +633,8 @@ gitalk:
   repo: cybermind-fr.gitalk # Repository name to store issues
   client_id: c9a751e4f8ccf399a1bf # GitHub Application Client ID
   client_secret: 7559f84d5edc70752bfbbb3465fda3ddad786fc2 # GitHub Application Client Secret
-  admin_user: CyberMind-FR
+  admin_user: 'CyberMind-FR'
+  owner_user: 'CyberMind-FR'
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   ##proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
