@@ -634,7 +634,7 @@ gitalk:
   client_secret: 7559f84d5edc70752bfbbb3465fda3ddad786fc2 # GitHub Application Client Secret
   admin_user:
     - CyberMind-FR # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
-  	- erdoukki
+    - erdoukki
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   ##proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
