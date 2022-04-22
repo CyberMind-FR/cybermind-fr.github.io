@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/images/apple-touch-icon-next.png">
@@ -15,12 +16,14 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"text":"Load Gitalk","order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="https://cybermind.fr/tags/">
@@ -51,6 +54,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/atom.xml" title="CyberMind.FR" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -68,7 +72,6 @@
   </div>
 
   <div class="site-meta">
-      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
@@ -76,10 +79,12 @@
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Embedded Developer / CyberSecurity Consultant @CyberMindFR</p>
+      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -87,22 +92,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
-        <li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li>
-        <li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li>
-        <li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li>
-        <li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li>
-        <li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li><li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li><li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li><li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li><li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li><li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -142,13 +163,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -169,9 +195,12 @@
       <span class="links-of-author-item">
         <a href="mailto:info@cybermind.fr?subject=contact" title="E-Mail → mailto:info@cybermind.fr?subject&#x3D;contact"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -213,8 +242,6 @@
 
 
     <div class="main-inner page posts-expand">
-  
-  
 
 
     
@@ -234,10 +261,10 @@
       
       <div class="post-body"><div class="tag-cloud">
   <div class="tag-cloud-title">
-    27 tags in total
+    76 tags in total
   </div>
   <div class="tag-cloud-tags">
-    <a href="/tags/ARM/" style="font-size: 18px;" class="tag-cloud-3">ARM</a> <a href="/tags/ARMADA/" style="font-size: 15px;" class="tag-cloud-2">ARMADA</a> <a href="/tags/Aramada/" style="font-size: 12px;" class="tag-cloud-0">Aramada</a> <a href="/tags/Armada/" style="font-size: 27px;" class="tag-cloud-8">Armada</a> <a href="/tags/CLOUD/" style="font-size: 12px;" class="tag-cloud-0">CLOUD</a> <a href="/tags/CrowdSec/" style="font-size: 21px;" class="tag-cloud-5">CrowdSec</a> <a href="/tags/CrowdSecurity/" style="font-size: 21px;" class="tag-cloud-5">CrowdSecurity</a> <a href="/tags/Debian/" style="font-size: 12px;" class="tag-cloud-0">Debian</a> <a href="/tags/Denx/" style="font-size: 12px;" class="tag-cloud-0">Denx</a> <a href="/tags/DouDouLinux/" style="font-size: 12px;" class="tag-cloud-0">DouDouLinux</a> <a href="/tags/GK2/" style="font-size: 12px;" class="tag-cloud-0">GK2</a> <a href="/tags/Limours/" style="font-size: 12px;" class="tag-cloud-0">Limours</a> <a href="/tags/Linux/" style="font-size: 12px;" class="tag-cloud-0">Linux</a> <a href="/tags/MOCHAbin/" style="font-size: 30px;" class="tag-cloud-10">MOCHAbin</a> <a href="/tags/NAS/" style="font-size: 18px;" class="tag-cloud-3">NAS</a> <a href="/tags/OpenWrt/" style="font-size: 12px;" class="tag-cloud-0">OpenWrt</a> <a href="/tags/Poesie/" style="font-size: 12px;" class="tag-cloud-0">Poésie</a> <a href="/tags/U-Boot/" style="font-size: 12px;" class="tag-cloud-0">U-Boot</a> <a href="/tags/armada/" style="font-size: 12px;" class="tag-cloud-0">armada</a> <a href="/tags/by-design/" style="font-size: 12px;" class="tag-cloud-0">by-design</a> <a href="/tags/cybersecurity/" style="font-size: 12px;" class="tag-cloud-0">cybersecurity</a> <a href="/tags/news/" style="font-size: 24px;" class="tag-cloud-7">news</a> <a href="/tags/packages/" style="font-size: 12px;" class="tag-cloud-0">packages</a> <a href="/tags/podcast/" style="font-size: 15px;" class="tag-cloud-2">podcast</a> <a href="/tags/sceptique/" style="font-size: 15px;" class="tag-cloud-2">sceptique</a> <a href="/tags/vulnerability/" style="font-size: 12px;" class="tag-cloud-0">vulnerability</a> <a href="/tags/zetetique/" style="font-size: 15px;" class="tag-cloud-2">zététique</a>
+    <a href="/tags/ARM/" style="font-size: 16.5px;" class="tag-cloud-3">ARM</a> <a href="/tags/ARMADA/" style="font-size: 14.25px;" class="tag-cloud-1">ARMADA</a> <a href="/tags/Aramada/" style="font-size: 12px;" class="tag-cloud-0">Aramada</a> <a href="/tags/Armada/" style="font-size: 25.5px;" class="tag-cloud-8">Armada</a> <a href="/tags/Bande-Dessinee/" style="font-size: 12px;" class="tag-cloud-0">Bande Dessinée</a> <a href="/tags/By-Design/" style="font-size: 12px;" class="tag-cloud-0">By-Design</a> <a href="/tags/CLOUD/" style="font-size: 14.25px;" class="tag-cloud-1">CLOUD</a> <a href="/tags/CrowdSec/" style="font-size: 18.75px;" class="tag-cloud-4">CrowdSec</a> <a href="/tags/CrowdSecurity/" style="font-size: 18.75px;" class="tag-cloud-4">CrowdSecurity</a> <a href="/tags/CyberSecurity/" style="font-size: 14.25px;" class="tag-cloud-1">CyberSecurity</a> <a href="/tags/Debian/" style="font-size: 12px;" class="tag-cloud-0">Debian</a> <a href="/tags/Denx/" style="font-size: 12px;" class="tag-cloud-0">Denx</a> <a href="/tags/DouDouLinux/" style="font-size: 12px;" class="tag-cloud-0">DouDouLinux</a> <a href="/tags/Depression/" style="font-size: 12px;" class="tag-cloud-0">Dépression</a> <a href="/tags/Derives-sectaires/" style="font-size: 12px;" class="tag-cloud-0">Dérives sectaires</a> <a href="/tags/Enfantcristal/" style="font-size: 12px;" class="tag-cloud-0">Enfantcristal</a> <a href="/tags/Esprit-Critique/" style="font-size: 12px;" class="tag-cloud-0">Esprit Critique</a> <a href="/tags/Esprit-critique/" style="font-size: 12px;" class="tag-cloud-0">Esprit critique</a> <a href="/tags/GK2/" style="font-size: 12px;" class="tag-cloud-0">GK2</a> <a href="/tags/Gourou/" style="font-size: 12px;" class="tag-cloud-0">Gourou</a> <a href="/tags/LSA1KG/" style="font-size: 21px;" class="tag-cloud-5">LSA1KG</a> <a href="/tags/LesConseilsduPsy/" style="font-size: 12px;" class="tag-cloud-0">LesConseilsduPsy</a> <a href="/tags/Limours/" style="font-size: 12px;" class="tag-cloud-0">Limours</a> <a href="/tags/Linux/" style="font-size: 12px;" class="tag-cloud-0">Linux</a> <a href="/tags/MOCHAbin/" style="font-size: 27.75px;" class="tag-cloud-9">MOCHAbin</a> <a href="/tags/Medecines-alternatives/" style="font-size: 12px;" class="tag-cloud-0">Médecines alternatives</a> <a href="/tags/NAS/" style="font-size: 16.5px;" class="tag-cloud-3">NAS</a> <a href="/tags/OpenWrt/" style="font-size: 12px;" class="tag-cloud-0">OpenWrt</a> <a href="/tags/Poesie/" style="font-size: 12px;" class="tag-cloud-0">Poésie</a> <a href="/tags/SECUBOX/" style="font-size: 30px;" class="tag-cloud-10">SECUBOX</a> <a href="/tags/Sante/" style="font-size: 12px;" class="tag-cloud-0">Santé</a> <a href="/tags/Sante-mentale/" style="font-size: 12px;" class="tag-cloud-0">Santé mentale</a> <a href="/tags/Sceptique/" style="font-size: 12px;" class="tag-cloud-0">Sceptique</a> <a href="/tags/Secte/" style="font-size: 12px;" class="tag-cloud-0">Secte</a> <a href="/tags/Spiritualite/" style="font-size: 12px;" class="tag-cloud-0">Spiritualité</a> <a href="/tags/The-Conjurers/" style="font-size: 18.75px;" class="tag-cloud-4">The Conjurers</a> <a href="/tags/U-Boot/" style="font-size: 12px;" class="tag-cloud-0">U-Boot</a> <a href="/tags/Vulnerability/" style="font-size: 12px;" class="tag-cloud-0">Vulnerability</a> <a href="/tags/afis/" style="font-size: 12px;" class="tag-cloud-0">afis</a> <a href="/tags/alerte/" style="font-size: 12px;" class="tag-cloud-0">alerte</a> <a href="/tags/anarchie/" style="font-size: 12px;" class="tag-cloud-0">anarchie</a> <a href="/tags/armada/" style="font-size: 12px;" class="tag-cloud-0">armada</a> <a href="/tags/arnaque/" style="font-size: 14.25px;" class="tag-cloud-1">arnaque</a> <a href="/tags/astrologie/" style="font-size: 12px;" class="tag-cloud-0">astrologie</a> <a href="/tags/cerveau-feminin/" style="font-size: 12px;" class="tag-cloud-0">cerveau féminin</a> <a href="/tags/croyance/" style="font-size: 14.25px;" class="tag-cloud-1">croyance</a> <a href="/tags/debunker/" style="font-size: 12px;" class="tag-cloud-0">debunker</a> <a href="/tags/discours-politique/" style="font-size: 12px;" class="tag-cloud-0">discours politique</a> <a href="/tags/democratie/" style="font-size: 12px;" class="tag-cloud-0">démocratie</a> <a href="/tags/derive/" style="font-size: 12px;" class="tag-cloud-0">dérive</a> <a href="/tags/effet-puits/" style="font-size: 12px;" class="tag-cloud-0">effet puits</a> <a href="/tags/guerisseurs/" style="font-size: 14.25px;" class="tag-cloud-1">guérisseurs</a> <a href="/tags/hasard/" style="font-size: 12px;" class="tag-cloud-0">hasard</a> <a href="/tags/henri-broch/" style="font-size: 12px;" class="tag-cloud-0">henri broch</a> <a href="/tags/homeopathie/" style="font-size: 12px;" class="tag-cloud-0">homéopathie</a> <a href="/tags/invisible/" style="font-size: 12px;" class="tag-cloud-0">invisible</a> <a href="/tags/jean-leon-beauvois/" style="font-size: 12px;" class="tag-cloud-0">jean-léon beauvois</a> <a href="/tags/livre/" style="font-size: 12px;" class="tag-cloud-0">livre</a> <a href="/tags/lourdeslune/" style="font-size: 12px;" class="tag-cloud-0">lourdeslune</a> <a href="/tags/miracle/" style="font-size: 14.25px;" class="tag-cloud-1">miracle</a> <a href="/tags/momie/" style="font-size: 12px;" class="tag-cloud-0">momie</a> <a href="/tags/news/" style="font-size: 21px;" class="tag-cloud-5">news</a> <a href="/tags/nicolas-d-alessandro/" style="font-size: 12px;" class="tag-cloud-0">nicolas d'alessandro</a> <a href="/tags/normand-baillargeon/" style="font-size: 12px;" class="tag-cloud-0">normand baillargeon</a> <a href="/tags/packages/" style="font-size: 12px;" class="tag-cloud-0">packages</a> <a href="/tags/paranormal/" style="font-size: 12px;" class="tag-cloud-0">paranormal</a> <a href="/tags/patric-jean/" style="font-size: 12px;" class="tag-cloud-0">patric jean</a> <a href="/tags/podcast/" style="font-size: 14.25px;" class="tag-cloud-1">podcast</a> <a href="/tags/pouvoir/" style="font-size: 12px;" class="tag-cloud-0">pouvoir</a> <a href="/tags/pseudoscience/" style="font-size: 14.25px;" class="tag-cloud-1">pseudoscience</a> <a href="/tags/richard-monvoisin/" style="font-size: 12px;" class="tag-cloud-0">richard monvoisin</a> <a href="/tags/sceptique/" style="font-size: 21px;" class="tag-cloud-5">sceptique</a> <a href="/tags/secte/" style="font-size: 12px;" class="tag-cloud-0">secte</a> <a href="/tags/telepathie/" style="font-size: 12px;" class="tag-cloud-0">télépathie</a> <a href="/tags/zetetique/" style="font-size: 23.25px;" class="tag-cloud-6">zététique</a> <a href="/tags/energies/" style="font-size: 12px;" class="tag-cloud-0">énergies</a>
   </div>
 </div>
 
@@ -277,14 +304,14 @@
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 1982 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">CyberMind</span>
+  <span class="author" itemprop="copyrightHolder">🧙 -- Gandalf (from "The Conjurers")</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
@@ -292,19 +319,28 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
 
   
 
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-  
-
-
-
-
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"CyberMind-FR","repo":"cybermind-fr.gitalk","client_id":"c9a751e4f8ccf399a1bf","client_secret":"7559f84d5edc70752bfbbb3465fda3ddad786fc2","admin_user":"erdoukki","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":["en","fr"],"owner_user":"erdoukki","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"2752a4ad0822c5acbda0ff9fd26a5c26"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

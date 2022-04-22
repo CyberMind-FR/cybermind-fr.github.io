@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/images/apple-touch-icon-next.png">
@@ -15,12 +16,14 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Recherche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"text":"Load Gitalk","order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Recherche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CyberMind.FR">
 <meta property="og:url" content="https://cybermind.fr/fr/">
@@ -48,6 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/atom.xml" title="CyberMind.FR" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -65,7 +69,6 @@
   </div>
 
   <div class="site-meta">
-      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
@@ -73,10 +76,12 @@
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Embedded Developer / CyberSecurity Consultant @CyberMindFR</p>
+      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -84,22 +89,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Accueil</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
-        <li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li>
-        <li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li>
-        <li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li>
-        <li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li>
-        <li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Accueil</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li><li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li><li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li><li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li><li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li><li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Recherche
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Recherche..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -139,13 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">articles</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">catégories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">mots clé</span></a>
       </div>
   </nav>
@@ -166,9 +192,12 @@
       <span class="links-of-author-item">
         <a href="mailto:info@cybermind.fr?subject=contact" title="E-Mail → mailto:info@cybermind.fr?subject&#x3D;contact"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -219,20 +248,419 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/" class="post-title-link" itemprop="url">MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</a>
+          <a href="/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/" class="post-title-link" itemprop="url">L’esprit critique - Bande Dessinée aux Éditions Delcourt</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+      
+
+      <time title="Article créé le: 2022-04-16 00:00:00 / Mis à jour le: 10:04:21" itemprop="dateCreated datePublished" datetime="2022-04-16T00:00:00+02:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/Livres/" itemprop="url" rel="index"><span itemprop="name">Livres</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction-Pourquoi-LSA1KG"><a href="#Introduction-Pourquoi-LSA1KG" class="headerlink" title="Introduction - Pourquoi LSA1KG ?"></a>Introduction - Pourquoi LSA1KG ?</h1><p>Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c’est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.<br>C’est ce qui m’a motivé personnellement ou m’a excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.<br>J’ai failli oublier que la Magie est personnelle, qu’elle doit rester intime. Enfin, ce n’est qu’une opinion personnelle qui n’engage que moi et qui, surtout, ne veut s’imposer à personne.</p>
+<h1 id="Vulgarisation-Zetetique"><a href="#Vulgarisation-Zetetique" class="headerlink" title="Vulgarisation Zététique"></a>Vulgarisation Zététique</h1><p>Merci à l’<a target="_blank" rel="noopener" href="https://www.afis.org/">Afis Science - Association française pour l’information scientifique</a> et à <a target="_blank" rel="noopener" href="https://www.afis.org/Kevin-Moris">Kévin Moris</a> grace à qui j’ai pu découvrir une formidable bande dessinée <a target="_blank" rel="noopener" href="https://www.afis.org/L-esprit-critique-5140">L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)</a></p>
+<blockquote>
+<ul>
+<li><em>L’esprit critique</em></li>
+<li><em>Publié en ligne le 3 avril 2022</em></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée<br>La lecture est très utile pour une initiation à l’esprit critique dès le lycée. Et on pourra se référer à d’autres livres ou sites Internet qui sont proposés en fin d’ouvrage.</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/Derives-La-secte-aux-1000-gourous/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/fr/Mind/Derives-La-secte-aux-1000-gourous/" class="post-title-link" itemprop="url">Dérives - La secte aux 1000 gourous</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+
+      <time title="Article créé le: 2022-04-09 19:30:00" itemprop="dateCreated datePublished" datetime="2022-04-09T19:30:00+02:00">2022-04-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Édité le</span>
+      <time title="Mis à jour le: 2022-04-16 10:04:21" itemprop="dateModified" datetime="2022-04-16T10:04:21+02:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>#LaSecteAux1000Gourous (#LSA1KG)</strong></p>
+<h1 id="Introduction-Journal"><a href="#Introduction-Journal" class="headerlink" title="Introduction (Journal)"></a>Introduction (Journal)</h1><p><em><strong>Liberté</strong></em><br>Que ce soit de l’alcool, de la drogue, des drogues ou des croyances, se libérer d’une dépendance est un combat de tous les jours.<br>Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui peut favoriser une dépression, des dépressions.<br>Long et difficile est le chemin de la libération, vers la liberté.<br>Long et difficile sera le chemin vers la libération, de la liberté.</p>
+<p>C’est un soir de début de confinement de COVID, lors d’une promenade en amoureux, avec mon amie, que m’ai venu ce nom impossible de “La Secte Aux 1000 Gourous” !<br><em>Je réalisais à ce moment là que non seulement les complotistes de tout bords, plus souvent extrémistes d’ailleurs, construisaient toujours plus d’hypothèses abérantes pour nourrir et justifier leur délires. Mais que leur imagination absurdes rendraient les <strong>vrais</strong> combats impossibles et que la moindre hypothèse deviendrait difficile à être simplement discutée.</em></p>
+<p><em><strong>Ma “Miss” m’a demandé d’arrêter de causer de <em>ce</em> sujet !</strong></em><br>Elle m’a brusquement demandé d’arrêter et de vite changer de sujet car je lui faisait peur avait-t-elle précisé alors !<br><em>Elle avait raison, car c’est pour le moins effrayant, surtout de constater qu’aujourd’hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d’office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse <strong>et</strong> à une Terre plate ! Quand vous devez voir l’invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d’air seulement et qu’il est impératif de soumettre votre mental.</em></p>
+<h2 id="STOP"><a href="#STOP" class="headerlink" title="STOP"></a><strong>STOP</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/Derives-La-secte-aux-1000-gourous/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/fr/Mind/Preface-Une-vie-en-anthroposophie/" class="post-title-link" itemprop="url">Préface - Une vie en anthroposophie</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+
+      <time title="Article créé le: 2022-04-06 12:00:00" itemprop="dateCreated datePublished" datetime="2022-04-06T12:00:00+02:00">2022-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Édité le</span>
+      <time title="Mis à jour le: 2022-04-19 21:08:06" itemprop="dateModified" datetime="2022-04-19T21:08:06+02:00">2022-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Livre-Une-vie-en-anthroposophie"><a href="#Livre-Une-vie-en-anthroposophie" class="headerlink" title="Livre : Une vie en anthroposophie"></a>Livre : Une vie en anthroposophie</h1><h2 id="La-face-cachee-des-ecoles-Steiner-Waldorf"><a href="#La-face-cachee-des-ecoles-Steiner-Waldorf" class="headerlink" title="La face cachée des écoles Steiner-Waldorf"></a>La face cachée des écoles Steiner-Waldorf</h2><p>de <a target="_blank" rel="noopener" href="https://www.laroutedelasoie-editions.com/nos-auteurs/gr%C3%A9goire-perra/">Grégoire Perra</a> &amp; <a target="_blank" rel="noopener" href="https://www.laroutedelasoie-editions.com/nos-auteurs/elisabeth-feytit/">Élisabeth Feytit</a>  </p>
+<p>Merci aux <a target="_blank" rel="noopener" href="https://www.laroutedelasoie-editions.com/">éditions La Route de la soie</a>…</p>
+<img src="/uploads/images/visuels/METADECHOC-BOOKS.jpg" width="600px" heigth="450px">
+
+<p>Merci également à <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Richard_Monvoisin">Richard Monvoisin</a> pour sa préface qu’il m’a <a target="_blank" rel="noopener" href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/#comment-484">autorisé à reproduire</a> ici…</p>
+<p>Préface de  Richard Monvoisin, didacticien des sciences<br>spécialiste des théories étranges, il enseigne la pensée critique à l’Université Grenoble-Alpes </p>
+<p>Le livre paru le 25 novembre 2020 aux <a target="_blank" rel="noopener" href="https://www.laroutedelasoie-editions.com/notre-catalogue/m%C3%A9ta-de-choc/une-vie-en-anthroposophie/">éditions La Route de la soie</a> est une retranscription agrémentée de l’entretien entre Élisabeth Feytit, du <a target="_blank" rel="noopener" href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">podcast Méta de choc</a>, et <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Gr%C3%A9goire_Perra">Grégoire Perra</a>, ancien enseignant d’école Steiner-Waldorf, désormais transfuge du mouvement anthroposophique. Richard Monvoisin en a fait la préface, que je vous relais ici.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/Preface-Une-vie-en-anthroposophie/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/Films/Lazarus-Mirages-L-Art-du-Doute/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/fr/Mind/Films/Lazarus-Mirages-L-Art-du-Doute/" class="post-title-link" itemprop="url">Lazarus-Mirages - L'Art du Doute</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+
+      <time title="Article créé le: 2022-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+02:00">2022-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Édité le</span>
+      <time title="Mis à jour le: 2022-04-16 01:59:51" itemprop="dateModified" datetime="2022-04-16T01:59:51+02:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/Films/" itemprop="url" rel="index"><span itemprop="name">Films</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Lazarus-Mirage"><a href="#Lazarus-Mirage" class="headerlink" title="Lazarus Mirage"></a>Lazarus Mirage</h1><p>Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !</p>
+<h2 id="Lazarus-Mirage-Introduction"><a href="#Lazarus-Mirage-Introduction" class="headerlink" title="Lazarus Mirage - Introduction"></a>Lazarus Mirage - Introduction</h2><p><a target="_blank" rel="noopener" href="https://www.lazarus-mirages.fr/"><img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px"></a></p>
+<blockquote>
+<p>L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l’auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s’éteindre en 2020…</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/Films/Lazarus-Mirages-L-Art-du-Doute/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/" class="post-title-link" itemprop="url">MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</a>
         </h2>
 
         <div class="post-meta-container">
@@ -250,7 +678,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Mis à jour le: 2022-04-19 21:08:06" itemprop="dateModified" datetime="2022-04-19T21:08:06+02:00">2022-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
     </span>
 
   
@@ -263,25 +700,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>“Une claque dans la gueule !?”</p>
-<p>Une de celle qui fait tant de bien.</p>
+          <h1 id="LaSecteAux1000Gourous"><a href="#LaSecteAux1000Gourous" class="headerlink" title="LaSecteAux1000Gourous"></a>LaSecteAux1000Gourous</h1><h2 id="“Une-claque-dans-la-gueule-”"><a href="#“Une-claque-dans-la-gueule-”" class="headerlink" title="“Une claque dans la gueule !?”"></a>“Une claque dans la gueule !?”</h2><p><strong>Une de celles qui font tant de bien.</strong></p>
 <ul>
 <li>mieux que <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Mission_interminist%C3%A9rielle_de_vigilance_et_de_lutte_contre_les_d%C3%A9rives_sectaires">Miviludes</a> et son insatiable silence…</li>
 <li>mieux que l’<a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Agence_France-Presse">AFP</a> et ses BUZZ généralisés…</li>
 </ul>
 <p>Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” (™ &amp; © <a href="mailto:gandalf@gk2.net">ME</a>)</p>
-<p>C’est quoi la <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique">zététique</a>, “la critique”, les concepts “new age”, la spiritualité, les croyances, la vérité, la science…</p>
-<p>Tant d’autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast <a target="_blank" rel="noopener" href="https://metadechoc.fr/">MétaDeChoc.fr</a> d’Élisabeth Feytit !</p>
-<img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
-
-<p>Mon florilège:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/">SHOCKING #11 - L’astrologie, ça marche !… Trop.</a></li>
-<li><a target="_blank" rel="noopener" href="https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence">SHOCKING #16 - Contes et légendes de l’intelligence</a></li>
-<li><a target="_blank" rel="noopener" href="https://metadechoc.fr/podcast/une-vie-en-anthroposophie">SHOCKING #5 - Une vie en anthroposophie</a></li>
-<li><a target="_blank" rel="noopener" href="https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/">SHOCKING #1 - La zététique rend-elle insensible ?</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -307,20 +739,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/2022/02/24/Meet-Gerald-new-CrowdSec-ambassador/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Cyber/Meet-Gerald-new-CrowdSec-ambassador/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/2022/02/24/Meet-Gerald-new-CrowdSec-ambassador/" class="post-title-link" itemprop="url">Rencontrez Gérald, nouvel ambassadeur CrowdSec</a>
+          <a href="/fr/Cyber/Meet-Gerald-new-CrowdSec-ambassador/" class="post-title-link" itemprop="url">Rencontrez Gérald, nouvel ambassadeur CrowdSec</a>
         </h2>
 
         <div class="post-meta-container">
@@ -338,7 +775,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Mis à jour le: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -355,27 +801,14 @@
 
 <h2 id="Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec"><a href="#Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec" class="headerlink" title="Rencontrez Gérald, nouvel ambassadeur CrowdSec."></a>Rencontrez Gérald, nouvel ambassadeur CrowdSec.</h2><p>Nous sommes ravis d’accueillir Gérald Kerma en tant que nouvel ambassadeur CrowdSec !<br>Gérald est basé en France et a plus de 25 années d’expérience dans la cybersécurité. Il est également contributeur au projet OpenWrt. Gérald a créé un portage OpenWrt pour CrowdSec.</p>
 <p>Voici une petite interview de Gérald pour mieux le connaître.</p>
-<h2 id="Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute"><a href="#Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute" class="headerlink" title="Salut Gérald, peux-tu parler de toi à notre communauté ?"></a>Salut Gérald, peux-tu parler de toi à notre communauté ?</h2><p>Vous pouvez aussi m’appeler Gandalf, Erdoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.</p>
-<p>Durant mes premières années, j’ai appris l’informatique en autodidacte à Paris sur les ordinateurs en libre accès du Palais de la découverte. Je me suis mis à l’informatique avec un Commodore 64, puis j’ai appris en autodidacte, le language Pascal, avec les algorithmes de transformations ZIP et FFT. Plus tard, j’ai écrit mes premiers jeux sur les Labyrinthes. Rapidement, j’ai ensuite écrit des outils de développement sur le premier ordinateur IBM&#x2F;PC. J’avais un XT très moderne, avec un « énorme » disque dur de 40 Mo. J’ai fait mes premiers dollars avec des sharewares, sur Apple&#x2F;MacIntosh, sur des outils innovants dans le monde des logiciels d’interface utilisateur. Ils ont été distribués dans les magazines français et les BSS du monde entier.</p>
-<p>Tout cela était bien avant les années Internet; une connexion télécom coûtait plus de dollars en une heure qu’un salaire mensuel.</p>
-<p>Ensuite, ce fut mon premier emploi dans une société française de sécurité, un éditeur de logiciels à Paris, où nous avons écrit des outils de chiffrement de disque dur, des outils d’audit réseau et mes propres projets d’utilitaires d’interface d’accès rapide.</p>
-<p>A 20 ans, j’ai ouvert ma première entreprise, GK2, comme fournisseur d’accès Internet pour les petites entreprises, les artistes et les associations. Tout en continuant dans le développement de logiciels en freelance, j’ai hébergé des sites Web sur un Pentium Pro que j’ai acheté lors d’un voyage aux États-Unis et qui utilisait le système RedHat Linux. J’ai proposé quelques services à de grandes entreprises dont Thales, avec qui j’ai ensuite décroché un contrat d’infogérance informatique pour le CEA (Commissariat à l’Énergie Atomique et aux énergies alternatives), sur le site de Saclay.</p>
-<p>J’étais l’expert VIP et le spécialiste Apple&#x2F;Macintosh. Nous avons dû gérer, dès notre arrivée, la toute première attaque massive du virus Blasters. Nous avions besoin d’une solution logicielle système pour maîtriser rapidement les ordinateurs. J’ai ensuite écrit une solution entièrement personnalisée avec les outils GNU&#x2F;Linux pour Microsoft&#x2F;Windows XP. J’ai également mis à disposition la version alpha de Windows Update sur l’ensemble du réseau. Ce fut ma première étape dans la société Thales en cybersécurité où j’ai ensuite été engagé en tant qu’administrateur système, et, plus tard, en tant qu’architecte en sécurité.</p>
-<h2 id="Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur"><a href="#Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur" class="headerlink" title="Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?"></a>Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?</h2><p>De retour aux premiers besoins et l’esprit créatif, je quitte Paris pour la Savoie où j’effectue mes premiers développements de logiciels publics.<br>J’ai quitté Thales avec l’objectif d’une « Security Box » dont je rêvais et étudiais déjà depuis des années, sur mon temps libre, et basée sur des logiciels libres. Je voulais proposer des solutions simples, efficaces et innovantes. Avec la perspective « Free as in free beer » des logiciels ouverts et libres.</p>
-<p>J’ai découvert très tôt la solution CrowdSec Software et c’était un très bon composant candidat pour mon propre projet. J’ai envoyé un e-mail à l’équipe pour proposer mes propres services et mon expérience sur les systèmes embarqués comme OpenWrt et le conseil des développeurs ARM. Je leur ai donné des références pour certains articles écrits pour les revues des éditions Diamond. Ils ont rapidement répondu et nous nous sommes lancés dans des projets de collaboration mutuelle. J’ai choisi la solution en portant l’agent CrowdSec et le « Bouncer » de pare-feu CrowdSec sur le système OpenWrt.</p>
-<p>CrowdSec et OpenWrt étaient tous deux candidats pour mon propre projet « Security Box », et m’ont également donné l’opportunité de mieux comprendre et de tester la solution plus en profondeur.</p>
-<h2 id="Comment-voyez-vous-votre-mission-chez-CrowdSec"><a href="#Comment-voyez-vous-votre-mission-chez-CrowdSec" class="headerlink" title="Comment voyez-vous votre mission chez CrowdSec ?"></a>Comment voyez-vous votre mission chez CrowdSec ?</h2><p>Tout en proposant à l’équipe CrowdSec une évolution extérieure non prévue, j’ai voulu que mon propre concept de « Security Box » devienne une « Solution » du monde réel.</p>
-<p>CrowdSec est à la fois une solution en termes de modèle logiciel et également en termes d’exemple d’entreprise. J’aime la méthode et les règles, mais je préfère les résultats et les impacts. J’ai pris beaucoup de temps libre pour proposer OpenWrt mais CrowdSec m’offre  aussi beaucoup avec son projet. Maintenant, j’ai des perspectives que nous pouvons tous les deux offrir pour aider Internet à être plus sûr tout en restant éthique.</p>
-<p>J’ai déjà partagé quelques projets avec la communauté CrowdSec, et CrowdSec risque de nous réserver des surprises prochainement… Mais, c’est le début de nos chemins convergents et cette aventure n’en est qu’au début.</p>
-<h2 id="Un-fait-amusant-sur-vous-meme"><a href="#Un-fait-amusant-sur-vous-meme" class="headerlink" title="Un fait amusant sur vous-même ?"></a>Un fait amusant sur vous-même ?</h2><p>J’ai ma propre philosophie de vie et mes règles. Je peux être décrit comme un épicurien. J’écris de la poésie, je peints, je fais de la gravure laser sur du bois et sur des ardoises gravée à l’or.</p>
-<p>J’ai aussi mes propres règles techniques et méthodes qui sont très proches des Creative Mind Educative Concepts. Quand j’ai quitté les projets Thales, j’ai dit à mes ex-collègues que je partais étudier de vraies solutions à leur rapporter. J’ai ouvert une nouvelle entreprise, CyberMind, et j’ai commencé à porter une casquette blanche pour montrer de quel côté j’étais.</p>
-<p>Mon look est une démonstration du concept CyberSecurity que je souhaite partager et proposer autour de moi comme choix de solution. C’est ainsi pour la casquette blanche, le pseudo Gandalf. Mes propres méthodes font de moi un personnage qui n’est que MOI.</p>
-<h2 id="Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite"><a href="#Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite" class="headerlink" title="Quel est votre rêve pour l’avenir de la cybersécurité ?"></a>Quel est votre rêve pour l’avenir de la cybersécurité ?</h2><p>Dans un monde conceptuel et virtuel, les technologies numériques sont une aide pour arrêter la dépense de temps, d’argent, et pour les problèmes perpétuels et invisibles de CyberSecurity. Les méchants sont innovants et hors limites car l’informatique leur offre les outils pour le faire.</p>
-<p>Nous avons besoin de solutions pour rééquilibrer le bien et le mal car le « gris » ne sera jamais possible. Nous avons besoin de solutions complètes, ouvertes, respectueuses, stables, collaboratives et innovantes.<br>CrowdSec nous donne une étape vers ce long chemin et j’aiderai le projet autant que possible.</p>
-<p>…Restez à l’écoute…</p>
-<p>:-]</p>
-<p>Traduction par G.KERMA, article original : <a target="_blank" rel="noopener" href="https://crowdsec.net/blog/meet-gerald-new-crowdsec-ambassador/">Daria Charyeva @ CrowdSec&#x2F;blog</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Cyber/Meet-Gerald-new-CrowdSec-ambassador/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -401,20 +834,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/2022/02/19/welcome/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Cyber/Mind/welcome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/2022/02/19/welcome/" class="post-title-link" itemprop="url">bienvenue</a>
+          <a href="/fr/Cyber/Mind/welcome/" class="post-title-link" itemprop="url">bienvenue</a>
         </h2>
 
         <div class="post-meta-container">
@@ -432,7 +870,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-02-28 17:29:43" itemprop="dateModified" datetime="2022-02-28T17:29:43+01:00">2022-02-28</time>
+      <time title="Mis à jour le: 2022-04-16 08:53:51" itemprop="dateModified" datetime="2022-04-16T08:53:51+02:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
     </span>
 
   
@@ -448,15 +899,15 @@
           <p>Développement en cours…</p>
 <p>Restez à l’écoute!</p>
 <h2 id="Bonjour-a-tous-👋"><a href="#Bonjour-a-tous-👋" class="headerlink" title="Bonjour à tous 👋"></a>Bonjour à tous 👋</h2><p><strong>Voici quelques idées que vous devez connaître sur les règles de CyberMind :</strong></p>
-<p>🙋‍♀️ Une courte introduction - Code Open Source</p>
-<p>🌈 Consignes personnelles - CyberSecurity expérimenté, gratuit comme dans la bière gratuite, contributeur de code de longue date.</p>
-<p>🌈 Consignes de contribution - Code Open Source, dans le respect des droits de l’homme.</p>
-<p>👩‍💻 Ressources utiles - Alors, profitez-en ou améliorez-le par vous-même.</p>
-<p>🍿 Faits amusants - Restez à l’écoute pour en savoir plus (ou faites-le vous-même…) :sunglasses:</p>
-<p>🧙 N’oubliez pas, à utiliser à vos risques et périls…</p>
-<p><img src="https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="erdoukki&#39;s GitHub stats"></p>
-<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="erdoukki&#39;s GitHub langs stats"></p>
-
+<p>🙋‍♀️ Une courte introduction ?<br>-&gt; Code Open Source</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Cyber/Mind/welcome/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -482,20 +933,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/2018/06/13/Po%C3%A9sies/Poesie-Jolie-coccinelle/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Mind/Po%C3%A9sies/Poesie-Jolie-coccinelle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/2018/06/13/Po%C3%A9sies/Poesie-Jolie-coccinelle/" class="post-title-link" itemprop="url">Poésie - Jolie coccinelle...</a>
+          <a href="/fr/Mind/Po%C3%A9sies/Poesie-Jolie-coccinelle/" class="post-title-link" itemprop="url">Poésie - Jolie coccinelle...</a>
         </h2>
 
         <div class="post-meta-container">
@@ -513,7 +969,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Mis à jour le: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
     </span>
 
   
@@ -526,10 +991,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Jolie coccinelle à toi qui cache si bien tes ailes<br>Toi qui court sur le vent et s’accroche fermement<br>Toi qui roule comme le dé sur des pistes endiablées<br>Rouge vif écarlate ou couleurs d’ailleurs<br>Jolie coccinelle m’apporte un bout de ciel<br>Envole toi avec le soleil et emporte moi dans un voeu<br>Un seul me suffit si c’est au souvenir d’ici<br>Que se ferme un sombre ciel pour y peindre à nouveau<br>Une voute étoilée où je cours m’envoler</p>
-<p>201806131300@Limours</p>
-<img src="/uploads/images/Kerma/Ardoise_Kerma_2020_Coccinelle_Oser-La-Paix.jpeg" width="1536px" heigth="2048px">
-
+          <h1 id="Jolie-coccinelle…"><a href="#Jolie-coccinelle…" class="headerlink" title="Jolie coccinelle…"></a>Jolie coccinelle…</h1><p>Jolie coccinelle, à toi qui cache si bien tes ailes.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Mind/Po%C3%A9sies/Poesie-Jolie-coccinelle/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -555,20 +1025,122 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/2014/09/24/HowTo-Hack-a-NAS-CLOUD/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Cyber/CDN-Local/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/2014/09/24/HowTo-Hack-a-NAS-CLOUD/" class="post-title-link" itemprop="url">HowTo Hack a NAS CLOUD</a>
+          <a href="/fr/Cyber/CDN-Local/" class="post-title-link" itemprop="url">CDN Local</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+
+      <time title="Article créé le: 2014-11-11 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-11T00:00:00+01:00">2014-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Édité le</span>
+      <time title="Mis à jour le: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&#x3D; CDN Local &#x3D;</p>
+<p>À l’origine le billet suivant m’a beaucoup interpelé :<br><a target="_blank" rel="noopener" href="http://blog-libre.org/index.php/post/2014/10/29/heberger-son-propre-cdn-local">Héberger son propre CDN local</a></p>
+<blockquote>
+Dernièrement, je vous parlais d’une petite astuce de pistage et m’interrogeais sur la recherche d’une solution à cette problématique.
+Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ressources de plus en plus utilisées (script jquery par exemple) à partir d’autres CDN ou du site de leur éditeur respectif.
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Cyber/CDN-Local/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Cyber/HowTo-Hack-a-NAS-CLOUD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/fr/Cyber/HowTo-Hack-a-NAS-CLOUD/" class="post-title-link" itemprop="url">HowTo Hack a NAS CLOUD</a>
         </h2>
 
         <div class="post-meta-container">
@@ -586,7 +1158,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Mis à jour le: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -604,1270 +1185,14 @@
 <p>200 € chez LDLC : <a target="_blank" rel="noopener" href="http://www.ldlc.com/fiche/PB00109232.html">http://www.ldlc.com/fiche/PB00109232.html</a></p>
 <p>Son gros avantage, qui m’a fait le choisir, est que le CPU est un Kirkwood de Marvell.<br>Le même processeur que les SheevaPlug et GuruPlug.</p>
 <p>Ce choix est donc ciblé pour le “hack”.</p>
-<p>Premières impressions :</p>
-<ul>
-<li>silencieux,</li>
-<li>joli,</li>
-<li>facile à monter</li>
-</ul>
-<p>L’ajout des disques se fait sans vis ; une clé permet de dévérouiller les emplacements SATA 3”1&#x2F;2 qui se démontent simplement par un appuie sur le rack.<br>Les vis de fixation des disques sont remplacées par des ergots métalliques.</p>
-<p>Une fois les 2 x 2To en place, le branchement sur le réseau et l’allumage :<br>Silence, le ventilateur est très silencieux, et le boitier NAS est resté quelques heures dans le salon sans que personne ne le remarque.<br>Si ce n’est les diodes colorées qui font guirlande de Noël lors de la construction du RAID.</p>
-<p>L’interface web est jolie elle aussi.<br>Les possibilités ont l’air sympathiques, mais c’est là que commencent les désagréments :<br>le navigateur de fichiers intégré me propose d’installer un “ google truk “ !!!</p>
-<p>C’est décidé, je vais le “hacker”.</p>
-<p>J’hésite entre le démontage, les sheevaplugs ont tous des accès jtag pour le développement.<br>Il me reste cette solution facile ! ;-)</p>
-<p>Je tombe sur un forum allemand : nas-portal.org et surtout un fil sur le sujet 6220 :<br><a target="_blank" rel="noopener" href="http://forum.nas-portal.org/showthread.php?12855-Ib-nas6220-b/">http://forum.nas-portal.org/showthread.php?12855-Ib-nas6220-b/</a></p>
-<p>:wiki:notes:nashack:datasheet_ib-nas6220_e.pdf|</p>
-<p>:wiki:notes:nashack:111a.jpg.jpeg|</p>
-<p>:wiki:notes:nashack:111b.jpg.jpeg|</p>
-<p>:wiki:notes:nashack:111c.jpg.jpeg|</p>
-<p>:wiki:notes:nashack:111d.jpg.jpeg|</p>
-<p>L’accès en web au NAS permet une escalade de privilège root assez simple !<br>C’est effrayant comme certain produit sont mal sécurisé…</p>
-<p>:wiki:notes:nashack:capture00.png|</p>
-<p>:wiki:notes:nashack:capture00-1.png|</p>
-<p>Après l’authentification en admin &#x2F; admin par le web, il suffit de modifier l’url dans la barre d’adresse.</p>
-<p>:wiki:notes:nashack:capture00-2.png|</p>
-<p>En remplaçant admin par root, on se retouve authentifié avec l’utilisateur root.</p>
-<p>:wiki:notes:nashack:capture00-4.png|</p>
-<p>:wiki:notes:nashack:capture00-3.png|</p>
-<p>:wiki:notes:nashack:capture00-5.png|</p>
-<p>Il suffit de changer le mot de passe et l’accès ssh en root sera alors possible.</p>
-<p>:wiki:notes:nashack:capture00-6.png|</p>
-<p>:wiki:notes:nashack:capture00-7.png|</p>
-<p>:wiki:notes:nashack:capture00-8.png|</p>
-<p>:wiki:notes:nashack:capture00-9.png|</p>
-<p>Pour la saisie de l’ancien mot de passe, autre faille de sécurité, il n’est pas vérifié :<br>on saisie n’importe quoi en old password, puis son mot de passe dédié NASHACK</p>
-<p>la porte est ouverte, et ce n’est pas une “backdoor” mais la grande porte !<br>nautilus en ssh</p>
-<p>:wiki:notes:nashack:capture00-11.png|</p>
-<p>:wiki:notes:nashack:capture00-fenetresansnom.png|</p>
-<p>:wiki:notes:nashack:capture00-12.png|</p>
-<p>et l’accès ssh terminal ( en root ) :</p>
-<pre><code>ssh root@jshare.local
-</code></pre>
-<p>:wiki:notes:nashack:capture00-10.png|</p>
-<code>
-    gek@astree:/$ ssh root@jshare.local
-    The authenticity of host 'jshare.local (192.168.0.116)' can't be established.
-    RSA key fingerprint is bc:66:86:a9:84:7f:ae:ad:aa:62:5b:24:b8:7d:af:1b.
-    Are you sure you want to continue connecting (yes/no)? yes
-    Warning: Permanently added 'jshare.local,192.168.0.116' (RSA) to the list of known hosts.
-    root@jshare.local's password:
-    Last login: Sun Sep 25 21:39:41 2011 from 192.168.0.111
-    [root@JSHARE ~]# uname -ar
-    Linux JSHARE 2.6.35.4 #1 PREEMPT Sun Sep 19 09:18:57 CST 2010 armv5tel armv5tel armv5tel GNU/Linux
-    [root@JSHARE ~]# cat /etc/system-release
-    Fedora release 12 (Constantine)
-    [root@JSHARE ~]# whoami     
-    root
-    [root@JSHARE ~]# cat /proc/cpuinfo
-    Processor   : Feroceon 88FR131 rev 1 (v5l)
-    BogoMIPS   : 1196.03
-    Features   : swp half thumb fastmult edsp
-    CPU implementer   : 0x56
-    CPU architecture: 5TE
-    CPU variant   : 0x2
-    CPU part   : 0x131
-    CPU revision   : 1
-
-<pre><code>Hardware   : Marvell DB-88F6281-BP Development Board
-Revision   : 0000
-Serial      : 0000000000000000
-[root@JSHARE ~]#
-</code></pre>
-</code>
-
-
-<p>Et ce n’est pas fini… :siffle:</p>
-<p>Je commence par faire une analyse…<br>Où suis-je ?</p>
-<p>$ uname -a</p>
-<code>
-    Linux JSHARE 2.6.35.4 #1 PREEMPT Sun Sep 19 09:18:57 CST 2010 armv5tel armv5tel armv5tel GNU/Linux
-</code>
-
-
-<p>$ cat &#x2F;proc&#x2F;cmdline</p>
-<code>
-    console=ttyS0,115200 ubi.mtd=2,2048 root=ubi0:rootfs rootfstype=ubifs init=/linuxrc
-</code>
-
-
-<p>$ cat &#x2F;proc&#x2F;cpuinfo</p>
-<code>
-    Processor   : Feroceon 88FR131 rev 1 (v5l)
-    BogoMIPS   : 1196.03
-    Features   : swp half thumb fastmult edsp
-    CPU implementer   : 0x56
-    CPU architecture: 5TE
-    CPU variant   : 0x2
-    CPU part   : 0x131
-    CPU revision   : 1
-
-<pre><code>Hardware   : Marvell DB-88F6281-BP Development Board
-Revision   : 0000
-Serial      : 0000000000000000
-</code></pre>
-</code>
-
-
-<p>$ dmesg</p>
-<code>
-    Linux version 2.6.35.4 (thom@11z) (gcc version 4.5.1 (GCC) ) #1 PREEMPT Sun Sep 19 09:18:57 CST 2010
-    CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=00053177
-    CPU: VIVT data cache, VIVT instruction cache
-    Machine: Marvell DB-88F6281-BP Development Board
-    Ignoring unrecognised tag 0x41000403
-    Memory policy: ECC disabled, Data cache writeback
-    On node 0 totalpages: 65536
-    free_area_init_node: node 0, pgdat c04cc008, node_mem_map c056a000
-      Normal zone: 512 pages used for memmap
-      Normal zone: 0 pages reserved
-      Normal zone: 65024 pages, LIFO batch:15
-    Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
-    Kernel command line: console=ttyS0,115200 ubi.mtd=2,2048 root=ubi0:rootfs rootfstype=ubifs init=/linuxrc
-    PID hash table entries: 1024 (order: 0, 4096 bytes)
-    Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
-    Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
-    Memory: 256MB = 256MB total
-    Memory: 254360k/254360k available, 7784k reserved, 0K highmem
-    Virtual kernel memory layout:
-        vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-        fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
-        DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
-        vmalloc : 0xd0800000 - 0xfe800000   ( 736 MB)
-        lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
-        modules : 0xbf000000 - 0xc0000000   (  16 MB)
-          .init : 0xc0008000 - 0xc002b000   ( 140 kB)
-          .text : 0xc002b000 - 0xc0480000   (4436 kB)
-          .data : 0xc049e000 - 0xc04cd3e0   ( 189 kB)
-    SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-    Hierarchical RCU implementation.
-       RCU-based detection of stalled CPUs is disabled.
-       Verbose stalled-CPUs detection is disabled.
-    NR_IRQS:114
-    Console: colour dummy device 80x30
-    Calibrating delay loop... 1196.03 BogoMIPS (lpj=5980160)
-    pid_max: default: 32768 minimum: 301
-    Mount-cache hash table entries: 512
-    CPU: Testing write buffer coherency: ok
-    NET: Registered protocol family 16
-    Kirkwood: MV88F6281-A1, TCLK=200000000.
-    Feroceon L2: Enabling L2
-    Feroceon L2: Cache support initialised.
-    initial MPP regs: 21111111 00003311 00551111 00000000 00000000 00000000 00000000
-      final MPP regs: 21111111 00003311 00551111 00000000 00000000 00000000 00000000
-    pci 0000:00:00.0: reg 10: [mem 0xf1000000-0xf10fffff 64bit pref]
-    pci 0000:00:00.0: reg 18: [mem 0x00000000-0x0fffffff]
-    pci 0000:00:00.0: supports D1 D2
-    PCI: bus0: Fast back to back transfers disabled
-    bio: create slab <bio-0> at 0
-    vgaarb: loaded
-    SCSI subsystem initialized
-    libata version 3.00 loaded.
-    usbcore: registered new interface driver usbfs
-    usbcore: registered new interface driver hub
-    usbcore: registered new device driver usb
-    cfg80211: Calling CRDA to update world regulatory domain
-    Switching to clocksource orion_clocksource
-    NET: Registered protocol family 2
-    IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
-    TCP established hash table entries: 8192 (order: 4, 65536 bytes)
-    TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
-    TCP: Hash tables configured (established 8192 bind 8192)
-    TCP reno registered
-    UDP hash table entries: 256 (order: 0, 4096 bytes)
-    UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
-    NET: Registered protocol family 1
-    RPC: Registered udp transport module.
-    RPC: Registered tcp transport module.
-    RPC: Registered tcp NFSv4.1 backchannel transport module.
-    PCI: CLS 32 bytes, default 32
-    JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
-    msgmni has been set to 496
-    alg: No test for stdrng (krng)
-    io scheduler noop registered
-    io scheduler deadline registered
-    io scheduler cfq registered (default)
-    Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
-    serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A
-    console [ttyS0] enabled
-    loop: module loaded
-    sata_mv sata_mv.0: version 1.28
-    sata_mv sata_mv.0: slots 32 ports 2
-    scsi0 : sata_mv
-    scsi1 : sata_mv
-    ata1: SATA max UDMA/133 irq 21
-    ata2: SATA max UDMA/133 irq 21
-    NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
-    Scanning device for bad blocks
-    Bad eraseblock 74 at 0x000000940000
-    Bad eraseblock 417 at 0x000003420000
-    Bad eraseblock 651 at 0x000005160000
-    Bad eraseblock 814 at 0x0000065c0000
-    Bad eraseblock 1240 at 0x000009b00000
-    Bad eraseblock 1710 at 0x00000d5c0000
-    Bad eraseblock 1825 at 0x00000e420000
-    Creating 3 MTD partitions on "orion_nand":
-    0x000000000000-0x000000100000 : "u-boot"
-    0x000000100000-0x000000700000 : "uImage"
-    0x000000700000-0x000010000000 : "root"
-    UBI: attaching mtd2 to ubi0
-    UBI: physical eraseblock size:   131072 bytes (128 KiB)
-    UBI: logical eraseblock size:    126976 bytes
-    UBI: smallest flash I/O unit:    2048
-    UBI: sub-page size:              512
-    UBI: VID header offset:          2048 (aligned 2048)
-    UBI: data offset:                4096
-    UBI warning: ubi_eba_init_scan: cannot reserve enough PEBs for bad PEB handling, reserved 7, need 19
-    UBI: attached mtd2 to ubi0
-    UBI: MTD device name:            "root"
-    UBI: MTD device size:            249 MiB
-    UBI: number of good PEBs:        1985
-    UBI: number of bad PEBs:         7
-    UBI: max. allowed volumes:       128
-    UBI: wear-leveling threshold:    4096
-    UBI: number of internal volumes: 1
-    UBI: number of user volumes:     1
-    UBI: available PEBs:             0
-    UBI: total number of reserved PEBs: 1985
-    UBI: number of PEBs reserved for bad PEB handling: 7
-    UBI: max/mean erase counter: 1/0
-    UBI: image sequence number: 504793264
-    ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)
-    UBI: background thread "ubi_bgt0d" started, PID 438
-    MV-643xx 10/100/1000 ethernet driver version 1.4
-    mv643xx_eth smi: probed
-    ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133
-    ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)
-    net eth0: port 0 with MAC address 00:01:d2:0e:26:44
-    libertas_sdio: Libertas SDIO driver
-    libertas_sdio: Copyright Pierre Ossman
-    ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-    orion-ehci orion-ehci.0: Marvell Orion EHCI
-    orion-ehci orion-ehci.0: new USB bus registered, assigned bus number 1
-    ata1.00: configured for UDMA/133
-    scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 PQ: 0 ANSI: 5
-    sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1.81 TiB)
-    orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000
-    sd 0:0:0:0: [sda] Write Protect is off
-    sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
-    sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
-    orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00
-    sda:
-    hub 1-0:1.0: USB hub found
-    hub 1-0:1.0: 1 port detected
-    sda1 sda2
-    Initializing USB Mass Storage driver...
-    usbcore: registered new interface driver usb-storage
-    USB Mass Storage support registered.
-    sd 0:0:0:0: [sda] Attached SCSI disk
-    usbcore: registered new interface driver ums-datafab
-    usbcore: registered new interface driver ums-freecom
-    usbcore: registered new interface driver ums-jumpshot
-    usbcore: registered new interface driver ums-sddr09
-    usbcore: registered new interface driver ums-sddr55
-    mice: PS/2 mouse device common for all mice
-    input: gpio-keys as /devices/platform/gpio-keys/input/input0
-    rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0
-    i2c /dev entries driver
-    md: linear personality registered for level -1
-    md: raid0 personality registered for level 0
-    md: raid1 personality registered for level 1
-    cpuidle: using governor ladder
-    cpuidle: using governor menu
-    mmc0: mvsdio driver initialized, using GPIO 38 for card detection
-    Registered led device: error
-    Registered led device: system
-    Registered led device: usbcopy
-    MV-CESA:Fallback driver 'sha1' could not be loaded!
-    alg: hash: Failed to load transform for mv-sha1: -2
-    MV-CESA:Fallback driver 'hmac(sha1)' could not be loaded!
-    alg: hash: Failed to load transform for mv-hmac-sha1: -2
-    mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver
-    mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver
-    mv_xor mv_xor.0: Marvell XOR: ( xor cpy )
-    mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )
-    mv_xor mv_xor.2: Marvell XOR: ( xor cpy )
-    mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )
-    usbcore: registered new interface driver usbhid
-    usbhid: USB HID core driver
-    oprofile: hardware counters not available
-    oprofile: using timer interrupt.
-    TCP cubic registered
-    NET: Registered protocol family 17
-    lib80211: common routines for IEEE802.11 drivers
-    lib80211_crypt: registered algorithm 'NULL'
-    Gating clock of unused units
-    before: 0x00c7c1dd
-    after: 0x00c7c1dd
-    rtc-mv rtc-mv: setting system clock to 2011-09-25 20:09:31 UTC (1316981371)
-    usb 1-1: new high speed USB device using orion-ehci and address 2
-    ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)
-    hub 1-1:1.0: USB hub found
-    hub 1-1:1.0: 4 ports detected
-    ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133
-    ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)
-    ata2.00: configured for UDMA/133
-    scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 PQ: 0 ANSI: 5
-    sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1.81 TiB)
-    sd 1:0:0:0: [sdb] Write Protect is off
-    sd 1:0:0:0: [sdb] Mode Sense: 00 3a 00 00
-    sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
-    sdb: sdb1 sdb2
-    sd 1:0:0:0: [sdb] Attached SCSI disk
-    md: Waiting for all devices to be available before autodetect
-    md: If you don't use raid, use raid=noautodetect
-    md: Autodetecting RAID arrays.
-    md: Scanned 2 and added 2 devices.
-    md: autorun ...
-    md: considering sdb1 ...
-    md:  adding sdb1 ...
-    md:  adding sda1 ...
-    md: created md1
-    md: bind<sda1>
-    md: bind<sdb1>
-    md: running: <sdb1><sda1>
-    md/raid1:md1: active with 2 out of 2 mirrors
-    md1: detected capacity change from 0 to 1999861579776
-    md: ... autorun DONE.
-    UBIFS: mounted UBI device 0, volume 0, name "rootfs"
-    UBIFS: file system size:   248999936 bytes (243164 KiB, 237 MiB, 1961 LEBs)
-    UBIFS: journal size:       9023488 bytes (8812 KiB, 8 MiB, 72 LEBs)
-    UBIFS: media format:       w4/r0 (latest is w4/r0)
-    UBIFS: default compressor: lzo
-    UBIFS: reserved for root:  0 bytes (0 KiB)
-    VFS: Mounted root (ubifs filesystem) on device 0:13.
-    Freeing init memory: 140K
-    Failed to execute /linuxrc.  Attempting defaults...
-    md1: detected capacity change from 0 to 1999861579776
-    md1: unknown partition table
-    sd 0:0:0:0: Attached scsi generic sg0 type 0
-    sd 1:0:0:0: Attached scsi generic sg1 type 0
-    md1: detected capacity change from 0 to 1999861579776
-    md1: unknown partition table
-    uncorrectable error :
-    uncorrectable error :
-    end_request: I/O error, dev mtdblock0, sector 0
-    EXT4-fs (md1): mounted filesystem with ordered data mode. Opts: (null)
-    Adding 522108k swap on /dev/sda2.  Priority:-1 extents:1 across:522108k
-    Adding 522108k swap on /dev/sdb2.  Priority:-2 extents:1 across:522108k
-    NET: Registered protocol family 10
-    ADDRCONF(NETDEV_UP): eth0: link is not ready
-    eth0: link up, 1000 Mb/s, full duplex, flow control disabled
-    ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
-    tun: Universal TUN/TAP device driver, 1.6
-    tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
-    eth0: no IPv6 routers present
-</code>
-
-
-<p>$ cat &#x2F;etc&#x2F;system-release</p>
-<code>
-    Fedora release 12 (Constantine)
-</code>
-
-
-<p>$ free -m</p>
-<code>
-                 total       used       free     shared    buffers     cached
-    Mem:           248        245          2          0          0        197
-    -/+ buffers/cache:         47        201
-    Swap:         1019          0       1019
-</code>
-
-
-<p>$ cat &#x2F;etc&#x2F;fstab</p>
-<code>
-    ubi0    /               ubifs   defaults        1 1
-    devpts  /dev/pts        devpts  gid=5,mode=620  0 0
-    shm     /dev/shm        tmpfs   rw,nosuid,nodev 0 0
-    proc    /proc           proc    defaults        0 0
-    sysfs   /sys            sysfs   defaults        0 0
-    none   /var/tmp   tmpfs   defaults   0 0
-    sunrpc  /var/lib/nfs/rpc_pipefs rpc_pipefs      defaults 0 0
-    # mount data partition to /home
-    /dev/sda2 none swap defaults 0 0
-    /dev/sdb2 none swap defaults 0 0
-    /dev/md1 /home ext4 relatime 0 0
-</code>
-
-
-<p>$ history</p>
-<code>
-        1  tr -d /etc/nas/
-        2  tr
-        3  tr --help
-        4  file tr
-        5  help tr
-        6  type tr
-        7  exit
-        8  tr
-        9  exit
-       10  nas-tr -d conf
-       11  nas-tr -d /etc/nas/
-       12  ls
-       13  #nas-tr -d /etc/nas/
-       14  ls
-       15  nas-tr -d /etc/nas/
-       16  ls
-       17  ls -l
-       18  exit
-       19  sleep 3
-       20  grep $(ip addr show eth0 | grep -i ether | cut -d ' ' -f 6 | tr -d ':') /etc/nas/device && echo No need to register || rm /etc/nas/device; /usr/bin/nas-register
-       21  sleep 2
-       22  ifconfig
-       23  hwclock --systohc
-       24  fdisk -l
-       25  hwclock
-       26  exit
-</code>
-
-
-<p>$ cat &#x2F;etc&#x2F;issue</p>
-<code>
-    Fedora release 12 (Constantine)
-    Kernel \r on an \m (\l)
-</code>
-
-
-<p>$ mount</p>
-<code>
-    ubi0 on / type ubifs (rw)
-    proc on /proc type proc (rw)
-    sysfs on /sys type sysfs (rw)
-    devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-    shm on /dev/shm type tmpfs (rw,nosuid,nodev)
-    none on /var/tmp type tmpfs (rw)
-    sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
-    /dev/md1 on /home type ext4 (rw,relatime)
-</code>
-
-
-<p>$ ps aux</p>
-<code>
-    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-    root         1  0.0  0.3   1956   820 ?        Ss   20:09   0:01 /sbin/init
-    root         2  0.0  0.0      0     0 ?        S    20:09   0:00 [kthreadd]
-    root         3  0.0  0.0      0     0 ?        S    20:09   0:00 [ksoftirqd/0]
-    root         4  0.0  0.0      0     0 ?        S    20:09   0:00 [watchdog/0]
-    root         5  0.0  0.0      0     0 ?        S    20:09   0:00 [events/0]
-    root         6  0.0  0.0      0     0 ?        S    20:09   0:00 [khelper]
-    root         9  0.0  0.0      0     0 ?        S    20:09   0:00 [async/mgr]
-    root       149  0.0  0.0      0     0 ?        S    20:09   0:00 [sync_supers]
-    root       151  0.0  0.0      0     0 ?        S    20:09   0:00 [bdi-default]
-    root       153  0.0  0.0      0     0 ?        S    20:09   0:00 [kblockd/0]
-    root       159  0.0  0.0      0     0 ?        S    20:09   0:00 [ata_aux]
-    root       160  0.0  0.0      0     0 ?        S    20:09   0:00 [ata_sff/0]
-    root       168  0.0  0.0      0     0 ?        S    20:09   0:00 [khubd]
-    root       171  0.0  0.0      0     0 ?        S    20:09   0:00 [kseriod]
-    root       174  0.0  0.0      0     0 ?        S    20:09   0:00 [kmmcd]
-    root       184  0.0  0.0      0     0 ?        S    20:09   0:00 [cfg80211]
-    root       266  0.0  0.0      0     0 ?        S    20:09   0:00 [rpciod/0]
-    root       274  0.0  0.0      0     0 ?        S    20:09   0:00 [khungtaskd]
-    root       275  0.0  0.0      0     0 ?        S    20:09   0:00 [kswapd0]
-    root       322  0.0  0.0      0     0 ?        S    20:09   0:00 [aio/0]
-    root       329  0.0  0.0      0     0 ?        S    20:09   0:00 [nfsiod]
-    root       335  0.0  0.0      0     0 ?        S    20:09   0:00 [crypto/0]
-    root       402  0.0  0.0      0     0 ?        S    20:09   0:00 [scsi_eh_0]
-    root       406  0.0  0.0      0     0 ?        S    20:09   0:00 [scsi_eh_1]
-    root       420  0.0  0.0      0     0 ?        S    20:09   0:00 [mtdblock0]
-    root       425  0.0  0.0      0     0 ?        S    20:09   0:00 [mtdblock1]
-    root       430  0.0  0.0      0     0 ?        S    20:09   0:00 [mtdblock2]
-    root       438  0.0  0.0      0     0 ?        S    20:09   0:00 [ubi_bgt0d]
-    root       439  0.0  0.0      0     0 ?        S    20:09   0:00 [orion_spi]
-    root       503  0.0  0.0      0     0 ?        S    20:09   0:00 [mv_crypto]
-    root       549  0.0  0.0      0     0 ?        S    20:09   0:00 [usbhid_resumer]
-    root       575  0.0  0.0      0     0 ?        S    20:09   0:00 [md1_raid1]
-    root       578  0.0  0.0      0     0 ?        S    20:09   0:00 [ubifs_bgt0_0]
-    root       658  0.0  0.2   2316   752 ?        S<s  20:09   0:00 /sbin/udevd -d
-    root       843  0.0  0.3   2312   792 ?        S<   20:09   0:00 /sbin/udevd -d
-    root       877  0.0  0.0      0     0 ?        S    20:09   0:00 [jbd2/md1-8]
-    root       878  0.0  0.0      0     0 ?        S    20:09   0:00 [ext4-dio-unwrit]
-    root      1163  0.0  0.2   2584   576 ?        Ss   20:09   0:00 /sbin/dhclient -1 -q -lf /var/lib/dhclient/dhclient-eth0.leases -pf /var/run/dhclient-eth0.pid eth0
-    root      1219  0.0  0.4  29580  1240 ?        Sl   20:09   0:00 /sbin/rsyslogd -c 4
-    rpc       1229  0.0  0.3   2512   780 ?        Ss   20:09   0:00 rpcbind
-    root      1248  0.0  0.3   2512  1008 ?        Ss   20:09   0:00 rpc.statd
-    root      1277  0.0  0.2   3644   520 ?        Ss   20:09   0:00 rpc.idmapd
-    dbus      1288  0.0  0.3   2912   780 ?        Ss   20:09   0:00 dbus-daemon --system
-    avahi     1298  0.0  0.5   3188  1492 ?        S    20:09   0:00 avahi-daemon: running [JSHARE.local]
-    avahi     1299  0.0  0.1   3188   496 ?        Ss   20:09   0:00 avahi-daemon: chroot helper
-    root      1318  0.0  1.4   7580  3700 ?        Ss   20:09   0:00 /usr/sbin/openvpn --daemon --writepid /var/run/openvpn/client.pid --config client.conf --cd /etc/openvpn --script-security 2
-    root      1327  0.0  1.0  11512  2664 ?        Ss   20:09   0:00 cupsd -C /etc/cups/cupsd.conf
-    root      1387  0.0  4.6  72376 11784 ?        Sl   20:09   0:02 python /usr/bin/nas-fastcgi
-    root      1405  0.0  2.4  21208  6300 ?        S    20:09   0:00 python /usr/bin/nas-inotify
-    root      1410  0.0  1.7  15488  4360 ?        S    20:09   0:00 python /usr/bin/nas-buttons
-    root      1423  0.1  1.9  25200  4960 ?        Sl   20:09   0:11 python /usr/bin/nas-diskmon
-    root      1448  0.1  1.5  22504  3828 ?        Sl   20:09   0:12 python /usr/bin/nas-logrota
-    root      1466  0.0  0.4   7964  1052 ?        Ss   20:09   0:00 /usr/sbin/sshd
-    root      1503  0.0  0.2   5728   552 ?        Ss   20:09   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
-    lighttpd  1514  0.0  0.6   7520  1632 ?        S    20:09   0:00 /usr/sbin/lighttpd -f /etc/nas/lighttpd.conf
-    root      1527  0.0  1.1  19552  2948 ?        Ss   20:10   0:00 smbd -D
-    root      1540  0.0  0.1   2328   428 ?        Ss   20:10   0:00 /usr/sbin/atd
-    root      1543  0.0  0.5  19552  1280 ?        S    20:10   0:00 smbd -D
-    root      1546  0.0  0.5   2896  1464 ?        S    20:10   0:00 /usr/bin/nas-tr -d /etc/nas
-    root      1584  0.0  0.3   2312   792 ?        S<   20:10   0:00 /sbin/udevd -d
-    root      1614  0.0  0.2   3900   524 ?        S    20:10   0:00 /usr/sbin/smartd -q never
-    root      1622  0.0  0.2   1808   524 tty4     Ss+  20:10   0:00 /sbin/mingetty tty4
-    root      1623  0.0  0.2   1808   524 tty5     Ss+  20:10   0:00 /sbin/mingetty tty5
-    root      1624  0.0  0.2   1808   524 tty2     Ss+  20:10   0:00 /sbin/mingetty tty2
-    root      1625  0.0  0.2   1808   524 tty3     Ss+  20:10   0:00 /sbin/mingetty tty3
-    root      1626  0.0  0.2   1808   524 tty1     Ss+  20:10   0:00 /sbin/mingetty tty1
-    root      1627  0.0  0.2   1808   524 tty6     Ss+  20:10   0:00 /sbin/mingetty tty6
-    root      1634  0.0  0.2   1820   576 ttyS0    Ss+  20:10   0:00 /sbin/agetty /dev/ttyS0 115200 vt100-nav
-    root      1657  0.0  0.0      0     0 ?        S    21:34   0:00 [flush-9:1]
-    root      1662  0.0  1.1  11352  2836 ?        Ss   21:39   0:00 sshd: root@pts/0
-    root      1673  0.0  0.6   4368  1560 pts/0    Ss   21:39   0:00 -bash
-    root      1840  0.0  0.0      0     0 ?        S    21:57   0:00 [flush-ubifs_0_0]
-    root      1860  0.0  0.3   4048   940 pts/0    R+   22:05   0:00 ps aux
-</code>
-
-<p>Pièces jointes</p>
-<pre><code>config.gz
-    (12.43 Kio) Aucun téléchargement
-</code></pre>
-<p>le dmesg me donne une information importante :</p>
-<code>
-    Creating 3 MTD partitions on "orion_nand":
-    0x000000000000-0x000000100000 : "u-boot"
-    0x000000100000-0x000000700000 : "uImage"
-    0x000000700000-0x000010000000 : "root"
-</code>
-
-
-<p>je commende par créer un répertoire de travail dans le dossier HOME de admin.</p>
-<p>je fait une sauvegarde complète du NAS :</p>
-<p>Uboot :</p>
-<code>
-    $ dd if=/dev/mdt0 of=u-boot.bin
-</code>
-
-
-<p>Kernel Linux :</p>
-<code>
-    $ dd if=/dev/mdt1 of=uImage.bin
-</code>
-
-
-<p>RootFS UBI Fedora :</p>
-<code>
-    $ dd if=/dev/mdt2 of=rootfs_ubi.bin
-</code>    
-    
-<pre><code>Il faut maintenant savoir comment est configuré l&#39;uboot :
-</code></pre>
-<p>Après avoir téléchargé le binaire compilé fw_printenv.</p>
-<p>Un peu de test pour trouver la bonne configuration de fw_env.config à palcer dans &#x2F;etc&#x2F;</p>
-<code>
-    # Configuration file for fw_(printenv/saveenv) utility.
-    # Up to two entries are valid, in this case the redundant
-    # environment sector is assumed present.
-    # Notice, that the "Number of sectors" is ignored on NOR.
-
-<pre><code># MTD device name       Device offset   Env. size       Flash sector size       Number of sectors
-
-# NAND example
-#GURUPLUG
-#/dev/mtd0               0x40000         0x20000         0x20000          1
-
-#SHEEVAPLUG
-#/dev/mtd0   0x0000      0x20000      0x20000      1
-
-#LSPRO
-#/dev/mtd0      0x3F000         0x1000          0x1000
-
-#/dev/mtd0   0x00      0x1000      0x20000   
-#/dev/mtd0      0xa0000         0x70000         0x20000
-
-#ICYBOX 6220
-/dev/mtd0   0xa0000      0x20000      0x20000
-</code></pre>
-</code>
-
-
-<p>Le résultat recherché est là :</p>
-<code>
-    baudrate=115200
-    loads_echo=0
-    ipaddr=10.4.50.165
-    netmask=255.255.255.0
-    CASset=min
-    MALLOC_len=1
-    ethprime=egiga0
-    bootargs_end=:::DB88FXX81:eth0:none
-    standalone=fsload 0x2000000 $(image_name);setenv bootargs $(console) root=/dev/mtdblock0 rw ip=$(ipaddr):$(serverip)$(bootargs_end) $(mvPhoneConfig); bootm 0x2000000;
-    ethmtu=1500
-    mvPhoneConfig=mv_phone_config=dev0:fxs,dev1:fxs
-    mvNetConfig=mv_net_config=(00:11:88:0f:62:81,0:1:2:3),mtu=1500
-    usb0Mode=host
-    yuk_ethaddr=00:00:00:EE:51:81
-    nandEcc=1bit
-    netretry=no
-    rcvrip=169.254.100.100
-    loadaddr=0x02000000
-    autoload=no
-    ethact=egiga0
-    bootargs_root=ubi.mtd=2,2048 root=ubi0:rootfs rootfstype=ubifs init=/linuxrc
-    console=console=ttyS0,115200
-    bootcmd=nand read.e 0x800000 0x100000 0x300000; setenv bootargs $(console) $(bootargs_root); bootm 0x800000
-    rootpath=/tftpboot/marvell.nfs.rootfs
-    image_name=uImage.6281a.ubifs.20090513
-    serverip=10.128.129.205
-    stdin=serial
-    stdout=serial
-    stderr=serial
-    mainlineLinux=no
-    enaMonExt=no
-    enaCpuStream=no
-    enaWrAllo=no
-    pexMode=RC
-    disL2Cache=no
-    setL2CacheWT=yes
-    disL2Prefetch=yes
-    enaICPref=yes
-    enaDCPref=yes
-    sata_dma_mode=yes
-    netbsd_en=no
-    vxworks_en=no
-    bootdelay=3
-    disaMvPnp=no
-    enaAutoRecovery=no
-    ethaddr=00:01:d2:0e:26:44
-</code>
-
-
-<p>Et tout ça sans une seule soudure, ni même démontage du boitier ! :shock:</p>
-<p>Bon, c’est beau tout ça, mais :</p>
-<p>Avantages (sans ordre préférentiel) :</p>
-<ul>
-<li>Le boîtier est beau</li>
-<li>c’est silencieux</li>
-<li>le changement de disque est simplifié (pas de démontage)</li>
-<li>l’interface ouèbe est chouette</li>
-<li>le changement d’OS est facile</li>
-<li>logiciels libres</li>
-<li>…</li>
-</ul>
-<p>Inconvénients :</p>
-<pre><code>* Liste à pucemal sécurisé en standard (comme tous les boîtiers équivalents ?)
-* ...
-
-
-L&#39;enquête contiue, avec la maison mère ( AKITIO ) et le tunnel VPN qui passe par les flux DNS de worksys !
-</code></pre>
-<p><a target="_blank" rel="noopener" href="http://www.workssys.com/iSharing.html">http://www.workssys.com/iSharing.html</a></p>
-<p>&#x2F;etc&#x2F;client.conf</p>
-<code>
-    client
-    dev tun
-    proto udp
-    remote isharing.workssys.com 53
-    resolv-retry infinite
-    nobind
-    persist-key
-    persist-tun
-    ca ca.crt
-    cert client.crt
-    key client.key
-    comp-lzo
-    verb 3
-</code>        
-
-
-
-<p><a target="_blank" rel="noopener" href="http://wiki.myakitio.com/">http://wiki.myakitio.com/</a></p>
-<p><a target="_blank" rel="noopener" href="http://cloudsync.myakitio.com/">http://cloudsync.myakitio.com/</a></p>
-<p>Un produit équivalent chez ASUS :<br><a target="_blank" rel="noopener" href="http://www.asus.com/Networks/NAS/NASM25/#specifications">http://www.asus.com/Networks/NAS/NASM25/#specifications</a></p>
-<p>La petite analyse sécurité du jour :<br>Le mot de passe root d’origine ?</p>
-<code>
-    sudo unshadow 'HACKNAS2/passwd-' 'HACKNAS2/shadow-' > 'HACKNAS2/crack.password.db'
-</code>
-
-
-<code>
-    sudo john HACKNAS2/crack.password.db
-</code>
-
-
-<code>
-    Created directory: /root/.john
-    Loaded 2 password hashes with 2 different salts (FreeBSD MD5 [32/32])
-    toor (root)
-</code>
-
-
-<p>:siffle:</p>
-<p>&#x2F;etc&#x2F;nas&#x2F;lighttpd.conf</p>
-<code>
-    # lighttpd configuration file
-
-<pre><code>accesslog.filename  = &quot;/var/log/lighttpd/access.log&quot;
-server.errorlog = &quot;/var/log/lighttpd/error.log&quot;
-index-file.names = ( &quot;index.html&quot; )
-
-mimetype.assign = (
-  &quot;.rpm&quot;          =&gt;      &quot;application/x-rpm&quot;,
-  &quot;.pdf&quot;          =&gt;      &quot;application/pdf&quot;,
-  &quot;.sig&quot;          =&gt;      &quot;application/pgp-signature&quot;,
-  &quot;.spl&quot;          =&gt;      &quot;application/futuresplash&quot;,
-  &quot;.class&quot;        =&gt;      &quot;application/octet-stream&quot;,
-  &quot;.ps&quot;           =&gt;      &quot;application/postscript&quot;,
-  &quot;.torrent&quot;      =&gt;      &quot;application/x-bittorrent&quot;,
-  &quot;.dvi&quot;          =&gt;      &quot;application/x-dvi&quot;,
-  &quot;.gz&quot;           =&gt;      &quot;application/x-gzip&quot;,
-  &quot;.pac&quot;          =&gt;      &quot;application/x-ns-proxy-autoconfig&quot;,
-  &quot;.swf&quot;          =&gt;      &quot;application/x-shockwave-flash&quot;,
-  &quot;.tar.gz&quot;       =&gt;      &quot;application/x-tgz&quot;,
-  &quot;.tgz&quot;          =&gt;      &quot;application/x-tgz&quot;,
-  &quot;.tar&quot;          =&gt;      &quot;application/x-tar&quot;,
-  &quot;.zip&quot;          =&gt;      &quot;application/zip&quot;,
-  &quot;.mp3&quot;          =&gt;      &quot;audio/mpeg&quot;,
-  &quot;.m3u&quot;          =&gt;      &quot;audio/x-mpegurl&quot;,
-  &quot;.wma&quot;          =&gt;      &quot;audio/x-ms-wma&quot;,
-  &quot;.wax&quot;          =&gt;      &quot;audio/x-ms-wax&quot;,
-  &quot;.ogg&quot;          =&gt;      &quot;application/ogg&quot;,
-  &quot;.wav&quot;          =&gt;      &quot;audio/x-wav&quot;,
-  &quot;.gif&quot;          =&gt;      &quot;image/gif&quot;,
-  &quot;.jar&quot;          =&gt;      &quot;application/x-java-archive&quot;,
-  &quot;.jpg&quot;          =&gt;      &quot;image/jpeg&quot;,
-  &quot;.jpeg&quot;         =&gt;      &quot;image/jpeg&quot;,
-  &quot;.png&quot;          =&gt;      &quot;image/png&quot;,
-  &quot;.xbm&quot;          =&gt;      &quot;image/x-xbitmap&quot;,
-  &quot;.xpm&quot;          =&gt;      &quot;image/x-xpixmap&quot;,
-  &quot;.xwd&quot;          =&gt;      &quot;image/x-xwindowdump&quot;,
-  &quot;.css&quot;          =&gt;      &quot;text/css&quot;,
-  &quot;.html&quot;         =&gt;      &quot;text/html&quot;,
-  &quot;.htm&quot;          =&gt;      &quot;text/html&quot;,
-  &quot;.js&quot;           =&gt;      &quot;text/javascript&quot;,
-  &quot;.asc&quot;          =&gt;      &quot;text/plain&quot;,
-  &quot;.c&quot;            =&gt;      &quot;text/plain&quot;,
-  &quot;.cpp&quot;          =&gt;      &quot;text/plain&quot;,
-  &quot;.log&quot;          =&gt;      &quot;text/plain&quot;,
-  &quot;.conf&quot;         =&gt;      &quot;text/plain&quot;,
-  &quot;.text&quot;         =&gt;      &quot;text/plain&quot;,
-  &quot;.txt&quot;          =&gt;      &quot;text/plain&quot;,
-  &quot;.dtd&quot;          =&gt;      &quot;text/xml&quot;,
-  &quot;.xml&quot;          =&gt;      &quot;text/xml&quot;,
-  &quot;.mpeg&quot;         =&gt;      &quot;video/mpeg&quot;,
-  &quot;.mpg&quot;          =&gt;      &quot;video/mpeg&quot;,
-  &quot;.mov&quot;          =&gt;      &quot;video/quicktime&quot;,
-  &quot;.qt&quot;           =&gt;      &quot;video/quicktime&quot;,
-  &quot;.avi&quot;          =&gt;      &quot;video/x-msvideo&quot;,
-  &quot;.asf&quot;          =&gt;      &quot;video/x-ms-asf&quot;,
-  &quot;.asx&quot;          =&gt;      &quot;video/x-ms-asf&quot;,
-  &quot;.wmv&quot;          =&gt;      &quot;video/x-ms-wmv&quot;,
-  &quot;.bz2&quot;          =&gt;      &quot;application/x-bzip&quot;,
-  &quot;.tbz&quot;          =&gt;      &quot;application/x-bzip-compressed-tar&quot;,
-  &quot;.tar.bz2&quot;      =&gt;      &quot;application/x-bzip-compressed-tar&quot;,
-  &quot;.flv&quot;          =&gt;      &quot;video/x-flv&quot;,
-  # default mime type
-  &quot;&quot;              =&gt;      &quot;application/octet-stream&quot;,
-)
-
-server.modules = (
-    &quot;mod_cgi&quot;,
-    &quot;mod_fastcgi&quot;,
-    &quot;mod_auth&quot;,
-    &quot;mod_rewrite&quot;,
-    &quot;mod_access&quot;,
-    &quot;mod_accesslog&quot;,
-    &quot;mod_proxy&quot;,
-)
-
-url.access-deny = ( &quot;~&quot;, &quot;.inc&quot; )
-
-$HTTP[&quot;url&quot;] =~ &quot;\.pdf$&quot; &#123;
-  server.range-requests = &quot;disable&quot;
-&#125;
-
-static-file.exclude-extensions = ( &quot;.cgi&quot; )
-
-server.pid-file = &quot;/var/run/lighttpd.pid&quot;
-server.username = &quot;lighttpd&quot;
-server.groupname = &quot;lighttpd&quot;
-server.document-root = &quot;/var/www/nas/&quot;
-
-cgi.assign = ( &quot;.cgi&quot;  =&gt; &quot;/usr/bin/python&quot; )
-
-auth.backend = &quot;htdigest&quot;
-auth.backend.htdigest.userfile = &quot;/etc/nas/htdigest&quot;
-auth.require = (
-    &quot;/webdav&quot; =&gt; (
-        &quot;method&quot; =&gt; &quot;digest&quot;,
-        &quot;realm&quot; =&gt; &quot;Network Attached Storage&quot;,
-        &quot;require&quot; =&gt; &quot;valid-user&quot;,
-    ),
-)
-
-$HTTP[&quot;url&quot;] =~ &quot;^/submit|^/files&quot; &#123;
-    proxy.server = ( &quot;&quot; =&gt;
-        (
-            (
-                &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,
-                &quot;port&quot; =&gt; 4080
-            )
-        )
-    )
-&#125;
-
-fastcgi.debug = 1
-$HTTP[&quot;url&quot;] =~ &quot;^/testonly|^/dav|^/webdav|^/nas|^/[^_]+_[^_]+.*\.rss$&quot; &#123;
-    fastcgi.server = (
-        &quot;&quot; =&gt; (
-            (
-              &quot;socket&quot; =&gt; &quot;/var/run/nas-fastcgi.sock&quot;,
-              &quot;check-local&quot; =&gt; &quot;disable&quot;,
-              &quot;allow-x-send-file&quot; =&gt; &quot;enable&quot;,
-            )
-        ),
-    )
-&#125;
-</code></pre>
-</code>
-
-
-<p>&#x2F;usr&#x2F;bin&#x2F;nas-fastcgi</p>
-<code>
-    #!/usr/bin/env python
-    #fileencoding: utf-8
-    #Author: Liu DongMiao <liudongmiao@gmail.com>
-    #Created  : Fri 02 Jul 2010 03:23:25 PM CST
-    #Modified : Thu 30 Sep 2010 12:42:23 PM CST
-
-<pre><code>import sys
-if len(sys.argv) &gt; 1:
-    debug = True
-else:
-    debug = False
-
-import os
-import re
-import stat
-import errno
-import magic
-import mimetypes
-import urllib
-import urlparse
-from flup.server.fcgi import WSGIServer
-from nas.system import *
-from nas.convert import convert
-from cgitb import Hook
-from cStringIO import StringIO
-from nas.webdav import responses
-from nas.webdav import StatusError, StatusComplete, WEBDAV
-
-import pwd
-from nas.urls import URLS, UPLOAD
-from nas.login import updatetime
-
-try:
-    mime = magic.open(magic.MAGIC_MIME)
-    mime.load()
-except:
-    mime = None
-mimetypes.init()
-
-def getquery(environ):
-    uri, sep, query = environ[&#39;REQUEST_URI&#39;].partition(&#39;?&#39;)
-    tail = uri[-1:]
-    uri = os.path.normpath(urllib.unquote_plus(uri))
-    if tail == &#39;/&#39;:
-        uri += &#39;/&#39;
-
-    if query:
-        qs = &#123;&#39;url&#39;: &#39;%s?%s&#39; % (uri, query)&#125;
-    else:
-        qs = &#123;&#39;url&#39;: &#39;%s&#39; % uri&#125;
-
-    def setrequest(qs, environ):
-        length = int(environ[&#39;CONTENT_LENGTH&#39;])
-        qs[&#39;hash&#39;] = environ.get(&#39;HTTP_SESSION&#39;, None)
-        qs[&#39;post&#39;] = environ[&#39;wsgi.input&#39;]
-        qs[&#39;length&#39;] = length
-        header = environ.get(&#39;HTTP_CONTENT_RANGE&#39;, &#39;&#39;)
-        #if not header:
-        #    header = environ.get(&#39;X_HTTP_CONTENT_RANGE&#39;, &#39;&#39;)
-        ranged = re.findall(&#39;^bytes (\d+)-(\d+)/(\d+)$&#39;, header)
-        if len(ranged) == 1:
-            start, end, overall = map(int, ranged[0])
-            if start &lt;= end and end &lt;= overall:
-                qs[&#39;offset&#39;] = start
-                if overall - end == 1:
-                    qs[&#39;lastpackage&#39;] = True
-                else:
-                    qs[&#39;lastpackage&#39;] = False
-
-    method = environ[&#39;REQUEST_METHOD&#39;]
-    if &#39;CONTENT_LENGTH&#39; not in environ and &#39;HTTP_CONTENT_LENGTH&#39; in environ:
-        environ[&#39;CONTENT_LENGTH&#39;] = environ[&#39;HTTP_CONTENT_LENGTH&#39;]
-
-    if &#39;CONTENT_LENGTH&#39; in environ:
-        length = int(environ[&#39;CONTENT_LENGTH&#39;])
-        for (regex, view) in UPLOAD:
-            if re.match(regex, uri):
-                setrequest(qs, environ)
-                break
-        else:
-            if uri.startswith(&#39;/dav&#39;) or uri.startswith(&#39;/webdav&#39;):
-                setrequest(qs, environ)
-            else:
-                query += &#39;&amp;%s&#39; % environ[&#39;wsgi.input&#39;].read(length)
-
-    result = urlparse.parse_qsl(query, True)
-    for name, value in result:
-        #try:
-        #    value = urllib.unquote_plus(value)
-        #except UnicodeError:
-        #    continue
-        if name in qs:
-            old = qs[name]
-            if isinstance(old, str):
-                qs[name] = [old, value]
-            else:
-                qs[name].append(value)
-        else:
-            qs[name] = value
-
-    if qs.get(&#39;hash&#39;) is None:
-        qs[&#39;hash&#39;] = environ.get(&#39;HTTP_SESSION&#39;)
-
-    qs[&#39;login&#39;] = None
-    if qs.get(&#39;hash&#39;) is not None:
-        try:
-            qs[&#39;login&#39;] = updatetime(qs.get(&#39;hash&#39;))
-        except NASError:
-            pass
-
-    if &#39;REMOTE_USER&#39; in environ:
-        qs[&#39;login&#39;] = environ.get(&#39;REMOTE_USER&#39;)
-
-    #if &#39;login&#39; not in qs:
-    #    qs[&#39;login&#39;] = None
-
-    if False and &#39;login&#39; not in qs:
-        cookie = environ.get(&#39;HTTP_COOKIE&#39;, &#39;&#39;)
-        for item in re.split(&#39;;\s*&#39;, cookie):
-            result = re.findall(&#39;^session=([a-f0-9]&#123;40&#125;)$&#39;, item)
-            if not len(result):
-                continue
-            try:
-                login = updatetime(result[0])
-            except NASError:
-                continue
-            qs[&#39;login&#39;] = login
-            break
-
-    return (uri, qs)
-
-def application(environ, start_response):
-    try:
-        code, headers, body = _application(environ, start_response)
-    except Exception:
-        code = 500
-        headers = []
-        mimetype = &#39;text/html&#39;
-        fp = StringIO()
-        hook = Hook(file=fp)
-        hook.handle()
-        body = [fp.getvalue()]
-        import time
-        file = open(&#39;/tmp/nas.fastcgi.webdav.%s.html&#39; % time.time(), &#39;w&#39;)
-        file.write(fp.getvalue())
-        file.close()
-        fp.close()
-
-    status = &#39;%s %s&#39; % (code, responses[code])
-
-    start_response(status, headers)
-    return body
-
-
-def _application(environ, start_response):
-    headers = []
-    body = []
-   
-    uri, qs = getquery(environ)
-
-    if uri.startswith(&#39;/testonly&#39;):
-        nil, nil, query = environ[&#39;REQUEST_URI&#39;].partition(&#39;?&#39;)
-        from nas.testonly import testonly
-        code = 200
-        result = testonly(query)
-        body = [result.getvalue()]
-        result.close()
-    elif uri.startswith(&#39;/dav&#39;) or uri.startswith(&#39;/webdav&#39;):
-        code = 405
-        webdav = WEBDAV()
-        method = environ.get(&#39;REQUEST_METHOD&#39;)
-        qs[&#39;environ&#39;] = environ
-        print &gt;&gt;sys.stderr, uri, method, environ
-        if hasattr(webdav, method):
-            function = getattr(webdav, method)
-            try:
-                function(**qs)
-            except NASError as error:
-                values = &#123;&#39;error&#39;: &#123;&#39;reason&#39;: error.reason,
-                                    &#39;detail&#39;: error.detail
-                body = writexml(values)
-                if uri.startswith(&#39;/dav&#39;):
-                    code = 200
-                else:
-                    code = 503
-            except (StatusError, StatusComplete) as error:
-                code = error.status
-                headers = error.headers
-                body = error.body
-    else:
-        code = 404
-        function = None
-        mimetype = &#39;text/xml; charset=&quot;utf-8&quot;&#39;
-        values = None
-        view = None
-
-        for (regex, view) in URLS + UPLOAD:
-            if re.match(regex, uri):
-                break
-        else:
-            view = None
-
-        if view is not None:
-            (modname, sep, funcname) = view.rpartition(&#39;.&#39;)
-            if sep == &#39;.&#39;:
-                try:
-                    __import__(modname)
-                    module = sys.modules[modname]
-                except ImportError: pass
-                else:
-                    if hasattr(module, funcname):
-                        function = getattr(module, funcname)
-                        code = 200
-
-            if modname.endswith(&#39;noauth&#39;):
-                print &gt;&gt;sys.stderr, uri
-                qs[&#39;uri&#39;] = uri
-            elif qs[&#39;login&#39;] is None:
-                values = &#123;&#39;error&#39;: &#123;&#39;reason&#39;: &#39;Not Login&#39;
-
-        if values is None and callable(function):
-            try:
-                values = function(**qs)
-            except NASError as error:
-                values = &#123;&#39;error&#39;: &#123;&#39;reason&#39;: error.reason,
-                                    &#39;detail&#39;: error.detail
-            except (StatusError, StatusComplete) as error:
-                code = error.status
-                headers = error.headers
-                body = error.body
-            except OSError as error:
-                values = &#123;&#39;error&#39;: &#123;&#39;reason&#39;: error.strerror,
-                                    &#39;detail&#39;: error.filename
-
-        if debug:
-            print &gt;&gt;sys.stderr, qs
-
-        if values:
-            if isinstance(values, (basestring, list, dict)) and qs.get(&#39;output&#39;) == &#39;json&#39;:
-                mimetype = &#39;text/javascript; charset=&quot;utf-8&quot;&#39;
-                body = writexml(values, **qs)
-            else:
-                body = writexml(values)
-
-        if debug:
-            print &gt;&gt;sys.stderr, body
-
-        for header in headers:
-            if header[0].lower() == &#39;content-type&#39;:
-                break
-        else:
-            headers.append((&#39;Content-Type&#39;, mimetype))
-
-    return code, headers, body
-
-if __name__ == &#39;__main__&#39;:
-    pidfile = &#39;/var/run/nas-fastcgi.pid&#39;
-    pid = getpid(pidfile)
-    if pid:
-        print &gt;&gt;sys.stderr, &#39;nas-fastcgi is running at&#39;, pid
-        sys.exit(0)
-    if not debug:
-        daemon()
-    # write pid
-    file = open(pidfile, &#39;w&#39;)
-    try:
-        file.write(str(os.getpid()))
-    finally:
-        file.close()
-
-    import signal
-    from nas.system import sigchld
-    signal.signal(signal.SIGCHLD, sigchld)
-
-    options = &#123; &#39;bindAddress&#39;: &#39;/var/run/nas-fastcgi.sock&#39;, &#39;umask&#39;: 0000 &#125;
-    WSGIServer(application, **options).run()
-
-# vim: set sta sw=4 et:
-</code></pre>
-</code>    
-    
-<pre><code>KÉSSÉÇA !?
-</code></pre>
-<p>Le “cloud”… le “nuage” c’est aussi ça ?! :shock:</p>
-<p>C’est chouette, j’ai une url dynamique perso chez myicybox.com ?</p>
-<p>:wiki:notes:nashack:capture000.png|</p>
-<p>Cette url :</p>
-<p>:wiki:notes:nashack:capture000-1.png|</p>
-<p>Me donne accès sur le NAS :</p>
-<p>:wiki:notes:nashack:capture000-2.png|</p>
-<p>avec activation du JavaScript je suis sur mon IP privée !</p>
-<p>Un tunnel VPN… chez : worksys.com.cn est actif à partir de mon NAS…</p>
-<p>:wiki:notes:nashack:capture000-3.png|</p>
-<p>Ce tunnel VPN est activé au démarrage… à chaque démarrage …<br>Chiffré et sécurisé.</p>
-<p>:wiki:notes:nashack:capture000-5.png|</p>
-<p>Cette IP n’est pas chez moi :</p>
-<p>Les réglages du NAS ne mentionne rien.</p>
-<p>:wiki:notes:nashack:capture000-7.png|</p>
-<p>Les redémarrages successifs se font attribuer des IP internes différentes. L’adresse MAC matérielle change.</p>
-<p>:wiki:notes:nashack:capture000-8.png|</p>
-<p>Pourtant le VPN est là :</p>
-<p>:wiki:notes:nashack:capture000-9.png|</p>
-<p>Et ce tunel VPN passe sur le port 53 (BIND, LE DNS) le plus facilement camouflable, le plus facilement utilisable par les hackers car non filtrable.</p>
-<p>:wiki:notes:nashack:capture000-10.png|</p>
-<p>Ce tunnel est chiffré et il est impossible de le sniffer.<br>Il n’est pas routé, mais pourrait l’être.</p>
-<p>worksys.com (.cn) redirige mon IP qu’il a donc obtenu dynamiquement et en temps réel.<br>MAIS, n’a-t-il que ces données.</p>
-<p>Su un NAS ou je suis censé stocker mes informations personnelles, sécurisées, localement !!!</p>
-<p>GRANDIOSE… :grr:</p>
-<p>Le programme est de cloner le système uboot+linux+rootfs ( fedora modifié ) sur un sheevalug (même processeur) pour valider la méthode d’upgrade de l’IB-6220 ( le NAS ).<br>Le sheevaplug possède un port série + jtag directement accessible par un simple cable USB.</p>
-<p>Une fois la méthode validée, et les problèmes résolus, je pourrais mettre à jour le nas sans risque.<br>Celui ne possède pas de port jtag ni de port série facilement accessible.</p>
-<p>Le démontage détermine un possible port série :</p>
-<code>
-    3,3V   RX   TX  GND
-</code>
-
-
-<p>Mais, pour le sport, et surtout pour la simplicité de la procédure pour d’autres, je vais le faire “à ma méthode”, sans démontage…</p>
-<code>
-    Hey guys some news ....
-    Current pinout of serial console
-    2mm lead pitch header, near 2*5 header, PCB is with USB/Ethernet-Plug is facing to you.
-    The 2 other (4 pin header are on right side)
-</code>
-
-<code>
-    UNKNOWN UNKNOWN TX GND
-    (RX) (3,3V)
-
-<pre><code>In pins in parentheses, are not tested yet !!!
-</code></pre>
-</code>
-
-    
-<code>
-        3,3V   RX   TX  GND
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/fr/Cyber/HowTo-Hack-a-NAS-CLOUD/#more" rel="contents">
+                Lire la suite &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-<pre><code>You need a cable with 3,3Volts signals !!
-</code></pre>
-</code>
-
-
-    
-<code>
-        $ busybox microcom -s 115200 /dev/ttyUSB0
-</code>
-        
-<pre><code>    La méthode du clonage est validée.
-</code></pre>
-<p>Il a fallut mette à jour linux ( le noyau ou kernel ) et les modules pour des problèmes de stabilité et bug dans la version intégrée au nas.<br>Essentiellement des problèmes réseau sur le sheevaplug.</p>
-<p>:wiki:notes:nashack:capture00000.png|</p>
-<p>:wiki:notes:nashack:capture0000.png|</p>
-<p>:wiki:notes:nashack:capture0000-3.png|</p>
-<p>Il faut, en plus du boitier NAS à cloner, un clé USB debian “maison” et un sheevaplug…</p>
-<p>:wiki:notes:nashack:capture0000-1.png|</p>
-<p>Le Linux 2.6.35.4 sera aussi utile pour résoudre les BUG de la version 2.6.35.4 intégrée au IB6220.</p>
-<p>Il faut pour cloner à partir de l’IB6220, les u-boot-tools ( uboot env ) et les mtd-utils ( nand ) :</p>
-<p>À préparer sur une debian puis à rappatrier dans les dossier &#x2F;home&#x2F;hackme de travaille sur le IB ( ou le clone ).</p>
-<p><a target="_blank" rel="noopener" href="http://packages.debian.org/squeeze/armel/uboot-envtools">http://packages.debian.org/squeeze/armel/uboot-envtools</a></p>
-<p>wget <a target="_blank" rel="noopener" href="http://ftp.fr.debian.org/debian/pool/main/u/uboot-envtools/uboot-envtools_20081215-2_armel.deb">http://ftp.fr.debian.org/debian/pool/main/u/uboot-envtools/uboot-envtools_20081215-2_armel.deb</a><br>dpkg -x uboot-envtools_20081215-2_armel.deb hackme&#x2F;uboot</p>
-<p><a target="_blank" rel="noopener" href="http://packages.debian.org/squeeze/armel/mtd-utils">http://packages.debian.org/squeeze/armel/mtd-utils</a></p>
-<p>wget <a target="_blank" rel="noopener" href="http://ftp.fr.debian.org/debian/pool/main/m/mtd-utils/mtd-utils_20090606-1_armel.deb">http://ftp.fr.debian.org/debian/pool/main/m/mtd-utils/mtd-utils_20090606-1_armel.deb</a><br>dpkg -x mtd-utils_20090606-1_armel.deb hackme&#x2F;mtd</p>
-<p>Les varaiables d’environnement uboot utilisée pour les tests du clone sont :</p>
-<code>
-    [root@JCLONE ~]# /home/hackme/u-boot-tools/fw_printenv
-    bootdelay=3
-    baudrate=115200
-    x_bootargs=console=ttyS0,115200 mtdparts=orion_nand:512k(uboot),4m@1m(kernel),507m@5m(rootfs) rw
-    x_bootcmd_kernel=nand read 0x6400000 0x100000 0x400000
-    x_bootcmd_sata=ide reset;
-    x_bootargs_root=ubi.mtd=2 root=ubi0:rootfs rootfstype=ubifs
-    ethact=egiga0
-    bootcmd_usb=usb start; run x_bootcmd_usb; bootm 0x00800000 0x01100000
-    x_bootcmd_usb=setenv bootargs $&#123;x_bootargs_root_usb&#125;; ext2load usb 0:1 0x00800000 /uImage; ext2load usb 0:1 0x01100000 /uInitrd;
-    x_bootargs_root_usb=console=ttyS0,115200 root=/dev/sda3 mtdparts=orion_nand:1m(uboot),6m@1m(kernel),249m@7m(rootfs) rw
-    x_bootargs_console=console=ttyS0,115200
-    bootcmd=run bootcmd_ethernet;run x_bootcmd_nand
-    bootcmd_ethernet=setenv ethact egiga0; $&#123;x_bootcmd_ethernet&#125;; setenv ethact egiga1; $&#123;x_bootcmd_ethernet&#125;;
-    gatewayip=192.168.0.1
-    serverip=192.168.0.254
-    ipaddr=192.168.0.177
-    ethaddr=00:50:43:01:62:7e
-    x_bootcmd_ethernet=ping 192.168.0.1
-    mainlineLinux=yes
-    arcNumber=2097
-    x_bootargs_root_nand=ubi.mtd=2,2048 root=ubi0:rootfs rootfstype=ubifs init=/linuxrc mtdparts=orion_nand:1m(uboot),6m@1m(kernel),249m@7m(rootfs) rw
-    stdin=serial
-    stdout=serial
-    stderr=serial
-    x_bootcmd_nand=setenv bootargs $(x_bootargs_console) $(x_bootargs_root_nand); nand read.e 0x00800000 0x00100000 0x00300000; bootm 0x00800000;
-</code>
-
-
-<p>Ces variables sont modifiables et affichables, après modification ( upgrade ) de l’uboot par le denx ( modifié ) perso :</p>
-<code>
-    [root@JCLONE ~]# cat /etc/fw_env.config
-    # SHEEVAPLUG DENX UBOOT                                                         
-    /dev/mtd0               0x60000         0x20000         0x20000                 
-</code>
-
-
-<p>L’uboot utilisé pour le clone est le 20110531-MMC-SATA<br>Il intègre les patchs qui sont maintenant intégré dans l’uboot Debian !</p>
-<p>Pièces jointes</p>
-<p>:wiki:notes:nashack:uboot-sata-mmc.zip|</p>
-<p>:wiki:notes:nashack:nashack.tar.gz|</p>
-<p>:wiki:notes:nashack:2.6.35.4.tar.gz|</p>
-<p>Le principe d’un VPN :</p>
-<p>:wiki:notes:nashack:capture-02.png|</p>
-<p>L’explication commerciale !</p>
-<p>:wiki:notes:nashack:capture-04.png|</p>
-<p>:wiki:notes:nashack:capture-05.png|</p>
-<p>:wiki:notes:nashack:capture-06.png|</p>
-<p>:wiki:notes:nashack:capture-07.png|</p>
-<p>:wiki:notes:nashack:capture-08.png|</p>
-<p>:wiki:notes:nashack:capture-09.png|</p>
-<p>:wiki:notes:nashack:capture-10.png|</p>
-<p>:wiki:notes:nashack:capture-11.png|</p>
-<p>Le copyright :</p>
-<p>:wiki:notes:nashack:capture-12.png|</p>
-<p>Et pourtant il est actif, sasn possibilité utilisateur de l’arrêter, ni même le voir…</p>
-<p>:wiki:notes:nashack:capture-15.png|</p>
-<p>alors qu’un simple</p>
-<code>
-    $ chkconfig openvpn off
-</code>
-
-<p>dans un terminal.<br>Suivi d’un reboot, et il n’est plus lancé !</p>
-<p>PLus besoin au grand internet de sauvegarder vos données personnelles, vous le faites pour eux !<br>:diablo:</p>
-<p>Mais c’est gratuit, au moins au début ! :diablo:</p>
-<p>:wiki:notes:nashack:capture-5.png|</p>
-<p>Et puis c’est joli…</p>
-<p>:wiki:notes:nashack:capture-6.png|</p>
-<p>Il existe plusieurs portail &#x2F; société :<br>myisharing.com</p>
-<p>:wiki:notes:nashack:capture-7.png|</p>
-<p>myakitio.com</p>
-<p>:wiki:notes:nashack:capture-8.png|</p>
-<p>Ces produits ont des documentations officielles sous la forme de wiki :<br>cloudsync.myakitio.com&#x2F;<br>wiki.myakitio.com&#x2F;</p>
-<p>:wiki:notes:nashack:changelog.pdf|ChangeLog.pdf</p>
-<p>Bien sûr, tout ceci n’est pas un problème, mais une fonctionnalité, et ce n’est pas envisageable de la désactiver :</p>
-<p>:wiki:notes:nashack:capture-9.png|</p>
-<p>On se retrouve à partir d’un produit allemand, fabriqué en chine, sur des sites américains et canadien, mais mon analyse montre que les certificats de la connexion VPN et la connexion elle même, est réalisée avec la chine !</p>
-<p>Pourquoi faire des spywares et autre logiciels espions quand le produit peut-être lui même un “pont” avec votre réseau !<br>:up:</p>
-<p>Réf :<br>:wiki:notes:nashack:uboot-envtool.tar|</p>
-
       
     </div>
 
@@ -1885,80 +1210,9 @@ if __name__ == &#39;__main__&#39;:
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/1998/06/04/Gk2-NET-04-juin-1998/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/images/avatar.jpg">
-      <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CyberMind.FR">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/fr/1998/06/04/Gk2-NET-04-juin-1998/" class="post-title-link" itemprop="url">Gk2.COM - Fournisseur Internet - 04 juin 1998</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posté le</span>
-
-      <time title="Article créé le: 1998-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="1998-06-04T00:00:00+02:00">1998-06-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Édité le</span>
-      <time title="Mis à jour le: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>GK2.COM<br><img src="/uploads/images/GK2.NET/Title.gif" width="492px" heigth="78px"></p>
-<p><a target="_blank" rel="noopener" href="https://web.archive.org/web/19980624073923/http://www.gk2.com/">GK2.COM @199806</a><br><img src="/uploads/images/GK2.NET/Screenshot 2022-03-16 at 16-51-16 En construction.png" width="569px" heigth="268px"></p>
-<p><a target="_blank" rel="noopener" href="https://web.archive.org/web/19981212025249/http://www.gk2.com:80/">GK2.COM @199812</a><br><img src="/uploads/images/GK2.NET/Screenshot 2022-03-16 at 16-52-01 Wayback Machine.png" width="720px" heigth="402px"></p>
-<p><a target="_blank" rel="noopener" href="https://numerilibre.fr/usage-professionnel-du-libre/">Retour vers le futur…</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/fr/page/2/">2</a><a class="extend next" rel="next" href="/fr/page/2/"><i class="fa fa-angle-right" aria-label="Page suivante"></i></a>
+  </nav>
 
 </div>
   </main>
@@ -1986,14 +1240,14 @@ if __name__ == &#39;__main__&#39;:
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 1982 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">CyberMind</span>
+  <span class="author" itemprop="copyrightHolder">🧙 -- Gandalf (from "The Conjurers")</span>
 </div>
-  <div class="powered-by">Propulsé par <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Propulsé par <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
@@ -2001,19 +1255,28 @@ if __name__ == &#39;__main__&#39;:
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
 
   
 
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-  
-
-
-
-
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"CyberMind-FR","repo":"cybermind-fr.gitalk","client_id":"c9a751e4f8ccf399a1bf","client_secret":"7559f84d5edc70752bfbbb3465fda3ddad786fc2","admin_user":"erdoukki","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":["en","fr"],"owner_user":"erdoukki","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"9ad42290cfaa4d2d99eab293f58b9dbd"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

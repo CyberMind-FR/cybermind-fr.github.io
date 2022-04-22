@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/images/apple-touch-icon-next.png">
@@ -15,12 +16,14 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"text":"Load Gitalk","order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    <meta name="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CyberMind.FR">
 <meta property="og:url" content="https://cybermind.fr/en/page/2/">
@@ -48,6 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/atom.xml" title="CyberMind.FR" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -65,7 +69,6 @@
   </div>
 
   <div class="site-meta">
-      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
@@ -73,10 +76,12 @@
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Embedded Developer / CyberSecurity Consultant @CyberMindFR</p>
+      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -84,22 +89,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
-        <li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li>
-        <li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li>
-        <li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li>
-        <li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li>
-        <li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li><li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li><li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li><li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li><li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li><li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -139,13 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -166,9 +192,12 @@
       <span class="links-of-author-item">
         <a href="mailto:info@cybermind.fr?subject=contact" title="E-Mail → mailto:info@cybermind.fr?subject&#x3D;contact"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -219,20 +248,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2022/03/03/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2022/03/03/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/" class="post-title-link" itemprop="url">MochaBin-5G@GlobalScaleTechnologies - New CrowdFunded Armada SoC based Devel Board (Quick) UnBoxing</a>
+          <a href="/en/Cyber/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/" class="post-title-link" itemprop="url">MochaBin-5G@GlobalScaleTechnologies - New CrowdFunded Armada SoC based Devel Board (Quick) UnBoxing</a>
         </h2>
 
         <div class="post-meta-container">
@@ -250,7 +284,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -266,40 +309,14 @@
           <p>A quick report of my just today morning received MochaBin-5 from the very first 20th CrowdFunders !</p>
 <img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0001.jpeg" width="768px" heigth="1024px">
 DHL Package...
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0002.jpeg" width="768px" heigth="1024px">
-Custom individual box !
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0003.jpeg" width="7024px" heigth="768px">
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0004.jpeg" width="768px" heigth="1024px">
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0005.jpeg" width="768px" heigth="1024px">
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0006.jpeg" width="768px" heigth="1024px">
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0007.jpeg" width="768px" heigth="1024px">
-EU Power Supply !
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0008.jpeg" width="768px" heigth="1024px">
-The MochaBin-5G Devel board revealed (upper side)
-
-<img src="/uploads/images/MochaBin-5G/GST@MochaBin-5G_QuickUnbox-2022-03-03-095248_0009.jpeg" width="768px" heigth="1024px">
-The MochaBin-5G Devel board revealed (down side)
-
-<p>Stay tune…</p>
-<p>More to come…</p>
-<p>Some details of interest:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://globalscaletechnologies.com/product/mochabin/">https://globalscaletechnologies.com/product/mochabin/</a></li>
-<li><a target="_blank" rel="noopener" href="https://forum.openwrt.org/t/mochabin-5g-kickstarter/108178">https://forum.openwrt.org/t/mochabin-5g-kickstarter/108178</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnx-software.com/2021/10/03/mochabin-5g-openwrt-ubuntu-sbc-10gbe-wifi-6-5g/">https://www.cnx-software.com/2021/10/03/mochabin-5g-openwrt-ubuntu-sbc-10gbe-wifi-6-5g/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.kickstarter.com/projects/874883570/mochabin-5g">https://www.kickstarter.com/projects/874883570/mochabin-5g</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.indiegogo.com/projects/mochabin-5g">https://www.indiegogo.com/projects/mochabin-5g</a></li>
-<li><a target="_blank" rel="noopener" href="https://openwrt.org/toh/hwdata/globalscale/globalscale_mochabin">https://openwrt.org/toh/hwdata/globalscale/globalscale_mochabin</a></li>
-</ul>
-<p>:-]</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/MochaBin-5G-GlobalScaleTechnologies-New-CrowdFunded-Armada-SoC-based-Devel-Board-Quick-UnBoxing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -325,20 +342,25 @@ The MochaBin-5G Devel board revealed (down side)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2022/02/24/Meet-Gerald-new-CrowdSec-ambassador/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/Meet-Gerald-new-CrowdSec-ambassador/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2022/02/24/Meet-Gerald-new-CrowdSec-ambassador/" class="post-title-link" itemprop="url">Meet Gérald, new CrowdSec ambassador</a>
+          <a href="/en/Cyber/Meet-Gerald-new-CrowdSec-ambassador/" class="post-title-link" itemprop="url">Meet Gérald, new CrowdSec ambassador</a>
         </h2>
 
         <div class="post-meta-container">
@@ -356,7 +378,16 @@ The MochaBin-5G Devel board revealed (down side)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -373,27 +404,14 @@ The MochaBin-5G Devel board revealed (down side)
 
 <h1 id="Meet-Gerald-new-CrowdSec-ambassador"><a href="#Meet-Gerald-new-CrowdSec-ambassador" class="headerlink" title="Meet Gérald, new CrowdSec ambassador"></a>Meet Gérald, new CrowdSec ambassador</h1><p>We are thrilled to welcome Gérald Kerma as a new CrowdSec Ambassador! Gérald is based in France and has over 25 years of experience in cybersecurity. He is also a contributor to the OpenWrt project. Gérald created <a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/crowdsec">an OpenWrt port for CrowdSec</a>. </p>
 <p>Here is a little interview with Gérald to get to know him better.  </p>
-<h2 id="Hey-Gerald-can-you-tell-our-community-about-yourself"><a href="#Hey-Gerald-can-you-tell-our-community-about-yourself" class="headerlink" title="Hey Gérald, can you tell our community about yourself?"></a>Hey Gérald, can you tell our community about yourself?</h2><p>You can also call me Gandalf, erdoukki, drEagle, Geronimo, Guignol…I take the name of “Gandalf from the Conjurers,” my own “hackers team” in my teenage years when I was already in the computer world as a secret avatar.</p>
-<p>During my early years, I self-taught computer science in Paris on the free access computers at “Palais de la découverte”… I got into computers with Commodore 64, and I self-learned Pascal with ZIP and FFT transforms algorithms. Later I wrote my first games about Labyrinths. Quickly then I wrote developer tools on the first IBM&#x2F;PC Computer. I had an XT, a very modern one, with a huge hard drive of 40 Mb. I made my first dollars with Shareware on Apple&#x2F;MacIntosh on innovative tools in the world of Human Interface Software. They were distributed in French Magazines and BSS around the globe.</p>
-<p>All this was a long time before the Internet years when a telecom connection cost more dollars in an hour than a monthly salary.</p>
-<p>Then was my first job in a French Security Company, a Software Editor in Paris, where we wrote Hard Drive Ciphering Tools, Network Auditing Tools, and my own Quick Access Interface utility projects.</p>
-<p>At the age of 20, I opened my first company, GK2, an Internet provider for small companies, artists, and associations. While continuing in freelance software development, I hosted some websites on a self-made Pentium Pro bought on a USA trip, which used the RedHat Linux System. I offered some services to big companies like Thales, with whom I then got a contract for IT outsourcing services in CEA (French Alternative Energies and Atomic Energy Commission).</p>
-<p>I was the VIP expert and Apple&#x2F;Macintosh specialist. We were in the very first mass virus attacks with Blasters. We needed a System Software solution to quickly master computers. Then I wrote a full custom solution with GNU&#x2F;Linux tools for Microsoft&#x2F;Windows XP. I also made available the alpha version of Windows Update to the full network. This was my first step in the Thales Company in CyberSecurity where I was engaged as SysAdmin and later as a Security Architect.</p>
-<h2 id="What-is-about-CrowdSec-that-inspired-you-to-become-its-ambassador"><a href="#What-is-about-CrowdSec-that-inspired-you-to-become-its-ambassador" class="headerlink" title="What is about CrowdSec that inspired you to become its ambassador?"></a>What is about CrowdSec that inspired you to become its ambassador?</h2><p>Back to the first creative mind needs, I left Paris to Savoie where I made my first public software developments. I left Thales with the objective of a “Security Box” which I had dreamed of and studied for years already, based on free software and made in my free time. I wanted to propose simple yet user-efficient and innovative solutions. With possibly the “Free as in free beer” perspective of Open and Free Software.</p>
-<p>I discovered the CrowdSec Software solution at a very early stage and it was a very good component candidate for my own project. I sent an email to the team to propose my own services and experiences with Embedded systems like OpenWrt and ARM developers board. I gave them references for some articles written for Diamond Editions. They quickly answered and we got into mutual collaboration projects. I learned the solution by porting the CrowdSec Agent and CrowdSec Firewall Bouncer to the OpenWrt system.</p>
-<p>Both, CrowdSec and OpenWrt, were candidates for my own “Security Box” Project, and also gave me the opportunity to better understand and deeper test the solution.</p>
-<h2 id="How-do-you-see-your-mission-at-CrowdSec"><a href="#How-do-you-see-your-mission-at-CrowdSec" class="headerlink" title="How do you see your mission at CrowdSec?"></a>How do you see your mission at CrowdSec?</h2><p>While proposing to the CrowdSec team external unthought evolution, I wanted my own “Security Box” concept to become a “Solution” of the real world.</p>
-<p>CrowdSec is both a solution in terms of the software model and also in terms of business company example. I like the method and the rules, but I prefer the results and impacts. I have taken a lot of free time to offer OpenWrt but CrowdSec offers me a lot with its project too. Now I have some perspectives which we can both offer to help the Internet be safer but stay ethical.</p>
-<p>I already shared some projects with the CrowdSec community, and CrowdSec may have some surprises to come soon… But, it is the start of our crossed paths and this adventure is just at the beginning.</p>
-<h2 id="A-fun-fact-about-yourself"><a href="#A-fun-fact-about-yourself" class="headerlink" title="A fun fact about yourself?"></a>A fun fact about yourself?</h2><p>I have my own life philosophy and rules. I can be described as an epicurean. I write poetry, paint, engrave on wood, and engrave on slate stone with gold.</p>
-<p>I also have my own technical rules and methods which are very close to the Creative Mind Educative Concepts. When I left the Thales projects, I said to my ex-colleagues that I go out to study real solutions to bring back to them. I opened a new company, CyberMind, and started wearing a white cap to show on which side I am.</p>
-<p>My look is a demonstration of the CyberSecurity concept I want to share and offer around as a choice for a solution. This is how the white cap, the Gandalf pseudo, and my own methods make me a personage which is just ME.</p>
-<h2 id="What-is-your-dream-for-the-future-of-cybersecurity"><a href="#What-is-your-dream-for-the-future-of-cybersecurity" class="headerlink" title="What is your dream for the future of cybersecurity?"></a>What is your dream for the future of cybersecurity?</h2><p>In a conceptual and virtual world like digital technologies, we need some help to stop the expense of time and money for the perpetual and invisible problems of CyberSecurity. The bad guys are innovative and out of limits because the computer sciences offer them the tools to be so.</p>
-<p>We need some solutions to re-balance the good and evil because the “grey” will never be possible… We need full white, open, respectful, stable, collaborative, and innovative solutions. CrowdSec gives us one step to this long path and I will help the project as far as I can.</p>
-<p>…Stay tuned…</p>
-<p>:-]</p>
-<p><a target="_blank" rel="noopener" href="https://crowdsec.net/blog/meet-gerald-new-crowdsec-ambassador/">Daria Charyeva @ CrowdSec&#x2F;blog</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/Meet-Gerald-new-CrowdSec-ambassador/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -419,20 +437,25 @@ The MochaBin-5G Devel board revealed (down side)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2022/02/19/welcome/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/Mind/welcome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2022/02/19/welcome/" class="post-title-link" itemprop="url">welcome</a>
+          <a href="/en/Cyber/Mind/welcome/" class="post-title-link" itemprop="url">welcome</a>
         </h2>
 
         <div class="post-meta-container">
@@ -450,7 +473,20 @@ The MochaBin-5G Devel board revealed (down side)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-16 08:53:51" itemprop="dateModified" datetime="2022-04-16T08:53:51+02:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/Mind/" itemprop="url" rel="index"><span itemprop="name">Mind</span></a>
+        </span>
     </span>
 
   
@@ -466,15 +502,15 @@ The MochaBin-5G Devel board revealed (down side)
           <p>Still in progress…</p>
 <p>Stay tune!</p>
 <h2 id="Hello-all-👋"><a href="#Hello-all-👋" class="headerlink" title="Héllo all 👋"></a>Héllo all 👋</h2><p><strong>Here are some ideas you must know about CyberMind’s rules:</strong></p>
-<p>🙋‍♀️ A short introduction - Open Source Code</p>
-<p>🌈 Personnal guidelines - CyberSecurity experienced, free as in free beer, long time code contributor.</p>
-<p>🌈 Contribution guidelines - Open Source code, in respect of human rights.</p>
-<p>👩‍💻 Useful resources - So, Enjoy or made it better by yourself.</p>
-<p>🍿 Fun facts - Stay tuned for more (or do it yourself…) :sunglasses:</p>
-<p>🧙 Remember, use it at your own risks… </p>
-<p><img src="https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="erdoukki&#39;s GitHub stats"></p>
-<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="erdoukki&#39;s GitHub langs stats"></p>
-
+<p>🙋‍♀️ A short introduction ?<br>-&gt; Open Source Code</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/Mind/welcome/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -500,20 +536,25 @@ The MochaBin-5G Devel board revealed (down side)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2015/02/05/ARMADA-ZYXEL-NSA-310S/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/ARMADA-ZYXEL-NSA-310S/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2015/02/05/ARMADA-ZYXEL-NSA-310S/" class="post-title-link" itemprop="url">ARMADA : ZYXEL NSA 310S</a>
+          <a href="/en/Cyber/ARMADA-ZYXEL-NSA-310S/" class="post-title-link" itemprop="url">ARMADA : ZYXEL NSA 310S</a>
         </h2>
 
         <div class="post-meta-container">
@@ -531,7 +572,16 @@ The MochaBin-5G Devel board revealed (down side)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -547,250 +597,14 @@ The MochaBin-5G Devel board revealed (down side)
           <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; ARMADA : ZYXEL NSA 310S &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <p><code>The NS310S is a 88F6282 (ARMADA 300).<br></code></p>
 <p>nsa310_front_400.jpg?direct&amp;200<br>nsa310_rear_400.jpg?direct&amp;200</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Serial debug console &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Make sure your cable is only outputting 3.3V.</p>
-<p>‘’|<em>|-|</em>|<em>|</em>|’’ –&gt; pinout on the board: ‘’|GND|NC|RX|TX|VCC|’’<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-G : N
-TX : V
-RX : B
-</code>
-
-<code>
-$ minicom -D /dev/ttyUSB0
-
-<p>Bienvenue avec minicom 2.7</p>
-<p>OPTIONS: I18n<br>Compilé le Jan  1 2014, 09:30:18.<br>Port &#x2F;dev&#x2F;ttyUSB0, 06:02:05</p>
-<p>Tapez CTRL-A Z pour voir l’aide concernant les touches spéciales<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Compile u-boot-3.6.0_STG315 from NSA310S_470AALH0C0 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Ask zyxel from NSA310S latest GPL source code</p>
-<p>untar NSA310S_470AALH0C0.tar.gz</p>
-<code>
-tar -zxf NSA310S_470AALH0C0.tar.gz
-cd NSA310S_470AALH0C0
-</code>
-
-<p>untar arm cross tool chain</p>
-<code>
-tar -xvf sdk3.3-genericfs-arm-mv5sft.tar.gz
-</code>
-
-<p>untar GPL sources code from build_NSA310S.tar.gz</p>
-<code>
-tar -xvf build_NSA310S.tar.gz
-</code>
-
-<p>copy u-boot from source code trunk</p>
-<code>
-cp -R trunk/sysapps/u-boot-3.6.0_STG315 .
-</code>
-
-<p>fix source code files (get them from u-boot-3.6.0_stg315-fix.tar.gz) and copy files into u-boot-3.6.0_STG315<br>u-boot-3.6.0_stg315-fix.tar.gz</p>
-<code>
-cd u-boot-3.6.0_STG315
-</code>
-
-<p>fix arm cross tool chain path in building script by editing zyxel-install.sh</p>
-<file>
-#!/bin/sh
-export PATH=/usr/MATOS/ZYXEL/NSA310/zyxelco-GPL/FW4.70/NSA310S_470AALH0C0/sdk3.3-genericfs-arm-mv5sft/cross/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:${HOME}/bin
-export CROSS=arm-mv5sft-linux-gnueabi-
-make mrproper
-#make db88f6282bp_config SPIBOOT=1 DDR3=1 FREQ=533
-make db88f6282bp_config NBOOT=1 DDR3=1 FREQ=533
-make CROSS_COMPILE=/usr/MATOS/ZYXEL/NSA310/zyxelco-GPL/FW4.70/NSA310S_470AALH0C0/sdk3.3-genericfs-arm-mv5sft/cross/bin/arm-mv5sft-linux-gnueabi-
-</file>
-
-<p>build u-boot binaries</p>
-<code>
-./zyxel-install.sh
-</code>
-
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Boot Factory u-boot &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-         __  __                      _ _
-        |  \/  | __ _ _ ____   _____|   |
-        |   |\/|   |/ _` | '__
-
-<p>&#x2F; &#x2F; _<br>|   |<br>        |   |   | (<em>|   |<br>V &#x2F;  _<em>&#x2F; |   |<br>        |</em>|   |_|_</em>,<em>|</em>|    _&#x2F; __<em>|</em>|_|</p>
-<hr>
-<p>|   |   | __ )  ___   ___ |   |_<br>|   |   |<em>_<em>|  _<br>&#x2F; _<br>&#x2F; _ | _<em>|<br>|   |</em>|   |_</em>_|   |</em>) | (<em>) | (</em>) |   |_<br> _<strong>&#x2F;    |____&#x2F; _</strong>&#x2F; __<em>&#x2F; _</em>|<br> ** MARVELL BOARD: DB6702A-GMtech LE</p>
-<p>U-Boot 1.1.4 (May 28 2013 - 16:07:08) Marvell version: 3.6.0</p>
-<p>U-Boot code: 00600000 -&gt; 0067FFF0  BSS: -&gt; 006CFB00</p>
-<p>Soc: 88F6702 A1 CPU running @ 1000Mhz L2 running @ 500Mhz<br>SysClock &#x3D; 400Mhz , TClock &#x3D; 166Mhz</p>
-<p>DRAM (DDR2) CAS Latency &#x3D; 5 tRP &#x3D; 5 tRAS &#x3D; 18 tRCD&#x3D;6<br>DRAM CS[0] base 0x00000000   size 256MB<br>DRAM Total size 256MB  16bit width<br>Addresses 10M - 0M are saved for the U-Boot usage.<br>Mem malloc Initialization (10M - 7M): Done<br>NAND:128 MB<br>Flash:  0 kB</p>
-<p>CPU : Marvell Feroceon (Rev 1)<br>Kernel address is 0xc80000.</p>
-<p>Streaming disabled<br>Write allocate disabled</p>
-<p>USB 0: host mode<br>PEX 0: interface detected no Link.<br>Net:   egiga0 [PRIME]<br>Hit any key to stop autoboot:  0<br>Marvell&gt;&gt;<br>Marvell&gt;&gt; version</p>
-<p>U-Boot 1.1.4 (May 28 2013 - 16:07:08) Marvell version: 3.6.0<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Load official compiled u-boot &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-Marvell>> usb reset
-(Re)start USB...
-USB:   scanning bus for devices... 3 USB Device(s) found
-Waiting for storage device(s) to settle before scanning...
-1 Storage Device(s) found
-Marvell>> fatls usb 0:1
-   475592   u-boot-db88f6282bp_533ddr3db_nand.bin
-   475592   u-boot.bin
-
-<p>2 file(s), 2 dir(s)</p>
-<p>Marvell&gt;&gt; fatload usb 0:1 0x00800000 u-boot.bin<br>reading u-boot.bin<br>……………………………………….</p>
-<p>475592 bytes read<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Chain to loaded u-boot &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-Marvell>> go 0x800200
-## Starting application at 0x00800200 ...
-         __  __                      _ _
-        |  \/  | __ _ _ ____   _____|   |
-        |   |\/|   |/ _` | '__
-
-<p>&#x2F; &#x2F; _<br>|   |<br>        |   |   | (<em>|   |<br>V &#x2F;  _<em>&#x2F; |   |<br>        |</em>|   |_|_</em>,<em>|</em>|    _&#x2F; __<em>|</em>|_|</p>
-<hr>
-<p>|   |   | __ )  ___   ___ |   |_<br>|   |   |<em>_<em>|  _<br>&#x2F; _<br>&#x2F; _ | _<em>|<br>|   |</em>|   |_</em>_|   |</em>) | (<em>) | (</em>) |   |_<br> _<strong>&#x2F;    |____&#x2F; _</strong>&#x2F; __<em>&#x2F; _</em>|<br> ** MARVELL BOARD: DB-88F6282A-BP LE</p>
-<p>U-Boot 1.1.4 (Feb  5 2015 - 05:38:58) Marvell version: 3.6.0</p>
-<p>U-Boot code: 00600000 -&gt; 0067FFF0  BSS: -&gt; 006CFB00</p>
-<p>Soc: 88F6702 A1 CPU running @ 1000Mhz L2 running @ 500Mhz<br>SysClock &#x3D; 400Mhz , TClock &#x3D; 166Mhz</p>
-<p>DRAM (DDR2) CAS Latency &#x3D; 5 tRP &#x3D; 5 tRAS &#x3D; 18 tRCD&#x3D;6<br>DRAM CS[0] base 0x00000000   size 256MB<br>DRAM Total size 256MB  16bit width<br>Addresses 10M - 0M are saved for the U-Boot usage.<br>Mem malloc Initialization (10M - 7M): Done<br>NAND:128 MB<br>Flash:  0 kB</p>
-<p>CPU : Marvell Feroceon (Rev 1)<br>Kernel address is 0xc80000.</p>
-<p>Streaming disabled<br>Write allocate disabled</p>
-<p>USB 0: host mode<br>PEX 0: interface detected no Link.<br>Net:   egiga0 [PRIME]<br>Hit any key to stop autoboot:  0<br>Marvell&gt;&gt; version</p>
-<p>U-Boot 1.1.4 (Feb  5 2015 - 05:38:58) Marvell version: 3.6.0<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Références &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>[[<a target="_blank" rel="noopener" href="https://github.com/psch2/uboot-nsa320|U-Boot">https://github.com/psch2/uboot-nsa320|U-Boot</a> for ZyXEL NSA320 2-Bay Power Media Server ]]</p>
-<p>[[<a target="_blank" rel="noopener" href="https://github.com/PlanetEater/uboot-nsa320|Updated">https://github.com/PlanetEater/uboot-nsa320|Updated</a> U-Boot for ZyXEL NSA320 2-Bay Power Media Server]]</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; U-Boot (factory) Help &amp; Env &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-         __  __                      _ _
-        |  \/  | __ _ _ ____   _____|   |
-        |   |\/|   |/ _` | '__
-
-<p>&#x2F; &#x2F; _<br>|   |<br>        |   |   | (<em>|   |<br>V &#x2F;  _<em>&#x2F; |   |<br>        |</em>|   |_|_</em>,<em>|</em>|    _&#x2F; __<em>|</em>|_|</p>
-<hr>
-<p>|   |   | __ )  ___   ___ |   |_<br>|   |   |<em>_<em>|  _<br>&#x2F; _<br>&#x2F; _ | _<em>|<br>|   |</em>|   |_</em>_|   |</em>) | (<em>) | (</em>) |   |_<br> _<strong>&#x2F;    |____&#x2F; _</strong>&#x2F; __<em>&#x2F; _</em>|<br> ** MARVELL BOARD: DB6702A-GMtech LE</p>
-<p>U-Boot 1.1.4 (May 28 2013 - 16:07:08) Marvell version: 3.6.0</p>
-<p>U-Boot code: 00600000 -&gt; 0067FFF0  BSS: -&gt; 006CFB00</p>
-<p>Soc: 88F6702 A1 CPU running @ 1000Mhz L2 running @ 500Mhz<br>SysClock &#x3D; 400Mhz , TClock &#x3D; 166Mhz</p>
-<p>DRAM (DDR2) CAS Latency &#x3D; 5 tRP &#x3D; 5 tRAS &#x3D; 18 tRCD&#x3D;6<br>DRAM CS[0] base 0x00000000   size 256MB<br>DRAM Total size 256MB  16bit width<br>Addresses 10M - 0M are saved for the U-Boot usage.<br>Mem malloc Initialization (10M - 7M): Done<br>NAND:128 MB<br>Flash:  0 kB</p>
-<p>CPU : Marvell Feroceon (Rev 1)<br>Kernel address is 0xc80000.</p>
-<p>Streaming disabled<br>Write allocate disabled</p>
-<p>USB 0: host mode<br>PEX 0: interface detected no Link.<br>Net:   egiga0 [PRIME]<br>Hit any key to stop autoboot:  0<br>Marvell&gt;&gt; help<br>?       - alias for ‘help’<br>SatR - sample at reset sub-system, relevent for DB only<br>base    - print or set address offset<br>boot    - boot default, i.e., run ‘bootcmd’<br>bootd   - boot default, i.e., run ‘bootcmd’<br>bootext2    dev:boot_part1,boot_part2 addr boot_image linux_dev_name<br>bootm   - boot application image from memory<br>bootp    - boot image via network using BootP&#x2F;TFTP protocol<br>bubt    - Burn an image on the Boot Nand Flash.<br>chpart    - change active partition<br>cmp     - memory compare<br>cmpm    - Compare Memory<br>cp      - memory copy<br>cpumap - Display CPU memory mapping settings.<br>crc32   - checksum calculation<br>date    - get&#x2F;set&#x2F;reset date &amp; time<br>dclk    - Display the MV device CLKs.<br>dhcp    - invoke DHCP client to obtain IP&#x2F;boot params<br>diskboot- boot from IDE device<br>echo    - echo args to console<br>eeprom  - EEPROM sub-system<br>erase   - erase FLASH memory<br>ext2load- load binary file from a Ext2 filesystem<br>ext2ls  - list files in a directory (default &#x2F;)<br>fatinfo - print information about filesystem<br>fatload - load binary file from a dos filesystem<br>fatls   - list files in a directory (default &#x2F;)<br>fi    - Find value in the memory.<br>flinfo  - print FLASH memory information<br>fsinfo    - print information about filesystems<br>fsload    - load binary file from a filesystem image<br>g    - start application at cached address ‘addr’(default addr 0x40000)<br>go      - start application at address ‘addr’<br>help    - print online help<br>icrc32  - checksum calculation<br>ide     - IDE sub-system<br>iloop   - infinite loop on address range<br>imd     - i2c memory display<br>iminfo  - print header information for application image<br>imm[.b, .s, .w, .l]     - i2c memory modify (auto-incrementing)<br>imw     - memory write (fill)<br>inm     - memory modify (constant address)<br>iprobe  - probe to discover valid I2C chip addresses<br>ir    - reading and changing MV internal register values.<br>loop    - infinite loop on address range<br>ls    - list files in a directory (default &#x2F;)<br>map    - Diasplay address decode windows<br>md      - memory display<br>me    - PCI master enable<br>mm      - memory modify (auto-incrementing)<br>mmcinit - init mmc card<br>mp    - map PCI BAR<br>mtdparts- define flash&#x2F;nand partitions<br>mtest   - simple RAM test<br>mw      - memory write (fill)<br>nand                   - NAND sub-system<br>nboot   - boot from NAND device<br>nbubt    - Burn a boot loader image on the Boot Nand Flash.<br>nm      - memory modify (constant address)<br>pci     - list and access PCI Configuration Space<br>phyRead    - Read PCI-E Phy register<br>pciePhyWrite    - Write PCI-E Phy register<br>phyRead    - Read Phy register<br>phyWrite    - Write Phy register<br>ping    - send ICMP ECHO_REQUEST to network host<br>printenv- print environment variables<br>printinfo- print environment variables<br>protect - enable or disable FLASH write protection<br>rarpboot- boot image via network using RARP&#x2F;TFTP protocol<br>rcvr    - Satrt recovery process (Distress Beacon with TFTP server)<br>reset   - Perform RESET of the CPU<br>resetenv    - Return all environment variable to default.<br>run     - run commands in an environment variable<br>saveenv - save environment variables to persistent storage<br>saveinfo - save environment variables to persistent storage<br>se    - PCI Slave enable<br>setenv  - set environment variables<br>setinfo  - set environment variables<br>sflash    - read, write or erase the external SPI Flash.<br>sg    - scanning the PHYs status<br>sp    - Scan PCI bus.<br>switchRegRead    - Read switch register<br>switchRegWrite    - Write switch register<br>Temp    - read chip Tj temp<br>tftpboot- boot image via network using TFTP protocol<br>usb     - USB sub-system<br>usbboot - boot from USB device<br>version - print monitor version<br>Marvell&gt;&gt; printenv<br>bootargs&#x3D;console&#x3D;ttyS0,115200 mtdparts&#x3D;nand_mtd:0x100000(uboot),0x80000(uboot_env),0x80000(key_store),0x80000(info),0xA00000(etc),0xA00000(kernel_1),0x2FC0000(rootfs1),0xA00000(kernel_2),0x2FC0000(rootfs2) root&#x3D;&#x2F;dev&#x2F;nfs rw init&#x3D;&#x2F;init<br>bootcmd&#x3D;nand read.e 0x2000000 $(kernel_addr) 0xA00000; bootm 0x2000000<br>bootdelay&#x3D;2<br>baudrate&#x3D;115200<br>loads_echo&#x3D;0<br>ipaddr&#x3D;10.4.52.165<br>serverip&#x3D;10.4.52.7<br>rootpath&#x3D;&#x2F;srv&#x2F;ubuntu<br>netmask&#x3D;255.255.255.0<br>nandEcc&#x3D;1bit<br>MODEL_ID&#x3D;AD03<br>PRODUCT_NAME&#x3D;STG-315<br>FEATURE_BIT&#x3D;00<br>CONTRY_TYPE&#x3D;FF<br>VENDOR_NAME&#x3D;MitraStar Technology Corp.<br>run_diag&#x3D;yes<br>ethaddr&#x3D;4C:9E:FF:BF:7A:EB<br>stdin&#x3D;serial<br>stdout&#x3D;serial<br>stderr&#x3D;serial<br>console&#x3D;console&#x3D;ttyS0,115200 mtdparts&#x3D;nand_mtd:0xc0000@0(uboot)ro,0x7f00000@0x100000(root)<br>mainlineLinux&#x3D;no<br>enaMonExt&#x3D;no<br>enaCpuStream&#x3D;no<br>enaWrAllo&#x3D;no<br>pexMode&#x3D;RC<br>disL2Cache&#x3D;no<br>setL2CacheWT&#x3D;yes<br>disL2Prefetch&#x3D;yes<br>enaICPref&#x3D;yes<br>enaDCPref&#x3D;yes<br>sata_dma_mode&#x3D;yes<br>ethprime&#x3D;egiga0<br>netbsd_en&#x3D;no<br>vxworks_en&#x3D;no<br>bootargs_root&#x3D;root&#x3D;&#x2F;dev&#x2F;nfs rw<br>bootargs_end&#x3D;:::DB88FXX81:eth0:none<br>image_name&#x3D;uImage<br>standalone&#x3D;fsload 0x2000000 $(image_name);setenv bootargs $(console) root&#x3D;&#x2F;dev&#x2F;mtdblock0 rw ip&#x3D;$(ipaddr):$(serverip)$(bootargs_end) $(mvPhoneConfig); bootm 0x2000000;<br>disaMvPnp&#x3D;no<br>ethmtu&#x3D;1500<br>mvPhoneConfig&#x3D;mv_phone_config&#x3D;dev[0]:fxs,dev[1]:fxo<br>mvNetConfig&#x3D;mv_net_config&#x3D;(00:11:88:0f:62:81,0:1:2:3),mtu&#x3D;1500<br>usb0Mode&#x3D;host<br>yuk_ethaddr&#x3D;00:00:00:EE:51:81<br>netretry&#x3D;no<br>rcvrip&#x3D;169.254.100.100<br>loadaddr&#x3D;0x02000000<br>autoload&#x3D;no<br>image_multi&#x3D;yes<br>enaAutoRecovery&#x3D;yes<br>kernel_addr&#x3D;0xc80000<br>pcieTune&#x3D;no<br>ethact&#x3D;egiga0</p>
-<p>Environment size: 1509&#x2F;131068 bytes<br>Marvell&gt;&gt;<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Liste des ZyXel et compatibles &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>^MODEL_ID ^PRODUCT_NAME |<br>|D401 |NSA210 |<br>|D501 |NSA220 |<br>|DC01 |NSA221 |<br>|DA01 |NSA310_TDC |<br>|A203 |NSA310_ZyXEL |<br>|DD01 |NSA320 |<br>|AA03 |NSA325 |<br>|A403 |STG100 |<br>|A803 |STG211 |<br>|AB03 |STG212 |<br>|AE03 |NSA325v2 |<br>|AD03 |STG-315 |</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DB6702A-GMtech boards &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<ul>
-<li>ZyXEL NSA310S</li>
-<li>ZyXEL NSA320S</li>
-<li>DLINK DNS-320 B2</li>
-<li>LaCie CloudBox</li>
-</ul>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; MitraStar Technology Corp.- STG-315 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>ZyXEL - NSA310S</p>
-<code>
-/ # cat /etc/modelname
-NSA310S
-</code>
-
-<p>Marvell Development Board (LSP Version KW_LSP_5.1.3_patch30)– DB-88F6702A-BPE</p>
-<code>
-/ # cat /proc/cpuinfo
-Processor       : Feroceon 88FR131 rev 1 (v5l)
-BogoMIPS        : 992.87
-Features        : swp half thumb fastmult edsp
-CPU implementer : 0x56
-CPU architecture: 5TE
-CPU variant     : 0x2
-CPU part        : 0x131
-CPU revision    : 1
-
-<p>Hardware        : Feroceon-KW<br>Revision        : 0000<br>Serial          : 0000000000000000<br></code></p>
-<p>DB-88F6702A-BP</p>
-<code>
-/ # cat /proc/board_type
-DB-88F6702A-BP
-</code>
-
-<p>NAND MTDPARTS</p>
-<code>
-/ # cat /proc/mtd
-dev:    size   erasesize  name
-mtd0: 00100000 00020000 "uboot"
-mtd1: 00080000 00020000 "uboot_env"
-mtd2: 00080000 00020000 "key_store"
-mtd3: 00080000 00020000 "info"
-mtd4: 00a00000 00020000 "etc"
-mtd5: 00a00000 00020000 "kernel_1"
-mtd6: 02fc0000 00020000 "rootfs1"
-mtd7: 00a00000 00020000 "kernel_2"
-mtd8: 02fc0000 00020000 "rootfs2"
-</code>
-
-<code>
-/ # cat /etc/fw_env.config
-# Configuration file for fw_(printenv/saveenv) utility.
-# Up to two entries are valid, in this case the redundand
-# environment sector is assumed present.
-# Notice, that the "Number of sectors" is ignored on NOR.
-
-<h1 id="MTD-device-name-Device-offset-Env-size-Flash-sector-size-Number-of-sectors"><a href="#MTD-device-name-Device-offset-Env-size-Flash-sector-size-Number-of-sectors" class="headerlink" title="MTD device name       Device offset   Env. size       Flash sector size       Number of sectors"></a>MTD device name       Device offset   Env. size       Flash sector size       Number of sectors</h1><h1 id="NAND-example"><a href="#NAND-example" class="headerlink" title="NAND example"></a>NAND example</h1><p>&#x2F;dev&#x2F;mtd1               0x0000          0x20000         0x20000                 4<br></code></p>
-<code>
-/ # fw_printenv
-bootargs=console=ttyS0,115200 mtdparts=nand_mtd:0x100000(uboot),0x80000(uboot_env),0x80000(key_store),0x80000(info),0xA00000(etc),0xA00000(kernel_1),0x2FC0000(rootfs1),0xA00000(kernel_2),0x2FC0000(rootfs2) root=/dev/nfs rw init=/init
-bootcmd=nand read.e 0x2000000 $(kernel_addr) 0xA00000; bootm 0x2000000
-bootdelay=2
-baudrate=115200
-loads_echo=0
-ipaddr=10.4.52.165
-serverip=10.4.52.7
-rootpath=/srv/ubuntu
-netmask=255.255.255.0
-nandEcc=1bit
-kernel_addr=C80000
-MODEL_ID=AD03
-PRODUCT_NAME=STG-315
-FEATURE_BIT=00
-CONTRY_TYPE=FF
-VENDOR_NAME=MitraStar Technology Corp.
-run_diag=yes
-ethaddr=4C:9E:FF:BF:7A:EB
-</code>
-
-<code>
-/ # cat /etc/info_env.config
-# Configuration file for fw_(printenv/saveenv) utility.
-# Up to two entries are valid, in this case the redundand
-# environment sector is assumed present.
-
-<h1 id="Notice-that-the-“Number-of-sectors”-is-ignored-on-NOR"><a href="#Notice-that-the-“Number-of-sectors”-is-ignored-on-NOR" class="headerlink" title="Notice, that the “Number of sectors” is ignored on NOR."></a>Notice, that the “Number of sectors” is ignored on NOR.</h1><h1 id="MTD-device-name-Device-offset-Env-size-Flash-sector-size-Number-of-sectors-1"><a href="#MTD-device-name-Device-offset-Env-size-Flash-sector-size-Number-of-sectors-1" class="headerlink" title="MTD device name       Device offset   Env. size       Flash sector size       Number of sectors"></a>MTD device name       Device offset   Env. size       Flash sector size       Number of sectors</h1><h1 id="NAND-example-1"><a href="#NAND-example-1" class="headerlink" title="NAND example"></a>NAND example</h1><p>&#x2F;dev&#x2F;mtd3               0x0000          0x20000         0x20000                 4<br></code></p>
-<code>
-/ # strings /dev/mtd3
--skernel_addr_1=0xc80000
-kernel_mtd_1=5
-sysimg_mtd_1=6
-kernel_addr_2=0x4640000
-kernel_mtd_2=7
-sysimg_mtd_2=8
-fwversion_1=V4.70(AALH.0)
-revision_1=41128
-modelid_1=AD03
-core_checksum_1=54a9748949a91673b27122b78973179d
-zld_checksum_1=e6731ee8684c55c19bca33ee639b1653
-romfile_checksum_1=4C30
-img_checksum_1=5864cff5e093b4fa85684dc449558ace
-fwversion_2=V4.70(AALH.0)
-revision_2=41128
-modelid_2=AD03
-core_checksum_2=54a9748949a91673b27122b78973179d
-zld_checksum_2=e6731ee8684c55c19bca33ee639b1653
-romfile_checksum_2=4C30
-img_checksum_2=5864cff5e093b4fa85684dc449558ace
-next_bootfrom=1
-curr_bootfrom=1
-</code>
-
-<p>\</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/ARMADA-ZYXEL-NSA-310S/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -816,20 +630,25 @@ curr_bootfrom=1
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2014/12/23/OpenWrt-Development-contribs/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/OpenWrt-Development-contribs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2014/12/23/OpenWrt-Development-contribs/" class="post-title-link" itemprop="url">OpenWrt - Development contribs</a>
+          <a href="/en/Cyber/OpenWrt-Development-contribs/" class="post-title-link" itemprop="url">OpenWrt - Development contribs</a>
         </h2>
 
         <div class="post-meta-container">
@@ -847,7 +666,16 @@ curr_bootfrom=1
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -914,20 +742,25 @@ curr_bootfrom=1
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2014/09/24/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2014/09/24/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/" class="post-title-link" itemprop="url">HowTo Hack a NAS CLOUD - How to void your RaidSonic IcyBox NAS6220-B Warrantly...</a>
+          <a href="/en/Cyber/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/" class="post-title-link" itemprop="url">HowTo Hack a NAS CLOUD - How to void your RaidSonic IcyBox NAS6220-B Warrantly...</a>
         </h2>
 
         <div class="post-meta-container">
@@ -945,7 +778,16 @@ curr_bootfrom=1
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -961,225 +803,14 @@ curr_bootfrom=1
           <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; How to void your RaidSonic IcyBox NAS6220-B Warrantly… &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <p><strong>All informations in this page are given “as-is”, without warrantly, and can be harmfull !</strong></p>
 <p>The <em>why</em> of all of this is here : “lecloud”</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Requirements &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Some linux knowledges, debian administration skills, and cross-toolchain compilations.<br>Will be also needed (minimal requirement) :</p>
-<ul>
-<li>a screw-driver</li>
-<li>two usb keys</li>
-<li>some electric straps</li>
-<li>a computer (tested with debian but it should work with less privileges system)</li>
-<li>a internet connection (uncensored)</li>
-</ul>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Why &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>I already own some SheevaPlugs, GuruPlugs from GlobalScale.<br>You are already using one also… 8-o</p>
-<p>The ICYBOX NAS 6220 B is made with a Marvel Kirkwood 88F6281 (same µC as the Seagate DockStar) (1.2 GHz)</p>
-<p>I just bought one and want to put Debian on it.</p>
-<p>I started with this <a target="_blank" rel="noopener" href="http://forum.nas-portal.org/showthread.php?12855-Ib-nas6220-b%7CIb-nas6220-b">thread @ NAS-Portal.org</a> and a small Genesi SmartBook to hack this cool NAS.<br>&#x3D;&#x3D;&#x3D; NO CLOUD at HOME &#x3D;&#x3D;&#x3D;</p>
-<p>After had bought this small NAS, I discovered that a <strong>VPN Tunnel is made with China at bootup</strong> !</p>
-<p>I do not agree anywhere with this and had decided to hack this box to install Debian on it. ( more secure, more open, more stable … )</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; What &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>WIP (Work in Progress)</p>
-<p>Short info Marvel Kirkwood SOC 1,2 GHz</p>
-<ol>
-<li>256 MiB RAM</li>
-<li>256 MiB Flash (uboot, Kernel, UBIFS)</li>
-<li>2 * SATA</li>
-<li>3 * USB (trough a 4 Port USB-HUB) on one USB ROOT-HUB on SOC</li>
-<li>40 cm FAN</li>
-<li>(currently) Supports only for 2TB HDD’s, check for 4K HDD’s will follow</li>
-</ol>
-<p>Software Issue</p>
-<ol>
-<li>SSH Server running in background, need SSH-Keys to login. Maybe this thing is calling home</li>
-<li>FTP, SAMBA, DLNA Server (mt-daapd ?)</li>
-</ol>
-<p>OS-Type</p>
-<ol>
-<li>Fedora</li>
-</ol>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; How &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p><strong>WIP</strong></p>
-<p>&#x2F;&#x2F;Some works no more needed (see bootom of the page)&#x2F;&#x2F;</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; References &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://wiki.nas-portal.org/index.php/IB-NAS6220-B">wiki @ NAS-Portal.org</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.raidsonic.de/data/products/icybox/IB-NAS6220/datasheet_ib-nas6220_e.pdf">Datasheet of NAS6220</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.raidsonic.de/data/datasheet/icybox/EN/datasheet_ib-nas6210_e.pdf">Datasheet of NAS6210</a></li>
-<li><a target="_blank" rel="noopener" href="http://simon.baatz.info/raidsonic-icy-box-ib-nas6210-my-new-sheevaplug/">RaidSonic ICY BOX IB-NAS6210, my “new” SheevaPlug</a></li>
-</ul>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Publication &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p><a target="_blank" rel="noopener" href="https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-156/comment-perdre-la-garantie-de-son-nas">Comment perdre la garantie de son NAS (GNU&#x2F;Linux Magazine) n°156 - janvier 2013 - Par Kerma Gérald)</a></p>
-<p>Les serveurs de stockage externe, ou NAS (« Network Attached Storage ») sont devenus une partie importante des réseaux personnels et des petites entreprises.</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Hardware modifications &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Customized IB6220 :</p>
-<p>:wiki:notes:ib6220-inside.jpg?w&#x3D;200|</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Add JTAG &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>::ib6220-jtag.jpg?200|</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Add Serial &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>::ib6220-serial-uart.jpg?200|</p>
-<p>Pinout of the J2 serial port\<br>Pin 1    3.3V (pin 1 has a white stripe next to it)\<br>Pin 2    RXD (from serial terminal program to NSLU2)\<br>Pin 3    TXD (from NSLU2 to serial terminal program)\<br>Pin 4    GND\</p>
-<p>RXD and TXD are (LV)TTL signals (0V&#x2F;3.3V), not RS-232 signals (+&#x2F;-12V). This means that they cannot be connected directly to a PC serial port. Converters are discussed below. </p>
-<p>[[<a target="_blank" rel="noopener" href="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort]]">http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort]]</a></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Add USB to Serial Converter &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Passerelle USB&#x2F;série BOB-FT232R (110553-91) </p>
-<p>:wiki:notes:110553-91.jpg?nolink&amp;200|</p>
-<p>[[<a target="_blank" rel="noopener" href="http://www.elektor.fr/products/kits-modules/modules/110553-91-ft232r-usb-serial-bob.1913324.lynkx]]">http://www.elektor.fr/products/kits-modules/modules/110553-91-ft232r-usb-serial-bob.1913324.lynkx]]</a></p>
-<p>Connector : H4PL &#x2F; H4PL (AKA MPC 2 &#x2F; MPC 2)</p>
-<p>:wiki:notes:mpc2_4wire.jpeg?nolink&amp;200|<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; U-Boot &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Default U-Boot &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Here is the default Marvell u-boot :<br><code><br>         __  __                      _ _<br>        |  /  | __ _ _ ____   __<strong><em>| | |<br>        | |/| |/ <em>` | '_<em>\ \ / / _ \ | |<br>        | |  | | (</em>| | |   \ V /  _<em>/ | |<br>        |</em>|  |<em>|_</em>,</em>|</em>|    _/ _</strong>|<em>|</em>|</p>
-<hr>
-<p>| | | |   | __ )  ___   ___ | |_<br>| | | |<em>_<em>|  _ \ / _ \ / _ | _<em>|<br>| |</em>| |_</em>_| |</em>) | (<em>) | (</em>) | |_<br> _<strong>/    |____/ _</strong>/ __<em>/ _</em>|<br> ** MARVELL BOARD: DB-88F6281A-BP LE</p>
-<p>U-Boot 1.1.4 (Oct 12 2009 - 13:41:53) Marvell version: 3.4.16</p>
-<p>U-Boot code: 00600000 -> 0067FFF0  BSS: -> 006CEE60</p>
-<p>Soc: MV88F6281 Rev 3 (DDR2)<br>CPU running @ 1200Mhz L2 running @ 400Mhz<br>SysClock = 400Mhz , TClock = 200Mhz</p>
-<p>DRAM CAS Latency = 5 tRP = 5 tRAS = 18 tRCD=6<br>DRAM CS[0] base 0x00000000   size 256MB<br>DRAM Total size 256MB  16bit width<br>Flash:  0 kB<br>Addresses 8M - 0M are saved for the U-Boot usage.<br>Mem malloc Initialization (8M - 7M): Done<br>NAND:256 MB</p>
-<p>CPU : Marvell Feroceon (Rev 1)</p>
-<p>Streaming disabled<br>Write allocate disabled</p>
-<p>USB 0: host mode<br>PEX 0: interface detected no Link.<br>Net:   egiga0 [PRIME]<br>Hit any key to stop autoboot:  0<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Default U-Boot commands &#x3D;&#x3D;&#x3D;&#x3D;<br><code><br>Marvell>> help<br>?       - alias for 'help'<br>SatR - sample at reset sub-system, relevent for DB only<br>base    - print or set address offset<br>boot    - boot default, i.e., run 'bootcmd'<br>bootd   - boot default, i.e., run 'bootcmd'<br>bootext2    dev:boot_part1,boot_part2 addr boot_image linux_dev_name<br>bootm   - boot application image from memory<br>bootp    - boot image via network using BootP/TFTP protocol<br>bubt    - Burn an image on the Boot Nand Flash.<br>chpart    - change active partition<br>cmp     - memory compare<br>cmpm    - Compare Memory<br>cp      - memory copy<br>cpumap - Display CPU memory mapping settings.<br>crc32   - checksum calculation<br>date    - get/set/reset date & time<br>dclk    - Display the MV device CLKs.<br>dhcp    - invoke DHCP client to obtain IP/boot params<br>diskboot- boot from IDE device<br>echo    - echo args to console<br>eeprom  - EEPROM sub-system<br>erase   - erase FLASH memory<br>ext2load- load binary file from a Ext2 filesystem<br>ext2ls  - list files in a directory (default /)<br>fatinfo - print information about filesystem<br>fatload - load binary file from a dos filesystem<br>fatls   - list files in a directory (default /)<br>fi    - Find value in the memory.<br>flinfo  - print FLASH memory information<br>fsinfo    - print information about filesystems<br>fsload    - load binary file from a filesystem image<br>g    - start application at cached address 'addr'(default addr 0x40000)<br>go      - start application at address 'addr'<br>help    - print online help<br>icrc32  - checksum calculation<br>ide     - IDE sub-system<br>iloop   - infinite loop on address range<br>imd     - i2c memory display<br>imm[.b, .s, .w, .l]     - i2c memory modify (auto-incrementing)<br>imw     - memory write (fill)<br>inm     - memory modify (constant address)<br>iprobe  - probe to discover valid I2C chip addresses<br>ir    - reading and changing MV internal register values.<br>loop    - infinite loop on address range<br>ls    - list files in a directory (default /)<br>map    - Diasplay address decode windows<br>md      - memory display<br>me    - PCI master enable<br>mm      - memory modify (auto-incrementing)<br>mp    - map PCI BAR<br>mtdparts- define flash/nand partitions<br>mtest   - simple RAM test<br>mw      - memory write (fill)<br>nand                   - NAND sub-system<br>nboot   - boot from NAND device<br>nbubt    - Burn a boot loader image on the Boot Nand Flash.<br>nm      - memory modify (constant address)<br>pci     - list and access PCI Configuration Space<br>phyRead    - Read PCI-E Phy register<br>pciePhyWrite    - Write PCI-E Phy register<br>phyRead    - Read Phy register<br>phyWrite    - Write Phy register<br>ping    - send ICMP ECHO_REQUEST to network host<br>printenv- print environment variables<br>protect - enable or disable FLASH write protection<br>rarpboot- boot image via network using RARP/TFTP protocol<br>rcvr    - Satrt recovery process (Distress Beacon with TFTP server)<br>reset   - Perform RESET of the CPU<br>resetenv    - Return all environment variable to default.<br>run     - run commands in an environment variable<br>saveenv - save environment variables to persistent storage<br>se    - PCI Slave enable<br>setenv  - set environment variables<br>sflash    - read, write or erase the external SPI Flash.<br>sg    - scanning the PHYs status<br>sp    - Scan PCI bus.<br>tftpboot- boot image via network using TFTP protocol<br>usb     - USB sub-system<br>usbboot - boot from USB device<br>version - print monitor version<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Proof Of Concept &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>&#x3D;&#x3D;&#x3D;&#x3D; u-boot &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-U-Boot 2011.09-00282-gd8fffa0-dirty (Oct 14 2011 - 16:09:23)                    
-Raidsonic Icybox NAS6220-B                                                      
-                                                                                
-<p>SoC:   Kirkwood 88F6281_A1<br>DRAM:  256 MiB<br>WARNING: Caches not enabled<br>NAND:  256 MiB<br>*** Warning - bad CRC, using default environment                                </p>
-<p>In:    serial<br>Out:   serial<br>Err:   serial<br>Net:   egiga0<br>PHY reset timed out<br>88E1116 Initialized on egiga0<br>Hit any key to stop autoboot:  0<br>Using egiga0 device<br>ping failed; host 192.168.2.1 is not alive<br></code><br>&#x3D;&#x3D;&#x3D;&#x3D; bootstrap &#x3D;&#x3D;&#x3D;&#x3D;<br><code><br>(Re)start USB...<br>USB:   Register 10011 NbrPorts 1<br>USB EHCI 1.00<br>scanning bus for devices... 2 USB Device(s) found<br>       scanning bus for storage devices... 0 Storage Device(s) found            </p>
-<p>Reset IDE: Bus 0: OK Bus 1: OK<br>  Device 0: Model: SAMSUNG HD204UI  Firm: 1AQ10001 Ser#: S2H7J9BB305519<br>            Type: Hard Disk<br>            Supports 48-bit addressing<br>            Capacity: 1907729.0 MB = 1863.0 GB (-387938128 x 512)<br>  Device 1: Model: SAMSUNG HD204UI  Firm: 1AQ10001 Ser#: S2H7J9BB305519<br>            Type: Hard Disk<br>            Supports 48-bit addressing<br>            Capacity: 1907729.0 MB = 1863.0 GB (-387938128 x 512)               </p>
-<blockquote>
-<p>boot - usb fat 0:1 -                                                          </p>
-</blockquote>
-<p>** Invalid boot device **                                                       </p>
-<h2 id="Checking-Image-at-00600000"><a href="#Checking-Image-at-00600000" class="headerlink" title="Checking Image at 00600000 ..."></a>Checking Image at 00600000 ...</h2><p>Unknown image format!                                                           </p>
-<blockquote>
-<p>boot - usb ext2 0:1 -<br>** Block device usb 0 not supported                                             </p>
-</blockquote>
-<h2 id="Checking-Image-at-00600000-1"><a href="#Checking-Image-at-00600000-1" class="headerlink" title="Checking Image at 00600000 ..."></a>Checking Image at 00600000 ...</h2><p>Unknown image format!                                                           </p>
-<blockquote>
-<p>boot - ide fat 0:1 -<br>reading boot.scr                                                                </p>
-</blockquote>
-<p>** Unable to read "boot.scr" from ide 0:1 **                                    </p>
-<h2 id="Checking-Image-at-00600000-2"><a href="#Checking-Image-at-00600000-2" class="headerlink" title="Checking Image at 00600000 ..."></a>Checking Image at 00600000 ...</h2><p>Unknown image format!                                                           </p>
-<blockquote>
-<p>boot - ide ext2 0:1 -<br>Loading file "boot.scr" from ide device 0:1 (hda1)<br>Failed to mount ext2 filesystem...<br>** Bad ext2 partition or disk - ide 0:1 **                                      </p>
-</blockquote>
-<h2 id="Checking-Image-at-00600000-3"><a href="#Checking-Image-at-00600000-3" class="headerlink" title="Checking Image at 00600000 ..."></a>Checking Image at 00600000 ...</h2><p>Unknown image format!                                                           </p>
-<p>NAND read: device 0 offset 0x200000, size 0x500000<br> 5242880 bytes read: OK                                                         </p>
-<p>NAND read: device 0 offset 0x700000, size 0x800000<br>Skipping bad block 0x00940000<br> 8388608 bytes read: OK<br>Unknown command '!' - try 'help'                                                </p>
-</code>
-==== linux loading ====
-
-<code>                                                                                
-## Checking Image at 00700000 ...                                               
-   Legacy image found                                                           
-   Image Name:   Debian kernel                                                  
-   Image Type:   ARM Linux Kernel Image (uncompressed)                          
-   Data Size:    1435664 Bytes = 1.4 MiB                                        
-   Load Address: 00008000                                                       
-   Entry Point:  00008000                                                       
-   Verifying Checksum ... OK                                                    
-## Booting kernel from Legacy Image at 00700000 ...                             
-   Image Name:   Debian kernel                                                  
-   Image Type:   ARM Linux Kernel Image (uncompressed)                          
-   Data Size:    1435664 Bytes = 1.4 MiB                                        
-   Load Address: 00008000                                                       
-   Entry Point:  00008000                                                       
-   Verifying Checksum ... OK                                                    
-## Loading init Ramdisk from Legacy Image at 00900000 ...                       
-   Image Name:   Debian ramdisk                                                 
-   Image Type:   ARM Linux RAMDisk Image (gzip compressed)                      
-   Data Size:    4910351 Bytes = 4.7 MiB                                        
-   Load Address: 00000000                                                       
-   Entry Point:  00000000                                                       
-   Verifying Checksum ... OK                                                    
-   Loading Kernel Image ... OK                                                  
-OK                                                                              
-</code>
-==== starting kernel ====
-<code>
-Using machid 0x690 from environment                                             
-                                                                                
-<p>Starting kernel ...                                                             </p>
-<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#x6f;&#x6b;&#x69;&#114;&#x40;&#x6d;&#111;&#110;&#97;&#100;&#46;&#115;&#x77;&#98;&#x2e;&#x64;&#x65;">&#x6f;&#x6b;&#x69;&#114;&#x40;&#x6d;&#111;&#110;&#97;&#100;&#46;&#115;&#x77;&#98;&#x2e;&#x64;&#x65;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
-<p>Debian GNU/Linux 6.0 JSHARE ttyS0                                               </p>
-<p>JSHARE login: [   27.672260] eth1: link up, 100 Mb/s, full duplex, flow controld<br>[   27.679188] ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready                </p>
-</code>
-                                                                                
-<p>==== Debian ====</p>
-<p>You need to change the firmware content and will loose all the features and break your warrantly :<br>the u-boot need to be replaced<br>the nand partitions will be lost</p>
-<h1 id="uname-ar"><a href="#uname-ar" class="headerlink" title="uname -ar"></a>uname -ar</h1><code>
-    Linux unassigned-hostname 2.6.32-5-kirkwood #1 Mon Oct 3 16:55:04 UTC 2011 armv5tel GNU/Linux
-</code>
-
-<h1 id="cat-proc-cpuinfo"><a href="#cat-proc-cpuinfo" class="headerlink" title="cat /proc/cpuinfo"></a>cat /proc/cpuinfo</h1><code>
-    Processor   : Feroceon 88FR131 rev 1 (v5l)
-    BogoMIPS   : 1192.75
-    Features   : swp half thumb fastmult edsp
-    CPU implementer   : 0x56
-    CPU architecture: 5TE
-    CPU variant   : 0x2
-    CPU part   : 0x131
-    CPU revision   : 1
-
-<pre><code>Hardware   : Marvell DB-88F6281-BP Development Board
-Revision   : 0000
-Serial      : 0000000000000000
-</code></pre>
-</code>   
-    
-<p>==== Recovery ====</p>
-<p>You can recovery you nas by UART ( serial u-booting ) or by JTAG.<br>I have use the GuruPlug JTAG adapter that you can by directly at Globalscale Technology.<br>I have already tested with the Open JTAG sell by kernelconcept.</p>
-<p>===== HOW-TO =====</p>
-<p>==== BootStrap ====<br>The boot process is made in three steps :</p>
-<ul>
-<li>u-boot start and configure the hardware components (bootcmd is started as a huge bootstrapping script collector)</li>
-<li>u-boot checks the devices for boot.scr scripts and execute them if found (boot.scr load the Linux Kernel and ramdisk)</li>
-<li>Linux boot and mount the root device (Debian is started by the master init process)</li>
-</ul>
-<p>==== denx u-boot mod ====</p>
-<p>apply the patch of this page by the command<br><code><br>$ patch -p1 -i nas6220.diff<br></code></p>
-<p>(cross)compile the u-boot.kwb<br><code><br>$ export ARCH=arm<br>$ export CROSS_COMPILE=arm-linux-gnueabi-<br>$ make mrproper<br>$ make ib6220_config<br>$ make u-boot.kwb<br></code></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Stuff &#x3D;&#x3D;&#x3D;&#x3D;<br>:wiki:notes:nas6220.tar.gz|All the needed stuff…</p>
-<p>:wiki:notes:debian-installer.tar.gz|</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Notes &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>How To flash a firmware to Nand [1]</p>
-<p>[1] <a target="_blank" rel="noopener" href="http://www.openstora.com/wiki/index.php?title=How_to_install_your_custom_firmware">www.openstora.com/wiki/index.php?title=How_to_install_your_custom_firmware</a></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Refs &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; JTAG used &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Genesi Debug Board (available at  [[<a target="_blank" rel="noopener" href="https://newit.co.uk/shop/proddetail.php?prod=debug%7CNewIT%5D%5D">https://newit.co.uk/shop/proddetail.php?prod=debug|NewIT]]</a>)</p>
-<p>:wiki:notes:store_smarttop_debug.png|</p>
-<p>OpenOCD JTAG (available at  [[<a target="_blank" rel="noopener" href="http://shop.kernelconcepts.de/product_info.php?products_id=132%7CKernelConcept%5D%5D">http://shop.kernelconcepts.de/product_info.php?products_id=132|KernelConcept]]</a>)</p>
-<p>:wiki:notes:openocd-jtag.jpeg|</p>
-<p>GuruPlug JTAG Board (available at [[<a target="_blank" rel="noopener" href="https://www.globalscaletechnologies.com/p-28-guruplug-jtag.aspx|GlobalScale]]">https://www.globalscaletechnologies.com/p-28-guruplug-jtag.aspx|GlobalScale]]</a>)</p>
-<p>:wiki:notes:28.jpg|</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; TODO &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Official OpenWrt Support &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>In Progress (Thanks to Luka Perkov) : [[<a target="_blank" rel="noopener" href="http://patchwork.openwrt.org/patch/1970/|Patchwork">http://patchwork.openwrt.org/patch/1970/|Patchwork</a> [OpenWrt-Devel,4&#x2F;5] add RaidSonic ICY BOX IB-NAS62x0 board]]</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Official Denx U-Boot support &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Done (Thanks to Luka Perkov) : [[<a target="_blank" rel="noopener" href="http://lists.denx.de/pipermail/u-boot/2012-April/122597.html|[U-Boot]">http://lists.denx.de/pipermail/u-boot/2012-April/122597.html|[U-Boot]</a> [PATCH v8] kirkwood: add NAS62x0 board support]]</p>
-<p>[[<a target="_blank" rel="noopener" href="http://git.denx.de/?p=u-boot/u-boot-marvell.git;a=commit;h=bbdbe3108da28dcd14dbff77473e6d5730ef5fc0%7Ckirkwood">http://git.denx.de/?p=u-boot/u-boot-marvell.git;a=commit;h=bbdbe3108da28dcd14dbff77473e6d5730ef5fc0|kirkwood</a>: add NAS62x0 board support]]</p>
-<p>:wiki:notes:capture.png|</p>
-<p>UpStream :<br><a target="_blank" rel="noopener" href="http://lists.denx.de/pipermail/u-boot/2012-May/124403.html">http://lists.denx.de/pipermail/u-boot/2012-May/124403.html</a> \</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D; Flash-kernel &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<code>
-test mtd-utils
-cat /proc/mtd
-</code>
-
-<code>
-test uImage and uInitrd
-clear mtd 
-</code>
-
-<p>&#x2F;&#x2F;then update by reflash&#x2F;&#x2F;</p>
-<p>Adapting the flash-kernel script of Debian Squeeze</p>
-<p>Debian’s flash-kernel script does not know the machine used here (“Marvell DB-88F6281-BP Development Board”) and refuses to install a new kernel. A simple patch helps.<br>[[<a target="_blank" rel="noopener" href="http://simon.baatz.info/downloads/flash-kernel.patch]]">http://simon.baatz.info/downloads/flash-kernel.patch]]</a><br>&#x3D;&#x3D;&#x3D;&#x3D; Linux-kernel &#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p><del>change mtd-parts (upstream)</del></p>
-<p>in progress (thanks to Simon Baatz)\<br>soon upstream (3.5 ?)\</p>
-<p>[[<a target="_blank" rel="noopener" href="https://git.kernel.org/?p=linux/kernel/git/next/linux-next.git;a=commit;h=f5520363532690f56e12126029864d9383d5203f%7C%7CARM">https://git.kernel.org/?p=linux/kernel/git/next/linux-next.git;a=commit;h=f5520363532690f56e12126029864d9383d5203f||ARM</a>: kirkwood: Add support for RaidSonic IB-NAS6210&#x2F;6220 using devicetree]]</p>
-<p>Stable now just need a small patch (runit.diff) from <a target="_blank" rel="noopener" href="http://lists.infradead.org/pipermail/linux-arm-kernel/2012-June/103272.html">http://lists.infradead.org/pipermail/linux-arm-kernel/2012-June/103272.html</a></p>
-<p>Here is a built package of the 3.5.1 (stable) kirkwood kernel.<br>::ib62x0:linux-kernel-custom.tar.gz|</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1205,20 +836,25 @@ clear mtd
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2012/03/02/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2012/03/02/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/" class="post-title-link" itemprop="url">Microsoft  - Windows 7  - Permissions Fault after privilege's escalation</a>
+          <a href="/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/" class="post-title-link" itemprop="url">Microsoft  - Windows 7  - Permissions Fault after privilege's escalation</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1236,7 +872,16 @@ clear mtd
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -1250,86 +895,15 @@ clear mtd
     
     <div class="post-body" itemprop="articleBody">
           <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Permissions Fault after privilege’s escalation &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>A “By Design” Reproductible Integrity Vulnerability.<br>Discovered on the 2th of march 2012.</p>
-<p><del><a href="mailto:&#115;&#101;&#99;&#x75;&#114;&#101;&#64;&#x6d;&#105;&#x63;&#114;&#111;&#x73;&#111;&#102;&#116;&#46;&#99;&#x6f;&#109;">&#115;&#101;&#99;&#x75;&#114;&#101;&#64;&#x6d;&#105;&#x63;&#114;&#111;&#x73;&#111;&#102;&#116;&#46;&#99;&#x6f;&#109;</a></del></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Permissions Fault after privilege’s escalation</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Product and version that contains the bug &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Windows 7 Entreprise x86</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Service packs, security updates, or other updates for the product you have installed &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Full updated on the 2012&#x2F;02&#x2F;04</p>
-<ul>
-<li>Full (101) updates</li>
-<li>French Language Pack</li>
-<li>No browser choice made (closed)</li>
-<li>No IE 9 (ask later)</li>
-</ul>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Any special configuration required to reproduce the issue &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Standard Windows 7 install with User(s) and administrator</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Step-by-step instructions to reproduce the issue on a fresh install &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<ul>
-<li>Installation<ul>
-<li>Fresh default install from en_windows_7_enterprise_x86_dvd_x15</li>
-<li>Full update 101 Updates</li>
-<li>No browser choice made</li>
-<li>No IE 9 (ask later)</li>
-</ul>
-</li>
-<li>Prepare environment<ul>
-<li>Login adminstrator’s user</li>
-<li>Create Standard Account User0</li>
-<li>Create Standard Account User1</li>
-<li>Login User0</li>
-<li>Loggoff User0</li>
-<li>Login User1</li>
-<li>Logoff User1</li>
-<li>Reboot</li>
-</ul>
-</li>
-<li>Reproducing issue<ul>
-<li>Login User0</li>
-<li>Try to access User1’s private folder in profile folder (c:\users\user1\Documents)</li>
-<li>UAC escalation (administrator’s password needed)</li>
-<li>folder’s permissions for User0 have been added (full control) on the accessed folder (c:\users\user1\Documents)</li>
-</ul>
-</li>
-<li>Proof of the issue<ul>
-<li>Reboot</li>
-<li>Login User0</li>
-<li>try to acces User1’s folder (c:\users\user1\Documents)</li>
-<li>-&gt; NO more UAC needed</li>
-<li>create folder “Corrupted Permissions” in (c:\users\user1\Documents)</li>
-</ul>
-</li>
-</ul>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Proof-of-concept or exploit code &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>Screenshots needed ? ;-)</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Impact of the issue, including how an attacker could exploit the issue &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>After an administrator account has made UAC’s ecalation of privileges to acces on a User1 folder while User0 logged, User0 will have a full access of the User1 folder accessed without the need of UAC’s escalation.<br>May affect integrity of Users’ files by another user(s).</p>
-<p>May be some other side effects…</p>
-<hr>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; MSRC Mail Exchange &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<pre><code>Le 06/02/2012 18:20, Microsoft Security Response Center a écrit
-</code></pre>
-<p>Hello xxxxxx,</p>
-<p>Thank you for reporting this behavior to us.  I was able to reproduce this behavior and can confirm that this is by design behavior to allow user0 access to user1’s content.  As the repro requires administrative credentials,  this does not hit the security bug bar due to the fact that this behavior is by design as the user is prompted as expected for administrative credentials.  Oonce someone has those credentials they can take any action that an administrator can including adding themselves as an administrator or adding themselves to any folder they wish.  </p>
-<p>Best Regards,<br>xxxx</p>
-<pre><code>Tuesday, February 14, 2012 7:44 AM
-</code></pre>
-<p>To: Microsoft Security Response Center<br>Subject: Re: Microsoft Security :: Coordinated Vulnerability Disclosure | Report a Vulnerability | MSRC</p>
-<p>Hello xxxx,</p>
-<p>I need a clarification, in the following step (I put the original message at bottom) :</p>
-<ul>
-<li>folder’s permissions for User0 have been added (full control) on the accessed folder (c:\users\user1\Documents)</li>
-</ul>
-<p>You agree that it was done by UAC, in a transparent and persistent way.  With no other action than UAC privilege escalation.</p>
-<p>It’s a data user integrity issue than can cause another side effects as data disclosure…</p>
-<p>Regards,</p>
-<pre><code>14/02/2012 19:38 from Microsoft Security Response Center ====
-</code></pre>
-<p>Hello xxxxxx,</p>
-<p>Thank you for your message.  The action occurring here is providing access for user0 to user1’s folder by providing administrative credentials.  This is not a vulnerability and is not a privilege escalation.  When you grant user0 access to user1’s data, administrative credentials are required.  <strong>When the administrator grants this access, it is permanent</strong>.  This is the reason user0 can access user1’s data.</p>
-<p>Best Regards,<br>xxxx</p>
-
+<p><del><a href="mailto:&#115;&#x65;&#99;&#117;&#x72;&#101;&#x40;&#109;&#x69;&#x63;&#x72;&#x6f;&#x73;&#x6f;&#x66;&#116;&#x2e;&#99;&#111;&#109;">&#115;&#x65;&#99;&#117;&#x72;&#101;&#x40;&#109;&#x69;&#x63;&#x72;&#x6f;&#x73;&#x6f;&#x66;&#116;&#x2e;&#99;&#111;&#109;</a></del></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1355,20 +929,25 @@ clear mtd
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2011/11/09/DouDouLinux-Development-contribs/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/DouDouLinux-Development-contribs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2011/11/09/DouDouLinux-Development-contribs/" class="post-title-link" itemprop="url">DouDouLinux - Development contribs</a>
+          <a href="/en/Cyber/DouDouLinux-Development-contribs/" class="post-title-link" itemprop="url">DouDouLinux - Development contribs</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1386,7 +965,16 @@ clear mtd
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -1402,20 +990,14 @@ clear mtd
           <p>Here a list of contributions on the Master <a target="_blank" rel="noopener" href="http://www.doudoulinux.org/">DouDouLinux</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.doudoulinux.fr/web/english/about/more-about/article/team-and-contributors.html">What is DouDouLinux ?</a></p>
 <p>DoudouLinux is a community project in which any motivated person as well as organizations can contribute in order to improve it, particularly concerning translations. It is not necessary to get involved for the long-term to contribute, you can just bring what you think to be able to bring. As we have many ideas to develop DoudouLinux, nearly anyone can bring something to our project, this is not restricted to translations. Of course if you feel motivated to participate for a long time, this is possible too!</p>
-<p>What I have personnaly done to help DouDouLinux better work on some embedded devices like:</p>
-<ul>
-<li>Efika Genesi IMX53 (ARMEL&#x2F;ARMHF) ports</li>
-<li>Main developers team member</li>
-<li>Main promoters team member</li>
-<li>System administrators team member</li>
-<li>…</li>
-</ul>
-<p>What ?</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.doudoulinux.org/web/english/article/download.html">ARM builds</a></li>
-</ul>
-<p>DoudouLinux can run on ARM™ processors too, the processors that are used in most of smartphones and tablets. ARM™ disk images are available in the table below. We currently only support Efika Genesi and Raspberry PI hardware. Please note that our ARM™ port is still using the old Debian port called armel. It is built for ARM™ v4 and is not very efficient for modern ARM™ processors. Our ARM™ builds should then rather be considered as a developer preview than a production release. You have to wait for DoudouLinux 3.0 to be able to benefit from the more efficient armhf port (ARM™ v7) and most likely the Raspberry PI specific port Rasbian too.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/DouDouLinux-Development-contribs/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1441,20 +1023,25 @@ clear mtd
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/2010/08/14/U-Boot-Denx-Development-contribs/">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/en/Cyber/U-Boot-Denx-Development-contribs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/images/avatar.jpg">
       <meta itemprop="name" content="CyberMind">
-      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | CyberMind.FR">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/2010/08/14/U-Boot-Denx-Development-contribs/" class="post-title-link" itemprop="url">U-Boot@Denx - Development contribs</a>
+          <a href="/en/Cyber/U-Boot-Denx-Development-contribs/" class="post-title-link" itemprop="url">U-Boot@Denx - Development contribs</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1472,7 +1059,16 @@ clear mtd
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-26 11:28:05" itemprop="dateModified" datetime="2022-03-26T11:28:05+01:00">2022-03-26</time>
+      <time title="Modified: 2022-04-15 08:18:21" itemprop="dateModified" datetime="2022-04-15T08:18:21+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
     </span>
 
   
@@ -1488,30 +1084,14 @@ clear mtd
           <p>Here a list of contributions on the Master <a target="_blank" rel="noopener" href="https://www.denx.de/wiki/U-Boot">U-Boot Denx</a></p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Das_U-Boot">What is U-Boot ?</a></p>
 <p>Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-Boot; see History for more about the name) is an open-source, primary boot loader used in embedded devices to package the instructions to boot the device’s operating system kernel. It is available for a number of computer architectures, including 68k, ARM, Blackfin, MicroBlaze, MIPS, Nios, SuperH, PPC, RISC-V and x86. </p>
-<p>What I have personnaly done to help U-Boot better work on some embedded devices like:</p>
-<ul>
-<li>SheevaPlug and derivatives</li>
-<li>GuruPlug</li>
-<li>RaidSonic ICY BOX NAS6210 and NAS6220</li>
-<li>ZYXEL NSA310S</li>
-<li>…</li>
-</ul>
-<p>When ?</p>
-<ul>
-<li>2010&#x2F;08&#x2F;14: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2010-August/075579.html">[U-Boot] [PATCH v2] Add mvsata support for the Sheevaplug devices</a></li>
-<li>2010&#x2F;08&#x2F;29: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2010-August/076314.html">[U-Boot] [PATCH v1] add mv_sdio driver for sheevaplug</a></li>
-<li>2010&#x2F;10&#x2F;19: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2010-November/082108.html">[U-Boot] [PATCH v2 1&#x2F;2] mmc : Add SDIO driver for Marvell SoCs (Kirkwood)</a></li>
-<li>2012&#x2F;03&#x2F;15: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2012-April/122475.html">[U-Boot] [PATCH v7] kirkwood: add NAS62x0 board support</a></li>
-<li>2012&#x2F;04&#x2F;17: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2012-April/122597.html">[U-Boot] [PATCH v8] kirkwood: add NAS62x0 board support</a></li>
-<li>2012&#x2F;03&#x2F;16: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2012-March/120374.html">[U-Boot] [PATCH] add new board nas62x0</a></li>
-<li>2014&#x2F;10&#x2F;18: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2014-October/191883.html">[U-Boot] [PATCH 1&#x2F;1] ARM: sheevaplug: add LIBFDT support</a></li>
-<li>2014&#x2F;10&#x2F;18: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2014-October/191884.html">[U-Boot] [PATCH 2&#x2F;2] ARM: sheevaplug: fix ENV offset and MTDPARTS</a></li>
-<li>2014&#x2F;12&#x2F;03: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2014-December/197643.html">[U-Boot] [PATCH 1&#x2F;1] ARM: kirkwood: mvebu_mmc: Speed up access time</a></li>
-<li>2014&#x2F;12&#x2F;17: <a target="_blank" rel="noopener" href="https://lists.denx.de/pipermail/u-boot/2014-December/199135.html">[U-Boot] [PATCH v3 0&#x2F;6] SHEEVAPLUG : REFRESH 201412</a></li>
-<li>…</li>
-<li>2014&#x2F;08&#x2F;01-2015&#x2F;11&#x2F;29: <a target="_blank" rel="noopener" href="https://github.com/u-boot/u-boot/commits?author=erdoukki">erdoukki@u-boot</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/Cyber/U-Boot-Denx-Development-contribs/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1559,14 +1139,14 @@ clear mtd
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 1982 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">CyberMind</span>
+  <span class="author" itemprop="copyrightHolder">🧙 -- Gandalf (from "The Conjurers")</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
@@ -1574,19 +1154,28 @@ clear mtd
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
 
   
 
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-  
-
-
-
-
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"CyberMind-FR","repo":"cybermind-fr.gitalk","client_id":"c9a751e4f8ccf399a1bf","client_secret":"7559f84d5edc70752bfbbb3465fda3ddad786fc2","admin_user":"erdoukki","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":["en","fr"],"owner_user":"erdoukki","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"72e32e9306bb76db79517ff4158bd1c6"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

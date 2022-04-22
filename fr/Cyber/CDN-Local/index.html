@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/uploads/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cybermind.fr","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"text":"Load Gitalk","order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Recherche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x3D; CDN Local &#x3D; À l’origine le billet suivant m’a beaucoup interpelé :Héberger son propre CDN local  Dernièrement, je vous parlais d’une petite astuce de pistage et m’interrogeais sur la reche">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CDN Local">
+<meta property="og:url" content="https://cybermind.fr/fr/Cyber/CDN-Local/">
+<meta property="og:site_name" content="CyberMind.FR">
+<meta property="og:description" content="&#x3D; CDN Local &#x3D; À l’origine le billet suivant m’a beaucoup interpelé :Héberger son propre CDN local  Dernièrement, je vous parlais d’une petite astuce de pistage et m’interrogeais sur la reche">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2014-11-10T23:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T16:45:40.451Z">
+<meta property="article:author" content="CyberMind">
+<meta property="article:tag" content="CLOUD">
+<meta property="article:tag" content="CyberSecurity">
+<meta property="article:tag" content="SECUBOX">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://cybermind.fr/fr/Cyber/CDN-Local/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"fr","comments":true,"permalink":"https://cybermind.fr/fr/Cyber/CDN-Local/","path":"fr/Cyber/CDN-Local/","title":"CDN Local"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CDN Local | CyberMind.FR</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CyberMind.FR" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Basculer la barre de navigation" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CyberMind.FR</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Embedded Developer / CyberSecurity Consultant @CyberMindFR</p>
+      <img class="custom-logo-image" src="/uploads/images/custom-logo.jpg" alt="CyberMind.FR">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Accueil</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-contact"><a href="/contact/" rel="section"><i class="fa fa-envelope fa-fw"></i>Contact</a></li><li class="menu-item menu-item-support"><a href="/legal/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Support</a></li><li class="menu-item menu-item-services"><a href="/services/" rel="section"><i class="fa fa-calendar fa-fw"></i>Services</a></li><li class="menu-item menu-item-references"><a href="/references/" rel="section"><i class="fa fa-globe fa-fw"></i>References</a></li><li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Projects</a></li><li class="menu-item menu-item-blog"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Blog</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Recherche
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Recherche..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table Des Matières
+        </li>
+        <li class="sidebar-nav-overview">
+          Aperçu
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CyberMind"
+      src="/uploads/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">CyberMind</p>
+  <div class="site-description" itemprop="description">Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">articles</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">catégories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">mots clé</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CyberMind-FR" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CyberMind-FR" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/CyberMindFR" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;CyberMindFR" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCDSECcnxHuJeHPJSLHvBzbQ&#x2F;about" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/company/Cybermindfr" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;Cybermindfr" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:info@cybermind.fr?subject=contact" title="E-Mail → mailto:info@cybermind.fr?subject&#x3D;contact"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://connect.ed-diamond.com/auteur/kerma-gerald" title="https:&#x2F;&#x2F;connect.ed-diamond.com&#x2F;auteur&#x2F;kerma-gerald" rel="noopener" target="_blank">Editions Diamond</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.francenum.gouv.fr/trouver-un-accompagnement/cybermindfr" title="https:&#x2F;&#x2F;www.francenum.gouv.fr&#x2F;trouver-un-accompagnement&#x2F;cybermindfr" rel="noopener" target="_blank">France Num (Gouv.fr)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cybermalveillance.gouv.fr/resultat-recherche-prestataire?search=cybermind" title="https:&#x2F;&#x2F;www.cybermalveillance.gouv.fr&#x2F;resultat-recherche-prestataire?search&#x3D;cybermind" rel="noopener" target="_blank">CyberMalveillance (Gouv.fr)</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="fr">
+    <link itemprop="mainEntityOfPage" href="https://cybermind.fr/fr/Cyber/CDN-Local/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+      <meta itemprop="name" content="CyberMind">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CyberMind.FR">
+      <meta itemprop="description" content="Mon activité principale est le développement sur mesure de logiciels libres et de solutions dans le domaine de la cybersécurité.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CDN Local | CyberMind.FR">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CDN Local
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posté le</span>
+
+      <time title="Article créé le: 2014-11-11 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-11T00:00:00+01:00">2014-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Édité le</span>
+      <time title="Mis à jour le: 2022-04-15 18:45:40" itemprop="dateModified" datetime="2022-04-15T18:45:40+02:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">dans</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber/" itemprop="url" rel="index"><span itemprop="name">Cyber</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&#x3D; CDN Local &#x3D;</p>
+<p>À l’origine le billet suivant m’a beaucoup interpelé :<br><a target="_blank" rel="noopener" href="http://blog-libre.org/index.php/post/2014/10/29/heberger-son-propre-cdn-local">Héberger son propre CDN local</a></p>
+<blockquote>
+Dernièrement, je vous parlais d’une petite astuce de pistage et m’interrogeais sur la recherche d’une solution à cette problématique.
+Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ressources de plus en plus utilisées (script jquery par exemple) à partir d’autres CDN ou du site de leur éditeur respectif.
+</blockquote>
+
+<span id="more"></span>
+
+<p>Un CDN, ou <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Content_delivery_network">Content delivery network</a> est une manière simple de se faire tracer.</p>
+<p>Tous les sites utilises ces contenus pour créer et diffuser leur pages, et nous, utilisateurs, sommes ainsi surveillables par les hébergeur de ces CDN (google entre autre) !</p>
+<p>Pouvoir utiliser les api google sans se faire tracer par google ?</p>
+<p>Tout au moins sans télécharger les .js depuis google…</p>
+<p>J’ai donc tenté d’adapter sur OpenWRT pour un mode transparent sur mon routeur, mais l’espace nécessaire est trop important et mon routeur ne fait que 4Mo !</p>
+<p>Par contre, techniquement, ça marche !!!</p>
+<p>&#x3D;&#x3D; Privoxy Redirect et CDN Local (Debian) &#x3D;&#x3D;</p>
+<p>LOCALCDN → 192.168.5.55:8180</p>
+<p>CACHE → 192.168.5.55:8118</p>
+<p>&#x3D;&#x3D;&#x3D; PRIVOXY &#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install privoxy</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D; CONFIG &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/privoxy/config</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/etc/privoxy/config</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">confdir /etc/privoxy</span><br><span class="line">logdir /var/log/privoxy/</span><br><span class="line">filterfile default.filter</span><br><span class="line">logfile privoxy.log</span><br><span class="line">actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.</span><br><span class="line">actionsfile default.action   # Main actions file</span><br><span class="line">actionsfile user.action   # User customizations</span><br><span class="line">##listen-address  127.0.0.1:8118</span><br><span class="line">listen-address    192.168.5.55:8118</span><br><span class="line">toggle  1</span><br><span class="line">enable-remote-toggle  1</span><br><span class="line">enable-remote-http-toggle  0</span><br><span class="line">enable-edit-actions 1</span><br><span class="line">enforce-blocks 0</span><br><span class="line">buffer-limit 4096</span><br><span class="line">forwarded-connect-retries  0</span><br><span class="line">##accept-intercepted-requests 0</span><br><span class="line"># We will be doing intercepting proxying</span><br><span class="line">accept-intercepted-requests 1</span><br><span class="line">allow-cgi-request-crunching 0</span><br><span class="line">split-large-forms 0</span><br><span class="line">keep-alive-timeout 300</span><br><span class="line">socket-timeout 300</span><br><span class="line">permit-access  192.168.1.0/24</span><br><span class="line">debug   1    # show each GET/POST/CONNECT request</span><br><span class="line">debug   128  # show redirects</span><br><span class="line">debug   4096 # Startup banner and warning</span><br><span class="line">debug   8192 # Errors - *we highly recommended enabling this*</span><br><span class="line">#admin-address privoxy-admin@example.com</span><br><span class="line">#proxy-info-url http://www.example.com/proxy-service.html</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D; USER.ACTION &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/privoxy/user.action</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/etc/privoxy/user.action</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#####</span><br><span class="line">##</span><br><span class="line">## LOCAL CDN PROXY</span><br><span class="line">##</span><br><span class="line">#####</span><br><span class="line"></span><br><span class="line"># Redirect remote requests to the local version delivered localhost</span><br><span class="line">&#123; +redirect&#123;s@^http:/[^(.*)]@http://192.168.5.55:8180/index.php?q=$1@&#125; &#125;</span><br><span class="line"></span><br><span class="line"># AngularJS</span><br><span class="line">ajax.googleapis.com/ajax/libs/angularjs/[0-9\.]*/angular.min.js</span><br><span class="line"></span><br><span class="line"># Dojo</span><br><span class="line">ajax.googleapis.com/ajax/libs/dojo/[0-9\.]*/dojo/dojo.js</span><br><span class="line"></span><br><span class="line"># Ext Core</span><br><span class="line">ajax.googleapis.com/ajax/libs/ext\-core/[0-9\.]*/ext\-core.js</span><br><span class="line"></span><br><span class="line"># Jquery</span><br><span class="line">ajax.googleapis.com/ajax/libs/jquery/[0-9\.]*/jquery(.min)?.js.*</span><br><span class="line">ajax.aspnetcdn.com/ajax/jQuery/jquery-[0-9\.]*(.min)?.js</span><br><span class="line">cdn.jsdelivr.net/jquery/([0-9\.]*)/jquery(-[0-9\.]*)?(.min)?.js</span><br><span class="line">cdnjs.cloudflare.com/ajax/libs/jquery/[0-9\.]*\-?(rc|beta)?[0-9]?/jquery(.min)?.js</span><br><span class="line"></span><br><span class="line"># MooTools</span><br><span class="line">ajax.googleapis.com/ajax/libs/mootools/[0-9\.]*/mootools-yui-compressed.js</span><br><span class="line"></span><br><span class="line"># Prototype</span><br><span class="line">ajax.googleapis.com/ajax/libs/prototype/[0-9\.]*/prototype.js</span><br><span class="line"></span><br><span class="line"># script.aculo.us</span><br><span class="line">ajax.googleapis.com/ajax/libs/scriptaculous/[0-9\.]*/scriptaculous.js</span><br><span class="line"></span><br><span class="line"># SWFObject</span><br><span class="line">ajax.googleapis.com/ajax/libs/swfobject/[0-9\.]*/swfobject.js</span><br><span class="line">cdnjs.cloudflare.com/ajax/libs/swfobject/[0-9\.]*/swfobject.js</span><br><span class="line"></span><br><span class="line"># three.js</span><br><span class="line">ajax.googleapis.com/ajax/libs/threejs/r[0-9]*/three.min.js</span><br><span class="line">cdn.jsdelivr.net/threejs/r[0-9]*/three.min.js</span><br><span class="line">cdnjs.cloudflare.com/ajax/libs/three.js/r[0-9]*/three(.min)?.js</span><br><span class="line"></span><br><span class="line"># Web Font Loader</span><br><span class="line">ajax.googleapis.com/ajax/libs/webfont/[0-9\.]*/webfont.js</span><br></pre></td></tr></table></figure>
+</details>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service privoxy restart</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D; apache2 &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install apache2</span><br><span class="line">$ apt-get install php5-cgi</span><br><span class="line">$ apt-get install php5-curl</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; LOCAL CDN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NameVirtualHost *:8180</span><br><span class="line">Listen 8180</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/apache2/sites-available/privoxy</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/etc/apache2/sites-available/privoxy</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:8180&gt;</span><br><span class="line">    ServerAdmin webmaster@localhost</span><br><span class="line"></span><br><span class="line">    DocumentRoot /var/www/redirect</span><br><span class="line">    &lt;Directory /&gt;</span><br><span class="line">   Options FollowSymLinks</span><br><span class="line">        AllowOverride None</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">    &lt;Directory /var/www/redirect&gt;</span><br><span class="line">        Options Indexes FollowSymLinks MultiViews</span><br><span class="line">        AllowOverride None</span><br><span class="line">        Order allow,deny</span><br><span class="line">        allow from all</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/</span><br><span class="line">    &lt;Directory &quot;/usr/lib/cgi-bin&quot;&gt;</span><br><span class="line">        AllowOverride None</span><br><span class="line">        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch</span><br><span class="line">        Order allow,deny</span><br><span class="line">        Allow from all</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;/privoxy_error.log</span><br><span class="line"></span><br><span class="line">    # Possible values include: debug, info, notice, warn, error, crit,</span><br><span class="line">    # alert, emerg.</span><br><span class="line">    LogLevel warn</span><br><span class="line"></span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;/privoxy_access.log combined</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+</details>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># a2ensite privoxy</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; REDIRECT &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cd /var/www/</span><br><span class="line"># mkdir redirect</span><br><span class="line"># cd redirect/</span><br><span class="line"># wget http://blog-libre.org/wp-content/uploads/2014/10/redirect.tar.gz|http://blog-libre.org/wp-content/uploads/2014/10/redirect.tar.gz</span><br><span class="line"># tar -zxf redirect.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; CUSTOM &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mv .htaccess .htaccess.off</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mv index.php index.php.orig</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># nano index.php</span><br><span class="line"># cat index.php</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/var/www/redirect/index.php</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//echo &#x27;&lt;pre&gt;&#x27;.print_r($_SERVER, true).&#x27;&lt;/pre&gt;&#x27;;</span><br><span class="line">//die();</span><br><span class="line"></span><br><span class="line">// Adresse comunne pour toutes nos redirections</span><br><span class="line">$mainUrl = &#x27;http://&#x27;.$_SERVER[&#x27;SERVER_NAME&#x27;].&#x27;:&#x27;.$_SERVER[&#x27;SERVER_PORT&#x27;];</span><br><span class="line"></span><br><span class="line">// On rajoute &#x27;http:/&#x27; devant l&#x27;adresse passée par Privoxy</span><br><span class="line">// Pour déterminer l&#x27;url de la ressource que l&#x27;on redirige</span><br><span class="line">$requestedUrl = &#x27;http:/&#x27;.str_replace(&#x27;index.php?q=&#x27;,&#x27;&#x27;,$_SERVER[&#x27;REQUEST_URI&#x27;]);</span><br><span class="line"></span><br><span class="line">// Liste des différents cdn supportés avec leur modèle d&#x27;url</span><br><span class="line">$angularjsPatterns = include(&#x27;patterns/angularjs.php&#x27;);</span><br><span class="line">$dojoPatterns = include(&#x27;patterns/dojo.php&#x27;);</span><br><span class="line">$extcorePatterns = include(&#x27;patterns/extcore.php&#x27;);</span><br><span class="line">$jqueryPatterns = include(&#x27;patterns/jquery.php&#x27;);</span><br><span class="line">$mootoolsPatterns = include(&#x27;patterns/mootools.php&#x27;);</span><br><span class="line">$prototypePatterns = include(&#x27;patterns/prototype.php&#x27;);</span><br><span class="line">$scriptaculousPatterns = include(&#x27;patterns/scriptaculous.php&#x27;);</span><br><span class="line">$swfobjectPatterns = include(&#x27;patterns/swfobject.php&#x27;);</span><br><span class="line">$threejsPatterns = include(&#x27;patterns/threejs.php&#x27;);</span><br><span class="line">$webfontPatterns = include(&#x27;patterns/webfont.php&#x27;);</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">Non géré pour le moment, en attente d&#x27;une solution viable</span><br><span class="line"></span><br><span class="line">jQuery Mobile</span><br><span class="line">    snippet: &lt;link rel=&quot;stylesheet&quot; href=&quot;//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css&quot; /&gt;</span><br><span class="line">    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    site: http://jquerymobile.com/</span><br><span class="line"></span><br><span class="line">jQuery UI</span><br><span class="line">    snippet: &lt;link rel=&quot;stylesheet&quot; href=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css&quot; /&gt;</span><br><span class="line">    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    site: http://jqueryui.com/</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">/* AngularJS</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://angularjs.org</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $angularjsPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/angularjs.php&#x27;);</span><br><span class="line">    $cdn = new Angularjs($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Dojo</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/dojo/1.10.1/dojo/dojo.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://dojotoolkit.org/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $dojoPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/dojo.php&#x27;);</span><br><span class="line">    $cdn = new Dojo($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Ext Core</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: https://www.sencha.com/products/extcore/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $extcorePatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/extcore.php&#x27;);</span><br><span class="line">    $cdn = new Extcore($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* jQuery</span><br><span class="line">     Marche pour les versions min ou normale =&gt; force à télécharger la version min si absente</span><br><span class="line">     snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://jquery.com/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $jqueryPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/jquery.php&#x27;);</span><br><span class="line">    $cdn = new Jquery($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* MooTools</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools-yui-compressed.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://mootools.net/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $mootoolsPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/mootools.php&#x27;);</span><br><span class="line">    $cdn = new Mootools($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Prototype</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://prototypejs.org/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $prototypePatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/prototype.php&#x27;);</span><br><span class="line">    $cdn = new Prototype($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* script.aculo.us</span><br><span class="line">    snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    site: http://script.aculo.us/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $scriptaculousPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/scriptaculous.php&#x27;);</span><br><span class="line">    $cdn = new Scriptaculous($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* SWFObject</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://code.google.com/p/swfobject/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $swfobjectPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/swfobject.php&#x27;);</span><br><span class="line">    $cdn = new Swfobject($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* three.js</span><br><span class="line">     Marche pour les versions min ou normale =&gt; force à télécharger la version min si absente</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/threejs/r67/three.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: http://threejs.org/</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $threejsPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">    require_once(&#x27;classes/threejs.php&#x27;);</span><br><span class="line">    $cdn = new Threejs($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Web Font Loader</span><br><span class="line">   snippet: &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   site: https://github.com/typekit/webfontloader</span><br><span class="line">*/</span><br><span class="line">if (preg_match(&#x27;/(&#x27;.implode(&#x27;|&#x27;, $webfontPatterns).&#x27;)/i&#x27;, $requestedUrl, $matches))&#123;</span><br><span class="line">//echo &#x27;&lt;pre&gt;&#x27;.print_r($matches, true).&#x27;&lt;/pre&gt;&#x27;; die();</span><br><span class="line">    require_once(&#x27;classes/webfont.php&#x27;);</span><br><span class="line">    $cdn = new Webfont($matches[2]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if ($cdn)&#123;</span><br><span class="line"></span><br><span class="line">    // Fichier local manquant ?</span><br><span class="line">    if (!file_exists($cdn-&gt;getFilename()))&#123;</span><br><span class="line">    // On télécharge et stocke</span><br><span class="line">   $cdn-&gt;get();</span><br><span class="line">    &#125;</span><br><span class="line">    // On redirige vers notre ressource locale</span><br><span class="line">    $requestedUrl = $mainUrl.$cdn-&gt;file;</span><br><span class="line"></span><br><span class="line">    // On redirige et sort du script</span><br><span class="line">    header(&quot;Status: 302 Found&quot;, true, 302);</span><br><span class="line">    header(&quot;Location: &#123;$requestedUrl&#125;&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">        echo &#x27;&lt;pre&gt;&#x27;;</span><br><span class="line">        echo print_r($_SERVER, true);</span><br><span class="line">        echo &quot;NO MATCH&quot;;</span><br><span class="line">        echo $requestedUrl;</span><br><span class="line">        echo $mainURL;</span><br><span class="line">        echo &#x27;&lt;/pre&gt;&#x27;;</span><br><span class="line"></span><br><span class="line">//        die();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</details>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chown www-data:www-data -R /var/www/redirect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D; TEST &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D; LOCAL CDN &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://192.168.5.55:8180/index.php">http://192.168.5.55:8180/index.php</a></p>
+</blockquote>
+</blockquote>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; PROXY &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>PROXY : 80<br>192.168.5.55:8118</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; PRIVOXY STATUS &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://config.privoxy.org/">http://config.privoxy.org/</a></p>
+</blockquote>
+</blockquote>
+<p>&#x3D;&#x3D;&#x3D;&#x3D; DEMO &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; ACCESS &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tail /var/log/apache2/privoxy_access.log</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/var/log/apache2/privoxy_access.log</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 302 384 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 404 515 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /index.php?q=ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js HTTP/1.1&quot; 302 384 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /libs/jquery/1.8.2/jquery.min.js HTTP/1.1&quot; 404 516 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 302 383 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:36:22 +0100] &quot;GET /libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 404 514 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:38:05 +0100] &quot;GET /index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 302 384 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:38:05 +0100] &quot;GET /libs/swfobject/2.2/swfobject.js HTTP/1.1&quot; 200 4299 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:38:05 +0100] &quot;GET /index.php?q=ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js HTTP/1.1&quot; 302 384 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;\\</span><br><span class="line">192.168.5.55- - [11/Nov/2014:16:38:06 +0100] &quot;GET /libs/jquery/1.8.2/jquery.min.js HTTP/1.1&quot; 200 33753 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0&quot;</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>&#x3D;&#x3D;&#x3D;   &#x3D;&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;&#x3D; PROXY &#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tail /var/log/privoxy/privoxy.log</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/var/log/privoxy/privoxy.log</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2014-11-11 16:47:12.233 b3d52470 Redirect: pcrs command &quot;s@^http:/[^(.*)]@http://192.168.5.55:8180/index.php?q=$1@&quot; changed &quot;http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js&quot; to &quot;http://192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js&quot; (1 hit).</span><br><span class="line">2014-11-11 16:47:12.233 b4d52470 Redirect: pcrs command &quot;s@^http:/[^(.*)]@http://192.168.5.55:8180/index.php?q=$1@&quot; changed &quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&quot; to &quot;http://192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&quot; (1 hit).</span><br><span class="line">2014-11-11 16:47:12.234 b3d52470 Redirect: New URL is: http://192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js</span><br><span class="line">2014-11-11 16:47:12.234 b4d52470 Redirect: New URL is: http://192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js</span><br><span class="line">2014-11-11 16:47:12.296 b4d52470 Request: 192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js</span><br><span class="line">2014-11-11 16:47:12.296 b3d52470 Request: 192.168.5.55:8180/index.php?q=ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js</span><br><span class="line">2014-11-11 16:47:12.314 b4d52470 Request: 192.168.5.55:8180/libs/swfobject/2.2/swfobject.js</span><br><span class="line">2014-11-11 16:47:12.316 b3d52470 Request: 192.168.5.55:8180/libs/jquery/1.8.2/jquery.min.js</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>&#x3D;&#x3D;&#x3D; CACHE &#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ls /var/www/redirect/libs/ -R</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>/var/log/privoxy/privoxy.log</summary>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/var/www/redirect/libs/:</span><br><span class="line">jquery    swfobject</span><br><span class="line"></span><br><span class="line">/var/www/redirect/libs/jquery:</span><br><span class="line">1.8.2</span><br><span class="line"></span><br><span class="line">/var/www/redirect/libs/jquery/1.8.2:</span><br><span class="line">jquery.min.js</span><br><span class="line"></span><br><span class="line">/var/www/redirect/libs/swfobject:</span><br><span class="line">2.2</span><br><span class="line"></span><br><span class="line">/var/www/redirect/libs/swfobject/2.2:</span><br><span class="line">swfobject.js</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D; Utilisation avec Firefox &#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>Pour le mode proxy non transparent, définir l’IP et le port de privoxy :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROXY (HTTP uniquement) -&gt; 192.168.5.55</span><br><span class="line">PORT -&gt; 8118</span><br></pre></td></tr></table></figure>
+<p>et ajouter les exclusions du réseau local :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost, 127.0.0.1, local, 192.168.5.0/24</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Auteur de l'article:  </strong>CyberMind
+  </li>
+  <li class="post-copyright-link">
+      <strong>Lien de l'article: </strong>
+      <a href="https://cybermind.fr/fr/Cyber/CDN-Local/" title="CDN Local">https://cybermind.fr/fr/Cyber/CDN-Local/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Droit d'auteur:  </strong>Tous les articles de ce blog sont sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a>, sauf mention contraire.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/CyberMindFR">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CLOUD/" rel="tag"># CLOUD</a>
+              <a href="/tags/CyberSecurity/" rel="tag"># CyberSecurity</a>
+              <a href="/tags/SECUBOX/" rel="tag"># SECUBOX</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/Cyber/How-to-void-your-RaidSonic-IcyBox-NAS6220-B-Warrantly/" rel="prev" title="HowTo Hack a NAS CLOUD - How to void your RaidSonic IcyBox NAS6220-B Warrantly...">
+                  <i class="fa fa-chevron-left"></i> HowTo Hack a NAS CLOUD - How to void your RaidSonic IcyBox NAS6220-B Warrantly...
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/en/Cyber/OpenWrt-Development-contribs/" rel="next" title="OpenWrt - Development contribs">
+                  OpenWrt - Development contribs <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>Français</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="en" data-href="/Cyber/CDN-Local/" selected="">
+          English
+        </option>
+      
+        <option value="fr" data-href="/fr/Cyber/CDN-Local/" selected="">
+          Français
+        </option>
+      
+    </select>
+  </div>
+
+
+<div class="copyright">
+  &copy; 1982 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🧙 -- Gandalf (from "The Conjurers")</span>
+</div>
+  <div class="powered-by">Propulsé par <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"CyberMind-FR","repo":"cybermind-fr.gitalk","client_id":"c9a751e4f8ccf399a1bf","client_secret":"7559f84d5edc70752bfbbb3465fda3ddad786fc2","admin_user":"erdoukki","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":["en","fr"],"owner_user":"erdoukki","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"7c5dcc1c8245f18b9456c142c851a233"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
