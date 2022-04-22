@@ -930,4 +930,5 @@ gitalk:
   owner: CyberMind-FR # GitHub repo owner
   admin: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
     - CyberMind-FR
+    - erdoukki
   distractionFreeMode: true # Facebook-like distraction free mode
