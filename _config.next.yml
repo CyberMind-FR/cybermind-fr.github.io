@@ -578,7 +578,7 @@ quicklink:
 # Multiple Comment System Support
 comments:
   # Available values: tabs | buttons
-  style: tabs
+  style: buttons
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
   active:
@@ -592,7 +592,8 @@ comments:
     #  text: Load Disqus
     #  order: -1
     gitalk:
-      order: -2
+      text: Load Gitalk
+      order: -1
 
 # Disqus
 # For more information: https://disqus.com
