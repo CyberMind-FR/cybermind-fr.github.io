@@ -273,14 +273,14 @@ tag_icon: false
 # Front-matter variable (nonsupport animation).
 reward_settings:
   # If true, a donate button will be displayed in every article by default.
-  enable: true
+  enable: false
   animation: false
   comment: Buy me a coffee
 
 reward:
   #wechatpay: /images/wechatpay.png
   #alipay: /images/alipay.png
-  paypal: https://paypal.me/KERMA | /images/paypal.png
+  #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 # Reward (Donate)
 # If enable true, reward would be displayed in every posts and pages by default.
