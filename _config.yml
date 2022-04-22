@@ -135,3 +135,9 @@ archive_generator:
 i18n:
   type: [page, post]
   generator: [archive, category, tag, index]
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
