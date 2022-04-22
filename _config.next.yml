@@ -927,7 +927,7 @@ gitalk:
   clientID: c9a751e4f8ccf399a1bf # GitHub Application Client ID
   clientSecret: 7559f84d5edc70752bfbbb3465fda3ddad786fc2 # GitHub Application Client Secret
   repo: cybermind-fr.Gitalk.github.io # Repository name to store issues
-  owner: erdoukki # GitHub repo owner
+  owner: CyberMind-FR # GitHub repo owner
   admin: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
     - CyberMind-FR
   distractionFreeMode: true # Facebook-like distraction free mode
