@@ -103,7 +103,7 @@ menu:
   Tags: /tags/ || fa fa-tags
   Categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
-  Sitemap: /sitemap.xml || fa fa-sitemap
+#  Sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
