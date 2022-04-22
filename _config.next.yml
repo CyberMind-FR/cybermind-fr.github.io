@@ -628,14 +628,14 @@ livere_uid: # <your_uid>
 # For more information: https://gitalk.github.io
 gitalk:
   enable: true
-  github_id: 'CyberMind-FR' # GitHub repo owner
-  repo: 'cybermind-fr.Gitalk' # Repository name to store issues
-  client_id: 'c9a751e4f8ccf399a1bf' # GitHub Application Client ID
-  client_secret: '7559f84d5edc70752bfbbb3465fda3ddad786fc2' # GitHub Application Client Secret
+  github_id: 'CyberMind-FR'
+  repo: 'cybermind-fr.Gitalk'
+  client_id: 'c9a751e4f8ccf399a1bf'
+  client_secret: '7559f84d5edc70752bfbbb3465fda3ddad786fc2'
   admin_user:
     - 'erdoukki'
     - 'gkerma'
-  distraction_free_mode: true # Facebook-like distraction free mode
+  distraction_free_mode: true
   # When the official proxy is not available, you can change it to your own proxy address
   ##proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
   # Gitalk's display language depends on user's browser or system environment
