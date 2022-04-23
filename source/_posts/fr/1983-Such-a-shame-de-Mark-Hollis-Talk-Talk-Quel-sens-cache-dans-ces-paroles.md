@@ -60,8 +60,8 @@ Pourtant, ce "jeu" a inspiré plus qu'un roman.
 Entre autre, une critique poétique de Mark Hollis, dans ce tube de 1983 qui pour ma part m'a amené à la musique.
 J'en ai adoré le ton, le son, la mélodie, le rythme, le clip vidéo.
 À chaque nouvelle découverte, j'en soulevait un nouveau voile.
-J'avais demandé au collège, à celle qui pour moi était la référence en musique, ne sachant pas qui avait écrit ce tube qui me restait en tête. Plutôt que de le chantonner, timidement, j'avais demandé si elle connaissait "It's a chair" (c'est une chaise), ce qui avait eu l'avantage de la faire éclater de rire, et moi de ne pas comprendre ni la raison, bref, un beau moment de solitude d'adolescent timide !
-Elle m'a tout de même corrigé me divulguant le titre corrigé "It's a shame" (C'est une honte).
+J'avais fait appel à une gamine au collège, à celle qui pour moi était la référence en musique. Ne sachant pas qui avait écrit ce tube qui me restait en tête, je voulais, pour la première fois retrouver l'artiste et la chanson entendu à la radio. Plutôt que de le chantonner, timidement, j'avais demandé si elle connaissait "It's a chair" (c'est une chaise), ce qui avait eu l'avantage de la faire éclater de rire, et moi de ne pas en comprendre la raison, bref, un beau moment de solitude d'adolescent trop timide !
+Elle m'a tout de même corrigé me divulguant le titre corrigé "It's a shame" (C'est une honte) et je crois même qu'elle connaissait aussi l'artiste Mark Hollis. Merci encore.
 
 ### Inspiration ###
 
