@@ -590,7 +590,7 @@ comments:
   nav:
     isso:
       text: Load isso
-      order: -1
+      order: -2
     gitalk:
       text: Load Gitalk
       order: -1
