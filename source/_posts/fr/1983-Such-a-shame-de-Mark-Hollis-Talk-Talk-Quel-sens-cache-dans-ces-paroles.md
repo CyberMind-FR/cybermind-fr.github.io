@@ -111,7 +111,7 @@ Je viens de m'acheter le Vinyle et je peux enfin admirer la pochette dont j'avai
 | <img src="/uploads/images/COVERS/DICE_MAN.png" width="199px" heigth="300px">|<img src="/uploads/images/COVERS/SUCH_A_SHAME.png" width="220px" heigth="220px">|
 | *(L'idée)* | *(L'alerte)* |
 
-Je trouve que cela symbolise tout à fait l'adage qui dit qu'un dessin vaux bien meixu qu'un long discours !
+Je trouve que cela symbolise tout à fait l'adage qui dit qu'un dessin vaux bien mieux qu'un long discours !
 
 ## Paroles & Traduction ##
 
