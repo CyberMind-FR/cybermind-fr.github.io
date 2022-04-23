@@ -192,6 +192,8 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 
 Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.
 J'ai essayé d'éviter d'y apporter tout jugements et de juste relater une courte expérience et sa longue évolution.
+Cela fait maintenant quelques jours que je voulais le faire et que je reculais à chaque tentatives.
+J'ai eu bien du mal pour un si petit bout de vie ! 🐹
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
