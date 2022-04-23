@@ -96,7 +96,7 @@ Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de
 [Émissions La gourmandise d'Eva Bester "L'homme-dé" de Luke Rhinehart](https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013)
 jeudi 12 décembre 2013 par Eva Bester
 
-{% aplayer "\"L\'homme-dé\" de Luke Rhinehart" "Eva Bester" "https://cdn.radiofrance.fr/s3/cruiser-production/static/inter/sons/2013/12/s50/NET_FI_d8a3b012-6028-4a57-a65e-b5c0f6dd7565.mp3" "https://www.franceinter.fr/img/img_defaut_highlight_live.png" %}
+{% aplayer "Dice-Man de Luke Rhinehart" "Eva Bester" "https://cdn.radiofrance.fr/s3/cruiser-production/static/inter/sons/2013/12/s50/NET_FI_d8a3b012-6028-4a57-a65e-b5c0f6dd7565.mp3" "https://www.franceinter.fr/img/img_defaut_highlight_live.png" %}
 
 ### Déconversion ###
 
