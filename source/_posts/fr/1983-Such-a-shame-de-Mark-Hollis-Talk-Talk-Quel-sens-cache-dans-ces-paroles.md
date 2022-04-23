@@ -1,7 +1,6 @@
 ---
 title: >-
-  1983 - Such a shame (de Mark Hollis / Talk Talk)
- - Quel sens caché dans ces paroles ?
+  1983 - Such a shame (de Mark Hollis / Talk Talk) - Quel sens caché dans ces paroles ?
 lang: fr
 date: 2022-04-23 17:59:53
 author: 🧙 -- Gandalf (from "The Conjurers")
