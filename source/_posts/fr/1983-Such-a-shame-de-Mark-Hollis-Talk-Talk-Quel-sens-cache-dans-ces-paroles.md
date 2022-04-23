@@ -91,12 +91,17 @@ Laisser cet objet devenir le dieu et seul maître de votre choix.
 
 Pour ma part, j'étais en pleine remise en question et je me suis amusé à ce jeu.
 Je me suis joué de moi à jouer ma vie et mes choix avec les résultats d'un dé à 6 faces.
-Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer, que même des radios peuvent en faire une relance quasi promotionnelle comme ce billet sur FranceInter de 2013.
+Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer.
+Une radio peut même en faire la (re)découverte dans ce billet de France Inter de décembre 2013.
+
+> Et en faire l'expérience est très déconcertant
+
+> Entre le hazard et la rationnalité les liens sont assez forts
 
 [Émissions La gourmandise d'Eva Bester "L'homme-dé" de Luke Rhinehart](https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013)
 jeudi 12 décembre 2013 par Eva Bester
 
-{% aplayer "Dice-Man de Luke Rhinehart" "Eva Bester" "https://cdn.radiofrance.fr/s3/cruiser-production/static/inter/sons/2013/12/s50/NET_FI_d8a3b012-6028-4a57-a65e-b5c0f6dd7565.mp3" "https://www.franceinter.fr/img/img_defaut_highlight_live.png" %}
+{% aplayer "Dice-Man de Luke Rhinehart" "Eva Bester" "https://cdn.radiofrance.fr/s3/cruiser-production/static/inter/sons/2013/12/s50/NET_FI_d8a3b012-6028-4a57-a65e-b5c0f6dd7565.mp3" "https://www.franceinter.fr/img/img_defaut_highlight_live.png" "mode:single" %}
 
 ### Déconversion ###
 
