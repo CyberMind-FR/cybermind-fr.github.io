@@ -141,3 +141,6 @@ search:
   field: post
   content: true
   format: html
+
+aplayer:
+  mode: single
