@@ -45,7 +45,7 @@ Elle est inspirée par le roman [L'Homme-dé (The Dice Man)](https://fr.wikipedi
 
     Depuis qu'il a décidé de jouer aux dés chacune de ses décisions, le Dr Rhinehart, un psychiatre new-yorkais, a transformé sa vie en un immense jeu de hasard. Très vite le « syndrome du dé » se répand.
   
-    Luke Rhinehart est né en 1932. Au début des années 1970, il publie L'Homme-dé. Ce premier roman d'un auteur inconnu circule tout d'abord sur les campus américainsr. L'Homme-dédevient vite un livre-culte qui sera réédité et traduit dans dix-neuf langues.
+    Luke Rhinehart est né en 1932. Au début des années 1970, il publie L'Homme-dé. Ce premier roman d'un auteur inconnu circule tout d'abord sur les campus américains. "L'Homme-dé" devient vite un livre-culte qui sera réédité et traduit dans dix-neuf langues.
 
 La page Wikipedia me semble quand à elle en désaccord avec le site officiel, [ON WRITING THE DICE MAN](https://www.lukerhinehart.net/writing-dice-man/) !?
 
