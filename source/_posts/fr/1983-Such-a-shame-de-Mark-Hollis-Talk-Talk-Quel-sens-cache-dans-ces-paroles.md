@@ -66,23 +66,32 @@ Elle m'a tout de même corrigé me divulguant le titre corrigé "It's a shame" (
 ### Inspiration ###
 
 J'ai mis quelques temps, peut-être des années, à traduire ce titre et entendre "C'est une honte" sans en comprendre la raison, de cette honte.
-Ce sera des années encore plus tard, plusieurs dizaines d'années pour être franc, que j'ai retrouvé un nouvel intérêt et découvert la signification possible en cherchant les paroles de cette chanson, leur traduction.
-Puis en cherchant la raison de l'inspiration et la raison de ce dé présent dans le Clip Vidéo.
+Ce sera des années encore plus tard, plusieurs dizaines d'années pour être franc, que j'ai retrouvé un nouvel intérêt et découvert la signification possible en cherchant cette fois les paroles et leur traduction.
+Puis en cherchant la source de l'inspiration et la raison de ce dé présent dans le Clip Vidéo.
 
 J'avais aimé au tout début ce personnage qui chantait et dont le costume se changeait également au rythme du clip vidéo.
 Mais cela avait un sens, une raison, une signification.
 C'était l'explication même de ce jeu de dé défendu dans le livre "Dice World" et la méthode qu'il représentait.
 J'ai découvert par la suite des vidéos faisant même la promotion de ce jeu comme un modèle de vie alternatif !
+L'auteur avait même apparremment fait des choix de vie importants.
+Il se serait donc inspiré d'une expérience personnelle, our écrire son premier roman
+Certains de ces voyages mais aussi son mariage et sa femme seraient issus d'un lancé de dé.
 
 ### Critique ###
 
-On proposait à des gens dans la rue d'abandonner leur vie en leur payant la possibilité de réaliser leur plus grand rêve, selon, c'était la condition, le résultat d'un dé à 6 faces !
+J'ai découvert des vidéos sur les réseaux qui ressemblaient même à des promotions, des plublicités plus qu'à des reportages.
+On y proposait de jouer l'expérience.
+Des gens pris au hasard dans la rue pouvaient changer de destin.
+Il devaient abandonner leur vie et on leur offraient la possibilité de réaliser leur plus grand rêve, selon, c'était la condition, le résultat d'un tirage de dé à 6 faces !
+Il n'avait qu'à donner leur accord.
 Il fallait miser son destin sur le résultat d'un dé à 6 faces.
 Laisser cet objet devenir le dieu et seul maître de votre choix.
 
+### Expérimentation ###
+
 Pour ma part, j'étais en pleine remise en question et je me suis amusé à ce jeu.
 Je me suis joué de moi à jouer ma vie et mes choix avec les résultats d'un dé à 6 faces.
-Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer, que même des radios peuvent en faire une relance promotionnelle comme le billet.
+Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer, que même des radios peuvent en faire une relance quasi promotionnelle comme ce billet sur FranceInter de 2013.
 
 [Émissions La gourmandise d'Eva Bester "L'homme-dé" de Luke Rhinehart](https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013)
 jeudi 12 décembre 2013 par Eva Bester
@@ -180,6 +189,9 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 
     *Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
     *Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
+
+Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.
+J'ai essayé d'éviter d'y apporter tout jugements et de juste relater une courte expérience et sa longue évolution.
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
