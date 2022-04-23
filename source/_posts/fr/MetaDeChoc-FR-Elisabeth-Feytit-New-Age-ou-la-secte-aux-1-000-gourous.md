@@ -47,11 +47,16 @@ Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux p
   - [8 mars 2022 à 8 h 20 min](https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1067)
   - [19 avril 2022 à 1 h 27 min](https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1160)
 - [SHOCKING #20 - Sexualité : un monde de croyances (**Avec Marianne Niosi,** directrice de la confédération du Planning familial)](https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/)
+- [STREAM #6 - La métacognition sauvera-t-elle le monde ? (**Avec Emmanuel Sander et Élisabeth Feytit**)](https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/)
+  - [23 avril 2022 à ...](https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170)
 
 # À suivre sur @CyberMindFR #
 
 - D'autres billets suivront à propos de ["La Secte Aux 1.000 Gourous" ! (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/)
 - [Préface - Une vie en anthroposophie (**Richard Monvoisin**)](https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/)
+- [L’esprit critique - Bande Dessinée aux Éditions Delcourt](https://cybermind.fr/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/)
+- [Dérives - La secte aux 1000 gourous](https://cybermind.fr/fr/Mind/Derives-La-secte-aux-1000-gourous/)
+- [L’étude, (en cours) sur “La Secte Aux 1.000 Gourous” (#LSA1KG) 🛸 & 👽 -> 🦄 & 🧚‍♀️](https://cybermind.fr/tags/LSA1KG/)
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
