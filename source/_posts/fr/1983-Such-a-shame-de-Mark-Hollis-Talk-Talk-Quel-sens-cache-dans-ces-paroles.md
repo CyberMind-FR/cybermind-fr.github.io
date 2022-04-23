@@ -108,7 +108,7 @@ Je viens de m'acheter le Vinyle et je peux enfin admirer la pochette dont j'avai
 
 | Le roman "Dice man"  | La chanson "Such a shame" |
 |:--------------------:|:-------------------------:|
-| <img src="/uploads/images/COVERS/DICE_MAN.png" width="199px" heigth="300px">|<img src="/uploads/images/COVERS/SUCH_A_SHAME.png" width="220px" heigth="220px">|
+| <img src="/uploads/images/COVERS/DICE_MAN.png" width="200px" heigth="300px">|<img src="/uploads/images/COVERS/SUCH_A_SHAME.jpg" width="300px" heigth="300px">|
 | *(L'idée)* | *(L'alerte)* |
 
 Je trouve que cela symbolise tout à fait l'adage qui dit qu'un dessin vaux bien mieux qu'un long discours !
