@@ -144,3 +144,8 @@ search:
 
 aplayer:
   mode: single
+  autoplay: false
+  loop: none
+
+dplayer:
+  autoplay: false
