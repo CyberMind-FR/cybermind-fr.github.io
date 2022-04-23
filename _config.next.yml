@@ -588,9 +588,9 @@ comments:
   lazyload: false
   # Modify texts or order for any naves, here are some examples.
   nav:
-    #disqus:
-    #  text: Load Disqus
-    #  order: -1
+    isso:
+      text: Load isso
+      order: -1
     gitalk:
       text: Load Gitalk
       order: -1
@@ -655,7 +655,7 @@ utterances:
 
 # Isso
 # For more information: https://posativ.org/isso/
-isso: # <data_isso>
+isso: //comments.cybermind.fr/ # <data_isso>
 
 
 # ---------------------------------------------------------------
