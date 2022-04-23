@@ -43,13 +43,13 @@ Comment une simple chanson, même un tube, peut-il avoir autant à dire, encore 
 
 Elle est inspirée par le roman [L'Homme-dé (The Dice Man)](https://fr.wikipedia.org/wiki/L%27Homme-d%C3%A9) de l'auteur américain [Luke Rhinhart](https://fr.wikipedia.org/wiki/Luke_Rhinehart_(George_Cockcroft)) commencé en 1953 et paru en 1971.
 
-  Depuis qu'il a décidé de jouer aux dés chacune de ses décisions, le Dr Rhinehart, un psychiatre new-yorkais, a transformé sa vie en un immense jeu de hasard. Très vite le « syndrome du dé » se répand.
+    Depuis qu'il a décidé de jouer aux dés chacune de ses décisions, le Dr Rhinehart, un psychiatre new-yorkais, a transformé sa vie en un immense jeu de hasard. Très vite le « syndrome du dé » se répand.
   
-  Luke Rhinehart est né en 1932. Au début des années 1970, il publie L'Homme-dé. Ce premier roman d'un auteur inconnu circule tout d'abord sur les campus américainsr. L'Homme-dédevient vite un livre-culte qui sera réédité et traduit dans dix-neuf langues.
+    Luke Rhinehart est né en 1932. Au début des années 1970, il publie L'Homme-dé. Ce premier roman d'un auteur inconnu circule tout d'abord sur les campus américainsr. L'Homme-dédevient vite un livre-culte qui sera réédité et traduit dans dix-neuf langues.
 
 La page Wikipedia me semble quand à elle en désaccord avec le site officiel, [ON WRITING THE DICE MAN](https://www.lukerhinehart.net/writing-dice-man/) !?
 
-  Contrairement à ce que l'on a longtemps cru, le livre n'est en rien inspiré de l'expérience de son auteur, qui fut professeur d'anglais dans une université de l'État de New York. 
+    Contrairement à ce que l'on a longtemps cru, le livre n'est en rien inspiré de l'expérience de son auteur, qui fut professeur d'anglais dans une université de l'État de New York. 
 
 ## Expérience personnelle ##
 
@@ -178,8 +178,8 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 - Ce n'est qu'un symbole sur l'imagination et son interprétation.
 - Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole.
 
-*Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
-*Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
+    *Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
+    *Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
