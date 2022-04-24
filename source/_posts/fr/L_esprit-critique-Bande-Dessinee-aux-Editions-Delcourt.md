@@ -26,8 +26,10 @@ categories:
 # Introduction - Pourquoi LSA1KG ?
 
 Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c'est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.
-C'est ce qui m'a motivé personnellement ou m'a excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.
-J'ai failli oublier que la Magie est personnelle, qu'elle doit rester intime. Enfin, ce n'est qu'une opinion personnelle qui n'engage que moi et qui, surtout, ne veut s'imposer à personne.
+Elle débute par la rencontre et la confrontation entre deux mondes opposés, entre leur défenseurs maladroit, une pseudo-chamane celte et un pseudo-sceptique rationaliste.
+C'est justement ce genre d'idée, rassembler deux mondes opposés, qui m'avait motivé personnellement, ou m'avait excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.
+J'ai presque failli oublier que la Magie est personnelle, qu'elle doit rester intime.
+Enfin, ce n'est qu'une opinion personnelle qui n'engage que moi et qui, surtout, ne veut s'imposer à personne.
 
 # Vulgarisation Zététique
 
@@ -45,11 +47,12 @@ Merci à l'[Afis Science - Association française pour l’information scientifi
 >* *Isabelle Bauthian (scénario), Gally (dessin)*
 >* *Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €*
 
-Je vous conseil vraiment la lecture de cette ouvrage qui n'a rien à envier des longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
+Je vous conseil vraiment la lecture de cette ouvrage qui n'a rien à envier aux longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.
 Le propos ici est serein et amusant.
-Il cherche à concilier les mondes spirituels et raisonnables dans leurs théories mutuelles.
-C'est le seul moyen pour entamer comprendre l'esprit critique et les croyances des zététiciens autant que l'intérêt de leurs pratiques.
-C'est aussi, peut-être, une belle solution pour accueillir à nouveau quelques âmes perdues le long des chemins de traverses.
+Il cherche à concilier les mondes spirituels et rationnels dans leurs théories mutuelles pour devenir raisonnables.
+C'est le seul moyen pour entamer et comprendre l'esprit critique.
+Pour tester les croyances des zététiciens et percer l'intérêt de leurs pratiques.
+C'est aussi, peut-être, une belle solution pour accueillir à nouveau, quelques âmes perdues le long des chemins de traverses.
 Car plutôt que de chercher pourquoi se confondre dans les directions, les volontés, les émotions, les pensées.
 Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.
 
