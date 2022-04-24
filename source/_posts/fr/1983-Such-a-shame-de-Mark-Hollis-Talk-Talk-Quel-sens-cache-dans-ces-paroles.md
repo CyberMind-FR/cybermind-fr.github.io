@@ -72,8 +72,8 @@ J'avais aimé au tout début ce personnage qui chantait et dont le costume se ch
 Mais cela avait un sens, une raison, une signification.
 C'était l'explication même de ce jeu de dé défendu dans le livre "Dice World" et la méthode qu'il représentait.
 J'ai découvert par la suite des vidéos faisant même la promotion de ce jeu comme un modèle de vie alternatif !
-L'auteur avait même apparremment fait des choix de vie importants.
-Il se serait donc inspiré d'une expérience personnelle, our écrire son premier roman
+L'auteur avait même apparemment fait des choix de vie importants en les confiant à un dé à 6 faces.
+Il se serait donc inspiré d'une expérience personnelle, pour écrire ce premier roman.
 Certains de ces voyages mais aussi son mariage et sa femme seraient issus d'un lancé de dé.
 
 ### Critique ###
