@@ -78,10 +78,10 @@ Certains de ces voyages mais aussi son mariage et sa femme seraient issus d'un l
 
 ### Critique ###
 
-J'ai découvert des vidéos sur les réseaux qui ressemblaient même à des promotions, des plublicités plus qu'à des reportages.
+J'avais aussi croisé des vidéos sur les réseaux qui ressemblaient même à des promotions, des publicités plus qu'à des reportages.
 On y proposait de jouer l'expérience.
 Des gens pris au hasard dans la rue pouvaient changer de destin.
-Il devaient abandonner leur vie et on leur offraient la possibilité de réaliser leur plus grand rêve, selon, c'était la condition, le résultat d'un tirage de dé à 6 faces !
+Ils devaient abandonner leur vie et on leur offraient la possibilité de réaliser leur plus grand rêve, selon, c'était la condition, le résultat d'un tirage de dé à 6 faces !
 Il n'avait qu'à donner leur accord.
 Il fallait miser son destin sur le résultat d'un dé à 6 faces.
 Laisser cet objet devenir le dieu et seul maître de votre choix.
