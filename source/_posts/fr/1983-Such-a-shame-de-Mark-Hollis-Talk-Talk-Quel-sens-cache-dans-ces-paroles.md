@@ -88,10 +88,10 @@ Laisser cet objet devenir le dieu et seul maître de votre choix.
 
 ### Expérimentation ###
 
-Pour ma part, j'étais en pleine remise en question et je me suis amusé à ce jeu.
-Je me suis joué de moi à jouer ma vie et mes choix avec les résultats d'un dé à 6 faces.
+Pour ma part, j'étais en pleine remise en question et je me laissé tenter, je me suis amusé à ce jeu.
+Je me suis joué de moi à jouer ma vie et mes choix selon les résultats d'un dé à 6 faces.
 Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer.
-Une radio peut même en faire la (re)découverte dans ce billet de France Inter de décembre 2013.
+Une radio peut même en faire la (re)découverte discrète comme dans ce billet de France Inter de décembre 2013.
 
 > Et en faire l'expérience est très déconcertant
 
