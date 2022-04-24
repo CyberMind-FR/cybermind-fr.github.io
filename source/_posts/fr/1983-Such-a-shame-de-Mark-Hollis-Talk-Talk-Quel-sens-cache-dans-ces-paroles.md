@@ -58,7 +58,7 @@ Pourtant, ce "jeu" a inspiré plus qu'un roman.
 
 Entre autre, une critique poétique de Mark Hollis, dans ce tube de 1983 qui pour ma part m'a amené à la musique.
 J'en ai adoré le ton, le son, la mélodie, le rythme, le clip vidéo.
-À chaque nouvelle découverte, j'en soulevait un nouveau voile.
+À chaque nouvelle découverte, j'en soulevais un nouveau voile.
 J'avais fait appel à une gamine au collège, à celle qui pour moi était la référence en musique. Ne sachant pas qui avait écrit ce tube qui me restait en tête, je voulais, pour la première fois retrouver l'artiste et la chanson entendu à la radio. Plutôt que de le chantonner, timidement, j'avais demandé si elle connaissait "It's a chair" (c'est une chaise), ce qui avait eu l'avantage de la faire éclater de rire, et moi de ne pas en comprendre la raison, bref, un beau moment de solitude d'adolescent trop timide !
 Elle m'a tout de même corrigé me divulguant le titre corrigé "It's a shame" (C'est une honte) et je crois même qu'elle connaissait aussi l'artiste Mark Hollis. Merci encore.
 
@@ -88,9 +88,9 @@ Laisser cet objet devenir le dieu et seul maître de votre choix.
 
 ### Expérimentation ###
 
-Pour ma part, j'étais en pleine remise en question et je me laissé tenter, je me suis amusé à ce jeu.
-Je me suis joué de moi à jouer ma vie et mes choix selon les résultats d'un dé à 6 faces.
-Je ne suis même pas étonnée de découvrir aujourd'hui que d'autres en font de même et ne semble pas s'en offusquer.
+Pour ma part, j'étais en pleine remise en question et je me suis laissé tenter, je me suis amusé à ce jeu.
+J'ai joué de moi à jouer ma vie et mes choix selon les résultats d'un dé à 6 faces.
+Je ne suis même pas étonné de découvrir aujourd'hui que d'autres en font de même et ne semblent pas s'en offusquer.
 Une radio peut même en faire la (re)découverte discrète comme dans ce billet de France Inter de décembre 2013.
 
 > Et en faire l'expérience est très déconcertant
@@ -105,7 +105,7 @@ jeudi 12 décembre 2013 par Eva Bester
 ### Déconversion ###
 
 Je viens, tout récemment, de comprendre, enfin, et encore, évidemment, avec quelques années de plus, ce que voulait démontrer Mark Hollis.
-En tout cas ce que j'aurai dut entendre de cet artiste magnifique, que je considère génial et dont la musique m'a inspirée et accompagnée toute au long de ma vie.
+En tout cas ce que j'aurai dû entendre de cet artiste magnifique, que je considère génial et dont la musique m'a inspiré et accompagné toute au long de ma vie.
 Je viens de m'acheter le Vinyle et je peux enfin admirer la pochette dont j'avais négligé l'importance, artistique, poétique, mais également symbolique !
 
 ## Couverture & Pochette ##
@@ -119,7 +119,7 @@ Je trouve que cela démontre tout à fait l'adage qui dit qu'un dessin vaux bien
 
 ## Paroles & Traduction ##
 
-Voici également les paroles de cette chanson dont j'ai refais la traduction, celles disponibles sur les réseaux ne me semblent pas assez juste.
+Voici également les paroles de cette chanson dont j'ai refais la traduction, celles disponibles sur les réseaux ne me semblent pas assez justes.
 
 | Lyrics (Original UK) | Paroles (Traduction FR) |
 |:---------------------|:------------------------|
@@ -189,14 +189,14 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 - Ce n'est qu'un retour sur le risque d'abandon de sa propre personnalité, de son ego, de son "JE".
 - Ce n'est qu'une image d'une croyance et d'une divinité.
 - Ce n'est qu'un symbole sur l'imagination et son interprétation.
-- Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole, du sens qu'on peut donner et remettre en question.
+- Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole, du sens qu'on peut donner et remettre en questions.
 
 > *Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
 > *Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
 
 Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.
 J'ai essayé d'éviter d'y apporter trop de jugements et de juste relater une courte expérience et sa longue évolution.
-Cela fait maintenant quelques jours que je voulais le faire et que je reculais à chaque tentatives.
+Cela fait maintenant quelques jours que je voulais le faire et que je reculais à chaque tentative.
 Bien sûr ces propos comportent des tas de sous entendus.
 J'ai eu bien du mal à dévoiler ici, à poser en quelques mots, un si petit bout de vie ! 🐹
 
