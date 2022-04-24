@@ -104,8 +104,8 @@ jeudi 12 décembre 2013 par Eva Bester
 
 ### Déconversion ###
 
-Je viens, tout récemment, de comprendre, enfin, encore, évidemment, avec quelques années de plus, ce que voulait démontrer Mark Hollis.
-En tout cas ce que j'aurai du entendre de cet artiste magnifique que je considère génial et dont la musique m'a inspirée et accompagnée toute au long de ma vie.
+Je viens, tout récemment, de comprendre, enfin, et encore, évidemment, avec quelques années de plus, ce que voulait démontrer Mark Hollis.
+En tout cas ce que j'aurai dut entendre de cet artiste magnifique, que je considère génial et dont la musique m'a inspirée et accompagnée toute au long de ma vie.
 Je viens de m'acheter le Vinyle et je peux enfin admirer la pochette dont j'avais négligé l'importance, artistique, poétique, mais également symbolique !
 
 ## Couverture & Pochette ##
@@ -115,11 +115,11 @@ Je viens de m'acheter le Vinyle et je peux enfin admirer la pochette dont j'avai
 | <img src="/uploads/images/COVERS/DICE_MAN.png" width="200px" heigth="300px">|<img src="/uploads/images/COVERS/SUCH_A_SHAME.jpg" width="300px" heigth="300px">|
 | *(L'idée)* | *(L'alerte)* |
 
-Je trouve que cela symbolise tout à fait l'adage qui dit qu'un dessin vaux bien mieux qu'un long discours !
+Je trouve que cela démontre tout à fait l'adage qui dit qu'un dessin vaux bien mieux qu'un long discours !
 
 ## Paroles & Traduction ##
 
-Voici également les paroles de cette chanson dont j'ai refais la traduction, celle disponible sur les réseaux ne me semblent pas juste.
+Voici également les paroles de cette chanson dont j'ai refais la traduction, celles disponibles sur les réseaux ne me semblent pas assez juste.
 
 | Lyrics (Original UK) | Paroles (Traduction FR) |
 |:---------------------|:------------------------|
