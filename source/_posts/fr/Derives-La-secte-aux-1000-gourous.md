@@ -34,18 +34,24 @@ Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui
 Long et difficile est le chemin de la libération, vers la liberté.
 Long et difficile sera le chemin vers la libération, de la liberté.
 
-C'est un soir de début de confinement de COVID, lors d'une promenade en amoureux, avec mon amie, que m'ai venu ce nom impossible de "La Secte Aux 1000 Gourous" !
+C'est un soir de début de confinement de COVID, lors d'une promenade en amoureux que m'ai venu ce nom impossible de "La Secte Aux 1000 Gourous" !
 *Je réalisais à ce moment là que non seulement les complotistes de tout bords, plus souvent extrémistes d'ailleurs, construisaient toujours plus d'hypothèses abérantes pour nourrir et justifier leur délires. Mais que leur imagination absurdes rendraient les **vrais** combats impossibles et que la moindre hypothèse deviendrait difficile à être simplement discutée.*
 
 ***Ma "Miss" m'a demandé d'arrêter de causer de *ce* sujet !***
-Elle m'a brusquement demandé d'arrêter et de vite changer de sujet car je lui faisait peur avait-t-elle précisé alors !
+Elle m'a brusquement demandé d'arrêter et de vite changer de sujet car je lui faisais peur avait-t-elle précisé alors !
 *Elle avait raison, car c'est pour le moins effrayant, surtout de constater qu'aujourd'hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d'office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse **et** à une Terre plate ! Quand vous devez voir l'invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d'air seulement et qu'il est impératif de soumettre votre mental.*
 
 ## **STOP** ##
 <!-- more -->
 
 ***Je suis un fervent défenseur de la Liberté, des Libertés.***
-*Depuis toujours mon cœur est pour une connaissance libre et partagée, commune et collaborative, libératoire par principe. Mais les principes sont comme les croyances, comme les promesses, ils ne servent que ceux qui les croient, ceux qui les défendent ! Alors, cela fait déjà quelques années que j'essaie de contribuer activement, à défendre ses valeurs, mes valeurs, par les actions, par la démonstration, par l'exemple plus que par la parole. D'ailleurs, j'arrête de parler, de m'écouter, chose que j'adore pourtant, même si je ne suis pas toujours d'accord avec moi. J'arrête, pour l'instant, de tergiverser pour vous laisser découvrir ce **"nouveau"** sujet, un sujet de l'actualité des élections 2022 en France. Terre de liberté, berceau des libertés, inspiratrice de **la** Liberté ! Le début d'un nouveau combat, d'une nouvelle lutte, pour la défense de la **liberté** !*
+*Depuis toujours mon cœur est pour une connaissance libre et partagée, commune et collaborative, libératoire par principe.
+Mais les principes sont comme les croyances, comme les promesses, ils ne servent que ceux qui les croient, ceux qui les défendent !
+Alors, cela fait déjà quelques années que j'essaie de contribuer activement, à défendre ses valeurs, mes valeurs, par les actions, par la démonstration, par l'exemple plus que par la parole.
+D'ailleurs, j'arrête de parler, de m'écouter, chose que j'adore pourtant, même si je ne suis pas toujours d'accord avec moi.
+J'arrête, pour l'instant, de tergiverser pour vous laisser découvrir ce **"nouveau"** sujet, un sujet de l'actualité des élections 2022 en France.
+Terre de liberté, berceau des libertés, inspiratrice de **la** Liberté !
+Le début d'un nouveau combat, d'une nouvelle lutte, pour la défense de la **liberté** !*
 
 # Gourou, ex-Gourou, ex-ex-Gourou #
 
