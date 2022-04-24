@@ -189,15 +189,16 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 - Ce n'est qu'un retour sur le risque d'abandon de sa propre personnalité, de son ego, de son "JE".
 - Ce n'est qu'une image d'une croyance et d'une divinité.
 - Ce n'est qu'un symbole sur l'imagination et son interprétation.
-- Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole.
+- Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole, du sens qu'on peut donner et remettre en question.
 
 > *Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
 > *Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
 
 Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.
-J'ai essayé d'éviter d'y apporter tout jugements et de juste relater une courte expérience et sa longue évolution.
+J'ai essayé d'éviter d'y apporter trop de jugements et de juste relater une courte expérience et sa longue évolution.
 Cela fait maintenant quelques jours que je voulais le faire et que je reculais à chaque tentatives.
-J'ai eu bien du mal pour un si petit bout de vie ! 🐹
+Bien sûr ces propos comportent des tas de sous entendus.
+J'ai eu bien du mal à dévoiler ici, à poser en quelques mots, un si petit bout de vie ! 🐹
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
