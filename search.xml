@@ -477,7 +477,7 @@ OK
 Using machid 0x690 from environment                                             
                                                                                 
 <p>Starting kernel ...                                                             </p>
-<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#111;&#107;&#105;&#114;&#x40;&#109;&#111;&#110;&#97;&#x64;&#x2e;&#x73;&#x77;&#98;&#x2e;&#100;&#101;">&#111;&#107;&#105;&#114;&#x40;&#109;&#111;&#110;&#97;&#x64;&#x2e;&#x73;&#x77;&#98;&#x2e;&#100;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
+<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#111;&#x6b;&#x69;&#x72;&#64;&#x6d;&#x6f;&#x6e;&#97;&#x64;&#x2e;&#115;&#119;&#x62;&#46;&#x64;&#101;">&#111;&#x6b;&#x69;&#x72;&#64;&#x6d;&#x6f;&#x6e;&#97;&#x64;&#x2e;&#115;&#119;&#x62;&#46;&#x64;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
 <p>Debian GNU/Linux 6.0 JSHARE ttyS0                                               </p>
 <p>JSHARE login: [   27.672260] eth1: link up, 100 Mb/s, full duplex, flow controld<br>[   27.679188] ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready                </p>
 </code>
@@ -680,7 +680,7 @@ clear mtd
     <title>Microsoft  - Windows 7  - Permissions Fault after privilege&#39;s escalation</title>
     <url>/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Permissions Fault after privilege’s escalation &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>A “By Design” Reproductible Integrity Vulnerability.<br>Discovered on the 2th of march 2012.</p>
-<p><del><a href="mailto:&#x73;&#101;&#99;&#x75;&#114;&#x65;&#64;&#109;&#x69;&#x63;&#x72;&#x6f;&#x73;&#x6f;&#x66;&#x74;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#101;&#99;&#x75;&#114;&#x65;&#64;&#109;&#x69;&#x63;&#x72;&#x6f;&#x73;&#x6f;&#x66;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></del></p>
+<p><del><a href="mailto:&#115;&#x65;&#x63;&#x75;&#x72;&#101;&#64;&#109;&#x69;&#99;&#x72;&#x6f;&#115;&#x6f;&#x66;&#116;&#46;&#99;&#x6f;&#x6d;">&#115;&#x65;&#x63;&#x75;&#x72;&#101;&#64;&#109;&#x69;&#99;&#x72;&#x6f;&#115;&#x6f;&#x66;&#116;&#46;&#99;&#x6f;&#x6d;</a></del></p>
 <span id="more"></span>
 
 <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
@@ -1264,12 +1264,12 @@ The MochaBin-5G Devel board revealed (down side)
 </blockquote>
 <p><a href="https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013">Émissions La gourmandise d’Eva Bester “L’homme-dé” de Luke Rhinehart</a><br>jeudi 12 décembre 2013 par Eva Bester</p>
 
-        <div id="aplayer-pkzuzaXP" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-nGtNKlvA" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-pkzuzaXP"),
+            element: document.getElementById("aplayer-nGtNKlvA"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1703,6 +1703,384 @@ Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ress
       </tags>
   </entry>
   <entry>
+    <title>Dépression - Sortir de la boucle</title>
+    <url>/fr/Mind/Depression%20(Refresh)/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>#Dépression - Sortir de la boucle</strong></p>
+<p>Sujet initial: <a href="/fr/Derives-La-secte-aux-1000-gourous">Dérives - La secte aux 1000 gourous</a></p>
+<p>Je laisse le sujet initial et les parties inspirations, raisons dans le sujet original.<br>Car rapidement après ce premier article sur les dégats des dérives sectaires et autres pseudo médecines alternatives, il m’est apparu que la depression pouvait avoir bien d’autres raisons et que les dérives étaient aussi nombreuses dans d’autres domaines que les croyances.<br>La manipulation de masse est agile est facile de nos jours et de nombreuses strucutures se créé partout.<br>Des associations d’aide deviennent des bons business qui cultivent et parfois même alimente une profonde souffrance.<br>Mais ce sont donc d’autres sujets que je traiteraient ultérieurement, je peux juste vous mettre en appétit en vous suggérant que le costume, même bardés de rayures, ne fait jamais l’individu qui le porte, ou le contraire !</p>
+<h2 id="STOP"><a href="#STOP" class="headerlink" title="STOP"></a><strong>STOP</strong></h2><span id="more"></span>
+
+<h2 id="En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video"><a href="#En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video" class="headerlink" title="En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)"></a>En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)</h2><p>Parce-qu’on est pas obligé de se retrouver dans cette séquence “brève”, mais parce-que tant de sujets sont ainsi, différents, uniques, personnls mais tous identiques dans leur malaise !<br>Et parce-qu’il faut savoir rentrer dans cette case pour apprendre à se gérer si on veut espérer une solution, ne plus tout transformer en problème.<br>Parce-qu’il faut imaginer que ce qui se dit dans cette vidéo est peut-être bien arrivé à quelqu’un, oui, qui s’est vu, dansune dépression.</p>
+<blockquote>
+<ul>
+<li>bref. 80 - Bref. J’ai fait une dépression.</li>
+<li>13 oct. 2017</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/DwfwmxOF_3E" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<details>
+  <summary>[BONUS] 80. Bref. J'ai fait une dépression… (Développer pour le BONUS !)</summary>
+Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
+14 oct. 2014
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/wdQWBWaymt0" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h2 id="La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker"><a href="#La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker" class="headerlink" title="La Campagne #EtToiCaVa (Fondation Pierre Deniker)"></a>La Campagne #EtToiCaVa (Fondation Pierre Deniker)</h2><p>Bien, nous avons souris, un peu, ou pas.<br>Nous nous sommes détendus, un peu, ou pas.<br>Mais celle là a pour objectif de relativiser, elle aussi, mais surtout, de se comprendre perdu.</p>
+<h3 id="La-Campagne-EtToiCaVa-Video"><a href="#La-Campagne-EtToiCaVa-Video" class="headerlink" title="La Campagne #EtToiCaVa (Vidéo)"></a>La Campagne #EtToiCaVa (Vidéo)</h3><p>Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)</p>
+<blockquote>
+<p>L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.<br>La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>#EtToiCaVa - Et toi ça va ? (Le court-métrage)</li>
+<li>Scénario : Astrid Chevance et Marie-Stéphane Cattaneo </li>
+<li>Réalisation : Marie-Stéphane Cattaneo</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/2YR8J1xqDNs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<details>
+  <summary>Cliquer pour approfondirsur cette campagne…</summary>
+### Campagne Dépression #EtToiCaVa (Site) ###
+
+<p><strong>#EtToiCaVa - Et toi ça va ?</strong><br><em><strong>Campagne Dépression 2019 de la Fondation Pierre Deniker</strong></em></p>
+<p><a href="https://fondationpierredeniker.org/sensibilisation/et-toi-ca-va/">Campagne Dépression de la Fondation Pierre Deniker “Ensemble, parlons de la dépression.”</a></p>
+<img src="/uploads/images/LaSecteAux1000Gourous/Screenshot%20-%20Sant%C3%A9%20mentale%20-%20Fondation%20Pierre%20Deniker%20(zoom).png" class="" width="628" height="458" title="Santé mentale - Fondation Pierre Deniker" alt="Santé mentale - Fondation Pierre Deniker (statistiques)">
+
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" data-height="550px"></div>
+</details>
+
+<h2 id="Imagerie-fonctionnelle-dans-la-depression-Image"><a href="#Imagerie-fonctionnelle-dans-la-depression-Image" class="headerlink" title="Imagerie fonctionnelle dans la dépression (Image)"></a>Imagerie fonctionnelle dans la dépression (Image)</h2><p>Enfin, juste pour comprendre l’adage qui dit qu’un croquis vaut mieux qu’un long discours, une dépression, c’est ça (à gauche).<br>On est peut-être pas vraiement mort mais le cerveau se trouve dans un état d’excitation électrique qui fait peur !<br>Alors, il faut se donner la force de revenir dans un état normal (à droite) et pour ça, on va chercher quelques pistes.</p>
+<p>En anglais: (A quick informative overview of the biology behind depression)</p>
+<img src="/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" class="" width="400" height="400" title="Imagerie fonctionnelle dans la dépression">
+
+<h1 id="S’en-sortir-Comprendre-amp-soigner-la-depression"><a href="#S’en-sortir-Comprendre-amp-soigner-la-depression" class="headerlink" title="S’en sortir ! - Comprendre &amp; soigner la dépression"></a>S’en sortir ! - Comprendre &amp; soigner la dépression</h1><p>Allez, c’est possible, d’autres que vous le ferons.<br>Et puis si ça ne l’est pas, c’est peut-être que cela ne l’est pas encore !<br>Pourquoi pas ne pas tenter de le démontrer.<br>D’essayer prouver qu’on peut s’en sortir !<br>Donner l’exemple plutôt que de crier à l’aide et de la refuser.<br>Et puis si ça ne marche pas on renégociera, on avisera, mais au moins on aura <strong>vraiment</strong> essayer.<br>Au pire cela nous aura occupé.<br>Au mieux, mince, imaginons, que ça marche, être bien, puis mieux, puis heureux, à nouveau, ou pour la première fois, peu importe, penser, mais avec allégresse.</p>
+<h2 id="Christophe-Andre-3-conseils-pour-traverser-une-depression-Video"><a href="#Christophe-Andre-3-conseils-pour-traverser-une-depression-Video" class="headerlink" title="Christophe André - 3 conseils pour traverser une dépression (Vidéo)"></a>Christophe André - 3 conseils pour traverser une dépression (Vidéo)</h2><p><strong>Les Conseils du Psy :</strong> <em><strong>le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.</strong></em></p>
+<blockquote>
+<p>“Le premier point à rappeler par rapport à la dépression, c’est que c’est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments.”</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher les conseils & la Vidéo…</summary>
+
+<p>3 conseils pour traverser une dépression:</p>
+<ul>
+<li>Conseil 1 : Ne pas rester inactif face à la dépression.</li>
+<li>Conseil 2 : Bien choisir son entourage.</li>
+<li>Conseil 3 : Maîtriser ses ruminations.</li>
+</ul>
+<blockquote>
+<ul>
+<li>#Dépression #Santé #LesConseilsduPsy</li>
+<li>3 conseils pour traverser une dépression</li>
+<li>5 mars 2020</li>
+<li>Mon Sherpa</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/R6wjZpZkNPQ" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h2 id="Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante"><a href="#Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante" class="headerlink" title="Comment faire face à la dépression (Article Que Choisir Santé)"></a>Comment faire face à la dépression (Article Que Choisir Santé)</h2><p>Il parrait en psycho qu’il faut investir (comprendre des € ou des $) pour qu’on s’investisse !?<br>Mouep, encore un truc de Freud ça non (attention tu dévis, garde ce sujet aussi pour un autre billet !).</p>
+<p><a href="https://kiosque.quechoisir.org/magazine-sante-quechoisir-163-septembre-2021/">Que Choisir Santé N° 163 - septembre 2021</a></p>
+<img src="/uploads/images/LaSecteAux1000Gourous/QCSant%C3%A9-163-202109.png" class="" width="266" height="363">
+
+<p>Par contre oui, nombreuses sont les erreurs de jugement.<br>Qu’on soit pris dedans ou contemplatif eberlué devant une personne en crise.<br>Aucune positions n’est bonnes et aucunes possiblité</p>
+<details>
+  <summary>Cliquer pour approfondir et comprendre les idées reçues et autres biais</summary>
+
+<h2 id="6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais"><a href="#6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais" class="headerlink" title="6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)"></a>6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)</h2><p>s n’est parfaite.</p>
+<p>6 BULLSHITS sur la DÉPRESSION - PSYCHOPTIK #5</p>
+<blockquote>
+<ul>
+<li>Le PsyLab</li>
+<li>24 févr. 2017</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/KMNXqj3QmxU" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<details>
+  <summary>Cliquer pour afficher la vidéo sur les biais de confirmation de la Tronche en Biais…</summary>
+**Comprendre les biais de confirmation**
+
+<p>La vidéo de la Tronche en Biais sur les biais de confirmation:</p>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/6cxEu-OP5mM" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+</details>
+
+<p>Accompagner quelqu’un en souffrance est toujours compliqué, difficile et parfois impossible car dangereux.<br>je ne détails pas, je vous laisse vous faire votre avis.</p>
+<details>
+  <summary>Cliquer pour afficher les perspectives sur ces problèmes dans le monde</summary>
+## La dépression (Vidéo ARTE Alternatives) ##
+
+<p>Et si on changeait de perspective pour parler des problèmes du monde ? Sans tomber dans l’optimisme forcené, on vous fait rencontrer ici des citoyens qui se battent à leur échelle pour un monde plus sain. On vous trouve des solutions, des alternatives, sur tous les sujets. </p>
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
+
+<p>Pour ce second numéro, on a choisi un thème peu positif a priori : la dépression.</p>
+<blockquote>
+<ul>
+<li>ARTE Alternatives - Web-magazine de solutions</li>
+<li>No.2 : la dépression</li>
+</ul>
+</blockquote>
+<p><a href="https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/">Web-magazine de solutions : No.2 : la dépression (Arte)</a></p>
+</details>
+
+<p>Comment soutenir un ami, un compagnon ou un frère dépressif ?<br>Pudiques, des “aidants”, comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.</p>
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
+
+<p>Les aidants : soutenir, tenir et guérir<br><a href="https://www.arte.tv/fr/videos/081327-081-A/les-aidants-soutenir-tenir-et-guerir/">Les aidants : soutenir, tenir et guérir (Arte)</a></p>
+</details>
+
+
+<h1 id="Briser-les-tabous-Comprendre-la-depresion"><a href="#Briser-les-tabous-Comprendre-la-depresion" class="headerlink" title="Briser les tabous - Comprendre la dépresion"></a>Briser les tabous - Comprendre la dépresion</h1><h2 id="Vivre-avec-un-chien-noir-Video-OMS"><a href="#Vivre-avec-un-chien-noir-Video-OMS" class="headerlink" title="Vivre avec un chien noir (Vidéo OMS)"></a>Vivre avec un chien noir (Vidéo OMS)</h2><p><strong>World Health Organization (WHO)</strong></p>
+<blockquote>
+<p>“La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité”<br>Constitution de l’Organisation mondiale de la santé (OMS)</p>
+</blockquote>
+<blockquote>
+<p>Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu’il faut faire, ce qu’il ne faut pas faire et où aller pour obtenir de l’aide.</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher les vidéos…</summary>
+>
+>« Vivre avec un chien noir » fait suite à « J'ai eu un chien noir, il s'appelait dépression », qui offre des conseils pratiques pour accepter et surmonter la dépression.
+>
+>Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
+
+<h3 id="“Vivre-avec-un-chien-noir”"><a href="#“Vivre-avec-un-chien-noir”" class="headerlink" title="“Vivre avec un chien noir”"></a><strong>“Vivre avec un chien noir”</strong></h3><details>
+  <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
+>* 4 sept. 2014
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/2VRRx7Mtep8" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<details>
+  <summary>Cliquer pour afficher la vidéo "J'avais un chien noir, son nom était dépression"…</summary>
+>« J'avais un chien noir, son nom était dépression »
+>At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
+>
+>In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
+
+<h3 id="“J’avais-un-chien-noir-son-nom-etait-depression”"><a href="#“J’avais-un-chien-noir-son-nom-etait-depression”" class="headerlink" title="“J’avais un chien noir, son nom était dépression”"></a><strong>“J’avais un chien noir, son nom était dépression”</strong></h3><style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/XiCrniLQGYc" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<img src="/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" class="" width="283" height="52">
+<p>Visister le site de <a href="http://matthewjohnstone.com.au/" title="Matthew Jon Stone - Click to Visit!">Matthew Jon Stone - WebSite</a></p>
+</details>
+
+<p>Pour plus d’informations sur la santé mentale, veuillez visiter :<br><a href="https://www.who.int/fr/health-topics/depression">Une base d’informations accessibles au grand public de l’OMS sur la dépression</a></p>
+</details>
+
+<p>De nombreuses associations d’aides existent, certaines proposent des formations d’autres offres une écoute.<br>Souvenons-nous avec humour du Père Noël était une ordure, c’est déjà le sujet de cette comédie burlesque.<br>Non pas rendre le sujet dérisoire, mais un moyen d’en parler d’échanger.<br>Les maux les plus difficiles sont invisibles.</p>
+<p>Le gouvernement agis, le confinenement n’a pas aidé à réduire les cas, mais par contre, les ayant rendus plus nombreux et visibles, des nouveaux moyens sont proposés et déjà disponibles.<br>Le parcours est toujours laborieux et il est facile d’abandonner, de reculer à nouveau de reprendre les mauvais shéma.<br>C’est ainsi, mais tenter, essayer, c’est aller jusqu’au <strong>bout</strong> le bon celui vers l’horizon, ou au moins essayer le plus longtemps possible, encore et encore.</p>
+<h2 id="Decouvrir-MonPsy-Site-gouv-fr"><a href="#Decouvrir-MonPsy-Site-gouv-fr" class="headerlink" title="Découvrir MonPsy (Site gouv.fr)"></a>Découvrir MonPsy (Site gouv.fr)</h2><p><strong>Depuis le 5 avril 2022</strong><br><em><strong>Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.</strong></em></p>
+<p><a href="https://monpsy.sante.gouv.fr/patients" title="MonPsy.sante.gouv.fr - Visiter !"><img src="/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" class="" width="270" height="270"></a></p>
+<details>
+  <summary>Cliquer pour afficher la vidéo de présenation…</summary>
+Découvrir MonPsy en vidéo (Durée 2 minutes)
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<p>Visiter le site <a href="https://monpsy.sante.gouv.fr/faq?tab=patient">MonPsy.sante.gouv.fr - FAQ</a></p>
+</details>
+
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p><strong>Enfin la liberté ?</strong></p>
+<details>
+  <summary>Cliquer pour afficher le contenu…</summary>
+
+<h1 id="Perseverer-Apres-Les-doutes-amp-la-solitude"><a href="#Perseverer-Apres-Les-doutes-amp-la-solitude" class="headerlink" title="Persévérer - Après - Les doutes &amp; la solitude"></a>Persévérer - Après - Les doutes &amp; la solitude</h1><h3 id="RAISON-versus-EMOTION-Video-La-Tronche-en-Biais"><a href="#RAISON-versus-EMOTION-Video-La-Tronche-en-Biais" class="headerlink" title="RAISON versus EMOTION (Vidéo La Tronche en Biais)"></a>RAISON versus EMOTION (Vidéo La Tronche en Biais)</h3><blockquote>
+<p>Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c’est occulter une partie du réel qui nous manquerait cruellement s’il était en notre pouvoir de l’amputer (ce qui n’est pas le cas).</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher le Vidép…</summary>
+
+<blockquote>
+<ul>
+<li>La Tronche en Biais</li>
+<li>TenL#107</li>
+<li>Diffusée en direct le 20 déc. 2021</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/I7I8Tec1G4U" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h1 id="Perseverer-Encore-La-reconstrucion-amp-la-liberte"><a href="#Perseverer-Encore-La-reconstrucion-amp-la-liberte" class="headerlink" title="Persévérer - Encore - La reconstrucion &amp; la liberté"></a>Persévérer - Encore - La reconstrucion &amp; la liberté</h1><h2 id="Pour-approfondir-ici-amp-ailleurs"><a href="#Pour-approfondir-ici-amp-ailleurs" class="headerlink" title="Pour approfondir ici &amp; ailleurs !"></a>Pour approfondir ici &amp; ailleurs !</h2><ul>
+<li><a href="https://3114.fr/je-suis-en-souffrance/">Je suis en souffrance</a><blockquote>
+<p>Si vous êtes en souffrance ou avez des idées suicidaires, arrêtez-vous quelques minutes pour lire ce qui suit.</p>
+<blockquote>
+<p>Tout en respectant la réalité de ce que vous pensez et ressentez, nous souhaitons vous accompagner durant cette période. Le fait que la majorité des personnes ayant eu des idées suicidaires mentionne avoir retrouvé le désir de vivre nous y encourage.</p>
+</blockquote>
+</blockquote>
+</li>
+<li>…</li>
+</ul>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’esprit ses jeux et ses enjeu (<a href="https://cybermind.fr/categories/MIND/">le “Mind” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥</a></li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+</details>
+
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
+]]></content>
+      <categories>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>LSA1KG</tag>
+        <tag>The Conjurers</tag>
+        <tag>Santé mentale</tag>
+        <tag>Santé</tag>
+        <tag>Dépression</tag>
+        <tag>LesConseilsduPsy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dérives - La secte aux 1000 gourous</title>
     <url>/fr/Mind/Derives-La-secte-aux-1000-gourous/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>#LaSecteAux1000Gourous (#LSA1KG)</strong></p>
@@ -1820,12 +2198,12 @@ Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ress
 <p>Deux ans après le début de la crise sanitaire, une enquête officielle alerte sur un risque aggravé par cette période éprouvante. Le risque de croire les promesses – parfois dangereuses – des soins dits “non conventionnels”. Comme le recours aux flux d’énergie ou l’hydrothérapie du colon par exemple. Décryptage avec Géraldine Zamansky, journaliste au Magazine de la Santé sur France 5.</p>
 </blockquote>
 
-        <div id="aplayer-mZqqcAOn" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-YikHeMvS" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-mZqqcAOn"),
+            element: document.getElementById("aplayer-YikHeMvS"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1955,7 +2333,7 @@ Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ress
 <details>
   <summary>Cliquer pour afficher la vidéo de présenation…</summary>
 Découvrir MonPsy en vidéo (Durée 2 minutes)
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <p>Visiter le site <a href="https://monpsy.sante.gouv.fr/faq?tab=patient">MonPsy.sante.gouv.fr - FAQ</a></p>
 </details>
@@ -2299,15 +2677,15 @@ Par ordre chronologique de réception. Mise à jour à mesure des réponses reç
         <tag>Santé mentale</tag>
         <tag>Gourou</tag>
         <tag>Spiritualité</tag>
+        <tag>Santé</tag>
+        <tag>Dépression</tag>
+        <tag>LesConseilsduPsy</tag>
         <tag>Dérives sectaires</tag>
         <tag>Médecines alternatives</tag>
         <tag>Esprit Critique</tag>
-        <tag>Santé</tag>
-        <tag>Dépression</tag>
         <tag>Secte</tag>
         <tag>Sceptique</tag>
         <tag>Enfantcristal</tag>
-        <tag>LesConseilsduPsy</tag>
       </tags>
   </entry>
   <entry>
@@ -2325,6 +2703,335 @@ Par ordre chronologique de réception. Mise à jour à mesure des réponses reç
       </categories>
       <tags>
         <tag>GK2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>L’esprit critique - Bande Dessinée aux Éditions Delcourt</title>
+    <url>/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Introduction-Pourquoi-LSA1KG"><a href="#Introduction-Pourquoi-LSA1KG" class="headerlink" title="Introduction - Pourquoi LSA1KG ?"></a>Introduction - Pourquoi LSA1KG ?</h1><p>Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c’est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.<br>Elle débute par la rencontre et la confrontation entre deux mondes opposés, entre leur défenseurs maladroit, une pseudo-chamane celte et un pseudo-sceptique rationaliste.<br>C’est justement ce genre d’idée, rassembler deux mondes opposés, qui m’avait motivé personnellement, ou m’avait excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.<br>J’ai presque failli oublier que la Magie est personnelle, qu’elle doit rester intime.<br>Enfin, ce n’est qu’une opinion personnelle qui n’engage que moi et qui, surtout, ne veut s’imposer à personne.</p>
+<h1 id="Vulgarisation-Zetetique"><a href="#Vulgarisation-Zetetique" class="headerlink" title="Vulgarisation Zététique"></a>Vulgarisation Zététique</h1><p>Merci à l’<a href="https://www.afis.org/">Afis Science - Association française pour l’information scientifique</a> et à <a href="https://www.afis.org/Kevin-Moris">Kévin Moris</a> grace à qui j’ai pu découvrir une formidable bande dessinée <a href="https://www.afis.org/L-esprit-critique-5140">L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)</a></p>
+<blockquote>
+<ul>
+<li><em>L’esprit critique</em></li>
+<li><em>Publié en ligne le 3 avril 2022</em></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée<br>La lecture est très utile pour une initiation à l’esprit critique dès le lycée. Et on pourra se référer à d’autres livres ou sites Internet qui sont proposés en fin d’ouvrage.</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Une-bande-dessinnee-de-7-a-77-ans"><a href="#Une-bande-dessinnee-de-7-a-77-ans" class="headerlink" title="Une bande dessinnée de 7 à 77 ans"></a>Une bande dessinnée de 7 à 77 ans</h2><p><a href="https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique/album-l-esprit-critique"><strong>L’esprit critique</strong></a></p>
+<blockquote>
+<ul>
+<li><em>Isabelle Bauthian (scénario), Gally (dessin)</em></li>
+<li><em>Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €</em></li>
+</ul>
+</blockquote>
+<p>Je vous conseil vraiment la lecture de cette ouvrage qui n’a rien à envier aux longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.<br>Le propos ici est serein et amusant.<br>Il cherche à concilier les mondes spirituels et rationnels dans leurs théories mutuelles pour devenir raisonnables.<br>C’est le seul moyen pour entamer et comprendre l’esprit critique.<br>Pour tester les croyances des zététiciens et percer l’intérêt de leurs pratiques.<br>C’est aussi, peut-être, une belle solution pour accueillir à nouveau, quelques âmes perdues le long des chemins de traverses.<br>Car plutôt que de chercher pourquoi se confondre dans les directions, les volontés, les émotions, les pensées.<br>Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.</p>
+<p><img src="/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg" alt="L’esprit critique"></p>
+<h2 id="Merci-amp-plus-encore-toujours"><a href="#Merci-amp-plus-encore-toujours" class="headerlink" title="Merci &amp; plus encore, toujours"></a>Merci &amp; plus encore, toujours</h2><blockquote>
+<p>Merci à l’AFIS.<br>Merci à Kévin Moris.<br>Merci aux Éditions Delcourt.<br>Merci à Isabelle Bauthian.<br>Merci à Gally.<br>Merci à Paul.<br>Merci à L’ESPRIT CRITIQUE.</p>
+</blockquote>
+<p><a href="https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique">Peut-être une série à venir ?</a></p>
+<details>
+  <summary>Cliquer pour afficher un extrait PDF…</summary>
+En attendant, voici déjà l'extrait:
+
+<div class="pdf-container" data-target="/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" data-height="550px"></div>
+</details>
+
+<h2 id="Une-claque-oui-mais-une-qui-reveil-de-l’eveil"><a href="#Une-claque-oui-mais-une-qui-reveil-de-l’eveil" class="headerlink" title="Une claque, oui, mais une qui réveil de l’éveil"></a>Une claque, oui, mais une qui réveil de l’éveil</h2><p>et n’oubliez pas qu’<strong>“UNE CORRÉLATION N’EST PAS UNE RELATION DE CAUSE À EFFET !”</strong></p>
+<h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais terminer la lecture, avant !</p>
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
+]]></content>
+      <categories>
+        <category>Mind</category>
+        <category>Livres</category>
+      </categories>
+      <tags>
+        <tag>zététique</tag>
+        <tag>sceptique</tag>
+        <tag>LSA1KG</tag>
+        <tag>The Conjurers</tag>
+        <tag>Esprit critique</tag>
+        <tag>arnaque</tag>
+        <tag>énergies</tag>
+        <tag>invisible</tag>
+        <tag>croyance</tag>
+        <tag>guérisseurs</tag>
+        <tag>miracle</tag>
+        <tag>afis</tag>
+        <tag>Bande Dessinée</tag>
+        <tag>pseudoscience</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lazarus-Mirages - L&#39;Art du Doute</title>
+    <url>/fr/Mind/Films/Lazarus-Mirages-L-Art-du-Doute/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Lazarus-Mirage"><a href="#Lazarus-Mirage" class="headerlink" title="Lazarus Mirage"></a>Lazarus Mirage</h1><p>Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !</p>
+<h2 id="Lazarus-Mirage-Introduction"><a href="#Lazarus-Mirage-Introduction" class="headerlink" title="Lazarus Mirage - Introduction"></a>Lazarus Mirage - Introduction</h2><p><a href="https://www.lazarus-mirages.fr/"><img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px"></a></p>
+<blockquote>
+<p>L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l’auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s’éteindre en 2020…</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>Mais grâce au superbe travail de deux chevaliers Jedi - Brendan BOBIS et Nicolas ZAGULAJEW - le site renaît aujourd’hui totalement de ses cendres et en version optimisée.</p>
+<p>Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement “complotiste” ayant effrayé plus d’un internaute… et y entrer sans aucune crainte !</p>
+</blockquote>
+<h2 id="Lazarus-Mirage-Le-site-2022"><a href="#Lazarus-Mirage-Le-site-2022" class="headerlink" title="Lazarus Mirage - Le site (2022)"></a>Lazarus Mirage - Le site (2022)</h2><ul>
+<li><a href="https://www.lazarus-mirages.fr/">Le nouveau Site Lazarus-Mirages (2022)</a></li>
+</ul>
+<h1 id="Quelques-complements"><a href="#Quelques-complements" class="headerlink" title="Quelques compléments"></a>Quelques compléments</h1><ul>
+<li>Pour le Dossier de presse d’origine du lancement de l’expérience, vous pouvez le télécharger <a href="https://www.lazarus-mirages.com/assets/pdf/dossier-presse-lazarus.pdf">ici</a>.</li>
+<li>Et pour quelques détails sur les péripéties, rendez-vous <a href="http://sites.unice.fr/site/broch/Lazarus-Mirages/Lazarus.html">ici</a>.</li>
+</ul>
+<h2 id="Quelques-“amis”-de-Lazarus"><a href="#Quelques-“amis”-de-Lazarus" class="headerlink" title="Quelques “amis” de Lazarus"></a>Quelques “amis” de Lazarus</h2><ul>
+<li><a href="http://www.unice.fr/zetetique">Laboratoire de Zététique  &amp;  Centre d’Analyse Zététique</a></li>
+<li><a href="https://cortecs.org/">CORTEX: Esprit critique &amp; sciences</a></li>
+<li><a href="http://www.bxllaique.be/">Bruxelles Laïque</a></li>
+<li><a href="http://zetetique.fr/">L’Observatoire Zététique</a></li>
+<li><a href="http://culturevisuelle.org/">Culture Visuelle</a></li>
+<li><a href="https://www.dailymotion.com/lazarusmirages">DailyMotion - Les amis de Lazarus</a></li>
+<li><a href="https://centerforinquiry.org/">Center For Inquiry</a></li>
+<li><a href="https://web.randi.org/">James Randi Foundation</a></li>
+<li><a href="https://www.pseudo-sciences.org/">Science &amp; Pseudo-Sciences</a></li>
+<li><a href="https://www.laquadrature.net/">La Quadrature du Net</a></li>
+<li><a href="https://whyweprotest.net/">Anonymous</a></li>
+<li><a href="http://web.archive.org/web/20160303224838/http://telecomix.org/">TELECOMIX (archive 2016)</a></li>
+<li><a href="https://beniz.github.io/seeks">SEEKS Project</a></li>
+<li><a href="https://globalfree.wordpress.com/">Global Freedom Movement</a></li>
+</ul>
+<h2 id="Quelques-liens"><a href="#Quelques-liens" class="headerlink" title="Quelques liens"></a>Quelques liens</h2><ul>
+<li><a href="https://twitter.com/Lazarus_mirages">Twitter Lazarus-Mirages</a></li>
+<li><a href="https://web.archive.org/web/20140406222321/http://lazarus.blogs.liberation.fr/">Blog Libération Lazarus (archive 2014)</a></li>
+<li><a href="https://web.archive.org/web/20130911204840/http://lazarus.owni.fr/">Blog OWNI Lazarus (archive 2013)</a></li>
+</ul>
+<p>…Plus à venir…</p>
+<h1 id="Experience-transmedia-Patric-Jean"><a href="#Experience-transmedia-Patric-Jean" class="headerlink" title="Expérience transmédia - Patric Jean"></a>Expérience transmédia - Patric Jean</h1><p>Patric Jean Le 22&#x2F;12&#x2F;2021 -&gt; <a href="https://patricjean.com/2021/12/22/lazarus-mirage/">Lazarus Mirages (transmedia expérience) - Patric Jean</a></p>
+<details>
+  <summary>Cliquer pour afficher les détails…</summary>
+
+<blockquote>
+<p>Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.</p>
+<p><strong>Phénomènes paranormaux, miracles, superstitions, pseudosciences, manipulations médiatiques, politiques et commerciales pullulent.</strong></p>
+<p><strong>Nous avons tous notre part d’irrationnel. Et nous sommes tous victimes de nos croyances.</strong></p>
+<p>Lazarus-Mirages était un site web mais aussi deux films documentaires de 52 minutes diffusés en télévision, une dizaine d’applications interactives, le pilote d’une émission hebdomadaire, un jeu en ligne, des entretiens avec des scientifiques, des incursions dans le monde réel, un blog, des débats sur les réseaux sociaux et une série de vidéos.</p>
+<p>Un ensemble de vecteurs au service d’un projet : le scepticisme.</p>
+<p>Lazarus, mystérieux personnage masqué et anonyme entraine le public à voir au-delà des croyances, des stéréotypes, des discours religieux, politiques ou économiques consensuels. La zététique…</p>
+</blockquote>
+<p><a href="https://patricjean.com/2021/12/22/lazarus-mirage/">Lire la suite sur le site de Patric Jean (et accéder aux contenu)…</a></p>
+</details>
+]]></content>
+      <categories>
+        <category>Mind</category>
+        <category>Films</category>
+      </categories>
+      <tags>
+        <tag>zététique</tag>
+        <tag>sceptique</tag>
+        <tag>arnaque</tag>
+        <tag>croyance</tag>
+        <tag>guérisseurs</tag>
+        <tag>miracle</tag>
+        <tag>pseudoscience</tag>
+        <tag>anarchie</tag>
+        <tag>astrologie</tag>
+        <tag>cerveau féminin</tag>
+        <tag>démocratie</tag>
+        <tag>debunker</tag>
+        <tag>discours politique</tag>
+        <tag>effet puits</tag>
+        <tag>hasard</tag>
+        <tag>henri broch</tag>
+        <tag>homéopathie</tag>
+        <tag>jean-léon beauvois</tag>
+        <tag>lourdeslune</tag>
+        <tag>momie</tag>
+        <tag>nicolas d&#39;alessandro</tag>
+        <tag>normand baillargeon</tag>
+        <tag>paranormal</tag>
+        <tag>patric jean</tag>
+        <tag>pouvoir</tag>
+        <tag>richard monvoisin</tag>
+        <tag>télépathie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rencontrez Gérald, nouvel ambassadeur CrowdSec</title>
+    <url>/fr/Cyber/Meet-Gerald-new-CrowdSec-ambassador/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">
+
+<h2 id="Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec"><a href="#Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec" class="headerlink" title="Rencontrez Gérald, nouvel ambassadeur CrowdSec."></a>Rencontrez Gérald, nouvel ambassadeur CrowdSec.</h2><p>Nous sommes ravis d’accueillir Gérald Kerma en tant que nouvel ambassadeur CrowdSec !<br>Gérald est basé en France et a plus de 25 années d’expérience dans la cybersécurité. Il est également contributeur au projet OpenWrt. Gérald a créé un portage OpenWrt pour CrowdSec.</p>
+<p>Voici une petite interview de Gérald pour mieux le connaître.</p>
+<span id="more"></span>
+<h2 id="Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute"><a href="#Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute" class="headerlink" title="Salut Gérald, peux-tu parler de toi à notre communauté ?"></a>Salut Gérald, peux-tu parler de toi à notre communauté ?</h2><p>Vous pouvez aussi m’appeler Gandalf, Erdoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.</p>
+<p>Durant mes premières années, j’ai appris l’informatique en autodidacte à Paris sur les ordinateurs en libre accès du Palais de la découverte. Je me suis mis à l’informatique avec un Commodore 64, puis j’ai appris en autodidacte, le language Pascal, avec les algorithmes de transformations ZIP et FFT. Plus tard, j’ai écrit mes premiers jeux sur les Labyrinthes. Rapidement, j’ai ensuite écrit des outils de développement sur le premier ordinateur IBM&#x2F;PC. J’avais un XT très moderne, avec un « énorme » disque dur de 40 Mo. J’ai fait mes premiers dollars avec des sharewares, sur Apple&#x2F;MacIntosh, sur des outils innovants dans le monde des logiciels d’interface utilisateur. Ils ont été distribués dans les magazines français et les BSS du monde entier.</p>
+<p>Tout cela était bien avant les années Internet; une connexion télécom coûtait plus de dollars en une heure qu’un salaire mensuel.</p>
+<p>Ensuite, ce fut mon premier emploi dans une société française de sécurité, un éditeur de logiciels à Paris, où nous avons écrit des outils de chiffrement de disque dur, des outils d’audit réseau et mes propres projets d’utilitaires d’interface d’accès rapide.</p>
+<p>A 20 ans, j’ai ouvert ma première entreprise, GK2, comme fournisseur d’accès Internet pour les petites entreprises, les artistes et les associations. Tout en continuant dans le développement de logiciels en freelance, j’ai hébergé des sites Web sur un Pentium Pro que j’ai acheté lors d’un voyage aux États-Unis et qui utilisait le système RedHat Linux. J’ai proposé quelques services à de grandes entreprises dont Thales, avec qui j’ai ensuite décroché un contrat d’infogérance informatique pour le CEA (Commissariat à l’Énergie Atomique et aux énergies alternatives), sur le site de Saclay.</p>
+<p>J’étais l’expert VIP et le spécialiste Apple&#x2F;Macintosh. Nous avons dû gérer, dès notre arrivée, la toute première attaque massive du virus Blasters. Nous avions besoin d’une solution logicielle système pour maîtriser rapidement les ordinateurs. J’ai ensuite écrit une solution entièrement personnalisée avec les outils GNU&#x2F;Linux pour Microsoft&#x2F;Windows XP. J’ai également mis à disposition la version alpha de Windows Update sur l’ensemble du réseau. Ce fut ma première étape dans la société Thales en cybersécurité où j’ai ensuite été engagé en tant qu’administrateur système, et, plus tard, en tant qu’architecte en sécurité.</p>
+<h2 id="Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur"><a href="#Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur" class="headerlink" title="Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?"></a>Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?</h2><p>De retour aux premiers besoins et l’esprit créatif, je quitte Paris pour la Savoie où j’effectue mes premiers développements de logiciels publics.<br>J’ai quitté Thales avec l’objectif d’une « Security Box » dont je rêvais et étudiais déjà depuis des années, sur mon temps libre, et basée sur des logiciels libres. Je voulais proposer des solutions simples, efficaces et innovantes. Avec la perspective « Free as in free beer » des logiciels ouverts et libres.</p>
+<p>J’ai découvert très tôt la solution CrowdSec Software et c’était un très bon composant candidat pour mon propre projet. J’ai envoyé un e-mail à l’équipe pour proposer mes propres services et mon expérience sur les systèmes embarqués comme OpenWrt et le conseil des développeurs ARM. Je leur ai donné des références pour certains articles écrits pour les revues des éditions Diamond. Ils ont rapidement répondu et nous nous sommes lancés dans des projets de collaboration mutuelle. J’ai choisi la solution en portant l’agent CrowdSec et le « Bouncer » de pare-feu CrowdSec sur le système OpenWrt.</p>
+<p>CrowdSec et OpenWrt étaient tous deux candidats pour mon propre projet « Security Box », et m’ont également donné l’opportunité de mieux comprendre et de tester la solution plus en profondeur.</p>
+<h2 id="Comment-voyez-vous-votre-mission-chez-CrowdSec"><a href="#Comment-voyez-vous-votre-mission-chez-CrowdSec" class="headerlink" title="Comment voyez-vous votre mission chez CrowdSec ?"></a>Comment voyez-vous votre mission chez CrowdSec ?</h2><p>Tout en proposant à l’équipe CrowdSec une évolution extérieure non prévue, j’ai voulu que mon propre concept de « Security Box » devienne une « Solution » du monde réel.</p>
+<p>CrowdSec est à la fois une solution en termes de modèle logiciel et également en termes d’exemple d’entreprise. J’aime la méthode et les règles, mais je préfère les résultats et les impacts. J’ai pris beaucoup de temps libre pour proposer OpenWrt mais CrowdSec m’offre  aussi beaucoup avec son projet. Maintenant, j’ai des perspectives que nous pouvons tous les deux offrir pour aider Internet à être plus sûr tout en restant éthique.</p>
+<p>J’ai déjà partagé quelques projets avec la communauté CrowdSec, et CrowdSec risque de nous réserver des surprises prochainement… Mais, c’est le début de nos chemins convergents et cette aventure n’en est qu’au début.</p>
+<h2 id="Un-fait-amusant-sur-vous-meme"><a href="#Un-fait-amusant-sur-vous-meme" class="headerlink" title="Un fait amusant sur vous-même ?"></a>Un fait amusant sur vous-même ?</h2><p>J’ai ma propre philosophie de vie et mes règles. Je peux être décrit comme un épicurien. J’écris de la poésie, je peints, je fais de la gravure laser sur du bois et sur des ardoises gravée à l’or.</p>
+<p>J’ai aussi mes propres règles techniques et méthodes qui sont très proches des Creative Mind Educative Concepts. Quand j’ai quitté les projets Thales, j’ai dit à mes ex-collègues que je partais étudier de vraies solutions à leur rapporter. J’ai ouvert une nouvelle entreprise, CyberMind, et j’ai commencé à porter une casquette blanche pour montrer de quel côté j’étais.</p>
+<p>Mon look est une démonstration du concept CyberSecurity que je souhaite partager et proposer autour de moi comme choix de solution. C’est ainsi pour la casquette blanche, le pseudo Gandalf. Mes propres méthodes font de moi un personnage qui n’est que MOI.</p>
+<h2 id="Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite"><a href="#Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite" class="headerlink" title="Quel est votre rêve pour l’avenir de la cybersécurité ?"></a>Quel est votre rêve pour l’avenir de la cybersécurité ?</h2><p>Dans un monde conceptuel et virtuel, les technologies numériques sont une aide pour arrêter la dépense de temps, d’argent, et pour les problèmes perpétuels et invisibles de CyberSecurity. Les méchants sont innovants et hors limites car l’informatique leur offre les outils pour le faire.</p>
+<p>Nous avons besoin de solutions pour rééquilibrer le bien et le mal car le « gris » ne sera jamais possible. Nous avons besoin de solutions complètes, ouvertes, respectueuses, stables, collaboratives et innovantes.<br>CrowdSec nous donne une étape vers ce long chemin et j’aiderai le projet autant que possible.</p>
+<p>…Restez à l’écoute…</p>
+<p>:-]</p>
+<p>Traduction par G.KERMA, article original : <a href="https://crowdsec.net/blog/meet-gerald-new-crowdsec-ambassador/">Daria Charyeva @ CrowdSec&#x2F;blog</a></p>
+]]></content>
+      <categories>
+        <category>Cyber</category>
+      </categories>
+      <tags>
+        <tag>news</tag>
+        <tag>CrowdSecurity</tag>
+        <tag>CrowdSec</tag>
+        <tag>SECUBOX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</title>
+    <url>/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LaSecteAux1000Gourous"><a href="#LaSecteAux1000Gourous" class="headerlink" title="LaSecteAux1000Gourous"></a>LaSecteAux1000Gourous</h1><h2 id="“Une-claque-dans-la-gueule-”"><a href="#“Une-claque-dans-la-gueule-”" class="headerlink" title="“Une claque dans la gueule !?”"></a>“Une claque dans la gueule !?”</h2><p><strong>Une de celles qui font tant de bien.</strong></p>
+<ul>
+<li>mieux que <a href="https://fr.wikipedia.org/wiki/Mission_interminist%C3%A9rielle_de_vigilance_et_de_lutte_contre_les_d%C3%A9rives_sectaires">Miviludes</a> et son insatiable silence…</li>
+<li>mieux que l’<a href="https://fr.wikipedia.org/wiki/Agence_France-Presse">AFP</a> et ses BUZZ généralisés…</li>
+</ul>
+<p>Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” (™ &amp; © <a href="mailto:gandalf@gk2.net">ME</a>)</p>
+<span id="more"></span>
+
+<p>C’est quoi la <a href="https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique">zététique</a>, “la critique”, les concepts “new age”, la spiritualité, les croyances, la vérité, la science…</p>
+<p>Tant d’autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast <a href="https://metadechoc.fr/">MétaDeChoc.fr</a> d’Élisabeth Feytit !</p>
+<img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
+
+<h2 id="Mon-florilege-MetaDeChoc"><a href="#Mon-florilege-MetaDeChoc" class="headerlink" title="Mon florilège @MetaDeChoc"></a>Mon florilège @MetaDeChoc</h2><ul>
+<li><a href="https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/">SHOCKING #11 - L’astrologie, ça marche !… Trop. (<strong>Avec Serge Bret-Morel,</strong> spécialiste de la critique de l’astrologie)</a></li>
+<li><a href="https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence">SHOCKING #16 - Contes et légendes de l’intelligence (<strong>Avec Stéphanie Aubertin,</strong> psychologue)</a><ul>
+<li><a href="https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence/#comment-1081">17 mars 2022 à 11 h 58 min</a></li>
+</ul>
+</li>
+<li><a href="https://metadechoc.fr/podcast/une-vie-en-anthroposophie">SHOCKING #5 - Une vie en anthroposophie (<strong>Avec Grégoire Perra,</strong> professeur de philosophie)</a><ul>
+<li><a href="https://metadechoc.fr/podcast/une-vie-en-anthroposophie/#comment-1096">25 mars 2022 à 11 h 38 min</a></li>
+</ul>
+</li>
+<li><a href="https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/">SHOCKING #1 - La zététique rend-elle insensible ? (<strong>Avec Samuel Buisseret, alias Mr.Sam,</strong> vidéaste vulgarisateur scientifique)</a></li>
+<li><a href="https://metadechoc.fr/podcast/coaching-eldorado-de-la-manipulation-mentale/">SHOCKING #21 - Coaching : l’eldorado de la manipulation mentale (<strong>Avec Rémi Rivas</strong>, consultant en design, marketing et innovation)</a></li>
+<li><a href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">STREAM #1 - Une vie en anthroposophie – Live (<strong>Avec Grégoire Perra, Élisabeth Feytit et Richard Monvoisin</strong>)</a></li>
+<li><a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/">SHOCKING #6 - Confidences d’une ex-gourou (<strong>Avec Jessica Schab</strong>)</a><ul>
+<li><a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/#comment-1166">19 avril 2022 à 21 h 07 min</a></li>
+</ul>
+</li>
+<li><a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/">SCOOP ! #6 - L’Univers a parlé (<strong>Par Élisabeth Feytit</strong>)</a><ul>
+<li><a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/#comment-1165">19 avril 2022 à 21 h 01 min</a></li>
+</ul>
+</li>
+<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/">SHOCKING #23 - Yoga, super-pouvoirs et secte sexuelle (<strong>Avec Geoffrey L’anonyme</strong>)</a><ul>
+<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1067">8 mars 2022 à 8 h 20 min</a></li>
+<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1160">19 avril 2022 à 1 h 27 min</a></li>
+</ul>
+</li>
+<li><a href="https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/">SHOCKING #20 - Sexualité : un monde de croyances (<strong>Avec Marianne Niosi,</strong> directrice de la confédération du Planning familial)</a></li>
+<li><a href="https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/">STREAM #6 - La métacognition sauvera-t-elle le monde ? (<strong>Avec Emmanuel Sander et Élisabeth Feytit</strong>)</a><ul>
+<li><a href="https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170">23 avril 2022 à 15 h 52 min</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="A-suivre-sur-CyberMindFR"><a href="#A-suivre-sur-CyberMindFR" class="headerlink" title="À suivre sur @CyberMindFR"></a>À suivre sur @CyberMindFR</h1><ul>
+<li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
+<li><a href="https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/">Préface - Une vie en anthroposophie (<strong>Richard Monvoisin</strong>)</a></li>
+<li><a href="https://cybermind.fr/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/">L’esprit critique - Bande Dessinée aux Éditions Delcourt</a></li>
+<li><a href="https://cybermind.fr/fr/Mind/Derives-La-secte-aux-1000-gourous/">Dérives - La secte aux 1000 gourous</a></li>
+<li><a href="https://cybermind.fr/tags/LSA1KG/">L’étude, (en cours) sur “La Secte Aux 1.000 Gourous” (#LSA1KG) 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</a></li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
+]]></content>
+      <categories>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>podcast</tag>
+        <tag>zététique</tag>
+        <tag>sceptique</tag>
+        <tag>LSA1KG</tag>
+        <tag>The Conjurers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Préface - Une vie en anthroposophie</title>
+    <url>/fr/Mind/Preface-Une-vie-en-anthroposophie/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Livre-Une-vie-en-anthroposophie"><a href="#Livre-Une-vie-en-anthroposophie" class="headerlink" title="Livre : Une vie en anthroposophie"></a>Livre : Une vie en anthroposophie</h1><h2 id="La-face-cachee-des-ecoles-Steiner-Waldorf"><a href="#La-face-cachee-des-ecoles-Steiner-Waldorf" class="headerlink" title="La face cachée des écoles Steiner-Waldorf"></a>La face cachée des écoles Steiner-Waldorf</h2><p>de <a href="https://www.laroutedelasoie-editions.com/nos-auteurs/gr%C3%A9goire-perra/">Grégoire Perra</a> &amp; <a href="https://www.laroutedelasoie-editions.com/nos-auteurs/elisabeth-feytit/">Élisabeth Feytit</a>  </p>
+<p>Merci aux <a href="https://www.laroutedelasoie-editions.com/">éditions La Route de la soie</a>…</p>
+<img src="/uploads/images/visuels/METADECHOC-BOOKS.jpg" width="600px" heigth="450px">
+
+<p>Merci également à <a href="https://fr.wikipedia.org/wiki/Richard_Monvoisin">Richard Monvoisin</a> pour sa préface qu’il m’a <a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/#comment-484">autorisé à reproduire</a> ici…</p>
+<p>Préface de  Richard Monvoisin, didacticien des sciences<br>spécialiste des théories étranges, il enseigne la pensée critique à l’Université Grenoble-Alpes </p>
+<p>Le livre paru le 25 novembre 2020 aux <a href="https://www.laroutedelasoie-editions.com/notre-catalogue/m%C3%A9ta-de-choc/une-vie-en-anthroposophie/">éditions La Route de la soie</a> est une retranscription agrémentée de l’entretien entre Élisabeth Feytit, du <a href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">podcast Méta de choc</a>, et <a href="https://fr.wikipedia.org/wiki/Gr%C3%A9goire_Perra">Grégoire Perra</a>, ancien enseignant d’école Steiner-Waldorf, désormais transfuge du mouvement anthroposophique. Richard Monvoisin en a fait la préface, que je vous relais ici.</p>
+<span id="more"></span>
+<h1 id="Preface-Une-vie-en-anthroposophie"><a href="#Preface-Une-vie-en-anthroposophie" class="headerlink" title="Préface : Une vie en anthroposophie"></a><a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/">Préface : Une vie en anthroposophie</a></h1><p>Je me pose souvent la question de savoir s’il est moral, dans l’absolu, de faire un enfant. Se demander si l’espérance de vie à la naissance qu’on lui donne est correcte ; s’interroger sur ses chances de survivre à la mort subite, aux maladies infantiles, aux coins de table et aux passages cloutés. On peut questionner la famille qu’on lui donne, avec parents violents ou non, présence de livres ou pas, catéchisme obligatoire ou non avec le père Preynat, confort financier de départ ou capital symbolique conséquent ; du lieu où il naît – serait-il plus moral de faire naître un enfant en Normandie que dans l’Uttar Prasdesh ? La vie vaut-elle la peine d’être vécue dans une forêt d’altitude du Montana, loin du gradient de pollution, ou près d’un champ d’épandage de produits phytosanitaires dans la Beauce ? On peut ergoter sur la qualité du monde dans lequel on le lance tel un paquet, une France autodéclarée patrie des droits de l’Humain, mais troisième vendeuse d’armement au monde, refusant l’asile à Julian Assange et capable de s’ingérer militairement dans les affaires d’autres pays sans mandat international. On peut s’inquiéter de ne pas avoir préparé, à ce charmant bambin, cette mignonne bambine, un modèle économique dans lequel les droits des individus dépasseraient les droits des entreprises et où fortune et capital ne pourraient être amassés sans limite par certains, tandis que d’autres meurent des mouches dans les yeux. De lui imposer un environnement qui se réchauffe, des pénuries d’eau, des oiseaux et des insectes qui disparaissent. Bref, inviter à naître quelqu’un dans ce bourbier ne va pas de soi, et le regretté philosophe Ruwen Ogien tranchait ainsi la question : si l’on est loin d’être certain de garantir le bonheur d’un gamin, on peut par contre être sûr qu’il endossera une grosse dose de souffrance, que ce soit le harcèlement à l’école ou les chagrins d’amour, la maltraitance au travail ou les violences conjugales.</p>
+<p>Je crois que je suis d’accord avec lui. J’ai moi-même fait deux enfants, et je trouve ça aussi plaisant qu’immoral. Maintenant, à moins de les emmener couper du bois la nuit et de les perdre dans la forêt, je suis condamné à m’en occuper jusqu’à leur émancipation. Et de fait les lambeaux qui restent de ma moralité me poussent à leur offrir force câlins et bisous placebo, mais aussi un maximum d’outils intellectuels, afin qu’ils puissent déjouer les sirènes des propagandes, contourner les pièges des pseudosciences, briser les plafonds de verre sociologiques et aller bouter hors de leur cerveau tous les rétrécisseurs d’horizon.</p>
+<p>C’est l’une des raisons de mon fort intérêt pour les pédagogies dites alternatives. Certes, mon côté jacobin défend les vertus de l’enseignement public, mixité sociale, tronc de savoir commun, fonctionnariat et service public, mais je sais bien, pour l’avoir vécu dans ma chair, le caractère mortifère que cela peut prendre : relations autoritaires prof-élève, classes surchargées, nivelage du niveau, manque de moyens, pantomime politique de la représentation des délégués de classe…</p>
+<p>Mon avis sur la question, en tant que pédagogue, rejoint en quelque sorte celui que je défends sur les thérapies « alternatives » : s’empresser de mettre ce qui ne fonctionne pas au grenier des théories fausses, mais bien prendre leçon de tout ce qui participe des effets contextuels dits « placebo », comme la prise en charge longue, aimable et enchanteresse dans ces thérapies, et de réinjecter le tout dans le soin scientifique public.</p>
+<p>En terme d’éducation, idem : je rêve de garder une coquille commune, populaire et gratuite, avec des enseignants salariés et des moyens conséquents dans des classes légères. Puis d’y importer la pertinence des concepts de John Dewey, Paolo Freire, Francisco Ferrer ou Célestin Freinet, qui font souffler un vent de libertarisme sur et dans nos chères têtes blondes (ou brunes, ou crépues, chauves, peu importe).</p>
+<p>Mais comme l’écrivait Michael Shermer1, heresy does not imply correctness. Qui dit « hérétique », ou « alternatif », ne signifie pas forcément exact ou valable. Et dans la gamme des pédagogies alternatives faussement émancipatrices, arrive probablement en tête celle des écoles Steiner-Waldorf. Car aussi séduisantes et bien achalandées soient ces dernières, aussi flatteuse et ostentatoire y soit l’inscription de son enfant, la pédagogie Steiner est malheureusement un étonnant, un remarquable leurre.</p>
+<p>Quiconque envisageant de mettre son enfant dans une telle école bénéficierait d’y réfléchir à deux fois, tourner sept fois sa langue dans sa bouche, encore sept fois dans la bouche de quelqu’un d’autre, et surtout lire les lignes qui suivent. Ces lignes retracent le chemin de Grégoire Perra, non seulement ancien élève d’école Steiner-Waldorf, mais devenu lui-même enseignant de ce type d’établissement, avant de tout plaquer.</p>
+<p>Ce monsieur explique à qui veut bien l’entendre ‒ et Élisabeth Feytit veut bien l’entendre ‒ que dans ces écoles, sous prétexte de liberté maximisée, l’enfant y est très peu guidé, et souvent laissé à sa propre inertie. Les mantras le disputent aux récitations. Les mythes et légendes s’entremêlent à l’enseignement de l’Histoire. Les cycles censés régir le développement de notre chérubin sont des cycles cosmiques, postulés par des auteurs de science-fiction spirituelle venus de la Théosophie, une doctrine syncrétiste spirite de 1875. L’étude des genres féminin et masculin se traduisent en termes essentialistes, les « courbes » féminines étant lucifériennes, les « droites » masculines relevant quant à elles d’Arhiman, l’autre démon, terrestre, froid et éthérique. Et attention à ne pas prendre la pilule, de peur de se couper du cycle cosmique.</p>
+<p>Dans l’éducation physique professée se loge l’eurythmie, sorte de rituel dansé qui prend rapidement un tour curatif : les séries de mouvements réalisés seraient conseillées entre autres pour les pathologies aiguës, chroniques ou dégénératives des système nerveux et circulatoire, sans pour autant avoir été l’objet d’évaluations. D’ailleurs, les soins qui y sont vantés n’ont généralement pas de fondements scientifiques, ce qui n’est finalement pas si grave si l’on accepte la prémisse posée par le fondateur de ce type d’école, affirmant que les maladies ne sont pas des maladies à proprement parler mais des « dettes karmiques », des sortes de fautes contractées dans une vie antérieure, dont il faut bien un jour s’acquitter. Quant au cancer, qui serait une trop forte stimulation des organes par Lucifer, l’ange déchu, il serait aisément combattu par Viscum album, le gui qui, une fois fermenté, serait par essence préservé de l’influence « aérienne » du démon. Si en lisant cela, comme moi, le sang pulse fort dans vos pariétaux, ne craignez rien : le sang est l’apanage du Dieu Thor, et le pouls est la conséquence des coups qu’il frappe avec son marteau Mjöllnir.</p>
+<p>Tout cela est-il si surprenant, une fois que l’on sait que le nom Steiner, adossé à la pédagogie de ces écoles, est le nom de famille de Rudolf, occultiste autrichien du début du XXe. Rudolf Steiner, auteur d’ouvrages incompréhensibles (j’en ai lu un certain nombre), dont les linéaments sont l’ordination des races, les êtres ascensionnés qui vivent dans le ciel, une Nature de type divin et les cycles astrologiques. Le même Steiner, qui, empruntant à Goethe son romantisme antiscience et refusant toute démarche expérimentale, fantasmait un monde cosmo-racialiste dans une doctrine appelée Anthroposophie. Or cette doctrine est le corpus de ces écoles Steiner-Waldorf. C’est aussi le cœur de meule de la « médecine » anthroposophique, qu’aucune instance médicale européenne ne reconnaît. La Suisse est l’unique exception : la Chambre médicale y reconnaît provisoirement la médecine anthroposophique, et une partie des actes est prise en charge par les acteurs (tous privés) de l’Assurance-maladie hélvète, en dépit d’une « incapacité à répondre à l’exigence légale d’efficacité ».</p>
+<p>C’est encore le moteur idéologique d’entreprises entières, comme Demeter, Weleda, Triodos Bank ou la Nef. L’illuminisme assumé de Steiner perfuse aussi une agronomie de type magique, la biodynamie, qui, révélée dans une sorte d’épiphanie, suit les rythmes planétaires et les associations de forces occultes. Les outils y sont par exemple l’achillée millefeuille ligaturée dans une vessie de cerf, le tout enterré durant l’hiver moitié sous terre moitié au-dessus, puis diluée dans un tas de fumier. Pourquoi ? Steiner lui-même l’explique dans la cinquième conférence de son cycle de juin 1924, qui sert d’ouvrage de référence :</p>
+<blockquote>
+<p>« Le cerf est une créature animale (…) dans un rapport particulièrement étroit (…) avec ce qui dans cet environnement est de nature cosmique, (…) si bien que la vessie du cerf est presque une image reflétée du cosmos. (…) [Alors] le rayonnement agit. Il y a dans cette substance une force de radiation si extraordinaire – le matérialiste ne refusera pas de croire à des forces de radiation, lui qui parle de radium – pour peu qu’on la mette dans le fumier ».</p>
+</blockquote>
+<p>De même, la bouse de vache enterrée dans une corne, la camomille dans un boyau de bovin ou l’écorce de chêne dans un crâne de cheval « de moins d’un an » deviennent des stimulations plus ou moins astrales, éthériques ou spirituelles.</p>
+<p>Il est difficile de concevoir que nous ayons mis plusieurs milliers d’années à sortir des cosmogonies infantiles et à construire des savoirs collectifs non mystiques, et que nous soyons si prompts à replonger dans des modèles scolaires de ce genre. Pourtant, il y a un enjeu de taille. Je ne parlerai pas du soutien personnel d’une ministre récente à ces écoles, ce qui me semble être un épiphénomène, non, je parle de comment faire société avec cela ? Ces écoles proposent, en paraphrasant Steiner, d’« éduquer vers la liberté ». Mais pas n’importe quelle liberté, si ce n’est celle d’absorber un certain nombre de couleuvres pseudoscientifiques, sur la simple base d’une révérence envers un illuminé mystique. Et pas pour tout le monde ! Selon le fondateur, seuls certains « élus » sont dignes de recevoir le monde « idéel ». Et dans la vision apocalyptique de Steiner, lorsque la civilisation actuelle va entrer dans une décadence totale et s’effondrera sur elle-même, ne restera que les écoles Steiner, sortes d’îlots de culture qui seront le modèle de la prochaine civilisation.</p>
+<p>C’est en cela que les propos de Grégoire Perra sont honnêtes, courageux, et nécessaires.</p>
+<p>Ils sont honnêtes car il faut du courage pour sortir d’une escalade d’engagement à grande échelle, pour prendre de plein fouet sa dissonance et faire un pas de côté pour considérer le chemin parcouru d’un œil sceptique. Serais-je capable de faire la même chose ? J’en doute. Courageux du fait des poursuites, inutiles mais éreintantes, qui lui sont régulièrement faites. Il n’est pas donné à tout un chacun de supporter, moralement et financièrement la vindicte des gens de son ancien monde. Nécessaires enfin car le modèle de société présenté dans ces écoles doit apparaître pour ce qu’il est : un salmigondis brumeux, mysticoïde et conservateur. C’est seulement au prix de la lecture douloureuse des mots de Grégoire Perra, accouchés avec talent par Élisabeth Feytit, que les parents pourront alors faire un choix éclairé pour leurs enfants. Ogien le philosophe disait que seuls nos enfants pourront un jour nous absoudre de la faute morale de les avoir mis au monde. Pourront-ils facilement nous absoudre de les avoir envoyés en école Steiner-Waldorf ? Certainement, avant l’existence de ce bouquin. Après, je ne garantis pas.</p>
+]]></content>
+      <categories>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>zététique</tag>
+        <tag>sceptique</tag>
+        <tag>LSA1KG</tag>
+        <tag>livre</tag>
+        <tag>dérive</tag>
+        <tag>secte</tag>
+        <tag>alerte</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bienvenue</title>
+    <url>/fr/Cyber/Mind/welcome/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Développement en cours…</p>
+<p>Restez à l’écoute!</p>
+<h2 id="Bonjour-a-tous-👋"><a href="#Bonjour-a-tous-👋" class="headerlink" title="Bonjour à tous 👋"></a>Bonjour à tous 👋</h2><p><strong>Voici quelques idées que vous devez connaître sur les règles de CyberMind :</strong></p>
+<p>🙋‍♀️ Une courte introduction ?<br>-&gt; Code Open Source</p>
+<span id="more"></span>
+
+<p>🌈 Consignes personnelles ?<br>-&gt; CyberSecurity expérimenté, gratuit comme dans la bière gratuite, contributeur de code de longue date.</p>
+<p>🌈 Consignes de contribution ?<br>-&gt; Code Open Source, dans le respect des droits de l’homme.</p>
+<p>👩‍💻 Ressources utiles ?<br>-&gt; Alors, profitez-en ou améliorez-le par vous-même.</p>
+<p>🍿 Faits amusants ?<br>-&gt; Restez à l’écoute pour en savoir plus (ou faites-le vous-même…)</p>
+<p>🧙 N’oubliez pas, à utiliser à vos risques et périls… 😎</p>
+<p><img src="https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="Gandalf&#39;s GitHub stats"></p>
+<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="Gandalf&#39;s GitHub langs stats"></p>
+]]></content>
+      <categories>
+        <category>Cyber</category>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>news</tag>
+        <tag>SECUBOX</tag>
       </tags>
   </entry>
   <entry>
@@ -3610,335 +4317,6 @@ if __name__ == &#39;__main__&#39;:
         <tag>SECUBOX</tag>
         <tag>CLOUD</tag>
         <tag>Aramada</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>L’esprit critique - Bande Dessinée aux Éditions Delcourt</title>
-    <url>/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Introduction-Pourquoi-LSA1KG"><a href="#Introduction-Pourquoi-LSA1KG" class="headerlink" title="Introduction - Pourquoi LSA1KG ?"></a>Introduction - Pourquoi LSA1KG ?</h1><p>Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c’est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.<br>Elle débute par la rencontre et la confrontation entre deux mondes opposés, entre leur défenseurs maladroit, une pseudo-chamane celte et un pseudo-sceptique rationaliste.<br>C’est justement ce genre d’idée, rassembler deux mondes opposés, qui m’avait motivé personnellement, ou m’avait excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.<br>J’ai presque failli oublier que la Magie est personnelle, qu’elle doit rester intime.<br>Enfin, ce n’est qu’une opinion personnelle qui n’engage que moi et qui, surtout, ne veut s’imposer à personne.</p>
-<h1 id="Vulgarisation-Zetetique"><a href="#Vulgarisation-Zetetique" class="headerlink" title="Vulgarisation Zététique"></a>Vulgarisation Zététique</h1><p>Merci à l’<a href="https://www.afis.org/">Afis Science - Association française pour l’information scientifique</a> et à <a href="https://www.afis.org/Kevin-Moris">Kévin Moris</a> grace à qui j’ai pu découvrir une formidable bande dessinée <a href="https://www.afis.org/L-esprit-critique-5140">L’esprit critique, Isabelle Bauthian (scénario), Gally (dessin)</a></p>
-<blockquote>
-<ul>
-<li><em>L’esprit critique</em></li>
-<li><em>Publié en ligne le 3 avril 2022</em></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>L’esprit critique Isabelle Bauthian (scénario), Gally (dessin) Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 € Dans cette bande dessinée<br>La lecture est très utile pour une initiation à l’esprit critique dès le lycée. Et on pourra se référer à d’autres livres ou sites Internet qui sont proposés en fin d’ouvrage.</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="Une-bande-dessinnee-de-7-a-77-ans"><a href="#Une-bande-dessinnee-de-7-a-77-ans" class="headerlink" title="Une bande dessinnée de 7 à 77 ans"></a>Une bande dessinnée de 7 à 77 ans</h2><p><a href="https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique/album-l-esprit-critique"><strong>L’esprit critique</strong></a></p>
-<blockquote>
-<ul>
-<li><em>Isabelle Bauthian (scénario), Gally (dessin)</em></li>
-<li><em>Éditions Delcourt, coll. Octopus, 2021, 128 pages, 16,50 €</em></li>
-</ul>
-</blockquote>
-<p>Je vous conseil vraiment la lecture de cette ouvrage qui n’a rien à envier aux longues proses inaccessibles sur les sujets ou se perd à se justifier la science et ses théories.<br>Le propos ici est serein et amusant.<br>Il cherche à concilier les mondes spirituels et rationnels dans leurs théories mutuelles pour devenir raisonnables.<br>C’est le seul moyen pour entamer et comprendre l’esprit critique.<br>Pour tester les croyances des zététiciens et percer l’intérêt de leurs pratiques.<br>C’est aussi, peut-être, une belle solution pour accueillir à nouveau, quelques âmes perdues le long des chemins de traverses.<br>Car plutôt que de chercher pourquoi se confondre dans les directions, les volontés, les émotions, les pensées.<br>Un idéal pourra apparaître à justement reprendre la force du doute et le pouvoir de la liberté de pensée pour comprendre le monde.</p>
-<p><img src="/uploads/images/visuels/BD-EspritCritique/COVER_BD_EspritCritique.jpeg" alt="L’esprit critique"></p>
-<h2 id="Merci-amp-plus-encore-toujours"><a href="#Merci-amp-plus-encore-toujours" class="headerlink" title="Merci &amp; plus encore, toujours"></a>Merci &amp; plus encore, toujours</h2><blockquote>
-<p>Merci à l’AFIS.<br>Merci à Kévin Moris.<br>Merci aux Éditions Delcourt.<br>Merci à Isabelle Bauthian.<br>Merci à Gally.<br>Merci à Paul.<br>Merci à L’ESPRIT CRITIQUE.</p>
-</blockquote>
-<p><a href="https://www.editions-delcourt.fr/bd/series/serie-l-esprit-critique">Peut-être une série à venir ?</a></p>
-<details>
-  <summary>Cliquer pour afficher un extrait PDF…</summary>
-En attendant, voici déjà l'extrait:
-
-<div class="pdf-container" data-target="/uploads/images/visuels/BD-EspritCritique/PDF_Extrait_BD_EspritCritique_RED.pdf" data-height="550px"></div>
-</details>
-
-<h2 id="Une-claque-oui-mais-une-qui-reveil-de-l’eveil"><a href="#Une-claque-oui-mais-une-qui-reveil-de-l’eveil" class="headerlink" title="Une claque, oui, mais une qui réveil de l’éveil"></a>Une claque, oui, mais une qui réveil de l’éveil</h2><p>et n’oubliez pas qu’<strong>“UNE CORRÉLATION N’EST PAS UNE RELATION DE CAUSE À EFFET !”</strong></p>
-<h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais terminer la lecture, avant !</p>
-<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
-]]></content>
-      <categories>
-        <category>Mind</category>
-        <category>Livres</category>
-      </categories>
-      <tags>
-        <tag>zététique</tag>
-        <tag>sceptique</tag>
-        <tag>LSA1KG</tag>
-        <tag>The Conjurers</tag>
-        <tag>Esprit critique</tag>
-        <tag>arnaque</tag>
-        <tag>énergies</tag>
-        <tag>invisible</tag>
-        <tag>croyance</tag>
-        <tag>guérisseurs</tag>
-        <tag>miracle</tag>
-        <tag>afis</tag>
-        <tag>Bande Dessinée</tag>
-        <tag>pseudoscience</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Lazarus-Mirages - L&#39;Art du Doute</title>
-    <url>/fr/Mind/Films/Lazarus-Mirages-L-Art-du-Doute/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Lazarus-Mirage"><a href="#Lazarus-Mirage" class="headerlink" title="Lazarus Mirage"></a>Lazarus Mirage</h1><p>Je vous partage ce formidable site qui vient tout juste de renaître de ses cendres !</p>
-<h2 id="Lazarus-Mirage-Introduction"><a href="#Lazarus-Mirage-Introduction" class="headerlink" title="Lazarus Mirage - Introduction"></a>Lazarus Mirage - Introduction</h2><p><a href="https://www.lazarus-mirages.fr/"><img src="/uploads/images/Lazarus/Lazarus_logo_CONTRIB.png" width="370px" heigth="370px"></a></p>
-<blockquote>
-<p>L’expérience transmedia Lazarus-Mirages de diffusion de la culture scientifique et de l’esprit critique a connu une épopée que l’on pourrait qualifier de « pleine de péripéties ». Créée par Patric JEAN, l’auteur-réalisateur-producteur, et Henri BROCH, le co-auteur scientifique, elle a en effet - après plusieurs années de préparation - démarré au début 2012 et essaimé sur le réseau. Mais son site web a fermé ses portes en 2015 ; puis a pu réapparaître en 2016 pour malheureusement finalement s’éteindre en 2020…</p>
-</blockquote>
-<span id="more"></span>
-<blockquote>
-<p>Mais grâce au superbe travail de deux chevaliers Jedi - Brendan BOBIS et Nicolas ZAGULAJEW - le site renaît aujourd’hui totalement de ses cendres et en version optimisée.</p>
-<p>Vous pouvez ainsi savourer maintenant le site Lazarus-Mirages et sa superbe présentation au style volontairement “complotiste” ayant effrayé plus d’un internaute… et y entrer sans aucune crainte !</p>
-</blockquote>
-<h2 id="Lazarus-Mirage-Le-site-2022"><a href="#Lazarus-Mirage-Le-site-2022" class="headerlink" title="Lazarus Mirage - Le site (2022)"></a>Lazarus Mirage - Le site (2022)</h2><ul>
-<li><a href="https://www.lazarus-mirages.fr/">Le nouveau Site Lazarus-Mirages (2022)</a></li>
-</ul>
-<h1 id="Quelques-complements"><a href="#Quelques-complements" class="headerlink" title="Quelques compléments"></a>Quelques compléments</h1><ul>
-<li>Pour le Dossier de presse d’origine du lancement de l’expérience, vous pouvez le télécharger <a href="https://www.lazarus-mirages.com/assets/pdf/dossier-presse-lazarus.pdf">ici</a>.</li>
-<li>Et pour quelques détails sur les péripéties, rendez-vous <a href="http://sites.unice.fr/site/broch/Lazarus-Mirages/Lazarus.html">ici</a>.</li>
-</ul>
-<h2 id="Quelques-“amis”-de-Lazarus"><a href="#Quelques-“amis”-de-Lazarus" class="headerlink" title="Quelques “amis” de Lazarus"></a>Quelques “amis” de Lazarus</h2><ul>
-<li><a href="http://www.unice.fr/zetetique">Laboratoire de Zététique  &amp;  Centre d’Analyse Zététique</a></li>
-<li><a href="https://cortecs.org/">CORTEX: Esprit critique &amp; sciences</a></li>
-<li><a href="http://www.bxllaique.be/">Bruxelles Laïque</a></li>
-<li><a href="http://zetetique.fr/">L’Observatoire Zététique</a></li>
-<li><a href="http://culturevisuelle.org/">Culture Visuelle</a></li>
-<li><a href="https://www.dailymotion.com/lazarusmirages">DailyMotion - Les amis de Lazarus</a></li>
-<li><a href="https://centerforinquiry.org/">Center For Inquiry</a></li>
-<li><a href="https://web.randi.org/">James Randi Foundation</a></li>
-<li><a href="https://www.pseudo-sciences.org/">Science &amp; Pseudo-Sciences</a></li>
-<li><a href="https://www.laquadrature.net/">La Quadrature du Net</a></li>
-<li><a href="https://whyweprotest.net/">Anonymous</a></li>
-<li><a href="http://web.archive.org/web/20160303224838/http://telecomix.org/">TELECOMIX (archive 2016)</a></li>
-<li><a href="https://beniz.github.io/seeks">SEEKS Project</a></li>
-<li><a href="https://globalfree.wordpress.com/">Global Freedom Movement</a></li>
-</ul>
-<h2 id="Quelques-liens"><a href="#Quelques-liens" class="headerlink" title="Quelques liens"></a>Quelques liens</h2><ul>
-<li><a href="https://twitter.com/Lazarus_mirages">Twitter Lazarus-Mirages</a></li>
-<li><a href="https://web.archive.org/web/20140406222321/http://lazarus.blogs.liberation.fr/">Blog Libération Lazarus (archive 2014)</a></li>
-<li><a href="https://web.archive.org/web/20130911204840/http://lazarus.owni.fr/">Blog OWNI Lazarus (archive 2013)</a></li>
-</ul>
-<p>…Plus à venir…</p>
-<h1 id="Experience-transmedia-Patric-Jean"><a href="#Experience-transmedia-Patric-Jean" class="headerlink" title="Expérience transmédia - Patric Jean"></a>Expérience transmédia - Patric Jean</h1><p>Patric Jean Le 22&#x2F;12&#x2F;2021 -&gt; <a href="https://patricjean.com/2021/12/22/lazarus-mirage/">Lazarus Mirages (transmedia expérience) - Patric Jean</a></p>
-<details>
-  <summary>Cliquer pour afficher les détails…</summary>
-
-<blockquote>
-<p>Lazarus Mirage est une gigantesque expérience transmédia écrite, produite et réalisée par Patric Jean en 2011. Avec Henri Broch pour conseiller scientifique.</p>
-<p><strong>Phénomènes paranormaux, miracles, superstitions, pseudosciences, manipulations médiatiques, politiques et commerciales pullulent.</strong></p>
-<p><strong>Nous avons tous notre part d’irrationnel. Et nous sommes tous victimes de nos croyances.</strong></p>
-<p>Lazarus-Mirages était un site web mais aussi deux films documentaires de 52 minutes diffusés en télévision, une dizaine d’applications interactives, le pilote d’une émission hebdomadaire, un jeu en ligne, des entretiens avec des scientifiques, des incursions dans le monde réel, un blog, des débats sur les réseaux sociaux et une série de vidéos.</p>
-<p>Un ensemble de vecteurs au service d’un projet : le scepticisme.</p>
-<p>Lazarus, mystérieux personnage masqué et anonyme entraine le public à voir au-delà des croyances, des stéréotypes, des discours religieux, politiques ou économiques consensuels. La zététique…</p>
-</blockquote>
-<p><a href="https://patricjean.com/2021/12/22/lazarus-mirage/">Lire la suite sur le site de Patric Jean (et accéder aux contenu)…</a></p>
-</details>
-]]></content>
-      <categories>
-        <category>Mind</category>
-        <category>Films</category>
-      </categories>
-      <tags>
-        <tag>zététique</tag>
-        <tag>sceptique</tag>
-        <tag>arnaque</tag>
-        <tag>croyance</tag>
-        <tag>guérisseurs</tag>
-        <tag>miracle</tag>
-        <tag>pseudoscience</tag>
-        <tag>anarchie</tag>
-        <tag>astrologie</tag>
-        <tag>cerveau féminin</tag>
-        <tag>démocratie</tag>
-        <tag>debunker</tag>
-        <tag>discours politique</tag>
-        <tag>effet puits</tag>
-        <tag>hasard</tag>
-        <tag>henri broch</tag>
-        <tag>homéopathie</tag>
-        <tag>jean-léon beauvois</tag>
-        <tag>lourdeslune</tag>
-        <tag>momie</tag>
-        <tag>nicolas d&#39;alessandro</tag>
-        <tag>normand baillargeon</tag>
-        <tag>paranormal</tag>
-        <tag>patric jean</tag>
-        <tag>pouvoir</tag>
-        <tag>richard monvoisin</tag>
-        <tag>télépathie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rencontrez Gérald, nouvel ambassadeur CrowdSec</title>
-    <url>/fr/Cyber/Meet-Gerald-new-CrowdSec-ambassador/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">
-
-<h2 id="Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec"><a href="#Rencontrez-Gerald-nouvel-ambassadeur-CrowdSec" class="headerlink" title="Rencontrez Gérald, nouvel ambassadeur CrowdSec."></a>Rencontrez Gérald, nouvel ambassadeur CrowdSec.</h2><p>Nous sommes ravis d’accueillir Gérald Kerma en tant que nouvel ambassadeur CrowdSec !<br>Gérald est basé en France et a plus de 25 années d’expérience dans la cybersécurité. Il est également contributeur au projet OpenWrt. Gérald a créé un portage OpenWrt pour CrowdSec.</p>
-<p>Voici une petite interview de Gérald pour mieux le connaître.</p>
-<span id="more"></span>
-<h2 id="Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute"><a href="#Salut-Gerald-peux-tu-parler-de-toi-a-notre-communaute" class="headerlink" title="Salut Gérald, peux-tu parler de toi à notre communauté ?"></a>Salut Gérald, peux-tu parler de toi à notre communauté ?</h2><p>Vous pouvez aussi m’appeler Gandalf, Erdoukki, drEagle, Geronimo, ou Guignol. Je prends le nom de « Gandalf des Conjureurs », ma propre « équipe de hackers », à l’adolescence, alors que j’étais déjà dans le monde de l’informatique, en tant qu’avatar secret.</p>
-<p>Durant mes premières années, j’ai appris l’informatique en autodidacte à Paris sur les ordinateurs en libre accès du Palais de la découverte. Je me suis mis à l’informatique avec un Commodore 64, puis j’ai appris en autodidacte, le language Pascal, avec les algorithmes de transformations ZIP et FFT. Plus tard, j’ai écrit mes premiers jeux sur les Labyrinthes. Rapidement, j’ai ensuite écrit des outils de développement sur le premier ordinateur IBM&#x2F;PC. J’avais un XT très moderne, avec un « énorme » disque dur de 40 Mo. J’ai fait mes premiers dollars avec des sharewares, sur Apple&#x2F;MacIntosh, sur des outils innovants dans le monde des logiciels d’interface utilisateur. Ils ont été distribués dans les magazines français et les BSS du monde entier.</p>
-<p>Tout cela était bien avant les années Internet; une connexion télécom coûtait plus de dollars en une heure qu’un salaire mensuel.</p>
-<p>Ensuite, ce fut mon premier emploi dans une société française de sécurité, un éditeur de logiciels à Paris, où nous avons écrit des outils de chiffrement de disque dur, des outils d’audit réseau et mes propres projets d’utilitaires d’interface d’accès rapide.</p>
-<p>A 20 ans, j’ai ouvert ma première entreprise, GK2, comme fournisseur d’accès Internet pour les petites entreprises, les artistes et les associations. Tout en continuant dans le développement de logiciels en freelance, j’ai hébergé des sites Web sur un Pentium Pro que j’ai acheté lors d’un voyage aux États-Unis et qui utilisait le système RedHat Linux. J’ai proposé quelques services à de grandes entreprises dont Thales, avec qui j’ai ensuite décroché un contrat d’infogérance informatique pour le CEA (Commissariat à l’Énergie Atomique et aux énergies alternatives), sur le site de Saclay.</p>
-<p>J’étais l’expert VIP et le spécialiste Apple&#x2F;Macintosh. Nous avons dû gérer, dès notre arrivée, la toute première attaque massive du virus Blasters. Nous avions besoin d’une solution logicielle système pour maîtriser rapidement les ordinateurs. J’ai ensuite écrit une solution entièrement personnalisée avec les outils GNU&#x2F;Linux pour Microsoft&#x2F;Windows XP. J’ai également mis à disposition la version alpha de Windows Update sur l’ensemble du réseau. Ce fut ma première étape dans la société Thales en cybersécurité où j’ai ensuite été engagé en tant qu’administrateur système, et, plus tard, en tant qu’architecte en sécurité.</p>
-<h2 id="Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur"><a href="#Qu’est-ce-qui-vous-a-inspire-CrowdSec-pour-en-devenir-l’ambassadeur" class="headerlink" title="Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?"></a>Qu’est-ce qui vous a inspiré CrowdSec pour en devenir l’ambassadeur ?</h2><p>De retour aux premiers besoins et l’esprit créatif, je quitte Paris pour la Savoie où j’effectue mes premiers développements de logiciels publics.<br>J’ai quitté Thales avec l’objectif d’une « Security Box » dont je rêvais et étudiais déjà depuis des années, sur mon temps libre, et basée sur des logiciels libres. Je voulais proposer des solutions simples, efficaces et innovantes. Avec la perspective « Free as in free beer » des logiciels ouverts et libres.</p>
-<p>J’ai découvert très tôt la solution CrowdSec Software et c’était un très bon composant candidat pour mon propre projet. J’ai envoyé un e-mail à l’équipe pour proposer mes propres services et mon expérience sur les systèmes embarqués comme OpenWrt et le conseil des développeurs ARM. Je leur ai donné des références pour certains articles écrits pour les revues des éditions Diamond. Ils ont rapidement répondu et nous nous sommes lancés dans des projets de collaboration mutuelle. J’ai choisi la solution en portant l’agent CrowdSec et le « Bouncer » de pare-feu CrowdSec sur le système OpenWrt.</p>
-<p>CrowdSec et OpenWrt étaient tous deux candidats pour mon propre projet « Security Box », et m’ont également donné l’opportunité de mieux comprendre et de tester la solution plus en profondeur.</p>
-<h2 id="Comment-voyez-vous-votre-mission-chez-CrowdSec"><a href="#Comment-voyez-vous-votre-mission-chez-CrowdSec" class="headerlink" title="Comment voyez-vous votre mission chez CrowdSec ?"></a>Comment voyez-vous votre mission chez CrowdSec ?</h2><p>Tout en proposant à l’équipe CrowdSec une évolution extérieure non prévue, j’ai voulu que mon propre concept de « Security Box » devienne une « Solution » du monde réel.</p>
-<p>CrowdSec est à la fois une solution en termes de modèle logiciel et également en termes d’exemple d’entreprise. J’aime la méthode et les règles, mais je préfère les résultats et les impacts. J’ai pris beaucoup de temps libre pour proposer OpenWrt mais CrowdSec m’offre  aussi beaucoup avec son projet. Maintenant, j’ai des perspectives que nous pouvons tous les deux offrir pour aider Internet à être plus sûr tout en restant éthique.</p>
-<p>J’ai déjà partagé quelques projets avec la communauté CrowdSec, et CrowdSec risque de nous réserver des surprises prochainement… Mais, c’est le début de nos chemins convergents et cette aventure n’en est qu’au début.</p>
-<h2 id="Un-fait-amusant-sur-vous-meme"><a href="#Un-fait-amusant-sur-vous-meme" class="headerlink" title="Un fait amusant sur vous-même ?"></a>Un fait amusant sur vous-même ?</h2><p>J’ai ma propre philosophie de vie et mes règles. Je peux être décrit comme un épicurien. J’écris de la poésie, je peints, je fais de la gravure laser sur du bois et sur des ardoises gravée à l’or.</p>
-<p>J’ai aussi mes propres règles techniques et méthodes qui sont très proches des Creative Mind Educative Concepts. Quand j’ai quitté les projets Thales, j’ai dit à mes ex-collègues que je partais étudier de vraies solutions à leur rapporter. J’ai ouvert une nouvelle entreprise, CyberMind, et j’ai commencé à porter une casquette blanche pour montrer de quel côté j’étais.</p>
-<p>Mon look est une démonstration du concept CyberSecurity que je souhaite partager et proposer autour de moi comme choix de solution. C’est ainsi pour la casquette blanche, le pseudo Gandalf. Mes propres méthodes font de moi un personnage qui n’est que MOI.</p>
-<h2 id="Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite"><a href="#Quel-est-votre-reve-pour-l’avenir-de-la-cybersecurite" class="headerlink" title="Quel est votre rêve pour l’avenir de la cybersécurité ?"></a>Quel est votre rêve pour l’avenir de la cybersécurité ?</h2><p>Dans un monde conceptuel et virtuel, les technologies numériques sont une aide pour arrêter la dépense de temps, d’argent, et pour les problèmes perpétuels et invisibles de CyberSecurity. Les méchants sont innovants et hors limites car l’informatique leur offre les outils pour le faire.</p>
-<p>Nous avons besoin de solutions pour rééquilibrer le bien et le mal car le « gris » ne sera jamais possible. Nous avons besoin de solutions complètes, ouvertes, respectueuses, stables, collaboratives et innovantes.<br>CrowdSec nous donne une étape vers ce long chemin et j’aiderai le projet autant que possible.</p>
-<p>…Restez à l’écoute…</p>
-<p>:-]</p>
-<p>Traduction par G.KERMA, article original : <a href="https://crowdsec.net/blog/meet-gerald-new-crowdsec-ambassador/">Daria Charyeva @ CrowdSec&#x2F;blog</a></p>
-]]></content>
-      <categories>
-        <category>Cyber</category>
-      </categories>
-      <tags>
-        <tag>news</tag>
-        <tag>CrowdSecurity</tag>
-        <tag>CrowdSec</tag>
-        <tag>SECUBOX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</title>
-    <url>/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LaSecteAux1000Gourous"><a href="#LaSecteAux1000Gourous" class="headerlink" title="LaSecteAux1000Gourous"></a>LaSecteAux1000Gourous</h1><h2 id="“Une-claque-dans-la-gueule-”"><a href="#“Une-claque-dans-la-gueule-”" class="headerlink" title="“Une claque dans la gueule !?”"></a>“Une claque dans la gueule !?”</h2><p><strong>Une de celles qui font tant de bien.</strong></p>
-<ul>
-<li>mieux que <a href="https://fr.wikipedia.org/wiki/Mission_interminist%C3%A9rielle_de_vigilance_et_de_lutte_contre_les_d%C3%A9rives_sectaires">Miviludes</a> et son insatiable silence…</li>
-<li>mieux que l’<a href="https://fr.wikipedia.org/wiki/Agence_France-Presse">AFP</a> et ses BUZZ généralisés…</li>
-</ul>
-<p>Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” (™ &amp; © <a href="mailto:gandalf@gk2.net">ME</a>)</p>
-<span id="more"></span>
-
-<p>C’est quoi la <a href="https://fr.wikipedia.org/wiki/Z%C3%A9t%C3%A9tique">zététique</a>, “la critique”, les concepts “new age”, la spiritualité, les croyances, la vérité, la science…</p>
-<p>Tant d’autres questions qui trouvent leur (début de) réponse sur le fabuleux podcast <a href="https://metadechoc.fr/">MétaDeChoc.fr</a> d’Élisabeth Feytit !</p>
-<img src="/uploads/images/visuels/METADECHOC_PIPPA_AVATAR_MAKER.png" width="1000px" heigth="1000px">
-
-<h2 id="Mon-florilege-MetaDeChoc"><a href="#Mon-florilege-MetaDeChoc" class="headerlink" title="Mon florilège @MetaDeChoc"></a>Mon florilège @MetaDeChoc</h2><ul>
-<li><a href="https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/">SHOCKING #11 - L’astrologie, ça marche !… Trop. (<strong>Avec Serge Bret-Morel,</strong> spécialiste de la critique de l’astrologie)</a></li>
-<li><a href="https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence">SHOCKING #16 - Contes et légendes de l’intelligence (<strong>Avec Stéphanie Aubertin,</strong> psychologue)</a><ul>
-<li><a href="https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence/#comment-1081">17 mars 2022 à 11 h 58 min</a></li>
-</ul>
-</li>
-<li><a href="https://metadechoc.fr/podcast/une-vie-en-anthroposophie">SHOCKING #5 - Une vie en anthroposophie (<strong>Avec Grégoire Perra,</strong> professeur de philosophie)</a><ul>
-<li><a href="https://metadechoc.fr/podcast/une-vie-en-anthroposophie/#comment-1096">25 mars 2022 à 11 h 38 min</a></li>
-</ul>
-</li>
-<li><a href="https://metadechoc.fr/podcast/la-zetetique-rend-elle-insensible-avec-samuel-buisseret/">SHOCKING #1 - La zététique rend-elle insensible ? (<strong>Avec Samuel Buisseret, alias Mr.Sam,</strong> vidéaste vulgarisateur scientifique)</a></li>
-<li><a href="https://metadechoc.fr/podcast/coaching-eldorado-de-la-manipulation-mentale/">SHOCKING #21 - Coaching : l’eldorado de la manipulation mentale (<strong>Avec Rémi Rivas</strong>, consultant en design, marketing et innovation)</a></li>
-<li><a href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">STREAM #1 - Une vie en anthroposophie – Live (<strong>Avec Grégoire Perra, Élisabeth Feytit et Richard Monvoisin</strong>)</a></li>
-<li><a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/">SHOCKING #6 - Confidences d’une ex-gourou (<strong>Avec Jessica Schab</strong>)</a><ul>
-<li><a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/#comment-1166">19 avril 2022 à 21 h 07 min</a></li>
-</ul>
-</li>
-<li><a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/">SCOOP ! #6 - L’Univers a parlé (<strong>Par Élisabeth Feytit</strong>)</a><ul>
-<li><a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/#comment-1165">19 avril 2022 à 21 h 01 min</a></li>
-</ul>
-</li>
-<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/">SHOCKING #23 - Yoga, super-pouvoirs et secte sexuelle (<strong>Avec Geoffrey L’anonyme</strong>)</a><ul>
-<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1067">8 mars 2022 à 8 h 20 min</a></li>
-<li><a href="https://metadechoc.fr/podcast/yoga-super-pouvoirs-et-secte-sexuelle/#comment-1160">19 avril 2022 à 1 h 27 min</a></li>
-</ul>
-</li>
-<li><a href="https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/">SHOCKING #20 - Sexualité : un monde de croyances (<strong>Avec Marianne Niosi,</strong> directrice de la confédération du Planning familial)</a></li>
-<li><a href="https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/">STREAM #6 - La métacognition sauvera-t-elle le monde ? (<strong>Avec Emmanuel Sander et Élisabeth Feytit</strong>)</a><ul>
-<li><a href="https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170">23 avril 2022 à 15 h 52 min</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="A-suivre-sur-CyberMindFR"><a href="#A-suivre-sur-CyberMindFR" class="headerlink" title="À suivre sur @CyberMindFR"></a>À suivre sur @CyberMindFR</h1><ul>
-<li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
-<li><a href="https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/">Préface - Une vie en anthroposophie (<strong>Richard Monvoisin</strong>)</a></li>
-<li><a href="https://cybermind.fr/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/">L’esprit critique - Bande Dessinée aux Éditions Delcourt</a></li>
-<li><a href="https://cybermind.fr/fr/Mind/Derives-La-secte-aux-1000-gourous/">Dérives - La secte aux 1000 gourous</a></li>
-<li><a href="https://cybermind.fr/tags/LSA1KG/">L’étude, (en cours) sur “La Secte Aux 1.000 Gourous” (#LSA1KG) 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</a></li>
-<li>…</li>
-</ul>
-<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
-<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
-]]></content>
-      <categories>
-        <category>Mind</category>
-      </categories>
-      <tags>
-        <tag>podcast</tag>
-        <tag>zététique</tag>
-        <tag>sceptique</tag>
-        <tag>LSA1KG</tag>
-        <tag>The Conjurers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Préface - Une vie en anthroposophie</title>
-    <url>/fr/Mind/Preface-Une-vie-en-anthroposophie/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Livre-Une-vie-en-anthroposophie"><a href="#Livre-Une-vie-en-anthroposophie" class="headerlink" title="Livre : Une vie en anthroposophie"></a>Livre : Une vie en anthroposophie</h1><h2 id="La-face-cachee-des-ecoles-Steiner-Waldorf"><a href="#La-face-cachee-des-ecoles-Steiner-Waldorf" class="headerlink" title="La face cachée des écoles Steiner-Waldorf"></a>La face cachée des écoles Steiner-Waldorf</h2><p>de <a href="https://www.laroutedelasoie-editions.com/nos-auteurs/gr%C3%A9goire-perra/">Grégoire Perra</a> &amp; <a href="https://www.laroutedelasoie-editions.com/nos-auteurs/elisabeth-feytit/">Élisabeth Feytit</a>  </p>
-<p>Merci aux <a href="https://www.laroutedelasoie-editions.com/">éditions La Route de la soie</a>…</p>
-<img src="/uploads/images/visuels/METADECHOC-BOOKS.jpg" width="600px" heigth="450px">
-
-<p>Merci également à <a href="https://fr.wikipedia.org/wiki/Richard_Monvoisin">Richard Monvoisin</a> pour sa préface qu’il m’a <a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/#comment-484">autorisé à reproduire</a> ici…</p>
-<p>Préface de  Richard Monvoisin, didacticien des sciences<br>spécialiste des théories étranges, il enseigne la pensée critique à l’Université Grenoble-Alpes </p>
-<p>Le livre paru le 25 novembre 2020 aux <a href="https://www.laroutedelasoie-editions.com/notre-catalogue/m%C3%A9ta-de-choc/une-vie-en-anthroposophie/">éditions La Route de la soie</a> est une retranscription agrémentée de l’entretien entre Élisabeth Feytit, du <a href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">podcast Méta de choc</a>, et <a href="https://fr.wikipedia.org/wiki/Gr%C3%A9goire_Perra">Grégoire Perra</a>, ancien enseignant d’école Steiner-Waldorf, désormais transfuge du mouvement anthroposophique. Richard Monvoisin en a fait la préface, que je vous relais ici.</p>
-<span id="more"></span>
-<h1 id="Preface-Une-vie-en-anthroposophie"><a href="#Preface-Une-vie-en-anthroposophie" class="headerlink" title="Préface : Une vie en anthroposophie"></a><a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/">Préface : Une vie en anthroposophie</a></h1><p>Je me pose souvent la question de savoir s’il est moral, dans l’absolu, de faire un enfant. Se demander si l’espérance de vie à la naissance qu’on lui donne est correcte ; s’interroger sur ses chances de survivre à la mort subite, aux maladies infantiles, aux coins de table et aux passages cloutés. On peut questionner la famille qu’on lui donne, avec parents violents ou non, présence de livres ou pas, catéchisme obligatoire ou non avec le père Preynat, confort financier de départ ou capital symbolique conséquent ; du lieu où il naît – serait-il plus moral de faire naître un enfant en Normandie que dans l’Uttar Prasdesh ? La vie vaut-elle la peine d’être vécue dans une forêt d’altitude du Montana, loin du gradient de pollution, ou près d’un champ d’épandage de produits phytosanitaires dans la Beauce ? On peut ergoter sur la qualité du monde dans lequel on le lance tel un paquet, une France autodéclarée patrie des droits de l’Humain, mais troisième vendeuse d’armement au monde, refusant l’asile à Julian Assange et capable de s’ingérer militairement dans les affaires d’autres pays sans mandat international. On peut s’inquiéter de ne pas avoir préparé, à ce charmant bambin, cette mignonne bambine, un modèle économique dans lequel les droits des individus dépasseraient les droits des entreprises et où fortune et capital ne pourraient être amassés sans limite par certains, tandis que d’autres meurent des mouches dans les yeux. De lui imposer un environnement qui se réchauffe, des pénuries d’eau, des oiseaux et des insectes qui disparaissent. Bref, inviter à naître quelqu’un dans ce bourbier ne va pas de soi, et le regretté philosophe Ruwen Ogien tranchait ainsi la question : si l’on est loin d’être certain de garantir le bonheur d’un gamin, on peut par contre être sûr qu’il endossera une grosse dose de souffrance, que ce soit le harcèlement à l’école ou les chagrins d’amour, la maltraitance au travail ou les violences conjugales.</p>
-<p>Je crois que je suis d’accord avec lui. J’ai moi-même fait deux enfants, et je trouve ça aussi plaisant qu’immoral. Maintenant, à moins de les emmener couper du bois la nuit et de les perdre dans la forêt, je suis condamné à m’en occuper jusqu’à leur émancipation. Et de fait les lambeaux qui restent de ma moralité me poussent à leur offrir force câlins et bisous placebo, mais aussi un maximum d’outils intellectuels, afin qu’ils puissent déjouer les sirènes des propagandes, contourner les pièges des pseudosciences, briser les plafonds de verre sociologiques et aller bouter hors de leur cerveau tous les rétrécisseurs d’horizon.</p>
-<p>C’est l’une des raisons de mon fort intérêt pour les pédagogies dites alternatives. Certes, mon côté jacobin défend les vertus de l’enseignement public, mixité sociale, tronc de savoir commun, fonctionnariat et service public, mais je sais bien, pour l’avoir vécu dans ma chair, le caractère mortifère que cela peut prendre : relations autoritaires prof-élève, classes surchargées, nivelage du niveau, manque de moyens, pantomime politique de la représentation des délégués de classe…</p>
-<p>Mon avis sur la question, en tant que pédagogue, rejoint en quelque sorte celui que je défends sur les thérapies « alternatives » : s’empresser de mettre ce qui ne fonctionne pas au grenier des théories fausses, mais bien prendre leçon de tout ce qui participe des effets contextuels dits « placebo », comme la prise en charge longue, aimable et enchanteresse dans ces thérapies, et de réinjecter le tout dans le soin scientifique public.</p>
-<p>En terme d’éducation, idem : je rêve de garder une coquille commune, populaire et gratuite, avec des enseignants salariés et des moyens conséquents dans des classes légères. Puis d’y importer la pertinence des concepts de John Dewey, Paolo Freire, Francisco Ferrer ou Célestin Freinet, qui font souffler un vent de libertarisme sur et dans nos chères têtes blondes (ou brunes, ou crépues, chauves, peu importe).</p>
-<p>Mais comme l’écrivait Michael Shermer1, heresy does not imply correctness. Qui dit « hérétique », ou « alternatif », ne signifie pas forcément exact ou valable. Et dans la gamme des pédagogies alternatives faussement émancipatrices, arrive probablement en tête celle des écoles Steiner-Waldorf. Car aussi séduisantes et bien achalandées soient ces dernières, aussi flatteuse et ostentatoire y soit l’inscription de son enfant, la pédagogie Steiner est malheureusement un étonnant, un remarquable leurre.</p>
-<p>Quiconque envisageant de mettre son enfant dans une telle école bénéficierait d’y réfléchir à deux fois, tourner sept fois sa langue dans sa bouche, encore sept fois dans la bouche de quelqu’un d’autre, et surtout lire les lignes qui suivent. Ces lignes retracent le chemin de Grégoire Perra, non seulement ancien élève d’école Steiner-Waldorf, mais devenu lui-même enseignant de ce type d’établissement, avant de tout plaquer.</p>
-<p>Ce monsieur explique à qui veut bien l’entendre ‒ et Élisabeth Feytit veut bien l’entendre ‒ que dans ces écoles, sous prétexte de liberté maximisée, l’enfant y est très peu guidé, et souvent laissé à sa propre inertie. Les mantras le disputent aux récitations. Les mythes et légendes s’entremêlent à l’enseignement de l’Histoire. Les cycles censés régir le développement de notre chérubin sont des cycles cosmiques, postulés par des auteurs de science-fiction spirituelle venus de la Théosophie, une doctrine syncrétiste spirite de 1875. L’étude des genres féminin et masculin se traduisent en termes essentialistes, les « courbes » féminines étant lucifériennes, les « droites » masculines relevant quant à elles d’Arhiman, l’autre démon, terrestre, froid et éthérique. Et attention à ne pas prendre la pilule, de peur de se couper du cycle cosmique.</p>
-<p>Dans l’éducation physique professée se loge l’eurythmie, sorte de rituel dansé qui prend rapidement un tour curatif : les séries de mouvements réalisés seraient conseillées entre autres pour les pathologies aiguës, chroniques ou dégénératives des système nerveux et circulatoire, sans pour autant avoir été l’objet d’évaluations. D’ailleurs, les soins qui y sont vantés n’ont généralement pas de fondements scientifiques, ce qui n’est finalement pas si grave si l’on accepte la prémisse posée par le fondateur de ce type d’école, affirmant que les maladies ne sont pas des maladies à proprement parler mais des « dettes karmiques », des sortes de fautes contractées dans une vie antérieure, dont il faut bien un jour s’acquitter. Quant au cancer, qui serait une trop forte stimulation des organes par Lucifer, l’ange déchu, il serait aisément combattu par Viscum album, le gui qui, une fois fermenté, serait par essence préservé de l’influence « aérienne » du démon. Si en lisant cela, comme moi, le sang pulse fort dans vos pariétaux, ne craignez rien : le sang est l’apanage du Dieu Thor, et le pouls est la conséquence des coups qu’il frappe avec son marteau Mjöllnir.</p>
-<p>Tout cela est-il si surprenant, une fois que l’on sait que le nom Steiner, adossé à la pédagogie de ces écoles, est le nom de famille de Rudolf, occultiste autrichien du début du XXe. Rudolf Steiner, auteur d’ouvrages incompréhensibles (j’en ai lu un certain nombre), dont les linéaments sont l’ordination des races, les êtres ascensionnés qui vivent dans le ciel, une Nature de type divin et les cycles astrologiques. Le même Steiner, qui, empruntant à Goethe son romantisme antiscience et refusant toute démarche expérimentale, fantasmait un monde cosmo-racialiste dans une doctrine appelée Anthroposophie. Or cette doctrine est le corpus de ces écoles Steiner-Waldorf. C’est aussi le cœur de meule de la « médecine » anthroposophique, qu’aucune instance médicale européenne ne reconnaît. La Suisse est l’unique exception : la Chambre médicale y reconnaît provisoirement la médecine anthroposophique, et une partie des actes est prise en charge par les acteurs (tous privés) de l’Assurance-maladie hélvète, en dépit d’une « incapacité à répondre à l’exigence légale d’efficacité ».</p>
-<p>C’est encore le moteur idéologique d’entreprises entières, comme Demeter, Weleda, Triodos Bank ou la Nef. L’illuminisme assumé de Steiner perfuse aussi une agronomie de type magique, la biodynamie, qui, révélée dans une sorte d’épiphanie, suit les rythmes planétaires et les associations de forces occultes. Les outils y sont par exemple l’achillée millefeuille ligaturée dans une vessie de cerf, le tout enterré durant l’hiver moitié sous terre moitié au-dessus, puis diluée dans un tas de fumier. Pourquoi ? Steiner lui-même l’explique dans la cinquième conférence de son cycle de juin 1924, qui sert d’ouvrage de référence :</p>
-<blockquote>
-<p>« Le cerf est une créature animale (…) dans un rapport particulièrement étroit (…) avec ce qui dans cet environnement est de nature cosmique, (…) si bien que la vessie du cerf est presque une image reflétée du cosmos. (…) [Alors] le rayonnement agit. Il y a dans cette substance une force de radiation si extraordinaire – le matérialiste ne refusera pas de croire à des forces de radiation, lui qui parle de radium – pour peu qu’on la mette dans le fumier ».</p>
-</blockquote>
-<p>De même, la bouse de vache enterrée dans une corne, la camomille dans un boyau de bovin ou l’écorce de chêne dans un crâne de cheval « de moins d’un an » deviennent des stimulations plus ou moins astrales, éthériques ou spirituelles.</p>
-<p>Il est difficile de concevoir que nous ayons mis plusieurs milliers d’années à sortir des cosmogonies infantiles et à construire des savoirs collectifs non mystiques, et que nous soyons si prompts à replonger dans des modèles scolaires de ce genre. Pourtant, il y a un enjeu de taille. Je ne parlerai pas du soutien personnel d’une ministre récente à ces écoles, ce qui me semble être un épiphénomène, non, je parle de comment faire société avec cela ? Ces écoles proposent, en paraphrasant Steiner, d’« éduquer vers la liberté ». Mais pas n’importe quelle liberté, si ce n’est celle d’absorber un certain nombre de couleuvres pseudoscientifiques, sur la simple base d’une révérence envers un illuminé mystique. Et pas pour tout le monde ! Selon le fondateur, seuls certains « élus » sont dignes de recevoir le monde « idéel ». Et dans la vision apocalyptique de Steiner, lorsque la civilisation actuelle va entrer dans une décadence totale et s’effondrera sur elle-même, ne restera que les écoles Steiner, sortes d’îlots de culture qui seront le modèle de la prochaine civilisation.</p>
-<p>C’est en cela que les propos de Grégoire Perra sont honnêtes, courageux, et nécessaires.</p>
-<p>Ils sont honnêtes car il faut du courage pour sortir d’une escalade d’engagement à grande échelle, pour prendre de plein fouet sa dissonance et faire un pas de côté pour considérer le chemin parcouru d’un œil sceptique. Serais-je capable de faire la même chose ? J’en doute. Courageux du fait des poursuites, inutiles mais éreintantes, qui lui sont régulièrement faites. Il n’est pas donné à tout un chacun de supporter, moralement et financièrement la vindicte des gens de son ancien monde. Nécessaires enfin car le modèle de société présenté dans ces écoles doit apparaître pour ce qu’il est : un salmigondis brumeux, mysticoïde et conservateur. C’est seulement au prix de la lecture douloureuse des mots de Grégoire Perra, accouchés avec talent par Élisabeth Feytit, que les parents pourront alors faire un choix éclairé pour leurs enfants. Ogien le philosophe disait que seuls nos enfants pourront un jour nous absoudre de la faute morale de les avoir mis au monde. Pourront-ils facilement nous absoudre de les avoir envoyés en école Steiner-Waldorf ? Certainement, avant l’existence de ce bouquin. Après, je ne garantis pas.</p>
-]]></content>
-      <categories>
-        <category>Mind</category>
-      </categories>
-      <tags>
-        <tag>zététique</tag>
-        <tag>sceptique</tag>
-        <tag>LSA1KG</tag>
-        <tag>livre</tag>
-        <tag>dérive</tag>
-        <tag>secte</tag>
-        <tag>alerte</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bienvenue</title>
-    <url>/fr/Cyber/Mind/welcome/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Développement en cours…</p>
-<p>Restez à l’écoute!</p>
-<h2 id="Bonjour-a-tous-👋"><a href="#Bonjour-a-tous-👋" class="headerlink" title="Bonjour à tous 👋"></a>Bonjour à tous 👋</h2><p><strong>Voici quelques idées que vous devez connaître sur les règles de CyberMind :</strong></p>
-<p>🙋‍♀️ Une courte introduction ?<br>-&gt; Code Open Source</p>
-<span id="more"></span>
-
-<p>🌈 Consignes personnelles ?<br>-&gt; CyberSecurity expérimenté, gratuit comme dans la bière gratuite, contributeur de code de longue date.</p>
-<p>🌈 Consignes de contribution ?<br>-&gt; Code Open Source, dans le respect des droits de l’homme.</p>
-<p>👩‍💻 Ressources utiles ?<br>-&gt; Alors, profitez-en ou améliorez-le par vous-même.</p>
-<p>🍿 Faits amusants ?<br>-&gt; Restez à l’écoute pour en savoir plus (ou faites-le vous-même…)</p>
-<p>🧙 N’oubliez pas, à utiliser à vos risques et périls… 😎</p>
-<p><img src="https://github-readme-stats.vercel.app/api?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="Gandalf&#39;s GitHub stats"></p>
-<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=erdoukki&count_private=true&show_icons=true&theme=gotham" alt="Gandalf&#39;s GitHub langs stats"></p>
-]]></content>
-      <categories>
-        <category>Cyber</category>
-        <category>Mind</category>
-      </categories>
-      <tags>
-        <tag>news</tag>
-        <tag>SECUBOX</tag>
       </tags>
   </entry>
   <entry>
