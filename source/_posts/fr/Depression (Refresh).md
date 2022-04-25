@@ -22,7 +22,7 @@ Je laisse le sujet initial et les parties inspirations, raisons dans le sujet or
 Car rapidement après ce premier article sur les dégâts des dérives sectaires et autres pseudo médecines alternatives, il m'est apparu que la dépression pouvait avoir bien d'autres raisons et que les dérives étaient aussi nombreuses dans d'autres domaines que les croyances.
 La manipulation de masse est agile est facile de nos jours et de nombreuses structures se créé partout.
 Des associations d'aide deviennent des bons business qui cultivent et parfois même alimentent une profonde souffrance.
-Mais ce sont donc d'autres sujets que je traiteraient ultérieurement, je peux juste vous mettre en appétit en vous suggérant que le costume, même bardés de rayures, ne fait jamais l'individu qui le porte, ou le contraire !
+Mais ce sont donc d'autres sujets que je traiterais ultérieurement, je peux juste vous mettre en appétit en vous suggérant que le costume, même bardés de rayures, ne fait jamais l'individu qui le porte, ou le contraire !
 
 ## STOP ##
 <!-- more -->
