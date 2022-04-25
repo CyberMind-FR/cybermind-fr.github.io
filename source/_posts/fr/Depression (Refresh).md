@@ -16,7 +16,7 @@ categories: Mind
 
 **#Dépression - Sortir de la boucle**
 
-Sujet initial: [Dérives - La secte aux 1000 gourous](/fr/Derives-La-secte-aux-1000-gourous)
+Sujet initial: [Dérives - La secte aux 1000 gourous](/fr/Mind/Derives-La-secte-aux-1000-gourous)
 
 Je laisse le sujet initial et les parties inspirations, raisons dans le sujet original.
 Car rapidement après ce premier article sur les dégats des dérives sectaires et autres pseudo médecines alternatives, il m'est apparu que la depression pouvait avoir bien d'autres raisons et que les dérives étaient aussi nombreuses dans d'autres domaines que les croyances.
@@ -252,7 +252,7 @@ C'est ainsi, mais tenter, essayer, c'est aller jusqu'au **bout** le bon celui ve
 [{% img "/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" 270 270 %}](https://monpsy.sante.gouv.fr/patients "MonPsy.sante.gouv.fr - Visiter !")
 
 <details>
-  <summary>Cliquer pour afficher la vidéo de présenation…</summary>
+  <summary>Cliquer pour afficher la vidéo de présentation…</summary>
 Découvrir MonPsy en vidéo (Durée 2 minutes)
 {% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 

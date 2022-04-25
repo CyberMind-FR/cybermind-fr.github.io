@@ -254,7 +254,7 @@ Les aidants : soutenir, tenir et guérir
 [{% img "/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" 270 270 %}](https://monpsy.sante.gouv.fr/patients "MonPsy.sante.gouv.fr - Visiter !")
 
 <details>
-  <summary>Cliquer pour afficher la vidéo de présenation…</summary>
+  <summary>Cliquer pour afficher la vidéo de présentation…</summary>
 Découvrir MonPsy en vidéo (Durée 2 minutes)
 {% dplayer "url=https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
