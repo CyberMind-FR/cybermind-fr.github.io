@@ -32,6 +32,7 @@ So many other questions that find their (beginning of) answer on the fabulous po
 
 ## My playlist @MetaDeChoc ##
 - [SHOCKING #11 - L’astrologie, ça marche !… Trop. (**Avec Serge Bret-Morel,** spécialiste de la critique de l'astrologie)](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/)
+  - [26 avril 2022 à 06 h 48 min](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/#comment-1172)
 - [SHOCKING #16 - Contes et légendes de l’intelligence (**Avec Stéphanie Aubertin,** psychologue)](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence)
   - [17 mars 2022 à 11 h 58 min](https://metadechoc.fr/podcast/contes-et-legendes-de-lintelligence/#comment-1081)
 - [SHOCKING #5 - Une vie en anthroposophie (**Avec Grégoire Perra,** professeur de philosophie)](https://metadechoc.fr/podcast/une-vie-en-anthroposophie)
