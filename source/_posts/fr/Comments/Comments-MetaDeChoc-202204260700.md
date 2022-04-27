@@ -17,7 +17,7 @@ categories:
 
 Ceci est mon commentaire publié à l'origine sur MétaDeChoc suite à mon retour le matin du 26 avril 2022 arpès l'écoute d'une émssion sur France Bleu mais surtout pour remercier MétaDeChoc pour l'émission - [SHOCKING #11 - L’astrologie, ça marche !… Trop. (**Avec Serge Bret-Morel,** spécialiste de la critique de l'astrologie)](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/) qui avait été à l'origie du premier billet [#LSA1KG - MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…](https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/)
 
-Voici le commentaire publié (en attente de validation à ce jour) [26 avril 2022 à 06 h 48 min](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/#comment-1172)
+Voici le commentaire publié [26 avril 2022 à 06 h 48 min](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/#comment-1172)
 
 <!-- more -->
 ---8<---
@@ -63,8 +63,9 @@ Je dirai donc que c'est cette écoute, faites en couple, que je me garde la boul
 Belle journée, soirée, nuit, en tout cas écoute et remise en question, à tous !
 Gérald
 ---8<---
-Et là; les larmes ont coulées, pas trop, pas trop longtemps, mais cette intensité fugace est violente, elle est aussi à toi mon amour, Petite fleur, ma fée, étoile filante, Miss Ange !
+Et là; les larmes ont coulées, pas trop, pas trop longtemps, mais cette intensité fugace et violente, elle est aussi à toi mon amour, Petite fleur, ma Fée, Étoile Filante, Miss Ange !
 à NOUS...
+COURAGE !
 
 ⚠️ Warning, this page will be updated regularly ! 👀
 
