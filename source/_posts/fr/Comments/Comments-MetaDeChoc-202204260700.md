@@ -10,7 +10,9 @@ tags:
 - LSA1KG
 - The Conjurers
 - comments
-categories: Mind
+categories:
+- Mind
+- Commentaires
 ---
 
 Ceci est mon commentaire publié à l'origine sur MétaDeChoc suite à mon retour le matin du 26 avril 2022 arpès l'écoute d'une émssion sur France Bleu mais surtout pour remercier MétaDeChoc pour l'émission - [SHOCKING #11 - L’astrologie, ça marche !… Trop. (**Avec Serge Bret-Morel,** spécialiste de la critique de l'astrologie)](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/) qui avait été à l'origie du premier billet [#LSA1KG - MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…](https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/)

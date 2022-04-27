@@ -11,7 +11,9 @@ tags:
 - LesConseilsduPsy
 - The Conjurers
 - LSA1KG
-categories: Mind
+categories:
+- Mind
+- Conseils
 ---
 
 #Dépression - Sortir de la boucle

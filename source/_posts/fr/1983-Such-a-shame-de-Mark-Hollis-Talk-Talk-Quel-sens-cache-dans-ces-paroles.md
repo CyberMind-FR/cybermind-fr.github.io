@@ -22,7 +22,9 @@ tags:
 - Alerte
 - Mark Hollis
 - Génie
-categories: Mind
+categories:
+- Mind
+- Musiques
 ---
 
 # Such a shame #

@@ -10,7 +10,9 @@ tags:
 - secte
 - alerte
 - LSA1KG
-categories: Mind
+categories: 
+- Mind
+- Livres
 ---
 # Livre : Une vie en anthroposophie
 ## La face cachée des écoles Steiner-Waldorf 

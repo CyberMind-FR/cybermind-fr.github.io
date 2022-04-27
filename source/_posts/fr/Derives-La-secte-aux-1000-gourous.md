@@ -21,7 +21,8 @@ tags:
 - LesConseilsduPsy
 - The Conjurers
 - LSA1KG
-categories: Mind
+categories:
+- Mind
 ---
 
 **#LaSecteAux1000Gourous (#LSA1KG)**

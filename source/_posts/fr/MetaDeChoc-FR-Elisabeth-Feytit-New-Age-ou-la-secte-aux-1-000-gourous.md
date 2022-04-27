@@ -9,7 +9,9 @@ tags:
 - sceptique
 - LSA1KG
 - The Conjurers
-categories: Mind
+categories:
+- Mind
+- Podcasts
 ---
 
 # LaSecteAux1000Gourous #
