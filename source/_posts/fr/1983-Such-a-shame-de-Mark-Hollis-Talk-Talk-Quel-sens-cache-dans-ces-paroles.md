@@ -193,7 +193,7 @@ Je vous laisse à votre analyse de ce petit bout de vie.
 - Ce n'est qu'un symbole sur l'imagination et son interprétation.
 - Ce n'est aussi qu'une vue d'espoir sur l'évolution d'une idée, d'un symbole, du sens qu'on peut donner et remettre en questions.
 
-> *Enfin, malgré tout, cette chanson, à presque 40 ans, et elle me fait toujours un effet incompréhensible !*
+> *Enfin, malgré tout, cette chanson, après presque 40 ans, et elle continue de me faire encore et encore un effet incompréhensible !*
 > *Merci, **Mark Hollis**, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.*
 
 Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.
