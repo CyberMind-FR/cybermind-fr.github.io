@@ -14,7 +14,7 @@ Informations bancaires : \
 IBAN: FR76 1027 8088 9400 0205 6360 163 \
 BIC: CMCIFR2A
 
-* [PAYPAL](HTTPS://PAYPAL.ME/KERMA)
+* [PAYPAL](HTTPS://PAYPAL.ME/KERMA) (Pensez à ajouter 5% à vos paiements PayPal, MERCI !!!)
 * [PATREON](https://patreon.com/cybermind)
 * [LIBERAPAY](https://liberapay.com/CyberMind/)
 * [UTIP](https://www.utip.io/CyberMind/)
