@@ -85,4 +85,22 @@ et n'oubliez pas qu'**"UNE CORRÉLATION N'EST PAS UNE RELATION DE CAUSE À EFFET
 
 Je vais terminer la lecture, avant !
 
+## Suite & Fin
+
+Et bien il était **VRAIMENT** TIP TOP !
+À mettre dans toutes les mains...
+Ma compagne a accepté le cadeau que je lui en ai fait, m'a dit l'avoir **beaucoup** apprécié et devoir le relire !
+C'était sa première tentative dans les livres à bulles (ou BD) et le succès a été au rendez-vous.
+Une réussite de plus...
+Merci... (encore)
+
+## Nouvelle commande ce jour
+
+Je viens de recommander un nouvel exemplaire, ça peut être utile à prêter ou même offrir, donc il vaut mieux que j'en ai un de réserve.
+Et puis je l'ai accompagné de 2 autres livres à bulles découvert au détour de mes recherches de sensibilisation sur les Dérives.
+Comme ma compagne souhaite que nous partageions notre expérience, nos expériences dans nes aventures personnelles, j'entame une nouvelle collection.
+Si vous connaissez un graphiste prêt à mettre en image mes élucubrations scénaristiques ?!
+Contacter-moi vite !
+*Le Best Seller intelligent nous attends !!! :-) (allez, et hop, un smiley "rétro")*
+
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022
