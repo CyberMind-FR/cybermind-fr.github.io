@@ -8,7 +8,7 @@ categories:
 - Livres
 ---
 
-Alors là, une petite pétpite !
+Alors là, une petite pépite se propose, se suggère, se dévoile !
 
 Je découvre la date, le titre, le sujet, le sommaire, la préface.
 ARG.
