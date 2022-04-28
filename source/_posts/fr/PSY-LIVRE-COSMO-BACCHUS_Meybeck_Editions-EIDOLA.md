@@ -62,7 +62,6 @@ Au delàs des bruits assourdissants, au delà du voile mystique...
 
 À suivre donc...
 
-<img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_002.jpeg" width="384px" heigth="512px">
 
 <img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_003.jpeg" width="512px" heigth="242px">
 
@@ -70,11 +69,11 @@ Au delàs des bruits assourdissants, au delà du voile mystique...
 
 Allez, on lâche toujours rien ? Pas cette fois non plus !!!
 
-<img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_004.jpeg" width="336px" heigth="512px">
-
-<img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_005.jpeg" width="384px" heigth="288px">
+<img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_002.jpeg" width="384px" heigth="512px">
 
 <img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_006.jpeg" width="384px" heigth="288px">
+
+<img src="/uploads/images/SNAPS/BACCHUS/COSMO-BACCHUS-2022-04-28-120041_005.jpeg" width="384px" heigth="288px">
 
 # TODO
 * - Demander l'autorisation à Richard Monvoisin & Meybeck de publier la photo de la préface (peut-être !?)*
