@@ -37,7 +37,7 @@ Encore
 Puisque maintenant c'est en mode "automatique"
 Le volume un peu plus fort, pas trop, il faut pouvoir le monter, encore et encore, plus tard...
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image016.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image016.png" width="512px" height="">
 
 <!-- more -->
 
@@ -50,7 +50,7 @@ Je découvre d'autres petites pépites cachées dans ces histoires, mais uniquem
 J'ai entamé mon écoute de Georges Brassens hier matin.
 L'intégrale va tourner en répétition pendant un certain temps.
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/signal-2022-04-28-104003.jpeg" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/signal-2022-04-28-104003.jpeg" width="512px" height="">
 
 Je sais maintenant à quoi servent ces messages qu'on se laissent, que je me suis laissés depuis mon passé sombre.
 Mes Jokers m'ont permis de toujours me relever de tout, toujours !
@@ -69,9 +69,9 @@ Ce matin ce sera un autre titre de mon florilège actuel, des ma réserve de Jok
 
 Préparée après une initiative fortuite et en réflexe de réponse à un "Petit Break" !
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image011.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image011.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image014.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image014.png" width="512px" height="">
 
 ## Pourquoi se relever ?!
 
@@ -90,9 +90,13 @@ J'ai décidé de comprendre et de ne plus agir, ne plus tenter à conjurer ce so
 J'en ai été moi même la victime il y a bien longtemps.
 Le téléphone et surtout le numéro associé à mon identité de cette époque, cette chose précieuse que même "le précieux", "le trésor" de Gollum ne peut espérer devenir !
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image015.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image015.png" width="512px" height="">
 
-<https://youtu.be/Sze-FFra16c>
+<details>
+  <summary>Une petite Vidéo de Goloum et son…</summary>
+{% youtuber video Sze-FFra16c %}
+{% endyoutuber %}
+</details>
 
 Ce téléphone m'avait été coupé, mon numéro changé, j'ai compris hier au matin ce que cela avait signifié et surtout ce que cela avait permis et rendu possible, accessible, atteignable à nouveau...
 
@@ -131,7 +135,7 @@ Je tenterai simplement, encore et encore, de faire aux mieux pour regretter le m
 
 # Album - Dee Dee Bridgewater - 1989 - Victim of Love (Reissue)
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image002.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image002.png" width="512px" height="">
 
 # Morceau -  #05 -  Precious Thing (Till The Next... Somewhere)
 
@@ -263,25 +267,25 @@ Dee Dee Bridgewater est membre du Haut Conseil de la Francophonie (la première 
 
 
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image001.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image001.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image003.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image003.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image004.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image004.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image005.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image005.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image006.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image006.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image007.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image007.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image008.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image008.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image009.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image009.png" width="512px" height="">
 
-<img src="./FREE-MOBILE-PRECIOUS-THING/pasted_image010.png" width="512px" height="">
+<img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image010.png" width="512px" height="">
 
 
 # Références - Sources
