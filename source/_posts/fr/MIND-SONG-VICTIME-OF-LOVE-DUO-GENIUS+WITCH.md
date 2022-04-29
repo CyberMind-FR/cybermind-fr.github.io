@@ -1,6 +1,5 @@
 ---
-title: >-
-  MIND - SONG - Till The Next... - « The Genius » & « The Good Witch »
+title: Till The Next... - « The Genius » & « The Good Witch »
 lang: fr
 date: 2022-04-29 08:00:00
 author: 🧙 -- Gandalf (from "The Conjurers")
