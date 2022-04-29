@@ -1,6 +1,6 @@
 ---
 title: >-
-  1989 - Till The Next... Somewhere (de Dee Dee Bridgewater en duo avec Ray Charles) - « The Genius » & « The Good Witch »
+  MIND - SONG - Till The Next... - « The Genius » & « The Good Witch »
 lang: fr
 date: 2022-04-29 08:00:00
 author: 🧙 -- Gandalf (from "The Conjurers")
@@ -26,6 +26,7 @@ categories:
 # « The Genius » & « The Good Witch »
 
 >« Le Génie » & « La Gentille Sorcière »
+>>1989 - Till The Next... Somewhere (de Dee Dee Bridgewater en duo avec Ray Charles) - « The Genius » & « The Good Witch »
 
 ## La boucle - La spirale
 
