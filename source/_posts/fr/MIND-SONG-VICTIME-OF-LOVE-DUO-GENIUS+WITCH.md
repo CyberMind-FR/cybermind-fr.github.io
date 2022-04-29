@@ -94,7 +94,7 @@ Le téléphone et surtout le numéro associé à mon identité de cette époque,
 <img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image015.png" width="512px" height="">
 
 <details>
-  <summary>Une petite Vidéo de Goloum (ou Smirgold) et son…</summary>
+  <summary>Une petite Vidéo de Gollum (ou Smirgold) et son…</summary>
 
 {% youtuber video Sze-FFra16c %}
 {% endyoutuber %}
