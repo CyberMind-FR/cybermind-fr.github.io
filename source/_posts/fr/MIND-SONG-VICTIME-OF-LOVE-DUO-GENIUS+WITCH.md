@@ -94,14 +94,16 @@ Le téléphone et surtout le numéro associé à mon identité de cette époque,
 <img src="/uploads/images/FREE-MOBILE-PRECIOUS-THING/pasted_image015.png" width="512px" height="">
 
 <details>
-  <summary>Une petite Vidéo de Goloum et son…</summary>
+  <summary>Une petite Vidéo de Goloum (ou Smirgold) et son…</summary>
+
 {% youtuber video Sze-FFra16c %}
 {% endyoutuber %}
+
 </details>
 
 Ce téléphone m'avait été coupé, mon numéro changé, j'ai compris hier au matin ce que cela avait signifié et surtout ce que cela avait permis et rendu possible, accessible, atteignable à nouveau...
 
-Et voilà, mon constat, que de nos expériences nous ne tirons jamais que la surface, quand ce sont de toutes petites actions autour de nous, oubliées, des proches, de la famille, qui peuvent essayer et qui auront pour **moi** contribuées et permises de retrouver le monde des [moldus](<https://fr.wikipedia.org/wiki/Moldu)[*]> !
+Et voilà, mon constat, que de nos expériences nous ne tirons jamais que la surface, quand ce sont de toutes petites actions autour de nous, oubliées, des proches, de la famille, qui peuvent essayer et qui auront pour **moi** contribuées et permises de retrouver le monde des [moldus](https://fr.wikipedia.org/wiki/Moldu)[*] !
 
 ## Pourquoi se tenter !?
 
@@ -291,7 +293,7 @@ Dee Dee Bridgewater est membre du Haut Conseil de la Francophonie (la première 
 
 # Références - Sources
 
-[*][Moldu (Muggle en anglais) est une personne dépourvue de pouvoir magique](<https://fr.wikipedia.org/wiki/Moldu>)
+[*][Moldu (Muggle en anglais) est une personne dépourvue de pouvoir magique](https://fr.wikipedia.org/wiki/Moldu)
 
 ## Conclusion ##
 
