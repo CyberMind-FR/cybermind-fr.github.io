@@ -27,7 +27,7 @@ categories:
 
 <!-- more -->
 
-## @ P'tit Bob ##
+## @ P'tit Bob. ##
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_003.jpeg" width="288px" height="384px">
 
