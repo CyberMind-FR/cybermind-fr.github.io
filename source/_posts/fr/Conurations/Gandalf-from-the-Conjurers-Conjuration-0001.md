@@ -1,5 +1,5 @@
 ---
-title: Gandalf (from the Conjurers) - Conjuration
+title: Gandalf (from the Conjurers) - Conjuration (#0001)
 lang: fr
 date: 2022-04-30 23:59:00
 author: 🧙 -- Gandalf (from "The Conjurers")
@@ -24,10 +24,11 @@ categories:
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_001.png" width="177px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_002.jpeg" width="288px" height="384px">
+<!-- more -->
+## @ P'tit Bob ##
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_003.jpeg" width="288px" height="384px">
 
-<!-- more -->
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_004.jpeg" width="512px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_005.jpeg" width="512px" height="384px">
