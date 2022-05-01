@@ -5,6 +5,17 @@ lang: en
 comments: false
 ---
 
+# Mind #
+
+CyberMind officialy support, modestly:
+* [Méta de Choc](https://fr.tipeee.com/meta-de-choc)
+* [Clément Freze - Mentaliste](https://fr.tipeee.com/clementfreze)
+* [Penseur Sauvage](https://fr.tipeee.com/penseur-sauvage)
+
+Please do the same to help...
+
+# Cyber #
+
 In the principles of support in innovative solutions of CyberSecurity and designs and developments based on free software...
 
 CyberMind is currently developing security network hardware, in partnership with CrowdSec and GlobalScaleTechnologies.
