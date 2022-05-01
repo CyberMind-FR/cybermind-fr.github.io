@@ -27,9 +27,9 @@ categories:
 
 <!-- more -->
 
-## @ P'tit Bob. ##
-
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_003.jpeg" width="288px" height="384px">
+
+## @ P'tit Bob. ##
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_004.jpeg" width="512px" height="384px">
 
@@ -40,10 +40,6 @@ categories:
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007.png" width="512px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008.jpeg" width="512px" height="384px">
-
-<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_009.png" width="288px" height="384px">
-
-<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010.jpeg" width="288px" height="384px">
 
 ## Message ? ##
 
@@ -57,6 +53,10 @@ categories:
 >>>>🧚‍♀️💙💫
 >>>
 >>>Mariiiiiiiia
+
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_009.png" width="288px" height="384px">
+
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010.jpeg" width="288px" height="384px">
 
 ## À suivre... ##
 
