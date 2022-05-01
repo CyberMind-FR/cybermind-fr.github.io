@@ -37,11 +37,11 @@ categories:
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_006.jpeg" width="512px" height="384px">
 
+## Message ? ##
+
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007.png" width="512px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008.jpeg" width="512px" height="384px">
-
-## Message ? ##
 
 >23:59 de la Saint Boby...
 >>Mission accomplie...
