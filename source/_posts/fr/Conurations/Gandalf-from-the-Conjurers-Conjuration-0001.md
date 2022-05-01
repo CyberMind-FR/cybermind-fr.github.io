@@ -21,26 +21,26 @@ categories:
 
 # Mode "Protection" (Activé) ! #
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_001" width="177px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_001" width="177px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_002" width="288px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_002" width="288px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_003" width="288px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_003" width="288px" height="384px">
 
 <!-- more -->
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_004" width="512px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_004" width="512px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_005" width="512px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_005" width="512px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_006" width="512px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_006" width="512px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007" width="512px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007" width="512px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008" width="512px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008" width="512px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_009" width="288px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_009" width="288px" height="384px">
 
-<img src="/uploads/images/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010" width="288px" height="384px">
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010" width="288px" height="384px">
 
 ## Message ? ##
 
