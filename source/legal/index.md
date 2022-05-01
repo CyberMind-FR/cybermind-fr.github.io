@@ -14,11 +14,11 @@ Banking information : \
 IBAN: FR76 1027 8088 9400 0205 6360 163 \
 BIC: CMCIFR2A
 
+* [TIPEEE](https://fr.tipeee.com/cybermind/)
 * [PAYPAL](HTTPS://PAYPAL.ME/KERMA) (Think to add 5% for payments made by PayPal, THANKS YOY !!!)
+* [UTIP](https://www.utip.io/CyberMind/)
 * [PATREON](https://patreon.com/cybermind)
 * [LIBERAPAY](https://liberapay.com/CyberMind/)
-* [UTIP](https://www.utip.io/CyberMind/)
-* [TIPEEE](https://fr.tipeee.com/cybermind/)
 
 VAT not applicable: article 293 B of the CGI.
 
