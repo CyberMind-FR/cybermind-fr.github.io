@@ -477,7 +477,7 @@ OK
 Using machid 0x690 from environment                                             
                                                                                 
 <p>Starting kernel ...                                                             </p>
-<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#111;&#x6b;&#105;&#x72;&#x40;&#109;&#x6f;&#x6e;&#97;&#100;&#46;&#115;&#x77;&#x62;&#x2e;&#x64;&#101;">&#111;&#x6b;&#105;&#x72;&#x40;&#109;&#x6f;&#x6e;&#97;&#100;&#46;&#115;&#x77;&#x62;&#x2e;&#x64;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
+<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#111;&#x6b;&#105;&#x72;&#x40;&#109;&#111;&#110;&#x61;&#x64;&#46;&#x73;&#119;&#x62;&#x2e;&#100;&#101;">&#111;&#x6b;&#105;&#x72;&#x40;&#109;&#111;&#110;&#x61;&#x64;&#46;&#x73;&#119;&#x62;&#x2e;&#100;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
 <p>Debian GNU/Linux 6.0 JSHARE ttyS0                                               </p>
 <p>JSHARE login: [   27.672260] eth1: link up, 100 Mb/s, full duplex, flow controld<br>[   27.679188] ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready                </p>
 </code>
@@ -684,7 +684,7 @@ clear mtd
     <title>Microsoft  - Windows 7  - Permissions Fault after privilege&#39;s escalation</title>
     <url>/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Permissions Fault after privilege’s escalation &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>A “By Design” Reproductible Integrity Vulnerability.<br>Discovered on the 2th of march 2012.</p>
-<p><del><a href="mailto:&#115;&#x65;&#99;&#x75;&#x72;&#101;&#64;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#111;&#102;&#x74;&#46;&#99;&#x6f;&#109;">&#115;&#x65;&#99;&#x75;&#x72;&#101;&#64;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#111;&#102;&#x74;&#46;&#99;&#x6f;&#109;</a></del></p>
+<p><del><a href="mailto:&#x73;&#x65;&#x63;&#x75;&#114;&#x65;&#x40;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#99;&#x6f;&#109;">&#x73;&#x65;&#x63;&#x75;&#114;&#x65;&#x40;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#99;&#x6f;&#109;</a></del></p>
 <span id="more"></span>
 
 <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
@@ -1268,12 +1268,12 @@ The MochaBin-5G Devel board revealed (down side)
 </blockquote>
 <p><a href="https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013">Émissions La gourmandise d’Eva Bester “L’homme-dé” de Luke Rhinehart</a><br>jeudi 12 décembre 2013 par Eva Bester</p>
 
-        <div id="aplayer-YmhOWRkb" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-KtsZwBse" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-YmhOWRkb"),
+            element: document.getElementById("aplayer-KtsZwBse"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -2084,614 +2084,6 @@ Découvrir MonPsy en vidéo (Durée 2 minutes)
         <tag>Santé</tag>
         <tag>Dépression</tag>
         <tag>LesConseilsduPsy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dérives - La secte aux 1000 gourous</title>
-    <url>/fr/Mind/Derives-La-secte-aux-1000-gourous/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>#LaSecteAux1000Gourous (#LSA1KG)</strong></p>
-<h1 id="Introduction-Journal"><a href="#Introduction-Journal" class="headerlink" title="Introduction (Journal)"></a>Introduction (Journal)</h1><p><em><strong>Liberté</strong></em><br>Que ce soit de l’alcool, de la drogue, des drogues ou des croyances, se libérer d’une dépendance est un combat de tous les jours.<br>Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui peut favoriser une dépression, des dépressions.<br>Long et difficile est le chemin de la libération, vers la liberté.<br>Long et difficile sera le chemin vers la libération, de la liberté.</p>
-<p>C’est un soir de début de confinement de COVID, lors d’une promenade en amoureux que m’ai venu ce nom impossible de “La Secte Aux 1000 Gourous” !<br><em>Je réalisais à ce moment là que non seulement les complotistes de tout bords, plus souvent extrémistes d’ailleurs, construisaient toujours plus d’hypothèses abérantes pour nourrir et justifier leur délires. Mais que leur imagination absurdes rendraient les <strong>vrais</strong> combats impossibles et que la moindre hypothèse deviendrait difficile à être simplement discutée.</em></p>
-<p><em><strong>Ma “Miss” m’a demandé d’arrêter de causer de <em>ce</em> sujet !</strong></em><br>Elle m’a brusquement demandé d’arrêter et de vite changer de sujet car je lui faisais peur avait-t-elle précisé alors !<br><em>Elle avait raison, car c’est pour le moins effrayant, surtout de constater qu’aujourd’hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d’office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse <strong>et</strong> à une Terre plate ! Quand vous devez voir l’invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d’air seulement et qu’il est impératif de soumettre votre mental.</em></p>
-<h2 id="STOP"><a href="#STOP" class="headerlink" title="STOP"></a><strong>STOP</strong></h2><span id="more"></span>
-
-<p><em><strong>Je suis un fervent défenseur de la Liberté, des Libertés.</strong></em><br><em>Depuis toujours mon cœur est pour une connaissance libre et partagée, commune et collaborative, libératoire par principe.<br>Mais les principes sont comme les croyances, comme les promesses, ils ne servent que ceux qui les croient, ceux qui les défendent !<br>Alors, cela fait déjà quelques années que j’essaie de contribuer activement, à défendre ses valeurs, mes valeurs, par les actions, par la démonstration, par l’exemple plus que par la parole.<br>D’ailleurs, j’arrête de parler, de m’écouter, chose que j’adore pourtant, même si je ne suis pas toujours d’accord avec moi.<br>J’arrête, pour l’instant, de tergiverser pour vous laisser découvrir ce <strong>“nouveau”</strong> sujet, un sujet de l’actualité des élections 2022 en France.<br>Terre de liberté, berceau des libertés, inspiratrice de <strong>la</strong> Liberté !<br>Le début d’un nouveau combat, d’une nouvelle lutte, pour la défense de la <strong>liberté</strong> !</em></p>
-<h1 id="Gourou-ex-Gourou-ex-ex-Gourou"><a href="#Gourou-ex-Gourou-ex-ex-Gourou" class="headerlink" title="Gourou, ex-Gourou, ex-ex-Gourou"></a>Gourou, ex-Gourou, ex-ex-Gourou</h1><h2 id="Confidences-d’une-ex-gourou-avec-Jessica-Schab-Video-de-MetaDeChoc"><a href="#Confidences-d’une-ex-gourou-avec-Jessica-Schab-Video-de-MetaDeChoc" class="headerlink" title="Confidences d’une ex-gourou, avec Jessica Schab (Vidéo de MétaDeChoc)"></a>Confidences d’une ex-gourou, avec Jessica Schab (Vidéo de MétaDeChoc)</h2><p><em><strong>Difficile de s’en sortir ?</strong></em></p>
-<details>
-  <summary>Cliquer pour afficher la Vidéo…</summary>
->* #Spiritualité #Gourou #Enfantcristal
->* Méta de Choc
->* Confidences d'une ex-gourou, avec Jessica Schab - SHOCKING ! 6
->* 7 juin 2019
-
-<p>à 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant<br>Le Time Code Vidéo est au 9 avril 2019.</p>
-<img src="/uploads/images/LaSecteAux1000Gourous/TIMECODE%20-%20Confidences%20d'une%20ex-gourou%20avec%20Jessica%20Schab%20-%20SHOCKING%20!%206.png" class="" width="459" height="67">
-<p>Cela fait tout juste 3 ans…<br>Aujourd’hui !</p>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/F2RWJMN8wZQ" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-
-<p>Pour l’article <a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/">SHOCKING #6 - Confidences d’une ex-gourou</a> complet avec les références sur MétaDeChoc.</p>
-</details>
-
-<h2 id="La-re-Chute-L’Univers-a-parle-Ex-Ex-Gourou-Video-MetaDeChoc"><a href="#La-re-Chute-L’Univers-a-parle-Ex-Ex-Gourou-Video-MetaDeChoc" class="headerlink" title="La (re)Chute - L’Univers a parlé - Ex-Ex-Gourou (Vidéo MétaDeChoc)"></a>La (re)Chute - L’Univers a parlé - Ex-Ex-Gourou (Vidéo MétaDeChoc)</h2><p><em><strong>Difficile de ne pas (re)chuter !</strong></em></p>
-<details>
-  <summary>Cliquer pour afficher la Vidéo…</summary>
->* #spiritualité #drame #film
->* Méta de Choc
->* L'Univers a parlé — SCOOP ! 6
->*29 janv. 2021
-
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/bB1JuDaC9Kk" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-
-<blockquote>
-<p>De la spiritualité et du drame.<br>Des révélations en veux-tu en voilà. </p>
-</blockquote>
-<p>Pour l’article <a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/">SCOOP ! #6 - L’Univers a parlé</a> complet avec les références sur MétaDeChoc.</p>
-</details>
-
-<h1 id="Derives"><a href="#Derives" class="headerlink" title="Dérives"></a>Dérives</h1><h2 id="Derives-sectaires-en-sante-une-periode-de-crise-Article-CCMM"><a href="#Derives-sectaires-en-sante-une-periode-de-crise-Article-CCMM" class="headerlink" title="Dérives sectaires en santé : une période de crise (Article CCMM)"></a>Dérives sectaires en santé : une période de crise (Article CCMM)</h2><p><strong>Centre Contre les Manipulations Mentales (CCMM)</strong></p>
-<blockquote>
-<p>C’est un phénomène encore insuffisamment connu : les dérives sectaires constituent un risque sérieux dans le domaine de la santé… Mais quelles formes empruntent-elles ? Quelle est l’ampleur de ce phénomène en France ? Peut-on les prévenir ? Des éléments de réponse se dessinent.</p>
-</blockquote>
-<details>
-  <summary>Cliquer pour étendre ce sujet et lire le PDF…</summary>
->* 9 Avr 2022
-
-<p>Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un domaine menacé par les dérives sectaires : c’est la conclusion d’une <a href="http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/">enquête publiée en janvier 2022</a> par l’Union nationale de défense des familles et de l’individu et l’institut de sondage Odoxa, menée auprès de 1 006 adultes. Même si ces craintes sont plus importantes encore dans le domaine de la religion (74 %) et du développement personnel (50 %), elles sont en tout cas très fondées : la santé est désormais le sujet de préoccupation le plus important pour la Mission interministérielle de vigilance et de lutte contre les dérives sectaires (<a href="https://www.miviludes.interieur.gouv.fr/sites/default/files/publications/francais/guide_sante_mars_2018_web.pdf">Miviludes</a>), puisqu’elle concerne près de 38 % des signalements reçus entre 2019 et 2020. « Il est vraiment temps que la recherche médicale étudie en profondeur ce risque », alerte Bruno Falissard1, psychiatre et directeur du Centre de recherche en épidémiologie et santé des populations à Villejuif.</p>
-<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/guide_sante_mars_2018_web.pdf" data-height="550px"></div>
-
-<p><a href="https://www.ccmm.asso.fr/derives-sectaires-en-sante-une-periode-de-crise/">Atteinte aux Droits Humains, CCMM, covid et santé mentale, emprise mentale, EXERCICE ILLEGAL DE LA MEDECINE, lutte contre l’emprise mentale et les dérives sectaires, Manipulation mentale, Santé et bien-être, sectes et covid</a></p>
-</details>
-
-<h2 id="Les-Francais-et-le-phenomene-sectaire-Sondage-UNADFI"><a href="#Les-Francais-et-le-phenomene-sectaire-Sondage-UNADFI" class="headerlink" title="Les Français et le phénomène sectaire (Sondage UNADFI)"></a>Les Français et le phénomène sectaire (Sondage UNADFI)</h2><p><strong>Les Français et le phénomène sectaire</strong></p>
-<blockquote>
-<p><em>Exposition des Français aux dérives sectaires et perception de la situation actuelle</em></p>
-</blockquote>
-<details>
-  <summary>Cliquer pour afficher le PDF…</summary>
->* Publié le 17/01/2022
-
-<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" data-height="550px"></div>
-
-<p>Accéder au sondage <a href="http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/">“Les Français et le phénomène sectaire (Sondage ODOXA pour l’UNADFI)”</a></p>
-</details>
-
-<h2 id="Soins-non-conventionnels-des-derives-inquietantes-Podcast-FranceInfo"><a href="#Soins-non-conventionnels-des-derives-inquietantes-Podcast-FranceInfo" class="headerlink" title="Soins non conventionnels : des dérives inquiétantes (Podcast FranceInfo)"></a>Soins non conventionnels : des dérives inquiétantes (Podcast FranceInfo)</h2><blockquote>
-<p>Naturopathie, réflexologie, Reiki, thérapie “quantique”, “biorésonance”, “géobiologie”, magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats “alarmants”. Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre. </p>
-</blockquote>
-<details>
-  <summary>Cliquer pour écouter le PODCAST…</summary>
->Article rédigé par
->* Géraldine Zamansky - franceinfo
->* Radio France
->* Publié le 26/03/2022
-
-<blockquote>
-<p><strong>C’est ma santé Géraldine Zamansky Le samedi à 8h26, 10h53 et 13h21</strong><br><em><strong>Soins non conventionnels : des dérives inquiétantes</strong></em><br>durée : 00:02:59</p>
-</blockquote>
-<blockquote>
-<p>Deux ans après le début de la crise sanitaire, une enquête officielle alerte sur un risque aggravé par cette période éprouvante. Le risque de croire les promesses – parfois dangereuses – des soins dits “non conventionnels”. Comme le recours aux flux d’énergie ou l’hydrothérapie du colon par exemple. Décryptage avec Géraldine Zamansky, journaliste au Magazine de la Santé sur France 5.</p>
-</blockquote>
-
-        <div id="aplayer-TDROtroq" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
-            <pre class="aplayer-lrc-content"></pre>
-        </div>
-        <script>
-          var ap = new APlayer({
-            element: document.getElementById("aplayer-TDROtroq"),
-            narrow: false,
-            autoplay: false,
-            showlrc: false,
-            music: {
-              title: "C'est ma santé",
-              author: "Géraldine Zamansky",
-              url: "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3",
-              pic: "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg",
-              lrc: ""
-            }
-          });
-          window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
-        </script>
-</details>
-
-<p><a href="https://www.francetvinfo.fr/replay-radio/c-est-ma-sante/soins-non-conventionnels-des-derives-inquietantes_5005274.html">Lire l’article complet</a></p>
-<h1 id="S’en-sortir-1-x2F-2-Se-liberer-de-l’emprise"><a href="#S’en-sortir-1-x2F-2-Se-liberer-de-l’emprise" class="headerlink" title="S’en sortir ! (1&#x2F;2) - Se libérer de l’emprise"></a>S’en sortir ! (1&#x2F;2) - Se libérer de l’emprise</h1><h2 id="L’apres-secte-Video-CCMM"><a href="#L’apres-secte-Video-CCMM" class="headerlink" title="L’après secte (Vidéo CCMM)"></a>L’après secte (Vidéo CCMM)</h2><p>Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.</p>
-<details>
-  <summary>Cliquer pour afficher la vidéo…</summary>
->* CCMM National
->*Episode 8 - L'après secte
->*Sortie le 14 mars 2022
-
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/6pNkJ8RnCrs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<h2 id="les-Derives-sectaires-et-psychiatrie-Guide-PSYCOM"><a href="#les-Derives-sectaires-et-psychiatrie-Guide-PSYCOM" class="headerlink" title="les Dérives sectaires et psychiatrie (Guide PSYCOM)"></a>les Dérives sectaires et psychiatrie (Guide PSYCOM)</h2><p>Guide <strong>“les Dérives sectaires et psychiatrie”</strong> de la collection <em><strong>“Droits en Psychiatrie”</strong></em> </p>
-<details>
-  <summary>Cliquer pour afficher le PDF…</summary>
->* 21 mars 2022
-
-<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Derives-sectaires-et-psychiatrie-2022.pdf" data-height="550px"></div>
-</details>
-
-<h2 id="Exercer-son-esprit-critique-Guides-PSYCOM"><a href="#Exercer-son-esprit-critique-Guides-PSYCOM" class="headerlink" title="Exercer son esprit critique (Guides PSYCOM)"></a>Exercer son esprit critique (Guides PSYCOM)</h2><p>Guide <strong>“Exercer son esprit critique”</strong> de la collection <em><strong>“La santé mentale et le numérique”</strong></em></p>
-<details>
-  <summary>Cliquer pour afficher le PDF…</summary>
->* 22 février 2022
-<img src="/uploads/images/LaSecteAux1000Gourous/Screenshot%20-%20La%20sant%C3%A9%20mentale%20et%20le%20num%C3%A9rique%20-%20Psycom%20-%20Sant%C3%A9%20Mentale%20Info.png" class="" width="890" height="431">
-
-<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" data-height="550px"></div>
-</details>
-
-<h1 id="S’en-sortir-2-x2F-2-Comprendre-amp-soigner-la-depression"><a href="#S’en-sortir-2-x2F-2-Comprendre-amp-soigner-la-depression" class="headerlink" title="S’en sortir ! (2&#x2F;2) - Comprendre &amp; soigner la dépression"></a>S’en sortir ! (2&#x2F;2) - Comprendre &amp; soigner la dépression</h1><h2 id="Christophe-Andre-3-conseils-pour-traverser-une-depression-Video"><a href="#Christophe-Andre-3-conseils-pour-traverser-une-depression-Video" class="headerlink" title="Christophe André - 3 conseils pour traverser une dépression (Vidéo)"></a>Christophe André - 3 conseils pour traverser une dépression (Vidéo)</h2><p><strong>Les Conseils du Psy :</strong> <em><strong>le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.</strong></em></p>
-<blockquote>
-<p>“Le premier point à rappeler par rapport à la dépression, c’est que c’est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments.”</p>
-</blockquote>
-<details>
-  <summary>Cliquer pour afficher les conseils & la Vidéo…</summary>
-
-<p>3 conseils pour traverser une dépression:</p>
-<ul>
-<li>Conseil 1 : Ne pas rester inactif face à la dépression.</li>
-<li>Conseil 2 : Bien choisir son entourage.</li>
-<li>Conseil 3 : Maîtriser ses ruminations.</li>
-</ul>
-<blockquote>
-<ul>
-<li>#Dépression #Santé #LesConseilsduPsy</li>
-<li>3 conseils pour traverser une dépression</li>
-<li>5 mars 2020</li>
-<li>Mon Sherpa</li>
-</ul>
-</blockquote>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/R6wjZpZkNPQ" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<h2 id="Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante"><a href="#Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante" class="headerlink" title="Comment faire face à la dépression (Article Que Choisir Santé)"></a>Comment faire face à la dépression (Article Que Choisir Santé)</h2><p><a href="https://kiosque.quechoisir.org/magazine-sante-quechoisir-163-septembre-2021/">Que Choisir Santé N° 163 - septembre 2021</a></p>
-<img src="/uploads/images/LaSecteAux1000Gourous/QCSant%C3%A9-163-202109.png" class="" width="266" height="363">
-
-<h2 id="La-depression-Video-ARTE-Alternatives"><a href="#La-depression-Video-ARTE-Alternatives" class="headerlink" title="La dépression (Vidéo ARTE Alternatives)"></a>La dépression (Vidéo ARTE Alternatives)</h2><p>Et si on changeait de perspective pour parler des problèmes du monde ? Sans tomber dans l’optimisme forcené, on vous fait rencontrer ici des citoyens qui se battent à leur échelle pour un monde plus sain. On vous trouve des solutions, des alternatives, sur tous les sujets. </p>
-<details>
-  <summary>Cliquer pour afficher le Web-magazine…</summary>
-
-<p>Pour ce second numéro, on a choisi un thème peu positif a priori : la dépression.</p>
-<blockquote>
-<ul>
-<li>ARTE Alternatives - Web-magazine de solutions</li>
-<li>No.2 : la dépression</li>
-</ul>
-</blockquote>
-<p><a href="https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/">Web-magazine de solutions : No.2 : la dépression (Arte)</a></p>
-</details>
-
-<p>Comment soutenir un ami, un compagnon ou un frère dépressif ?<br>Pudiques, des “aidants”, comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.</p>
-<details>
-  <summary>Cliquer pour afficher le Web-magazine…</summary>
-
-<p>Les aidants : soutenir, tenir et guérir<br><a href="https://www.arte.tv/fr/videos/081327-081-A/les-aidants-soutenir-tenir-et-guerir/">Les aidants : soutenir, tenir et guérir (Arte)</a></p>
-</details>
-
-<h2 id="Decouvrir-MonPsy-Site-gouv-fr"><a href="#Decouvrir-MonPsy-Site-gouv-fr" class="headerlink" title="Découvrir MonPsy (Site gouv.fr)"></a>Découvrir MonPsy (Site gouv.fr)</h2><p><strong>Depuis le 5 avril 2022</strong><br><em><strong>Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.</strong></em></p>
-<p><a href="https://monpsy.sante.gouv.fr/patients" title="MonPsy.sante.gouv.fr - Visiter !"><img src="/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" class="" width="270" height="270"></a></p>
-<details>
-  <summary>Cliquer pour afficher la vidéo de présentation…</summary>
-Découvrir MonPsy en vidéo (Durée 2 minutes)
-<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
-
-<p>Visiter le site <a href="https://monpsy.sante.gouv.fr/faq?tab=patient">MonPsy.sante.gouv.fr - FAQ</a></p>
-</details>
-
-<h1 id="Briser-les-tabous-Comprendre-la-depresion"><a href="#Briser-les-tabous-Comprendre-la-depresion" class="headerlink" title="Briser les tabous - Comprendre la dépresion"></a>Briser les tabous - Comprendre la dépresion</h1><h2 id="Vivre-avec-un-chien-noir-Video-OMS"><a href="#Vivre-avec-un-chien-noir-Video-OMS" class="headerlink" title="Vivre avec un chien noir (Vidéo OMS)"></a>Vivre avec un chien noir (Vidéo OMS)</h2><p><strong>World Health Organization (WHO)</strong></p>
-<blockquote>
-<p>“La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité”<br>Constitution de l’Organisation mondiale de la santé (OMS)</p>
-</blockquote>
-<blockquote>
-<p>Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu’il faut faire, ce qu’il ne faut pas faire et où aller pour obtenir de l’aide.</p>
-</blockquote>
-<details>
-  <summary>Cliquer pour afficher les vidéos…</summary>
->
->« Vivre avec un chien noir » fait suite à « J'ai eu un chien noir, il s'appelait dépression », qui offre des conseils pratiques pour accepter et surmonter la dépression.
->
->Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
-
-<h3 id="“Vivre-avec-un-chien-noir”"><a href="#“Vivre-avec-un-chien-noir”" class="headerlink" title="“Vivre avec un chien noir”"></a><strong>“Vivre avec un chien noir”</strong></h3><details>
-  <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
->* 4 sept. 2014
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/2VRRx7Mtep8" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<details>
-  <summary>Cliquer pour afficher la vidéo "J'avais un chien noir, son nom était dépression"…</summary>
->« J'avais un chien noir, son nom était dépression »
->At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
->
->In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
-
-<h3 id="“J’avais-un-chien-noir-son-nom-etait-depression”"><a href="#“J’avais-un-chien-noir-son-nom-etait-depression”" class="headerlink" title="“J’avais un chien noir, son nom était dépression”"></a><strong>“J’avais un chien noir, son nom était dépression”</strong></h3><style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/XiCrniLQGYc" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<img src="/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" class="" width="283" height="52">
-<p>Visister le site de <a href="http://matthewjohnstone.com.au/" title="Matthew Jon Stone - Click to Visit!">Matthew Jon Stone - WebSite</a></p>
-</details>
-
-<p>Pour plus d’informations sur la santé mentale, veuillez visiter :<br><a href="https://www.who.int/fr/health-topics/depression">Une base d’informations accessibles au grand public de l’OMS sur la dépression</a></p>
-<h2 id="6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais"><a href="#6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais" class="headerlink" title="6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)"></a>6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)</h2><p>6 BULLSHITS sur la DÉPRESSION - PSYCHOPTIK #5</p>
-<details>
-  <summary>Cliquer pour afficher la vidéo…</summary>
->* Le PsyLab
->* 24 févr. 2017
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/KMNXqj3QmxU" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-
-<p><strong>Comprendre les biais de confirmation</strong></p>
-<details>
-  <summary>Cliquer pour afficher la vidéo de la Tronche en Biais…</summary>
-
-<p>La vidéo de la Tronche en Biais sur les biais de confirmation:</p>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/6cxEu-OP5mM" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-</details>
-
-<h2 id="Imagerie-fonctionnelle-dans-la-depression-Image"><a href="#Imagerie-fonctionnelle-dans-la-depression-Image" class="headerlink" title="Imagerie fonctionnelle dans la dépression (Image)"></a>Imagerie fonctionnelle dans la dépression (Image)</h2><p>En anglais: (A quick informative overview of the biology behind depression)</p>
-<img src="/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" class="" width="400" height="400" title="Imagerie fonctionnelle dans la dépression">
-
-<h2 id="La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker"><a href="#La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker" class="headerlink" title="La Campagne #EtToiCaVa (Fondation Pierre Deniker)"></a>La Campagne #EtToiCaVa (Fondation Pierre Deniker)</h2><h3 id="La-Campagne-EtToiCaVa-Video"><a href="#La-Campagne-EtToiCaVa-Video" class="headerlink" title="La Campagne #EtToiCaVa (Vidéo)"></a>La Campagne #EtToiCaVa (Vidéo)</h3><p>Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)</p>
-<blockquote>
-<p>L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.</p>
-</blockquote>
-<blockquote>
-<p>La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>#EtToiCaVa - Et toi ça va ? (Le court-métrage)</li>
-<li>Scénario : Astrid Chevance et Marie-Stéphane Cattaneo </li>
-<li>Réalisation : Marie-Stéphane Cattaneo</li>
-</ul>
-</blockquote>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/2YR8J1xqDNs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-
-<h3 id="Campagne-Depression-EtToiCaVa-Site"><a href="#Campagne-Depression-EtToiCaVa-Site" class="headerlink" title="Campagne Dépression #EtToiCaVa (Site)"></a>Campagne Dépression #EtToiCaVa (Site)</h3><p><strong>#EtToiCaVa - Et toi ça va ?</strong><br><em><strong>Campagne Dépression 2019 de la Fondation Pierre Deniker</strong></em></p>
-<details>
-  <summary>Cliquer pour afficher la vidéo de la campagne…</summary>
-
-<p><a href="https://fondationpierredeniker.org/sensibilisation/et-toi-ca-va/">Campagne Dépression de la Fondation Pierre Deniker “Ensemble, parlons de la dépression.”</a></p>
-<img src="/uploads/images/LaSecteAux1000Gourous/Screenshot%20-%20Sant%C3%A9%20mentale%20-%20Fondation%20Pierre%20Deniker%20(zoom).png" class="" width="628" height="458" title="Santé mentale - Fondation Pierre Deniker" alt="Santé mentale - Fondation Pierre Deniker (statistiques)">
-
-<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" data-height="550px"></div>
-</details>
-
-<h2 id="En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video"><a href="#En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video" class="headerlink" title="En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)"></a>En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)</h2><blockquote>
-<ul>
-<li>bref. 80 - Bref. J’ai fait une dépression.</li>
-<li>13 oct. 2017</li>
-</ul>
-</blockquote>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/DwfwmxOF_3E" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-
-<details>
-  <summary>[BONUS] 80. Bref. J'ai fait une dépression… (Développer pour le BONUS !)</summary>
-Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
-14 oct. 2014
-
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/wdQWBWaymt0" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p><strong>Enfin la liberté ?</strong></p>
-<details>
-  <summary>Cliquer pour afficher le contenu…</summary>
-
-<h1 id="Perseverer-Apres-1-x2F-4-Les-doutes-amp-la-solitude"><a href="#Perseverer-Apres-1-x2F-4-Les-doutes-amp-la-solitude" class="headerlink" title="Persévérer - Après (1&#x2F;4) - Les doutes &amp; la solitude"></a>Persévérer - Après (1&#x2F;4) - Les doutes &amp; la solitude</h1><h2 id="Actualite"><a href="#Actualite" class="headerlink" title="Actualité"></a>Actualité</h2><h3 id="Elections-2022-demain-1-x2F-2-tour-AFIS"><a href="#Elections-2022-demain-1-x2F-2-tour-AFIS" class="headerlink" title="Élections 2022 (demain 1&#x2F;2 tour) (AFIS)"></a>Élections 2022 (demain 1&#x2F;2 tour) (AFIS)</h3><p><a href="https://afis.org/Election-presidentielle-2022-les-reponses-des-candidats-aux-questions-de-l-Afis">Élection présidentielle 2022 : les réponses des candidats aux questions de l’Afis</a></p>
-<blockquote>
-<ul>
-<li>Publié en ligne le 13 mars 2022</li>
-<li>Mise à jour le 8 avril 2022</li>
-<li>AFIS-SCIENCE</li>
-<li>Association Française pour l’Information Scientifique</li>
-</ul>
-</blockquote>
-<h4 id="Les-reponses-des-candidats-PDF"><a href="#Les-reponses-des-candidats-PDF" class="headerlink" title="Les réponses des candidats (PDF)"></a>Les réponses des candidats (PDF)</h4><p><strong>L’Afis a envoyé une liste de questions aux candidats pour la présidentielle 2022.</strong><br>4 seulement ont répondus !<br>4 seulement !<br>Mais…<br>C’est assez intéressant de voir le niveau des réponses…<br>De compétence(s)…<br>Mais, pas que…</p>
-<details>
-  <summary>Clicker pour afficher les réponses des candidats</summary>
-Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues:
-<details>
-- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
-  <summary>Clicker pour afficher les réponses des candidats</summary>
-<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/macron_emmanuel.pdf" data-height="550px"></div>
-</details>
-- [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
-<details>
-  <summary>Clicker pour afficher les réponses des candidats</summary>
-<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf" data-height="550px"></div>
-</details>
-- [Fabien Roussel](https://www.afis.org/IMG/pdf/roussel_fabien.pdf)
-<details>
-  <summary>Clicker pour afficher les réponses des candidats</summary>
-<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/roussel_fabien.pdf" data-height="550px"></div>
-</details>
-- [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
-<details>
-  <summary>Clicker pour afficher la réponse de Jean-Luc Mélenchon</summary>
-<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf" data-height="550px"></div>
-</details>
-</details>
-
-<h1 id="Perseverer-Apres-2-x2F-4-Les-confirmations-amp-les-liberations"><a href="#Perseverer-Apres-2-x2F-4-Les-confirmations-amp-les-liberations" class="headerlink" title="Persévérer - Après (2&#x2F;4) - Les confirmations &amp; les libérations"></a>Persévérer - Après (2&#x2F;4) - Les confirmations &amp; les libérations</h1><h2 id="New-Age-ou-la-secte-aux-1-000-gourous…-CyberMindFR-Reference"><a href="#New-Age-ou-la-secte-aux-1-000-gourous…-CyberMindFR-Reference" class="headerlink" title="New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)"></a>New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)</h2><p>MétaDeChoc d’Élisabeth Feytit, relire le premier article sur <strong>LSA1KG</strong>, l’article <a href="https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</a></p>
-<blockquote>
-<ul>
-<li>Publié le 14 Mars 2022</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” <a href="https://twitter.com/hashtag/LSA1KG">#LSA1KG</a> (™ &amp; © ME)</p>
-</blockquote>
-<h1 id="Perseverer-Apres-3-x2F-4-Les-recherches-amp-les-associations"><a href="#Perseverer-Apres-3-x2F-4-Les-recherches-amp-les-associations" class="headerlink" title="Persévérer - Après (3&#x2F;4) - Les recherches &amp; les associations"></a>Persévérer - Après (3&#x2F;4) - Les recherches &amp; les associations</h1><h2 id="Les-emotions"><a href="#Les-emotions" class="headerlink" title="Les émotions"></a>Les émotions</h2><h3 id="Les-emotions-sont-elles-rationnelles-Article-AFIS"><a href="#Les-emotions-sont-elles-rationnelles-Article-AFIS" class="headerlink" title="Les émotions sont-elles rationnelles (Article AFIS)"></a>Les émotions sont-elles rationnelles (Article AFIS)</h3><blockquote>
-<p>Le doux rêve des zététiciens serait un monde où la raison règne en maîtresse, débarrassée des vilaines émotions, archaïsmes organiques.<br>Ou pas. </p>
-</blockquote>
-<details>
-  <summary>Cliquer pour afficher les détails de l'article…</summary>
-
-<p>Article de l’AFIS (Association Française pour l’Information Scientifique)<a href="https://afis.org/https://www.afis.org/Les-emotions-sont-elles-rationnelles">Les émotions sont-elles rationnelles ?</a></p>
-<blockquote>
-<ul>
-<li>Article paru dans la revue n°338 d’octobre 2021.</li>
-<li>Publié en ligne le 9 avril 2022</li>
-<li>AFIS-SCIENCE</li>
-<li>Association Française pour l’Information Scientifique</li>
-<li>#afis #science<br>Auteurs:</li>
-<li><a href="https://www.afis.org/Thomas-C-Durand">Thomas.C.Durand</a></li>
-<li><a href="https://twitter.com/TroncheBiais">@TroncheBiais</a></li>
-<li><a href="https://twitter.com/Acermendax">@Acermendax</a></li>
-</ul>
-</blockquote>
-<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a href="https://twitter.com/afis_science/status/1513524016945917963"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</details>
-
-<h3 id="RAISON-versus-EMOTION-Video-La-Tronche-en-Biais"><a href="#RAISON-versus-EMOTION-Video-La-Tronche-en-Biais" class="headerlink" title="RAISON versus EMOTION (Vidéo La Tronche en Biais)"></a>RAISON versus EMOTION (Vidéo La Tronche en Biais)</h3><blockquote>
-<p>Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c’est occulter une partie du réel qui nous manquerait cruellement s’il était en notre pouvoir de l’amputer (ce qui n’est pas le cas).</p>
-</blockquote>
-<details>
-  <summary>Cliquer pour afficher le Vidép…</summary>
-
-<blockquote>
-<ul>
-<li>La Tronche en Biais</li>
-<li>TenL#107</li>
-<li>Diffusée en direct le 20 déc. 2021</li>
-</ul>
-</blockquote>
-<style>.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .embed-container iframe, .embed-container object, .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/I7I8Tec1G4U" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
-</details>
-
-<h1 id="Perseverer-Apres-4-x2F-4-La-reconstrucion-amp-la-liberte"><a href="#Perseverer-Apres-4-x2F-4-La-reconstrucion-amp-la-liberte" class="headerlink" title="Persévérer - Après (4&#x2F;4) - La reconstrucion &amp; la liberté"></a>Persévérer - Après (4&#x2F;4) - La reconstrucion &amp; la liberté</h1><h2 id="Pour-approfondir-ici-amp-ailleurs"><a href="#Pour-approfondir-ici-amp-ailleurs" class="headerlink" title="Pour approfondir ici &amp; ailleurs !"></a>Pour approfondir ici &amp; ailleurs !</h2><ul>
-<li>Sur les sujets de la <a href="https://cybermind.fr/tags/zetetique/"><strong>Zététique</strong></a></li>
-<li>…<details>
-<summary>Cliquer pour afficher d'autres compléments…</summary></li>
-</ul>
-<p>À suivre… -&gt; <a href="https://cybermind.fr/tags/LaSecteAux1000Gourous/">#LaSecteAux1000Gourous@CyberMindFR</a><br><a href="https://twitter.com/hashtag/LaSecteAux1000Gourous?src=hashtag_click">#LaSecteAux1000Gourous</a></p>
-<p><a href="https://twitter.com/CyberMindFR">@CyberMindFR</a></p>
-
-</details>
-
-<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
-<li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
-<li>…</li>
-</ul>
-<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
-</details>
-
-<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
-]]></content>
-      <categories>
-        <category>Mind</category>
-      </categories>
-      <tags>
-        <tag>zététique</tag>
-        <tag>LSA1KG</tag>
-        <tag>The Conjurers</tag>
-        <tag>Santé mentale</tag>
-        <tag>Gourou</tag>
-        <tag>Spiritualité</tag>
-        <tag>Santé</tag>
-        <tag>Dépression</tag>
-        <tag>LesConseilsduPsy</tag>
-        <tag>Dérives sectaires</tag>
-        <tag>Médecines alternatives</tag>
-        <tag>Esprit Critique</tag>
-        <tag>Secte</tag>
-        <tag>Sceptique</tag>
-        <tag>Enfantcristal</tag>
       </tags>
   </entry>
   <entry>
@@ -3997,6 +3389,614 @@ if __name__ == &#39;__main__&#39;:
       </tags>
   </entry>
   <entry>
+    <title>Dérives - La secte aux 1000 gourous</title>
+    <url>/fr/Mind/Derives-La-secte-aux-1000-gourous/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>#LaSecteAux1000Gourous (#LSA1KG)</strong></p>
+<h1 id="Introduction-Journal"><a href="#Introduction-Journal" class="headerlink" title="Introduction (Journal)"></a>Introduction (Journal)</h1><p><em><strong>Liberté</strong></em><br>Que ce soit de l’alcool, de la drogue, des drogues ou des croyances, se libérer d’une dépendance est un combat de tous les jours.<br>Car qui dit addiction, dit dépendance, suggestion, manipulation, ou tout ce qui peut favoriser une dépression, des dépressions.<br>Long et difficile est le chemin de la libération, vers la liberté.<br>Long et difficile sera le chemin vers la libération, de la liberté.</p>
+<p>C’est un soir de début de confinement de COVID, lors d’une promenade en amoureux que m’ai venu ce nom impossible de “La Secte Aux 1000 Gourous” !<br><em>Je réalisais à ce moment là que non seulement les complotistes de tout bords, plus souvent extrémistes d’ailleurs, construisaient toujours plus d’hypothèses abérantes pour nourrir et justifier leur délires. Mais que leur imagination absurdes rendraient les <strong>vrais</strong> combats impossibles et que la moindre hypothèse deviendrait difficile à être simplement discutée.</em></p>
+<p><em><strong>Ma “Miss” m’a demandé d’arrêter de causer de <em>ce</em> sujet !</strong></em><br>Elle m’a brusquement demandé d’arrêter et de vite changer de sujet car je lui faisais peur avait-t-elle précisé alors !<br><em>Elle avait raison, car c’est pour le moins effrayant, surtout de constater qu’aujourd’hui les thérapies alternatives et autres croyances énergétiques sont si bien implantées que de tenter des les disculper nous rend d’office coupable ! Quand vous pouvez, que vous devez même, croire à une Terre creuse <strong>et</strong> à une Terre plate ! Quand vous devez voir l’invisible et que vous avez pour mission de détruire votre Égo. Quand vous avez à vous nourrir d’air seulement et qu’il est impératif de soumettre votre mental.</em></p>
+<h2 id="STOP"><a href="#STOP" class="headerlink" title="STOP"></a><strong>STOP</strong></h2><span id="more"></span>
+
+<p><em><strong>Je suis un fervent défenseur de la Liberté, des Libertés.</strong></em><br><em>Depuis toujours mon cœur est pour une connaissance libre et partagée, commune et collaborative, libératoire par principe.<br>Mais les principes sont comme les croyances, comme les promesses, ils ne servent que ceux qui les croient, ceux qui les défendent !<br>Alors, cela fait déjà quelques années que j’essaie de contribuer activement, à défendre ses valeurs, mes valeurs, par les actions, par la démonstration, par l’exemple plus que par la parole.<br>D’ailleurs, j’arrête de parler, de m’écouter, chose que j’adore pourtant, même si je ne suis pas toujours d’accord avec moi.<br>J’arrête, pour l’instant, de tergiverser pour vous laisser découvrir ce <strong>“nouveau”</strong> sujet, un sujet de l’actualité des élections 2022 en France.<br>Terre de liberté, berceau des libertés, inspiratrice de <strong>la</strong> Liberté !<br>Le début d’un nouveau combat, d’une nouvelle lutte, pour la défense de la <strong>liberté</strong> !</em></p>
+<h1 id="Gourou-ex-Gourou-ex-ex-Gourou"><a href="#Gourou-ex-Gourou-ex-ex-Gourou" class="headerlink" title="Gourou, ex-Gourou, ex-ex-Gourou"></a>Gourou, ex-Gourou, ex-ex-Gourou</h1><h2 id="Confidences-d’une-ex-gourou-avec-Jessica-Schab-Video-de-MetaDeChoc"><a href="#Confidences-d’une-ex-gourou-avec-Jessica-Schab-Video-de-MetaDeChoc" class="headerlink" title="Confidences d’une ex-gourou, avec Jessica Schab (Vidéo de MétaDeChoc)"></a>Confidences d’une ex-gourou, avec Jessica Schab (Vidéo de MétaDeChoc)</h2><p><em><strong>Difficile de s’en sortir ?</strong></em></p>
+<details>
+  <summary>Cliquer pour afficher la Vidéo…</summary>
+>* #Spiritualité #Gourou #Enfantcristal
+>* Méta de Choc
+>* Confidences d'une ex-gourou, avec Jessica Schab - SHOCKING ! 6
+>* 7 juin 2019
+
+<p>à 48:55 : Le bonus : l’ivresse de la croyance, comment parler à un croyant<br>Le Time Code Vidéo est au 9 avril 2019.</p>
+<img src="/uploads/images/LaSecteAux1000Gourous/TIMECODE%20-%20Confidences%20d'une%20ex-gourou%20avec%20Jessica%20Schab%20-%20SHOCKING%20!%206.png" class="" width="459" height="67">
+<p>Cela fait tout juste 3 ans…<br>Aujourd’hui !</p>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/F2RWJMN8wZQ" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<p>Pour l’article <a href="https://metadechoc.fr/podcast/confidences-dune-ex-gourou/">SHOCKING #6 - Confidences d’une ex-gourou</a> complet avec les références sur MétaDeChoc.</p>
+</details>
+
+<h2 id="La-re-Chute-L’Univers-a-parle-Ex-Ex-Gourou-Video-MetaDeChoc"><a href="#La-re-Chute-L’Univers-a-parle-Ex-Ex-Gourou-Video-MetaDeChoc" class="headerlink" title="La (re)Chute - L’Univers a parlé - Ex-Ex-Gourou (Vidéo MétaDeChoc)"></a>La (re)Chute - L’Univers a parlé - Ex-Ex-Gourou (Vidéo MétaDeChoc)</h2><p><em><strong>Difficile de ne pas (re)chuter !</strong></em></p>
+<details>
+  <summary>Cliquer pour afficher la Vidéo…</summary>
+>* #spiritualité #drame #film
+>* Méta de Choc
+>* L'Univers a parlé — SCOOP ! 6
+>*29 janv. 2021
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/bB1JuDaC9Kk" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<blockquote>
+<p>De la spiritualité et du drame.<br>Des révélations en veux-tu en voilà. </p>
+</blockquote>
+<p>Pour l’article <a href="https://metadechoc.fr/annonce/scoop-6-l-univers-a-parle/">SCOOP ! #6 - L’Univers a parlé</a> complet avec les références sur MétaDeChoc.</p>
+</details>
+
+<h1 id="Derives"><a href="#Derives" class="headerlink" title="Dérives"></a>Dérives</h1><h2 id="Derives-sectaires-en-sante-une-periode-de-crise-Article-CCMM"><a href="#Derives-sectaires-en-sante-une-periode-de-crise-Article-CCMM" class="headerlink" title="Dérives sectaires en santé : une période de crise (Article CCMM)"></a>Dérives sectaires en santé : une période de crise (Article CCMM)</h2><p><strong>Centre Contre les Manipulations Mentales (CCMM)</strong></p>
+<blockquote>
+<p>C’est un phénomène encore insuffisamment connu : les dérives sectaires constituent un risque sérieux dans le domaine de la santé… Mais quelles formes empruntent-elles ? Quelle est l’ampleur de ce phénomène en France ? Peut-on les prévenir ? Des éléments de réponse se dessinent.</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour étendre ce sujet et lire le PDF…</summary>
+>* 9 Avr 2022
+
+<p>Près de 30 % des Français, soit 1 sur 3, considèrent que la santé est un domaine menacé par les dérives sectaires : c’est la conclusion d’une <a href="http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/">enquête publiée en janvier 2022</a> par l’Union nationale de défense des familles et de l’individu et l’institut de sondage Odoxa, menée auprès de 1 006 adultes. Même si ces craintes sont plus importantes encore dans le domaine de la religion (74 %) et du développement personnel (50 %), elles sont en tout cas très fondées : la santé est désormais le sujet de préoccupation le plus important pour la Mission interministérielle de vigilance et de lutte contre les dérives sectaires (<a href="https://www.miviludes.interieur.gouv.fr/sites/default/files/publications/francais/guide_sante_mars_2018_web.pdf">Miviludes</a>), puisqu’elle concerne près de 38 % des signalements reçus entre 2019 et 2020. « Il est vraiment temps que la recherche médicale étudie en profondeur ce risque », alerte Bruno Falissard1, psychiatre et directeur du Centre de recherche en épidémiologie et santé des populations à Villejuif.</p>
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/guide_sante_mars_2018_web.pdf" data-height="550px"></div>
+
+<p><a href="https://www.ccmm.asso.fr/derives-sectaires-en-sante-une-periode-de-crise/">Atteinte aux Droits Humains, CCMM, covid et santé mentale, emprise mentale, EXERCICE ILLEGAL DE LA MEDECINE, lutte contre l’emprise mentale et les dérives sectaires, Manipulation mentale, Santé et bien-être, sectes et covid</a></p>
+</details>
+
+<h2 id="Les-Francais-et-le-phenomene-sectaire-Sondage-UNADFI"><a href="#Les-Francais-et-le-phenomene-sectaire-Sondage-UNADFI" class="headerlink" title="Les Français et le phénomène sectaire (Sondage UNADFI)"></a>Les Français et le phénomène sectaire (Sondage UNADFI)</h2><p><strong>Les Français et le phénomène sectaire</strong></p>
+<blockquote>
+<p><em>Exposition des Français aux dérives sectaires et perception de la situation actuelle</em></p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher le PDF…</summary>
+>* Publié le 17/01/2022
+
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Odoxa-pour-Unadfi-Les-Francais-et-le-phenomene-sectaire-17-janvier.pdf" data-height="550px"></div>
+
+<p>Accéder au sondage <a href="http://www.odoxa.fr/sondage/les-francais-et-les-derives-sectaires/">“Les Français et le phénomène sectaire (Sondage ODOXA pour l’UNADFI)”</a></p>
+</details>
+
+<h2 id="Soins-non-conventionnels-des-derives-inquietantes-Podcast-FranceInfo"><a href="#Soins-non-conventionnels-des-derives-inquietantes-Podcast-FranceInfo" class="headerlink" title="Soins non conventionnels : des dérives inquiétantes (Podcast FranceInfo)"></a>Soins non conventionnels : des dérives inquiétantes (Podcast FranceInfo)</h2><blockquote>
+<p>Naturopathie, réflexologie, Reiki, thérapie “quantique”, “biorésonance”, “géobiologie”, magnétisme… Une nouvelle enquête de la direction générale de la concurrence, de la consommation et de la répression des fraudes dévoile des résultats “alarmants”. Sur 381 établissements contrôlés, 261 ont été rappelés à l’ordre. </p>
+</blockquote>
+<details>
+  <summary>Cliquer pour écouter le PODCAST…</summary>
+>Article rédigé par
+>* Géraldine Zamansky - franceinfo
+>* Radio France
+>* Publié le 26/03/2022
+
+<blockquote>
+<p><strong>C’est ma santé Géraldine Zamansky Le samedi à 8h26, 10h53 et 13h21</strong><br><em><strong>Soins non conventionnels : des dérives inquiétantes</strong></em><br>durée : 00:02:59</p>
+</blockquote>
+<blockquote>
+<p>Deux ans après le début de la crise sanitaire, une enquête officielle alerte sur un risque aggravé par cette période éprouvante. Le risque de croire les promesses – parfois dangereuses – des soins dits “non conventionnels”. Comme le recours aux flux d’énergie ou l’hydrothérapie du colon par exemple. Décryptage avec Géraldine Zamansky, journaliste au Magazine de la Santé sur France 5.</p>
+</blockquote>
+
+        <div id="aplayer-zVkscFsL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-zVkscFsL"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "C'est ma santé",
+              author: "Géraldine Zamansky",
+              url: "https://rf.proxycast.org/ff7e02f4-f591-4b55-96f8-18a6a42c5de4/14472-26.03.2022-ITEMA_22975385-2022I23941S0085-21.mp3",
+              pic: "https://cdn.radiofrance.fr/s3/cruiser-production/2021/03/f648514a-a687-4fcb-8022-ac659a518889/c-est-ma-sante-jpg.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+</details>
+
+<p><a href="https://www.francetvinfo.fr/replay-radio/c-est-ma-sante/soins-non-conventionnels-des-derives-inquietantes_5005274.html">Lire l’article complet</a></p>
+<h1 id="S’en-sortir-1-x2F-2-Se-liberer-de-l’emprise"><a href="#S’en-sortir-1-x2F-2-Se-liberer-de-l’emprise" class="headerlink" title="S’en sortir ! (1&#x2F;2) - Se libérer de l’emprise"></a>S’en sortir ! (1&#x2F;2) - Se libérer de l’emprise</h1><h2 id="L’apres-secte-Video-CCMM"><a href="#L’apres-secte-Video-CCMM" class="headerlink" title="L’après secte (Vidéo CCMM)"></a>L’après secte (Vidéo CCMM)</h2><p>Quelles sont les difficultés pour se reconstruire après un passage dans une secte, ainsi que les recours juridiques à utiliser.</p>
+<details>
+  <summary>Cliquer pour afficher la vidéo…</summary>
+>* CCMM National
+>*Episode 8 - L'après secte
+>*Sortie le 14 mars 2022
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/6pNkJ8RnCrs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h2 id="les-Derives-sectaires-et-psychiatrie-Guide-PSYCOM"><a href="#les-Derives-sectaires-et-psychiatrie-Guide-PSYCOM" class="headerlink" title="les Dérives sectaires et psychiatrie (Guide PSYCOM)"></a>les Dérives sectaires et psychiatrie (Guide PSYCOM)</h2><p>Guide <strong>“les Dérives sectaires et psychiatrie”</strong> de la collection <em><strong>“Droits en Psychiatrie”</strong></em> </p>
+<details>
+  <summary>Cliquer pour afficher le PDF…</summary>
+>* 21 mars 2022
+
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Derives-sectaires-et-psychiatrie-2022.pdf" data-height="550px"></div>
+</details>
+
+<h2 id="Exercer-son-esprit-critique-Guides-PSYCOM"><a href="#Exercer-son-esprit-critique-Guides-PSYCOM" class="headerlink" title="Exercer son esprit critique (Guides PSYCOM)"></a>Exercer son esprit critique (Guides PSYCOM)</h2><p>Guide <strong>“Exercer son esprit critique”</strong> de la collection <em><strong>“La santé mentale et le numérique”</strong></em></p>
+<details>
+  <summary>Cliquer pour afficher le PDF…</summary>
+>* 22 février 2022
+<img src="/uploads/images/LaSecteAux1000Gourous/Screenshot%20-%20La%20sant%C3%A9%20mentale%20et%20le%20num%C3%A9rique%20-%20Psycom%20-%20Sant%C3%A9%20Mentale%20Info.png" class="" width="890" height="431">
+
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Sante-mentale-et-numerique-2020.pdf" data-height="550px"></div>
+</details>
+
+<h1 id="S’en-sortir-2-x2F-2-Comprendre-amp-soigner-la-depression"><a href="#S’en-sortir-2-x2F-2-Comprendre-amp-soigner-la-depression" class="headerlink" title="S’en sortir ! (2&#x2F;2) - Comprendre &amp; soigner la dépression"></a>S’en sortir ! (2&#x2F;2) - Comprendre &amp; soigner la dépression</h1><h2 id="Christophe-Andre-3-conseils-pour-traverser-une-depression-Video"><a href="#Christophe-Andre-3-conseils-pour-traverser-une-depression-Video" class="headerlink" title="Christophe André - 3 conseils pour traverser une dépression (Vidéo)"></a>Christophe André - 3 conseils pour traverser une dépression (Vidéo)</h2><p><strong>Les Conseils du Psy :</strong> <em><strong>le psychiatre Christophe André vous donne 3 conseils pour traverser une dépression.</strong></em></p>
+<blockquote>
+<p>“Le premier point à rappeler par rapport à la dépression, c’est que c’est une maladie. Il ne faut pas rester tout seul, il faut aller consulter et éventuellement prendre des médicaments.”</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher les conseils & la Vidéo…</summary>
+
+<p>3 conseils pour traverser une dépression:</p>
+<ul>
+<li>Conseil 1 : Ne pas rester inactif face à la dépression.</li>
+<li>Conseil 2 : Bien choisir son entourage.</li>
+<li>Conseil 3 : Maîtriser ses ruminations.</li>
+</ul>
+<blockquote>
+<ul>
+<li>#Dépression #Santé #LesConseilsduPsy</li>
+<li>3 conseils pour traverser une dépression</li>
+<li>5 mars 2020</li>
+<li>Mon Sherpa</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/R6wjZpZkNPQ" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h2 id="Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante"><a href="#Comment-faire-face-a-la-depression-Article-Que-Choisir-Sante" class="headerlink" title="Comment faire face à la dépression (Article Que Choisir Santé)"></a>Comment faire face à la dépression (Article Que Choisir Santé)</h2><p><a href="https://kiosque.quechoisir.org/magazine-sante-quechoisir-163-septembre-2021/">Que Choisir Santé N° 163 - septembre 2021</a></p>
+<img src="/uploads/images/LaSecteAux1000Gourous/QCSant%C3%A9-163-202109.png" class="" width="266" height="363">
+
+<h2 id="La-depression-Video-ARTE-Alternatives"><a href="#La-depression-Video-ARTE-Alternatives" class="headerlink" title="La dépression (Vidéo ARTE Alternatives)"></a>La dépression (Vidéo ARTE Alternatives)</h2><p>Et si on changeait de perspective pour parler des problèmes du monde ? Sans tomber dans l’optimisme forcené, on vous fait rencontrer ici des citoyens qui se battent à leur échelle pour un monde plus sain. On vous trouve des solutions, des alternatives, sur tous les sujets. </p>
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
+
+<p>Pour ce second numéro, on a choisi un thème peu positif a priori : la dépression.</p>
+<blockquote>
+<ul>
+<li>ARTE Alternatives - Web-magazine de solutions</li>
+<li>No.2 : la dépression</li>
+</ul>
+</blockquote>
+<p><a href="https://www.arte.tv/fr/videos/RC-017213/no-2-la-depression/">Web-magazine de solutions : No.2 : la dépression (Arte)</a></p>
+</details>
+
+<p>Comment soutenir un ami, un compagnon ou un frère dépressif ?<br>Pudiques, des “aidants”, comme on les appelle, nous ont livré leur long cheminement vers le rétablissement de leur proche.</p>
+<details>
+  <summary>Cliquer pour afficher le Web-magazine…</summary>
+
+<p>Les aidants : soutenir, tenir et guérir<br><a href="https://www.arte.tv/fr/videos/081327-081-A/les-aidants-soutenir-tenir-et-guerir/">Les aidants : soutenir, tenir et guérir (Arte)</a></p>
+</details>
+
+<h2 id="Decouvrir-MonPsy-Site-gouv-fr"><a href="#Decouvrir-MonPsy-Site-gouv-fr" class="headerlink" title="Découvrir MonPsy (Site gouv.fr)"></a>Découvrir MonPsy (Site gouv.fr)</h2><p><strong>Depuis le 5 avril 2022</strong><br><em><strong>Ouverture de la plateforme MonPsy qui permet la prise en charge de séances chez un psychologue conventionné pour les patients orientés par un médecin.</strong></em></p>
+<p><a href="https://monpsy.sante.gouv.fr/patients" title="MonPsy.sante.gouv.fr - Visiter !"><img src="/uploads/images/LaSecteAux1000Gourous/277786763_803338821057221_2116680082640330178_n.jpg" class="" width="270" height="270"></a></p>
+<details>
+  <summary>Cliquer pour afficher la vidéo de présentation…</summary>
+Découvrir MonPsy en vidéo (Durée 2 minutes)
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","video":{"url":"https://monpsy.sante.gouv.fr/images/Video-MonPsy.mp4"},"danmaku":{"api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<p>Visiter le site <a href="https://monpsy.sante.gouv.fr/faq?tab=patient">MonPsy.sante.gouv.fr - FAQ</a></p>
+</details>
+
+<h1 id="Briser-les-tabous-Comprendre-la-depresion"><a href="#Briser-les-tabous-Comprendre-la-depresion" class="headerlink" title="Briser les tabous - Comprendre la dépresion"></a>Briser les tabous - Comprendre la dépresion</h1><h2 id="Vivre-avec-un-chien-noir-Video-OMS"><a href="#Vivre-avec-un-chien-noir-Video-OMS" class="headerlink" title="Vivre avec un chien noir (Vidéo OMS)"></a>Vivre avec un chien noir (Vidéo OMS)</h2><p><strong>World Health Organization (WHO)</strong></p>
+<blockquote>
+<p>“La santé est un état de complet bien-être physique, mental et social, et ne consiste pas seulement en une absence de maladie ou d’infirmité”<br>Constitution de l’Organisation mondiale de la santé (OMS)</p>
+</blockquote>
+<blockquote>
+<p>Des millions de personnes dans le monde vivent avec la dépression. « Vivre avec un chien noir » est un guide pour les partenaires, les aidants et les personnes souffrant de dépression. Il conseille aux personnes vivant avec des personnes souffrant de dépression et qui prennent soin de celles-ci ce qu’il faut faire, ce qu’il ne faut pas faire et où aller pour obtenir de l’aide.</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher les vidéos…</summary>
+>
+>« Vivre avec un chien noir » fait suite à « J'ai eu un chien noir, il s'appelait dépression », qui offre des conseils pratiques pour accepter et surmonter la dépression.
+>
+>Les deux vidéos ont été produites par l'écrivain et illustrateur Matthew Johnstone en collaboration avec l'OMS et étaient basées sur des livres du même nom.
+
+<h3 id="“Vivre-avec-un-chien-noir”"><a href="#“Vivre-avec-un-chien-noir”" class="headerlink" title="“Vivre avec un chien noir”"></a><strong>“Vivre avec un chien noir”</strong></h3><details>
+  <summary>Cliquer pour afficher la vidéo "Vivre avec un chien noir"…</summary>
+>* 4 sept. 2014
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/2VRRx7Mtep8" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<details>
+  <summary>Cliquer pour afficher la vidéo "J'avais un chien noir, son nom était dépression"…</summary>
+>« J'avais un chien noir, son nom était dépression »
+>At its worst, depression can be a frightening, debilitating condition. Millions of people around the world live with depression. Many of these individuals and their families are afraid to talk about their struggles, and don't know where to turn for help. However, depression is largely preventable and treatable. Recognizing depression and seeking help is the first and most critical towards recovery. 
+>
+>In collaboration with WHO to mark World Mental Health Day, writer and illustrator Matthew Johnstone tells the story of overcoming the "black dog of depression". More information on the book can be found here: 
+
+<h3 id="“J’avais-un-chien-noir-son-nom-etait-depression”"><a href="#“J’avais-un-chien-noir-son-nom-etait-depression”" class="headerlink" title="“J’avais un chien noir, son nom était dépression”"></a><strong>“J’avais un chien noir, son nom était dépression”</strong></h3><style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/XiCrniLQGYc" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<img src="/uploads/images/LaSecteAux1000Gourous/mattyJheader_2017_5.jpg" class="" width="283" height="52">
+<p>Visister le site de <a href="http://matthewjohnstone.com.au/" title="Matthew Jon Stone - Click to Visit!">Matthew Jon Stone - WebSite</a></p>
+</details>
+
+<p>Pour plus d’informations sur la santé mentale, veuillez visiter :<br><a href="https://www.who.int/fr/health-topics/depression">Une base d’informations accessibles au grand public de l’OMS sur la dépression</a></p>
+<h2 id="6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais"><a href="#6-idees-recues-sur-la-depression-Videos-Psychoptik-amp-La-tronche-en-Biais" class="headerlink" title="6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)"></a>6 idées reçues sur la dépression (Vidéos Psychoptik &amp; La tronche en Biais)</h2><p>6 BULLSHITS sur la DÉPRESSION - PSYCHOPTIK #5</p>
+<details>
+  <summary>Cliquer pour afficher la vidéo…</summary>
+>* Le PsyLab
+>* 24 févr. 2017
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/KMNXqj3QmxU" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<p><strong>Comprendre les biais de confirmation</strong></p>
+<details>
+  <summary>Cliquer pour afficher la vidéo de la Tronche en Biais…</summary>
+
+<p>La vidéo de la Tronche en Biais sur les biais de confirmation:</p>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/6cxEu-OP5mM" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+</details>
+
+<h2 id="Imagerie-fonctionnelle-dans-la-depression-Image"><a href="#Imagerie-fonctionnelle-dans-la-depression-Image" class="headerlink" title="Imagerie fonctionnelle dans la dépression (Image)"></a>Imagerie fonctionnelle dans la dépression (Image)</h2><p>En anglais: (A quick informative overview of the biology behind depression)</p>
+<img src="/uploads/images/LaSecteAux1000Gourous/brain-imaging-shows-brain-changes-in-depression.png" class="" width="400" height="400" title="Imagerie fonctionnelle dans la dépression">
+
+<h2 id="La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker"><a href="#La-Campagne-EtToiCaVa-Fondation-Pierre-Deniker" class="headerlink" title="La Campagne #EtToiCaVa (Fondation Pierre Deniker)"></a>La Campagne #EtToiCaVa (Fondation Pierre Deniker)</h2><h3 id="La-Campagne-EtToiCaVa-Video"><a href="#La-Campagne-EtToiCaVa-Video" class="headerlink" title="La Campagne #EtToiCaVa (Vidéo)"></a>La Campagne #EtToiCaVa (Vidéo)</h3><p>Campagne Dépression 2019 de la Fondation Pierre Deniker (Vidéo)</p>
+<blockquote>
+<p>L’histoire d’Antoine, c’est celle que vit ou vivra 1 personne sur 5 en France et dans le monde.</p>
+</blockquote>
+<blockquote>
+<p>La Fondation Pierre Deniker propose ce court-métrage pour interroger le spectateur, montrer la réalité de la dépression et briser le tabou.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>#EtToiCaVa - Et toi ça va ? (Le court-métrage)</li>
+<li>Scénario : Astrid Chevance et Marie-Stéphane Cattaneo </li>
+<li>Réalisation : Marie-Stéphane Cattaneo</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/2YR8J1xqDNs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<h3 id="Campagne-Depression-EtToiCaVa-Site"><a href="#Campagne-Depression-EtToiCaVa-Site" class="headerlink" title="Campagne Dépression #EtToiCaVa (Site)"></a>Campagne Dépression #EtToiCaVa (Site)</h3><p><strong>#EtToiCaVa - Et toi ça va ?</strong><br><em><strong>Campagne Dépression 2019 de la Fondation Pierre Deniker</strong></em></p>
+<details>
+  <summary>Cliquer pour afficher la vidéo de la campagne…</summary>
+
+<p><a href="https://fondationpierredeniker.org/sensibilisation/et-toi-ca-va/">Campagne Dépression de la Fondation Pierre Deniker “Ensemble, parlons de la dépression.”</a></p>
+<img src="/uploads/images/LaSecteAux1000Gourous/Screenshot%20-%20Sant%C3%A9%20mentale%20-%20Fondation%20Pierre%20Deniker%20(zoom).png" class="" width="628" height="458" title="Santé mentale - Fondation Pierre Deniker" alt="Santé mentale - Fondation Pierre Deniker (statistiques)">
+
+<div class="pdf-container" data-target="/uploads/images/LaSecteAux1000Gourous/Les Français et la dépression _ Infographie 1709V2[2] - BLANC[6].pdf" data-height="550px"></div>
+</details>
+
+<h2 id="En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video"><a href="#En-rire-avec-Bref-80-Bref-J’ai-fait-une-depression-Video" class="headerlink" title="En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)"></a>En rire avec Bref. #80 - Bref. J’ai fait une dépression. (Vidéo)</h2><blockquote>
+<ul>
+<li>bref. 80 - Bref. J’ai fait une dépression.</li>
+<li>13 oct. 2017</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/DwfwmxOF_3E" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<details>
+  <summary>[BONUS] 80. Bref. J'ai fait une dépression… (Développer pour le BONUS !)</summary>
+Les coulisses de ref. (vu par les réals) - [BONUS] (vu par les réals) 80. Bref. J'ai fait une dépression.
+14 oct. 2014
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/wdQWBWaymt0" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p><strong>Enfin la liberté ?</strong></p>
+<details>
+  <summary>Cliquer pour afficher le contenu…</summary>
+
+<h1 id="Perseverer-Apres-1-x2F-4-Les-doutes-amp-la-solitude"><a href="#Perseverer-Apres-1-x2F-4-Les-doutes-amp-la-solitude" class="headerlink" title="Persévérer - Après (1&#x2F;4) - Les doutes &amp; la solitude"></a>Persévérer - Après (1&#x2F;4) - Les doutes &amp; la solitude</h1><h2 id="Actualite"><a href="#Actualite" class="headerlink" title="Actualité"></a>Actualité</h2><h3 id="Elections-2022-demain-1-x2F-2-tour-AFIS"><a href="#Elections-2022-demain-1-x2F-2-tour-AFIS" class="headerlink" title="Élections 2022 (demain 1&#x2F;2 tour) (AFIS)"></a>Élections 2022 (demain 1&#x2F;2 tour) (AFIS)</h3><p><a href="https://afis.org/Election-presidentielle-2022-les-reponses-des-candidats-aux-questions-de-l-Afis">Élection présidentielle 2022 : les réponses des candidats aux questions de l’Afis</a></p>
+<blockquote>
+<ul>
+<li>Publié en ligne le 13 mars 2022</li>
+<li>Mise à jour le 8 avril 2022</li>
+<li>AFIS-SCIENCE</li>
+<li>Association Française pour l’Information Scientifique</li>
+</ul>
+</blockquote>
+<h4 id="Les-reponses-des-candidats-PDF"><a href="#Les-reponses-des-candidats-PDF" class="headerlink" title="Les réponses des candidats (PDF)"></a>Les réponses des candidats (PDF)</h4><p><strong>L’Afis a envoyé une liste de questions aux candidats pour la présidentielle 2022.</strong><br>4 seulement ont répondus !<br>4 seulement !<br>Mais…<br>C’est assez intéressant de voir le niveau des réponses…<br>De compétence(s)…<br>Mais, pas que…</p>
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+Par ordre chronologique de réception. Mise à jour à mesure des réponses reçues:
+<details>
+- [Emmanuel Macron](https://www.afis.org/IMG/pdf/macron_emmanuel.pdf)
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/macron_emmanuel.pdf" data-height="550px"></div>
+</details>
+- [Nathalie Arthaud](https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf)
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/arthaud_nathalie.pdf" data-height="550px"></div>
+</details>
+- [Fabien Roussel](https://www.afis.org/IMG/pdf/roussel_fabien.pdf)
+<details>
+  <summary>Clicker pour afficher les réponses des candidats</summary>
+<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/roussel_fabien.pdf" data-height="550px"></div>
+</details>
+- [Jean-Luc Mélenchon](https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf)
+<details>
+  <summary>Clicker pour afficher la réponse de Jean-Luc Mélenchon</summary>
+<div class="pdf-container" data-target="https://www.afis.org/IMG/pdf/melenchon_jean-luc.pdf" data-height="550px"></div>
+</details>
+</details>
+
+<h1 id="Perseverer-Apres-2-x2F-4-Les-confirmations-amp-les-liberations"><a href="#Perseverer-Apres-2-x2F-4-Les-confirmations-amp-les-liberations" class="headerlink" title="Persévérer - Après (2&#x2F;4) - Les confirmations &amp; les libérations"></a>Persévérer - Après (2&#x2F;4) - Les confirmations &amp; les libérations</h1><h2 id="New-Age-ou-la-secte-aux-1-000-gourous…-CyberMindFR-Reference"><a href="#New-Age-ou-la-secte-aux-1-000-gourous…-CyberMindFR-Reference" class="headerlink" title="New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)"></a>New Age ou la secte aux 1.000 gourous… @CyberMindFR (Référence)</h2><p>MétaDeChoc d’Élisabeth Feytit, relire le premier article sur <strong>LSA1KG</strong>, l’article <a href="https://cybermind.fr/fr/2022/03/14/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">MétaDeChoc.FR - Élisabeth Feytit : New Age ou la secte aux 1.000 gourous…</a></p>
+<blockquote>
+<ul>
+<li>Publié le 14 Mars 2022</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Et même si vous n’êtes pas un “adepte” de la “secte au 1.000 gourous” <a href="https://twitter.com/hashtag/LSA1KG">#LSA1KG</a> (™ &amp; © ME)</p>
+</blockquote>
+<h1 id="Perseverer-Apres-3-x2F-4-Les-recherches-amp-les-associations"><a href="#Perseverer-Apres-3-x2F-4-Les-recherches-amp-les-associations" class="headerlink" title="Persévérer - Après (3&#x2F;4) - Les recherches &amp; les associations"></a>Persévérer - Après (3&#x2F;4) - Les recherches &amp; les associations</h1><h2 id="Les-emotions"><a href="#Les-emotions" class="headerlink" title="Les émotions"></a>Les émotions</h2><h3 id="Les-emotions-sont-elles-rationnelles-Article-AFIS"><a href="#Les-emotions-sont-elles-rationnelles-Article-AFIS" class="headerlink" title="Les émotions sont-elles rationnelles (Article AFIS)"></a>Les émotions sont-elles rationnelles (Article AFIS)</h3><blockquote>
+<p>Le doux rêve des zététiciens serait un monde où la raison règne en maîtresse, débarrassée des vilaines émotions, archaïsmes organiques.<br>Ou pas. </p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher les détails de l'article…</summary>
+
+<p>Article de l’AFIS (Association Française pour l’Information Scientifique)<a href="https://afis.org/https://www.afis.org/Les-emotions-sont-elles-rationnelles">Les émotions sont-elles rationnelles ?</a></p>
+<blockquote>
+<ul>
+<li>Article paru dans la revue n°338 d’octobre 2021.</li>
+<li>Publié en ligne le 9 avril 2022</li>
+<li>AFIS-SCIENCE</li>
+<li>Association Française pour l’Information Scientifique</li>
+<li>#afis #science<br>Auteurs:</li>
+<li><a href="https://www.afis.org/Thomas-C-Durand">Thomas.C.Durand</a></li>
+<li><a href="https://twitter.com/TroncheBiais">@TroncheBiais</a></li>
+<li><a href="https://twitter.com/Acermendax">@Acermendax</a></li>
+</ul>
+</blockquote>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a href="https://twitter.com/afis_science/status/1513524016945917963"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</details>
+
+<h3 id="RAISON-versus-EMOTION-Video-La-Tronche-en-Biais"><a href="#RAISON-versus-EMOTION-Video-La-Tronche-en-Biais" class="headerlink" title="RAISON versus EMOTION (Vidéo La Tronche en Biais)"></a>RAISON versus EMOTION (Vidéo La Tronche en Biais)</h3><blockquote>
+<p>Tout réduire aux émotions est une recette catastrophique, mais prétendre les ignorer, c’est occulter une partie du réel qui nous manquerait cruellement s’il était en notre pouvoir de l’amputer (ce qui n’est pas le cas).</p>
+</blockquote>
+<details>
+  <summary>Cliquer pour afficher le Vidép…</summary>
+
+<blockquote>
+<ul>
+<li>La Tronche en Biais</li>
+<li>TenL#107</li>
+<li>Diffusée en direct le 20 déc. 2021</li>
+</ul>
+</blockquote>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/I7I8Tec1G4U" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+</details>
+
+<h1 id="Perseverer-Apres-4-x2F-4-La-reconstrucion-amp-la-liberte"><a href="#Perseverer-Apres-4-x2F-4-La-reconstrucion-amp-la-liberte" class="headerlink" title="Persévérer - Après (4&#x2F;4) - La reconstrucion &amp; la liberté"></a>Persévérer - Après (4&#x2F;4) - La reconstrucion &amp; la liberté</h1><h2 id="Pour-approfondir-ici-amp-ailleurs"><a href="#Pour-approfondir-ici-amp-ailleurs" class="headerlink" title="Pour approfondir ici &amp; ailleurs !"></a>Pour approfondir ici &amp; ailleurs !</h2><ul>
+<li>Sur les sujets de la <a href="https://cybermind.fr/tags/zetetique/"><strong>Zététique</strong></a></li>
+<li>…<details>
+<summary>Cliquer pour afficher d'autres compléments…</summary></li>
+</ul>
+<p>À suivre… -&gt; <a href="https://cybermind.fr/tags/LaSecteAux1000Gourous/">#LaSecteAux1000Gourous@CyberMindFR</a><br><a href="https://twitter.com/hashtag/LaSecteAux1000Gourous?src=hashtag_click">#LaSecteAux1000Gourous</a></p>
+<p><a href="https://twitter.com/CyberMindFR">@CyberMindFR</a></p>
+
+</details>
+
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+</details>
+
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
+]]></content>
+      <categories>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>zététique</tag>
+        <tag>LSA1KG</tag>
+        <tag>The Conjurers</tag>
+        <tag>Santé mentale</tag>
+        <tag>Gourou</tag>
+        <tag>Spiritualité</tag>
+        <tag>Santé</tag>
+        <tag>Dépression</tag>
+        <tag>LesConseilsduPsy</tag>
+        <tag>Dérives sectaires</tag>
+        <tag>Médecines alternatives</tag>
+        <tag>Esprit Critique</tag>
+        <tag>Secte</tag>
+        <tag>Sceptique</tag>
+        <tag>Enfantcristal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>L’esprit critique - Bande Dessinée aux Éditions Delcourt</title>
     <url>/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Introduction-Pourquoi-LSA1KG"><a href="#Introduction-Pourquoi-LSA1KG" class="headerlink" title="Introduction - Pourquoi LSA1KG ?"></a>Introduction - Pourquoi LSA1KG ?</h1><p>Ma compagne me questionnait récemment, après la découverte du monde de la zététique, de la nécessité de son enseignement, pour les enfants entre autres. Je crois que c’est une belle étape que cette bande dessinée propose avec une vulgarisation, ni scientifique, ni spirituelle, mais les deux à la fois zététique.<br>Elle débute par la rencontre et la confrontation entre deux mondes opposés, entre leur défenseurs maladroit, une pseudo-chamane celte et un pseudo-sceptique rationaliste.<br>C’est justement ce genre d’idée, rassembler deux mondes opposés, qui m’avait motivé personnellement, ou m’avait excusé devrais-je avouer, à me plonger profondément et intensément, surtout précipitamment, dans une adhésion aux croyances new-age, dites spirituelles.<br>J’ai presque failli oublier que la Magie est personnelle, qu’elle doit rester intime.<br>Enfin, ce n’est qu’une opinion personnelle qui n’engage que moi et qui, surtout, ne veut s’imposer à personne.</p>
@@ -4709,15 +4709,19 @@ En attendant, voici déjà l'extrait:
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_006.jpeg" width="512px" height="384px">
 
-<h2 id="Message"><a href="#Message" class="headerlink" title="Message ?"></a>Message ?</h2><img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007.png" width="512px" height="384px">
+<blockquote>
+<p>23:59 de la Saint Boby…</p>
+</blockquote>
+<img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007.png" width="512px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008.jpeg" width="512px" height="384px">
 
 <blockquote>
-<p>23:59 de la Saint Boby…</p>
 <blockquote>
 <p>Mission accomplie…</p>
 </blockquote>
+</blockquote>
+<h2 id="Message"><a href="#Message" class="headerlink" title="Message ?"></a>Message ?</h2><blockquote>
 <blockquote>
 <blockquote>
 <p>Mariaaaa !</p>
