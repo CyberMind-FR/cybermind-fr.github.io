@@ -51,6 +51,8 @@ So many other questions that find their (beginning of) answer on the fabulous po
 - [SHOCKING #20 - Sexualité : un monde de croyances (**Avec Marianne Niosi,** directrice de la confédération du Planning familial)](https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/)
 - [STREAM #6 - La métacognition sauvera-t-elle le monde ? (**Avec Emmanuel Sander et Élisabeth Feytit**)](https://metadechoc.fr/podcast/sexualite-un-monde-de-croyances/)
   - [23 avril 2022 à 15 h 52 min](https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170)
+- [SHOCKING #4 - Les algorithmes tueront-ils notre attention ? (**Avec Sonia Bressler**, philosophe, spécialiste de la communication d'influence et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/)
+  - [09 mai 2022 à 20 h 31 min](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/#comment-1212)
 
 # To be continued on @CyberMindFR #
 
