@@ -6,6 +6,7 @@ tags:
 - MOCHAbin
 - Armada
 - SECUBOX
+- OpenWrt
 categories: Cyber
 ---
 
@@ -106,7 +107,7 @@ OK
 </details>
 
 <details>
-  <summary>Click to expand first login to factory Ubuntu with some few commands...</summary>
+  <summary>Click to expand first login to OpenWrt with some few commands...</summary>
 ```
 BootROM - 2.03
 Starting CP-0 IOROM 1.07
