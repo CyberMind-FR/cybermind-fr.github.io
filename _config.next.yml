@@ -915,7 +915,7 @@ tagTwitter:
 
 youtuber:
   allowfullscreen: yes,
-  privacy_mode: yes,
+  privacy_mode: no,
   autoplay: 0
 
 feed:
