@@ -86,6 +86,6 @@ REF : https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-
 COURAGE !
 À TOUS !
 
-⚠️ Warning, this page will be updated regularly ! 👀
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

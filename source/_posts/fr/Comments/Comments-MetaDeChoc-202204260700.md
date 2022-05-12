@@ -67,6 +67,6 @@ Et là; les larmes ont coulées, pas trop, pas trop longtemps, mais cette intens
 à NOUS...
 COURAGE !
 
-⚠️ Warning, this page will be updated regularly ! 👀
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022
