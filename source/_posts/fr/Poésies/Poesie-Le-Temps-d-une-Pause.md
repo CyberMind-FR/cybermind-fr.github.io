@@ -14,6 +14,6 @@ categories:
 Petit souvenir d'une promenade en amoureux en période de COVID19.
 <!-- more -->
 
-<video autosize="true" controls=true>
-  <source src="/uploads/images/Kerma/20210513160347-LE_TEMPS_D_UNE_PAUSE-IMG_2227.mov" type="video/mov">
+<video autosize="true" controls>
+  <source src="/uploads/images/Kerma/20210513160347-LE_TEMPS_D_UNE_PAUSE-IMG_2227.mp4" type="video/mp4">
 </video>
