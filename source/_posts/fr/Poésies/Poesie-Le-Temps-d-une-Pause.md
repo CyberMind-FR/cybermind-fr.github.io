@@ -1,7 +1,8 @@
 ---
 title: Vidéo - Le Temps d'une pause...
 lang: fr
-date: 2021-05-13 16:03:47
+date: 2022-05-13 02:19:19
+origin: 2021-05-13 16:03:47
 tags:
 - Poésie
 - Notre-Dame-du-Cruet
@@ -9,6 +10,8 @@ categories:
 - Mind
 - Poésies
 ---
+
+date: 2021-05-13 16:03:47
 
 # Libérez-vous...
 Petit souvenir d'une promenade en amoureux en période de COVID19.
