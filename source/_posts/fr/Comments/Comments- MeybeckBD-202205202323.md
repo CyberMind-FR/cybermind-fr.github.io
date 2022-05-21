@@ -24,7 +24,7 @@ categories:
 Ceci est mon commentaire publié à l'origine sur LinkedIn pour remercier MétaDeChoc pour la vidéo - [Une fois pour toute, l’anthroposophie est-elle raciste ?](https://www.meybeck.net/2022/05/17/une-fois-pour-toute-lanthroposophie-est-elle-raciste/#main).
 
 Voici le commentaire (publié) [20 mai 2022](https://www.linkedin.com/feed/update/urn:li:activity:6932359325550034945?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6932359325550034945%2C6933290443547803648%29)
-et re-publié le [21 mai 2022]()
+et re-publié le [21 mai 2022](https://www.meybeck.net/2022/05/17/une-fois-pour-toute-lanthroposophie-est-elle-raciste/#comment-8194)
 
 Tout est dans le texte de ce commentaire...
 
