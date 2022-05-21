@@ -1,5 +1,5 @@
 ---
-title: 'Comments@MétaDeChoc.FR - Élisabeth Feytit : La métacognition sauvera-t-elle le monde ?'
+title: 'Comments@MétaDeChoc.FR - La métacognition sauvera-t-elle le monde ?'
 lang: fr
 date: 2022-04-23 15:52:00
 author: 🧙 -- Gandalf (from "The Conjurers")

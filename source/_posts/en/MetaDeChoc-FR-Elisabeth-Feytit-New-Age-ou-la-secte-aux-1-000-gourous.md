@@ -53,6 +53,9 @@ So many other questions that find their (beginning of) answer on the fabulous po
   - [23 avril 2022 à 15 h 52 min](https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170)
 - [SHOCKING #4 - Les algorithmes tueront-ils notre attention ? (**Avec Sonia Bressler**, philosophe, spécialiste de la communication d'influence et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/)
   - [09 mai 2022 à 20 h 31 min](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/#comment-1212)
+- [SHOCKING #24 - Complotisme : si loin, si proche (Avec **Marie Peltier**, historienne et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/)
+  - [14 mai 2022 à 07 h 49 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1232)
+  - [21 mai 2022 à 22 h 57 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1256)
 
 # To be continued on @CyberMindFR #
 
@@ -62,7 +65,6 @@ So many other questions that find their (beginning of) answer on the fabulous po
 - [Dérives - La secte aux 1000 gourous](https://cybermind.fr/fr/Mind/Derives-La-secte-aux-1000-gourous/)
 - [A study, (work in progress) about “La Secte Aux 1.000 Gourous” (#LSA1KG) 🛸 & 👽 -> 🦄 & 🧚‍♀️](https://cybermind.fr/tags/LSA1KG/)
 - …
-
 
 ⚠️ Warning, this page will be updated regularly ! 👀
 

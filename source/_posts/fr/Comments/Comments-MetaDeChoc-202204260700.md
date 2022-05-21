@@ -1,5 +1,5 @@
 ---
-title: 'Comments@MétaDeChoc.FR - Élisabeth Feytit : New Age or the sect of 1,000 gurus…'
+title: 'Comments@MétaDeChoc.FR - New Age or the sect of 1,000 gurus…'
 lang: fr
 date: 2022-04-26 07:00:00
 author: 🧙 -- Gandalf (from "The Conjurers")

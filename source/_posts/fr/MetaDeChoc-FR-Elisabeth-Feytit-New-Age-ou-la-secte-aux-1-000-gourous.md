@@ -55,6 +55,9 @@ Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux p
   - [23 avril 2022 à 15 h 52 min](https://metadechoc.fr/podcast/la-metacognition-sauvera-t-elle-le-monde/#comment-1170)
 - [SHOCKING #4 - Les algorithmes tueront-ils notre attention ? (**Avec Sonia Bressler**, philosophe, spécialiste de la communication d'influence et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/)
   - [09 mai 2022 à 20 h 31 min](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/#comment-1212)
+- [SHOCKING #24 - Complotisme : si loin, si proche (Avec **Marie Peltier**, historienne et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/)
+  - [14 mai 2022 à 07 h 49 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1232)
+  - [21 mai 2022 à 22 h 57 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1256)
 
 # À suivre sur @CyberMindFR #
 

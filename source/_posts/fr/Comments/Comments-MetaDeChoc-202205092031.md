@@ -1,5 +1,5 @@
 ---
-title: 'Comments@MétaDeChoc.FR - Élisabeth Feytit : Les algorithmes tueront-ils notre attention ?'
+title: 'Comments@MétaDeChoc.FR - Les algorithmes tueront-ils notre attention ?'
 lang: fr
 date: 2022-05-09 20:31:27
 author: 🧙 -- Gandalf (from "The Conjurers")
