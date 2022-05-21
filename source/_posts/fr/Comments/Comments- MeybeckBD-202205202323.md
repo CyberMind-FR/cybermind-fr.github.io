@@ -1,7 +1,7 @@
 ---
 title: 'Comments@Meybeck.NET - Une fois pour toute, l’anthroposophie est-elle raciste ?'
 lang: fr
-date: 2022-05-21 23:23:00
+date: 2022-05-20 00:00:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
 - vidéo
