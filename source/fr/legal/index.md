@@ -14,6 +14,7 @@ Informations bancaires : \
 IBAN: FR76 1027 8088 9400 0205 6360 163 \
 BIC: CMCIFR2A
 
+* [BuyMeACoffee](https://www.buymeacoffee.com/CyberMind)
 * [TIPEEE](https://fr.tipeee.com/cybermind/)
 * [PAYPAL](HTTPS://PAYPAL.ME/KERMA) (Pensez à ajouter 5% à vos paiements PayPal, MERCI !!!)
 * [UTIP](https://www.utip.io/CyberMind/)
