@@ -16,7 +16,7 @@ BIC: CMCIFR2A
 
 * [BuyMeACoffee](https://www.buymeacoffee.com/CyberMind)
 * [TIPEEE](https://fr.tipeee.com/cybermind/)
-* [PAYPAL](HTTPS://PAYPAL.ME/KERMA) (Pensez à ajouter 5% à vos paiements PayPal, MERCI !!!)
+* [PAYPAL](HTTPS://PAYPAL.ME/KERMA) (Pensez à ajouter 5% à vos paiements PayPal, MERCI À VOUS !!!)
 * [UTIP](https://www.utip.io/CyberMind/)
 * [PATREON](https://patreon.com/cybermind)
 * [LIBERAPAY](https://liberapay.com/CyberMind/)
