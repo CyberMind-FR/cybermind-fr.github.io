@@ -18,26 +18,31 @@ I still had to make a detailed howto, but it may be usefull for advanced users w
 
 They may also work 'as-is' or mainly close to on MochaBIn but I have not tested.
 
+<!-- more -->
+
 ## IPFIRE TRY
 
-<code>
+```
 usb reset
 load usb 0:2 $kernel_addr_r /efi/boot/bootaa64.efi
 load usb 0:1 $fdt_addr_r /dtb-5.10.50-ipfire/marvell/armada-3720-espressobin-v7-emmc.dtb
 bootefi $kernel_addr_r $fdt_addr_r
 ... BOOT OK Linux lts
-</code>
+```
 
 USB2 = KO
 USB3 = OK
 
 ## OPNSENSE TRY
 
-<code>
+```
 => setenv fdt_name 'dtb/marvell/armada-3720-espressobin.dtb'
 => setenv image_name 'EFI/BOOT/bootaa64.efi'
 => setenv bootmmc 'mmc dev 0;fatload mmc 0:1 $kernel_addr $image_name;fatload mmc 0:1 $fdt_addr $fdt_name; bootefi $kernel_addr'
-=> run bootmmc</code>
+=> run bootmmc
+```
 
-USB2 = KO
-USB3 = OK
+Will be updated soon...
+Keep your eyes open.
+
+Take care, shared as is, use it at your own risks !
