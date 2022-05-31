@@ -16,7 +16,7 @@ categories:
 - Conseils
 ---
 
-#Dépression - Sortir de la boucle
+# Dépression - Sortir de la boucle
 
 Sujet initial: [Dérives - La secte aux 1000 gourous](/fr/Mind/Derives-La-secte-aux-1000-gourous)
 
