@@ -1,8 +1,3 @@
-FUCK DEMAT
-==========
-Créée le mardi 31 mai 2022
-
----
 title: Dématérialisation - L'Échec 
 lang: fr
 date: 2022-05-31 22:22:22
