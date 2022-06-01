@@ -1,5 +1,5 @@
 ---
-title: 'Dématérialisation - L'Échec #002'
+title: 'Dématérialisation - L’Échec (FUCK DÉMA - #002)'
 lang: fr
 date: 2022-06-01 07:40:00
 author: 🧙 -- Gandalf (from "The Conjurers")
