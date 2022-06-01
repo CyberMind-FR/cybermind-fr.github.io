@@ -919,6 +919,11 @@ youtuber:
   autoplay: 0
 
 feed:
-  type: atom
-  path: atom.xml
+  # Generate both atom and rss2 feeds
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
   limit: 50
