@@ -24,9 +24,9 @@ by Randall Munroe, CC BY-NC 2.5
 
 <!-- more -->
 
-# FUCK DÉMA-002 \
-============== \
-Créée le mercredi 01 juin 2022 \
+# FUCK DÉMA-002
+==============
+Créée le mercredi 01 juin 2022
 
 ---8<---
 
