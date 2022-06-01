@@ -99,7 +99,7 @@ ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS...
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/tags/Fuck-D%C3%A9ma/)
+- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/tags/Fuck-D%C3%A9ma/))
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
