@@ -19,6 +19,8 @@ categories:
 
 Ceci est un (auto) commentaire sur le billet du 31/05/2022 à 22:22 [Dématérialisation - L’Échec](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#more) -> [FUCK DEMAT](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#isso-6)
 
+<img src="/uploads/images/COMMENTS/duty_calls.png" width="300px" heigth="330px">
+by Randall Munroe, CC BY-NC 2.5
 <!-- more -->
 # FUCK DEMAT-002
 ==============
@@ -94,6 +96,10 @@ COURAGE !
 ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS...
 
 **LES KRAGZOUÏLLES VAINCRONT !!!**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/tags/Fuck-D%C3%A9ma/)
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

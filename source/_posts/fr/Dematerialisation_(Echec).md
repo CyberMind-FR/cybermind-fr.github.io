@@ -82,7 +82,7 @@ Il n'y aura d'autre direction que la tombe ou le ciel, mais, ce choix, ce sera l
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos de l'esprit ses jeux et ses enjeu ([le “Mind” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/categories/tags/)
+- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/tags/Fuck-D%C3%A9ma/)
 - Le plus ennuyeux dans ces partages pourtant nécessaire, c'est qu'ils deviennent trop souvent prioritaires et rendus urgent par l'actualité, quand j'ai tant d'autres merveilleux sujets à vous dévoiler sur des rencontres hors du temps, des initiatives magnifiques, des aventures époustouflantes... Demain, peut-être, si la 25ème parviens enfin à se glisser entre 2 autres ?
 - …
 
