@@ -4,7 +4,7 @@ lang: fr
 date: 2022-06-01 07:40:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
-- Fuck Démat
+- Fuck Déma
 - Fake
 - The Conjurers
 - comments
@@ -17,12 +17,12 @@ categories:
 - KragZouïlles
 ---
 
-Ceci est un (auto) commentaire sur le billet du 31/05/2022 à 22:22 [Dématérialisation - L’Échec](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#more) -> [FUCK DEMAT](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#isso-6)
+Ceci est un (auto) commentaire sur le billet du 31/05/2022 à 22:22 [Dématérialisation - L’Échec (FUCK DÉMA - #001)](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#more) -> [FUCK DÉMA - #002](https://cybermind.fr/fr/Cyber/Dematerialisation_(Echec)/#isso-6)
 
 <img src="/uploads/images/COMMENTS/duty_calls.png" width="300px" heigth="330px">
 by Randall Munroe, CC BY-NC 2.5
 <!-- more -->
-# FUCK DEMAT-002
+# FUCK DÉMA-002
 ==============
 Créée le mercredi 01 juin 2022
 
@@ -99,7 +99,7 @@ ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS...
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥](https://cybermind.fr/tags/Fuck-D%C3%A9ma/))
+- D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODE 001 - FUCK DÉMA)](https://cybermind.fr/tags/Fuck-Dema/))
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
