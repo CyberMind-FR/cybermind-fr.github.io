@@ -21,10 +21,12 @@ Ceci est un (auto) commentaire sur le billet du 31/05/2022 à 22:22 [Dématéria
 
 <img src="/uploads/images/COMMENTS/duty_calls.png" width="300px" heigth="330px">
 by Randall Munroe, CC BY-NC 2.5
+
 <!-- more -->
-# FUCK DÉMA-002
-==============
-Créée le mercredi 01 juin 2022
+
+# FUCK DÉMA-002 \
+============== \
+Créée le mercredi 01 juin 2022 \
 
 ---8<---
 
