@@ -81,6 +81,19 @@ Il n'y aura PAS de retour arrière, il n'y en a jamais eu, le temps n'est qu'un 
 Il n'y aura PAS d'autres horizon que celui que vous choisissez de regarder et suivre...
 Il n'y aura d'autre direction que la tombe ou le ciel, mais, ce choix, ce sera le votre, à vous, HUMAIN(s)...
 
+## Ajout du jour (rapide) - 202206020607
+
+Aujourd'hui c'est l'iniative "Le nouveau guide : « En route vers la sobriété numérique » (service-public.fr)" qui est mis en avant !
+TOP !!!
+J'avais découvert l'ADEME et j'adore ces initiatives et actions publiques qui ont un sens...
+Mais le voir une nouvelle fois repris dans un contexte électorale par les officines gouvernementales afain de défendre des actions sans suggérer celles de transfomer la France en grand DataCenter mondiale me semble une abération et surtout pour voir en fin de page un bouton "ALLONS VOTER" que je prends pour ma part comme une suggestion à signer et sponsoriser les actions...
+Ça me rappel les promesses sur la santé quand il fallait déjà des actions et engagements...
+Mais c'était bien avant les CONFINEMENTS, bien avant le (oui LE) COVID19, bien avant la pandémie (créée si je ne m'abuse par les actions de rappatriement plutôt que la sagesse d'une quarantaine, mais on va me dire complotiste là où je ne réclame que l'aveux d'erreur de la suggestion de la PEUR comme réflexe !), c'était bien avant que la pauvreté soit la seule à s'émanciper plus vite que l'inflation et l'enrichissement des puissants, c'était bien avant hier, juste avant-hier !
+Souvenez-vous... Toujours !
+Car, c'est DIFFICILE...
+Qui se souvient du temps qu'il faisait le mois dernier à la même heure ?
+Qui ???
+
 # À suivre sur @CyberMindFR… #
 
 - D'autres billets suivront à propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODE 001 - FUCK DÉMA)](https://cybermind.fr/tags/Fuck-Dema/))
