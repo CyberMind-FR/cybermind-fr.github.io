@@ -1,7 +1,7 @@
 ---
 title: 'Magie - Les invisibles (IDÉE COOL - #001)'
 lang: fr
-date: 2022-07-02 06:04:00
+date: 2022-06-02 06:04:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
 - Idée Cool
