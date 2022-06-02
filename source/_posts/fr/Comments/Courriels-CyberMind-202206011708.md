@@ -1,7 +1,7 @@
 ---
 title: '[EXTERNAL] [CYBERMIND] Demande de proposition et offre de collaboration (FUCK DÉMA - #003)'
 lang: fr
-date: 2022-07-01 17:08:00
+date: 2022-06-01 17:08:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
 - Fuck Déma
