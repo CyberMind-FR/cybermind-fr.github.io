@@ -37,13 +37,13 @@ categories:
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_006.jpeg" width="512px" height="384px">
 
->23:59 de la Saint Boby...
+>23:59 de la Saint Boby…
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_007.png" width="512px" height="384px">
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_008.jpeg" width="512px" height="384px">
 
->>Mission accomplie...
+>>Mission accomplie…
 
 ## Message ? ##
 
@@ -59,7 +59,7 @@ categories:
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010.jpeg" width="288px" height="384px">
 
-## À suivre... ##
+## À suivre… ##
 
 > Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !
 
