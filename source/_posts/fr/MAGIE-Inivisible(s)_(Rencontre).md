@@ -45,6 +45,8 @@ Les actions sont nombreuses, à venir, à étudier, à partager !
 
 J'avais reçu dans la boîte aux lettres de "La Petite Maison", ce prospectus distribué par Madame le Maire (habituellement, j'aime à dire "La Mairesse" mais c'est juste parce-que j'ai "le droit" et que j'aime à titiller mon prochain...)
 
+CONFERENCE CHAUVES-SOURIS à ARGENTINE LE 18 MAI (organisée par le [SYNDICAT MIXTE DE LA LAUZIERE](http://lauziere-savoie.fr/))
+
 Je l'avais aussi reçu par courriel...
 Puis je m'étais inscrit (d'ailleurs à y réfléchir j'étais plusieurs à l'époque...)
 Mes parents, qui habitent le même village, s'y étaient également inscrits !
@@ -97,6 +99,12 @@ J'aurais aimé y être pour découvrir d'autres actions et acteurs.
 Je ne mets aucun son sur ce billet.
 Je ne mets pas non plus pas de photos sur le nichoir réalisé lors de cet atelier.
 Pas pour l'instant...
+
+# MERCI
+
+- Merci à [Marie Le Roux](http://mlr-environnement.fr) pour sa conférence, ses actions et partager avec le public cette grande avanture personnelle !
+- Merci à [Sébastien Lazaronni de Colocaterre](https://www.colocaterre.com/) pour son atelier de fabrication d'un gîte pour chauve-souris !
+- Merci à ... du [SYNDICAT MIXTE DE LA LAUZIERE](http://lauziere-savoie.fr/)) (et ses filles) pour l'organisation de cette conférence !
 
 # À suivre sur @CyberMindFR… #
 
