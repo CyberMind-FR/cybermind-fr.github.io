@@ -1,5 +1,5 @@
 ---
-title: '[EXTERNAL] [CYBERMIND] Demande de proposition et offre de collaboration'
+title: '[EXTERNAL] [CYBERMIND] Demande de proposition et offre de collaboration (FUCK DÉMA - #003)'
 lang: fr
 date: 2022-06-01 07:40:00
 author: 🧙 -- Gandalf (from "The Conjurers")
