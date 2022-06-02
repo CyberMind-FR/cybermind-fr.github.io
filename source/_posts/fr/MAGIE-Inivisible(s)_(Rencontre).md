@@ -4,6 +4,7 @@ lang: fr
 date: 2022-07-02 06:04:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
+- Idée Cool
 - Écologie
 - Invisibles
 - Technologie
@@ -18,6 +19,7 @@ tags:
 - Savoie
 categories:
 - Cyber
+- KragZouïlles
 ---
 
 # Découvrir et rendre visible les invisibles
