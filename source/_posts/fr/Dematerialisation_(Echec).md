@@ -81,7 +81,7 @@ Il n'y aura PAS de retour arrière, il n'y en a jamais eu, le temps n'est qu'un 
 Il n'y aura PAS d'autres horizon que celui que vous choisissez de regarder et suivre...
 Il n'y aura d'autre direction que la tombe ou le ciel, mais, ce choix, ce sera le votre, à vous, HUMAIN(s)...
 
-## Ajout du jour (rapide) - 202206020607
+## Ajout du jour (rapide) - 202206020610
 
 Aujourd'hui c'est l'iniative "Le nouveau guide : « En route vers la sobriété numérique » (service-public.fr)" qui est mis en avant !
 TOP !!!
@@ -93,6 +93,12 @@ Souvenez-vous... Toujours !
 Car, c'est DIFFICILE...
 Qui se souvient du temps qu'il faisait le mois dernier à la même heure ?
 Qui ???
+
+REFS:
+- https://www.service-public.fr/particuliers/actualites/A15714
+- https://www.ecologie.gouv.fr/feuille-route-numerique-et-environnement
+- https://www.elections.interieur.gouv.fr/
+
 
 # À suivre sur @CyberMindFR… #
 
