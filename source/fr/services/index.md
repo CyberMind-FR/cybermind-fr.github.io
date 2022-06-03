@@ -13,4 +13,4 @@ Ou pour toutes autres demandes d'expertise avancée dans le domaine informatique
 
 Faites appel à CyberMind pour étudier une solution adapatée à vos besoins...
 
-Tarifs ~ 1.500 € par Jour ( + frais )
+Tarifs ~ 2.000 € par Jour ( + frais ), en fonction de l'expertise demandée.
