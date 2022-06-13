@@ -8,11 +8,11 @@ comments: false
 # Mind #
 
 CyberMind officialy support, modestly:
-* [Méta de Choc](https://fr.tipeee.com/meta-de-choc)
-* [Clément Freze - Mentaliste](https://fr.tipeee.com/clementfreze)
-* [Penseur Sauvage](https://fr.tipeee.com/penseur-sauvage)
-* [La Tronche en Biais](https://fr.tipeee.com/la-tronche-en-biais)
-* [L'Association pour la Science et la Transmission de l'Esprit Critique (ASTEC)](https://utip.io/astec)
+* [Méta de Choc](https://fr.tipeee.com/meta-de-choc) & (https://metadechoc.fr)
+* [Clément Freze - Mentaliste](https://fr.tipeee.com/clementfreze) & (http://clementfreze.fr/)
+* [Penseur Sauvage](https://fr.tipeee.com/penseur-sauvage) & (https://www.youtube.com/channel/UCPkoA795xDha5eAUFjISlwA)
+* [La Tronche en Biais](https://fr.tipeee.com/la-tronche-en-biais) & (https://www.youtube.com/user/TroncheEnBiais)
+* [L'Association pour la Science et la Transmission de l'Esprit Critique (ASTEC)](https://utip.io/astec) & (https://esprit-critique.org/)
 
 Please do the same to help...
 
