@@ -12,6 +12,7 @@ CyberMind officialy support, modestly:
 * [Clément Freze - Mentaliste](https://fr.tipeee.com/clementfreze)
 * [Penseur Sauvage](https://fr.tipeee.com/penseur-sauvage)
 * [La Tronche en Biais](https://fr.tipeee.com/la-tronche-en-biais)
+* [L'Association pour la Science et la Transmission de l'Esprit Critique (ASTEC)](https://utip.io/astec)
 
 Please do the same to help...
 
