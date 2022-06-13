@@ -11,6 +11,7 @@ CyberMind supporte officiellement, même si modestement:
 * [Méta de Choc](https://fr.tipeee.com/meta-de-choc)
 * [Clément Freze - Mentaliste](https://fr.tipeee.com/clementfreze)
 * [Penseur Sauvage](https://fr.tipeee.com/penseur-sauvage)
+* [La Tronche en Biais](https://fr.tipeee.com/la-tronche-en-biais)
 
 Merci de les aider égalements...
 
