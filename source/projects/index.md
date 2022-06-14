@@ -26,6 +26,7 @@ CyberMind officialy support, modestly:
 * [Méta de Choc ($)](https://fr.tipeee.com/meta-de-choc) & [Méta de Choc](https://metadechoc.fr)
 * [Clément Freze - Mentaliste ($)](https://fr.tipeee.com/clementfreze) & [Clément Freze - Mentaliste](http://clementfreze.fr/)
 * [Penseur Sauvage ($)](https://fr.tipeee.com/penseur-sauvage) & [Penseur Sauvage (YT)](https://www.youtube.com/channel/UCPkoA795xDha5eAUFjISlwA)
+* [Intensément - True HPI ($)](https://www.buymeacoffee.com/intensement.pod) & [Intensément - le podcast HPI, surdoué.es & co](https://www.intensementpodcast.com) & [Intensément (YT)](https://www.youtube.com/channel/UCP_ph24BWospj5wOtKkbdrQ/videos)
 * [La Tronche en Biais ($)](https://fr.tipeee.com/la-tronche-en-biais) & [La Tronche en Biais (YT)](https://www.youtube.com/user/TroncheEnBiais)
 * [ASTEC ($))](https://utip.io/astec) & [L'Association pour la Science et la Transmission de l'Esprit Critique (ASTEC)](https://esprit-critique.org/)
 
