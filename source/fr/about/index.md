@@ -18,6 +18,7 @@ CyberMind, c'est, surtout, mais pas que, 2 catégories :
 Les articles seront ajoutés (et peuvent être mis à jour…)
 - À propos de la science informatique et des "bugs qui n'en sont pas" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 001 - FUCK DÉMA)](https://cybermind.fr/tags/Fuck-Dema/))
 - À propos de la "magie des invisibles" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 002 - IDÉE COOL)](https://cybermind.fr/tags/Idee-Cool/))
+- À propos des "jeux de l'esprit, de la philosophie et de la spiritualité et de leurs enjeux" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M-DZ-GE3X/))
 - …
 
 Donc, restez à l'écoute & profitez ! ( 🤖 = 🍀 + 🎵 ) ~ ( 🪤 + 🧞‍♂️ = 🧠 )

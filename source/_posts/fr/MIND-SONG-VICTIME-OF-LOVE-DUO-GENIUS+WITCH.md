@@ -325,7 +325,7 @@ ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos des "jeux de l'esprit, de la philosphie et de la spiritualité et de leurs enjeux" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M-DZ-GE3X/))
+- D'autres billets suivront à propos des "jeux de l'esprit, de la philosophie et de la spiritualité et de leurs enjeux" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M-DZ-GE3X/))
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
