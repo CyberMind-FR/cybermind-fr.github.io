@@ -73,7 +73,7 @@ ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos des jeux de l'esprit et de la philosphie et de la spiritualité "<TO.BE.DEFINED>" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M@DZ_GE3X/))
+- D'autres billets suivront à propos des jeux de l'esprit et de la philosphie et de la spiritualité "M@DZ GE3X" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M@DZ_GE3X/))
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
