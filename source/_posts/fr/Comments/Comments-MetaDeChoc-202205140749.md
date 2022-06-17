@@ -56,8 +56,20 @@ Décidément, j’ai du mal à faire des commentaires courts !
 😉
 ---8<---
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
 COURAGE !
 À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

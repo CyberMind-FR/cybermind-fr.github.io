@@ -24,6 +24,8 @@ Merci aux [éditions La Route de la soie](https://www.laroutedelasoie-editions.c
 
 Merci également à [Richard Monvoisin](https://fr.wikipedia.org/wiki/Richard_Monvoisin) pour sa préface qu'il m'a [autorisé à reproduire](https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/#comment-484) ici…
 
+<!-- more -->
+
 Préface de  Richard Monvoisin, didacticien des sciences
 spécialiste des théories étranges, il enseigne la pensée critique à l'Université Grenoble-Alpes 
 
@@ -62,3 +64,24 @@ Il est difficile de concevoir que nous ayons mis plusieurs milliers d’années 
 C’est en cela que les propos de Grégoire Perra sont honnêtes, courageux, et nécessaires.
 
 Ils sont honnêtes car il faut du courage pour sortir d’une escalade d’engagement à grande échelle, pour prendre de plein fouet sa dissonance et faire un pas de côté pour considérer le chemin parcouru d’un œil sceptique. Serais-je capable de faire la même chose ? J’en doute. Courageux du fait des poursuites, inutiles mais éreintantes, qui lui sont régulièrement faites. Il n’est pas donné à tout un chacun de supporter, moralement et financièrement la vindicte des gens de son ancien monde. Nécessaires enfin car le modèle de société présenté dans ces écoles doit apparaître pour ce qu’il est : un salmigondis brumeux, mysticoïde et conservateur. C’est seulement au prix de la lecture douloureuse des mots de Grégoire Perra, accouchés avec talent par Élisabeth Feytit, que les parents pourront alors faire un choix éclairé pour leurs enfants. Ogien le philosophe disait que seuls nos enfants pourront un jour nous absoudre de la faute morale de les avoir mis au monde. Pourront-ils facilement nous absoudre de les avoir envoyés en école Steiner-Waldorf ? Certainement, avant l’existence de ce bouquin. Après, je ne garantis pas.
+
+---8<---
+
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
+
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

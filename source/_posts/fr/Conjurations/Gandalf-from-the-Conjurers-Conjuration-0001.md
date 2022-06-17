@@ -4,6 +4,7 @@ lang: fr
 date: 2022-04-30 23:59:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
+- M@DZ GE3X
 - Santé mentale
 - Dépression
 - Amour
@@ -59,9 +60,16 @@ categories:
 
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010.jpeg" width="288px" height="384px">
 
-## À suivre… ##
+⚠️ Attention, à vous ! 👀
 
-> Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !
+# MERCI
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos des jeux de l'esprit et de la philosphie et de la spiritualité "<TO.BE.DEFINED>" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M@DZ_GE3X/))
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

@@ -301,4 +301,21 @@ Enfin la liberté ?
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 </details>
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront autour de "l'esprit" et de ces jeux ["Mind"](https://cybermind.fr/categories/Mind/) 🧠 + 🧩 = 🧙 -> 🔥
+- …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
+
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

@@ -105,3 +105,22 @@ Patric Jean Le 22/12/2021 -> [Lazarus Mirages (transmedia expérience) - Patric 
 [Lire la suite sur le site de Patric Jean (et accéder aux contenu)...](https://patricjean.com/2021/12/22/lazarus-mirage/)
 
 </details>
+
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
+
+🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

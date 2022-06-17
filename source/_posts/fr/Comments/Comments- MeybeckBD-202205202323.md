@@ -42,15 +42,27 @@ La science informatique a besoin de ce type de partage, d'usage, d'idées à dis
 Merci !
 ---8<---
 
-Référence(s): 
+# Référence(s): 
 - [Iramuteq (logiciel) - Site officiel](http://www.iramuteq.org/)
   - Iramuteq est un logiciel libre distribué sous les termes de la licence GNU GPL (v2).
   - Il permet de faire des analyses statistiques sur des corpus texte et sur des tableaux individus/caractères.
   - Il repose sur le logiciel R (www.r-project.org) et le langage python (www.python.org)
 - [Iramuteq (logiciel) - Description @ WikiPedia](https://fr.wikipedia.org/wiki/Iramuteq_(logiciel))
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
 COURAGE !
 À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

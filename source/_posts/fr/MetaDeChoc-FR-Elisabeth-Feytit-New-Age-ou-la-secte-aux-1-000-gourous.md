@@ -59,7 +59,17 @@ Tant d'autres questions qui trouvent leur (début de) réponse sur le fabuleux p
   - [14 mai 2022 à 07 h 49 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1232)
   - [21 mai 2022 à 22 h 57 min](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/#comment-1256)
 
-# À suivre sur @CyberMindFR #
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
 
 - D'autres billets suivront à propos de ["La Secte Aux 1.000 Gourous" ! (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/)
 - [Préface - Une vie en anthroposophie (**Richard Monvoisin**)](https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/)

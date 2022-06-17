@@ -19,15 +19,26 @@ Je viens de recevoir ma seconde commande et j'avoue que je suis impatient de les
 
 <img src="/uploads/images/SNAPS/PSYCOM-2022-04-27-215908_002.jpeg" width="750px" heigth="550px">
 
-Les sujets ne' sont pas faciles.
+Les sujets ne sont pas faciles.
 
 <img src="/uploads/images/SNAPS/PSYCOM-2022-04-27-215908_003.jpeg" width="750px" heigth="550px">
 
-Mais il devient URGENT !!!
+Mais ils deviennent URGENTS !!!
 
-# À suivre,
+⚠️ Attention, à vous ! 👀
 
-Je vais entamer la lecture, bientôt !
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

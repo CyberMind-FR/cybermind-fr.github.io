@@ -37,9 +37,20 @@ Allez, on lâche rien ? Pas cette fois !!!
 
 <img src="/uploads/images/SNAPS/La_Marchandisation_du_bonheur-2022-04-27-215827_001.jpeg" width="350px" heigth="450px">
 
-# À suivre,
+⚠️ Attention, à vous ! 👀
 
-Je vais terminer la lecture, avant !
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

@@ -5,6 +5,7 @@ date: 2022-06-02 06:04:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
 - Idée Cool
+- M@DZ GE3X
 - Écologie
 - Invisibles
 - Technologie
@@ -110,7 +111,7 @@ Pas pour l'instant…
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos de la "magie des invisibles" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 002 - IDÉE COOL)](https://cybermind.fr/tags/Idee-Cool/))
+- D'autres billets suivront à propos de la "magie des invisibles" ([les “KragZouÿs” 🤖 + 🎲 = 💡 -> 💧 (ÉPISODES 002 - IDÉE COOL)](https://cybermind.fr/tags/Idee-Cool/))
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀

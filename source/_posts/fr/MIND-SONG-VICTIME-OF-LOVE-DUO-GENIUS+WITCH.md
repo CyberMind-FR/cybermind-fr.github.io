@@ -294,6 +294,8 @@ Dee Dee Bridgewater est membre du Haut Conseil de la Francophonie (la première 
 
 [*][Moldu (Muggle en anglais) est une personne dépourvue de pouvoir magique](https://fr.wikipedia.org/wiki/Moldu)
 
+</details>
+
 ## Conclusion ##
 
 Aucune !
@@ -311,5 +313,20 @@ Juste une épreuve de plus à surmonter pour ! ... ?
 >>>> D'essayer.
 
 ⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos des jeux de l'esprit et de la philosphie et de la spiritualité "<TO.BE.DEFINED>" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M@DZ_GE3X/))
+- …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

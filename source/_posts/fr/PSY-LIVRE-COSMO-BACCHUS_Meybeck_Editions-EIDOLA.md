@@ -77,10 +77,22 @@ Allez, on lâche toujours rien ? Pas cette fois non plus !!!
 
 # TODO
 * - Demander l'autorisation à Richard Monvoisin & Meybeck de publier la photo de la préface (peut-être !?)*
+** - Je vais devoir commencer la lecture, avant !**
 
-# À suivre,
+⚠️ Attention, à vous ! 👀
 
-Je vais commncer la lecture, avant !
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 

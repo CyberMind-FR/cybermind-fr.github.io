@@ -93,11 +93,15 @@ PS:
 
 ---8<---
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
 COURAGE !
 À TOUS !
 ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
 
-**LES KRAGZOUÏLLES VAINCRONT !!!**
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
 
 # À suivre sur @CyberMindFR… #
 

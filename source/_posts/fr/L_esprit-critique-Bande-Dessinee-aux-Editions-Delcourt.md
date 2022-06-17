@@ -103,4 +103,21 @@ Si vous connaissez un graphiste prêt à mettre en image mes élucubrations scé
 Contacter-moi vite !
 *Le Best Seller intelligent nous attends !!! :-) (allez, et hop, un smiley "rétro")*
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+> **Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
+
+⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
+
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022

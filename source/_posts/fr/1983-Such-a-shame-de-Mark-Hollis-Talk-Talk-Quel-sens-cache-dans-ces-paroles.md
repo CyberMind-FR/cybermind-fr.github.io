@@ -202,6 +202,21 @@ Cela fait maintenant quelques jours que je voulais le faire et que je reculais �
 Bien sûr ces propos comportent des tas de sous entendus.
 J'ai eu bien du mal à dévoiler ici, à poser en quelques mots, un si petit bout de vie ! 🐹
 
+⚠️ Attention, à vous ! 👀
+
+# MERCI
+
+COURAGE !
+À TOUS !
+ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
+
+>**Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !**
+
+# À suivre sur @CyberMindFR… #
+
+- D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- …
+
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
 
 🧙 -- [Gandalf (from "The Conjurers")](mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F) ©️ 1982-2022
