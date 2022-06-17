@@ -216,6 +216,7 @@ ET, N'OUBLIEZ PAS, N'OUBLIEZ JAMAIS…
 # À suivre sur @CyberMindFR… #
 
 - D'autres billets suivront à propos de l'étude, (en cours) sur ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/) 🛸 & 👽 -> 🦄 & 🧚‍♀️
+- D'autres billets suivront à propos des "jeux de l'esprit, de la philosphie et de la spiritualité et de leurs enjeux" ([les “KragZouÿs” 🧠 + 🧩 = 🧙 -> 🔥 (ÉPISODES 003 - M@DZ GE3X)](https://cybermind.fr/tags/M-DZ-GE3X/))
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
