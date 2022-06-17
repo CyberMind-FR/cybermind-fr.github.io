@@ -4,7 +4,7 @@ lang: fr
 date: 2022-06-17 17:40:00
 author: 🧙 -- Gandalf (from "The Conjurers")
 tags:
-- Idée Cool
+- M@DZ GE3X
 - The Conjurers
 - comments
 - KragZouïlles
