@@ -504,7 +504,7 @@ OK
 Using machid 0x690 from environment                                             
                                                                                 
 <p>Starting kernel ...                                                             </p>
-<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#111;&#x6b;&#x69;&#x72;&#64;&#109;&#111;&#110;&#97;&#100;&#x2e;&#x73;&#119;&#98;&#x2e;&#100;&#101;">&#111;&#x6b;&#x69;&#x72;&#64;&#109;&#111;&#110;&#97;&#100;&#x2e;&#x73;&#119;&#98;&#x2e;&#100;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
+<p>Uncompressing Linux... done, booting the kernel.<br>[    0.000000] Initializing cgroup subsys cpuset<br>[    0.000000] Initializing cgroup subsys cpu<br>[    0.000000] Linux version 2.6.32-5-kirkwood (Debian 2.6.32-38) (ben@decadent1<br>[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=0005397<br>[    0.000000] CPU: VIVT data cache, VIVT instruction cache<br>[    0.000000] Machine: Marvell DB-88F6281-BP Development Board<br>[    0.000000] Memory policy: ECC disabled, Data cache writeback<br>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pa4<br>[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1mt<br>[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)<br>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)<br>[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)<br>[    0.000000] Memory: 256MB = 256MB total<br>[    0.000000] Memory: 250496KB available (3516K code, 583K data, 124K init, 0K)<br>[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, 1<br>[    0.000000] Hierarchical RCU implementation.<br>[    0.000000] NR_IRQS:114<br>[    0.000000] Console: colour dummy device 80x30<br>[    0.000124] Calibrating delay loop... 1192.75 BogoMIPS (lpj=5963776)<br>[    0.240079] Security Framework initialized<br>[    0.240099] SELinux:  Disabled at boot.<br>[    0.240119] Mount-cache hash table entries: 512<br>[    0.240373] Initializing cgroup subsys ns<br>[    0.240386] Initializing cgroup subsys cpuacct<br>[    0.240394] Initializing cgroup subsys devices<br>[    0.240403] Initializing cgroup subsys freezer<br>[    0.240411] Initializing cgroup subsys net_cls<br>[    0.240450] CPU: Testing write buffer coherency: ok<br>[    0.241026] devtmpfs: initialized<br>[    0.242434] regulator: core version 0.5<br>[    0.242609] NET: Registered protocol family 16<br>[    0.242990] Kirkwood: MV88F6281-A1, TCLK=200000000.<br>[    0.243003] Feroceon L2: Cache support initialised.<br>[    0.243782] Kirkwood PCIe port 0:<br>[    0.243789] link down, ignoring<br>[    0.244847] bio: create slab <bio-0> at 0<br>[    0.245126] vgaarb: loaded<br>[    0.245601] Switching to clocksource orion_clocksource<br>[    0.249637] NET: Registered protocol family 2<br>[    0.249881] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)<br>[    0.250714] TCP established hash table entries: 8192 (order: 4, 65536 bytes)<br>[    0.250898] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)<br>[    0.250993] TCP: Hash tables configured (established 8192 bind 8192)<br>[    0.251003] TCP reno registered<br>[    0.251155] NET: Registered protocol family 1<br>[    0.251336] Unpacking initramfs...<br>[    0.584163] Freeing initrd memory: 4792K<br>[    0.584275] NetWinder Floating Point Emulator V0.97 (double precision)<br>[    0.584527] audit: initializing netlink socket (disabled)<br>[    0.584562] type=2000 audit(0.570:1): initialized<br>[    0.591063] VFS: Disk quotas dquot_6.5.2<br>[    0.591334] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)<br>[    0.591429] JFFS2 version 2.2. (NAND) (SUMMARY)  �© 2001-2006 Red Hat, Inc.<br>[    0.592077] msgmni has been set to 499<br>[    0.593833] alg: No test for stdrng (krng)<br>[    0.593955] Block layer SCSI generic (bsg) driver version 0.4 loaded (major )<br>[    0.593968] io scheduler noop registered<br>[    0.593975] io scheduler anticipatory registered<br>[    0.593983] io scheduler deadline registered<br>[    0.594163] io scheduler cfq registered (default)<br>[    0.600268] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled<br>[    0.600747] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A<br>[    0.931833] console [ttyS0] enabled<br>[    0.935937] NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND )<br>[    0.944597] Scanning device for bad blocks<br>[    0.951511] Bad eraseblock 74 at 0x000000940000<br>[    0.968777] Bad eraseblock 417 at 0x000003420000<br>[    0.982085] Bad eraseblock 651 at 0x000005160000<br>[    0.992771] Bad eraseblock 814 at 0x0000065c0000<br>[    1.013201] Bad eraseblock 1240 at 0x000009b00000<br>[    1.035346] Bad eraseblock 1710 at 0x00000d5c0000<br>[    1.044334] Bad eraseblock 1825 at 0x00000e420000<br>[    1.057319] 5 cmdlinepart partitions found on MTD device orion_nand<br>[    1.063611] Creating 5 MTD partitions on "orion_nand":<br>[    1.068794] 0x000000000000-0x000000100000 : "uboot"<br>[    1.074255] 0x000000100000-0x000000200000 : "strap"<br>[    1.079634] 0x000000200000-0x000000700000 : "kernel"<br>[    1.085089] 0x000000700000-0x000000f00000 : "ramdisk"<br>[    1.090675] 0x000000b00000-0x00000fb00000 : "rootfs"<br>[    1.096800] mice: PS/2 mouse device common for all mice<br>[    1.102266] rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0<br>[    1.108213] i2c /dev entries driver<br>[    1.111902] cpuidle: using governor ladder<br>[    1.116151] cpuidle: using governor menu<br>[    1.120160] mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver<br>[    1.126574] mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver<br>[    1.165672] mv_xor mv_xor.0: Marvell XOR: ( xor cpy )<br>[    1.205668] mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )<br>[    1.245669] mv_xor mv_xor.2: Marvell XOR: ( xor cpy )<br>[    1.285666] mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )<br>[    1.292337] TCP cubic registered<br>[    1.295582] NET: Registered protocol family 17<br>[    1.300413] registered taskstats version 1<br>[    1.305216] rtc-mv rtc-mv: setting system clock to 2011-10-14 16:43:00 UTC ()<br>[    1.313327] Initalizing network drop monitor service<br>[    1.318389] Freeing init memory: 124K<br>Loading, please wait...<br>[    1.366081] udev[44]: starting version 164<br>[    1.703926] SCSI subsystem initialized<br>[    1.728849] MV-643xx 10/100/1000 ethernet driver version 1.4<br>[    1.734841] mv643xx_eth smi: probed<br>[    1.787261] usbcore: registered new interface driver usbfs<br>[    1.878059] usbcore: registered new interface driver hub<br>[    1.886856] usbcore: registered new device driver usb<br>[    1.893860] net eth0: port 0 with MAC address 00:50:43:01:02:03<br>[    1.900371] mmc0: mvsdio driver initialized, using GPIO 38 for card detection<br>[    1.940326] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver<br>[    1.946982] orion-ehci orion-ehci.0: Marvell Orion EHCI<br>[    1.952289] orion-ehci orion-ehci.0: new USB bus registered, assigned bus nu1<br>[    1.995690] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000<br>[    2.015637] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00<br>[    2.021637] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002<br>[    2.028472] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1<br>[    2.035737] usb usb1: Product: Marvell Orion EHCI<br>[    2.040460] usb usb1: Manufacturer: Linux 2.6.32-5-kirkwood ehci_hcd<br>[    2.046860] usb usb1: SerialNumber: orion-ehci.0<br>[    2.052423] usb usb1: configuration #1 chosen from 1 choice<br>[    2.058353] hub 1-0:1.0: USB hub found<br>[    2.062153] hub 1-0:1.0: 1 port detected<br>[    2.066332] sata_mv sata_mv.0: version 1.28<br>[    2.070655] sata_mv sata_mv.0: slots 32 ports 2<br>[    2.089228] scsi0 : sata_mv<br>[    2.092708] scsi1 : sata_mv<br>[    2.096044] ata1: SATA max UDMA/133 irq 21<br>[    2.100158] ata2: SATA max UDMA/133 irq 21<br>[    2.385644] usb 1-1: new high speed USB device using orion-ehci and address 2<br>[    2.536209] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101<br>[    2.542942] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0<br>[    2.550123] usb 1-1: Product: USB 2.0 Hub<br>[    2.555460] usb 1-1: configuration #1 chosen from 1 choice<br>[    2.564860] hub 1-1:1.0: USB hub found<br>[    2.568835] hub 1-1:1.0: 4 ports detected<br>[    2.615670] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    2.635866] ata1.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    2.642169] ata1.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    2.665968] ata1.00: configured for UDMA/133<br>[    2.670624] scsi 0:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.185652] ata2: SATA link up 3.0 Gbps (SStatus 123 SControl F300)<br>[    3.205867] ata2.00: ATA-8: SAMSUNG HD204UI, 1AQ10001, max UDMA/133<br>[    3.212169] ata2.00: 3907029168 sectors, multi 0: LBA48 NCQ (depth 31/32)<br>[    3.235994] ata2.00: configured for UDMA/133<br>[    3.240558] scsi 1:0:0:0: Direct-Access     ATA      SAMSUNG HD204UI  1AQ1 P5<br>[    3.284583] sd 0:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.292832] sd 1:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1)<br>[    3.301753] sd 0:0:0:0: [sda] Write Protect is off<br>[    3.306704] sd 1:0:0:0: [sdb] Write Protect is off<br>[    3.311654] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doeA<br>[    3.320815] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doeA<br>[    3.330998]  sdb:<br>[    3.333247]  sda: sda1 sda2 sda3<br>[    3.377745]  sdb1 sdb2 sdb3<br>[    3.384756] sd 0:0:0:0: [sda] Attached SCSI disk<br>[    3.394194] sd 1:0:0:0: [sdb] Attached SCSI disk<br>Begin: Loading essential drivers ... [    3.755672] md: raid1 personality regis1<br>done.<br>Begin: Running /scripts/init-premount ... done.<br>Begin: Mounting root file system ... Begin: Running /scripts/local-top ... Begi.<br>done.<br>Begin: Assembling all MD arrays ... [    3.810310] md: md0 stopped.<br>[    3.828549] md: bind<sdb2><br>[    3.836041] md: bind<sda2><br>[    3.847095] raid1: md0 is not clean -- starting background reconstruction<br>[    3.853924] raid1: raid set md0 active with 2 out of 2 mirrors<br>[    3.859966] md0: detected capacity change from 0 to 1999375812608<br>mdadm: /dev/md/0 has been started with 2 drives.[    3.870374]  md0:<br> unknown partition table<br>Success: assembled all arrays.<br>done.<br>done.<br>Begin: Running /scripts/local-premount ... done.<br>[    5.042855] EXT4-fs (md0): mounted filesystem with ordered data mode<br>Begin: Running /scripts/local-bottom ... done.<br>done.<br>Begin: Running /scripts/init-bottom ... done.<br>INIT: version 2.88 booting<br>Using makefile-style concurrent boot in runlevel S.<br>Starting the hotplug events dispatcher: udevd[    6.269479] udev[186]: starting4<br>.<br>Synthesizing the initial hotplug events...[    6.506583] udev[197]: renamed net1<br>done.<br>Waiting for /dev to be fully populated...done.<br>Generating udev events for MD arrays...done.<br>Activating swap...[    7.532106] Adding 747932k swap on /dev/sdb3.  Priority:-1<br>[    7.545930] Adding 747932k swap on /dev/sda3.  Priority:-2 extents:1 across:<br>done.<br>Checking root file system...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/md0: clean, 24726/122036224 files, 7861995/488128860 blocks<br>done.<br>[    8.965897] md: resync of RAID array md0<br>[    8.969895] md: minimum <em>guaranteed</em>  speed: 1000 KB/sec/disk.<br>[    8.975779] md: using maximum available idle IO bandwidth (but not more than.<br>[    8.985220] md: using 128k window, over a total of 1952515442 blocks.<br>[    8.991699] md: resuming resync of md0 from checkpoint.<br>[    9.336915] loop: module loaded<br>Loading kernel modules...done.<br>Cleaning up ifupdown....<br>Setting up networking....<br>Activating lvm and md swap...done.<br>Checking file systems...fsck from util-linux-ng 2.17.2<br>e2fsck 1.41.12 (17-May-2010)<br>/dev/sdb1: clean, 23/124992 files, 38270/250000 blocks<br>done.<br>Mounting local filesystems...done.<br>Activating swapfile swap...done.<br>Cleaning up temporary files....<br>Setting kernel variables ...done.<br>Configuring network interfaces...done.<br>Starting portmap daemon....<br>Starting NFS common utilities: statd.<br>Cleaning up temporary files....<br>INIT: Entering runlevel: 2<br>Using makefile-style concurrent boot in runlevel 2.<br>Starting portmap daemon...Already running..<br>Starting NFS common utilities: statd.<br>[   11.516293] RPC: Registered udp transport module.<br>[   11.521086] RPC: Registered tcp transport module.<br>[   11.525915] RPC: Registered tcp NFSv4.1 backchannel transport module.<br>Starting enhanced syslogd: rsyslogd.<br>Starting deferred execution scheduler: atd.<br>[   12.109263] Installing knfsd (copyright (C) 1996 <a href="mailto:&#x6f;&#107;&#105;&#114;&#x40;&#x6d;&#x6f;&#110;&#x61;&#x64;&#x2e;&#115;&#x77;&#x62;&#46;&#x64;&#101;">&#x6f;&#107;&#105;&#114;&#x40;&#x6d;&#x6f;&#110;&#x61;&#x64;&#x2e;&#115;&#x77;&#x62;&#46;&#x64;&#101;</a>).<br>[   12.643918] NET: Registered protocol family 10<br>[   12.653077] ADDRCONF(NETDEV_UP): eth1: link is not ready<br>[   12.660088] svc: failed to register lockdv1 RPC service (errno 97).<br>[   12.675583] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery y<br>[   12.730501] NFSD: starting 90-second grace period<br>Starting periodic command scheduler: cron.<br>Exporting directories for NFS kernel daemon....<br>Starting NFS kernel daemon: nfsd mountd.<br>Starting system message bus: dbus.<br>Starting Samba daemons: nmbd smbd.<br>Starting MTA:Starting internet superserver: inetd.<br>Starting MD monitoring service: mdadm --monitormdadm: No mail address or alert .<br> failed!<br> exim4.<br>Starting the Winbind daemon: winbind.<br>Starting OpenBSD Secure Shell server: sshd.                                     </p>
 <p>Debian GNU/Linux 6.0 JSHARE ttyS0                                               </p>
 <p>JSHARE login: [   27.672260] eth1: link up, 100 Mb/s, full duplex, flow controld<br>[   27.679188] ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready                </p>
 </code>
@@ -720,7 +720,7 @@ clear mtd
     <title>Microsoft  - Windows 7  - Permissions Fault after privilege&#39;s escalation</title>
     <url>/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Permissions Fault after privilege’s escalation &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>A “By Design” Reproductible Integrity Vulnerability.<br>Discovered on the 2th of march 2012.</p>
-<p><del><a href="mailto:&#x73;&#101;&#x63;&#x75;&#x72;&#x65;&#64;&#x6d;&#105;&#x63;&#114;&#111;&#115;&#x6f;&#102;&#x74;&#46;&#99;&#x6f;&#109;">&#x73;&#101;&#x63;&#x75;&#x72;&#x65;&#64;&#x6d;&#105;&#x63;&#114;&#111;&#115;&#x6f;&#102;&#x74;&#46;&#99;&#x6f;&#109;</a></del></p>
+<p><del><a href="mailto:&#x73;&#x65;&#99;&#x75;&#114;&#101;&#x40;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#109;">&#x73;&#x65;&#99;&#x75;&#114;&#101;&#x40;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#109;</a></del></p>
 <span id="more"></span>
 
 <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
@@ -1360,12 +1360,12 @@ The MochaBin-5G Devel board revealed (down side)
 </blockquote>
 <p><a href="https://www.franceinter.fr/emissions/la-gourmandise-d-eva-bester/la-gourmandise-d-eva-bester-12-decembre-2013">Émissions La gourmandise d’Eva Bester “L’homme-dé” de Luke Rhinehart</a><br>jeudi 12 décembre 2013 par Eva Bester</p>
 
-        <div id="aplayer-qaaYZbnC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-PtyNgeft" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-qaaYZbnC"),
+            element: document.getElementById("aplayer-PtyNgeft"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1639,6 +1639,15 @@ The MochaBin-5G Devel board revealed (down side)
 <p><em>Enfin, malgré tout, cette chanson, après presque 40 ans, et elle continue de me faire encore et encore un effet incompréhensible !</em><br><em>Merci, <strong>Mark Hollis</strong>, vous resterez, même là où vous êtes dorénavant, un compagnon de route et une inspiration inépuisable.</em></p>
 </blockquote>
 <p>Ce sujet, je trouve, porte à réflexion sur de nombreux aspects.<br>J’ai essayé d’éviter d’y apporter trop de jugements et de juste relater une courte expérience et sa longue évolution.<br>Cela fait maintenant quelques jours que je voulais le faire et que je reculais à chaque tentative.<br>Bien sûr ces propos comportent des tas de sous entendus.<br>J’ai eu bien du mal à dévoiler ici, à poser en quelques mots, un si petit bout de vie ! 🐹</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -1827,6 +1836,7 @@ Aujourd’hui, je vous propose de mettre en place votre propre CDN pour des ress
 <li><a href="https://www.ecologie.gouv.fr/feuille-route-numerique-et-environnement">https://www.ecologie.gouv.fr/feuille-route-numerique-et-environnement</a></li>
 <li><a href="https://www.elections.interieur.gouv.fr/">https://www.elections.interieur.gouv.fr/</a></li>
 </ul>
+<p>⚠️ Attention, à vous ! 👀</p>
 <h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
 <li>D’autres billets suivront à propos de la science informatique et des “bugs qui n’en sont pas” (<a href="https://cybermind.fr/tags/Fuck-Dema/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 001 - FUCK DÉMA)</a>)</li>
 <li>Le plus ennuyeux dans ces partages pourtant nécessaire, c’est qu’ils deviennent trop souvent prioritaires et rendus urgent par l’actualité, quand j’ai tant d’autres merveilleux sujets à vous dévoiler sur des rencontres hors du temps, des initiatives magnifiques, des aventures époustouflantes… Demain, peut-être, si la 25ème parviens enfin à se glisser entre 2 autres ?</li>
@@ -2212,6 +2222,16 @@ Découvrir MonPsy en vidéo (Durée 2 minutes)
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 </details>
 
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…-1"><a href="#A-suivre-sur-CyberMindFR…-1" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront autour de “l’esprit” et de ces jeux <a href="https://cybermind.fr/categories/Mind/">“Mind”</a> 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
@@ -2345,12 +2365,12 @@ Découvrir MonPsy en vidéo (Durée 2 minutes)
 <p>Deux ans après le début de la crise sanitaire, une enquête officielle alerte sur un risque aggravé par cette période éprouvante. Le risque de croire les promesses – parfois dangereuses – des soins dits “non conventionnels”. Comme le recours aux flux d’énergie ou l’hydrothérapie du colon par exemple. Décryptage avec Géraldine Zamansky, journaliste au Magazine de la Santé sur France 5.</p>
 </blockquote>
 
-        <div id="aplayer-uwJEcuHr" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-HWgLmlQZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-uwJEcuHr"),
+            element: document.getElementById("aplayer-HWgLmlQZ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -2805,13 +2825,18 @@ Par ordre chronologique de réception. Mise à jour à mesure des réponses reç
 
 </details>
 
+</details>
+
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
 <h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
-<li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
 <li>…</li>
 </ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
-</details>
-
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
@@ -2850,6 +2875,7 @@ Par ordre chronologique de réception. Mise à jour à mesure des réponses reç
       </categories>
       <tags>
         <tag>GK2</tag>
+        <tag>FAST BACK</tag>
       </tags>
   </entry>
   <entry>
@@ -4134,6 +4160,7 @@ if __name__ == &#39;__main__&#39;:
         <tag>NAS</tag>
         <tag>SECUBOX</tag>
         <tag>CLOUD</tag>
+        <tag>FAST BACK</tag>
         <tag>Aramada</tag>
       </tags>
   </entry>
@@ -4177,6 +4204,16 @@ En attendant, voici déjà l'extrait:
 <h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais terminer la lecture, avant !</p>
 <h2 id="Suite-amp-Fin"><a href="#Suite-amp-Fin" class="headerlink" title="Suite &amp; Fin"></a>Suite &amp; Fin</h2><p>Et bien il était <strong>VRAIMENT</strong> TIP TOP !<br>À mettre dans toutes les mains…<br>Ma compagne a accepté le cadeau que je lui en ai fait, m’a dit l’avoir <strong>beaucoup</strong> apprécié et devoir le relire !<br>C’était sa première tentative dans les livres à bulles (ou BD) et le succès a été au rendez-vous.<br>Une réussite de plus…<br>Merci… (encore)</p>
 <h2 id="Nouvelle-commande-ce-jour"><a href="#Nouvelle-commande-ce-jour" class="headerlink" title="Nouvelle commande ce jour"></a>Nouvelle commande ce jour</h2><p>Je viens de recommander un nouvel exemplaire, ça peut être utile à prêter ou même offrir, donc il vaut mieux que j’en ai un de réserve.<br>Et puis je l’ai accompagné de 2 autres livres à bulles découvert au détour de mes recherches de sensibilisation sur les Dérives.<br>Comme ma compagne souhaite que nous partageions notre expérience, nos expériences dans nes aventures personnelles, j’entame une nouvelle collection.<br>Si vous connaissez un graphiste prêt à mettre en image mes élucubrations scénaristiques ?!<br>Contacter-moi vite !<br><em>Le Best Seller intelligent nous attends !!! :-) (allez, et hop, un smiley “rétro”)</em></p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
@@ -4256,6 +4293,18 @@ En attendant, voici déjà l'extrait:
 </blockquote>
 <p><a href="https://patricjean.com/2021/12/22/lazarus-mirage/">Lire la suite sur le site de Patric Jean (et accéder aux contenu)…</a></p>
 </details>
+
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
         <category>Mind</category>
@@ -4335,7 +4384,7 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 <li>Merci à … du <a href="http://lauziere-savoie.fr/">SYNDICAT MIXTE DE LA LAUZIERE</a>) (et ses filles) pour l’organisation de cette conférence !</li>
 </ul>
 <h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
-<li>D’autres billets suivront à propos de la “magie des invisibles” (<a href="https://cybermind.fr/tags/Idee-Cool/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 002 - IDÉE COOL)</a>)</li>
+<li>D’autres billets suivront à propos de la “magie des invisibles” (<a href="https://cybermind.fr/tags/Idee-Cool/">les “KragZouÿs” 🤖 + 🎲 &#x3D; 💡 -&gt; 💧 (ÉPISODES 002 - IDÉE COOL)</a>)</li>
 <li>…</li>
 </ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
@@ -4349,6 +4398,7 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
         <tag>The Conjurers</tag>
         <tag>Technologie</tag>
         <tag>Idée Cool</tag>
+        <tag>M@DZ GE3X</tag>
         <tag>Écologie</tag>
         <tag>Invisibles</tag>
         <tag>Solutions</tag>
@@ -4481,6 +4531,8 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 
 
 <h1 id="References-Sources"><a href="#References-Sources" class="headerlink" title="Références - Sources"></a>Références - Sources</h1><p>[*]<a href="https://fr.wikipedia.org/wiki/Moldu">Moldu (Muggle en anglais) est une personne dépourvue de pouvoir magique</a></p>
+</details>
+
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Aucune !<br>Le billet est terminé.<br>Le choix était déjà fait.<br>Maintenant, il faut le publier.<br>Maintenant, il faut couper la boucle.<br>Maintenant, il faut passer à la piste suivante.<br>Maintenant, il faut choisir, agir, s’y tenir…<br>Juste une épreuve de plus à surmonter pour ! … ?</p>
 <blockquote>
 <p>Vouvoiement ?</p>
@@ -4495,6 +4547,15 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 </blockquote>
 </blockquote>
 <p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos des jeux de l’esprit et de la philosphie et de la spiritualité “&lt;TO.BE.DEFINED&gt;” (<a href="https://cybermind.fr/tags/M@DZ_GE3X/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 003 - M@DZ GE3X)</a>)</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
@@ -4612,7 +4673,12 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 </ul>
 </li>
 </ul>
-<h1 id="A-suivre-sur-CyberMindFR"><a href="#A-suivre-sur-CyberMindFR" class="headerlink" title="À suivre sur @CyberMindFR"></a>À suivre sur @CyberMindFR</h1><ul>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
 <li>D’autres billets suivront à propos de <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” ! (#LSA1KG)</a></li>
 <li><a href="https://cybermind.fr/fr/Mind/Preface-Une-vie-en-anthroposophie/">Préface - Une vie en anthroposophie (<strong>Richard Monvoisin</strong>)</a></li>
 <li><a href="https://cybermind.fr/fr/Mind/Livres/L_esprit-critique-Bande-Dessinee-aux-Editions-Delcourt/">L’esprit critique - Bande Dessinée aux Éditions Delcourt</a></li>
@@ -4665,11 +4731,19 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 <p>Je viens de recevoir ma seconde commande et j’avoue que je suis impatient de les découvrir et d’en faire profiter autour de moi.</p>
 <img src="/uploads/images/SNAPS/PSYCOM-2022-04-27-215908_002.jpeg" width="750px" heigth="550px">
 
-<p>Les sujets ne’ sont pas faciles.</p>
+<p>Les sujets ne sont pas faciles.</p>
 <img src="/uploads/images/SNAPS/PSYCOM-2022-04-27-215908_003.jpeg" width="750px" heigth="550px">
 
-<p>Mais il devient URGENT !!!</p>
-<h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais entamer la lecture, bientôt !</p>
+<p>Mais ils deviennent URGENTS !!!</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -4717,7 +4791,16 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 </ul>
 </li>
 </ul>
-<h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais commncer la lecture, avant !</p>
+<p>** - Je vais devoir commencer la lecture, avant !**</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -4755,7 +4838,15 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 <p>Allez, on lâche rien ? Pas cette fois !!!</p>
 <img src="/uploads/images/SNAPS/La_Marchandisation_du_bonheur-2022-04-27-215827_001.jpeg" width="350px" heigth="450px">
 
-<h1 id="A-suivre"><a href="#A-suivre" class="headerlink" title="À suivre,"></a>À suivre,</h1><p>Je vais terminer la lecture, avant !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -4779,9 +4870,11 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 <img src="/uploads/images/visuels/METADECHOC-BOOKS.jpg" width="600px" heigth="450px">
 
 <p>Merci également à <a href="https://fr.wikipedia.org/wiki/Richard_Monvoisin">Richard Monvoisin</a> pour sa préface qu’il m’a <a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/#comment-484">autorisé à reproduire</a> ici…</p>
+<span id="more"></span>
+
 <p>Préface de  Richard Monvoisin, didacticien des sciences<br>spécialiste des théories étranges, il enseigne la pensée critique à l’Université Grenoble-Alpes </p>
 <p>Le livre paru le 25 novembre 2020 aux <a href="https://www.laroutedelasoie-editions.com/notre-catalogue/m%C3%A9ta-de-choc/une-vie-en-anthroposophie/">éditions La Route de la soie</a> est une retranscription agrémentée de l’entretien entre Élisabeth Feytit, du <a href="https://metadechoc.fr/podcast/stream-1-une-vie-en-anthroposophie-livre/">podcast Méta de choc</a>, et <a href="https://fr.wikipedia.org/wiki/Gr%C3%A9goire_Perra">Grégoire Perra</a>, ancien enseignant d’école Steiner-Waldorf, désormais transfuge du mouvement anthroposophique. Richard Monvoisin en a fait la préface, que je vous relais ici.</p>
-<span id="more"></span>
+<!-- more -->
 <h1 id="Preface-Une-vie-en-anthroposophie"><a href="#Preface-Une-vie-en-anthroposophie" class="headerlink" title="Préface : Une vie en anthroposophie"></a><a href="https://www.monvoisin.xyz/preface-dune-vie-en-anthroposophie-delisabeth-feytit-gregoire-perra/">Préface : Une vie en anthroposophie</a></h1><p>Je me pose souvent la question de savoir s’il est moral, dans l’absolu, de faire un enfant. Se demander si l’espérance de vie à la naissance qu’on lui donne est correcte ; s’interroger sur ses chances de survivre à la mort subite, aux maladies infantiles, aux coins de table et aux passages cloutés. On peut questionner la famille qu’on lui donne, avec parents violents ou non, présence de livres ou pas, catéchisme obligatoire ou non avec le père Preynat, confort financier de départ ou capital symbolique conséquent ; du lieu où il naît – serait-il plus moral de faire naître un enfant en Normandie que dans l’Uttar Prasdesh ? La vie vaut-elle la peine d’être vécue dans une forêt d’altitude du Montana, loin du gradient de pollution, ou près d’un champ d’épandage de produits phytosanitaires dans la Beauce ? On peut ergoter sur la qualité du monde dans lequel on le lance tel un paquet, une France autodéclarée patrie des droits de l’Humain, mais troisième vendeuse d’armement au monde, refusant l’asile à Julian Assange et capable de s’ingérer militairement dans les affaires d’autres pays sans mandat international. On peut s’inquiéter de ne pas avoir préparé, à ce charmant bambin, cette mignonne bambine, un modèle économique dans lequel les droits des individus dépasseraient les droits des entreprises et où fortune et capital ne pourraient être amassés sans limite par certains, tandis que d’autres meurent des mouches dans les yeux. De lui imposer un environnement qui se réchauffe, des pénuries d’eau, des oiseaux et des insectes qui disparaissent. Bref, inviter à naître quelqu’un dans ce bourbier ne va pas de soi, et le regretté philosophe Ruwen Ogien tranchait ainsi la question : si l’on est loin d’être certain de garantir le bonheur d’un gamin, on peut par contre être sûr qu’il endossera une grosse dose de souffrance, que ce soit le harcèlement à l’école ou les chagrins d’amour, la maltraitance au travail ou les violences conjugales.</p>
 <p>Je crois que je suis d’accord avec lui. J’ai moi-même fait deux enfants, et je trouve ça aussi plaisant qu’immoral. Maintenant, à moins de les emmener couper du bois la nuit et de les perdre dans la forêt, je suis condamné à m’en occuper jusqu’à leur émancipation. Et de fait les lambeaux qui restent de ma moralité me poussent à leur offrir force câlins et bisous placebo, mais aussi un maximum d’outils intellectuels, afin qu’ils puissent déjouer les sirènes des propagandes, contourner les pièges des pseudosciences, briser les plafonds de verre sociologiques et aller bouter hors de leur cerveau tous les rétrécisseurs d’horizon.</p>
 <p>C’est l’une des raisons de mon fort intérêt pour les pédagogies dites alternatives. Certes, mon côté jacobin défend les vertus de l’enseignement public, mixité sociale, tronc de savoir commun, fonctionnariat et service public, mais je sais bien, pour l’avoir vécu dans ma chair, le caractère mortifère que cela peut prendre : relations autoritaires prof-élève, classes surchargées, nivelage du niveau, manque de moyens, pantomime politique de la représentation des délégués de classe…</p>
@@ -4800,6 +4893,18 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 <p>Il est difficile de concevoir que nous ayons mis plusieurs milliers d’années à sortir des cosmogonies infantiles et à construire des savoirs collectifs non mystiques, et que nous soyons si prompts à replonger dans des modèles scolaires de ce genre. Pourtant, il y a un enjeu de taille. Je ne parlerai pas du soutien personnel d’une ministre récente à ces écoles, ce qui me semble être un épiphénomène, non, je parle de comment faire société avec cela ? Ces écoles proposent, en paraphrasant Steiner, d’« éduquer vers la liberté ». Mais pas n’importe quelle liberté, si ce n’est celle d’absorber un certain nombre de couleuvres pseudoscientifiques, sur la simple base d’une révérence envers un illuminé mystique. Et pas pour tout le monde ! Selon le fondateur, seuls certains « élus » sont dignes de recevoir le monde « idéel ». Et dans la vision apocalyptique de Steiner, lorsque la civilisation actuelle va entrer dans une décadence totale et s’effondrera sur elle-même, ne restera que les écoles Steiner, sortes d’îlots de culture qui seront le modèle de la prochaine civilisation.</p>
 <p>C’est en cela que les propos de Grégoire Perra sont honnêtes, courageux, et nécessaires.</p>
 <p>Ils sont honnêtes car il faut du courage pour sortir d’une escalade d’engagement à grande échelle, pour prendre de plein fouet sa dissonance et faire un pas de côté pour considérer le chemin parcouru d’un œil sceptique. Serais-je capable de faire la même chose ? J’en doute. Courageux du fait des poursuites, inutiles mais éreintantes, qui lui sont régulièrement faites. Il n’est pas donné à tout un chacun de supporter, moralement et financièrement la vindicte des gens de son ancien monde. Nécessaires enfin car le modèle de société présenté dans ces écoles doit apparaître pour ce qu’il est : un salmigondis brumeux, mysticoïde et conservateur. C’est seulement au prix de la lecture douloureuse des mots de Grégoire Perra, accouchés avec talent par Élisabeth Feytit, que les parents pourront alors faire un choix éclairé pour leurs enfants. Ogien le philosophe disait que seuls nos enfants pourront un jour nous absoudre de la faute morale de les avoir mis au monde. Pourront-ils facilement nous absoudre de les avoir envoyés en école Steiner-Waldorf ? Certainement, avant l’existence de ce bouquin. Après, je ne garantis pas.</p>
+<p>—8&lt;—</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
       <categories>
         <category>Mind</category>
@@ -4851,8 +4956,7 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 
 <p>—8&lt;—<br>Merci, ne serait-ce que pour le partage du logiciel libre Iramuteq.<br>D’ailleurs, si il n’était pas en licence libre, comment faire confiance aux résultats qu’il propose !<br>Un outil porte une philosophie par son usage autant que par se qu’il contribue et permet…<br>Je m’égare ?<br>Pas tant que ça, tout compte fait…<br>Bien au contraire même.<br>La science informatique a besoin de ce type de partage, d’usage, d’idées à discuter, de concepts à améliorer…</p>
 <p>Merci !<br>—8&lt;—</p>
-<p>Référence(s): </p>
-<ul>
+<h1 id="Reference-s"><a href="#Reference-s" class="headerlink" title="Référence(s):"></a>Référence(s):</h1><ul>
 <li><a href="http://www.iramuteq.org/">Iramuteq (logiciel) - Site officiel</a><ul>
 <li>Iramuteq est un logiciel libre distribué sous les termes de la licence GNU GPL (v2).</li>
 <li>Il permet de faire des analyses statistiques sur des corpus texte et sur des tableaux individus&#x2F;caractères.</li>
@@ -4861,7 +4965,15 @@ Et c&#39;est bien, c&#39;est heureux, c&#39;est la vie et ses surprises…
 </li>
 <li><a href="https://fr.wikipedia.org/wiki/Iramuteq_(logiciel)">Iramuteq (logiciel) - Description @ WikiPedia</a></li>
 </ul>
-<p>COURAGE !<br>À TOUS !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -4908,8 +5020,11 @@ by Randall Munroe, CC BY-NC 2.5
 <li>Cette expérience est la votre, mais JE suis l’unique SUJET.</li>
 </ul>
 <p>—8&lt;—</p>
-<p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
-<p><strong>LES KRAGZOUÏLLES VAINCRONT !!!</strong></p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
 <h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
 <li>D’autres billets suivront à propos de la science informatique et des “bugs qui n’en sont pas” (<a href="https://cybermind.fr/tags/Fuck-Dema/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 001 - FUCK DÉMA)</a>)</li>
 </ul>
@@ -4926,6 +5041,43 @@ by Randall Munroe, CC BY-NC 2.5
         <tag>The Conjurers</tag>
         <tag>Fake</tag>
         <tag>Fuck Déma</tag>
+        <tag>comments</tag>
+        <tag>KragZouïlles</tag>
+        <tag>Cyber</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Comments@Intensément - HPI, Surdoué.es &amp; co</title>
+    <url>/fr/Cyber/Mind/Commentaires/KragZouilles/Comments/Comments-Intensement/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Ceci est un commentaire sur le podcast <a href="https://www.buymeacoffee.com/intensement.pod">Intensément - is ze podcast des adultes à Haut Potentiel Intellectuel ou Surdoué.es</a></p>
+<p>D’autres suivront sur cette même page !</p>
+<span id="more"></span>
+
+<p><a href="https://podcast.ausha.co/intensement/true-hpi-ep5-synesthesie-voir-les-chiffres-en-couleurs-feat-clothilde-du-gr-fb-compendium-douance">TRUE HPI-Ep5- Synesthésie &#x3D; voir les chiffres en couleurs? feat Clothilde du gr.FB Compendium Douance</a><br>du 20220615</p>
+<h1 id="synesthesies"><a href="#synesthesies" class="headerlink" title="synesthésies"></a>synesthésies</h1><p>Créée le vendredi 17 juin 2022</p>
+<p>À propos de montagnes russe, attention, ça fait ma 50aine toute fraîche à comprendre…<br>Pour le bonus du jour, il fait suite à la synesthésie, ou aux synesthésies…<br>Je me savais lié à ce sujet, j’ai toujours ressenti les douleurs des autres, et c’est parfois douloureux, je pensais que c’était de l’empathie…<br>J’ai toujours un ressenti sur les chiffres et les logiques très personnelles, rythmiques et colorés…<br>J’ai un exercice que je dévoile parfois si la manière de rêver…<br>Je pense être le seul à avoir pleuré devant des dessins animés (et pas à 10 ans mes à 45) et ressenti des douleurs quand les personnages étaient  censé en subir…<br>J’ai déclaré voir les auras ou des choses équivalentes sans croire ces “choses là” !<br>J’ai d’ailleurs été vu comme le plus bizarre lors d’un voyage initiatique (aux mondes fantasmés des Crop Circles)…<br>J’ai découvert des “secrets” simplement par des échanges simples…<br>ET on m’a découvert HQ (pas HP je n’aime plus le terme, je préfère “révélé” que “potentiel”…)…<br>Je me suis glissé dans la peau d’un Zèbre pour provoquer les vendeurs de souffrances…<br>Je me suis perdu dans la peau d’un Gourou pour révéler les dérives et réclamer la liberté pour les assujettis…<br>J’ai porté pendant des années une camisole chimique pour plaire aux normaux pensant qui me préfèrent quand mon cerveau est éteins…<br>J’ai découvert que la poésie est un lieu où peux se camoufler plus de contenus que dans tout autre flacon…<br>Du coup je reprends mes facultés en sciences informatiques et prolongent mes modèles de pensées et de vie pour les partager et les distribuer aux proches et aux mondes, aux rencontres et aux réseaux…<br>J’ai rêvé d’un monde virtuel que les business man ont détruits avec leur Cyber et leur publicités…<br>J’ai ressenti un écran trop petit pour coder et mon codes et mes mots et ma logique…<br>J’ai présenté à mes amis une vue philosophique et scientifique qui rassemblait les croyants et les réalistes…<br>J’ai construit l’amour en modèle et la passion en objectif…<br>J’ai maintenant décidé de changer les modes de rétributions de mes activités pour une justice et une équité relationnelle, entre les petites gens et les grands manufactures !<br>Ce monde à tout à donner…<br>Mais que les QI (ni H ni Low) sont fait pour se référer à la normalité…<br>Ainsi, si c’est pour aider les faibles d’esprit (je vous invite à (re)lire des Fleurs pour Algernon) pourquoi faire de même avec ceux qui sont au dessus de ces moyennes ?!<br>Pourquoi pensons nous comparatif quand il faut estimer relationnel et pourcentage !<br>Tout est si simple dans mon monde que je ne peux trouver de cœur pour accueillir ne serait-ce qu’une parcelle de ce que je souhaite donner !!!<br>Le HQ n’est pas un soucis, ou ne devrait pas l’être, les sens non plus, ce sont eux qui nous font ressentir et aimer, craindre et avoir peur,… mais ce monde préfère la haine et il n’est que le début de l’histoire !<br>Pour qu’advienne, un monde, juste, un monde de paix, pour tous les hommes et femmes de bonnes volonté !<br>Bienvenue dans mon monde… MAIS attention, le votre n’y aura de place que s’il respecte le MIEN !<br>MERCI…</p>
+<p>—8&lt;—</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos des jeux de l’esprit et de la philosphie et de la spiritualité “&lt;TO.BE.DEFINED&gt;” (<a href="https://cybermind.fr/tags/M@DZ_GE3X/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 003 - M@DZ GE3X)</a>)</li>
+<li>…</li>
+</ul>
+<p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
+<p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
+]]></content>
+      <categories>
+        <category>Cyber</category>
+        <category>Mind</category>
+        <category>Commentaires</category>
+        <category>KragZouïlles</category>
+      </categories>
+      <tags>
+        <tag>The Conjurers</tag>
+        <tag>Idée Cool</tag>
         <tag>comments</tag>
         <tag>KragZouïlles</tag>
         <tag>Cyber</tag>
@@ -4953,7 +5105,15 @@ by Randall Munroe, CC BY-NC 2.5
 <p>Nous sommes le 23 avril 2022 et il est 15h41.<br>Le peuple de France est en train d’élire son futur roi.<br>Pour ma part, je persévère dans une urgence et dans des rencontres hasardeuses !<br>Car ce matin encore, un voisin me partageait son malaise, sa dépression, son incapacité à prendre du recul, tout en étant parfaitement conscient de ce qui lui arrivait !<br>Ce fut un échange magnifique, humain, bienveillant, que je n’ai put avoir que grâce à mes expériences particulières et personnelles, dont la découverte de MétaDeChoc !</p>
 <p>Bref… j’entame le visionnage… Je vais essayer de faire plus court les prochaines fois !</p>
 <p>REF : <a href="https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/</a><br>—8&lt;—</p>
-<p>COURAGE !<br>À TOUS !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -4986,6 +5146,15 @@ by Randall Munroe, CC BY-NC 2.5
 <p>Pour référence; la raison de ma colère du matin; <a href="https://www.francebleu.fr/emissions/c-est-deja-demain/comment-l-astrologie-peut-elle-nous-guider-dans-notre-vie-sentimentale">https://www.francebleu.fr/emissions/c-est-deja-demain/comment-l-astrologie-peut-elle-nous-guider-dans-notre-vie-sentimentale</a><br>J’ajouterai, comme habituellement, un lien sur mon blog vers ce commentaire, et je vais prochainement copier mes commentaires en tant que billet sur mon blog.<br>Cela m’évitera de trop polluer votre espace et de plus facilement mettre à jour et faire évoluer les contenus. (ne serait-ce que pour corriger les typos et avouons le, les trop nombreuses fautes d’orthographes !)<br><a href="https://cybermind.fr/">https://cybermind.fr/</a></p>
 <p>PS: je n’ai que trop peu remercié ou été dans le sujet de ce billet sur l’astrologie, mais c’était le premier que j’ai mentionné dans ma playlist et qui avait motivé le premier billet de mon blog;<br><a href="https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/">https://cybermind.fr/fr/Mind/MetaDeChoc-FR-Elisabeth-Feytit-New-Age-ou-la-secte-aux-1-000-gourous/</a><br>Je dirai donc que c’est cette écoute, faites en couple, que je me garde la boule au ventre et la larme à l’œil, comme source d’inspiration, comme étincelle de motivation, bref, mettez-y ce que vous voulez pour en estimer la force de mes remerciements ce ne sera pas assez !</p>
 <p>Belle journée, soirée, nuit, en tout cas écoute et remise en question, à tous !<br>Gérald<br>—8&lt;—<br>Et là; les larmes ont coulées, pas trop, pas trop longtemps, mais cette intensité fugace et violente, elle est aussi à toi mon amour, Petite fleur, ma Fée, Étoile Filante, Miss Ange !<br>à NOUS…<br>COURAGE !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5031,7 +5200,15 @@ by Randall Munroe, CC BY-NC 2.5
 <p>#6 - To be continued (à suivre)<br>J’avais dit court (très) donc je garderai la suite pour ailleurs…<br>Ce monde est le mien, je suis l’enfant des cartes perforées, je partagerai cette comptine avec vous, j’espère, prochainement !<br>Je lutte tous les jours depuis 50 ans à défendre mes intuitions et ma réalité…<br>Je ne l’impose pas, je la divulgue et elle se démontre vérifiée…<br>J’attends qu’on me suggère des alternatives, des actions, des contradictions, tout me va du moment que cela construit un commun meilleur pour tous !<br>J’ai connu les SHAREWARE bien avant le logiciel libre, non pas que les licences GNU n’existaient pas, juste que je ne les connaissais pas à l’époque…<br>Mais déjà les SHAREWARE devenaient des DÉMO…<br>J’ai contribué à des systèmes libres, sécurisé, pour enfants, gracieusement et à mes heures perdues d’insomnies pour compenser les actions professionnelles dans les grands groupes militaro-industriels où j’occupais alors mes journées.</p>
 <p>Oui ce monde est plus vaste encore, comme l’on compris les Zuckerberg, Bezos &amp; Musk…<br>Initiés par Jobs (plagiat de XEROX et du Palo Alto Research Center, merci Wozniak), Gates (plagiat de IBM merci maman Gates), Google (merci Internet…)</p>
 <p>N’oubliez pas que si tout ceci est gratuit, c’est que vous êtes le produit !<br>—8&lt;—</p>
-<p>COURAGE !<br>À TOUS !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5063,7 +5240,15 @@ by Randall Munroe, CC BY-NC 2.5
 <p>Vivement la suite !</p>
 <p>Le premier épisode, déjà, est déconcertant…<br>Alors même que c’était une évidence, déjà, pour moi.<br>En être convaincu n’a que peu d’intérêt…<br>Si ce n’est essayer d’en comprendre les raisons.<br>Puis de réfléchir à comment améliorer, et la vision du monde, et la compréhension de soit même !<br>Se libérer des croyances semble plus qu’un objectif mais vraiment une méthodologie…<br>Comme la forme même de vos échanges, mutuellement respectueux et attentionnés.<br>Du coup j’en apprécie plus encore son message, les mots, la philosophie de vie bienveillante.</p>
 <p>Décidément, j’ai du mal à faire des commentaires courts !<br>😉<br>—8&lt;—</p>
-<p>COURAGE !<br>À TOUS !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5098,7 +5283,15 @@ by Randall Munroe, CC BY-NC 2.5
 <p>Du coup j’ai ajouté et acquis votre second ouvrage Obsessions[2].</p>
 <p>[1] <a href="https://www.lespetitsmatins.fr/collections/essais/189-l-ere-du-complotisme-la-maladie-d-une-societe-fracturee.html">https://www.lespetitsmatins.fr/collections/essais/189-l-ere-du-complotisme-la-maladie-d-une-societe-fracturee.html</a><br>[2] <a href="https://inculte.fr/produit/obsession/">https://inculte.fr/produit/obsession/</a><br>[3] <a href="https://cybermind.fr/tags/LSA1KG/">https://cybermind.fr/tags/LSA1KG/</a></p>
 <p>PS: J’ai fait court… non !? ( 😇 )<br>PPS: Je n’ai pas dit que ce serait le seul…<br>D’ailleurs, si je peux me permettre, j’ai une information à partager de manière un peu plus « privée » avec vous Marie Peltier…<br>Je me permettrais donc de revenir vers vous, si possible !?<br>—8&lt;—</p>
-<p>COURAGE !<br>À TOUS !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5225,7 +5418,11 @@ Protect the environment: do you really need to print this e-mail?
 <p>Je vais publier ce billet sur les réseaux et voir si d’autre(s) que moi y trouvent un intérêt et rendre ainsi encore plus visibles ce qui doit normalement rester confidentiel !?<br>Puis je n’aurai que moins d’incertitudes et de doutes sur mes actions et le fait que mes prises de paroles idéologiques, politiques, éthiques seront utilisables pas ceux à qui j’ai décidé de m’opposer !<br>Je prends donc le risque d’offrir à mes ennemis les outils contre moi !<br>Détruire un secret n’est possible que de cette manière…<br>Qui sait, peut-être qu’un avocat pourra y puiser un sujet et revenir avec une proposition afain que ce possible se réalise et qu’enfin je passe à toutes ces autres actions qui peuvent en découler !</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>J’aurai peut-être dû faire médecin, ou avocat, ou sociologue, ou historien, ou mathématicien, ou informaticien, ou linguiste, ou juriste, ou président de la république, ou tout d’un coup, monter une secte et faire GOUROU…</p>
 <p>…</p>
-<p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
 <p><strong>LES KRAGZOUÏLLES VAINCRONT !!!</strong></p>
 <h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
 <li>D’autres billets suivront à propos de la science informatique et des “bugs qui n’en sont pas” (<a href="https://cybermind.fr/tags/Fuck-Dema/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 001 - FUCK DÉMA)</a>)</li>
@@ -5257,7 +5454,7 @@ Protect the environment: do you really need to print this e-mail?
 
 <h1 id="TRY-004"><a href="#TRY-004" class="headerlink" title="TRY #004:"></a>TRY #004:</h1><p>—8&lt;—<br>Bonjour,</p>
 <p>Merci, svp, d’avance, de me contacter par email…<br>Impossible sur votre site Internet !</p>
-<p><a href="mailto:&#103;&#97;&#110;&#x64;&#97;&#x6c;&#102;&#x40;&#x67;&#107;&#50;&#46;&#x6e;&#101;&#x74;">&#103;&#97;&#110;&#x64;&#97;&#x6c;&#102;&#x40;&#x67;&#107;&#50;&#46;&#x6e;&#101;&#x74;</a><br><a href="mailto:&#99;&#111;&#110;&#x74;&#x61;&#99;&#116;&#x40;&#x63;&#121;&#98;&#101;&#x72;&#109;&#105;&#x6e;&#x64;&#46;&#x66;&#x72;">&#99;&#111;&#110;&#x74;&#x61;&#99;&#116;&#x40;&#x63;&#121;&#98;&#101;&#x72;&#109;&#105;&#x6e;&#x64;&#46;&#x66;&#x72;</a><br>06.51.27.66.88<br>—8&lt;—</p>
+<p><a href="mailto:&#x67;&#x61;&#x6e;&#100;&#x61;&#x6c;&#x66;&#64;&#x67;&#107;&#x32;&#46;&#x6e;&#x65;&#x74;">&#x67;&#x61;&#x6e;&#100;&#x61;&#x6c;&#x66;&#64;&#x67;&#107;&#x32;&#46;&#x6e;&#x65;&#x74;</a><br><a href="mailto:&#x63;&#111;&#110;&#116;&#97;&#x63;&#x74;&#x40;&#x63;&#121;&#98;&#x65;&#x72;&#109;&#x69;&#x6e;&#100;&#46;&#x66;&#x72;">&#x63;&#111;&#110;&#116;&#97;&#x63;&#x74;&#x40;&#x63;&#121;&#98;&#x65;&#x72;&#109;&#x69;&#x6e;&#100;&#46;&#x66;&#x72;</a><br>06.51.27.66.88<br>—8&lt;—</p>
 <img src="/uploads/images/COMMENTS/SEND-KO.png">
 
 <p>YOUHOUUUUU !!!!<br>ÇA MARCHE !!!!!</p>
@@ -5280,8 +5477,8 @@ Protect the environment: do you really need to print this e-mail?
 <p>Edité:<br>Par exemple pour éviter ceci :<br>“Une erreur s’est produite lors de l’envoi de votre message. Veuillez essayer à nouveau plus tard.”<br>&lt;!&gt;</p>
 <p>Je n’ai pas compris pourquoi l’inscription à une newsletter n’aboutissait pas non plus à un lien, un formulaire, ou autre…</p>
 <p>Mes suggestions (et critiques) ne sont qu’exprimées avec le soucis d’amélioration…</p>
-<p>Dans l’attente de votre réponse,<br>Cordialement,<br>Gérald KERMA<br><a href="https://cybermind.fr/">https://CyberMind.FR</a><br><a href="mailto:&#x67;&#x61;&#x6e;&#x64;&#97;&#108;&#102;&#x40;&#103;&#x6b;&#x32;&#x2e;&#110;&#x65;&#x74;">&#x67;&#x61;&#x6e;&#x64;&#97;&#108;&#102;&#x40;&#103;&#x6b;&#x32;&#x2e;&#110;&#x65;&#x74;</a><br>06.51.27.66.88<br>—8&lt;—</p>
-<p>D’avance merci,<br>Cordialement,<br>Gérald KERMA<br><a href="https://cybermind.fr/">HTTPS://CYBERMIND.FR</a><br><a href="mailto:&#x67;&#x61;&#110;&#100;&#97;&#108;&#102;&#x40;&#x67;&#107;&#50;&#46;&#x6e;&#x65;&#x74;">&#x67;&#x61;&#110;&#100;&#97;&#108;&#102;&#x40;&#x67;&#107;&#50;&#46;&#x6e;&#x65;&#x74;</a><br>06.51.27.66.88</p>
+<p>Dans l’attente de votre réponse,<br>Cordialement,<br>Gérald KERMA<br><a href="https://cybermind.fr/">https://CyberMind.FR</a><br><a href="mailto:&#103;&#97;&#110;&#100;&#97;&#108;&#102;&#64;&#x67;&#107;&#x32;&#46;&#110;&#101;&#116;">&#103;&#97;&#110;&#100;&#97;&#108;&#102;&#64;&#x67;&#107;&#x32;&#46;&#110;&#101;&#116;</a><br>06.51.27.66.88<br>—8&lt;—</p>
+<p>D’avance merci,<br>Cordialement,<br>Gérald KERMA<br><a href="https://cybermind.fr/">HTTPS://CYBERMIND.FR</a><br><a href="mailto:&#103;&#x61;&#110;&#x64;&#x61;&#x6c;&#102;&#x40;&#x67;&#107;&#x32;&#x2e;&#x6e;&#101;&#x74;">&#103;&#x61;&#110;&#x64;&#x61;&#x6c;&#102;&#x40;&#x67;&#107;&#x32;&#x2e;&#x6e;&#101;&#x74;</a><br>06.51.27.66.88</p>
 <p>EDITE:<br>IDEM ERREUR!!!!</p>
 <p>Une erreur s’est produite lors de l’envoi de votre message. Veuillez essayer à nouveau plus tard.</p>
 <p>Démonstration récursive du problème proposé et déjà sous-entendu ou plutôt à l’origine de ma proposition de bénévolat…<br>Ou pas…</p>
@@ -5316,8 +5513,15 @@ Protect the environment: do you really need to print this e-mail?
 <p>À suivre…</p>
 </details>
 
-<p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
-<p><strong>LES KRAGZOUÏLLES VAINCRONT !!!</strong></p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><p>COURAGE !<br>À TOUS !<br>ET, N’OUBLIEZ PAS, N’OUBLIEZ JAMAIS…</p>
+<blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
+</blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos de l’étude, (en cours) sur <a href="https://cybermind.fr/tags/LSA1KG/">“La Secte Aux 1.000 Gourous” (#LSA1KG)</a> 🛸 &amp; 👽 -&gt; 🦄 &amp; 🧚‍♀️</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5383,9 +5587,14 @@ Protect the environment: do you really need to print this e-mail?
 </blockquote>
 <img src="/uploads/images/GANDALF/BOBY/signal-2022-05-01-000220_010.jpeg" width="288px" height="384px">
 
-<h2 id="A-suivre…"><a href="#A-suivre…" class="headerlink" title="À suivre…"></a>À suivre…</h2><blockquote>
-<p>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</p>
+<p>⚠️ Attention, à vous ! 👀</p>
+<h1 id="MERCI"><a href="#MERCI" class="headerlink" title="MERCI"></a>MERCI</h1><blockquote>
+<p><strong>Je Veux la Paix Dans le Monde Pour les Hommes de Bonne Volonté !</strong></p>
 </blockquote>
+<h1 id="A-suivre-sur-CyberMindFR…"><a href="#A-suivre-sur-CyberMindFR…" class="headerlink" title="À suivre sur @CyberMindFR…"></a>À suivre sur @CyberMindFR…</h1><ul>
+<li>D’autres billets suivront à propos des jeux de l’esprit et de la philosphie et de la spiritualité “&lt;TO.BE.DEFINED&gt;” (<a href="https://cybermind.fr/tags/M@DZ_GE3X/">les “KragZouÿs” 🧠 + 🧩 &#x3D; 🧙 -&gt; 🔥 (ÉPISODES 003 - M@DZ GE3X)</a>)</li>
+<li>…</li>
+</ul>
 <p>⚠️ Attention, cette page risque d’être mise à jour régulièrement ! 👀</p>
 <p>🧙 – <a href="mailto:Gandalf@Gk2.NET?subject=The%20Conjurers%20%3F">Gandalf (from “The Conjurers”)</a> ©️ 1982-2022</p>
 ]]></content>
@@ -5399,6 +5608,7 @@ Protect the environment: do you really need to print this e-mail?
         <tag>Musique</tag>
         <tag>Alerte</tag>
         <tag>Dépression</tag>
+        <tag>M@DZ GE3X</tag>
         <tag>Amour</tag>
         <tag>Florent Pagny</tag>
         <tag>Florent Pagny/Baryton/Maria</tag>
@@ -5422,6 +5632,7 @@ Protect the environment: do you really need to print this e-mail?
       <tags>
         <tag>Poésie</tag>
         <tag>Limours</tag>
+        <tag>ICIEB</tag>
       </tags>
   </entry>
   <entry>
@@ -5441,6 +5652,7 @@ Protect the environment: do you really need to print this e-mail?
       </categories>
       <tags>
         <tag>Poésie</tag>
+        <tag>ICIEB</tag>
         <tag>Notre-Dame-du-Cruet</tag>
       </tags>
   </entry>
