@@ -125,7 +125,10 @@ Que le business "normal" n'y pas sa place et corrompt les outils informatiques.
 
 # À suivre sur @CyberMindFR… #
 
-- D'autres billets suivront à propos de la "magie des invisibles" ([les “KragZouÿs” 🤖 + 🎲 = 💡 -> 💧 (ÉPISODES 002 - IDÉE COOL)](https://cybermind.fr/tags/Idee-Cool/))
+- pour le ["Cyber"](https://cybermind.fr/categories/Cyber/)   🤖 + 🎲 = 💡 -> 💧
+- pour le ["Mind"](https://cybermind.fr/categories/Mind/)     🧠 + 🧩 = 🧙 -> 🔥
+- pour [tout le reste](https://cybermind.fr/fr/Cyber/Mind/welcome/)
+- pour [plus encore](https://cybermind.fr/fr/about/)
 - …
 
 ⚠️ Attention, cette page risque d'être mise à jour régulièrement ! 👀
