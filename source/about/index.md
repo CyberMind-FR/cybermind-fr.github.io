@@ -5,8 +5,8 @@ comments: false
 lang: en
 ---
 
-**CyberMind propose specific free softwares developments and custom CyberSecurity solutions...**
-*In addition to the areas of technical popularization of innovative solution designs...*
+**CyberMind propose specific free softwares developments and custom CyberSecurity solutions…**
+*In addition to the areas of technical popularization of innovative solution designs…*
 
 CyberMind, it is, mainly, but not only, 2 categories :
 - for the ["Cyber"](https://cybermind.fr/categories/Cyber/)   🤖 + 🎲 = 💡 -> 💧
@@ -15,7 +15,25 @@ CyberMind, it is, mainly, but not only, 2 categories :
   - An analysis, (work in progress) about ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/) 🔐 & 🕸️ -> 🐭 & 🦉
   - A study, (work in progress) about ["La Secte Aux 1.000 Gourous" (#LSA1KG)](https://cybermind.fr/tags/LSA1KG/)     🛸 & 👽 -> 🦄 & 🧚‍♀️
 
-Some articles will be add and also can be updated...
+Some articles will be add and also can be updated…
 So, stay tuned & enjoy ! ( 🤖 = 🍀 + 🎵 ) ~ ( 🪤 + 🧞‍♂️ = 🧠 )
 
-[<--- Start here... --->](https://cybermind.fr/en/Cyber/Mind/welcome/)
+# English
+
+[<--- Start here… --->](https://cybermind.fr/en/Cyber/Mind/welcome/)
+
+[About @ CyberMind](https://CyberMind.FR/about/)
+
+[Contact @ CyberMind](https://CyberMind.FR/contact/)
+
+[Legal & Support @ CyberMind](https://CyberMind.FR/legal/)
+
+# Français
+
+[<--- Commencéz ici… --->](https://cybermind.fr/fr/Cyber/Mind/welcome/)
+
+[À propos @ CyberMind](https://CyberMind.FR/fr/about/)
+
+[Contact & MANIFESTO @ CyberMind](https://CyberMind.FR/fr/contact/)
+
+[Légals & Support @ CyberMind](https://CyberMind.FR/fr/legal/)

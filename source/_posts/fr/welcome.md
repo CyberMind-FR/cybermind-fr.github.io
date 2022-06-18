@@ -17,7 +17,7 @@ Restez à l'écoute!
 
 ## Bonjour à tous 👋
 
-[About @ CyberMind](https://CyberMind.FR/fr/about/)
+[À propos @ CyberMind](https://CyberMind.FR/fr/about/)
 
 [Contact @ CyberMind](https://CyberMind.FR/fr/contact/)
 

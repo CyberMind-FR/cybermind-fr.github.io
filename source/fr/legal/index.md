@@ -25,3 +25,7 @@ TVA non applicable : article 293 B du CGI.
 
 Hébergement : \
 [GitHub - Terms of Services](https://docs.github.com/en/github/site-policy/github-terms-of-service#h-additional-terms-for-github-pages)
+
+# WIP
+
+[[EXTERNAL] [CYBERMIND] Demande de proposition et offre de collaboration](https://cybermind.fr/fr/Cyber/Mind/Messages/KragZouilles/Comments/Courriels-CyberMind-202206011708/)

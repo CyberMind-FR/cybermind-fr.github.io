@@ -22,7 +22,7 @@ Encore une claque à venir !?
 <img src="/uploads/images/SNAPS/La_Marchandisation_du_bonheur-2022-04-27-215811_003.jpeg" width="850px" heigth="220px">
 
 <!-- more -->
-En tout cas, une fois de plus cela confirme, que, des fois, j'aimerais, vraiment avoir tort, quand on croit autour de moi que je veux toujours avoir raison, mais ça ne marche pas comme ça, quand on est dans le "vrai" ! 🤪🧐😇 ou qu'on essaie, d'apprendre, à l'être...
+En tout cas, une fois de plus cela confirme, que, des fois, j'aimerais, vraiment avoir tort, quand on croit autour de moi que je veux toujours avoir raison, mais ça ne marche pas comme ça, quand on est dans le "vrai" ! 🤪🧐😇 ou qu'on essaie, d'apprendre, à l'être…
 
 <img src="/uploads/images/SNAPS/La_Marchandisation_du_bonheur-2022-04-27-215811_001.jpeg" width="600px" heigth="450px">
 
