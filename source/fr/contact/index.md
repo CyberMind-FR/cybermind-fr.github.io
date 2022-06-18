@@ -45,9 +45,11 @@ J'accepte les développements logiciels spécifiques uniquement s'ils respectent
 J'ai une préférence pour les systèmes GNU/Linux ou à licences libres.
 Mais je peux aussi intervenir sur tous les autres types de systèmes; serveurs, embarqués, simples et complexes.
 
-## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable
+## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations
 
-Je fais de la vulgarisation, de l'accompagnement, du conseil, de l'audit, et trop de choses pour les détailler car j'adapte à la demande et aux projets.
+Je fais de la sensibilisation, de la vulgarisation, de l'accompagnement, du conseil, de l'audit, ...
+Je m'adapte aux demandes et aux projets.
+
 Je suis défenseur et contributeur pour de nombreux projets et logiciels à licence libre.
 J'envisage rarement un projet dans un mode privatif et restrictif ou je deviendrai le seul maître.
 Je peux accompagner des rédactions ou rédiger les documents qui permettront au client une totale indépendance.
