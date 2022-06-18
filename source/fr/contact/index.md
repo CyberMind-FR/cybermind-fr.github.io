@@ -34,13 +34,16 @@ J'explique ici, mes particularités, issues de longues réflexions et de ma gran
 ## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local
 
 Je préfère dorénavant facturer l'équivalent de ce que gagne mon client pour un même temps passé, ou ce que perd une production pendant qu'elle est attaquée.
-Cela justifie les performances et les moyens que j'engage vis à vis des résultats attendus.
+Cela justifie les performances et les moyens que j'engage vis-à-vis des résultats attendus.
 Cela permet aussi de rester disponible selon les types de clients.
-Le monde se portera mieux quand les "project manager" et "architectes" sortirons de leur tour et bureaux pour reconnecter le monde et les besoins réels.
+
+Le monde se portera mieux quand les "project manager" et "architectes" sortiront de leur tour et bureaux, pour se reconnecter au monde et aux besoins réels.
 	"9 femmes ne feront jamais un enfant en 1 mois !"
-Dans le même sens, je ne fais de développement logiciel spécifique que s'ils respectent les licences de départ.
-J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
-Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne pouvez ou voulez faire autrement !
+
+J'accepte les développements logiciels spécifiques uniquement s'ils respectent les licences libres.
+
+J'ai une préférence pour les systèmes GNU/Linux ou à licences libres.
+Mais je peux aussi intervenir sur tous les autres types de systèmes; serveurs, embarqués, simples et complexes.
 
 ## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable
 
