@@ -13,16 +13,9 @@ comments: true
 
 # Comment CyberMind travaille (MANIFESTO)
 
-## Tutoiement ou vouvoiement
+## Introduction
 
-Je ne sais pas si la pratique de l'ancienne école du tutoiement pour les adeptes de l'informatique fera office…
-À me confirmer…
-
-En attendant, je vais rester sur le vouvoiement.
-
-## Tutoiement ou vouvoiement
-
-Je peux faire une longue introduction ou une courte et allonger plus tard si nécessaire.
+Je peux faire une longue introduction, une courte et l'allonger plus tard si nécessaire.
 
 Une grande partie est déjà sur mon blog personnel et site professionnel, [About @ CyberMind](https://CyberMind.FR/fr/about/)
 
@@ -35,7 +28,7 @@ Des [projets](https://CyberMind.FR/fr/projects/) et partenaires également.
 J'ai aussi commencé à rassembler les anciennes [contributions](https://CyberMind.FR/tags/contribute/) et nombreux [services](https://CyberMind.FR/fr/projects/) déjà publiés et réalisés.
 Contrairement à ce que j'ai aperçu dans un post, ou un commentaire, que je n'ai pas encore approfondi sur la thèse publiée, je constate pour ma part que mon originalité fait mon talent…
 
-J'explique, au plus court, mes quelques particularités, issus de longues réflexions et de ma grande expérience dans les sciences informatiques, mais pas que:
+J'explique, au plus court, mes quelques particularités, issus de longues réflexions et de ma grande expérience dans les sciences informatiques, mais, pas que :
 
 ## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local.
 
@@ -43,7 +36,7 @@ Je préfère dorénavant facturer l'équivalent de ce que gagne mon client pour 
 Cela justifie les performances et les moyens que j'engage vis à vis des résultats attendus.
 Cela permet aussi de rester disponible selon les types de clients.
 Le monde se portera mieux quand les "project manager" et "architectes" sortirons de leur tour et bureaux pour reconnecter le monde et les besoins réels.
-"9 femmes ne feront jamais un enfant en 1 mois !"
+	"9 femmes ne feront jamais un enfant en 1 mois !"
 Dans le même sens, je ne fais de développement logiciel spécifique que s'ils respectent les licences de départ.
 J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
 Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne pouvez ou voulez faire autrement !
@@ -51,10 +44,11 @@ Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne 
 ## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable.
 
 Je fais de la vulgarisation, de l'accompagnement, du conseil, de l'audit, et trop de choses pour les détailler car j'adapte à la demande et aux projets.
-Je suis un défenseur et contributeur des logiciels à licence libre et acteur de longue date à de nombreux projets de défenses des droits humains.
-Je n'envisage donc rarement un projet dans un mode privatif et restrictif ou je serai le seul maître.
-Je peux accompagner des rédactions ou rédiger les documents qui permettent au client une totale indépendance.
-Ainsi, mes publications grand public dévoilent mes projets pour ceux qui souhaitent les réaliser par eux-mêmes alors que je propose les mêmes solutions installées et adaptées sur mesure à mes clients.
+Je suis défenseur et contributeur pour de nombreux projets et logiciels à licence libre.
+J'envisage rarement un projet dans un mode privatif et restrictif ou je deviendrai le seul maître.
+Je peux accompagner des rédactions ou rédiger les documents qui permettront au client une totale indépendance.
+Mes publications grand public dévoilent mes projets pour ceux qui souhaitent les réaliser par eux-mêmes.
+Je propose les mêmes solutions installées ou adaptées sur mesure, mais prêtes à l'emploi à mes clients.
 
 ## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces et sur mesure.
 
