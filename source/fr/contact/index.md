@@ -47,7 +47,7 @@ Le monde se portera mieux quand les "project manager" et "architectes" sortirons
 Dans le même sens, je ne fais de développement logiciel spécifique que s'ils respectent les licences de départ.
 J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
 
-## 2 - Mes prestations se veulent finales dans le seul ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable.
+## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable.
 
 Je fais de la vulgarisation, de l'accompagnement, du conseil, de l'audit, et trop de choses pour les détailler car j'adapte à la demande et aux projets.
 Je suis un défenseur et contributeur des logiciels à licence libre et acteur de longue date à de nombreux projets de défenses des droits humains.
