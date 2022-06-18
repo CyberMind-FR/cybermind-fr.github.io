@@ -17,6 +17,10 @@ Restez à l'écoute!
 
 ## Bonjour à tous 👋
 
+[About @ CyberMind](https://CyberMind.FR/fr/about/)
+
+[Contact @ CyberMind](https://CyberMind.FR/fr/contact/)
+
 **Voici quelques idées que vous devez connaître sur les règles de CyberMind :**
 
 🙋‍♀️ Une courte introduction ?

@@ -15,6 +15,10 @@ Stay tune!
 
 ## Héllo all 👋
 
+[About @ CyberMind](https://CyberMind.FR/about/)
+
+[Contact @ CyberMind](https://CyberMind.FR/contact/)
+
 **Here are some ideas you must know about CyberMind's rules:**
 
 🙋‍♀️ A short introduction ?
