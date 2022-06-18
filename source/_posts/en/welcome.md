@@ -3,6 +3,7 @@ title: welcome
 date: 2022-02-19 20:00:00
 tags: 
 - news
+- contribute
 categories: 
 - Cyber
 - Mind

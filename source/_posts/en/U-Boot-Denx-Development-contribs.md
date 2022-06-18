@@ -5,6 +5,7 @@ date: 2010-08-14 00:00:00
 tags:
 - U-Boot
 - Denx
+- contribute
 categories: Cyber
 ---
 

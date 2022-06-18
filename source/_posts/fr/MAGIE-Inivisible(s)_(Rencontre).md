@@ -18,6 +18,7 @@ tags:
 - Conférences
 - Ateliers
 - Savoie
+- contribute
 categories:
 - Cyber
 - KragZouïlles

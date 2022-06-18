@@ -8,6 +8,7 @@ tags:
 - SECUBOX
 - UEFI
 - BOOT
+- contribute
 categories: Cyber
 ---
 
