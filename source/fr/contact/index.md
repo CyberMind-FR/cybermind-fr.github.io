@@ -21,7 +21,7 @@ Une grande partie est déjà sur mon blog personnel et site professionnel, [Abou
 
 # CyberMind, pourquoi et pour qui ?
 
-J'ai récemment décidé de mêler mes divers activités personnelles et professionnelles, qui en fait n'en font qu'une, les miennes !
+J'ai récemment décidé de mêler mes diverses activités personnelles et professionnelles.
 
 J'ai des [références](https://CyberMind.FR/fr/references/) en partie disponibles sur ce site.
 Des [projets](https://CyberMind.FR/fr/projects/) et partenaires également.
