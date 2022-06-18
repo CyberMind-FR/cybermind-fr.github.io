@@ -37,11 +37,11 @@ Comme la vulgarisation, le partage, ce sont des parties de *ma* philosophie…
 
 # CAPTURE
 
-Enregistrement de ce matin... section du fichier original (amplifié) un son avec une ZOOM H2n....
+Enregistrement de ce matin… section du fichier original (amplifié) un son avec une ZOOM H2n….
 
-J'ai vu passer une chauve-souris juste après avoir allumé et déposé l'enregistreur...
-	Chauve-souris sur l'enregistreur à tester (retrouver si le son la bien capturée...)
-	en début de rendez-vous avec la lune !! 🍀(ça sera un autre sujet/billet... 😜)
+J'ai vu passer une chauve-souris juste après avoir allumé et déposé l'enregistreur…
+	Chauve-souris sur l'enregistreur à tester (retrouver si le son la bien capturée…)
+	en début de rendez-vous avec la lune !! 🍀(ça sera un autre sujet/billet… 😜)
 
 <img src="/uploads/images/CHIRO/002/signal-2022-06-11-195640_001.png" heigth="300px">
 
@@ -57,16 +57,16 @@ J'ai pu le tester à un concert, à une conférence, mais aussi à des rendez-vo
 
 <img src="/uploads/images/CHIRO/002/H2n_frontBack_softshadow.png" heigth="300px">
 
-Perso je suis en RAW (wave) à 96KHz sur 32 Bits pour ce test...
-Avec les 4 canaux (micro) dans un mode stéréo ...
+Perso je suis en RAW (wave) à 96KHz sur 32 Bits pour ce test…
+Avec les 4 canaux (micro) dans un mode stéréo …
 
-96KHz pour le H2N, <100KHz (MAX) pour les ultrasons donc, oui, ça doit marcher... ! 👍
+96KHz pour le H2N, <100KHz (MAX) pour les ultrasons donc, oui, ça doit marcher… ! 👍
 
 <img src="/uploads/images/CHIRO/002/SurroundSoundPattern_2.jpg" heigth="300px">
 
 # EXPORTS
 
-Section originale de l'enregistrement...
+Section originale de l'enregistrement…
 
 {% dplayer "url=/uploads/images/CHIRO/002/220617-045832-DETECT-002-REDO-EXPORT.m4a" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
@@ -75,13 +75,13 @@ Section originale de l'enregistrement...
 
 # NETTOYAGES
 
-Quelques traitements plus tard, anti-bruit de fond et amplifications...
+Quelques traitements plus tard, anti-bruit de fond et amplifications…
 
 {% dplayer "url=/uploads/images/CHIRO/002/220617-045832-DETECT-002-REDO-EXPORT-AMPLIFY-UNNOISE-UNNOISE.m4a" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
 # ANALYSES
 
-Là, 2 choix...
+Là, 2 choix…
  Vu que les écoutes causent pas des masses !
 
 À part le fait que dans les bande de fréquences on a des ultrasons.
@@ -115,7 +115,7 @@ Décalage (étalage, expansion) de temps. (modification de vitesse x10)
 
 Voici, à peu prêt la même partie, en mode débruité, amplifiée et par contre modifié en vitesse  divisée par 10.
 
-On a toujours les oiseaux MAIS on a un sons ÉTRANGES qui correspond au précédents en hétérodyne mais ici en vitesse rallongée (x10)...
+On a toujours les oiseaux MAIS on a un sons ÉTRANGES qui correspond au précédents en hétérodyne mais ici en vitesse rallongée (x10)…
 
 {% dplayer "url=/uploads/images/CHIRO/002/220617-045832-DETECT-002-REDO-EXPORT-AMPLIFY-UNNOISE-UNNOISE-TIMEEXPAND-CUTPART.m4a" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
@@ -131,8 +131,8 @@ On a toujours les oiseaux MAIS on a un sons ÉTRANGES qui correspond au précéd
 # BREF
 
 Plein d'idées suites à ces manipulations et aux outils (qu'il faut que je retrouve) sur les analyses et traitements de SON !! 
-J'adore, voir et entendre l'invisible et comprendre ou imaginer autrement...
-Les Baleines, les Dauphins et les Chauves souris communiquent ou utilisent ces types de "SONs" pour leur répérage par ECHO... et les Rats les produisent sous forme de ricanements quand il sont caressés... 
+J'adore, voir et entendre l'invisible et comprendre ou imaginer autrement…
+Les Baleines, les Dauphins et les Chauves souris communiquent ou utilisent ces types de "SONs" pour leur répérage par ECHO… et les Rats les produisent sous forme de ricanements quand il sont caressés… 
 À suivre !
 
 # À suivre sur @CyberMindFR… #
