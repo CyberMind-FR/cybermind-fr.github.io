@@ -46,7 +46,7 @@ Le monde se portera mieux quand les "project manager" et "architectes" sortirons
 "9 femmes ne feront jamais un enfant en 1 mois !"
 Dans le même sens, je ne fais de développement logiciel spécifique que s'ils respectent les licences de départ.
 J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
-Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne pouvez faire autrement !
+Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne pouvez ou voulez faire autrement !
 
 ## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable.
 
