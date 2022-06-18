@@ -23,12 +23,13 @@ Une grande partie est déjà sur mon blog personnel et site professionnel, [Abou
 
 J'ai récemment décidé de mêler mes diverses activités personnelles et professionnelles.
 
-J'ai des [références](https://CyberMind.FR/fr/references/) en partie disponibles sur ce site.
-Des [projets](https://CyberMind.FR/fr/projects/) et partenaires également.
-J'ai aussi commencé à rassembler les anciennes [contributions](https://CyberMind.FR/tags/contribute/) et nombreux [services](https://CyberMind.FR/fr/projects/) déjà publiés et réalisés.
-Contrairement à ce que j'ai aperçu dans un post, ou un commentaire, que je n'ai pas encore approfondi sur la thèse publiée, je constate pour ma part que mon originalité fait mon talent…
+J'ai listé sur ce site, une partie :
+- de mes [références](https://CyberMind.FR/fr/references/).
+- de mes [projets](https://CyberMind.FR/fr/projects/) et partenaires.
 
-J'explique, au plus court, mes quelques particularités, issus de longues réflexions et de ma grande expérience dans les sciences informatiques, mais, pas que :
+J'ai commencé à rassembler les anciennes [contributions](https://CyberMind.FR/tags/contribute/) et nombreux [services](https://CyberMind.FR/fr/projects/) réalisés.
+
+J'explique ici, mes particularités, issues de longues réflexions et de ma grande expérience, dans les sciences informatiques :
 
 ## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local.
 
