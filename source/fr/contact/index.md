@@ -50,17 +50,20 @@ Mais je peux aussi intervenir sur tous les autres types de systèmes; serveurs, 
 Je fais de la sensibilisation, de la vulgarisation, de l'accompagnement, du conseil, de l'audit, ...
 Je m'adapte aux demandes et aux projets.
 
-Je suis défenseur et contributeur pour de nombreux projets et logiciels à licence libre.
-J'envisage rarement un projet dans un mode privatif et restrictif ou je deviendrai le seul maître.
-Je peux accompagner des rédactions ou rédiger les documents qui permettront au client une totale indépendance.
-Mes publications grand public dévoilent mes projets pour ceux qui souhaitent les réaliser par eux-mêmes.
-Je propose les mêmes solutions installées ou adaptées sur mesure, mais prêtes à l'emploi à mes clients.
+Je suis défenseur et contributeur, pour de nombreux projets et logiciels à licence libre.
+Je peux accompagner des rédactions, ou rédiger les documents qui permettront au client une totale indépendance.
 
-## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces et sur mesure
+Mes articles grand public dévoilent mes projets, pour ceux qui souhaitent les réaliser par eux-mêmes.
+Je propose les mêmes solutions, installées ou adaptées sur mesure, mais prêtes à l'emploi à mes clients.
 
-J'ai pour habitude de trouver des solutions et des alternatives quand personne n'en trouvent.
-J'ai aussi pour exercice d'accompagner les utilisateurs pour envisager une solution et après son déploiement, vérifier que les résultats n'empirent pas les problèmes et apportent bien des réponses pertinentes.
-Elle restent étiques et devront également rester dans le cadre des lois et de ma morale personnelle.
+## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces
+
+J'aime tenter des solutions ou des alternatives nouvelles.
+
+J'accompagne toujours les utilisateurs après les déploiements.
+Pour vérifier que les résultats n'empirent pas les problèmes et apportent bien des réponses pertinentes.
+
+Mes actions sont étiques et restent toujours dans le cadre des lois et de ma morale personnelle.
 
 ## 4 - Mes activités restent locales et rythmées par les urgences et mon organisation personnelle
 
