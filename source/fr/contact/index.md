@@ -6,7 +6,7 @@ comments: true
 
 | CyberMind.FR | |
 | --- | :-: |
-| 785 route du Cruet <br /> l’Église <br /> 73130 Notre-Dame-du-Cruet | <img src="/uploads/images/NDDC_H240.png" width="64px"> |
+| 785 Route du Cruet - l’Église - 73130 Notre-Dame-du-Cruet | <img src="/uploads/images/NDDC_H240.png" width="64px"> |
 | (+33)6.51.27.66.88 |
 | Gérald Kerma |
 | <contact@cybermind.fr> |
@@ -111,23 +111,6 @@ Très cordialement,
 Gérald Kerma
 CyberMind.FR
 gandalf@gk2.net
-
-# BREF
-
-Plein d'idées suite à l'écriture de ce texte et à ces futurs implications !
-J'adore, chercher et comprendre ou imaginer autrement…
-Les critiques sont aisées, sauf quand nous faisons l'exercice de les diriger vers nous-même(s)…
-Cet engagement je l'ai pris sans vraiment l'accepter au début, pour moi-même.
-Voici donc une autre manière de faire du "business".
-Une manière de conforter l'expérience et l'efficacité.
-Une solution aux implications nombreuses de compétences toutes particulières d'un défenseur des sciences informatiques.
-Il y a trop d'informaticiens de nos jours, depuis toujours peut-être.
-Mais c'est uniquement parce qu'il y a pléthore de domaines et trop d'experts ou spécialistes.
-Pour moi c'est un vaste Univers et une philosophie en soit.
-
-À suivre !
-À débattre…
-À partager.
 
 # À suivre sur @CyberMindFR… #
 
