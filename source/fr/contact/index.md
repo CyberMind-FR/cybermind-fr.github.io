@@ -35,7 +35,7 @@ Des [projets](https://CyberMind.FR/fr/projects/) et partenaires également.
 J'ai aussi commencé à rassembler les anciennes [contributions](https://CyberMind.FR/tags/contribute/) et nombreux [services](https://CyberMind.FR/fr/projects/) déjà publiés et réalisés.
 Contrairement à ce que j'ai aperçu dans un post, ou un commentaire, que je n'ai pas encore approfondi sur la thèse publiée, je constate pour ma part que mon originalité fait mon talent…
 
-J'explique, au plus court, mes quelques particularités, issus de longues réflexions et de ma longue expérience dans les sciences informatiques, mais pas que:
+J'explique, au plus court, mes quelques particularités, issus de longues réflexions et de ma grande expérience dans les sciences informatiques, mais pas que:
 
 ## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local.
 
@@ -54,27 +54,27 @@ Je fais de la vulgarisation, de l'accompagnement, du conseil, de l'audit, et tro
 Je suis un défenseur et contributeur des logiciels à licence libre et acteur de longue date à de nombreux projets de défenses des droits humains.
 Je n'envisage donc rarement un projet dans un mode privatif et restrictif ou je serai le seul maître.
 Je peux accompagner des rédactions ou rédiger les documents qui permettent au client une totale indépendance.
-Ainsi, mes publications grand publique dévoile mes projets pour ceux qui souhaite les réaliser par eux mêmes alors que je propose les mêmes solutions installée et adaptée sur mesure à mes clients.
+Ainsi, mes publications grand public dévoilent mes projets pour ceux qui souhaitent les réaliser par eux-mêmes alors que je propose les mêmes solutions installées et adaptées sur mesure à mes clients.
 
 ## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces et sur mesure.
 
-J'ai pour habitude de trouver des solutions et des alternatives quand personne n'en trouve.
-J'ai aussi pour exercice d'accompagner les utilisateurs pour envisager une solution et après son déploiement vérifier que les résultats n'empire pas les problèmes et apportent bien des réponses pertinentes.
-Elle restent étiques et devront également reste dans le cadre des lois et de l'éthique que je défends.
+J'ai pour habitude de trouver des solutions et des alternatives quand personne n'en trouvent.
+J'ai aussi pour exercice d'accompagner les utilisateurs pour envisager une solution et après son déploiement, vérifier que les résultats n'empirent pas les problèmes et apportent bien des réponses pertinentes.
+Elle restent étiques et devront également rester dans le cadre des lois et de ma morale personnelle.
 
 ## 4 - Mes activités restent locales et rythmées par les urgences et mon organisation personnelle.
 
 Je ne cherche aucun contrat fermé (CDI, CDD, …) et mes tarifs "génériques" sont adaptés selon les types d'activités.
-Je n'en ai recensés que quelques-unes sur mon site.
-Je n'ai dévoilé ici que quelques unes des pratiques et techniques que je propose.
-Entre autres objectifs, je redistribue une partie de mes activités dans les contributions libre de projets OpenSource publics.
-Dans les mêmes idées, j'intègre dans mes factures des contributions aux financements des logiciels libre utilisés ou des projets participatifs ou contributifs associés.
+J'en ai recensé que quelques-unes sur mon site.
+Je dévoile ici quelques unes de ces pratiques et techniques que je propose.
+Je redistribue une partie de mes activités dans les contributions libres de projets OpenSource publics.
+J'intègre dans mes factures des contributions aux financements des logiciels libres, des projets participatifs et contributifs utilisés.
 
 	Free Software is like "Free Beer".
 	You can do your own, because the recipe is freely available, but if you want and need ready software or custom solution, you may pay your bottle of beer !
 
 	Les logiciels à licences libres sont comme les bières, libres.
-	Vous pouvez fabriquer votre bière, parce-que la recette est librement accessible, mais si vous avec envie ou avez besoin d'un logiciel prêt à l'emploi ou d'une solution personnalisée, vous devrez payer votre bouteille de bière !
+	Vous pouvez fabriquer votre bière, parce que la recette est librement accessible, mais si vous avec envie ou avez besoin d'un logiciel prêt à l'emploi ou d'une solution personnalisée, vous devrez payer votre bouteille de bière !
 
 # Conclusion
 
@@ -101,24 +101,23 @@ Europe
 # MERCI
 
 Merci d'avance pour tout retour,
-très cordialement,
+Très cordialement,
 Gérald Kerma
 CyberMind.FR
 gandalf@gk2.net
 
 # BREF
 
-Plein d'idées suites à ce texte et aux implications !
+Plein d'idées suite à l'écriture de ce texte et à ces futurs implications !
 J'adore, chercher et comprendre ou imaginer autrement…
-Les critiques sont aisées, sauf quand l'exercice les dirigent sur nous même…
-Cet engagement je l'ai pris sans vraiment l'accepter au début, pour moi même.
+Les critiques sont aisées, sauf quand nous faisons l'exercice de les diriger vers nous-même(s)…
+Cet engagement je l'ai pris sans vraiment l'accepter au début, pour moi-même.
 Voici donc une autre manière de faire du "business".
-Une manière de conforter l'expériences et l'efficacité.
-Une solution aux implications nombreuses de compétences toutes particulières d'un adepte des sciences informatiques.
+Une manière de conforter l'expérience et l'efficacité.
+Une solution aux implications nombreuses de compétences toutes particulières d'un défenseur des sciences informatiques.
 Il y a trop d'informaticiens de nos jours, depuis toujours peut-être.
-Mais c'est uniquement parce-qu'il y a trop de domaines et plus d'experts ou spécialistes.
-D'abord parce-que c'est un univers et une philosophie en soit.
-Que le business "normal" n'y pas sa place et corrompt les outils informatiques.
+Mais c'est uniquement parce qu'il y a pléthore de domaines et trop d'experts ou spécialistes.
+Pour moi c'est un vaste Univers et une philosophie en soit.
 
 À suivre !
 À débattre…
