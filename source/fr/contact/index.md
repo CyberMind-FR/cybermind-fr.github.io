@@ -69,9 +69,9 @@ Mes actions sont étiques et restent toujours dans le cadre des lois et de ma mo
 
 Je ne cherche aucun contrat fermé (CDI, CDD, …) et mes tarifs "génériques" sont adaptés selon les types d'activités.
 J'en ai recensé que quelques-unes sur mon site.
-Je dévoile ici quelques unes de ces pratiques et techniques que je propose.
-Je redistribue une partie de mes activités dans les contributions libres de projets OpenSource publics.
-J'intègre dans mes factures des contributions aux financements des logiciels libres, des projets participatifs et contributifs utilisés.
+
+Je consacre une partie de mon temps aux contributions libres de projets OpenSource publics depuis de nombreuses années.
+J'intègre dans mes factures des participations aux financements des logiciels libres et des projets utilisés.
 
 	Free Software is like "Free Beer".
 	You can do your own, because the recipe is freely available, but if you want and need ready software or custom solution, you may pay your bottle of beer !
@@ -81,10 +81,13 @@ J'intègre dans mes factures des contributions aux financements des logiciels li
 
 # Conclusion
 
-Tout d'abord, merci de m'avoir lu.
-Je tiens à préciser que jamais mes mots ne reflètent d'agressivité ni de jugement de valeurs sur les personnes qui pourraient être mentionnées ou impliquées dans mes propos.
-J'ai moi même occupé certains des rôles que je "critique" tel que "Project Manager", "CyberSecurity Architect", "Expert Consultant", …
-Ce ne sont que des constats et réflexions sur les moyens et les idées pour proposer des alternatives et des solutions, là, ou justement, elles n'existeraient pas, ou pas encore…
+Merci d'avoir pris du temps pour terminer cette lecture.
+
+Je tiens à préciser que jamais mes mots ne reflètent d'agressivité, ni de jugement de valeurs, sur les personnes qui pourraient être mentionnées ou impliquées dans mes propos.
+
+J'ai moi-même occupé certains des rôles que je "critique" tel que "Project Manager", "CyberSecurity Architect", "Expert Consultant", …
+
+Ce ne sont que des constats pour réfléchir, ou pour proposer des alternatives et des solutions, là, où justement, elles n'existent pas, ou pas encore…
 
 ## Bonus
 
