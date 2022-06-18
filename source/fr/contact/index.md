@@ -86,7 +86,7 @@ Ce ne sont que des constats et réflexions sur les moyens et les idées pour pro
 
 Le caractère de ce message peut être à compléter, il ne faut surtout pas hésiter, si c'est le cas;
 - par courriel: gandalf@gk2.net
-- par commentaire sur mon site (je vais publier ce texte pour partager ces méthodes et modalités)
+- par commentaire sur mon site à la page [contact @ CyberMind & MANIFESTO](https://cybermind.fr/fr/contact/)
 - par téléphone: +33.651276688
 - par voie postale:
 CyberMind.FR
