@@ -31,7 +31,7 @@ J'ai commencé à rassembler les anciennes [contributions](https://CyberMind.FR/
 
 J'explique ici, mes particularités, issues de longues réflexions et de ma grande expérience, dans les sciences informatiques :
 
-## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local.
+## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local
 
 Je préfère dorénavant facturer l'équivalent de ce que gagne mon client pour un même temps passé, ou ce que perd une production pendant qu'elle est attaquée.
 Cela justifie les performances et les moyens que j'engage vis à vis des résultats attendus.
@@ -42,7 +42,7 @@ Dans le même sens, je ne fais de développement logiciel spécifique que s'ils 
 J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
 Bien sûr, je suis autant ouvert à un tarif libre qu'à un forfait, si vous ne pouvez ou voulez faire autrement !
 
-## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable.
+## 2 - Mes prestations se veulent finales, dans le sens ou j'accompagne mes réalisations avec des formations mais je ne me souhaite pas indispensable
 
 Je fais de la vulgarisation, de l'accompagnement, du conseil, de l'audit, et trop de choses pour les détailler car j'adapte à la demande et aux projets.
 Je suis défenseur et contributeur pour de nombreux projets et logiciels à licence libre.
@@ -51,13 +51,13 @@ Je peux accompagner des rédactions ou rédiger les documents qui permettront au
 Mes publications grand public dévoilent mes projets pour ceux qui souhaitent les réaliser par eux-mêmes.
 Je propose les mêmes solutions installées ou adaptées sur mesure, mais prêtes à l'emploi à mes clients.
 
-## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces et sur mesure.
+## 3 - Mes actions sont créatives, originales et apportent toujours des solutions efficaces et sur mesure
 
 J'ai pour habitude de trouver des solutions et des alternatives quand personne n'en trouvent.
 J'ai aussi pour exercice d'accompagner les utilisateurs pour envisager une solution et après son déploiement, vérifier que les résultats n'empirent pas les problèmes et apportent bien des réponses pertinentes.
 Elle restent étiques et devront également rester dans le cadre des lois et de ma morale personnelle.
 
-## 4 - Mes activités restent locales et rythmées par les urgences et mon organisation personnelle.
+## 4 - Mes activités restent locales et rythmées par les urgences et mon organisation personnelle
 
 Je ne cherche aucun contrat fermé (CDI, CDD, …) et mes tarifs "génériques" sont adaptés selon les types d'activités.
 J'en ai recensé que quelques-unes sur mon site.
