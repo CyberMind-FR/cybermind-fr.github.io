@@ -107,7 +107,7 @@ Pas pour l'instant…
 
 - Merci à [Marie Le Roux](http://mlr-environnement.fr) pour sa conférence, ses actions et partager avec le public cette grande avanture personnelle !
 - Merci à [Sébastien Lazaronni de Colocaterre](https://www.colocaterre.com/) pour son atelier de fabrication d'un gîte pour chauve-souris !
-- Merci à … du [SYNDICAT MIXTE DE LA LAUZIERE](http://lauziere-savoie.fr/)) (et ses filles) pour l'organisation de cette conférence !
+- Merci à [Jérome du SYNDICAT MIXTE DE LA LAUZIERE](http://lauziere-savoie.fr/) (et ses filles) pour l'organisation de cette conférence !
 
 # À suivre sur @CyberMindFR… #
 
