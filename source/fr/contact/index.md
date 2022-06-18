@@ -39,11 +39,11 @@ J'explique, au plus court, mes quelques particularités, issus de longues réfle
 
 ## 1 - Mon "business" modèle est depuis toujours collaboratif, respectueux, responsable, éthique, et local.
 
-Je préfère dorénavant facturer l'équivalent de se gagne mon client pour un même temps passé, ou ce que perd une production pendant qu'elle est attaquée.
+Je préfère dorénavant facturer l'équivalent de ce que gagne mon client pour un même temps passé, ou ce que perd une production pendant qu'elle est attaquée.
 Cela justifie les performances et les moyens que j'engage vis à vis des résultats attendus.
-Cela permet aussi de rester disponible selon les type de client.
+Cela permet aussi de rester disponible selon les types de clients.
 Le monde se portera mieux quand les "project manager" et "architectes" sortirons de leur tour et bureaux pour reconnecter le monde et les besoins réels.
-"9 femmes ne ferons jamais un enfant en 1 mois !"
+"9 femmes ne feront jamais un enfant en 1 mois !"
 Dans le même sens, je ne fais de développement logiciel spécifique que s'ils respectent les licences de départ.
 J'ai aussi une préférence pour les systèmes GNU/Linux ou à licence libre, même si je peux intervenir sur tous les autres systèmes, serveurs, embarqués, simples et complexes.
 
