@@ -120,13 +120,13 @@ On a toujours les oiseaux MAIS on a un sons ÉTRANGES qui correspond au précéd
 {% dplayer "url=/uploads/images/CHIRO/002/220617-045832-DETECT-002-REDO-EXPORT-AMPLIFY-UNNOISE-UNNOISE-TIMEEXPAND-CUTPART.m4a" "pic="  "api=https://api.prprpr.me/dplayer/" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
 # REFS
-- Audacity: https://fr.wikipedia.org/wiki/Audacity & https://www.audacityteam.org/
-- OCENAUDIO: https://www.ocenaudio.com/
-- Ultrason: https://fr.wikipedia.org/wiki/Ultrason
-- Hétérodyne: https://fr.wikipedia.org/wiki/H%C3%A9t%C3%A9rodyne
-- Chiroptera: https://fr.wikipedia.org/wiki/Chiroptera
-- LPO: https://boutique.lpo.fr/catalogue/materiel-optique/detecteurs-enregistreurs-ultrasons/enregistreur-numerique-h2n
-- ZOOM: https://zoomcorp.com/fr/fr/enregistreurs-portatifs/handheld-recorders/h2n-handy-recorder/ & https://zoomcorp.com/fr/fr/accessoires/bonnette-et-packs-daccessoires/sph-2n/
+- Audacity: [Audacity @ WikiPédia](https://fr.wikipedia.org/wiki/Audacity) & [Audacity @ Site Officiel](https://www.audacityteam.org/)
+- OCENAUDIO: [OcenAudio @ Site Officiel](https://www.ocenaudio.com/)
+- Ultrason: [Ultrason @ WikiPédia](https://fr.wikipedia.org/wiki/Ultrason)
+- Hétérodyne: [Hétérodyne @ WikiPédia](https://fr.wikipedia.org/wiki/H%C3%A9t%C3%A9rodyne)
+- Chiroptera: [Chiroptera @ WikiPédia](https://fr.wikipedia.org/wiki/Chiroptera)
+- LPO: [LPO (Ligue de Protection des Oiseaux) @ Boutique](https://boutique.lpo.fr/catalogue/materiel-optique/detecteurs-enregistreurs-ultrasons/enregistreur-numerique-h2n)
+- ZOOM: [H2n @ ZOOM](https://zoomcorp.com/fr/fr/enregistreurs-portatifs/handheld-recorders/h2n-handy-recorder/) & [Accessoires H2n @ ZOOM](https://zoomcorp.com/fr/fr/accessoires/bonnette-et-packs-daccessoires/sph-2n/)
 
 # BREF
 
