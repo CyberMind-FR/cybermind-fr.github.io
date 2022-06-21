@@ -17,6 +17,8 @@ categories:
 - Mind
 - Commentaires
 - KragZouïlles
+publish: false
+private: true
 ---
 
 Ceci est un(e tentative de) message par formulaire de contact sur le site FIDESS.ORG - [FIDESS.ORG - À la FIDESS, on aime recevoir des petits messages sympathiques. ](https://fidess.org/contact/).

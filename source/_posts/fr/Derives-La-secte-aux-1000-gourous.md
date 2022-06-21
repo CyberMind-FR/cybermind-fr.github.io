@@ -21,6 +21,8 @@ tags:
 - LesConseilsduPsy
 - The Conjurers
 - LSA1KG
+publish: false
+private: true
 categories:
 - Mind
 ---

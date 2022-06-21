@@ -13,6 +13,8 @@ tags:
 categories:
 - Mind
 - Commentaires
+publish: false
+private: true
 ---
 
 Ceci est mon commentaire publié à l'origine sur MétaDeChoc pour remercier MétaDeChoc pour l'émission - [SHOCKING #16 - La métacognition sauvera-t-elle le monde ? (**Avec Emmanuel Sander et Élisabeth Feytit**)](https://metadechoc.fr/podcast/lastrologie-ca-marche-trop/).

@@ -10,6 +10,8 @@ tags:
 - LSA1KG
 - The Conjurers
 categories: Mind
+publish: false
+private: true
 ---
 
 # LaSecteAux1000Gourous #

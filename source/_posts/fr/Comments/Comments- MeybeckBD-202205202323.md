@@ -15,6 +15,8 @@ tags:
 - Racisme
 - Logiciel Libre
 - analyse
+publish: false
+private: true
 categories:
 - Cyber
 - Mind

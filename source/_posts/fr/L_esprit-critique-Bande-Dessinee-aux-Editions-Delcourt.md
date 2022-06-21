@@ -21,6 +21,8 @@ tags:
 categories:
 - Mind
 - Livres
+publish: false
+private: true
 ---
 
 # Introduction - Pourquoi LSA1KG ?

@@ -30,6 +30,8 @@ tags:
 - pseudoscience
 - richard monvoisin
 - télépathie
+publish: false
+private: true
 categories: 
 - Mind
 - Films

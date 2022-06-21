@@ -17,6 +17,8 @@ tags:
 categories:
 - Mind
 - Song
+publish: false
+private: true
 ---
 
 ~~**FREE-MOBILE-PRECIOUS-THING**~~

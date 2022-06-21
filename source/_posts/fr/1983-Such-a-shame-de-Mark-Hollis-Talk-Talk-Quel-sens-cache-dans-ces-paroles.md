@@ -4,6 +4,8 @@ title: >-
 lang: fr
 date: 2022-04-23 17:59:53
 author: 🧙 -- Gandalf (from "The Conjurers")
+publish: false
+private: true
 tags:
 - M@DZ GE3X
 - Santé mentale
