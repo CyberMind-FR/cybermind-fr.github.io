@@ -13,6 +13,9 @@ tags:
 categories: 
 - Mind
 - Livres
+publish: false
+private: true
+hidden: true
 ---
 # Livre : Une vie en anthroposophie
 ## La face cachée des écoles Steiner-Waldorf 
