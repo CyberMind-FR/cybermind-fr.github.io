@@ -5,6 +5,7 @@ date: 2022-06-21 15:00:00
 tags:
 - LSA1KG
 categories: 
+- TombStone
 publish: false
 private: true
 hidden: false
