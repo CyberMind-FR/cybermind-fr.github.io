@@ -12,6 +12,8 @@ hidden: false
 
 Plus de billets à propos de #LSA1KG ?
 
+<img src="/uploads/images/404.png">
+
 Que se passe-t'il ?
 
 <!-- more -->
