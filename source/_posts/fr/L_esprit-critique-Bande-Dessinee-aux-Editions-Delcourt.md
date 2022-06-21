@@ -23,6 +23,7 @@ categories:
 - Livres
 publish: false
 private: true
+hidden: true
 ---
 
 # Introduction - Pourquoi LSA1KG ?

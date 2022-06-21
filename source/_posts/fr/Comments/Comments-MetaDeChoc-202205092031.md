@@ -15,6 +15,7 @@ categories:
 - Commentaires
 publish: false
 private: true
+hidden: true
 ---
 
 Ceci est mon commentaire publié à l'origine sur MétaDeChoc pour remercier MétaDeChoc pour l'émission - [SHOCKING #4 - Les algorithmes tueront-ils notre attention ? (**Avec Sonia Bressler**, philosophe, spécialiste de la communication d'influence et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/les-algorithmes-tueront-ils-notre-attention/).

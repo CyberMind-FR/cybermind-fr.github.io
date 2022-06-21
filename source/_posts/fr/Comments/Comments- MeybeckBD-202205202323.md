@@ -17,6 +17,7 @@ tags:
 - analyse
 publish: false
 private: true
+hidden: true
 categories:
 - Cyber
 - Mind

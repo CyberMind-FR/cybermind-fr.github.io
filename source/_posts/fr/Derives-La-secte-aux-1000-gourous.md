@@ -3,6 +3,9 @@ title: Dérives - La secte aux 1000 gourous
 lang: fr
 date: 2022-04-09 19:30:00
 author: 🧙 -- Gandalf (from "The Conjurers")
+publish: false
+private: true
+hidden: true
 tags:
 - Dérives sectaires
 - Médecines alternatives
@@ -21,8 +24,6 @@ tags:
 - LesConseilsduPsy
 - The Conjurers
 - LSA1KG
-publish: false
-private: true
 categories:
 - Mind
 ---

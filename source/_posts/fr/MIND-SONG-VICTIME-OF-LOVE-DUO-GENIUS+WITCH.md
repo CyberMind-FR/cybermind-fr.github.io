@@ -19,6 +19,7 @@ categories:
 - Song
 publish: false
 private: true
+hidden: true
 ---
 
 ~~**FREE-MOBILE-PRECIOUS-THING**~~

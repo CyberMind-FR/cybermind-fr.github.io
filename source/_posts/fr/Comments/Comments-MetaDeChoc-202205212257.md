@@ -18,6 +18,7 @@ categories:
 - Commentaires
 publish: false
 private: true
+hidden: true
 ---
 
 Ceci est mon commentaire publié à l'origine sur MétaDeChoc pour remercier MétaDeChoc pour l'émission - [SHOCKING #24 - Complotisme : si loin, si proche (Avec **Marie Peltier**, historienne et **Élisabeth Feytit**)](https://metadechoc.fr/podcast/complotisme-si-loin-si-proche/).

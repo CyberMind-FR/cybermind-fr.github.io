@@ -32,6 +32,7 @@ tags:
 - télépathie
 publish: false
 private: true
+hidden: true
 categories: 
 - Mind
 - Films

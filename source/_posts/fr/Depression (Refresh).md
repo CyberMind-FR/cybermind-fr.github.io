@@ -13,6 +13,7 @@ tags:
 - LSA1KG
 publish: false
 private: true
+hidden: true
 categories:
 - Mind
 - Conseils

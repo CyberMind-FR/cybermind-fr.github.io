@@ -12,6 +12,7 @@ tags:
 categories: Mind
 publish: false
 private: true
+hidden: true
 ---
 
 # LaSecteAux1000Gourous #
