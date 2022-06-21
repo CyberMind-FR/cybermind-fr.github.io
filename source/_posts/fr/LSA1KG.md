@@ -6,7 +6,7 @@ tags:
 - LSA1KG
 categories: 
 - TombStone
-publish: false
+publish: true
 private: true
 hidden: false
 ---
