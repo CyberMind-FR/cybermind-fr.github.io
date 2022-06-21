@@ -14,6 +14,9 @@ tags:
 categories:
 - Mind
 - Livres
+publish: false
+private: true
+hidden: true
 ---
 
 Alors là, va falloir faire une pause maintenant.

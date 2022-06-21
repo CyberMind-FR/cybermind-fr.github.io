@@ -12,6 +12,9 @@ tags:
 categories:
 - Mind
 - Podcasts
+publish: false
+private: true
+hidden: true
 ---
 
 # LaSecteAux1000Gourous #

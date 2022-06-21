@@ -11,6 +11,9 @@ tags:
 categories:
 - Mind
 - Livres
+publish: false
+private: true
+hidden: true
 ---
 
 Alors là, une petite pépite se propose, se suggère, se dévoile !
