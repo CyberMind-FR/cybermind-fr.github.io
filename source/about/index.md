@@ -15,7 +15,7 @@ CyberMind, it is, mainly, but not only, 2 categories :
   - An analysis, (work in progress) about ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/) 🔐 & 🕸️ -> 🐭 & 🦉
   - Some articles will be add and also can be updated…
   
-So, stay tuned & enjoy ! ( 🤖 = 🍀 + 🎵 ) ~ ( 🪤 + 🧞‍♂️ = 🧠 )
+  So, stay tuned & enjoy ! ( 🤖 = 🍀 + 🎵 ) ~ ( 🪤 + 🧞‍♂️ = 🧠 )
 
 # English
 
