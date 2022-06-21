@@ -1,5 +1,5 @@
 ---
-title: #LSA1KG - Où est passée l'"enquête" (en cours) ?
+title: LSA1KG - Où est passée l'"enquête" (en cours) ?
 lang: fr
 date: 2022-06-21 15:00:00
 tags:
