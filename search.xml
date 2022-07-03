@@ -287,10 +287,10 @@ curr_bootfrom=1
     <title>CrowdSec - Stickers</title>
     <url>/en/Cyber/CrowdSec-Stickers/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Thank you @CrowdSec for this funny “Propaganda” Kit and so funny gift :</p>
-<img src="/uploads/images/visuels/STICKERS-2022-03-12-102103_001.jpeg" width="953px" heigth="1024px">
+<img src="/uploads/images/CrowdSec/STICKERS-2022-03-12-102103_001.jpeg" width="953px" heigth="1024px">
 
 <p>This is the most loveled one :</p>
-<img src="/uploads/images/visuels/STICKERS-2022-03-12-113432_001.png" width="511px" heigth="262px">
+<img src="/uploads/images/CrowdSec/STICKERS-2022-03-12-113432_001.png" width="511px" heigth="262px">
 ]]></content>
       <categories>
         <category>Cyber</category>
@@ -407,7 +407,7 @@ curr_bootfrom=1
     <title>Microsoft  - Windows 7  - Permissions Fault after privilege&#39;s escalation</title>
     <url>/en/Cyber/Microsoft-Windows-7-Permissions-Fault-after-privilege-s-escalation/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Permissions Fault after privilege’s escalation &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>A “By Design” Reproductible Integrity Vulnerability.<br>Discovered on the 2th of march 2012.</p>
-<p><del><a href="mailto:&#115;&#101;&#99;&#117;&#x72;&#x65;&#64;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#x6d;">&#115;&#101;&#99;&#117;&#x72;&#x65;&#64;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#x6d;</a></del></p>
+<p><del><a href="mailto:&#115;&#101;&#x63;&#x75;&#114;&#101;&#x40;&#109;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;&#x2e;&#x63;&#x6f;&#109;">&#115;&#101;&#x63;&#x75;&#114;&#101;&#x40;&#109;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;&#x2e;&#x63;&#x6f;&#109;</a></del></p>
 <span id="more"></span>
 
 <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Type of issue (buffer overflow, SQL injection, cross-site scripting, etc.) &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
