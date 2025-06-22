@@ -91,17 +91,37 @@ open_graph:
   # 导航栏菜单，可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
   menu:
-    - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
-    - { key: "blog", link: "/fr/", icon: "iconfont icon-archive-fill" }
-    - { key: "tags", link: "/tags/",icon: "iconfont icon-tags-fill" }
-    - { key: "categories", link: "/categories/", icon: "iconfont icon-category-fill" }
-    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    - { key: "projects", link: "/projects/", icon: "iconfont icon-user-fill" }
-    - { key: "references", link: "/references/", icon: "iconfont icon-user-fill" }
-    - { key: "services", link: "/services/", icon: "iconfont icon-user-fill" }
-    - { key: "contact", link: "/contact/", icon: "iconfont icon-user-fill" }
-    - { key: "support", link: "/legal/", icon: "iconfont icon-link-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+  home: / || fa fa-home
+  #Link:
+  About: /about/ || fa fa-user
+  Contact: /contact/ || fa fa-envelope
+  Support: /legal/ || fa fa-heartbeat
+  #Business:
+  Services: /services/ || fa fa-calendar
+  References: /references/ || fa fa-globe
+  Projects: /projects/ || fa fa-sitemap
+  #Comments:
+  Blog: /archives/ || fa fa-archive
+  Tags: /tags/ || fa fa-tags
+  Categories: /categories/ || fa fa-th
+  #Legal
+  Support: /legal/ || fa fa-sitemap
+#  schedule: /schedule/ || fa fa-calendar
+#  Sitemap: /sitemap.xml || fa fa-sitemap
+  #commonweal: /404/ || fa fa-heartbeat
+  
+  ##menu:
+##    - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
+##    - { key: "blog", link: "/fr/", icon: "iconfont icon-archive-fill" }
+##    - { key: "tags", link: "/tags/",icon: "iconfont icon-tags-fill" }
+##    - { key: "categories", link: "/categories/", icon: "iconfont icon-category-fill" }
+##    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+##    - { key: "projects", link: "/projects/", icon: "iconfont icon-user-fill" }
+##    - { key: "references", link: "/references/", icon: "iconfont icon-user-fill" }
+##    - { key: "services", link: "/services/", icon: "iconfont icon-user-fill" }
+##    - { key: "contact", link: "/contact/", icon: "iconfont icon-user-fill" }
+##    - { key: "support", link: "/legal/", icon: "iconfont icon-link-fill" }
+##    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 #  schedule: /schedule/ || fa fa-calendar
 #  sitemap: /sitemap.xml || fa fa-sitemap
