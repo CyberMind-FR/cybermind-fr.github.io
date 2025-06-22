@@ -151,12 +151,12 @@ dplayer:
   autoplay: false
 
 # hexo-hide-posts
-hide_posts:
-  enable: true
+##hide_posts:
+  ##enable: false
   # Change the filter name to fit your need
-  filter: hidden
+  ##filter: hidden
   # Generators which you want to expose all posts (include hidden ones) to.
   # Common generators: index, tag, category, archive, sitemap, feed, etc.
-  public_generators: []
+  ##public_generators: []
   # Add "noindex" meta tag to prevent hidden posts from being indexed by search engines
-  noindex: true
+  ##noindex: true
