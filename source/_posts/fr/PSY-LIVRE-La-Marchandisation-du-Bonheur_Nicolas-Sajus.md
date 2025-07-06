@@ -11,7 +11,7 @@ tags:
 categories:
 - Mind
 - Livres
-publish: true
+##publish: true
 private: false
 hidden: false
 ---
