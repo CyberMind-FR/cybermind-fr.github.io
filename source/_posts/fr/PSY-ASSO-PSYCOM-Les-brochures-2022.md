@@ -8,7 +8,7 @@ tags:
 categories:
 - Mind
 - Associations
-publish: true
+##publish: true
 private: false
 hidden: false
 ---
