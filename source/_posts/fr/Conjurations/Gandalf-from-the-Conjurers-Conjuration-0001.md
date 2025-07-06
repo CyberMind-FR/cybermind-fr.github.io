@@ -3,7 +3,7 @@ title: Gandalf (from the Conjurers) - Conjuration (#0001)
 lang: fr
 date: 2022-04-30 23:59:00
 author: 🧙 -- Gandalf (from "The Conjurers")
-publish: false
+##publish: true
 private: true
 hidden: true
 tags:
