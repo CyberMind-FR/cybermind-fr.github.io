@@ -7,7 +7,7 @@ tags:
 categories:
 - Mind
 - Magasines
-publish: true
+##publish: true
 private: false
 hidden: false
 ---
