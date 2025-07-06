@@ -13,7 +13,7 @@ tags:
 categories:
 - Mind
 - Commentaires
-publish: true
+##publish: true
 private: false
 hidden: false
 ---
