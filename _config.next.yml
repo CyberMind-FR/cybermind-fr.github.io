@@ -99,7 +99,7 @@ menu:
   References: /references/ || fa fa-globe
   Projects: /projects/ || fa fa-sitemap
   #Comments:
-  Blog: /archives/ || fa fa-archive
+  Blog: /fr/ || fa fa-archive
   Tags: /tags/ || fa fa-tags
   Categories: /categories/ || fa fa-th
 #  schedule: /schedule/ || fa fa-calendar
