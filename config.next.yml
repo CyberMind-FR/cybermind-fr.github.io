@@ -97,7 +97,7 @@ menu:
   #Business:
   Services: /services/ || fa fa-calendar
   References: /references/ || fa fa-globe
-  Projects: /projects/ || fa fa-sitemap
+  Projects: /projects/ || fa fa-map
   #Comments:
   Blog: /fr/ || fa fa-archive
   Tags: /tags/ || fa fa-tags
