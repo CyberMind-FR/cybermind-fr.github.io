@@ -7,12 +7,13 @@ comments: false
 Garantie : « Devoir de meilleur effort, sans obligation de résultat. »
 
 Informations légales : CYBERMIND \
-N° SIRET : 409 743 275 00037 \
-Code APE : 6202A
+en cours de création... \
+N° SIRET : 409 743 275 00037 (KO)\
+Code APE : 6202A (KO)
 
 Informations bancaires : \
-IBAN: FR76 1027 8088 9400 0205 6360 163 \
-BIC: CMCIFR2A
+IBAN: FR76 2823 3000 0100 4454 7823 788 \
+BIC: REVOFRP2
 
 * [BuyMeACoffee](https://www.buymeacoffee.com/CyberMind)
 * [TIPEEE](https://fr.tipeee.com/cybermind/)
