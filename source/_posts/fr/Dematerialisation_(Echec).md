@@ -14,7 +14,7 @@ tags:
 - Fuck Déma
 categories:
 - Cyber
-publish: true
+##publish: true
 private: false
 hidden: false
 ---
