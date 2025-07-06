@@ -30,7 +30,7 @@ tags:
 - pseudoscience
 - richard monvoisin
 - télépathie
-publish: true
+##publish: true
 private: false
 hidden: false
 categories: 
