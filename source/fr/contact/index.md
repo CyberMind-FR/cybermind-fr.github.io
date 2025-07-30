@@ -1,15 +1,19 @@
 ---
 title: Contact & MANIFESTO
-date: 2022-0220
-comments: true
+date: 2025-0730
+comments: false
 ---
 
 | CyberMind.FR | |
 | --- | :-: |
-| 785 Route du Cruet - l’Église - 73130 Notre-Dame-du-Cruet | <img src="/uploads/images/NDDC_H240.png" width="64px"> |
-| (+33)6.51.27.66.88 |
-| Gérald Kerma |
-| <contact@cybermind.fr> |
+| 785 route du Cruet <br /> l’Église <br /> 73130 Notre-Dame-du-Cruet | <img src="/uploads/images/NDDC_H240.png" width="64px"> |
+| (+33)7.75.74.41.72 | (OK) |
+| (+33)4.79.59.47.13 | usurpé par la Société Française de Radio (action en justice en cours) |
+| (+33)6.51.27.66.88 | usurpé par la Société Française de Radio (action en justice en cours) |
+| GPS | 959064.9795971112 / 6479869.971974823 |
+| Gérald Kerma | Me ;-) |
+| <contact@cybermind.fr> | Seule École & Laboratoire Cyber Éthique depuis 2016 |
+| <gandalf@Gk2.NET> | Premier Fournisseur de Service Internet (ISP) pour Artist, particulier et petite entreprise depuis 1989 |
 
 # Comment CyberMind travaille (MANIFESTO)
 
