@@ -1,15 +1,17 @@
 ---
 title: Legals
-date: 2022-0220
+date: 2025-0730
 comments: false
 ---
 
-Guarantee: « Duty of best effort, without obligation of result. »
+Guarantee: « Duty of best effort, without obligation of any result. »
 
 Legals informations : CYBERMIND \
-in progress... \
-N° SIRET : 409 743 275 00037 (KO)\
-Code APE : 6202A (KO)
+in progress... Striked by anonymous and may be others...\
+N° SIRET : 409 743 275 00037 (OK)\
+Code APE : 72.19Z (OK)
+TVA (UE) : FR53409743275
+GPS : 959064.9795971112 / 6479869.971974823 
 
 Banking information : \
 IBAN: FR76 2823 3000 0100 4454 7823 788 \
