@@ -11,7 +11,7 @@ lang: en
 CyberMind, it is, mainly, but not only, 2 categories :
 - for the ["Cyber"](https://cybermind.fr/categories/Cyber/)   🤖 + 🎲 = 💡 -> 💧
 - for the ["Mind"](https://cybermind.fr/categories/Mind/)     🧠 + 🧩 = 🧙 -> 🔥
-- for the ["Mood"](https://cybermind.fr/categories/Mood/)     🧠 - 🧩 = 🧙 <- 🔥
+- for the ["Mood"](https://cybermind.fr/categories/Mood/)     🧠 - 🧩 = 🧙 <- 🔥 + 💧
 - but, CyberMind, it is also, inter alia;
   - An analysis, (work in progress) about ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/) 🔐 & 🕸️ -> 🐭 & 🦉
   - Some articles will be add and also can be updated…
