@@ -1,15 +1,16 @@
 ---
 title: Légals
-date: 2022-0220
+date: 2025-0730
 comments: false
 ---
 
 Garantie : « Devoir de meilleur effort, sans obligation de résultat. »
 
 Informations légales : CYBERMIND \
-en cours de création... \
-N° SIRET : 409 743 275 00037 (KO)\
-Code APE : 6202A (KO)
+en cours de création... Agressée par anonymous et peut-être d'autre(s)...\
+N° SIRET : 409 743 275 00037 (OK)\
+Code APE : 72.19Z (OK) \
+TVA (UE) : FR53409743275
 
 Informations bancaires : \
 IBAN: FR76 2823 3000 0100 4454 7823 788 \
