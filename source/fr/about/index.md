@@ -11,6 +11,7 @@ lang: fr
 CyberMind, c'est, surtout, mais pas que, 2 catégories :
 - pour le ["Cyber"](https://cybermind.fr/categories/Cyber/)   🤖 + 🎲 = 💡 -> 💧
 - pour le ["Mind"](https://cybermind.fr/categories/Mind/)     🧠 + 🧩 = 🧙 -> 🔥
+- pour le ["Mood"](https://cybermind.fr/categories/Mind/)    🧠 - 🧩 = 🧙 <- 🔥 + 💧
 - mais, CyberMind, c'est aussi, entre autres;
   - L'analyse, (en cours) sur ["Le Projet de Box Securité" (#SéCube)](https://cybermind.fr/tags/SECUBOX/)   🔐 & 🕸️ -> 🐭 & 🦉
   - Des articles, qui seront ajoutés (et peuvent être mis à jour…)
