@@ -9,8 +9,8 @@ Guarantee: « Duty of best effort, without obligation of any result. »
 Legals informations : CYBERMIND \
 in progress... Striked by anonymous and may be others...\
 N° SIRET : 409 743 275 00037 (OK)\
-Code APE : 72.19Z (OK)
-TVA (UE) : FR53409743275
+Code APE : 72.19Z (OK) \
+TVA (UE) : FR53409743275 \
 GPS : 959064.9795971112 / 6479869.971974823 
 
 Banking information : \
