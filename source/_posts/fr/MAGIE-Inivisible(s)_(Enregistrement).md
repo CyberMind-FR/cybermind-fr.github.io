@@ -19,7 +19,6 @@ categories:
 - Cyber
 - KragZouïlles
 publish: true
-private: false
 hidden: false
 ---
 
