@@ -1,3 +1,21 @@
+---
+title: Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)
+lang: fr
+date: 2025-09-30 16:10:00
+tags: 
+- CLOUD
+- CyberSecurity
+- RFC
+- contribute
+- Internet
+- Fiche
+categories: Cyber
+##publish: true
+private: false
+hidden: false
+
+---
+
 # 🧭 Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)
 
 ## 💡 Principe général
