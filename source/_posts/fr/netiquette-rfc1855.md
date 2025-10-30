@@ -9,7 +9,9 @@ tags:
 - contribute
 - Internet
 - Fiche
-categories: Cyber
+categories:
+- Cyber
+- Mood
 publish: true
 private: false
 hidden: false
