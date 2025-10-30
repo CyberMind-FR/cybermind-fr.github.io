@@ -1,7 +1,7 @@
 ---
 title: RFC 1855 — Nétiquette (1995) en bref
 lang: fr
-date: 2025-09-30 16:00:00
+date: 2025-10-30 16:00:00
 tags: 
 - CLOUD
 - CyberSecurity
