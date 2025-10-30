@@ -1,0 +1,13 @@
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      # … build …
+      - name: Upload Pages artifact (only on ubuntu)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
