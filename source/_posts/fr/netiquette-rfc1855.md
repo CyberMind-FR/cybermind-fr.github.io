@@ -1,7 +1,7 @@
 ---
 title: Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)
 lang: fr
-date: 2025-09-30 16:10:00
+date: 2025-10-30 16:10:00
 tags: 
 - CLOUD
 - CyberSecurity
