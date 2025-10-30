@@ -8,7 +8,7 @@ tags:
 - RFC
 - contribute
 categories: Cyber
-##publish: true
+publish: true
 private: false
 hidden: false
 
