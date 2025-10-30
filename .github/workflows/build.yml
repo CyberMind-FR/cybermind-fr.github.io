@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-# .github/workflows/build.yml
 - uses: actions/setup-node@v4
   with:
     node-version: '20'   # Hexo 8 requires >=20
