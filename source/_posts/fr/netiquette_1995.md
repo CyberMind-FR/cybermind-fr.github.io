@@ -7,7 +7,9 @@ tags:
 - CyberSecurity
 - RFC
 - contribute
-categories: Cyber
+categories:
+- Cyber
+- Mood
 publish: true
 private: false
 hidden: false
