@@ -13,7 +13,6 @@ tags:
 - CYBERMOOD
 categories:
 - Mind
-- Mood
 translations:
   fr: /fr/Epistemologie_Collaboration_ChatGPT_Kerma/
   en: /en/Epistemology_Collaboration_ChatGPT_Kerma/
