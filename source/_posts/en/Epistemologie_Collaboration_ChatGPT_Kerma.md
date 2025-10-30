@@ -1,5 +1,5 @@
 ---
-title: The Epistemology of Inventing Collaboration with ChatGPT
+title: CHATBOT : The Epistemology of Inventing Collaboration with ChatGPT
 lang: en
 date: 2025-10-30 13:00:00
 author: 🧙 — Gandalf (The Conjurers)
@@ -13,7 +13,6 @@ tags:
   - CYBERMOOD
 categories:
   - Mind
-  - Mood
 translations:
   fr: /fr/Epistemologie_Collaboration_ChatGPT_Kerma/
   en: /en/Epistemology_Collaboration_ChatGPT_Kerma/
