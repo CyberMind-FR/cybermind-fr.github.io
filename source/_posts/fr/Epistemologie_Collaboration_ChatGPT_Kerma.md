@@ -1,3 +1,22 @@
+---
+title: CHATBOT - L’épistémologie de l’invention d’une collaboration avec ChatGPT
+lang: fr
+date: 2025-10-30 13:00:00
+author: 🧙 -- Gandalf (from "The Conjurers")
+publish: true
+private: false
+hidden: false
+tags:
+- CHATBOT 
+- CHATGPT
+- The Conjurers
+- CYBERMOOD
+categories:
+- Mind
+- Mood
+---
+
+**#LazIHAAA...  L’épistémologie de l’invention d’une collaboration avec ChatGPT (#CHATBOT)**
 
 # L’épistémologie de l’invention d’une collaboration avec ChatGPT
 
