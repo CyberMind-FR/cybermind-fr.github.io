@@ -1,5 +1,5 @@
 ---
-title: CHATBOT : The Epistemology of Inventing Collaboration with ChatGPT
+title: CHATBOT - The Epistemology of Inventing Collaboration with ChatGPT
 lang: en
 date: 2025-10-30 13:00:00
 author: 🧙 — Gandalf (The Conjurers)
