@@ -22,7 +22,6 @@ categories:
 - Mind
 - Song
 publish: true
-private: false
 hidden: false
 ---
 
