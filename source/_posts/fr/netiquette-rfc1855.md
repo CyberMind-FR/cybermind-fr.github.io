@@ -10,7 +10,7 @@ tags:
 - Internet
 - Fiche
 categories: Cyber
-##publish: true
+publish: true
 private: false
 hidden: false
 
