@@ -14,6 +14,10 @@ tags:
 categories:
 - Mind
 - Mood
+translations:
+  fr: /fr/Epistemologie_Collaboration_ChatGPT_Kerma/
+  en: /en/Epistemology_Collaboration_ChatGPT_Kerma/
+canonical_url: /fr/Epistemologie_Collaboration_ChatGPT_Kerma/
 ---
 
 **#LazIHAAA...  L’épistémologie de l’invention d’une collaboration avec ChatGPT (#CHATBOT)**
