@@ -1,3 +1,21 @@
+---
+title: RFC 1855 — Nétiquette (1995) en bref
+lang: fr
+date: 2025-09-30 16:00:00
+tags: 
+- CLOUD
+- CyberSecurity
+- RFC
+- contribute
+categories: Cyber
+##publish: true
+private: false
+hidden: false
+
+---
+
+= RFC 1855 — Nétiquette (1995) en bref =
+
 # RFC 1855 — Nétiquette (1995) en bref
 
 ## L’idée centrale
