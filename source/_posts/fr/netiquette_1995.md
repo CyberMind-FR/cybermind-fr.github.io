@@ -11,7 +11,6 @@ categories:
 - Cyber
 - Mood
 publish: true
-private: false
 hidden: false
 
 ---
