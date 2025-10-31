@@ -1,3 +1,19 @@
+---
+title: Poésie - *Le contact du bout des doigts.*…
+lang: fr
+date: 2025-09-31 12:00:00
+tags:
+- Poésie
+- Savoie
+- MAEGIA
+categories:
+- Mind
+- Mood
+- Poésies
+##publish: true
+private: false
+hidden: false
+---
 
 > *Le contact du bout des doigts.*
 
