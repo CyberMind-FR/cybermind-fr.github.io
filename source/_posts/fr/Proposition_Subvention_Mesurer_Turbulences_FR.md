@@ -1,3 +1,17 @@
+---
+title: Plateforme de détection multi-capteurs
+lang: fr
+date: 2025-10-31 00:00:00
+tags: 
+- Mood
+- contribute
+categories: Mood
+##publish: true
+private: false
+hidden: false
+
+---
+
 # Proposition de Subvention : Mesurer les Turbulences Subterraines
 
 ## Résumé
