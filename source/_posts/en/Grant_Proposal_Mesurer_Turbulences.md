@@ -1,3 +1,17 @@
+---
+title: Plateforme de détection multi-capteurs
+lang: en
+date: 2025-10-31 00:00:00
+tags: 
+- Mood
+- contribute
+categories: Mood
+##publish: true
+private: false
+hidden: false
+
+---
+
 # Grant Proposal: Measuring Subsurface Turbulences
 
 ## Abstract
