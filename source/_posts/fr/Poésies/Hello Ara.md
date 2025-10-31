@@ -1,7 +1,7 @@
 ---
 title: Poésie - *Le contact du bout des doigts.*…
 lang: fr
-date: 2025-09-31 12:00:00
+date: 2025-10-31 12:00:00
 tags:
 - Poésie
 - Savoie
