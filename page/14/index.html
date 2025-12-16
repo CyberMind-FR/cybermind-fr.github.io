@@ -63,7 +63,9 @@
         
         <li><a href="/">Accueil</a></li>
         
-        <li><a href="/archives/">Articles</a></li>
+        <li><a href="/services/">Services</a></li>
+        
+        <li><a href="/archives/">Blog</a></li>
         
         <li><a href="/categories/">Catégories</a></li>
         
@@ -85,6 +87,22 @@
         <p class="hero-subtitle">
             Articles techniques, tutoriels, réflexions sur la cybersécurité, le développement embarqué et les technologies de fabrication numérique.
         </p>
+        
+        <!-- Services Cards in Hero -->
+        <div class="services-hero">
+            <a href="/services/pentest/" class="service-card-hero">
+                <div class="service-icon-hero">🛡️</div>
+                <h3>Pentest & Sécurité</h3>
+                <p>Audit de sécurité et tests d'intrusion</p>
+            </a>
+            
+            <a href="/services/dev/" class="service-card-hero">
+                <div class="service-icon-hero">⚙️</div>
+                <h3>Dev & Conseil</h3>
+                <p>Développement embarqué et conseil technique</p>
+            </a>
+        </div>
+        
         <div class="hero-stats">
             
             <div class="stat">
@@ -103,9 +121,10 @@
             </div>
             
         </div>
+        
         <div class="hero-cta">
-            <a href="/archives/" class="btn btn-primary">Derniers articles</a>
-            <a href="#articles" class="btn btn-secondary">Explorer</a>
+            <a href="#articles" class="btn btn-primary">Découvrir le blog</a>
+            <a href="#services" class="btn btn-secondary">Nos services</a>
         </div>
     </div>
 
@@ -151,10 +170,50 @@
     </div>
 </section>
 
-<section id="articles">
+<!-- Services Section -->
+<section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
-        <div class="section-tag">Articles Récents</div>
-        <h2 class="section-title">Dernières Publications</h2>
+        <div class="section-tag">Services</div>
+        <h2 class="section-title">Nos Expertises</h2>
+    </div>
+
+    <div class="services-detailed">
+        <div class="service-detail-card">
+            <div class="service-detail-icon">🛡️</div>
+            <h3>Pentest & Sécurité</h3>
+            <p>Tests d'intrusion, audits de sécurité et accompagnement dans vos démarches de cybersécurité.</p>
+            <ul class="service-features">
+                <li>✓ Tests d'intrusion (Web, Infrastructure, Mobile)</li>
+                <li>✓ Audits de code et configuration</li>
+                <li>✓ Accompagnement sécurité</li>
+                <li>✓ Formation équipes</li>
+            </ul>
+            <a href="/services/pentest/" class="btn btn-primary">En savoir plus →</a>
+        </div>
+        
+        <div class="service-detail-card">
+            <div class="service-detail-icon">⚙️</div>
+            <h3>Développement & Conseil</h3>
+            <p>Développement embarqué, conseil technique et expertise sur vos projets ARM et Linux.</p>
+            <ul class="service-features">
+                <li>✓ Développement embarqué (ARM, Linux)</li>
+                <li>✓ Conseil architecture technique</li>
+                <li>✓ Optimisation performances</li>
+                <li>✓ Support technique</li>
+            </ul>
+            <a href="/services/dev/" class="btn btn-primary">En savoir plus →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Articles (Main Content) -->
+<section id="articles" style="padding: 4rem 2rem;">
+    <div class="section-header">
+        <div class="section-tag">Blog Technique</div>
+        <h2 class="section-title">Articles Récents</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+            Découvrez nos derniers articles sur la cybersécurité, le développement embarqué et les technologies open source
+        </p>
     </div>
 
     <div class="articles-grid">
@@ -289,9 +348,9 @@ Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-B
             
             <span class="article-tag">contribute</span>
             
-            <span class="article-tag">GK2</span>
-            
             <span class="article-tag">FAST BACK</span>
+            
+            <span class="article-tag">GK2</span>
             
         </div>
         
@@ -395,10 +454,597 @@ Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-B
         <a class="extend prev" rel="prev" href="/page/13/">← Précédent</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
     </nav>
     
+    
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/archives/" class="btn btn-secondary">Voir tous les articles →</a>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section id="categories" style="background: var(--bg-secondary); padding: 4rem 2rem;">
+    <div class="section-header">
+        <div class="section-tag">Thématiques</div>
+        <h2 class="section-title">Explorer par Catégorie</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+            Parcourez nos articles classés par domaine d'expertise
+        </p>
+    </div>
+
+    <div class="categories-grid">
+        
+        <a href="/categories/Balades/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Balades</h3>
+                <div class="category-count">4 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Mood/Code/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Code</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Conjurations/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Conjurations</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Cyber/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Cyber</h3>
+                <div class="category-count">55 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mood/Cyber/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Cyber</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Self-Hosting/Cybersecurite/" class="category-card" style="--category-color: #00d4ff">
+            <div class="category-icon">🔐</div>
+            <div class="category-info">
+                <h3 class="category-name">Cybersécurité</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Engineering/DevOps/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">DevOps</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Embedded-Systems/Development/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Development</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Spiritualite/Divination/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Divination</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Documentation/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Documentation</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Documentation/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Documentation</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Intelligence-Artificielle/Developpement/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Développement</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Hardware/Embedded-Development/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Embedded Development</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Embedded-Systems/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Embedded Systems</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Engineering/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Engineering</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/FabLab/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">FabLab</h3>
+                <div class="category-count">4 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Fablab/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Fablab</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Song/Mood/Flow/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Flow</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Engineering/Fullstack/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Fullstack</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Song/Mood/Flow/Glow/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Glow</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Hardware/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Hardware</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Histoire/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Histoire</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Infrastructure/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Infrastructure</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Intelligence-Artificielle/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Intelligence Artificielle</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/securite/Internet/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Internet</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mood/Lettre/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Lettre</h3>
+                <div class="category-count">4 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Livres/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Livres</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Magasines/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Magasines</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mind</h3>
+                <div class="category-count">15 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Cyber/Mind/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mind</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mood/Mind/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mind</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mood/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mood</h3>
+                <div class="category-count">8 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Cyber/Mood/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mood</h3>
+                <div class="category-count">24 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Mood/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mood</h3>
+                <div class="category-count">3 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Song/Mood/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Mood</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Spiritualite/Python/Meditation/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Méditation</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Network/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Network</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Nouvelles/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Nouvelles</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Outils/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Outils</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Esoterisme/Outils-Interactifs/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Outils Interactifs</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Histoire/Personnages/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Personnages</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Spiritualite/Divination/Philosophie-Chinoise/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Philosophie Chinoise</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Outils/Photographie/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Photographie</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Podcasts/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Podcasts</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Poemes/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Poèmes</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Poesies/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Poésies</h3>
+                <div class="category-count">3 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Mood/Poesies/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Poésies</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Projets/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Projets</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Hardware/Projets-DIY/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Projets DIY</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Outils/Python/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Python</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Spiritualite/Python/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Python</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Self-Hosting/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Self-Hosting</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Infrastructure/Self-Hosting/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Self-Hosting</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Mind/Song/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Song</h3>
+                <div class="category-count">2 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/SpiritualCept/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">SpiritualCept</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Projets/Spiritualite/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Spiritualité</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Spiritualite/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Spiritualité</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/Spiritualite/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Spiritualité</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Tutoriels/" class="category-card" style="--category-color: #f59e0b">
+            <div class="category-icon">📝</div>
+            <div class="category-info">
+                <h3 class="category-name">Tutoriels</h3>
+                <div class="category-count">4 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/securite/analyse/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">analyse</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/collection/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">collection</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/contrib/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">contrib</h3>
+                <div class="category-count">6 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/technique/documentation/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">documentation</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/technique/financement/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">financement</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/son/psy/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">psy</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/collection/radio/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">radio</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/technique/reseau/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">réseau</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/son/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">son</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+        <a href="/categories/securite/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">sécurité</h3>
+                <div class="category-count">3 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/technique/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">technique</h3>
+                <div class="category-count">3 articles</div>
+            </div>
+        </a>
+        
+        <a href="/categories/Esoterisme/" class="category-card" style="--category-color: #3b82f6">
+            <div class="category-icon">📁</div>
+            <div class="category-info">
+                <h3 class="category-name">Ésotérisme</h3>
+                <div class="category-count">1 article</div>
+            </div>
+        </a>
+        
+    </div>
 </section>
 
 
-<section id="applications">
+<section id="applications" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Outils</div>
         <h2 class="section-title">Applications & Ressources</h2>
@@ -455,7 +1101,7 @@ Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-B
 
 
 
-<section id="creations">
+<section id="creations" style="padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Réalisations</div>
         <h2 class="section-title">Portfolio & Démonstrations</h2>
@@ -501,7 +1147,7 @@ Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-B
 </section>
 
 
-<section id="apropos">
+<section id="apropos" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">À propos</div>
         <h2 class="section-title">Expertise & Parcours</h2>
@@ -559,7 +1205,7 @@ Das U-Boot (subtitled “the Universal Boot Loader” and often shortened to U-B
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" style="padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Contact</div>
         <h2 class="section-title">Restons en Contact</h2>
