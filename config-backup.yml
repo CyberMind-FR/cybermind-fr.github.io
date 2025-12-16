@@ -3,10 +3,13 @@
 # Menu
 menu:
   Accueil: /
-  Articles: /archives/
+  Services: /services/
+  Blog: /archives/        # Renommer "Articles"
   Catégories: /categories/
   À propos: /about/
+##  Portfolio: /portfolio/  # Ajouter un lien
   Contact: /contact/
+
 
 # Social Links
 social:
