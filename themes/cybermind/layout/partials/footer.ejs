@@ -1,0 +1,15 @@
+        <footer>
+            <div class="footer-copy">
+                <%= theme.footer.copyright %>
+            </div>
+            <div class="footer-links">
+                <% theme.footer.links.forEach(link => { %>
+                <a href="<%= url_for(link.url) %>"><%= link.text %></a>
+                <% }); %>
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    <%- js('js/script') %>
+</body>
+</html>

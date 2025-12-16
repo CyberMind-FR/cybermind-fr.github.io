@@ -1,0 +1,22 @@
+# Hexo
+.deploy_git/
+public/
+db.json
+*.log
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+.cache/

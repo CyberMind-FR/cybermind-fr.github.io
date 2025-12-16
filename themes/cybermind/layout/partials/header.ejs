@@ -1,0 +1,8 @@
+<nav>
+    <a href="<%= config.root %>" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        <% for (let name in theme.menu) { %>
+        <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
+        <% } %>
+    </ul>
+</nav>

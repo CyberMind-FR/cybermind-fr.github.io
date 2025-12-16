@@ -1,0 +1,56 @@
+<%
+var categoryClass = '';
+var categoryColor = '#f97316';
+if (post.categories && post.categories.length > 0) {
+    var cat = post.categories.data[0];
+    categoryClass = cat.slug;
+    if (theme.categories[cat.slug]) {
+        categoryColor = theme.categories[cat.slug].color;
+    }
+}
+%>
+
+<article class="article-card <%= categoryClass %>">
+    <% if (post.categories && post.categories.length > 0) { %>
+    <div class="article-category">
+        <% var cat = post.categories.data[0]; %>
+        <% if (theme.categories[cat.slug]) { %>
+            <%= theme.categories[cat.slug].icon %> <%= theme.categories[cat.slug].name %>
+        <% } else { %>
+            <%= cat.name %>
+        <% } %>
+    </div>
+    <% } %>
+    
+    <h3>
+        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+    </h3>
+    
+    <% if (post.excerpt) { %>
+    <p><%- strip_html(post.excerpt).substring(0, theme.excerpt_length || 200) %>...</p>
+    <% } else if (post.description) { %>
+    <p><%= post.description %></p>
+    <% } else { %>
+    <p><%- strip_html(post.content).substring(0, theme.excerpt_length || 200) %>...</p>
+    <% } %>
+    
+    <div class="article-meta">
+        <span class="article-date">
+            <time datetime="<%= post.date.toISOString() %>">
+                <%= post.date.format('DD MMMM YYYY') %>
+            </time>
+        </span>
+        
+        <% if (post.tags && post.tags.length > 0) { %>
+        <div class="article-tags">
+            <% post.tags.forEach(tag => { %>
+            <span class="article-tag"><%= tag.name %></span>
+            <% }); %>
+        </div>
+        <% } %>
+    </div>
+    
+    <a href="<%= url_for(post.path) %>" class="article-link">
+        <%= theme.read_more || 'Lire la suite' %> →
+    </a>
+</article>

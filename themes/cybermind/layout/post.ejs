@@ -1,0 +1,88 @@
+<%
+var categoryClass = '';
+var categoryColor = '#f97316';
+var categoryName = '';
+var categoryIcon = '📝';
+
+if (page.categories && page.categories.length > 0) {
+    var cat = page.categories.data[0];
+    categoryClass = cat.slug;
+    categoryName = cat.name;
+    if (theme.categories[cat.slug]) {
+        categoryColor = theme.categories[cat.slug].color;
+        categoryName = theme.categories[cat.slug].name;
+        categoryIcon = theme.categories[cat.slug].icon;
+    }
+}
+%>
+
+<article class="post-article">
+    <header class="post-header">
+        <% if (page.categories && page.categories.length > 0) { %>
+        <div class="post-category <%= categoryClass %>">
+            <%= categoryIcon %> <%= categoryName %>
+        </div>
+        <% } %>
+        
+        <h1 class="post-title"><%= page.title %></h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="<%= page.date.toISOString() %>">
+                    <%= page.date.format('DD MMMM YYYY') %>
+                </time>
+            </span>
+            
+            <% if (page.updated && page.updated.toDate().getTime() !== page.date.toDate().getTime()) { %>
+            <span class="post-updated">
+                Mis à jour le <%= page.updated.format('DD MMMM YYYY') %>
+            </span>
+            <% } %>
+            
+            <% if (page.tags && page.tags.length > 0) { %>
+            <div class="post-tags">
+                <% page.tags.forEach(tag => { %>
+                <a href="<%= url_for(tag.path) %>" class="post-tag"><%= tag.name %></a>
+                <% }); %>
+            </div>
+            <% } %>
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <%- page.content %>
+    </div>
+    
+    <footer class="post-footer">
+        <% if (page.tags && page.tags.length > 0) { %>
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            <% page.tags.forEach(tag => { %>
+            <a href="<%= url_for(tag.path) %>" class="tag-link"><%= tag.name %></a>
+            <% }); %>
+        </div>
+        <% } %>
+        
+        <div class="post-nav">
+            <% if (page.prev) { %>
+            <a href="<%= url_for(page.prev.path) %>" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title"><%= page.prev.title %></span>
+            </a>
+            <% } %>
+            
+            <% if (page.next) { %>
+            <a href="<%= url_for(page.next.path) %>" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title"><%= page.next.title %></span>
+            </a>
+            <% } %>
+        </div>
+    </footer>
+</article>
+
+<% if (theme.comments && theme.comments.enable) { %>
+<section class="comments">
+    <%- partial('partials/comments') %>
+</section>
+<% } %>
