@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Système de Build OpenWRTLe build OpenWRT constitue le cœur de la distribution EnigmaBox Suite.  ">
+<meta name="keywords" content="openwrt, build, firmware">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Système de build OpenWRT pour EnigmaBox">
+<meta property="og:description" content="Système de Build OpenWRTLe build OpenWRT constitue le cœur de la distribution EnigmaBox Suite.  ">
+<meta property="og:url" content="https://cybermind.fr/2025/12/03/fr/openwrt-target-build-system/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-03T08:55:02.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.331Z">
+
+
+
+
+<meta property="article:tag" content="openwrt">
+
+<meta property="article:tag" content="build">
+
+<meta property="article:tag" content="firmware">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Système de build OpenWRT pour EnigmaBox">
+<meta name="twitter:description" content="Système de Build OpenWRTLe build OpenWRT constitue le cœur de la distribution EnigmaBox Suite.  ">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/12/03/fr/openwrt-target-build-system/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Système de build OpenWRT pour EnigmaBox | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category contrib">
+            📝 contrib
+        </div>
+        
+        
+        <h1 class="post-title">Système de build OpenWRT pour EnigmaBox</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-03T08:55:02.000Z">
+                    03 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/openwrt/" class="post-tag">openwrt</a>
+                
+                <a href="/tags/build/" class="post-tag">build</a>
+                
+                <a href="/tags/firmware/" class="post-tag">firmware</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="Systeme-de-Build-OpenWRT"><a href="#Systeme-de-Build-OpenWRT" class="headerlink" title="Système de Build OpenWRT"></a>Système de Build OpenWRT</h1><p>Le build OpenWRT constitue le cœur de la distribution EnigmaBox Suite.  </p>
+<span id="more"></span>
+<p>Il combine configuration, paquets standard et programmes personnalisés.</p>
+<h2 id="Architecture-generale"><a href="#Architecture-generale" class="headerlink" title="Architecture générale"></a>Architecture générale</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">       Master</span><br><span class="line">  +---------------+</span><br><span class="line">  | packages 24.10|</span><br><span class="line">  +---------------+</span><br><span class="line">        |</span><br><span class="line">     config</span><br><span class="line">        |</span><br><span class="line">+----------------+</span><br><span class="line">| custom PRGs |</span><br><span class="line">+----------------+</span><br></pre></td></tr></table></figure>
+
+<h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a><strong>Master</strong></h3><p>Base OpenWRT (snapshot ou stable).</p>
+<h3 id="Paquets-24-10"><a href="#Paquets-24-10" class="headerlink" title="Paquets 24.10"></a><strong>Paquets 24.10</strong></h3><p>Sélection précise de packages supportés.</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a><strong>Configuration</strong></h3><ul>
+<li>règles réseau  </li>
+<li>services  </li>
+<li>sécurisation  </li>
+<li>intégrations spécifiques Enigma</li>
+</ul>
+<h3 id="Custom-PRGs"><a href="#Custom-PRGs" class="headerlink" title="Custom PRGs"></a><strong>Custom PRGs</strong></h3><p>Développement interne :</p>
+<ul>
+<li>services additionnels  </li>
+<li>outils réseau  </li>
+<li>modules système</li>
+</ul>
+<hr>
+<h2 id="Objectifs-du-build"><a href="#Objectifs-du-build" class="headerlink" title="Objectifs du build"></a>Objectifs du build</h2><ul>
+<li>Reproductibilité  </li>
+<li>Sécurité renforcée  </li>
+<li>Modularité (services activables)  </li>
+<li>Maintenabilité (intégration CI&#x2F;CD)</li>
+</ul>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/openwrt/" class="tag-link">openwrt</a>
+            
+            <a href="/tags/build/" class="tag-link">build</a>
+            
+            <a href="/tags/firmware/" class="tag-link">firmware</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/03/fr/debian-os-builder/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Environnement Debian – OS Builder OpenWRT</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/03/fr/versioning-openwrt-enigmasuite/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Gestion des versions – OpenWRT &amp; Enigma Suite</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

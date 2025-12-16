@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Ce deuxième billet détaille le fonctionnement interne d’Enigmabox, ses objectifs réseaux et les technologies utilisées.">
+<meta name="keywords" content="mesh, vpn, cjdns, enigmabox">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enigmabox - analyse technique du réseau privé chiffré">
+<meta property="og:description" content="Ce deuxième billet détaille le fonctionnement interne d’Enigmabox, ses objectifs réseaux et les technologies utilisées.">
+<meta property="og:url" content="https://cybermind.fr/2025/12/01/fr/Enigmabox_analyse technique/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-01T16:12:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.330Z">
+
+
+
+
+<meta property="article:tag" content="mesh">
+
+<meta property="article:tag" content="vpn">
+
+<meta property="article:tag" content="cjdns">
+
+<meta property="article:tag" content="enigmabox">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enigmabox - analyse technique du réseau privé chiffré">
+<meta name="twitter:description" content="Ce deuxième billet détaille le fonctionnement interne d’Enigmabox, ses objectifs réseaux et les technologies utilisées.">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/12/01/fr/Enigmabox_analyse technique/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Enigmabox - analyse technique du réseau privé chiffré | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category technique">
+            📝 technique
+        </div>
+        
+        
+        <h1 class="post-title">Enigmabox - analyse technique du réseau privé chiffré</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-01T16:12:00.000Z">
+                    01 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/mesh/" class="post-tag">mesh</a>
+                
+                <a href="/tags/vpn/" class="post-tag">vpn</a>
+                
+                <a href="/tags/cjdns/" class="post-tag">cjdns</a>
+                
+                <a href="/tags/enigmabox/" class="post-tag">enigmabox</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <p>Ce deuxième billet détaille le fonctionnement interne d’Enigmabox, ses objectifs réseaux et les technologies utilisées.</p>
+<span id="more"></span>
+<h2 id="Reseau-mesh-chiffre"><a href="#Reseau-mesh-chiffre" class="headerlink" title="Réseau mesh chiffré"></a>Réseau mesh chiffré</h2><p>Le cœur du système reposait sur un réseau <strong>pair-à-pair chiffré</strong>, basé sur des technologies comparables à <strong>cjdns</strong> :</p>
+<ul>
+<li>attribution d’adresses IPv6 cryptographiquement dérivées des clés publiques,  </li>
+<li>routage automatique entre pairs,  </li>
+<li>cryptage intégré dans les communications internes.</li>
+</ul>
+<h2 id="Les-«-exit-servers-»"><a href="#Les-«-exit-servers-»" class="headerlink" title="Les « exit servers »"></a>Les « exit servers »</h2><p>Pour accéder à Internet public, Enigmabox utilisait des serveurs relais appelés « exit servers » :</p>
+<ul>
+<li>ils sortaient le trafic vers le Web classique ;</li>
+<li>ils masquaient l’adresse IP réelle de l’utilisateur ;</li>
+<li>mais ils introduisaient une <strong>zone de confiance obligatoire</strong>.</li>
+</ul>
+<h2 id="Fonctionnalites-techniques-derivees"><a href="#Fonctionnalites-techniques-derivees" class="headerlink" title="Fonctionnalités techniques dérivées"></a>Fonctionnalités techniques dérivées</h2><ul>
+<li>tunnel VPN transparent pour protéger la navigation,  </li>
+<li>résolution DNS interne au mesh,  </li>
+<li>service d’hébergement web local accessible dans le réseau privé,  </li>
+<li>possibilité de services pair-à-pair entre propriétaires d’Enigmabox.</li>
+</ul>
+<h2 id="Limites-structurelles"><a href="#Limites-structurelles" class="headerlink" title="Limites structurelles"></a>Limites structurelles</h2><ul>
+<li>dépendance à des serveurs opérés par un tiers ;  </li>
+<li>stabilité variable ;  </li>
+<li>nécessité d’une maintenance continue pour rester fiable ;  </li>
+<li>configuration parfois complexe malgré la promesse de simplicité.</li>
+</ul>
+<p>Ce système hybride (VPN + mesh + appliances) était ambitieux, mais difficile à maintenir dans le temps.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">         ╔════════════╗</span><br><span class="line">         ║ Internet   ║</span><br><span class="line">         ╚════╤═══════╝</span><br><span class="line">              │</span><br><span class="line">       ┌──────┴──────┐</span><br><span class="line">       │ Exit Server │   (relay -&gt; Internet public)</span><br><span class="line">       └──────┬──────┘</span><br><span class="line">              │ encrypted tunnel / NAT</span><br><span class="line">     ┌────────┴────────┐</span><br><span class="line">     │   Mesh Backbone │  (cjdns / p2p overlay)</span><br><span class="line">     └────────┬────────┘</span><br><span class="line">Peer A  Peer B│   Peer C</span><br><span class="line"> ╲   ╱   ╲  ╱  │   ╱  ╲</span><br><span class="line">  ╲╱     ╲╱   ╰─╴╱    ╲</span><br><span class="line">   ╔════════════════════════╗</span><br><span class="line">   ║       Enigmabox        ║  (local node in mesh)</span><br><span class="line">   ╚════════════════════════╝</span><br><span class="line">     ┌───┬───────────────┬───┐</span><br><span class="line">     │WG │ DNS resolver  │SSH│</span><br><span class="line">     │tunnel (WireGuard)│/Web│</span><br><span class="line">     └───┴───────────────┴───┘</span><br><span class="line">         │</span><br><span class="line">   [Home Router / LAN]</span><br><span class="line">    ┌────┴────┐</span><br><span class="line">    │Clients  │</span><br><span class="line">    └─────────┘</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/mesh/" class="tag-link">mesh</a>
+            
+            <a href="/tags/vpn/" class="tag-link">vpn</a>
+            
+            <a href="/tags/cjdns/" class="tag-link">cjdns</a>
+            
+            <a href="/tags/enigmabox/" class="tag-link">enigmabox</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/01/fr/Enigmabox_critiques/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Enigmabox - critiques, limites et meilleures alternatives actuelles</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/01/fr/Enigmabox_histoire/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Enigmabox - histoire et promesses d&#39;une privacy box</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

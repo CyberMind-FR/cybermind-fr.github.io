@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Revue et bilan d&#39;Enigmabox (archive 2019) : promesses, fonctionnement technique, critiques et recommandations.">
+<meta name="keywords" content="vpn, enigmabox, privacy, hardware">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enigmabox : tentative de box de confidentialité (archive &amp; bilan)">
+<meta property="og:description" content="Revue et bilan d&#39;Enigmabox (archive 2019) : promesses, fonctionnement technique, critiques et recommandations.">
+<meta property="og:url" content="https://cybermind.fr//enigmabox-bilan/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-01T16:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.331Z">
+
+
+
+
+<meta property="article:tag" content="vpn">
+
+<meta property="article:tag" content="enigmabox">
+
+<meta property="article:tag" content="privacy">
+
+<meta property="article:tag" content="hardware">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enigmabox : tentative de box de confidentialité (archive &amp; bilan)">
+<meta name="twitter:description" content="Revue et bilan d&#39;Enigmabox (archive 2019) : promesses, fonctionnement technique, critiques et recommandations.">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr//enigmabox-bilan/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Enigmabox : tentative de box de confidentialité (archive &amp; bilan) | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category securite">
+            📝 sécurité
+        </div>
+        
+        
+        <h1 class="post-title">Enigmabox : tentative de box de confidentialité (archive &amp; bilan)</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-01T16:00:00.000Z">
+                    01 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/vpn/" class="post-tag">vpn</a>
+                
+                <a href="/tags/enigmabox/" class="post-tag">enigmabox</a>
+                
+                <a href="/tags/privacy/" class="post-tag">privacy</a>
+                
+                <a href="/tags/hardware/" class="post-tag">hardware</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <blockquote>
+<p>Résumé : Enigmabox se présentait comme une « privacy box » plug-and-play (mesh + VPN + chiffrement). L’idée était intéressante, mais en pratique le projet a rencontré des problèmes (support, fiabilité, dépendance aux exit-servers). Voici un condensé des éléments techniques, des critiques et des conseils alternatifs.</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="1-Qu’est-ce-que-revendiquait-Enigmabox"><a href="#1-Qu’est-ce-que-revendiquait-Enigmabox" class="headerlink" title="1. Qu’est-ce que revendiquait Enigmabox ?"></a>1. Qu’est-ce que revendiquait Enigmabox ?</h2><p>Selon l’archive du site (2019), Enigmabox promettait une appliance qui :</p>
+<ul>
+<li>chiffre et protège la connexion Internet (« Everything is encrypted »),</li>
+<li>met en place un réseau pair-à-pair (mesh) basé sur des technologies comme <strong>cjdns</strong> pour créer des connexions IPv6 chiffrées entre participants,</li>
+<li>fournit des fonctionnalités : navigation chiffrée, appels chiffrés, e-mails chiffrés, partage de fichiers, hébergement web personnel,</li>
+<li>s’insérait entre ta box&#x2F;modem et ton réseau local pour sécuriser tout le trafic (approche « plug &amp; play »).</li>
+</ul>
+<p>Source principale : archive web (Wayback Machine) — version 2019 :<br><a target="_blank" rel="noopener" href="https://web.archive.org/web/20190301012804/https://en.enigmabox.net/">https://web.archive.org/web/20190301012804/https://en.enigmabox.net/</a></p>
+<h2 id="2-Fonctionnement-technique-resume"><a href="#2-Fonctionnement-technique-resume" class="headerlink" title="2. Fonctionnement technique résumé"></a>2. Fonctionnement technique résumé</h2><ul>
+<li>Architecture : réseau mesh p2p + serveurs « exit » (sortie vers Internet public).</li>
+<li>Chiffrement : communications chiffrées dans le mesh (mais le trafic qui sort via les exit-servers dépend de la confiance qu’on place en eux).</li>
+<li>Usage ciblé : personnes cherchant à contourner la censure ou réduire la traçabilité en ligne.</li>
+</ul>
+<h2 id="3-Principaux-problemes-et-critiques"><a href="#3-Principaux-problemes-et-critiques" class="headerlink" title="3. Principaux problèmes et critiques"></a>3. Principaux problèmes et critiques</h2><ul>
+<li><strong>Support et maintenance pauvres</strong> : documentation insuffisante et support client jugé défaillant par plusieurs retours d’utilisateurs.</li>
+<li><strong>Fiabilité</strong> : mises à jour ou changements de configuration ont rendu certains dispositifs inutilisables selon des retours.</li>
+<li><strong>Sécurité &#x2F; anonymat partiel</strong> : dépendance aux serveurs de sortie. Si un exit-server est compromis, la confidentialité est affaiblie.</li>
+<li><strong>Coût vs valeur</strong> : prix élevé pour un produit qui, dans la pratique, demandait souvent des compétences techniques et des interventions manuelles.</li>
+<li><strong>Promesses marketing ≠ expérience utilisateur</strong> : le qualificatif « plug &amp; play » était discuté par des testeurs.</li>
+</ul>
+<h2 id="4-Evaluation-generale-bref"><a href="#4-Evaluation-generale-bref" class="headerlink" title="4. Évaluation générale (bref)"></a>4. Évaluation générale (bref)</h2><p>L’idée d’une appliance dédiée à la confidentialité reste séduisante. En pratique, Enigmabox souffrait d’un mauvais rapport qualité&#x2F;prix, d’un manque de transparence et de support. Pour la plupart des utilisateurs aujourd’hui (2025), il est préférable de s’orienter vers des solutions bien maintenues et éprouvées : VPN réputés, chiffrement de bout en bout pour communications, ou solutions auto-hébergées maîtrisées par l’utilisateur.</p>
+<h2 id="5-Alternatives-recommandations-rapides"><a href="#5-Alternatives-recommandations-rapides" class="headerlink" title="5. Alternatives &amp; recommandations rapides"></a>5. Alternatives &amp; recommandations rapides</h2><ul>
+<li>Si tu veux <strong>protéger ta vie privée sans gadget</strong> : choisis un VPN réputé (politique no-logs claire, audits indépendants) + HTTPS Everywhere + bloqueurs de traceurs.</li>
+<li>Si tu veux <strong>auto-héberger</strong> : configure ton propre serveur VPN&#x2F;OpenVPN&#x2F; WireGuard sur un VPS que tu contrôles.</li>
+<li>Si tu veux <strong>décentralisation avancée</strong> : regarde des projets open source bien maintenus (p.ex. solutions mesh open source, Tor pour l’anonymat, ou Réseaux privés auto-hébergés), mais attends-toi à nécessiter des compétences techniques.</li>
+</ul>
+<hr>
+<h2 id="References-lectures"><a href="#References-lectures" class="headerlink" title="Références &amp; lectures"></a>Références &amp; lectures</h2><ul>
+<li>Archive Wayback (page produit Enigmabox, 2019) — <a target="_blank" rel="noopener" href="https://web.archive.org/web/20190301012804/https://en.enigmabox.net/">https://web.archive.org/web/20190301012804/https://en.enigmabox.net/</a>  </li>
+<li>Retours et tests publics (articles &amp; forums) — synthèse de critiques autour du support, des serveurs de sortie et du rapport qualité&#x2F;prix.</li>
+</ul>
+<hr>
+<p>Si tu veux, je peux :</p>
+<ul>
+<li>transformer cet article en <strong>plusieurs billets</strong> (par ex. : 1) présentation technique, 2) guide d’alternatives, 3) guide d’auto-hébergement WireGuard) ;  </li>
+<li>ou générer une <strong>version plus courte</strong> (extrait pour la page d’accueil Hexo) ;  </li>
+<li>ou préparer un post avec <strong>images &#x2F; captures d’archive</strong> prêtes à l’emploi pour Hexo.</li>
+</ul>
+<p>Dis-moi ce que tu veux que je génère ensuite — je m’en occupe tout de suite.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/vpn/" class="tag-link">vpn</a>
+            
+            <a href="/tags/enigmabox/" class="tag-link">enigmabox</a>
+            
+            <a href="/tags/privacy/" class="tag-link">privacy</a>
+            
+            <a href="/tags/hardware/" class="tag-link">hardware</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/01/fr/Enigmabox_histoire/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Enigmabox - histoire et promesses d&#39;une privacy box</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/01/fr/MKUltra/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">MKUltra</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

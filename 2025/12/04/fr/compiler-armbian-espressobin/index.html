@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet📖 IntroductionCe guide détaille la compilation d’une image Armbian personnalisée pour la carte ESPRESSObin, en résolvant les problèmes courants de ">
+<meta name="keywords" content="ARM, Linux, Armbian, ESPRESSObin, Compilation">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet">
+<meta property="og:description" content="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet📖 IntroductionCe guide détaille la compilation d’une image Armbian personnalisée pour la carte ESPRESSObin, en résolvant les problèmes courants de ">
+<meta property="og:url" content="https://cybermind.fr/2025/12/04/fr/compiler-armbian-espressobin/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-04T16:30:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.331Z">
+
+
+
+
+<meta property="article:tag" content="ARM">
+
+<meta property="article:tag" content="Linux">
+
+<meta property="article:tag" content="Armbian">
+
+<meta property="article:tag" content="ESPRESSObin">
+
+<meta property="article:tag" content="Compilation">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet">
+<meta name="twitter:description" content="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet📖 IntroductionCe guide détaille la compilation d’une image Armbian personnalisée pour la carte ESPRESSObin, en résolvant les problèmes courants de ">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/12/04/fr/compiler-armbian-espressobin/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>🚀 Compiler Armbian pour ESPRESSObin - Guide Complet | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category Tutoriels">
+            📝 Tutoriels
+        </div>
+        
+        
+        <h1 class="post-title">🚀 Compiler Armbian pour ESPRESSObin - Guide Complet</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-04T16:30:00.000Z">
+                    04 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/ARM/" class="post-tag">ARM</a>
+                
+                <a href="/tags/Linux/" class="post-tag">Linux</a>
+                
+                <a href="/tags/Armbian/" class="post-tag">Armbian</a>
+                
+                <a href="/tags/ESPRESSObin/" class="post-tag">ESPRESSObin</a>
+                
+                <a href="/tags/Compilation/" class="post-tag">Compilation</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="🚀-Compiler-Armbian-pour-ESPRESSObin-Guide-Complet"><a href="#🚀-Compiler-Armbian-pour-ESPRESSObin-Guide-Complet" class="headerlink" title="🚀 Compiler Armbian pour ESPRESSObin - Guide Complet"></a>🚀 Compiler Armbian pour ESPRESSObin - Guide Complet</h1><h2 id="📖-Introduction"><a href="#📖-Introduction" class="headerlink" title="📖 Introduction"></a>📖 Introduction</h2><p>Ce guide détaille la compilation d’une image Armbian personnalisée pour la carte <strong>ESPRESSObin</strong>, en résolvant les problèmes courants de montage de partitions qui peuvent bloquer le processus de build.</p>
+<span id="more"></span>
+
+<h2 id="🎯-Objectif"><a href="#🎯-Objectif" class="headerlink" title="🎯 Objectif"></a>🎯 Objectif</h2><p>Créer une image Armbian fonctionnelle pour ESPRESSObin avec :</p>
+<ul>
+<li>🐧 Ubuntu Noble (24.04)</li>
+<li>🔧 Kernel Linux 6.12.60</li>
+<li>⚡ Configuration optimisée</li>
+</ul>
+<h2 id="🔧-Prerequis"><a href="#🔧-Prerequis" class="headerlink" title="🔧 Prérequis"></a>🔧 Prérequis</h2><h3 id="💻-Configuration-systeme-requise"><a href="#💻-Configuration-systeme-requise" class="headerlink" title="💻 Configuration système requise"></a>💻 Configuration système requise</h3><ul>
+<li><strong>OS</strong> : Linux (Ubuntu&#x2F;Debian recommandé)</li>
+<li><strong>RAM</strong> : Minimum 8 GB</li>
+<li><strong>Espace disque</strong> : ~50 GB libre</li>
+<li><strong>Connexion</strong> : Internet stable</li>
+</ul>
+<h3 id="📦-Paquets-necessaires"><a href="#📦-Paquets-necessaires" class="headerlink" title="📦 Paquets nécessaires"></a>📦 Paquets nécessaires</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y git</span><br></pre></td></tr></table></figure>
+
+<h2 id="🚨-Probleme-rencontre-Erreur-de-montage"><a href="#🚨-Probleme-rencontre-Erreur-de-montage" class="headerlink" title="🚨 Problème rencontré : Erreur de montage"></a>🚨 Problème rencontré : Erreur de montage</h2><h3 id="❌-Message-d’erreur"><a href="#❌-Message-d’erreur" class="headerlink" title="❌ Message d’erreur"></a>❌ Message d’erreur</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[💥] error! Directory /media/reepost/ZAND/ARMBIAN/build/.tmp </span><br><span class="line">is mounted with the &#x27;noexec&#x27; and/or &#x27;nodev&#x27; options</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔍-Analyse"><a href="#🔍-Analyse" class="headerlink" title="🔍 Analyse"></a>🔍 Analyse</h3><p>Le système de build Armbian détecte que le répertoire temporaire est monté avec des options de sécurité (<code>nosuid</code>, <code>nodev</code>, <code>noexec</code>) qui empêchent l’exécution de fichiers nécessaires à la compilation.</p>
+<h2 id="✅-Solution-etape-par-etape"><a href="#✅-Solution-etape-par-etape" class="headerlink" title="✅ Solution étape par étape"></a>✅ Solution étape par étape</h2><h3 id="1️⃣-Preparation-de-l’environnement"><a href="#1️⃣-Preparation-de-l’environnement" class="headerlink" title="1️⃣ Préparation de l’environnement"></a>1️⃣ Préparation de l’environnement</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 📁 Création du répertoire de travail</span></span><br><span class="line"><span class="built_in">mkdir</span> ARMBIAN</span><br><span class="line"><span class="built_in">cd</span> ARMBIAN/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 📥 Clone du repository officiel Armbian</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/armbian/build.git</span><br><span class="line"><span class="built_in">cd</span> build</span><br></pre></td></tr></table></figure>
+
+<h3 id="2️⃣-Resolution-du-probleme-de-montage"><a href="#2️⃣-Resolution-du-probleme-de-montage" class="headerlink" title="2️⃣ Résolution du problème de montage"></a>2️⃣ Résolution du problème de montage</h3><p><strong>Option A : Remonter la partition</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🔧 Remontage avec les permissions nécessaires</span></span><br><span class="line"><span class="built_in">sudo</span> mount -o remount,<span class="built_in">exec</span>,dev /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Option B : Utiliser un répertoire temporaire alternatif</strong> ⭐ <em>Recommandé</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 📂 Création d&#x27;un répertoire temporaire</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/armbian-tmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 🔄 Configuration de la variable d&#x27;environnement</span></span><br><span class="line"><span class="built_in">export</span> TMPDIR=~/armbian-tmp</span><br></pre></td></tr></table></figure>
+
+<h3 id="3️⃣-Lancement-de-la-compilation"><a href="#3️⃣-Lancement-de-la-compilation" class="headerlink" title="3️⃣ Lancement de la compilation"></a>3️⃣ Lancement de la compilation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🚀 Compilation avec répertoire temporaire personnalisé</span></span><br><span class="line">./compile.sh TMPDIR=/tmp/armbian-build</span><br></pre></td></tr></table></figure>
+
+<h3 id="4️⃣-Configuration-interactive"><a href="#4️⃣-Configuration-interactive" class="headerlink" title="4️⃣ Configuration interactive"></a>4️⃣ Configuration interactive</h3><p>L’interface de compilation vous demandera :</p>
+<ol>
+<li><strong>🎯 Target board</strong> : Sélectionnez <code>ESPRESSObin</code></li>
+<li><strong>🔧 Kernel version</strong> : Choisissez <code>current</code> (6.12.x)</li>
+<li><strong>🐧 Distribution</strong> : Sélectionnez <code>Ubuntu Noble</code> (24.04)</li>
+<li><strong>📦 Build type</strong> : Image complète ou minimale</li>
+</ol>
+<h2 id="🎊-Resultat-de-la-compilation"><a href="#🎊-Resultat-de-la-compilation" class="headerlink" title="🎊 Résultat de la compilation"></a>🎊 Résultat de la compilation</h2><h3 id="✨-Image-generee"><a href="#✨-Image-generee" class="headerlink" title="✨ Image générée"></a>✨ Image générée</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 📍 Vérification de l&#x27;image créée</span></span><br><span class="line"><span class="built_in">ls</span> output/images/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 📦 Fichier généré :</span></span><br><span class="line">Armbian-unofficial_26.02.0-trunk_Espressobin_noble_current_6.12.60.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="📊-Details-de-l’image"><a href="#📊-Details-de-l’image" class="headerlink" title="📊 Détails de l’image"></a>📊 Détails de l’image</h3><table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📛 Nom</td>
+<td>Armbian-unofficial_26.02.0-trunk</td>
+</tr>
+<tr>
+<td>💻 Plateforme</td>
+<td>ESPRESSObin</td>
+</tr>
+<tr>
+<td>🐧 Distribution</td>
+<td>Ubuntu Noble 24.04</td>
+</tr>
+<tr>
+<td>🔧 Kernel</td>
+<td>Linux 6.12.60</td>
+</tr>
+<tr>
+<td>📦 Type</td>
+<td>current (stable)</td>
+</tr>
+<tr>
+<td>⚠️ Statut</td>
+<td>unofficial&#x2F;trunk</td>
+</tr>
+</tbody></table>
+<h2 id="💾-Installation-de-l’image"><a href="#💾-Installation-de-l’image" class="headerlink" title="💾 Installation de l’image"></a>💾 Installation de l’image</h2><h3 id="🔥-Flasher-sur-carte-SD"><a href="#🔥-Flasher-sur-carte-SD" class="headerlink" title="🔥 Flasher sur carte SD"></a>🔥 Flasher sur carte SD</h3><p><strong>Avec Balena Etcher :</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 📥 Installation de Balena Etcher</span></span><br><span class="line">wget https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-1.18.11-x64.AppImage</span><br><span class="line"><span class="built_in">chmod</span> +x balenaEtcher-*.AppImage</span><br><span class="line">./balenaEtcher-*.AppImage</span><br></pre></td></tr></table></figure>
+
+<p><strong>Avec dd (ligne de commande) :</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ⚠️ ATTENTION : Vérifiez bien le périphérique cible !</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">dd</span> <span class="keyword">if</span>=output/images/Armbian-*.img of=/dev/sdX bs=4M status=progress</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="🔌-Premier-demarrage"><a href="#🔌-Premier-demarrage" class="headerlink" title="🔌 Premier démarrage"></a>🔌 Premier démarrage</h3><ol>
+<li><strong>💾 Insérez</strong> la carte SD dans l’ESPRESSObin</li>
+<li><strong>🔌 Connectez</strong> l’alimentation et le câble réseau</li>
+<li><strong>⚡ Démarrez</strong> la carte</li>
+<li><strong>🔐 Connexion par défaut</strong> :<ul>
+<li>Username : <code>root</code></li>
+<li>Password : <code>1234</code></li>
+</ul>
+</li>
+<li><strong>⚙️ Configuration initiale</strong> : Suivez les instructions à l’écran</li>
+</ol>
+<h2 id="🛠️-Depannage"><a href="#🛠️-Depannage" class="headerlink" title="🛠️ Dépannage"></a>🛠️ Dépannage</h2><h3 id="❌-Erreur-“No-space-left-on-device”"><a href="#❌-Erreur-“No-space-left-on-device”" class="headerlink" title="❌ Erreur : “No space left on device”"></a>❌ Erreur : “No space left on device”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🧹 Nettoyage des fichiers temporaires</span></span><br><span class="line">./compile.sh clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="❌-Erreur-“Permission-denied”"><a href="#❌-Erreur-“Permission-denied”" class="headerlink" title="❌ Erreur : “Permission denied”"></a>❌ Erreur : “Permission denied”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🔑 Vérification des permissions</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R <span class="variable">$USER</span>:<span class="variable">$USER</span> ~/armbian-tmp</span><br></pre></td></tr></table></figure>
+
+<h3 id="❌-Build-echoue-pendant-la-compilation"><a href="#❌-Build-echoue-pendant-la-compilation" class="headerlink" title="❌ Build échoue pendant la compilation"></a>❌ Build échoue pendant la compilation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🔄 Réessayer avec mode verbeux</span></span><br><span class="line">./compile.sh TMPDIR=/tmp/armbian-build BUILD_DESKTOP=no KERNEL_CONFIGURE=no</span><br></pre></td></tr></table></figure>
+
+<h2 id="📚-Ressources-complementaires"><a href="#📚-Ressources-complementaires" class="headerlink" title="📚 Ressources complémentaires"></a>📚 Ressources complémentaires</h2><h3 id="🔗-Liens-utiles"><a href="#🔗-Liens-utiles" class="headerlink" title="🔗 Liens utiles"></a>🔗 Liens utiles</h3><ul>
+<li>📖 <a target="_blank" rel="noopener" href="https://docs.armbian.com/">Documentation officielle Armbian</a></li>
+<li>💬 <a target="_blank" rel="noopener" href="https://forum.armbian.com/topic/42473-espressobin-completely-set-aside/">Forum Armbian - ESPRESSObin</a></li>
+<li>🐙 <a target="_blank" rel="noopener" href="https://github.com/armbian/build">Repository GitHub Armbian</a></li>
+<li>📘 <a target="_blank" rel="noopener" href="http://wiki.espressobin.net/">Wiki ESPRESSObin</a></li>
+</ul>
+<h3 id="🎓-Commandes-avancees"><a href="#🎓-Commandes-avancees" class="headerlink" title="🎓 Commandes avancées"></a>🎓 Commandes avancées</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 🔧 Compilation avec configuration personnalisée</span></span><br><span class="line">./compile.sh \</span><br><span class="line">  BOARD=espressobin \</span><br><span class="line">  BRANCH=current \</span><br><span class="line">  RELEASE=noble \</span><br><span class="line">  BUILD_MINIMAL=no \</span><br><span class="line">  KERNEL_CONFIGURE=no \</span><br><span class="line">  TMPDIR=/tmp/armbian-build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 📦 Compilation du kernel uniquement</span></span><br><span class="line">./compile.sh KERNEL_ONLY=<span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 🖥️ Compilation avec interface desktop</span></span><br><span class="line">./compile.sh BUILD_DESKTOP=<span class="built_in">yes</span> DESKTOP_ENVIRONMENT=xfce</span><br></pre></td></tr></table></figure>
+
+<h2 id="💡-Conseils-et-bonnes-pratiques"><a href="#💡-Conseils-et-bonnes-pratiques" class="headerlink" title="💡 Conseils et bonnes pratiques"></a>💡 Conseils et bonnes pratiques</h2><h3 id="✅-A-faire"><a href="#✅-A-faire" class="headerlink" title="✅ À faire"></a>✅ À faire</h3><ul>
+<li>🔄 Toujours utiliser la dernière version du repository</li>
+<li>💾 Prévoir suffisamment d’espace disque (50+ GB)</li>
+<li>🌐 Utiliser une connexion Internet stable</li>
+<li>📝 Noter les paramètres de compilation utilisés</li>
+<li>🔐 Changer le mot de passe root au premier démarrage</li>
+</ul>
+<h3 id="❌-A-eviter"><a href="#❌-A-eviter" class="headerlink" title="❌ À éviter"></a>❌ À éviter</h3><ul>
+<li>🚫 Ne pas compiler en tant que root</li>
+<li>⚠️ Ne pas interrompre la compilation</li>
+<li>💾 Ne pas utiliser une partition avec <code>noexec</code></li>
+<li>🔌 Ne pas débrancher pendant le flash</li>
+</ul>
+<h2 id="📈-Performances-ESPRESSObin"><a href="#📈-Performances-ESPRESSObin" class="headerlink" title="📈 Performances ESPRESSObin"></a>📈 Performances ESPRESSObin</h2><h3 id="🎯-Specifications-materielles"><a href="#🎯-Specifications-materielles" class="headerlink" title="🎯 Spécifications matérielles"></a>🎯 Spécifications matérielles</h3><table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Spécification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🔧 CPU</td>
+<td>Marvell Armada 3700 (ARM Cortex-A53)</td>
+</tr>
+<tr>
+<td>⚡ Fréquence</td>
+<td>Dual-core 1.2 GHz</td>
+</tr>
+<tr>
+<td>💾 RAM</td>
+<td>512MB &#x2F; 1GB &#x2F; 2GB DDR3</td>
+</tr>
+<tr>
+<td>🌐 Réseau</td>
+<td>3x Gigabit Ethernet</td>
+</tr>
+<tr>
+<td>💿 Stockage</td>
+<td>microSD + SATA + eMMC</td>
+</tr>
+</tbody></table>
+<h3 id="📊-Cas-d’usage"><a href="#📊-Cas-d’usage" class="headerlink" title="📊 Cas d’usage"></a>📊 Cas d’usage</h3><ul>
+<li>🏠 Serveur domestique</li>
+<li>🌐 Routeur &#x2F; Firewall</li>
+<li>📡 Point d’accès WiFi</li>
+<li>🔒 VPN Gateway</li>
+<li>📦 NAS léger</li>
+<li>🐳 Plateforme Docker</li>
+</ul>
+<h2 id="🎯-Conclusion"><a href="#🎯-Conclusion" class="headerlink" title="🎯 Conclusion"></a>🎯 Conclusion</h2><p>Vous avez maintenant une image Armbian personnalisée pour votre ESPRESSObin ! Ce guide vous a permis de :</p>
+<ul>
+<li>✅ Compiler Armbian depuis les sources</li>
+<li>✅ Résoudre les problèmes de montage</li>
+<li>✅ Créer une image bootable</li>
+<li>✅ Comprendre le processus de build</li>
+</ul>
+<p>N’hésitez pas à expérimenter avec différentes configurations et à partager vos résultats sur le forum Armbian !</p>
+<hr>
+<h2 id="📝-Historique-des-commandes"><a href="#📝-Historique-des-commandes" class="headerlink" title="📝 Historique des commandes"></a>📝 Historique des commandes</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 📜 Historique complet de la session</span></span><br><span class="line">872  <span class="built_in">mkdir</span> ARMBIAN</span><br><span class="line">873  <span class="built_in">cd</span> ARMBIAN/</span><br><span class="line">874  git <span class="built_in">clone</span> https://github.com/armbian/build.git;<span class="built_in">cd</span> build;./compile.sh</span><br><span class="line">875  <span class="built_in">sudo</span> mount -o remount,<span class="built_in">exec</span>,dev /dev/sdb1</span><br><span class="line">876  <span class="built_in">mkdir</span> -p ~/armbian-tmp</span><br><span class="line">877  <span class="built_in">export</span> TMPDIR=~/armbian-tmp</span><br><span class="line">878  ./compile.sh TMPDIR=/tmp/armbian-build</span><br><span class="line">879  <span class="built_in">ls</span></span><br><span class="line">880  <span class="built_in">ls</span> output/images/Armbian-unofficial_26.02.0-trunk_Espressobin_noble_current_6.12.60.img</span><br><span class="line">881  <span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>Tags:</strong> #Armbian #ESPRESSObin #Linux #ARM #Compilation #Ubuntu #Embedded</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/ARM/" class="tag-link">ARM</a>
+            
+            <a href="/tags/Linux/" class="tag-link">Linux</a>
+            
+            <a href="/tags/Armbian/" class="tag-link">Armbian</a>
+            
+            <a href="/tags/ESPRESSObin/" class="tag-link">ESPRESSObin</a>
+            
+            <a href="/tags/Compilation/" class="tag-link">Compilation</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/04/fr/mochabin_armbian_guide/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">🚀 Implémenter le MOCHAbin de GlobalScale dans Armbian</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/04/en/presskit/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Projets / Projects - ENIGMASUITE — PRESS KIT (EN + FR)</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="⚙️ OpenWrt ARM64 — LXC QUICK GUIDETested on: EspressoBin &amp;#x2F; EspressoBin Ultra (MVEBU ARM64)Base version: OpenWrt 21.02-RCGoal: Run lightweight Debian containers (LXC) inside OpenWrt
+—">
+<meta name="keywords" content="SECUBOX, contribute, ARM, NAS, CLOUD, FAST BACK, Aramada">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt ARM64 — LXC QUICK GUIDE">
+<meta property="og:description" content="⚙️ OpenWrt ARM64 — LXC QUICK GUIDETested on: EspressoBin &amp;#x2F; EspressoBin Ultra (MVEBU ARM64)Base version: OpenWrt 21.02-RCGoal: Run lightweight Debian containers (LXC) inside OpenWrt
+—">
+<meta property="og:url" content="https://cybermind.fr/2021/06/07/fr/OpenWrt_ARM64_LXC_Quick_Guide/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2021-06-07T08:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.330Z">
+
+
+
+
+<meta property="article:tag" content="SECUBOX">
+
+<meta property="article:tag" content="contribute">
+
+<meta property="article:tag" content="ARM">
+
+<meta property="article:tag" content="NAS">
+
+<meta property="article:tag" content="CLOUD">
+
+<meta property="article:tag" content="FAST BACK">
+
+<meta property="article:tag" content="Aramada">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenWrt ARM64 — LXC QUICK GUIDE">
+<meta name="twitter:description" content="⚙️ OpenWrt ARM64 — LXC QUICK GUIDETested on: EspressoBin &amp;#x2F; EspressoBin Ultra (MVEBU ARM64)Base version: OpenWrt 21.02-RCGoal: Run lightweight Debian containers (LXC) inside OpenWrt
+—">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2021/06/07/fr/OpenWrt_ARM64_LXC_Quick_Guide/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>OpenWrt ARM64 — LXC QUICK GUIDE | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category Cyber">
+            📝 Cyber
+        </div>
+        
+        
+        <h1 class="post-title">OpenWrt ARM64 — LXC QUICK GUIDE</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2021-06-07T08:00:00.000Z">
+                    07 June 2021
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/SECUBOX/" class="post-tag">SECUBOX</a>
+                
+                <a href="/tags/contribute/" class="post-tag">contribute</a>
+                
+                <a href="/tags/ARM/" class="post-tag">ARM</a>
+                
+                <a href="/tags/NAS/" class="post-tag">NAS</a>
+                
+                <a href="/tags/CLOUD/" class="post-tag">CLOUD</a>
+                
+                <a href="/tags/FAST-BACK/" class="post-tag">FAST BACK</a>
+                
+                <a href="/tags/Aramada/" class="post-tag">Aramada</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="⚙️-OpenWrt-ARM64-—-LXC-QUICK-GUIDE"><a href="#⚙️-OpenWrt-ARM64-—-LXC-QUICK-GUIDE" class="headerlink" title="⚙️ OpenWrt ARM64 — LXC QUICK GUIDE"></a>⚙️ OpenWrt ARM64 — LXC QUICK GUIDE</h1><p><strong>Tested on:</strong> EspressoBin &#x2F; EspressoBin Ultra (MVEBU ARM64)<br><strong>Base version:</strong> OpenWrt 21.02-RC<br><strong>Goal:</strong> Run lightweight Debian containers (LXC) inside OpenWrt</p>
+<p>—<span id="more"></span></p>
+<h2 id="1️⃣-Prerequis-outils"><a href="#1️⃣-Prerequis-outils" class="headerlink" title="1️⃣ Prérequis &amp; outils"></a>1️⃣ Prérequis &amp; outils</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install xz tar gnupg</span><br><span class="line">opkg install kmod-ikconfig kmod-veth</span><br><span class="line">opkg install cgroupfs-mount cgroup-tools</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2️⃣-Installation-de-LXC-et-LuCI"><a href="#2️⃣-Installation-de-LXC-et-LuCI" class="headerlink" title="2️⃣ Installation de LXC et LuCI"></a>2️⃣ Installation de LXC et LuCI</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opkg install liblxc luci-app-lxc lxc lxc-attach lxc-auto lxc-autostart lxc-cgroup lxc-checkconfig lxc-common lxc-config lxc-console lxc-copy lxc-create lxc-destroy lxc-device lxc-execute lxc-freeze lxc-hooks lxc-info lxc-init lxc-ls lxc-monitor lxc-snapshot lxc-start lxc-stop lxc-templates lxc-top lxc-unfreeze lxc-unprivileged lxc-unshare lxc-user-nic lxc-usernsexec lxc-wait rpcd-mod-lxc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3️⃣-Verification-du-noyau"><a href="#3️⃣-Verification-du-noyau" class="headerlink" title="3️⃣ Vérification du noyau"></a>3️⃣ Vérification du noyau</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc-checkconfig</span><br></pre></td></tr></table></figure>
+<p>✅ Vérifie que les namespaces et les cgroups sont activés.<br>Les erreurs sur <code>CONFIG_NF_NAT_IPV4/6</code> peuvent être ignorées si NAT géré par OpenWrt.</p>
+<hr>
+<h2 id="4️⃣-Creation-d’un-conteneur-Debian-Buster-ARM64"><a href="#4️⃣-Creation-d’un-conteneur-Debian-Buster-ARM64" class="headerlink" title="4️⃣ Création d’un conteneur Debian Buster (ARM64)"></a>4️⃣ Création d’un conteneur Debian Buster (ARM64)</h2><p>Si GPG keyserver inaccessible :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opkg install gnupg2-utils gnupg2-dirmngr</span><br></pre></td></tr></table></figure>
+<p>Puis :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOAD_KEYSERVER=<span class="string">&quot;pgp.mit.edu&quot;</span> lxc-create --name myLMS --template download -- --dist debian --release buster --<span class="built_in">arch</span> arm64</span><br></pre></td></tr></table></figure>
+<p>ou sans validation :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc-create --name myLMS --template download -- --dist debian --release buster --<span class="built_in">arch</span> arm64 --no-validate</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5️⃣-Demarrage-du-conteneur"><a href="#5️⃣-Demarrage-du-conteneur" class="headerlink" title="5️⃣ Démarrage du conteneur"></a>5️⃣ Démarrage du conteneur</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lxc-start -n myLMS</span><br><span class="line">lxc-ls -f</span><br></pre></td></tr></table></figure>
+<p>Si erreur liée à <strong>cgroups v1</strong>, commente la section legacy :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nano /usr/share/lxc/config/common.conf</span><br><span class="line"><span class="comment">#lxc.cgroup.devices.deny = a</span></span><br><span class="line"><span class="comment">#lxc.cgroup.devices.allow = c 10:229 rwm</span></span><br></pre></td></tr></table></figure>
+<p>Puis relance :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc-start -n myLMS</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6️⃣-Configuration-reseau-du-conteneur"><a href="#6️⃣-Configuration-reseau-du-conteneur" class="headerlink" title="6️⃣ Configuration réseau du conteneur"></a>6️⃣ Configuration réseau du conteneur</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /srv/lxc/myLMS/config</span><br></pre></td></tr></table></figure>
+<p>Ajoute :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lxc.net.0.type = veth</span><br><span class="line">lxc.net.0.link = br-lan</span><br><span class="line">lxc.net.0.flags = up</span><br><span class="line">lxc.net.0.hwaddr = 00:FF:DD:BB:CC:01</span><br></pre></td></tr></table></figure>
+<p>Démarre :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lxc-start -n myLMS</span><br><span class="line">lxc-ls -f</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>✅ Exemple IP : <code>192.168.1.188</code></p>
+</blockquote>
+<hr>
+<h2 id="7️⃣-Post-installation-Debian"><a href="#7️⃣-Post-installation-Debian" class="headerlink" title="7️⃣ Post-installation Debian"></a>7️⃣ Post-installation Debian</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lxc-attach -n myLMS</span><br><span class="line">adduser admin</span><br><span class="line">apt install <span class="built_in">sudo</span> ssh -y</span><br><span class="line">addgroup admin <span class="built_in">sudo</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>Accès SSH :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh admin@192.168.1.188</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="8️⃣-Autostart-au-boot"><a href="#8️⃣-Autostart-au-boot" class="headerlink" title="8️⃣ Autostart au boot"></a>8️⃣ Autostart au boot</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uci add lxc-auto container</span><br><span class="line">uci <span class="built_in">set</span> lxc-auto.@container[-1].name=myLMS</span><br><span class="line">uci <span class="built_in">set</span> lxc-auto.@container[-1].<span class="built_in">timeout</span>=30</span><br><span class="line">uci commit lxc-auto</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9️⃣-Installer-LMS-Logitech-Media-Server"><a href="#9️⃣-Installer-LMS-Logitech-Media-Server" class="headerlink" title="9️⃣ Installer LMS (Logitech Media Server)"></a>9️⃣ Installer LMS (Logitech Media Server)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install wget libio-socket-ssl-perl -y</span><br><span class="line">wget http://downloads.slimdevices.com/LogitechMediaServer_v8.1.1/logitechmediaserver_8.1.1_all.deb</span><br><span class="line"><span class="built_in">sudo</span> dpkg -i logitechmediaserver_8.1.1_all.deb</span><br></pre></td></tr></table></figure>
+
+<h3 id="💻-Acces-Web"><a href="#💻-Acces-Web" class="headerlink" title="💻 Accès Web :"></a>💻 Accès Web :</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.188:9000/</span><br><span class="line">ou</span><br><span class="line">http://mylms.local:9000/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-Resume-final"><a href="#✅-Resume-final" class="headerlink" title="✅ Résumé final"></a>✅ Résumé final</h2><table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base OS</td>
+<td>OpenWrt 21.02-RC ARM64</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>Debian Buster</td>
+</tr>
+<tr>
+<td>IP par défaut</td>
+<td>DHCP via <code>br-lan</code></td>
+</tr>
+<tr>
+<td>Démarrage auto</td>
+<td>via <code>lxc-auto</code></td>
+</tr>
+<tr>
+<td>Exemple App</td>
+<td>Logitech Media Server</td>
+</tr>
+<tr>
+<td>WebUI</td>
+<td>http:&#x2F;&#x2F;<IP>:9000</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>admin@<IP></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🧾-Credits"><a href="#🧾-Credits" class="headerlink" title="🧾 Crédits"></a>🧾 Crédits</h2><p><strong>Guide adapté et testé sur EspressoBin &#x2F; EspressoBin Ultra — KuBoX Studio @ CyberMind # KERMA’s project (2025)</strong>  </p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/SECUBOX/" class="tag-link">SECUBOX</a>
+            
+            <a href="/tags/contribute/" class="tag-link">contribute</a>
+            
+            <a href="/tags/ARM/" class="tag-link">ARM</a>
+            
+            <a href="/tags/NAS/" class="tag-link">NAS</a>
+            
+            <a href="/tags/CLOUD/" class="tag-link">CLOUD</a>
+            
+            <a href="/tags/FAST-BACK/" class="tag-link">FAST BACK</a>
+            
+            <a href="/tags/Aramada/" class="tag-link">Aramada</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2022/02/19/en/welcome/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">welcome</span>
+            </a>
+            
+            
+            
+            <a href="/2018/06/13/fr/Poesie-Jolie-coccinelle/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Poésie - Jolie coccinelle…</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

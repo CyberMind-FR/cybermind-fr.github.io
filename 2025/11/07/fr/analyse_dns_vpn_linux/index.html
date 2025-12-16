@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="🧠 Analyse du Problème de Résolution DNS sous Linux avec VPN📝 RésuméUn problème a été identifié concernant la résolution DNS sur un système Linux utilisant un VPN basé sur WireGuard (NordVPN). Le fic">
+<meta name="keywords" content="contribute, Mood, Reseau, Analyse, Informatique">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fiches - Analyse du Problème de Résolution DNS sous Linux avec VPN">
+<meta property="og:description" content="🧠 Analyse du Problème de Résolution DNS sous Linux avec VPN📝 RésuméUn problème a été identifié concernant la résolution DNS sur un système Linux utilisant un VPN basé sur WireGuard (NordVPN). Le fic">
+<meta property="og:url" content="https://cybermind.fr/2025/11/07/fr/analyse_dns_vpn_linux/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-11-07T12:30:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.335Z">
+
+
+
+
+<meta property="article:tag" content="contribute">
+
+<meta property="article:tag" content="Mood">
+
+<meta property="article:tag" content="Reseau">
+
+<meta property="article:tag" content="Analyse">
+
+<meta property="article:tag" content="Informatique">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fiches - Analyse du Problème de Résolution DNS sous Linux avec VPN">
+<meta name="twitter:description" content="🧠 Analyse du Problème de Résolution DNS sous Linux avec VPN📝 RésuméUn problème a été identifié concernant la résolution DNS sur un système Linux utilisant un VPN basé sur WireGuard (NordVPN). Le fic">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/11/07/fr/analyse_dns_vpn_linux/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Fiches - Analyse du Problème de Résolution DNS sous Linux avec VPN | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category Network">
+            📝 Network
+        </div>
+        
+        
+        <h1 class="post-title">Fiches - Analyse du Problème de Résolution DNS sous Linux avec VPN</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-11-07T12:30:00.000Z">
+                    07 November 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/contribute/" class="post-tag">contribute</a>
+                
+                <a href="/tags/Mood/" class="post-tag">Mood</a>
+                
+                <a href="/tags/Reseau/" class="post-tag">Reseau</a>
+                
+                <a href="/tags/Analyse/" class="post-tag">Analyse</a>
+                
+                <a href="/tags/Informatique/" class="post-tag">Informatique</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="🧠-Analyse-du-Probleme-de-Resolution-DNS-sous-Linux-avec-VPN"><a href="#🧠-Analyse-du-Probleme-de-Resolution-DNS-sous-Linux-avec-VPN" class="headerlink" title="🧠 Analyse du Problème de Résolution DNS sous Linux avec VPN"></a>🧠 Analyse du Problème de Résolution DNS sous Linux avec VPN</h1><h2 id="📝-Resume"><a href="#📝-Resume" class="headerlink" title="📝 Résumé"></a>📝 Résumé</h2><p>Un problème a été identifié concernant la résolution DNS sur un système Linux utilisant un VPN basé sur WireGuard (NordVPN). Le fichier <code>/etc/resolv.conf</code> est écrasé à chaque connexion VPN, modifiant notamment le champ <code>search domain</code>.</p>
+<p>—<span id="more"></span></p>
+<h2 id="🔍-Diagnostic"><a href="#🔍-Diagnostic" class="headerlink" title="🔍 Diagnostic"></a>🔍 Diagnostic</h2><h3 id="✅-Symptomes"><a href="#✅-Symptomes" class="headerlink" title="✅ Symptômes"></a>✅ Symptômes</h3><ul>
+<li>Résolution DNS incorrecte ou incomplète après connexion au VPN.</li>
+<li>Le champ <code>search</code> de <code>/etc/resolv.conf</code> change automatiquement.</li>
+<li>Redémarrer <code>systemd-resolved</code> restaure temporairement un bon fonctionnement.</li>
+</ul>
+<h3 id="🧪-Tests-effectues"><a href="#🧪-Tests-effectues" class="headerlink" title="🧪 Tests effectués"></a>🧪 Tests effectués</h3><ul>
+<li>Vérification du contenu de <code>/etc/resolv.conf</code> ✅</li>
+<li>Utilisation de <code>journalctl -u systemd-resolved</code> pour consulter les logs 🔍</li>
+<li>Tentative de modification de <code>/etc/systemd/resolved.conf</code> sans succès 🔒</li>
+<li>Confirmation que NordVPN avec WireGuard est responsable de la modification ❗</li>
+</ul>
+<hr>
+<h2 id="🛠-Solutions-explorees"><a href="#🛠-Solutions-explorees" class="headerlink" title="🛠 Solutions explorées"></a>🛠 Solutions explorées</h2><h3 id="⚙️-Redemarrage-de-systemd-resolved"><a href="#⚙️-Redemarrage-de-systemd-resolved" class="headerlink" title="⚙️ Redémarrage de systemd-resolved"></a>⚙️ Redémarrage de systemd-resolved</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart systemd-resolved</span><br></pre></td></tr></table></figure>
+<p>✔️ Efficace temporairement après connexion VPN</p>
+<hr>
+<h3 id="📦-Emplacement-des-fichiers-de-config"><a href="#📦-Emplacement-des-fichiers-de-config" class="headerlink" title="📦 Emplacement des fichiers de config"></a>📦 Emplacement des fichiers de config</h3><ul>
+<li>Les fichiers <code>nordlynx</code> générés par NordVPN ne sont pas visibles ni éditables directement via <code>~/.config/nordvpn</code> ❌</li>
+<li>L’usage de hooks post-connexion VPN semble être la meilleure piste pour automatiser le rétablissement de la config DNS 🔁</li>
+</ul>
+<hr>
+<h2 id="💡-Solution-recommandee"><a href="#💡-Solution-recommandee" class="headerlink" title="💡 Solution recommandée"></a>💡 Solution recommandée</h2><h3 id="🧩-Script-de-post-connexion"><a href="#🧩-Script-de-post-connexion" class="headerlink" title="🧩 Script de post-connexion"></a>🧩 Script de post-connexion</h3><p>Créer un petit script personnalisé :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart systemd-resolved</span><br></pre></td></tr></table></figure>
+
+<p>À exécuter <strong>après</strong> chaque connexion VPN, ou via un hook automatique si le client VPN le permet.</p>
+<hr>
+<h2 id="🚀-Etapes-suivantes"><a href="#🚀-Etapes-suivantes" class="headerlink" title="🚀 Étapes suivantes"></a>🚀 Étapes suivantes</h2><ol>
+<li>🔎 Vérifier si NordVPN propose un mécanisme de hook ou de script post-connexion.</li>
+<li>🧰 Automatiser le redémarrage de <code>systemd-resolved</code> si nécessaire.</li>
+<li>✅ Tester la solution sur plusieurs connexions VPN pour s’assurer de la stabilité.</li>
+</ol>
+<hr>
+<h2 id="🧭-Conclusion"><a href="#🧭-Conclusion" class="headerlink" title="🧭 Conclusion"></a>🧭 Conclusion</h2><p>Ce comportement est typique des VPNs qui prennent le contrôle total du DNS. En contournant cette prise de contrôle par des scripts ou des redémarrages ciblés de service, on peut restaurer une résolution DNS fonctionnelle sans perdre les bénéfices du VPN.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/contribute/" class="tag-link">contribute</a>
+            
+            <a href="/tags/Mood/" class="tag-link">Mood</a>
+            
+            <a href="/tags/Reseau/" class="tag-link">Reseau</a>
+            
+            <a href="/tags/Analyse/" class="tag-link">Analyse</a>
+            
+            <a href="/tags/Informatique/" class="tag-link">Informatique</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/11/07/fr/analyse_lumiere_lunaire_rosee_ascii_emojis_v2/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Analyse complète — Impact de la lumière lunaire sur l’eau matinale / rosée</span>
+            </a>
+            
+            
+            
+            <a href="/2025/11/07/fr/la%20fee%20et%20l&#39;astronome/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Lettre - (Souvenir) La fee et l&#39;Astronome</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

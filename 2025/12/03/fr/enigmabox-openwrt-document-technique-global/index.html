@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Enigmabox &amp;amp; OpenWrtDocument technique global — Infrastructure, architecture, fonctionnementCe document propose une vue d’ensemble technique complète du système Enigmabox basé sur OpenWrt, incluant">
+<meta name="keywords" content="enigmabox, sécurité, openwrt, réseau, architecture">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enigmabox &amp; OpenWrt — Document technique global">
+<meta property="og:description" content="Enigmabox &amp;amp; OpenWrtDocument technique global — Infrastructure, architecture, fonctionnementCe document propose une vue d’ensemble technique complète du système Enigmabox basé sur OpenWrt, incluant">
+<meta property="og:url" content="https://cybermind.fr/2025/12/03/fr/enigmabox-openwrt-document-technique-global/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-03T09:15:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.330Z">
+
+
+
+
+<meta property="article:tag" content="enigmabox">
+
+<meta property="article:tag" content="sécurité">
+
+<meta property="article:tag" content="openwrt">
+
+<meta property="article:tag" content="réseau">
+
+<meta property="article:tag" content="architecture">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enigmabox &amp; OpenWrt — Document technique global">
+<meta name="twitter:description" content="Enigmabox &amp;amp; OpenWrtDocument technique global — Infrastructure, architecture, fonctionnementCe document propose une vue d’ensemble technique complète du système Enigmabox basé sur OpenWrt, incluant">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/12/03/fr/enigmabox-openwrt-document-technique-global/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Enigmabox &amp; OpenWrt — Document technique global | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category technique">
+            📝 technique
+        </div>
+        
+        
+        <h1 class="post-title">Enigmabox &amp; OpenWrt — Document technique global</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-03T09:15:00.000Z">
+                    03 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/enigmabox/" class="post-tag">enigmabox</a>
+                
+                <a href="/tags/securite/" class="post-tag">sécurité</a>
+                
+                <a href="/tags/openwrt/" class="post-tag">openwrt</a>
+                
+                <a href="/tags/reseau/" class="post-tag">réseau</a>
+                
+                <a href="/tags/architecture/" class="post-tag">architecture</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="Enigmabox-OpenWrt"><a href="#Enigmabox-OpenWrt" class="headerlink" title="Enigmabox &amp; OpenWrt"></a>Enigmabox &amp; OpenWrt</h1><h2 id="Document-technique-global-—-Infrastructure-architecture-fonctionnement"><a href="#Document-technique-global-—-Infrastructure-architecture-fonctionnement" class="headerlink" title="Document technique global — Infrastructure, architecture, fonctionnement"></a>Document technique global — Infrastructure, architecture, fonctionnement</h2><p>Ce document propose une <strong>vue d’ensemble technique complète</strong> du système <strong>Enigmabox</strong> basé sur <strong>OpenWrt</strong>, incluant architecture réseau, composants logiciels, pipeline de build, sécurité, modules internes, et intégration avec l’écosystème OpenWrt.<br>Il <strong>ne contient aucune instruction de fabrication d’outil offensif</strong>. C’est un <strong>document système</strong>.</p>
+<span id="more"></span>
+<hr>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p><strong>Enigmabox</strong> est une plateforme orientée <strong>confidentialité</strong>, reposant sur <strong>OpenWrt</strong> afin d’offrir une distribution réseau légère, modulaire et extensible.<br>Elle combine :</p>
+<ul>
+<li>une base système OpenWrt (musl, busybox, netifd),</li>
+<li>des couches réseau sécurisées (VPN, overlay, chiffrage en transit),</li>
+<li>une interface simplifiée pour l’utilisateur final,</li>
+<li>des modules de communication privés.</li>
+</ul>
+<hr>
+<h1 id="2-Architecture-generale"><a href="#2-Architecture-generale" class="headerlink" title="2. Architecture générale"></a>2. Architecture générale</h1><h3 id="2-1-Strates-principales"><a href="#2-1-Strates-principales" class="headerlink" title="2.1. Strates principales"></a>2.1. Strates principales</h3><ol>
+<li><p><strong>Bootloader</strong><br>Généralement U-Boot ou équivalent selon le matériel.</p>
+</li>
+<li><p><strong>Kernel Linux (OpenWrt patché)</strong>  </p>
+<ul>
+<li>Version adaptée aux cibles (MIPS, ARM, x86).  </li>
+<li>Toolchain croisée spécifique.</li>
+</ul>
+</li>
+<li><p><strong>Système racine OpenWrt</strong>  </p>
+<ul>
+<li>musl  </li>
+<li>busybox  </li>
+<li>ubusd &#x2F; procd  </li>
+<li>netifd  </li>
+<li>firewall (fw3 ou fw4 selon version)</li>
+</ul>
+</li>
+<li><p><strong>Mid-layer Enigmabox</strong><br>Ensemble de composants ajoutés :</p>
+<ul>
+<li>scripts de provisioning,</li>
+<li>tunnel sécurisé,</li>
+<li>gestion des identités cryptographiques,</li>
+<li>services internes (daemon de communication),</li>
+<li>configuration automatique du WAN&#x2F;LAN&#x2F;VPN.</li>
+</ul>
+</li>
+<li><p><strong>Interface Web &amp; API</strong>  </p>
+<ul>
+<li>LuCI modifié ou interface maison.  </li>
+<li>Endpoints JSON-RPC &#x2F; ubus.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="3-Pipeline-de-construction-Buildroot-OpenWrt"><a href="#3-Pipeline-de-construction-Buildroot-OpenWrt" class="headerlink" title="3. Pipeline de construction (Buildroot OpenWrt)"></a>3. Pipeline de construction (Buildroot OpenWrt)</h1><h3 id="3-1-Etapes-internes-d’OpenWrt"><a href="#3-1-Etapes-internes-d’OpenWrt" class="headerlink" title="3.1. Étapes internes d’OpenWrt"></a>3.1. Étapes internes d’OpenWrt</h3><ol>
+<li>Préparation du <strong>toolchain</strong> croisé  </li>
+<li>Compilation du <strong>kernel</strong>  </li>
+<li>Construction des <strong>paquets</strong> (packages feeds + custom)  </li>
+<li>Assemblage du <strong>rootfs</strong>  </li>
+<li>Intégration des <strong>scripts Enigmabox</strong>  </li>
+<li>Génération des <strong>images flashables</strong></li>
+</ol>
+<h3 id="3-2-Specificites-Enigmabox"><a href="#3-2-Specificites-Enigmabox" class="headerlink" title="3.2. Spécificités Enigmabox"></a>3.2. Spécificités Enigmabox</h3><ul>
+<li><p>Patches intégrés dans <code>package/</code> ou <code>feeds/</code> pour gestion crypto.  </p>
+</li>
+<li><p>Scripts dans <code>files/etc/init.d/</code> fournissant :</p>
+<ul>
+<li>initialisation cryptographique,</li>
+<li>création des tunnels sécurisés,</li>
+<li>configuration réseau autonome.</li>
+</ul>
+</li>
+<li><p>Packaging final personnalisé :</p>
+<ul>
+<li>splashscreen,</li>
+<li>configuration par défaut,</li>
+<li>répertoires de clés.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="4-Fonctionnement-reseau"><a href="#4-Fonctionnement-reseau" class="headerlink" title="4. Fonctionnement réseau"></a>4. Fonctionnement réseau</h1><h3 id="4-1-Interfaces"><a href="#4-1-Interfaces" class="headerlink" title="4.1. Interfaces"></a>4.1. Interfaces</h3><ul>
+<li><strong>WAN</strong> : DHCP ou PPPoE selon environnement.  </li>
+<li><strong>LAN</strong> : Bridge interne + DHCP server.  </li>
+<li><strong>VPN&#x2F;Tunnel</strong> : sur-couche chiffrée (WireGuard, OpenVPN ou implémentation dédiée selon version Enigmabox).</li>
+</ul>
+<h3 id="4-2-Routage"><a href="#4-2-Routage" class="headerlink" title="4.2. Routage"></a>4.2. Routage</h3><ul>
+<li>OpenWrt utilise <code>netifd</code> + <code>ubus</code> pour la gestion dynamique.  </li>
+<li>Les routes du tunnel sécurisé sont priorisées pour le trafic interne.  </li>
+<li>Possibilité de split-tunneling ou full-tunnel selon configuration.</li>
+</ul>
+<h3 id="4-3-Pare-feu"><a href="#4-3-Pare-feu" class="headerlink" title="4.3. Pare-feu"></a>4.3. Pare-feu</h3><ul>
+<li>Implémenté via <strong>fw3</strong> ou <strong>nftables</strong> selon version.  </li>
+<li>Règles préchargées permettant :<ul>
+<li>isolation du LAN,</li>
+<li>permission stricte du trafic box↔box,</li>
+<li>redirections internes éventuelles.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="5-Securite-Chiffrement"><a href="#5-Securite-Chiffrement" class="headerlink" title="5. Sécurité &amp; Chiffrement"></a>5. Sécurité &amp; Chiffrement</h1><h3 id="5-1-Cryptographie"><a href="#5-1-Cryptographie" class="headerlink" title="5.1. Cryptographie"></a>5.1. Cryptographie</h3><ul>
+<li>Systèmes de clés persistées dans <code>/etc/enigmabox/keys/</code>.  </li>
+<li>Échanges inter-boîtes via un réseau maillé privé (overlay).  </li>
+<li>Authentification mutuelle via clé publique.</li>
+</ul>
+<h3 id="5-2-Chaine-de-confiance"><a href="#5-2-Chaine-de-confiance" class="headerlink" title="5.2. Chaîne de confiance"></a>5.2. Chaîne de confiance</h3><ul>
+<li>Bootloader → Kernel → Rootfs vérifiés.  </li>
+<li>Signatures de paquets OpenWrt (<code>opkg</code>) activées ou renforcées.</li>
+</ul>
+<h3 id="5-3-Surcouches-de-confidentialite"><a href="#5-3-Surcouches-de-confidentialite" class="headerlink" title="5.3. Surcouches de confidentialité"></a>5.3. Surcouches de confidentialité</h3><ul>
+<li>Tunnels chiffrés point-à-point.  </li>
+<li>Masquage partiel des métadonnées réseau.  </li>
+<li>Rotation possible des clés selon les versions Enigmabox.</li>
+</ul>
+<hr>
+<h1 id="6-Composants-logiciels-internes"><a href="#6-Composants-logiciels-internes" class="headerlink" title="6. Composants logiciels internes"></a>6. Composants logiciels internes</h1><h3 id="Principaux-modules"><a href="#Principaux-modules" class="headerlink" title="Principaux modules :"></a>Principaux modules :</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>enigmad</strong></td>
+<td>Daemon principal de communication</td>
+</tr>
+<tr>
+<td><strong>identity-manager</strong></td>
+<td>Gestion cryptographique interne</td>
+</tr>
+<tr>
+<td><strong>overlay-router</strong></td>
+<td>Acheminement sur réseau privé</td>
+</tr>
+<tr>
+<td><strong>webui</strong></td>
+<td>Interface utilisateur</td>
+</tr>
+<tr>
+<td><strong>scripts init.d</strong></td>
+<td>Initialisation automatique</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="7-Integration-avec-OpenWrt"><a href="#7-Integration-avec-OpenWrt" class="headerlink" title="7. Intégration avec OpenWrt"></a>7. Intégration avec OpenWrt</h1><h3 id="7-1-Services-utilises"><a href="#7-1-Services-utilises" class="headerlink" title="7.1. Services utilisés"></a>7.1. Services utilisés</h3><ul>
+<li><code>ubus</code>  </li>
+<li><code>procd</code>  </li>
+<li><code>netifd</code>  </li>
+<li><code>dnsmasq</code> (ou un fork configuré)  </li>
+<li><code>odhcpd</code> pour DHCPv6&#x2F;RA</li>
+</ul>
+<h3 id="7-2-Ajustements-propres-a-Enigmabox"><a href="#7-2-Ajustements-propres-a-Enigmabox" class="headerlink" title="7.2. Ajustements propres à Enigmabox"></a>7.2. Ajustements propres à Enigmabox</h3><ul>
+<li>Templates de configuration remplaçant ceux d’OpenWrt.  </li>
+<li>Masquage de certaines sections LuCI pour simplification.  </li>
+<li>Ajout de composants cryptographiques dans <code>/usr/lib/enigmabox/</code>.</li>
+</ul>
+<hr>
+<h1 id="8-Maintenance-Mises-a-jour"><a href="#8-Maintenance-Mises-a-jour" class="headerlink" title="8. Maintenance &amp; Mises à jour"></a>8. Maintenance &amp; Mises à jour</h1><ul>
+<li>Système d’upgrade basé sur <code>sysupgrade</code>.  </li>
+<li>Possibilité d’utiliser un feed privé Enigmabox pour paquets.  </li>
+<li>Sauvegarde&#x2F;restauration de clés et identités via scripts maison.</li>
+</ul>
+<hr>
+<h1 id="9-Points-critiques-connus-generaux-non-specifiques-a-un-bug"><a href="#9-Points-critiques-connus-generaux-non-specifiques-a-un-bug" class="headerlink" title="9. Points critiques connus (généraux, non spécifiques à un bug)"></a>9. Points critiques connus (généraux, non spécifiques à un bug)</h1><ul>
+<li>Interactions musl + paquets hérités GNU.  </li>
+<li>Paquets utilisant <code>c-stack</code> &#x2F; <code>libsigsegv</code> parfois incompatibles (selon matériel).  </li>
+<li>Problèmes de cross-compilation entre architectures MIPS&#x2F;ARM selon toolchains.  </li>
+<li>Compatibilité variable entre kernels OpenWrt et modules tiers.</li>
+</ul>
+<p><em>(Ces sections sont génériques et ne décrivent aucun correctif opérationnel.)</em></p>
+<hr>
+<h1 id="10-Conclusion"><a href="#10-Conclusion" class="headerlink" title="10. Conclusion"></a>10. Conclusion</h1><p>Ce document constitue une <strong>synthèse technique globale</strong> d’Enigmabox sur base OpenWrt : architecture, réseau, sécurité, build, composants.<br>Il sert de référence pour compréhension, audit, documentation ou analyse de l’ensemble du système.</p>
+<hr>
+<h1 id="Enigmabox-OpenWrt-Architecture-ASCII-diagram"><a href="#Enigmabox-OpenWrt-Architecture-ASCII-diagram" class="headerlink" title="Enigmabox &amp; OpenWrt - Architecture (ASCII diagram)"></a>Enigmabox &amp; OpenWrt - Architecture (ASCII diagram)</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">                   +---------------------------+</span><br><span class="line">                   |        Hardware /        |</span><br><span class="line">                   |     Bootloader (U-Boot)  |</span><br><span class="line">                   +------------+--------------+</span><br><span class="line">                                |</span><br><span class="line">                                v</span><br><span class="line">                   +---------------------------+</span><br><span class="line">                   |   Linux Kernel (patched)  |</span><br><span class="line">                   |   (ARM / MIPS / x86)      |</span><br><span class="line">                   +------------+--------------+</span><br><span class="line">                                |</span><br><span class="line">                                v</span><br><span class="line">            +-----------------------------------------------+</span><br><span class="line">            |                Root filesystem                |</span><br><span class="line">            |                (OpenWrt base)                 |</span><br><span class="line">            |  - musl, busybox, procd, ubus, netifd         |</span><br><span class="line">            +------------+---------------+------------------+</span><br><span class="line">                         |               |</span><br><span class="line">           +-------------+               +-----------------+</span><br><span class="line">           |                                                 |</span><br><span class="line">           v                                                 v</span><br><span class="line">+------------------------+                       +------------------------+</span><br><span class="line">|     Network stack      |                       |   Enigmabox mid-layer  |</span><br><span class="line">| - netifd, firewall     |                       | - enigmad (daemon)     |</span><br><span class="line">| - routing, dnsmasq     |                       | - identity-manager     |</span><br><span class="line">| - VPN (WireGuard/OVPN) |                       | - overlay-router       |</span><br><span class="line">+-----------+------------+                       | - init scripts         |</span><br><span class="line">            |                                    +---+--------------------+</span><br><span class="line">            |                                        |</span><br><span class="line">            v                                        v</span><br><span class="line">+------------------------+                   +------------------------+</span><br><span class="line">| Interfaces (physical)  |&lt;--LAN bridge-----&gt;|   Web UI &amp; API (LuCI/  |</span><br><span class="line">| - eth0, wlan0, wlan1   |                   |     custom WebUI)      |</span><br><span class="line">+------------------------+                   | - JSON-RPC / ubus      |</span><br><span class="line">                                             +------------------------+</span><br></pre></td></tr></table></figure>
+<p>Overlay &#x2F; Mesh Networking:<br>  Enigmabox instances &lt;—- encrypted tunnels (WireGuard &#x2F; custom) —-&gt; Enigmabox instances<br>  (authentication via keypairs, overlay-router performs routing + NAT as needed)</p>
+<p>Storage &amp; Keys:<br>  &#x2F;etc&#x2F;enigmabox&#x2F;keys&#x2F;  (persistent keys, rotated by identity-manager)</p>
+<p>Update &amp; Packaging:</p>
+<ul>
+<li>buildroot&#x2F;toolchain -&gt; kernel, packages -&gt; rootfs -&gt; sysupgrade images</li>
+<li>private feeds for enigmabox packages</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>procd&#x2F;ubus manage services lifecycle</li>
+<li>firewall (fw3&#x2F;nft) enforces isolation between LAN and Enigmabox services</li>
+<li>optional hardware crypto (TPM, secure element) if present</li>
+</ul>
+<p>je peux le générer immédiatement.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/enigmabox/" class="tag-link">enigmabox</a>
+            
+            <a href="/tags/securite/" class="tag-link">sécurité</a>
+            
+            <a href="/tags/openwrt/" class="tag-link">openwrt</a>
+            
+            <a href="/tags/reseau/" class="tag-link">réseau</a>
+            
+            <a href="/tags/architecture/" class="tag-link">architecture</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/03/fr/Projet_Enigmabox-OpenWrt/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">🔐 Enigmabox / OpenWrt – Campagne de financement</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/03/fr/devices-enigmabox-suite/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Devices &amp; EnigmaBox Suite</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

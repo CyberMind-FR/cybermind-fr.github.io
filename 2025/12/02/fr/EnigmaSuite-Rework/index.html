@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="EnigmaSuite — Rework complet pour OpenWrt 19.07Ce document présente la version entièrement retravaillée d’EnigmaSuite pour OpenWrt 19.07, basée sur la version v19.07.7.">
+<meta name="keywords" content="ARM, OpenWrt, EspressoBin, EnigmaSuite, EnigmaBox">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="EnigmaSuite — Rework complet pour OpenWrt 19.07">
+<meta property="og:description" content="EnigmaSuite — Rework complet pour OpenWrt 19.07Ce document présente la version entièrement retravaillée d’EnigmaSuite pour OpenWrt 19.07, basée sur la version v19.07.7.">
+<meta property="og:url" content="https://cybermind.fr/2025/12/02/fr/EnigmaSuite-Rework/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-02T13:30:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.335Z">
+
+
+
+
+<meta property="article:tag" content="ARM">
+
+<meta property="article:tag" content="OpenWrt">
+
+<meta property="article:tag" content="EspressoBin">
+
+<meta property="article:tag" content="EnigmaSuite">
+
+<meta property="article:tag" content="EnigmaBox">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EnigmaSuite — Rework complet pour OpenWrt 19.07">
+<meta name="twitter:description" content="EnigmaSuite — Rework complet pour OpenWrt 19.07Ce document présente la version entièrement retravaillée d’EnigmaSuite pour OpenWrt 19.07, basée sur la version v19.07.7.">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/12/02/fr/EnigmaSuite-Rework/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>EnigmaSuite — Rework complet pour OpenWrt 19.07 | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        
+        <h1 class="post-title">EnigmaSuite — Rework complet pour OpenWrt 19.07</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-12-02T13:30:00.000Z">
+                    02 December 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/ARM/" class="post-tag">ARM</a>
+                
+                <a href="/tags/OpenWrt/" class="post-tag">OpenWrt</a>
+                
+                <a href="/tags/EspressoBin/" class="post-tag">EspressoBin</a>
+                
+                <a href="/tags/EnigmaSuite/" class="post-tag">EnigmaSuite</a>
+                
+                <a href="/tags/EnigmaBox/" class="post-tag">EnigmaBox</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h1 id="EnigmaSuite-—-Rework-complet-pour-OpenWrt-19-07"><a href="#EnigmaSuite-—-Rework-complet-pour-OpenWrt-19-07" class="headerlink" title="EnigmaSuite — Rework complet pour OpenWrt 19.07"></a>EnigmaSuite — Rework complet pour OpenWrt 19.07</h1><p>Ce document présente la version <strong>entièrement retravaillée</strong> d’EnigmaSuite pour <strong>OpenWrt 19.07</strong>, basée sur la version <em>v19.07.7</em>.</p>
+<span id="more"></span>
+<blockquote>
+<p>⚠️ <strong>Statut : expérimental — “Use it at your own risk”</strong><br>⚠️ <strong>Mention d’origine : “CONFIDENTIAL and PRIVATE — For your eyes only!”</strong><br>(Cette mention est reproduite ici uniquement à des fins documentaires.)</p>
+</blockquote>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/CyberMind-FR/enigmasuite-openwrt</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[Build PC]</span><br><span class="line">   |</span><br><span class="line">   | git clone / feeds update</span><br><span class="line">   v</span><br><span class="line">[OpenWrt 19.07 tree]</span><br><span class="line">   |</span><br><span class="line">   | make menuconfig -&gt; make</span><br><span class="line">   v</span><br><span class="line">[bin/targets/.../images]</span><br><span class="line">   |  ┌────────────┬──────────────┐</span><br><span class="line">   |  │ kernel.img │ rootfs.ext4  │  (sysupgrade.img)</span><br><span class="line">   |  └────────────┴──────────────┘</span><br><span class="line">   |</span><br><span class="line">   | scp / tftp</span><br><span class="line">   v</span><br><span class="line">[U-Boot on EspressoBin]</span><br><span class="line">   |</span><br><span class="line">   | tftp 0x8000000 kernel.img</span><br><span class="line">   | tftp 0x9000000 rootfs.ext4</span><br><span class="line">   | sf probe ; sf erase ; sf write</span><br><span class="line">   v</span><br><span class="line">[Flash (kernel + rootfs)]</span><br><span class="line">   |</span><br><span class="line">   v</span><br><span class="line">[Reboot -&gt; OpenWrt starts]</span><br><span class="line">   └─&gt; init -&gt; mount rootfs -&gt; EnigmaSuite services up</span><br></pre></td></tr></table></figure>
+<h2 id="Resume-de-l’etat-du-projet"><a href="#Resume-de-l’etat-du-projet" class="headerlink" title="Résumé de l’état du projet"></a>Résumé de l’état du projet</h2><ul>
+<li><strong>Rework interne complet</strong> basé sur <em>OpenWrt v19.07.7</em>  </li>
+<li><strong>Fonctionnel sur Cortex-A53</strong> (testé en juin 2021)  </li>
+<li>Testé sur <strong>MVEBU ARMADA 37xx ESPRESSOBIN</strong> (carte de GlobalScale Technologies)</li>
+</ul>
+<hr>
+<h2 id="🎯-Comment-compiler-EnigmaSuite-pour-OpenWrt-19-07"><a href="#🎯-Comment-compiler-EnigmaSuite-pour-OpenWrt-19-07" class="headerlink" title="🎯 Comment compiler EnigmaSuite pour OpenWrt 19.07"></a>🎯 Comment compiler EnigmaSuite pour OpenWrt 19.07</h2><h3 id="1-Cloner-OpenWrt"><a href="#1-Cloner-OpenWrt" class="headerlink" title="1. Cloner OpenWrt"></a>1. Cloner OpenWrt</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/openwrt/openwrt.git</span><br><span class="line"><span class="built_in">cd</span> openwrt</span><br><span class="line">git checkout v19.07.7</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Creer-le-fichier-feeds-conf"><a href="#2-Creer-le-fichier-feeds-conf" class="headerlink" title="2. Créer le fichier feeds.conf"></a>2. Créer le fichier feeds.conf</h3><p>Créer ou éditer feeds.conf pour y mettre :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src-git enigmabox https://github.com/CyberMind-FR/enigmasuite-openwrt.git;openwrt-19.07</span><br><span class="line">src-git packages https://git.openwrt.org/feed/packages.git;openwrt-19.07</span><br><span class="line">src-git luci https://git.openwrt.org/project/luci.git;openwrt-19.07</span><br><span class="line">src-git routing https://git.openwrt.org/feed/routing.git;openwrt-19.07</span><br><span class="line">src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-19.07</span><br></pre></td></tr></table></figure>
+<h3 id="3-Activer-le-feed-Enigmabox"><a href="#3-Activer-le-feed-Enigmabox" class="headerlink" title="3. Activer le feed Enigmabox"></a>3. Activer le feed Enigmabox</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;CONFIG_FEED_enigmabox=y&quot; &gt;&gt; .config</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Mise-a-jour-installation-des-feeds"><a href="#4-Mise-a-jour-installation-des-feeds" class="headerlink" title="4. Mise à jour &amp; installation des feeds"></a>4. Mise à jour &amp; installation des feeds</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Generation-de-la-configuration"><a href="#5-Generation-de-la-configuration" class="headerlink" title="5. Génération de la configuration"></a>5. Génération de la configuration</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
+<h3 id="6-Compilation"><a href="#6-Compilation" class="headerlink" title="6. Compilation"></a>6. Compilation</h3><p>Compiler le toolchain puis la cible :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make toolchain/compile</span><br><span class="line">make target/compile</span><br></pre></td></tr></table></figure>
+
+<p>ou version raccourcie :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &#123;toolchain,target&#125;/compile</span><br></pre></td></tr></table></figure>
+<h2 id="🔥-Flash-final"><a href="#🔥-Flash-final" class="headerlink" title="🔥 Flash final"></a>🔥 Flash final</h2><p>Une fois l’image générée :</p>
+<p>Flashez le firmware sur votre appareil comme d’habitude…</p>
+<p>(méthode dépendante du bootloader et du matériel — ex. u-boot + tftp + ext4 pour EspressoBin)</p>
+<h2 id="⚠️-Avertissements-d’origine"><a href="#⚠️-Avertissements-d’origine" class="headerlink" title="⚠️ Avertissements d’origine"></a>⚠️ Avertissements d’origine</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Use it at your own risk...</span><br><span class="line">Still in development phase...</span><br><span class="line"></span><br><span class="line">CONFIDENTIAL and PRIVATE!</span><br><span class="line">For your eyes only!</span><br></pre></td></tr></table></figure>
+
+<p>Ces indications font partie du texte original et sont conservées à titre informatif.</p>
+<h1 id="📐-Schema-ASCII-—-Build-Flash-EnigmaSuite-OpenWrt-19-07"><a href="#📐-Schema-ASCII-—-Build-Flash-EnigmaSuite-OpenWrt-19-07" class="headerlink" title="📐 Schéma ASCII — Build &amp; Flash EnigmaSuite (OpenWrt 19.07)"></a>📐 Schéma ASCII — Build &amp; Flash EnigmaSuite (OpenWrt 19.07)</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">              ┌──────────────────────────────┐</span><br><span class="line">              │     Poste de Build (PC)       │</span><br><span class="line">              │  GNU/Linux / toolchain GCC    │</span><br><span class="line">              └──────────────┬───────────────┘</span><br><span class="line">                             │</span><br><span class="line">                             │ git clone + feeds</span><br><span class="line">                             ▼</span><br><span class="line">       ┌────────────────────────────────────────────┐</span><br><span class="line">       │        Arbre OpenWrt v19.07.7               │</span><br><span class="line">       │   (source officielle + feed EnigmaSuite)    │</span><br><span class="line">       └──────────────┬──────────────────────────────┘</span><br><span class="line">                      │</span><br><span class="line">                      │ make defconfig</span><br><span class="line">                      │ feeds update/install</span><br><span class="line">                      ▼</span><br><span class="line">       ┌────────────────────────────────────────────┐</span><br><span class="line">       │         Configuration OpenWrt               │</span><br><span class="line">       │  .config = sélection des paquets + options  │</span><br><span class="line">       └──────────────┬──────────────────────────────┘</span><br><span class="line">                      │</span><br><span class="line">                      │ make toolchain/compile</span><br><span class="line">                      │</span><br><span class="line">                      ▼</span><br><span class="line">       ┌────────────────────────────────────────────┐</span><br><span class="line">       │           Build Toolchain GCC               │</span><br><span class="line">       │  (cross-compile ARM Cortex-A53 / ARMADA)    │</span><br><span class="line">       └──────────────┬──────────────────────────────┘</span><br><span class="line">                      │</span><br><span class="line">                      │ make target/compile</span><br><span class="line">                      ▼</span><br><span class="line">       ┌────────────────────────────────────────────┐</span><br><span class="line">       │      Compilation du Target / Packages       │</span><br><span class="line">       │  - Kernel (uImage)                          │</span><br><span class="line">       │  - RootFS (ext4 + overlay)                  │</span><br><span class="line">       │  - Paquets EnigmaSuite                      │</span><br><span class="line">       └──────────────┬──────────────────────────────┘</span><br><span class="line">                      │</span><br><span class="line">                      │ génération image sysupgrade</span><br><span class="line">                      ▼</span><br><span class="line">       ┌────────────────────────────────────────────┐</span><br><span class="line">       │     Dossier ./bin/targets/.../images        │</span><br><span class="line">       │  - openwrt-*-kernel.bin                      │</span><br><span class="line">       │  - openwrt-*-rootfs.ext4                     │</span><br><span class="line">       │  - openwrt-*-sysupgrade.img                  │</span><br><span class="line">       └──────────────┬──────────────────────────────┘</span><br><span class="line">                      │</span><br><span class="line">                      │ transfert par tftp / scp</span><br><span class="line">                      ▼</span><br><span class="line"> ┌───────────────────────────────────────────────────────────┐</span><br><span class="line"> │             Carte ARM — ESPRESSOBIN                        │</span><br><span class="line"> │      ARMADA 3720 / Cortex-A53 / U-Boot                    │</span><br><span class="line"> └──────────────┬────────────────────────────────────────────┘</span><br><span class="line">                │</span><br><span class="line">                │ U-Boot : load image depuis TFTP</span><br><span class="line">                ▼</span><br><span class="line">┌────────────────────────────────────────────────────────────┐</span><br><span class="line">│                    U-Boot (bootloader)                     │</span><br><span class="line">│  &gt; tftp 0x8000000 openwrt-kernel.bin                       │</span><br><span class="line">│  &gt; tftp 0x9000000 openwrt-rootfs.ext4                      │</span><br><span class="line">│  &gt; sf probe ; sf write ; etc.                              │</span><br><span class="line">└──────────────┬────────────────────────────────────────────┘</span><br><span class="line">               │</span><br><span class="line">               │ Flashage partitions :</span><br><span class="line">               │ - kernel partition (16MB env.)  </span><br><span class="line">               │ - rootfs ext4 (3600MB env.)</span><br><span class="line">               ▼</span><br><span class="line">┌────────────────────────────────────────────────────────────┐</span><br><span class="line">│                     Mémoire Flash / eMMC                   │</span><br><span class="line">│  ┌─────────────────────────┬──────────────────────────┐    │</span><br><span class="line">│  │  Kernel (uImage)        │   RootFS ext4 + overlay  │    │</span><br><span class="line">│  └─────────────────────────┴──────────────────────────┘    │</span><br><span class="line">└──────────────┬────────────────────────────────────────────┘</span><br><span class="line">               │</span><br><span class="line">               │ reboot</span><br><span class="line">               ▼</span><br><span class="line">┌────────────────────────────────────────────────────────────┐</span><br><span class="line">│                         Boot OpenWrt                        │</span><br><span class="line">│   kernel → init → mount rootfs → start services             │</span><br><span class="line">│   + démarrage EnigmaSuite (web/mail/cloud/etc.)             │</span><br><span class="line">└────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+<h2 id="2-Schema-reseau-flux-LAN-↔-services-↔-EnigmaSuite"><a href="#2-Schema-reseau-flux-LAN-↔-services-↔-EnigmaSuite" class="headerlink" title="2) Schéma réseau (flux LAN ↔ services ↔ EnigmaSuite)"></a>2) Schéma réseau (flux LAN ↔ services ↔ EnigmaSuite)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">                          Internet</span><br><span class="line">                             |</span><br><span class="line">                         (WAN/L3)</span><br><span class="line">                             |</span><br><span class="line">                     [Router / Firewall]</span><br><span class="line">                     /       |        \</span><br><span class="line">                    /        |         \</span><br><span class="line">              (LAN) /    (DMZ) |      (Mgmt)</span><br><span class="line">                  /           |         \</span><br><span class="line">         +-------+-----+   +--+---+   +--+---+</span><br><span class="line">         | Switch / VLAN|   |Espresso|  |Admin|</span><br><span class="line">         | (LAN: 192.168.1.0/24) |Bin   |Host |</span><br><span class="line">         +---+---+---+---+   +--+---+   +--+---+</span><br><span class="line">             |   |   |           |          |</span><br><span class="line">Devices ---&gt; PC  NAS Phone     eth0      eth1 (Mgmt)</span><br><span class="line">             |               (OpenWrt)   (Serial/SSH)</span><br><span class="line">             |                  |</span><br><span class="line">      Browser -&gt; 80/443 -&gt; Web UI (EnigmaSuite)</span><br><span class="line">                            |</span><br><span class="line">          ------------------+-------------------</span><br><span class="line">          |        |         |         |       |</span><br><span class="line">       HTTP(S)  SMTP/IMAP  DB(5432)  S3 API  Cron/jobs</span><br><span class="line">          |        |         |         |       |</span><br><span class="line">        nginx   postfix/dovecot  postgresql  minio  task runner</span><br></pre></td></tr></table></figure>
+<h2 id="3-Layout-partitions-memoire-EspressoBin-—-exemple-typique-SPI-flash-eMMC"><a href="#3-Layout-partitions-memoire-EspressoBin-—-exemple-typique-SPI-flash-eMMC" class="headerlink" title="3) Layout partitions &#x2F; mémoire (EspressoBin — exemple typique SPI flash + eMMC)"></a>3) Layout partitions &#x2F; mémoire (EspressoBin — exemple typique SPI flash + eMMC)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">SPI Flash (small, holds bootloader + env)</span><br><span class="line">------------------------------------------------</span><br><span class="line">offset 0x00000000  size 512KB   --&gt; U-Boot SPL + U-Boot</span><br><span class="line">offset 0x00080000  size 64KB    --&gt; U-Boot env (env)</span><br><span class="line">offset 0x00090000  size 448KB   --&gt; reserved / bootloader extras</span><br><span class="line"></span><br><span class="line">eMMC / NAND / SPI-NOR (rootfs + data)</span><br><span class="line">------------------------------------------------</span><br><span class="line">partition 1:  kernel        offset 0x00100000  size 16MB   -&gt; uImage / fitImage</span><br><span class="line">partition 2:  rootfs        offset 0x01100000  size 4096MB -&gt; ext4 / squashfs + overlay</span><br><span class="line">partition 3:  data          offset 0x41100000  size rest   -&gt; /overlay, persistent data (configs, DB)</span><br><span class="line">partition 4:  recovery      optional               -&gt; recovery image / fallback</span><br><span class="line"></span><br><span class="line">Example mtd layout (U-Boot env style):</span><br><span class="line">mtdparts=spi0.0:512k(u-boot),64k(u-boot-env),448k(reserved),16m(kernel),-(rootfs)</span><br><span class="line"></span><br><span class="line">Typical mount points after boot:</span><br><span class="line">- / (root)  -&gt; mounted from rootfs (ext4 or squashfs + overlay)</span><br><span class="line">- /overlay  -&gt; writable overlay on top of read-only root</span><br><span class="line">- /boot     -&gt; kernel image (if separate, sometimes not mounted)</span><br><span class="line">- /data     -&gt; persistent app data, DBs, uploads (on separate partition)</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/ARM/" class="tag-link">ARM</a>
+            
+            <a href="/tags/OpenWrt/" class="tag-link">OpenWrt</a>
+            
+            <a href="/tags/EspressoBin/" class="tag-link">EspressoBin</a>
+            
+            <a href="/tags/EnigmaSuite/" class="tag-link">EnigmaSuite</a>
+            
+            <a href="/tags/EnigmaBox/" class="tag-link">EnigmaBox</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/12/02/fr/Les_armes_soniques/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Les armes soniques : usages récents et historiques</span>
+            </a>
+            
+            
+            
+            <a href="/2025/12/01/fr/Enigmabox_critiques/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Enigmabox - critiques, limites et meilleures alternatives actuelles</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

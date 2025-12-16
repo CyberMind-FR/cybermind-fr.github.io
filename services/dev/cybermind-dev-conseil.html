@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind.fr/services/dev/cybermind-dev-conseil.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-16T19:47:53.228Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/services/dev/cybermind-dev-conseil.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberMind.fr — Conseil & Développement Sur Mesure</title>
+    <meta name="description" content="Développement Linux embarqué, solutions sur mesure et conseil technique. Expertise kernel, ARM, OpenWrt, Armbian. 25+ ans d'expérience.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Force override Hexo/NexT theme styles */
+        html, body, 
+        .main, .main-inner, 
+        .content, .content-wrap, 
+        .post, .post-body, .post-block,
+        .page, .page-body,
+        article, main, section,
+        .container, .container-inner {
+            background: #000000 !important;
+            background-color: #000000 !important;
+        }
+        
+        .sidebar, .sidebar-inner,
+        .header, .site-nav,
+        .footer, .footer-inner,
+        .back-to-top,
+        .post-meta, .post-nav,
+        .comments, .post-widgets,
+        .breadcrumb, .post-toc,
+        .site-brand-container {
+            display: none !important;
+        }
+        
+        .post-body, .page-body, .content {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0f;
+            --bg-tertiary: #111116;
+            --accent-blue: #3b82f6;
+            --accent-purple: #9945ff;
+            --accent-cyan: #00d4ff;
+            --accent-green: #00ff88;
+            --text-primary: #e8e8ed;
+            --text-secondary: #9898a6;
+            --text-muted: #5a5a6e;
+            --border-subtle: rgba(255,255,255,0.06);
+            --glow-blue: rgba(59,130,246,0.15);
+            --glow-purple: rgba(153,69,255,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: #000000;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #000000;
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background - code pattern */
+        .bg-code {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(59,130,246,0.04) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(153,69,255,0.04) 0%, transparent 40%),
+                radial-gradient(circle at 60% 40%, rgba(0,212,255,0.02) 0%, transparent 50%);
+            animation: codeShift 15s ease-in-out infinite;
+        }
+
+        @keyframes codeShift {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '$';
+            color: var(--accent-green);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem;
+            gap: 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .badge-icon {
+            font-size: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px var(--glow-blue);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Code terminal decoration */
+        .hero-terminal {
+            width: 450px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            animation: fadeInRight 1s ease 0.5s both;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f57; }
+        .terminal-dot.yellow { background: #febc2e; }
+        .terminal-dot.green { background: var(--accent-green); }
+
+        .terminal-title {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            line-height: 1.9;
+        }
+
+        .terminal-line {
+            opacity: 0;
+            animation: typeLine 0.5s ease forwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.8s; }
+        .terminal-line:nth-child(2) { animation-delay: 1.2s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.6s; }
+        .terminal-line:nth-child(4) { animation-delay: 2s; }
+        .terminal-line:nth-child(5) { animation-delay: 2.4s; }
+        .terminal-line:nth-child(6) { animation-delay: 2.8s; }
+        .terminal-line:nth-child(7) { animation-delay: 3.2s; }
+
+        @keyframes typeLine {
+            to { opacity: 1; }
+        }
+
+        .terminal-prompt {
+            color: var(--accent-green);
+        }
+
+        .terminal-cmd {
+            color: var(--accent-blue);
+        }
+
+        .terminal-comment {
+            color: var(--text-muted);
+        }
+
+        .terminal-output {
+            color: var(--text-secondary);
+        }
+
+        .terminal-success {
+            color: var(--accent-green);
+        }
+
+        .terminal-keyword {
+            color: var(--accent-purple);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-tag::before {
+            content: '//';
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(59,130,246,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card > p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li::before {
+            content: '⚡';
+            color: var(--accent-blue);
+        }
+
+        /* Technologies Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: rgba(59,130,246,0.3);
+            transform: translateY(-3px);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tech-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tech-item p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(59,130,246,0.3);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--glow-blue), var(--glow-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .project-header span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-blue);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--bg-tertiary);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent-purple);
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            width: 75%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan), var(--accent-green));
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .profile-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--accent-blue);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .profile-stat span {
+            display: block;
+        }
+
+        .profile-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        .profile-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(8px);
+            background: rgba(59,130,246,0.1);
+        }
+
+        .contact-method-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+        }
+
+        .contact-form {
+            background: var(--bg-tertiary);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px var(--glow-blue);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: var(--bg-secondary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 4rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .hero-terminal {
+                width: 100%;
+                max-width: 480px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section, .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-terminal {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-code"></div>
+
+    <div class="main-wrapper">
+        <nav>
+            <a href="https://cybermind.fr" class="logo">CyberMind_</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#processus">Processus</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⚙️</span>
+                    Expert Linux & Embedded
+                </div>
+                <h1>
+                    Conseil &<br>
+                    <span class="highlight">Développement</span><br>
+                    Sur Mesure
+                </h1>
+                <p class="hero-subtitle">
+                    Solutions logicielles personnalisées, expertise Linux embarqué et 
+                    accompagnement technique de vos projets innovants.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">25+</span>
+                        <span class="stat-label">Ans d'expérience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">Linux</span>
+                        <span class="stat-label">Kernel Contributor</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">ARM</span>
+                        <span class="stat-label">Spécialiste SoC</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Discuter de votre projet</a>
+                    <a href="#services" class="btn btn-secondary">Voir les services</a>
+                </div>
+            </div>
+
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">gandalf@dev:~/project</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-comment"># Build custom Linux image</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span> <span class="terminal-cmd">make</span> ARCH=arm64 defconfig
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span> <span class="terminal-cmd">make</span> -j$(nproc) Image dtbs
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        Building kernel 6.x for ARM64...
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        Compiling device tree overlays...
+                    </div>
+                    <div class="terminal-line terminal-success">
+                        [✓] Build successful
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span> <span class="terminal-keyword">./deploy.sh</span> --target=client
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-header">
+                <div class="section-tag">Services</div>
+                <h2 class="section-title">Développement & Conseil Technique</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🐧</div>
+                    <h3>Développement Linux</h3>
+                    <p>Du kernel aux applications userspace, maîtrise complète de l'écosystème Linux pour vos projets embarqués.</p>
+                    <ul class="service-features">
+                        <li>Drivers kernel personnalisés</li>
+                        <li>Portage et adaptation BSP</li>
+                        <li>Optimisation performances</li>
+                        <li>Debugging low-level</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Systèmes Embarqués</h3>
+                    <p>Conception et développement de solutions embarquées sur plateformes ARM avec expertise matérielle.</p>
+                    <ul class="service-features">
+                        <li>Intégration SoC ARM</li>
+                        <li>Device Tree & overlays</li>
+                        <li>Bootloader (U-Boot)</li>
+                        <li>Interfaces JTAG/SWD</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Solutions OpenWrt / Armbian</h3>
+                    <p>Création d'images personnalisées et packaging pour vos plateformes réseau et SBC.</p>
+                    <ul class="service-features">
+                        <li>Images OpenWrt custom</li>
+                        <li>Support Armbian boards</li>
+                        <li>Packaging & maintenance</li>
+                        <li>CI/CD build systems</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Conseil Architecture</h3>
+                    <p>Accompagnement stratégique pour vos choix techniques et architectures systèmes.</p>
+                    <ul class="service-features">
+                        <li>Audit technique existant</li>
+                        <li>Choix technologiques</li>
+                        <li>Roadmap technique</li>
+                        <li>Formation équipes</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Prototypage & POC</h3>
+                    <p>Transformation rapide de vos idées en prototypes fonctionnels pour valider vos concepts.</p>
+                    <ul class="service-features">
+                        <li>Maquettage rapide</li>
+                        <li>Validation concepts</li>
+                        <li>Tests de faisabilité</li>
+                        <li>Documentation technique</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Accompagnement long-terme pour la maintenance évolutive et corrective de vos systèmes.</p>
+                    <ul class="service-features">
+                        <li>Support niveau 3</li>
+                        <li>Évolutions fonctionnelles</li>
+                        <li>Mises à jour sécurité</li>
+                        <li>Documentation & transfert</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="technologies">
+            <div class="section-header">
+                <div class="section-tag">Technologies</div>
+                <h2 class="section-title">Stack Technique</h2>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">🐧</div>
+                    <h4>Linux Kernel</h4>
+                    <p>Drivers, subsystems</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">💪</div>
+                    <h4>ARM / ARM64</h4>
+                    <p>Cortex-A, Cortex-M</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📡</div>
+                    <h4>OpenWrt</h4>
+                    <p>Routeurs, IoT</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🍊</div>
+                    <h4>Armbian</h4>
+                    <p>SBC Linux</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">⚙️</div>
+                    <h4>C / C++</h4>
+                    <p>Système, embarqué</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🐍</div>
+                    <h4>Python</h4>
+                    <p>Scripts, automation</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🦀</div>
+                    <h4>Rust</h4>
+                    <p>Sécurité mémoire</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📜</div>
+                    <h4>Bash</h4>
+                    <p>Scripting système</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔌</div>
+                    <h4>U-Boot</h4>
+                    <p>Bootloader</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🌳</div>
+                    <h4>Device Tree</h4>
+                    <p>Hardware description</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔧</div>
+                    <h4>Buildroot</h4>
+                    <p>Embedded Linux</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🐳</div>
+                    <h4>Docker</h4>
+                    <p>Containers</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets">
+            <div class="section-header">
+                <div class="section-tag">Réalisations</div>
+                <h2 class="section-title">Projets & Contributions</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🐧</div>
+                        <div>
+                            <h3>Linux Kernel</h3>
+                            <span>Contributor</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Contributions au noyau Linux, notamment sur les drivers SD/MMC 
+                            pour plateformes embarquées ARM.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Kernel</span>
+                            <span class="project-tag">Drivers</span>
+                            <span class="project-tag">MMC</span>
+                            <span class="project-tag">ARM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🍊</div>
+                        <div>
+                            <h3>Armbian MOCHAbin</h3>
+                            <span>Board Support</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Support Armbian pour le SBC GlobalScale MOCHAbin. 
+                            Configuration U-Boot, Device Tree et build system.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Armbian</span>
+                            <span class="project-tag">Marvell</span>
+                            <span class="project-tag">U-Boot</span>
+                            <span class="project-tag">DTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📡</div>
+                        <div>
+                            <h3>OpenWrt Packages</h3>
+                            <span>Maintainer</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Packaging et maintenance de paquets OpenWrt pour 
+                            équipements réseau et IoT.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">OpenWrt</span>
+                            <span class="project-tag">Packaging</span>
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Network</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🔍</div>
+                        <div>
+                            <h3>PiDebugger</h3>
+                            <span>Open Source Project</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Outil de debugging ARM combinant Raspberry Pi Zero W 
+                            avec interface tactile pour SWD/JTAG.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Raspberry Pi</span>
+                            <span class="project-tag">Debug</span>
+                            <span class="project-tag">ARM</span>
+                            <span class="project-tag">SWD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="processus">
+            <div class="section-header">
+                <div class="section-tag">Méthodologie</div>
+                <h2 class="section-title">Notre Processus</h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h4>Discovery</h4>
+                    <p>Analyse de vos besoins, contraintes et objectifs techniques</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h4>Design</h4>
+                    <p>Architecture, spécifications et choix technologiques</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h4>Develop</h4>
+                    <p>Implémentation itérative avec livraisons régulières</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h4>Deploy</h4>
+                    <p>Mise en production et transfert de compétences</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="apropos">
+            <div class="section-header">
+                <div class="section-tag">À propos</div>
+                <h2 class="section-title">L'Expert Derrière le Code</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Gandalf — Développeur & Consultant</h3>
+                    <p>
+                        Développeur passionné depuis les années 80, j'ai construit mon expertise 
+                        à travers un parcours allant de la programmation bare-metal aux contributions 
+                        au noyau Linux, en passant par des postes chez des acteurs majeurs comme Thales.
+                    </p>
+                    <p>
+                        Ma spécialité : les systèmes embarqués Linux sur architectures ARM. 
+                        Du bootloader au userspace, je maîtrise l'ensemble de la chaîne pour 
+                        vous livrer des solutions robustes et optimisées.
+                    </p>
+                    <p>
+                        Contributeur open source actif, je crois au partage des connaissances 
+                        et à l'excellence technique comme fondements d'un développement durable.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">🐧 Linux Kernel</span>
+                        <span class="tech-badge">💪 ARM Expert</span>
+                        <span class="tech-badge">⚙️ C / Rust</span>
+                        <span class="tech-badge">📡 OpenWrt</span>
+                        <span class="tech-badge">🍊 Armbian</span>
+                        <span class="tech-badge">🏢 Ex-Thales</span>
+                    </div>
+                </div>
+
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-avatar">🧙</div>
+                        <h4 class="profile-name">Gandalf</h4>
+                        <p class="profile-title">Senior Embedded Developer</p>
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">25+</span>
+                                <span class="profile-stat-label">Ans XP</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">🐧</span>
+                                <span class="profile-stat-label">Kernel</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-value">🇫🇷</span>
+                                <span class="profile-stat-label">Savoie</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-header">
+                <div class="section-tag">Contact</div>
+                <h2 class="section-title">Démarrons Votre Projet</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Besoin d'expertise technique ?</h3>
+                    <p>
+                        Que ce soit pour un développement sur mesure, du conseil en architecture 
+                        ou un projet embarqué complexe, discutons de vos besoins.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:contact@cybermind.fr" class="contact-method">
+                            <div class="contact-method-icon">📧</div>
+                            <div>
+                                <strong>Email</strong>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">contact@cybermind.fr</div>
+                            </div>
+                        </a>
+                        <a href="https://cybermind.fr" class="contact-method" target="_blank">
+                            <div class="contact-method-icon">🌐</div>
+                            <div>
+                                <strong>Site Web</strong>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">cybermind.fr</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/CyberMind-FR" class="contact-method" target="_blank">
+                            <div class="contact-method-icon">💻</div>
+                            <div>
+                                <strong>GitHub</strong>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">CyberMind-FR</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/mnnekqnp" method="POST">
+                        <input type="hidden" name="_subject" value="⚙️ Demande Développement - CyberMind">
+                        <input type="hidden" name="_next" value="https://cybermind.fr/merci/">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="form-group">
+                            <label for="name">Nom / Organisation</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Type de projet</label>
+                            <select id="service" name="service">
+                                <option value="dev-linux">Développement Linux / Kernel</option>
+                                <option value="embedded">Systèmes embarqués ARM</option>
+                                <option value="openwrt">Solutions OpenWrt / Armbian</option>
+                                <option value="conseil">Conseil architecture</option>
+                                <option value="prototype">Prototypage / POC</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Description du projet</label>
+                            <textarea id="message" name="message" placeholder="Décrivez votre besoin technique..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Envoyer ma demande</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Code • Expertise • Sur-mesure
+            </div>
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Confidentialité</a>
+                <a href="https://cybermind.fr">Blog</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

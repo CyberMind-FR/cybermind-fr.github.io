@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Here are some notes about pasts and successfull experiments with UEFI boot from u-boot on ARM64 EspressoBin.
+They were done on the 8th of september 2020 for OPNSense and on the 19th oo july 2021.I sti">
+<meta name="keywords" content="SECUBOX, contribute, EspressoBin, Armada, UEFI, BOOT">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="EspressoBin@GlobalScaleTechnologies - UEFI BOOT">
+<meta property="og:description" content="Here are some notes about pasts and successfull experiments with UEFI boot from u-boot on ARM64 EspressoBin.
+They were done on the 8th of september 2020 for OPNSense and on the 19th oo july 2021.I sti">
+<meta property="og:url" content="https://cybermind.fr/2022/05/30/en/EspressoBin-GlobalScaleTechnologies-UEFI-BOOT/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2022-05-30T20:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.336Z">
+
+
+
+
+<meta property="article:tag" content="SECUBOX">
+
+<meta property="article:tag" content="contribute">
+
+<meta property="article:tag" content="EspressoBin">
+
+<meta property="article:tag" content="Armada">
+
+<meta property="article:tag" content="UEFI">
+
+<meta property="article:tag" content="BOOT">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EspressoBin@GlobalScaleTechnologies - UEFI BOOT">
+<meta name="twitter:description" content="Here are some notes about pasts and successfull experiments with UEFI boot from u-boot on ARM64 EspressoBin.
+They were done on the 8th of september 2020 for OPNSense and on the 19th oo july 2021.I sti">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2022/05/30/en/EspressoBin-GlobalScaleTechnologies-UEFI-BOOT/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>EspressoBin@GlobalScaleTechnologies - UEFI BOOT | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category Cyber">
+            📝 Cyber
+        </div>
+        
+        
+        <h1 class="post-title">EspressoBin@GlobalScaleTechnologies - UEFI BOOT</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2022-05-30T20:00:00.000Z">
+                    30 May 2022
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/SECUBOX/" class="post-tag">SECUBOX</a>
+                
+                <a href="/tags/contribute/" class="post-tag">contribute</a>
+                
+                <a href="/tags/EspressoBin/" class="post-tag">EspressoBin</a>
+                
+                <a href="/tags/Armada/" class="post-tag">Armada</a>
+                
+                <a href="/tags/UEFI/" class="post-tag">UEFI</a>
+                
+                <a href="/tags/BOOT/" class="post-tag">BOOT</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <p>Here are some notes about pasts and successfull experiments with UEFI boot from u-boot on ARM64 EspressoBin.</p>
+<p>They were done on the 8th of september 2020 for OPNSense and on the 19th oo july 2021.<br>I still had to make a detailed howto, but it may be usefull for advanced users waiting for some tests.</p>
+<p>They may also work ‘as-is’ or mainly close to on MochaBIn but I have not tested.</p>
+<span id="more"></span>
+
+<h2 id="IPFIRE-TRY"><a href="#IPFIRE-TRY" class="headerlink" title="IPFIRE TRY"></a>IPFIRE TRY</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usb reset</span><br><span class="line">load usb 0:2 $kernel_addr_r /efi/boot/bootaa64.efi</span><br><span class="line">load usb 0:1 $fdt_addr_r /dtb-5.10.50-ipfire/marvell/armada-3720-espressobin-v7-emmc.dtb</span><br><span class="line">bootefi $kernel_addr_r $fdt_addr_r</span><br><span class="line">... BOOT OK Linux lts</span><br></pre></td></tr></table></figure>
+
+<p>USB2 &#x3D; KO<br>USB3 &#x3D; OK</p>
+<h2 id="OPNSENSE-TRY"><a href="#OPNSENSE-TRY" class="headerlink" title="OPNSENSE TRY"></a>OPNSENSE TRY</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">=&gt; setenv fdt_name &#x27;dtb/marvell/armada-3720-espressobin.dtb&#x27;</span><br><span class="line">=&gt; setenv image_name &#x27;EFI/BOOT/bootaa64.efi&#x27;</span><br><span class="line">=&gt; setenv bootmmc &#x27;mmc dev 0;fatload mmc 0:1 $kernel_addr $image_name;fatload mmc 0:1 $fdt_addr $fdt_name; bootefi $kernel_addr&#x27;</span><br><span class="line">=&gt; run bootmmc</span><br></pre></td></tr></table></figure>
+
+<p>Will be updated soon…<br>Keep your eyes open.</p>
+<p>Take care, shared as is, use it at your own risks !</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/SECUBOX/" class="tag-link">SECUBOX</a>
+            
+            <a href="/tags/contribute/" class="tag-link">contribute</a>
+            
+            <a href="/tags/EspressoBin/" class="tag-link">EspressoBin</a>
+            
+            <a href="/tags/Armada/" class="tag-link">Armada</a>
+            
+            <a href="/tags/UEFI/" class="tag-link">UEFI</a>
+            
+            <a href="/tags/BOOT/" class="tag-link">BOOT</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/05/15/fr/OMNI_SUITE_SeCuBox_Teaser30s_v1.0_KERMA/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">2025 - OMNI_SUITE_SeCuBox_Teaser30s_v1.0_KERMA.md ?</span>
+            </a>
+            
+            
+            
+            <a href="/2022/05/13/fr/Poesie-Le-Temps-d-une-Pause/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Vidéo - Le Temps d&#39;une pause...</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧Voici un guide pour t’aider à démarrer avec des logiciels open source compatibles GRBL sur Linux.">
+<meta name="keywords" content="contribute, Mood, FabLab, Cyber">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutoriel - Utiliser des logiciels open source pour CNC sous Linux">
+<meta property="og:description" content="🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧Voici un guide pour t’aider à démarrer avec des logiciels open source compatibles GRBL sur Linux.">
+<meta property="og:url" content="https://cybermind.fr/2025/11/06/fr/cnc_linux_tutoriel/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind.fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-11-06T16:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-16T21:18:05.331Z">
+
+
+
+
+<meta property="article:tag" content="contribute">
+
+<meta property="article:tag" content="Mood">
+
+<meta property="article:tag" content="FabLab">
+
+<meta property="article:tag" content="Cyber">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tutoriel - Utiliser des logiciels open source pour CNC sous Linux">
+<meta name="twitter:description" content="🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧Voici un guide pour t’aider à démarrer avec des logiciels open source compatibles GRBL sur Linux.">
+<meta name="twitter:image" content="https://cybermind.fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind.fr/2025/11/06/fr/cnc_linux_tutoriel/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Tutoriel - Utiliser des logiciels open source pour CNC sous Linux | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+<nav>
+    <a href="/" class="logo">CyberMind_</a>
+    <ul class="nav-links">
+        
+        <li><a href="/">Accueil</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Catégories</a></li>
+        
+        <li><a href="/about/">À propos</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+    </ul>
+</nav>
+
+
+
+<article class="post-article">
+    <header class="post-header">
+        
+        <div class="post-category Cyber">
+            📝 Cyber
+        </div>
+        
+        
+        <h1 class="post-title">Tutoriel - Utiliser des logiciels open source pour CNC sous Linux</h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="2025-11-06T16:00:00.000Z">
+                    06 November 2025
+                </time>
+            </span>
+            
+            
+            <span class="post-updated">
+                Mis à jour le 16 December 2025
+            </span>
+            
+            
+            
+            <div class="post-tags">
+                
+                <a href="/tags/contribute/" class="post-tag">contribute</a>
+                
+                <a href="/tags/Mood/" class="post-tag">Mood</a>
+                
+                <a href="/tags/FabLab/" class="post-tag">FabLab</a>
+                
+                <a href="/tags/Cyber/" class="post-tag">Cyber</a>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="🛠️-Tutoriel-Utiliser-des-logiciels-open-source-pour-CNC-sous-Linux-🐧"><a href="#🛠️-Tutoriel-Utiliser-des-logiciels-open-source-pour-CNC-sous-Linux-🐧" class="headerlink" title="🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧"></a>🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧</h2><p>Voici un guide pour t’aider à démarrer avec des logiciels open source compatibles <strong>GRBL</strong> sur <strong>Linux</strong>.</p>
+<span id="more"></span>
+<h3 id="1️⃣-Universal-Gcode-Sender-UGS"><a href="#1️⃣-Universal-Gcode-Sender-UGS" class="headerlink" title="1️⃣ Universal Gcode Sender (UGS)"></a>1️⃣ Universal Gcode Sender (UGS)</h3><p>Universal Gcode Sender est une interface populaire pour envoyer des commandes <strong>G-code</strong> à ta CNC GRBL.</p>
+<p>🔗 <strong>Site officiel</strong> : <a target="_blank" rel="noopener" href="https://winder.github.io/ugs_website/">winder.github.io&#x2F;ugs_website</a><br>💻 <strong>Installation</strong> :</p>
+<ul>
+<li>☕ Requiert <strong>Java 8+</strong></li>
+<li>📦 Télécharge la version <strong>UGS Platform</strong></li>
+<li>🖥️ Exécute le fichier <code>.sh</code> (ex : <code>ugsplatform-linux.sh</code>)</li>
+</ul>
+<p>✨ <strong>Fonctionnalités</strong> :</p>
+<ul>
+<li>🎮 Contrôle manuel des axes (jogging)</li>
+<li>🧭 Visualisation du G-code</li>
+<li>🔁 Contrôle de flux GRBL</li>
+</ul>
+<hr>
+<h3 id="2️⃣-Candle"><a href="#2️⃣-Candle" class="headerlink" title="2️⃣ Candle"></a>2️⃣ Candle</h3><p>Candle est une autre interface simple et efficace pour piloter une machine GRBL.</p>
+<p>🔗 <strong>GitHub</strong> : <a target="_blank" rel="noopener" href="https://github.com/Denvi/Candle">github.com&#x2F;Denvi&#x2F;Candle</a><br>💻 <strong>Installation</strong> :</p>
+<ul>
+<li>📥 Télécharge le binaire <code>.AppImage</code> ou <code>.tar.gz</code></li>
+<li>🔓 Rends-le exécutable : <code>chmod +x fichier</code></li>
+<li>🚀 Lance-le</li>
+</ul>
+<p>✨ <strong>Fonctionnalités</strong> :</p>
+<ul>
+<li>🖱️ Interface intuitive</li>
+<li>🧱 Visualisation 3D du G-code</li>
+<li>⚙️ Réglages faciles de GRBL</li>
+</ul>
+<hr>
+<h3 id="3️⃣-LinuxCNC-option-avancee"><a href="#3️⃣-LinuxCNC-option-avancee" class="headerlink" title="3️⃣ LinuxCNC (option avancée)"></a>3️⃣ LinuxCNC (option avancée)</h3><p>🔧 <strong>LinuxCNC</strong> est une solution puissante, mais non compatible GRBL. Idéale pour les machines plus complexes.</p>
+<p>🔗 <strong>Site officiel</strong> : <a target="_blank" rel="noopener" href="http://linuxcnc.org/">linuxcnc.org</a><br>📌 <strong>Note</strong> : fonctionne souvent avec des ports parallèles ou cartes spécifiques.</p>
+<hr>
+<h3 id="4️⃣-Connexion-configuration-GRBL"><a href="#4️⃣-Connexion-configuration-GRBL" class="headerlink" title="4️⃣ Connexion &amp; configuration GRBL"></a>4️⃣ Connexion &amp; configuration GRBL</h3><p>🧩 Étapes de connexion :</p>
+<ul>
+<li>🔍 Vérifie le port avec : <code>ls /dev/ttyUSB*</code></li>
+<li>⚡ Configure le <strong>baud rate</strong> à <code>115200</code></li>
+<li>🧪 Teste la communication avec la commande <code>$$</code> dans le terminal G-code</li>
+</ul>
+<hr>
+<h3 id="5️⃣-Ressources-utiles-📚"><a href="#5️⃣-Ressources-utiles-📚" class="headerlink" title="5️⃣ Ressources utiles 📚"></a>5️⃣ Ressources utiles 📚</h3><ul>
+<li>📖 <a target="_blank" rel="noopener" href="https://github.com/gnea/grbl/wiki">Documentation GRBL</a></li>
+<li>💬 <a target="_blank" rel="noopener" href="https://www.cnczone.com/forums/french-discussion/">Forum CNCZone (FR)</a></li>
+</ul>
+<hr>
+<p>🧰 Avec ces outils, tu seras prêt à piloter ta fraiseuse CNC GRBL sous Linux comme un pro. Bonne fabrication ! 🪚💡</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+            <a href="/tags/contribute/" class="tag-link">contribute</a>
+            
+            <a href="/tags/Mood/" class="tag-link">Mood</a>
+            
+            <a href="/tags/FabLab/" class="tag-link">FabLab</a>
+            
+            <a href="/tags/Cyber/" class="tag-link">Cyber</a>
+            
+        </div>
+        
+        
+        <div class="post-nav">
+            
+            <a href="/2025/11/07/fr/La_Minute_Papillon_Mix/" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title">Poésie - La Minute Papillon — Mix orchestral complet…</span>
+            </a>
+            
+            
+            
+            <a href="/2025/11/06/fr/creer_gpt_huggingface/" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title">Fiches - DEVEL - Créer ton propre GPT avec Hugging Face</span>
+            </a>
+            
+        </div>
+    </footer>
+</article>
+
+
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+            </div>
+            <div class="footer-links">
+                
+                <a href="#">Mentions légales</a>
+                
+                <a href="#">Confidentialité</a>
+                
+                <a href="https://cybermind.fr">Blog</a>
+                
+            </div>
+        </footer>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+
