@@ -7,33 +7,28 @@
         </p>
     </div>
 
+    <% if (theme.services && theme.services.length > 0) { %>
     <div class="services-detailed">
+        <% theme.services.forEach(service => { %>
         <div class="service-detail-card">
-            <div class="service-detail-icon">🛡️</div>
-            <h3>Pentest & Sécurité</h3>
-            <p>Tests d'intrusion, audits de sécurité et accompagnement dans vos démarches de cybersécurité.</p>
+            <div class="service-detail-icon"><%= service.icon %></div>
+            <h3><%= service.name %></h3>
+            <p><%= service.description %></p>
             <ul class="service-features">
-                <li>Tests d'intrusion (Web, Infrastructure, Mobile)</li>
-                <li>Audits de code et configuration</li>
-                <li>Accompagnement sécurité</li>
-                <li>Formation équipes</li>
+                <% service.features.forEach(feature => { %>
+                <li><%= feature %></li>
+                <% }); %>
             </ul>
-            <a href="/services/pentest/" class="btn btn-primary">En savoir plus →</a>
+            <a href="/services/<%= service.slug %>/" class="btn btn-primary">En savoir plus →</a>
         </div>
-        
-        <div class="service-detail-card">
-            <div class="service-detail-icon">⚙️</div>
-            <h3>Développement & Conseil</h3>
-            <p>Développement embarqué, conseil technique et expertise sur vos projets ARM et Linux.</p>
-            <ul class="service-features">
-                <li>Développement embarqué (ARM, Linux)</li>
-                <li>Conseil architecture technique</li>
-                <li>Optimisation performances</li>
-                <li>Support technique</li>
-            </ul>
-            <a href="/services/dev/" class="btn btn-primary">En savoir plus →</a>
-        </div>
+        <% }); %>
     </div>
+    <% } else { %>
+    <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+        <p style="font-size: 1.2rem;">Aucun service configuré.</p>
+        <p>Configurez vos services dans <code>themes/cybermind/_config.yml</code></p>
+    </div>
+    <% } %>
 
     <div style="text-align: center; margin-top: 4rem;">
         <h3 style="margin-bottom: 1rem;">Intéressé par nos services ?</h3>

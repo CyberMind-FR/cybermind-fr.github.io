@@ -83,6 +83,7 @@
 </section>
 
 <!-- Services Section -->
+<% if (theme.services && theme.services.length > 0) { %>
 <section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Services</div>
@@ -90,33 +91,35 @@
     </div>
 
     <div class="services-detailed">
-        <div class="service-detail-card">
-            <div class="service-detail-icon">🛡️</div>
-            <h3>Pentest & Sécurité</h3>
-            <p>Tests d'intrusion, audits de sécurité et accompagnement dans vos démarches de cybersécurité.</p>
-            <ul class="service-features">
-                <li>✓ Tests d'intrusion (Web, Infrastructure, Mobile)</li>
-                <li>✓ Audits de code et configuration</li>
-                <li>✓ Accompagnement sécurité</li>
-                <li>✓ Formation équipes</li>
-            </ul>
-            <a href="/services/pentest/" class="btn btn-primary">En savoir plus →</a>
-        </div>
+        <% 
+        // Appliquer la limite de services
+        var servicesLimit = theme.index && theme.index.services_limit ? theme.index.services_limit : 2;
+        var servicesToShow = servicesLimit > 0 ? theme.services.slice(0, servicesLimit) : theme.services;
         
+        servicesToShow.forEach(service => { %>
         <div class="service-detail-card">
-            <div class="service-detail-icon">⚙️</div>
-            <h3>Développement & Conseil</h3>
-            <p>Développement embarqué, conseil technique et expertise sur vos projets ARM et Linux.</p>
+            <div class="service-detail-icon"><%= service.icon %></div>
+            <h3><%= service.name %></h3>
+            <p><%= service.description %></p>
             <ul class="service-features">
-                <li>✓ Développement embarqué (ARM, Linux)</li>
-                <li>✓ Conseil architecture technique</li>
-                <li>✓ Optimisation performances</li>
-                <li>✓ Support technique</li>
+                <% service.features.forEach(feature => { %>
+                <li>✓ <%= feature %></li>
+                <% }); %>
             </ul>
-            <a href="/services/dev/" class="btn btn-primary">En savoir plus →</a>
+            <a href="/services/<%= service.slug %>/" class="btn btn-primary">En savoir plus →</a>
         </div>
+        <% }); %>
     </div>
+    
+    <% if (servicesLimit > 0 && theme.services.length > servicesLimit) { %>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/services/" class="btn btn-secondary">
+            Voir tous les services (<%= theme.services.length %>) →
+        </a>
+    </div>
+    <% } %>
 </section>
+<% } %>
 
 <!-- Blog Articles (Main Content) -->
 <section id="articles" style="padding: 4rem 2rem;">
@@ -129,7 +132,11 @@
     </div>
 
     <div class="articles-grid">
-        <% page.posts.each(post => { %>
+        <% 
+        var postsLimit = theme.index && theme.index.posts_limit ? theme.index.posts_limit : 6;
+        var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
+        
+        postsToShow.each(post => { %>
             <%- partial('partials/article', {post: post}) %>
         <% }); %>
     </div>
@@ -166,10 +173,14 @@
         var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
         var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
         
+        // Appliquer la limite de catégories
+        var categoriesLimit = theme.index && theme.index.categories_limit ? theme.index.categories_limit : 6;
         var allCategories = site.categories.sort('name');
+        var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
+        
         var categoryIndex = 0;
         
-        allCategories.each(function(category) {
+        categoriesToShow.each(function(category) {
             // Chercher la config dans le thème
             var catConfig = null;
             if (theme.categories) {
@@ -197,6 +208,14 @@
         <% }); %>
     </div>
     
+    <% if (categoriesLimit > 0 && allCategories.length > categoriesLimit) { %>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/categories/" class="btn btn-secondary">
+            Voir toutes les catégories (<%= allCategories.length %>) →
+        </a>
+    </div>
+    <% } %>
+    
     <% if (allCategories.length === 0) { %>
     <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
         <p>Aucune catégorie pour le moment. Ajoutez des catégories à vos articles !</p>
@@ -212,7 +231,12 @@
     </div>
 
     <div class="apps-grid">
-        <% theme.apps.forEach(app => { %>
+        <% 
+        // Appliquer la limite d'apps
+        var appsLimit = theme.index && theme.index.apps_limit ? theme.index.apps_limit : 2;
+        var appsToShow = appsLimit > 0 ? theme.apps.slice(0, appsLimit) : theme.apps;
+        
+        appsToShow.forEach(app => { %>
         <div class="app-card">
             <div class="app-preview">
                 <iframe 
@@ -236,6 +260,14 @@
         </div>
         <% }); %>
     </div>
+    
+    <% if (appsLimit > 0 && theme.apps.length > appsLimit) { %>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/apps/" class="btn btn-secondary">
+            Voir toutes les applications (<%= theme.apps.length %>) →
+        </a>
+    </div>
+    <% } %>
 </section>
 <% } %>
 
