@@ -5,8 +5,6 @@ menu:
   Accueil: /
   Services: /services/
   Blog: /archives/        # Renommer "Articles"
-  Tags: /tags/
-  Catégories: /categories/
   References: /references/
   Projects: /projects/
   À propos: /about/
