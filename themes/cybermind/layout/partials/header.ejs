@@ -1,34 +1,128 @@
-<nav>
-    <a href="<%= config.root %>" class="logo">CyberMind_</a>
+<nav style="position: sticky; top: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <a href="<%= config.root %>" class="logo" style="font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 600; color: #f97316; text-decoration: none;">◆ CyberMind_</a>
     
-    <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
+    <button id="mobileMenuBtn" style="display: none; background: none; border: 2px solid #f97316; color: #f97316; font-size: 1.5rem; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 8px; z-index: 10001;" aria-label="Menu">☰</button>
     
-    <ul class="nav-links">
+    <ul id="navMenu" class="nav-links" style="display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0;">
         <% for (let name in theme.menu) { %>
-        <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
+        <li><a href="<%= url_for(theme.menu[name]) %>" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #9898a6; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;"><%= name %></a></li>
         <% } %>
     </ul>
 </nav>
 
-<script>
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav-links');
-    
-    if (toggle) {
-        toggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-        });
+<style>
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    #mobileMenuBtn {
+        display: block !important;
     }
     
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('nav')) {
-            nav.classList.remove('active');
-            if (toggle) toggle.textContent = '☰';
+    #navMenu {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.98) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+        z-index: 10000 !important;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    #navMenu.mobile-open {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    #navMenu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    #navMenu li:last-child {
+        border-bottom: none;
+    }
+    
+    #navMenu a {
+        display: block !important;
+        padding: 1.25rem 2rem !important;
+        font-size: 1.1rem !important;
+        color: #e8e8ed !important;
+    }
+    
+    #navMenu a:hover,
+    #navMenu a:active {
+        color: #f97316 !important;
+        background: rgba(249, 115, 22, 0.1) !important;
+    }
+}
+</style>
+
+<script>
+(function() {
+    var btn = document.getElementById('mobileMenuBtn');
+    var menu = document.getElementById('navMenu');
+    var isOpen = false;
+    
+    if (!btn || !menu) return;
+    
+    function openMenu() {
+        menu.classList.add('mobile-open');
+        btn.innerHTML = '✕';
+        btn.style.position = 'fixed';
+        btn.style.top = '1rem';
+        btn.style.right = '2rem';
+        document.body.style.overflow = 'hidden';
+        isOpen = true;
+    }
+    
+    function closeMenu() {
+        menu.classList.remove('mobile-open');
+        btn.innerHTML = '☰';
+        btn.style.position = '';
+        btn.style.top = '';
+        btn.style.right = '';
+        document.body.style.overflow = '';
+        isOpen = false;
+    }
+    
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
         }
     });
-});
+    
+    // Close on link click
+    var links = menu.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+    }
+    
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) {
+            closeMenu();
+        }
+    });
+    
+    // Close on resize to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && isOpen) {
+            closeMenu();
+        }
+    });
+})();
 </script>
