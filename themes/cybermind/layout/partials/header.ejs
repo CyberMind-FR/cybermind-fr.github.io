@@ -1,91 +1,219 @@
-<nav style="position: sticky; top: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap;">
-    <a href="<%= config.root %>" class="logo" style="font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 600; color: #f97316; text-decoration: none;">◆ CyberMind_</a>
+<nav id="mainNav">
+    <a href="<%= config.root %>" class="nav-logo">◆ CyberMind_</a>
     
-    <ul id="navMenu" class="nav-links" style="display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0;">
+    <button id="menuToggle" type="button" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <ul id="menuList">
         <% for (let name in theme.menu) { %>
-        <li><a href="<%= url_for(theme.menu[name]) %>" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #9898a6; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;"><%= name %></a></li>
+        <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
         <% } %>
     </ul>
 </nav>
 
 <style>
-/* Menu Responsive Vertical */
-@media (max-width: 900px) {
-    nav {
-        flex-direction: column !important;
-        padding: 1rem !important;
-        gap: 1rem !important;
-    }
-    
-    #navMenu {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 0.5rem !important;
-        width: 100% !important;
-        padding-top: 1rem !important;
-        border-top: 1px solid rgba(255,255,255,0.1) !important;
-    }
-    
-    #navMenu li {
-        margin: 0 !important;
-    }
-    
-    #navMenu a {
-        display: inline-block !important;
-        padding: 0.5rem 0.75rem !important;
-        font-size: 0.75rem !important;
-        background: rgba(255,255,255,0.05) !important;
-        border-radius: 6px !important;
-        border: 1px solid rgba(255,255,255,0.1) !important;
-        transition: all 0.2s ease !important;
-    }
-    
-    #navMenu a:hover,
-    #navMenu a:active {
-        color: #f97316 !important;
-        background: rgba(249, 115, 22, 0.15) !important;
-        border-color: #f97316 !important;
-    }
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Très petit écran - 2 colonnes */
-@media (max-width: 480px) {
-    nav {
-        padding: 0.75rem !important;
-    }
-    
-    .logo {
-        font-size: 1.2rem !important;
-    }
-    
-    #navMenu {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.5rem !important;
-    }
-    
-    #navMenu li {
-        width: 100% !important;
-    }
-    
-    #navMenu a {
-        display: block !important;
-        text-align: center !important;
-        padding: 0.6rem 0.5rem !important;
-        font-size: 0.7rem !important;
-    }
+.nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #f97316;
+    text-decoration: none;
 }
 
-/* Ultra petit écran - 1 colonne */
-@media (max-width: 360px) {
-    #navMenu {
-        grid-template-columns: 1fr !important;
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #f97316;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+#menuList {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menuList a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #9898a6;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+}
+
+#menuList a:hover {
+    color: #f97316;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
     }
     
-    #navMenu a {
-        font-size: 0.75rem !important;
-        padding: 0.75rem !important;
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: #0a0a0f;
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    #menuList a {
+        display: block;
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+        color: #e8e8ed;
+    }
+    
+    #menuList a:hover,
+    #menuList a:active {
+        background: rgba(249, 115, 22, 0.15);
+        color: #f97316;
+    }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Overlay */
+    #menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    #menuOverlay.show {
+        opacity: 1;
+        visibility: visible;
     }
 }
 </style>
+
+<div id="menuOverlay"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('menuList');
+    var overlay = document.getElementById('menuOverlay');
+    
+    if (!toggle || !menu) {
+        console.log('Menu elements not found');
+        return;
+    }
+    
+    function openMenu() {
+        menu.classList.add('open');
+        toggle.classList.add('open');
+        if (overlay) overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenu() {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        if (overlay) overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (menu.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Fermer au clic sur overlay
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    // Fermer au clic sur lien
+    var links = menu.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+    }
+    
+    // Fermer avec Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+    });
+});
+</script>
