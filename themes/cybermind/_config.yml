@@ -9,7 +9,7 @@ menu:
   Catégories: /categories/     # Section dynamique - liste toutes les catégories
   Tags: /tags/                 # Section dynamique - liste tous les tags
   Apps: /apps/               # Section dynamique - liste toutes les applications
-  À propos: /about/
+#  À propos: /about/
   Contact: /contact/
 
 # Social Links
