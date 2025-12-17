@@ -4,17 +4,9 @@
         <h1><%- theme.hero.title %></h1>
         <p class="hero-subtitle"><%= theme.hero.subtitle %></p>
         
-        <div class="services-hero">
-            <a href="/services/pentest/" class="service-card-hero">
-                <div class="service-icon-hero">🛡️</div>
-                <h3>Pentest & Sécurité</h3>
-                <p>Audit de sécurité et tests d'intrusion</p>
-            </a>
-            <a href="/services/dev/" class="service-card-hero">
-                <div class="service-icon-hero">⚙️</div>
-                <h3>Dev & Conseil</h3>
-                <p>Développement embarqué et conseil technique</p>
-            </a>
+        <!-- Services aléatoires dans le hero - générés par JS côté client -->
+        <div class="services-hero" id="heroServices">
+            <!-- Placeholder, rempli par JS -->
         </div>
         
         <div class="hero-stats">
@@ -65,45 +57,149 @@ if (site.pages && site.pages.length) {
         if (isServicePage) {
             var exists = allServices.some(function(s) { return s.path === page.path; });
             if (!exists) {
-                allServices.push(page);
+                allServices.push({
+                    path: page.path,
+                    title: page.title,
+                    icon: page.icon || '⚙️',
+                    description: page.description || '',
+                    features: page.features || [],
+                    order: page.order || 999
+                });
             }
         }
     });
 }
+// Tri par ordre pour référence
 allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); });
-if (showServices && allServices.length > 0) {
 %>
+
+<!-- Données des services pour JavaScript -->
+<script id="servicesData" type="application/json">
+<%- JSON.stringify(allServices) %>
+</script>
+
+<% if (showServices && allServices.length > 0) { %>
 <section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Services</div>
         <h2 class="section-title">Nos Expertises</h2>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+            🎲 Sélection aléatoire — <a href="/services/" style="color: var(--accent-orange);">Voir tous les services</a>
+        </p>
     </div>
-    <div class="services-detailed">
-        <% 
-        var servicesLimit = (theme.index && theme.index.services_limit) || 2;
-        var servicesToShow = servicesLimit > 0 ? allServices.slice(0, servicesLimit) : allServices;
-        servicesToShow.forEach(function(service) { 
-        %>
-        <div class="service-detail-card">
-            <div class="service-detail-icon"><%= service.icon || '⚙️' %></div>
-            <h3><%= service.title %></h3>
-            <p><%= service.description || '' %></p>
-            <% if (service.features && service.features.length > 0) { %>
-            <ul class="service-features">
-                <% service.features.forEach(function(f) { %><li>✓ <%= f %></li><% }); %>
-            </ul>
-            <% } %>
-            <a href="<%= url_for(service.path) %>" class="btn btn-primary">En savoir plus →</a>
-        </div>
-        <% }); %>
+    <div class="services-detailed" id="servicesGrid">
+        <!-- Rempli par JavaScript -->
     </div>
-    <% if (servicesLimit > 0 && allServices.length > servicesLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
-        <a href="/services/" class="btn btn-secondary">Voir tous les services (<%= allServices.length %>) →</a>
+        <button onclick="shuffleServices()" class="btn btn-secondary" style="margin-right: 1rem;">🎲 Autres services</button>
+        <a href="/services/" class="btn btn-primary">Voir tous les services (<%= allServices.length %>) →</a>
     </div>
-    <% } %>
 </section>
 <% } %>
+
+<script>
+(function() {
+    // Récupérer les données des services
+    var servicesDataEl = document.getElementById('servicesData');
+    if (!servicesDataEl) return;
+    
+    var allServices = [];
+    try {
+        allServices = JSON.parse(servicesDataEl.textContent);
+    } catch(e) {
+        console.error('Erreur parsing services:', e);
+        return;
+    }
+    
+    if (!allServices || allServices.length === 0) return;
+    
+    // Fonction de mélange Fisher-Yates
+    function shuffle(array) {
+        var arr = array.slice();
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
+    
+    // Générer le HTML d'une carte service (hero)
+    function renderHeroCard(service) {
+        return '<a href="/' + service.path + '" class="service-card-hero">' +
+               '<div class="service-icon-hero">' + service.icon + '</div>' +
+               '<h3>' + service.title.replace(/^[^\s]+\s*/, '') + '</h3>' +
+               '<p>' + (service.description ? service.description.substring(0, 60) + '...' : '') + '</p>' +
+               '</a>';
+    }
+    
+    // Générer le HTML d'une carte service (détaillée)
+    function renderDetailCard(service) {
+        var featuresHtml = '';
+        if (service.features && service.features.length > 0) {
+            featuresHtml = '<ul class="service-features">';
+            for (var i = 0; i < Math.min(service.features.length, 4); i++) {
+                featuresHtml += '<li>' + service.features[i] + '</li>';
+            }
+            featuresHtml += '</ul>';
+        }
+        
+        return '<div class="service-detail-card">' +
+               '<div class="service-detail-icon">' + service.icon + '</div>' +
+               '<h3>' + service.title + '</h3>' +
+               '<p>' + service.description + '</p>' +
+               featuresHtml +
+               '<a href="/' + service.path + '" class="btn btn-primary">En savoir plus →</a>' +
+               '</div>';
+    }
+    
+    // Afficher les services dans le hero (2 aléatoires)
+    function renderHeroServices() {
+        var heroEl = document.getElementById('heroServices');
+        if (!heroEl) return;
+        
+        var shuffled = shuffle(allServices);
+        var html = '';
+        for (var i = 0; i < Math.min(2, shuffled.length); i++) {
+            html += renderHeroCard(shuffled[i]);
+        }
+        heroEl.innerHTML = html;
+    }
+    
+    // Afficher les services dans la grille (3 aléatoires)
+    function renderServicesGrid() {
+        var gridEl = document.getElementById('servicesGrid');
+        if (!gridEl) return;
+        
+        var shuffled = shuffle(allServices);
+        var limit = Math.min(3, shuffled.length);
+        var html = '';
+        for (var i = 0; i < limit; i++) {
+            html += renderDetailCard(shuffled[i]);
+        }
+        gridEl.innerHTML = html;
+    }
+    
+    // Fonction globale pour re-mélanger
+    window.shuffleServices = function() {
+        renderHeroServices();
+        renderServicesGrid();
+    };
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', function() {
+        renderHeroServices();
+        renderServicesGrid();
+    });
+    
+    // Fallback si DOMContentLoaded déjà passé
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        renderHeroServices();
+        renderServicesGrid();
+    }
+})();
+</script>
 
 <!-- Blog Articles -->
 <section id="articles" style="padding: 4rem 2rem;">
