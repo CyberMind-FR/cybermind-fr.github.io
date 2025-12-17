@@ -4,10 +4,14 @@
         <h1><%- theme.hero.title %></h1>
         <p class="hero-subtitle"><%= theme.hero.subtitle %></p>
         
-        <!-- Services aléatoires dans le hero - générés par JS côté client -->
+        <!-- Services filtrés dynamiquement -->
         <div class="services-hero" id="heroServices">
-            <!-- Placeholder, rempli par JS -->
+            <!-- Rempli par JS -->
         </div>
+        
+        <p id="filterInfo" style="text-align: center; color: var(--accent-orange); font-size: 0.85rem; margin-top: 1rem; opacity: 0; transition: opacity 0.3s;">
+            <!-- Info filtre actif -->
+        </p>
         
         <div class="hero-stats">
             <% if (theme.hero && theme.hero.stats) { theme.hero.stats.forEach(function(stat) { %>
@@ -25,16 +29,43 @@
     </div>
 
     <div class="hero-visual">
-        <div class="tech-grid-visual">
-            <div class="tech-cell"><span class="tech-cell-icon">🔐</span><span class="tech-cell-label">Security</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">🐧</span><span class="tech-cell-label">Linux</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">💻</span><span class="tech-cell-label">Dev</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">📡</span><span class="tech-cell-label">IoT</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">⚙️</span><span class="tech-cell-label">Embedded</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">🔬</span><span class="tech-cell-label">Research</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">📝</span><span class="tech-cell-label">Tuto</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">🎓</span><span class="tech-cell-label">Learning</span></div>
-            <div class="tech-cell"><span class="tech-cell-icon">🚀</span><span class="tech-cell-label">Innovation</span></div>
+        <div class="tech-grid-visual" id="techGrid">
+            <div class="tech-cell" data-filter="security" tabindex="0">
+                <span class="tech-cell-icon">🔐</span>
+                <span class="tech-cell-label">Security</span>
+            </div>
+            <div class="tech-cell" data-filter="linux" tabindex="0">
+                <span class="tech-cell-icon">🐧</span>
+                <span class="tech-cell-label">Linux</span>
+            </div>
+            <div class="tech-cell" data-filter="dev" tabindex="0">
+                <span class="tech-cell-icon">💻</span>
+                <span class="tech-cell-label">Dev</span>
+            </div>
+            <div class="tech-cell" data-filter="iot" tabindex="0">
+                <span class="tech-cell-icon">📡</span>
+                <span class="tech-cell-label">IoT</span>
+            </div>
+            <div class="tech-cell" data-filter="embedded" tabindex="0">
+                <span class="tech-cell-icon">⚙️</span>
+                <span class="tech-cell-label">Embedded</span>
+            </div>
+            <div class="tech-cell" data-filter="forensic" tabindex="0">
+                <span class="tech-cell-icon">🔬</span>
+                <span class="tech-cell-label">Forensic</span>
+            </div>
+            <div class="tech-cell" data-filter="web" tabindex="0">
+                <span class="tech-cell-icon">🌐</span>
+                <span class="tech-cell-label">Web</span>
+            </div>
+            <div class="tech-cell" data-filter="formation" tabindex="0">
+                <span class="tech-cell-icon">🎓</span>
+                <span class="tech-cell-label">Formation</span>
+            </div>
+            <div class="tech-cell" data-filter="all" tabindex="0">
+                <span class="tech-cell-icon">🎲</span>
+                <span class="tech-cell-label">Random</span>
+            </div>
         </div>
     </div>
 </section>
@@ -57,19 +88,48 @@ if (site.pages && site.pages.length) {
         if (isServicePage) {
             var exists = allServices.some(function(s) { return s.path === page.path; });
             if (!exists) {
+                // Déterminer les tags en fonction du chemin/titre
+                var tags = [];
+                var pathLower = pth.toLowerCase();
+                var titleLower = (page.title || '').toLowerCase();
+                
+                if (pathLower.indexOf('pentest') >= 0 || titleLower.indexOf('pentest') >= 0 || titleLower.indexOf('sécurité') >= 0) {
+                    tags.push('security', 'forensic');
+                }
+                if (pathLower.indexOf('dev') >= 0 || titleLower.indexOf('développement') >= 0) {
+                    tags.push('dev', 'linux', 'embedded');
+                }
+                if (pathLower.indexOf('formation') >= 0 || titleLower.indexOf('formation') >= 0) {
+                    tags.push('formation', 'security', 'linux');
+                }
+                if (pathLower.indexOf('forensic') >= 0 || titleLower.indexOf('forensic') >= 0 || titleLower.indexOf('investigation') >= 0) {
+                    tags.push('forensic', 'security');
+                }
+                if (pathLower.indexOf('gk2') >= 0 || titleLower.indexOf('web') >= 0 || titleLower.indexOf('hébergement') >= 0) {
+                    tags.push('web', 'dev');
+                }
+                if (pathLower.indexOf('embedded') >= 0 || titleLower.indexOf('embarqué') >= 0 || titleLower.indexOf('openwrt') >= 0 || titleLower.indexOf('arm') >= 0) {
+                    tags.push('embedded', 'linux', 'iot', 'security');
+                }
+                
+                // Tags par défaut si aucun trouvé
+                if (tags.length === 0) {
+                    tags.push('dev');
+                }
+                
                 allServices.push({
                     path: page.path,
                     title: page.title,
                     icon: page.icon || '⚙️',
                     description: page.description || '',
                     features: page.features || [],
-                    order: page.order || 999
+                    order: page.order || 999,
+                    tags: tags
                 });
             }
         }
     });
 }
-// Tri par ordre pour référence
 allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); });
 %>
 
@@ -83,19 +143,85 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
     <div class="section-header">
         <div class="section-tag">Services</div>
         <h2 class="section-title">Nos Expertises</h2>
-        <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-            🎲 Sélection aléatoire — <a href="/services/" style="color: var(--accent-orange);">Voir tous les services</a>
+        <p id="servicesFilterInfo" style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+            🎲 Cliquez sur les icônes à droite pour filtrer
         </p>
     </div>
     <div class="services-detailed" id="servicesGrid">
         <!-- Rempli par JavaScript -->
     </div>
     <div style="text-align: center; margin-top: 3rem;">
-        <button onclick="shuffleServices()" class="btn btn-secondary" style="margin-right: 1rem;">🎲 Autres services</button>
+        <button onclick="resetFilter()" class="btn btn-secondary" style="margin-right: 1rem;">🔄 Réinitialiser</button>
         <a href="/services/" class="btn btn-primary">Voir tous les services (<%= allServices.length %>) →</a>
     </div>
 </section>
 <% } %>
+
+<style>
+/* Styles pour l'interaction */
+.tech-cell {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tech-cell:hover,
+.tech-cell:focus {
+    transform: scale(1.1);
+    border-color: var(--accent-orange) !important;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.tech-cell.active {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(245, 158, 11, 0.2)) !important;
+    border-color: var(--accent-orange) !important;
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
+    transform: scale(1.05);
+}
+
+.tech-cell.active .tech-cell-icon {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.service-card-hero,
+.service-detail-card {
+    transition: all 0.4s ease;
+}
+
+.service-card-hero.fade-in,
+.service-detail-card.fade-in {
+    animation: fadeInScale 0.4s ease forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#filterInfo {
+    min-height: 1.5rem;
+}
+
+/* Animation pulse sur les cases */
+.tech-cell.pulse {
+    animation: pulse-glow 1s ease infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(249, 115, 22, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+}
+</style>
 
 <script>
 (function() {
@@ -113,6 +239,21 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
     
     if (!allServices || allServices.length === 0) return;
     
+    var currentFilter = 'all';
+    
+    // Mapping des filtres vers les labels
+    var filterLabels = {
+        'security': '🔐 Sécurité',
+        'linux': '🐧 Linux',
+        'dev': '💻 Développement',
+        'iot': '📡 IoT',
+        'embedded': '⚙️ Embarqué',
+        'forensic': '🔬 Forensic',
+        'web': '🌐 Web',
+        'formation': '🎓 Formation',
+        'all': '🎲 Tous'
+    };
+    
     // Fonction de mélange Fisher-Yates
     function shuffle(array) {
         var arr = array.slice();
@@ -125,12 +266,26 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
         return arr;
     }
     
+    // Filtrer les services par tag
+    function filterServices(tag) {
+        if (tag === 'all') {
+            return shuffle(allServices);
+        }
+        var filtered = allServices.filter(function(s) {
+            return s.tags && s.tags.indexOf(tag) >= 0;
+        });
+        return filtered.length > 0 ? filtered : shuffle(allServices).slice(0, 2);
+    }
+    
     // Générer le HTML d'une carte service (hero)
     function renderHeroCard(service) {
-        return '<a href="/' + service.path + '" class="service-card-hero">' +
+        var shortTitle = service.title.replace(/^[^\s]+\s*/, '').substring(0, 25);
+        if (shortTitle.length >= 25) shortTitle += '...';
+        
+        return '<a href="/' + service.path + '" class="service-card-hero fade-in">' +
                '<div class="service-icon-hero">' + service.icon + '</div>' +
-               '<h3>' + service.title.replace(/^[^\s]+\s*/, '') + '</h3>' +
-               '<p>' + (service.description ? service.description.substring(0, 60) + '...' : '') + '</p>' +
+               '<h3>' + shortTitle + '</h3>' +
+               '<p>' + (service.description ? service.description.substring(0, 50) + '...' : '') + '</p>' +
                '</a>';
     }
     
@@ -145,7 +300,7 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
             featuresHtml += '</ul>';
         }
         
-        return '<div class="service-detail-card">' +
+        return '<div class="service-detail-card fade-in">' +
                '<div class="service-detail-icon">' + service.icon + '</div>' +
                '<h3>' + service.title + '</h3>' +
                '<p>' + service.description + '</p>' +
@@ -154,49 +309,117 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
                '</div>';
     }
     
-    // Afficher les services dans le hero (2 aléatoires)
-    function renderHeroServices() {
+    // Mettre à jour l'affichage des services
+    function updateDisplay(filter) {
+        currentFilter = filter;
+        var filtered = filterServices(filter);
+        
+        // Hero services (max 2)
         var heroEl = document.getElementById('heroServices');
-        if (!heroEl) return;
-        
-        var shuffled = shuffle(allServices);
-        var html = '';
-        for (var i = 0; i < Math.min(2, shuffled.length); i++) {
-            html += renderHeroCard(shuffled[i]);
+        if (heroEl) {
+            var heroHtml = '';
+            var heroServices = filtered.slice(0, Math.min(2, filtered.length));
+            for (var i = 0; i < heroServices.length; i++) {
+                heroHtml += renderHeroCard(heroServices[i]);
+            }
+            heroEl.innerHTML = heroHtml;
         }
-        heroEl.innerHTML = html;
-    }
-    
-    // Afficher les services dans la grille (3 aléatoires)
-    function renderServicesGrid() {
+        
+        // Grid services (max 3)
         var gridEl = document.getElementById('servicesGrid');
-        if (!gridEl) return;
-        
-        var shuffled = shuffle(allServices);
-        var limit = Math.min(3, shuffled.length);
-        var html = '';
-        for (var i = 0; i < limit; i++) {
-            html += renderDetailCard(shuffled[i]);
+        if (gridEl) {
+            var gridHtml = '';
+            var gridServices = filtered.slice(0, Math.min(3, filtered.length));
+            for (var j = 0; j < gridServices.length; j++) {
+                gridHtml += renderDetailCard(gridServices[j]);
+            }
+            gridEl.innerHTML = gridHtml;
         }
-        gridEl.innerHTML = html;
+        
+        // Info filtre
+        var filterInfo = document.getElementById('filterInfo');
+        var servicesFilterInfo = document.getElementById('servicesFilterInfo');
+        
+        if (filter !== 'all') {
+            if (filterInfo) {
+                filterInfo.textContent = '🎯 Filtre actif : ' + filterLabels[filter] + ' (' + filtered.length + ' service' + (filtered.length > 1 ? 's' : '') + ')';
+                filterInfo.style.opacity = '1';
+            }
+            if (servicesFilterInfo) {
+                servicesFilterInfo.innerHTML = '🎯 <strong>' + filterLabels[filter] + '</strong> — ' + filtered.length + ' service' + (filtered.length > 1 ? 's' : '') + ' correspondant' + (filtered.length > 1 ? 's' : '');
+                servicesFilterInfo.style.color = 'var(--accent-orange)';
+            }
+        } else {
+            if (filterInfo) {
+                filterInfo.textContent = '🎲 Sélection aléatoire';
+                filterInfo.style.opacity = '0.7';
+            }
+            if (servicesFilterInfo) {
+                servicesFilterInfo.innerHTML = '🎲 Cliquez sur les icônes à droite pour filtrer';
+                servicesFilterInfo.style.color = 'var(--text-muted)';
+            }
+        }
+        
+        // Mettre à jour les classes actives
+        var cells = document.querySelectorAll('.tech-cell');
+        for (var k = 0; k < cells.length; k++) {
+            var cell = cells[k];
+            if (cell.getAttribute('data-filter') === filter) {
+                cell.classList.add('active');
+            } else {
+                cell.classList.remove('active');
+            }
+        }
     }
     
-    // Fonction globale pour re-mélanger
-    window.shuffleServices = function() {
-        renderHeroServices();
-        renderServicesGrid();
+    // Fonction globale pour réinitialiser
+    window.resetFilter = function() {
+        updateDisplay('all');
     };
     
-    // Initialisation
-    document.addEventListener('DOMContentLoaded', function() {
-        renderHeroServices();
-        renderServicesGrid();
-    });
+    // Initialiser les événements sur la grille tech
+    function initTechGrid() {
+        var cells = document.querySelectorAll('.tech-cell[data-filter]');
+        
+        for (var i = 0; i < cells.length; i++) {
+            (function(cell) {
+                // Click
+                cell.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var filter = this.getAttribute('data-filter');
+                    updateDisplay(filter);
+                });
+                
+                // Keyboard (Enter/Space)
+                cell.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        var filter = this.getAttribute('data-filter');
+                        updateDisplay(filter);
+                    }
+                });
+                
+                // Touch
+                cell.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    var filter = this.getAttribute('data-filter');
+                    updateDisplay(filter);
+                });
+            })(cells[i]);
+        }
+    }
     
-    // Fallback si DOMContentLoaded déjà passé
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        renderHeroServices();
-        renderServicesGrid();
+    // Initialisation
+    function init() {
+        initTechGrid();
+        updateDisplay('all');
+    }
+    
+    // Lancer l'initialisation
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 })();
 </script>
