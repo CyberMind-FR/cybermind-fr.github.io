@@ -5,17 +5,30 @@ menu:
   Accueil: /
   Services: /services/
   Blog: /archives/        # Renommer "Articles"
+  Tags: /tags/
   Catégories: /categories/
+  References: /references/
+  Projects: /projects/
   À propos: /about/
 ##  Portfolio: /portfolio/  # Ajouter un lien
+  Support: /legal/
   Contact: /contact/
 
+avatar:
+  # Replace the default image and set the url here.
+  url: /uploads/images/avatar.jpg
+  # If true, the avatar will be displayed in circle.
+  rounded: true
+  # If true, the avatar will be rotated with the cursor.
+  rotated: false
 
 # Social Links
 social:
-  email: contact@cybermind.fr
-  website: https://cybermind.fr
-  linkedin: https://www.linkedin.com/company/cybermindfr/
+  GitHub: https://github.com/CyberMind-FR
+  Twitter: https://twitter.com/CyberMindFR
+  YouTube: https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about
+  LinkedIn: https://www.linkedin.com/company/Cybermindfr
+  E-Mail: mailto:info@cybermind.fr?subject=contact
   github: https://github.com/CyberMind-FR
 
 # Hero Section
@@ -81,9 +94,19 @@ youtube:
     - "Prototypage"
     - "Tutoriels"
 
+favicon:
+  small: /uploads/images/favicon-16x16-next.png
+  medium: /uploads/images/favicon-32x32-next.png
+  apple_touch_icon: /uploads/images/apple-touch-icon-next.png
+  safari_pinned_tab: /uploads/images/logo.svg
+  #android_manifest: /manifest.json
+
+# Custom Logo (Warning: Do not support scheme Mist)
+custom_logo: /uploads/images/custom-logo.jpg
+
 # About Section
 about:
-  name: "Gandalf"
+  name: "G.Kerma"
   avatar: "🧙"
   title: "Cybersecurity & Linux Expert"
   description: |
