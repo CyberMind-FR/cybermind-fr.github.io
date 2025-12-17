@@ -11,8 +11,26 @@
     // Scanner les pages services depuis site.pages
     var allServices = [];
     site.pages.forEach(function(page) {
-        if (page.source && page.source.indexOf('services/') === 0 && page.source !== 'services/index.md') {
-            allServices.push(page);
+        // Vérifier si c'est une page de service (pas l'index)
+        var src = page.source || '';
+        var isService = src.indexOf('services/') >= 0 && 
+                        src.indexOf('index.md') === -1 ||
+                        (src.indexOf('services/') >= 0 && 
+                         src !== 'services/index.md' &&
+                         src.indexOf('/index.md') > 0);
+        
+        // Alternative : vérifier le path
+        var pth = page.path || '';
+        var isServiceByPath = pth.indexOf('services/') >= 0 && 
+                              pth !== 'services/' &&
+                              pth !== 'services/index.html';
+        
+        if (isService || isServiceByPath) {
+            // Éviter les doublons
+            var exists = allServices.some(function(s) { return s.title === page.title; });
+            if (!exists) {
+                allServices.push(page);
+            }
         }
     });
     
