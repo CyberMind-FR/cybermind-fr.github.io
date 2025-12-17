@@ -1,8 +1,34 @@
 <nav>
     <a href="<%= config.root %>" class="logo">CyberMind_</a>
+    
+    <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
+    
     <ul class="nav-links">
         <% for (let name in theme.menu) { %>
         <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
         <% } %>
     </ul>
 </nav>
+
+<script>
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav')) {
+            nav.classList.remove('active');
+            if (toggle) toggle.textContent = '☰';
+        }
+    });
+});
+</script>
