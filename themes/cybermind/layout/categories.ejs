@@ -8,65 +8,77 @@
     </div>
 
     <%
-    // Définition des groupes de contexte
+    // Définition des groupes de contexte avec emojis multiples
     var contextGroups = {
         'security': {
-            name: '🔐 Cybersécurité',
+            name: 'Cybersécurité',
+            emojis: ['🔐', '🛡️', '🔒', '⚔️', '🕵️'],
             color: '#ef4444',
             keywords: ['security', 'sécurité', 'securite', 'pentest', 'audit', 'vulnerability', 'vulnérabilité', 'hack', 'exploit', 'malware', 'virus', 'ransomware', 'firewall', 'ids', 'ips', 'siem', 'soc', 'threat', 'menace', 'cyberattaque', 'intrusion', 'crowdsec', 'fail2ban', 'nmap', 'metasploit', 'burp', 'owasp', 'cve', 'patch', 'hardening', 'durcissement']
         },
         'forensic': {
-            name: '🔬 Forensic & Investigation',
+            name: 'Forensic & Investigation',
+            emojis: ['🔬', '🔎', '🕵️‍♂️', '📋', '🧪'],
             color: '#8b5cf6',
             keywords: ['forensic', 'investigation', 'analyse', 'recovery', 'récupération', 'data recovery', 'arnaque', 'scam', 'fraude', 'evidence', 'preuve', 'incident', 'response', 'dfir', 'volatility', 'autopsy']
         },
         'linux': {
-            name: '🐧 Linux & Systèmes',
+            name: 'Linux & Systèmes',
+            emojis: ['🐧', '🖥️', '⚙️', '🔧', '💽'],
             color: '#f59e0b',
             keywords: ['linux', 'unix', 'bsd', 'kernel', 'noyau', 'systemd', 'bash', 'shell', 'terminal', 'cli', 'command', 'commande', 'debian', 'ubuntu', 'fedora', 'arch', 'centos', 'redhat', 'alpine', 'serveur', 'server', 'admin', 'sysadmin', 'system', 'système', 'os', 'distribution', 'distro', 'package', 'apt', 'yum', 'pacman']
         },
         'embedded': {
-            name: '⚙️ Embarqué & ARM',
+            name: 'Embarqué & ARM',
+            emojis: ['🔌', '📟', '🤖', '⚡', '🔩'],
             color: '#06b6d4',
             keywords: ['embedded', 'embarqué', 'arm', 'armada', 'marvell', 'raspberry', 'rpi', 'arduino', 'esp32', 'esp8266', 'stm32', 'microcontroller', 'microcontrôleur', 'soc', 'sbc', 'single board', 'globalscale', 'sheevaplug', 'espressobin', 'mochabin', 'openwrt', 'buildroot', 'yocto', 'uboot', 'bootloader', 'firmware', 'jtag', 'uart', 'spi', 'i2c', 'gpio', 'driver', 'pilote', 'device tree', 'dts', 'dtb', 'cross-compile', 'toolchain', 'armbian']
         },
         'network': {
-            name: '🌐 Réseau & Infrastructure',
+            name: 'Réseau & Infrastructure',
+            emojis: ['🌐', '🔗', '📡', '🖧', '🛜'],
             color: '#3b82f6',
             keywords: ['network', 'réseau', 'reseau', 'tcp', 'ip', 'udp', 'dns', 'dhcp', 'http', 'https', 'ssl', 'tls', 'vpn', 'wireguard', 'openvpn', 'ssh', 'ftp', 'smtp', 'router', 'routeur', 'switch', 'vlan', 'firewall', 'proxy', 'load balancer', 'nginx', 'apache', 'haproxy', 'infrastructure', 'datacenter', 'cloud', 'aws', 'azure', 'gcp', 'oci', 'docker', 'kubernetes', 'k8s', 'container', 'conteneur', 'virtualisation', 'vm', 'kvm', 'proxmox', 'vmware']
         },
         'dev': {
-            name: '💻 Développement',
+            name: 'Développement',
+            emojis: ['💻', '👨‍💻', '🧑‍💻', '⌨️', '🖱️'],
             color: '#10b981',
             keywords: ['dev', 'développement', 'developpement', 'code', 'coding', 'programming', 'programmation', 'software', 'logiciel', 'application', 'app', 'api', 'rest', 'graphql', 'web', 'frontend', 'backend', 'fullstack', 'python', 'javascript', 'js', 'typescript', 'node', 'react', 'vue', 'angular', 'php', 'java', 'c', 'c++', 'rust', 'go', 'golang', 'ruby', 'perl', 'sql', 'database', 'bdd', 'mysql', 'postgresql', 'mongodb', 'redis', 'git', 'github', 'gitlab', 'ci', 'cd', 'devops', 'agile', 'scrum', 'testing', 'test', 'debug', 'framework', 'library', 'bibliothèque', 'hexo', 'hugo', 'jekyll']
         },
         'iot': {
-            name: '📡 IoT & Domotique',
+            name: 'IoT & Domotique',
+            emojis: ['📡', '🏠', '💡', '🌡️', '📲'],
             color: '#ec4899',
             keywords: ['iot', 'internet of things', 'domotique', 'home automation', 'smart home', 'maison connectée', 'capteur', 'sensor', 'actuator', 'actionneur', 'mqtt', 'zigbee', 'zwave', 'bluetooth', 'ble', 'lora', 'lorawan', 'sigfox', 'home assistant', 'hass', 'jeedom', 'domoticz', 'openhab', 'tasmota', 'esphome', 'node-red', 'grafana', 'influxdb', 'prometheus']
         },
         'cloud': {
-            name: '☁️ Cloud & Self-Hosting',
+            name: 'Cloud & Self-Hosting',
+            emojis: ['☁️', '🏠', '💾', '🔐', '🗄️'],
             color: '#0ea5e9',
             keywords: ['cloud', 'nuage', 'self-host', 'auto-hébergement', 'nextcloud', 'owncloud', 'syncthing', 'nas', 'storage', 'stockage', 'backup', 'sauvegarde', 'freedombox', 'yunohost', 'cloudron', 'sandstorm', 'sovereign', 'souveraineté', 'privacy', 'vie privée', 'rgpd', 'gdpr', 'encryption', 'chiffrement', 'cryptographie']
         },
         'creative': {
-            name: '🎨 Art & Création',
+            name: 'Art & Création',
+            emojis: ['🎨', '✨', '🖌️', '📸', '🎭'],
             color: '#9945ff',
             keywords: ['art', 'creative', 'création', 'design', 'graphisme', 'photo', 'photographie', 'video', 'vidéo', 'audio', 'musique', 'music', 'son', 'sound', 'poésie', 'poesie', 'poetry', 'écriture', 'writing', 'blog', 'content', 'contenu', 'media', 'média', 'illustration', 'dessin', 'drawing', 'animation', 'blender', '3d', 'gimp', 'inkscape', 'krita', 'ai art', 'génératif', 'generative', 'suno', 'midjourney', 'stable diffusion', 'dall-e']
         },
         'philosophy': {
-            name: '🧘 Philosophie & Réflexion',
+            name: 'Philosophie & Réflexion',
+            emojis: ['🧘', '☯️', '🔮', '📿', '🌙'],
             color: '#a855f7',
             keywords: ['philosophie', 'philosophy', 'réflexion', 'reflection', 'pensée', 'thought', 'yi jing', 'yijing', 'i ching', 'tao', 'dao', 'zen', 'méditation', 'meditation', 'sagesse', 'wisdom', 'éthique', 'ethics', 'morale', 'spirituel', 'spiritual', 'mystique', 'hermétique', 'ésotérique', 'esoteric', 'symbolisme', 'métaphysique']
         },
         'tools': {
-            name: '🔧 Outils & Utilitaires',
+            name: 'Outils & Utilitaires',
+            emojis: ['🔧', '🛠️', '⚒️', '🧰', '📦'],
             color: '#84cc16',
             keywords: ['tool', 'outil', 'utility', 'utilitaire', 'script', 'automation', 'automatisation', 'productivity', 'productivité', 'workflow', 'tips', 'astuce', 'trick', 'howto', 'how-to', 'how to', 'tutorial', 'tutoriel', 'tuto', 'guide', 'documentation', 'doc', 'manual', 'manuel', 'reference', 'référence', 'cheatsheet', 'aide-mémoire', 'snippet']
         },
         'news': {
-            name: '📰 Actualités & Veille',
+            name: 'Actualités & Veille',
+            emojis: ['📰', '📢', '🗞️', '📣', '🔔'],
             color: '#f97316',
             keywords: ['news', 'actualité', 'actualite', 'veille', 'watch', 'trend', 'tendance', 'event', 'événement', 'evenement', 'conference', 'conférence', 'meetup', 'community', 'communauté', 'opensource', 'open source', 'foss', 'libre', 'free software', 'logiciel libre', 'contribution', 'projet', 'project', 'release', 'version', 'update', 'mise à jour', 'changelog']
         }
@@ -125,10 +137,11 @@
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; padding: 1rem; background: var(--bg-secondary); border-radius: 12px; max-width: 1200px; margin-left: auto; margin-right: auto;">
         <% groupOrder.forEach(function(gk) { 
             if (groupedCategories[gk] && groupedCategories[gk].length > 0) {
-                var groupInfo = contextGroups[gk] || { name: '📦 Autres', color: '#6b7280' };
+                var groupInfo = contextGroups[gk] || { name: 'Autres', emojis: ['📦'], color: '#6b7280' };
+                var mainEmoji = groupInfo.emojis ? groupInfo.emojis[0] : '📦';
         %>
         <a href="#group-<%= gk %>" style="padding: 0.5rem 1rem; background: <%= groupInfo.color %>20; color: <%= groupInfo.color %>; border: 1px solid <%= groupInfo.color %>40; border-radius: 8px; text-decoration: none; font-size: 0.85rem; transition: all 0.2s;" onmouseover="this.style.background='<%= groupInfo.color %>30'" onmouseout="this.style.background='<%= groupInfo.color %>20'">
-            <%= groupInfo.name.split(' ')[0] %> <span style="opacity: 0.7;">(<%= groupedCategories[gk].length %>)</span>
+            <%= mainEmoji %> <%= groupInfo.name %> <span style="opacity: 0.7;">(<%= groupedCategories[gk].length %>)</span>
         </a>
         <% } }); %>
     </div>
@@ -138,11 +151,17 @@
         var categories = groupedCategories[gk];
         if (!categories || categories.length === 0) return;
         
-        var groupInfo = contextGroups[gk] || { name: '📦 Autres', color: '#6b7280' };
+        var groupInfo = contextGroups[gk] || { name: 'Autres', emojis: ['📦'], color: '#6b7280' };
+        var emojis = groupInfo.emojis || ['📦'];
     %>
     <div id="group-<%= gk %>" style="margin-bottom: 4rem; scroll-margin-top: 100px;">
-        <!-- Header du groupe -->
+        <!-- Header du groupe avec emojis multiples -->
         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid <%= groupInfo.color %>40;">
+            <div class="emoji-parade" style="display: flex; gap: 0.25rem;">
+                <% emojis.forEach(function(emoji, idx) { %>
+                <span style="font-size: 1.5rem; animation: emojiFloat 2s ease-in-out <%= idx * 0.2 %>s infinite;"><%= emoji %></span>
+                <% }); %>
+            </div>
             <h3 style="font-size: 1.5rem; color: <%= groupInfo.color %>; margin: 0;">
                 <%= groupInfo.name %>
             </h3>
@@ -269,6 +288,26 @@
     transform: translateX(5px);
 }
 
+/* Animation des emojis */
+@keyframes emojiFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.emoji-parade span {
+    display: inline-block;
+}
+
+.emoji-parade span:hover {
+    animation: emojiBounce 0.5s ease;
+    transform: scale(1.3);
+}
+
+@keyframes emojiBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4) rotate(10deg); }
+}
+
 @media (max-width: 600px) {
     .category-card-grouped {
         padding: 1rem;
@@ -285,6 +324,10 @@
     
     .category-card-grouped .cat-latest {
         display: none;
+    }
+    
+    .emoji-parade span {
+        font-size: 1.2rem !important;
     }
 }
 </style>
@@ -339,7 +382,10 @@
             %>
             <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid <%= groupInfo.color %>;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                    <span style="font-size: 0.9rem;"><%= groupInfo.name.split(' ')[0] %> <%= groupInfo.name.split(' ').slice(1).join(' ') %></span>
+                    <span style="font-size: 0.9rem;">
+                        <% (groupInfo.emojis || ['📦']).slice(0, 3).forEach(function(e) { %><%= e %><% }); %>
+                        <%= groupInfo.name %>
+                    </span>
                     <span style="color: <%= groupInfo.color %>; font-weight: 600;"><%= percentage %>%</span>
                 </div>
                 <div style="width: 100%; height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">

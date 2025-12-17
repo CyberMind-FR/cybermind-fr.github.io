@@ -1,21 +1,165 @@
 <%
 var categoryClass = '';
 var categoryColor = '#f97316';
+var categoryEmojis = ['📝'];
+var categoryName = '';
+
+// Mapping des catégories vers emojis
+var categoryEmojiMap = {
+    'security': ['🔐', '🛡️', '🔒'],
+    'sécurité': ['🔐', '🛡️', '🔒'],
+    'securite': ['🔐', '🛡️', '🔒'],
+    'pentest': ['⚔️', '🕵️', '🎯'],
+    'forensic': ['🔬', '🔎', '🕵️‍♂️'],
+    'investigation': ['🔬', '🔎', '📋'],
+    'linux': ['🐧', '🖥️', '⚙️'],
+    'kernel': ['🐧', '⚙️', '🔧'],
+    'embedded': ['🔌', '📟', '🤖'],
+    'embarqué': ['🔌', '📟', '⚡'],
+    'arm': ['💪', '🔌', '⚡'],
+    'raspberry': ['🍇', '🔌', '📟'],
+    'openwrt': ['🌐', '📡', '🔧'],
+    'network': ['🌐', '🔗', '📡'],
+    'réseau': ['🌐', '🔗', '📡'],
+    'dev': ['💻', '👨‍💻', '⌨️'],
+    'développement': ['💻', '👨‍💻', '🧑‍💻'],
+    'python': ['🐍', '💻', '⚡'],
+    'javascript': ['📜', '💻', '🌐'],
+    'code': ['💻', '⌨️', '🖱️'],
+    'iot': ['📡', '🏠', '💡'],
+    'domotique': ['🏠', '💡', '📲'],
+    'cloud': ['☁️', '💾', '🔐'],
+    'nextcloud': ['☁️', '🏠', '💾'],
+    'art': ['🎨', '✨', '🖌️'],
+    'création': ['🎨', '✨', '🌟'],
+    'photo': ['📸', '🖼️', '✨'],
+    'musique': ['🎵', '🎶', '🎸'],
+    'music': ['🎵', '🎶', '🎹'],
+    'poésie': ['✍️', '📜', '🌙'],
+    'philosophy': ['🧘', '☯️', '🔮'],
+    'philosophie': ['🧘', '☯️', '📿'],
+    'yijing': ['☯️', '🔮', '📿'],
+    'yi jing': ['☯️', '🔮', '🌙'],
+    'tools': ['🔧', '🛠️', '⚒️'],
+    'outils': ['🔧', '🛠️', '🧰'],
+    'tutorial': ['📖', '🎓', '💡'],
+    'tuto': ['📖', '🎓', '✨'],
+    'news': ['📰', '📢', '🗞️'],
+    'actualité': ['📰', '📢', '🔔'],
+    'default': ['📝', '📄', '✏️']
+};
+
+// Mapping des tags vers emojis pour lettrine
+var tagEmojiMap = {
+    'howto': '📖',
+    'guide': '📚',
+    'tutorial': '🎓',
+    'tuto': '🎓',
+    'tip': '💡',
+    'astuce': '💡',
+    'warning': '⚠️',
+    'security': '🔐',
+    'important': '❗',
+    'new': '🆕',
+    'update': '🔄',
+    'fix': '🔧',
+    'bug': '🐛',
+    'feature': '✨',
+    'release': '🚀',
+    'deprecated': '⚰️',
+    'experimental': '🧪',
+    'beta': '🅱️',
+    'alpha': '🅰️',
+    'stable': '✅',
+    'linux': '🐧',
+    'windows': '🪟',
+    'macos': '🍎',
+    'docker': '🐳',
+    'kubernetes': '☸️',
+    'git': '📦',
+    'python': '🐍',
+    'javascript': '📜',
+    'rust': '🦀',
+    'go': '🐹',
+    'php': '🐘',
+    'java': '☕',
+    'bash': '💲',
+    'shell': '🐚',
+    'api': '🔌',
+    'database': '🗄️',
+    'ai': '🤖',
+    'ml': '🧠',
+    'privacy': '🔒',
+    'opensource': '🔓',
+    'free': '🆓',
+    'paid': '💰',
+    'pro': '👔',
+    'beginner': '🌱',
+    'advanced': '🚀',
+    'expert': '🎖️'
+};
+
 if (post.categories && post.categories.length > 0) {
     var cat = post.categories.data[0];
     categoryClass = cat.slug;
-    if (theme.categories[cat.slug]) {
-        categoryColor = theme.categories[cat.slug].color;
+    categoryName = cat.name.toLowerCase();
+    
+    if (theme.categories && theme.categories[cat.slug]) {
+        categoryColor = theme.categories[cat.slug].color || categoryColor;
     }
+    
+    // Trouver les emojis correspondants
+    for (var key in categoryEmojiMap) {
+        if (categoryName.indexOf(key) >= 0) {
+            categoryEmojis = categoryEmojiMap[key];
+            break;
+        }
+    }
+}
+
+// Extraire les mots-clés principaux du titre pour la lettrine
+var titleWords = (post.title || '').split(/[\s\-:,]+/);
+var keywordLettrines = [];
+titleWords.forEach(function(word) {
+    var w = word.toLowerCase().replace(/[^a-zàâäéèêëïîôùûüÿœæç0-9]/g, '');
+    if (tagEmojiMap[w]) {
+        keywordLettrines.push({ word: word, emoji: tagEmojiMap[w] });
+    }
+});
+
+// Extraire aussi des tags
+var tagLettrines = [];
+if (post.tags && post.tags.length > 0) {
+    post.tags.forEach(function(tag) {
+        var tagName = tag.name.toLowerCase();
+        if (tagEmojiMap[tagName]) {
+            tagLettrines.push({ word: tag.name, emoji: tagEmojiMap[tagName] });
+        }
+    });
 }
 %>
 
-<article class="article-card <%= categoryClass %>">
+<article class="article-card <%= categoryClass %>" style="--article-color: <%= categoryColor %>;">
+    <!-- Lettrines des mots-clés -->
+    <% if (keywordLettrines.length > 0 || tagLettrines.length > 0) { %>
+    <div class="article-lettrines">
+        <% keywordLettrines.slice(0, 2).forEach(function(kw) { %>
+        <span class="lettrine" title="<%= kw.word %>"><%= kw.emoji %></span>
+        <% }); %>
+        <% tagLettrines.slice(0, 2).forEach(function(tl) { %>
+        <span class="lettrine tag-lettrine" title="<%= tl.word %>"><%= tl.emoji %></span>
+        <% }); %>
+    </div>
+    <% } %>
+
     <% if (post.categories && post.categories.length > 0) { %>
-    <div class="article-category">
+    <div class="article-category" style="background: <%= categoryColor %>20; color: <%= categoryColor %>; border-color: <%= categoryColor %>40;">
+        <span class="cat-emojis">
+            <% categoryEmojis.slice(0, 2).forEach(function(e) { %><%= e %><% }); %>
+        </span>
         <% var cat = post.categories.data[0]; %>
-        <% if (theme.categories[cat.slug]) { %>
-            <%= theme.categories[cat.slug].icon %> <%= theme.categories[cat.slug].name %>
+        <% if (theme.categories && theme.categories[cat.slug]) { %>
+            <%= theme.categories[cat.slug].name %>
         <% } else { %>
             <%= cat.name %>
         <% } %>
@@ -37,20 +181,128 @@ if (post.categories && post.categories.length > 0) {
     <div class="article-meta">
         <span class="article-date">
             <time datetime="<%= post.date.toISOString() %>">
-                <%= post.date.format('DD MMMM YYYY') %>
+                📅 <%= post.date.format('DD MMMM YYYY') %>
             </time>
         </span>
         
         <% if (post.tags && post.tags.length > 0) { %>
         <div class="article-tags">
-            <% post.tags.forEach(tag => { %>
-            <span class="article-tag"><%= tag.name %></span>
+            <% post.tags.limit(4).forEach(function(tag) { 
+                var tagEmoji = tagEmojiMap[tag.name.toLowerCase()] || '🏷️';
+            %>
+            <a href="<%= url_for(tag.path) %>" class="article-tag">
+                <span class="tag-emoji"><%= tagEmoji %></span><%= tag.name %>
+            </a>
             <% }); %>
         </div>
         <% } %>
     </div>
     
-    <a href="<%= url_for(post.path) %>" class="article-link">
+    <a href="<%= url_for(post.path) %>" class="article-link" style="color: <%= categoryColor %>;">
         <%= theme.read_more || 'Lire la suite' %> →
     </a>
 </article>
+
+<style>
+/* Lettrines */
+.article-lettrines {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.lettrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-primary);
+    border: 2px solid var(--article-color, var(--accent-orange));
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    cursor: help;
+}
+
+.lettrine:hover {
+    transform: scale(1.2) rotate(-5deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.lettrine.tag-lettrine {
+    background: var(--bg-secondary);
+    border-style: dashed;
+}
+
+/* Article card amélioré */
+.article-card {
+    position: relative;
+    overflow: visible;
+}
+
+.article-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid;
+    margin-bottom: 0.75rem;
+}
+
+.article-category .cat-emojis {
+    display: inline-flex;
+    gap: 2px;
+}
+
+/* Tags avec emojis */
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.article-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.article-tag:hover {
+    background: var(--article-color, var(--accent-orange));
+    color: #000;
+    border-color: var(--article-color, var(--accent-orange));
+}
+
+.article-tag .tag-emoji {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .article-lettrines {
+        top: -8px;
+        right: 8px;
+    }
+    
+    .lettrine {
+        width: 28px;
+        height: 28px;
+        font-size: 0.95rem;
+    }
+}
+</style>
