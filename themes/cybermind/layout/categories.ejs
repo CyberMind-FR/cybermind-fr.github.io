@@ -7,49 +7,189 @@
         </p>
     </div>
 
-    <div class="categories-grid">
-        <% 
-        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
-        var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
-        var categoryIndex = 0;
+    <%
+    // Définition des groupes de contexte
+    var contextGroups = {
+        'security': {
+            name: '🔐 Cybersécurité',
+            color: '#ef4444',
+            keywords: ['security', 'sécurité', 'securite', 'pentest', 'audit', 'vulnerability', 'vulnérabilité', 'hack', 'exploit', 'malware', 'virus', 'ransomware', 'firewall', 'ids', 'ips', 'siem', 'soc', 'threat', 'menace', 'cyberattaque', 'intrusion', 'crowdsec', 'fail2ban', 'nmap', 'metasploit', 'burp', 'owasp', 'cve', 'patch', 'hardening', 'durcissement']
+        },
+        'forensic': {
+            name: '🔬 Forensic & Investigation',
+            color: '#8b5cf6',
+            keywords: ['forensic', 'investigation', 'analyse', 'recovery', 'récupération', 'data recovery', 'arnaque', 'scam', 'fraude', 'evidence', 'preuve', 'incident', 'response', 'dfir', 'volatility', 'autopsy']
+        },
+        'linux': {
+            name: '🐧 Linux & Systèmes',
+            color: '#f59e0b',
+            keywords: ['linux', 'unix', 'bsd', 'kernel', 'noyau', 'systemd', 'bash', 'shell', 'terminal', 'cli', 'command', 'commande', 'debian', 'ubuntu', 'fedora', 'arch', 'centos', 'redhat', 'alpine', 'serveur', 'server', 'admin', 'sysadmin', 'system', 'système', 'os', 'distribution', 'distro', 'package', 'apt', 'yum', 'pacman']
+        },
+        'embedded': {
+            name: '⚙️ Embarqué & ARM',
+            color: '#06b6d4',
+            keywords: ['embedded', 'embarqué', 'arm', 'armada', 'marvell', 'raspberry', 'rpi', 'arduino', 'esp32', 'esp8266', 'stm32', 'microcontroller', 'microcontrôleur', 'soc', 'sbc', 'single board', 'globalscale', 'sheevaplug', 'espressobin', 'mochabin', 'openwrt', 'buildroot', 'yocto', 'uboot', 'bootloader', 'firmware', 'jtag', 'uart', 'spi', 'i2c', 'gpio', 'driver', 'pilote', 'device tree', 'dts', 'dtb', 'cross-compile', 'toolchain', 'armbian']
+        },
+        'network': {
+            name: '🌐 Réseau & Infrastructure',
+            color: '#3b82f6',
+            keywords: ['network', 'réseau', 'reseau', 'tcp', 'ip', 'udp', 'dns', 'dhcp', 'http', 'https', 'ssl', 'tls', 'vpn', 'wireguard', 'openvpn', 'ssh', 'ftp', 'smtp', 'router', 'routeur', 'switch', 'vlan', 'firewall', 'proxy', 'load balancer', 'nginx', 'apache', 'haproxy', 'infrastructure', 'datacenter', 'cloud', 'aws', 'azure', 'gcp', 'oci', 'docker', 'kubernetes', 'k8s', 'container', 'conteneur', 'virtualisation', 'vm', 'kvm', 'proxmox', 'vmware']
+        },
+        'dev': {
+            name: '💻 Développement',
+            color: '#10b981',
+            keywords: ['dev', 'développement', 'developpement', 'code', 'coding', 'programming', 'programmation', 'software', 'logiciel', 'application', 'app', 'api', 'rest', 'graphql', 'web', 'frontend', 'backend', 'fullstack', 'python', 'javascript', 'js', 'typescript', 'node', 'react', 'vue', 'angular', 'php', 'java', 'c', 'c++', 'rust', 'go', 'golang', 'ruby', 'perl', 'sql', 'database', 'bdd', 'mysql', 'postgresql', 'mongodb', 'redis', 'git', 'github', 'gitlab', 'ci', 'cd', 'devops', 'agile', 'scrum', 'testing', 'test', 'debug', 'framework', 'library', 'bibliothèque', 'hexo', 'hugo', 'jekyll']
+        },
+        'iot': {
+            name: '📡 IoT & Domotique',
+            color: '#ec4899',
+            keywords: ['iot', 'internet of things', 'domotique', 'home automation', 'smart home', 'maison connectée', 'capteur', 'sensor', 'actuator', 'actionneur', 'mqtt', 'zigbee', 'zwave', 'bluetooth', 'ble', 'lora', 'lorawan', 'sigfox', 'home assistant', 'hass', 'jeedom', 'domoticz', 'openhab', 'tasmota', 'esphome', 'node-red', 'grafana', 'influxdb', 'prometheus']
+        },
+        'cloud': {
+            name: '☁️ Cloud & Self-Hosting',
+            color: '#0ea5e9',
+            keywords: ['cloud', 'nuage', 'self-host', 'auto-hébergement', 'nextcloud', 'owncloud', 'syncthing', 'nas', 'storage', 'stockage', 'backup', 'sauvegarde', 'freedombox', 'yunohost', 'cloudron', 'sandstorm', 'sovereign', 'souveraineté', 'privacy', 'vie privée', 'rgpd', 'gdpr', 'encryption', 'chiffrement', 'cryptographie']
+        },
+        'creative': {
+            name: '🎨 Art & Création',
+            color: '#9945ff',
+            keywords: ['art', 'creative', 'création', 'design', 'graphisme', 'photo', 'photographie', 'video', 'vidéo', 'audio', 'musique', 'music', 'son', 'sound', 'poésie', 'poesie', 'poetry', 'écriture', 'writing', 'blog', 'content', 'contenu', 'media', 'média', 'illustration', 'dessin', 'drawing', 'animation', 'blender', '3d', 'gimp', 'inkscape', 'krita', 'ai art', 'génératif', 'generative', 'suno', 'midjourney', 'stable diffusion', 'dall-e']
+        },
+        'philosophy': {
+            name: '🧘 Philosophie & Réflexion',
+            color: '#a855f7',
+            keywords: ['philosophie', 'philosophy', 'réflexion', 'reflection', 'pensée', 'thought', 'yi jing', 'yijing', 'i ching', 'tao', 'dao', 'zen', 'méditation', 'meditation', 'sagesse', 'wisdom', 'éthique', 'ethics', 'morale', 'spirituel', 'spiritual', 'mystique', 'hermétique', 'ésotérique', 'esoteric', 'symbolisme', 'métaphysique']
+        },
+        'tools': {
+            name: '🔧 Outils & Utilitaires',
+            color: '#84cc16',
+            keywords: ['tool', 'outil', 'utility', 'utilitaire', 'script', 'automation', 'automatisation', 'productivity', 'productivité', 'workflow', 'tips', 'astuce', 'trick', 'howto', 'how-to', 'how to', 'tutorial', 'tutoriel', 'tuto', 'guide', 'documentation', 'doc', 'manual', 'manuel', 'reference', 'référence', 'cheatsheet', 'aide-mémoire', 'snippet']
+        },
+        'news': {
+            name: '📰 Actualités & Veille',
+            color: '#f97316',
+            keywords: ['news', 'actualité', 'actualite', 'veille', 'watch', 'trend', 'tendance', 'event', 'événement', 'evenement', 'conference', 'conférence', 'meetup', 'community', 'communauté', 'opensource', 'open source', 'foss', 'libre', 'free software', 'logiciel libre', 'contribution', 'projet', 'project', 'release', 'version', 'update', 'mise à jour', 'changelog']
+        }
+    };
+
+    // Fonction pour trouver le groupe d'une catégorie
+    function findContextGroup(categoryName) {
+        var nameLower = categoryName.toLowerCase();
+        var bestMatch = null;
+        var bestScore = 0;
         
-        site.categories.sort('name').each(function(category) {
-            // Chercher config dans le thème
-            var catConfig = null;
-            if (theme.categories) {
-                for (var key in theme.categories) {
-                    if (theme.categories[key].name === category.name) {
-                        catConfig = theme.categories[key];
-                        break;
-                    }
+        for (var groupKey in contextGroups) {
+            var group = contextGroups[groupKey];
+            var score = 0;
+            
+            for (var i = 0; i < group.keywords.length; i++) {
+                var keyword = group.keywords[i].toLowerCase();
+                if (nameLower === keyword) {
+                    score += 10; // Match exact
+                } else if (nameLower.indexOf(keyword) >= 0 || keyword.indexOf(nameLower) >= 0) {
+                    score += 5; // Match partiel
                 }
             }
             
-            // Valeurs par défaut
-            var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
-            var color = catConfig ? catConfig.color : defaultColors[categoryIndex % defaultColors.length];
-            
-            categoryIndex++;
+            if (score > bestScore) {
+                bestScore = score;
+                bestMatch = groupKey;
+            }
+        }
+        
+        return bestScore > 0 ? bestMatch : 'other';
+    }
+
+    // Regrouper les catégories
+    var groupedCategories = {};
+    var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
+    
+    // Initialiser les groupes
+    for (var gk in contextGroups) {
+        groupedCategories[gk] = [];
+    }
+    groupedCategories['other'] = [];
+    
+    // Classer chaque catégorie
+    site.categories.sort('length', -1).each(function(category) {
+        var groupKey = findContextGroup(category.name);
+        groupedCategories[groupKey].push(category);
+    });
+    
+    // Ordre d'affichage des groupes
+    var groupOrder = ['security', 'forensic', 'linux', 'embedded', 'network', 'dev', 'iot', 'cloud', 'creative', 'philosophy', 'tools', 'news', 'other'];
+    var categoryIndex = 0;
+    %>
+
+    <!-- Navigation rapide -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; padding: 1rem; background: var(--bg-secondary); border-radius: 12px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        <% groupOrder.forEach(function(gk) { 
+            if (groupedCategories[gk] && groupedCategories[gk].length > 0) {
+                var groupInfo = contextGroups[gk] || { name: '📦 Autres', color: '#6b7280' };
         %>
-        <a href="<%= url_for(category.path) %>" class="category-card" style="--category-color: <%= color %>">
-            <div class="category-icon"><%= icon %></div>
-            <div class="category-info">
-                <h3 class="category-name"><%= category.name %></h3>
-                <div class="category-count"><%= category.posts.length %> article<%= category.posts.length > 1 ? 's' : '' %></div>
-                <div class="category-preview" style="margin-top: 0.5rem;">
-                    <% 
-                    var recentPosts = category.posts.sort('date', -1).limit(3);
-                    recentPosts.each(function(post, index) { 
-                    %>
-                        <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">
-                            <%= index + 1 %>. <%= post.title.substring(0, 40) %><%= post.title.length > 40 ? '...' : '' %>
-                        </span>
-                    <% }); %>
-                </div>
-            </div>
+        <a href="#group-<%= gk %>" style="padding: 0.5rem 1rem; background: <%= groupInfo.color %>20; color: <%= groupInfo.color %>; border: 1px solid <%= groupInfo.color %>40; border-radius: 8px; text-decoration: none; font-size: 0.85rem; transition: all 0.2s;" onmouseover="this.style.background='<%= groupInfo.color %>30'" onmouseout="this.style.background='<%= groupInfo.color %>20'">
+            <%= groupInfo.name.split(' ')[0] %> <span style="opacity: 0.7;">(<%= groupedCategories[gk].length %>)</span>
         </a>
-        <% }); %>
+        <% } }); %>
     </div>
+
+    <!-- Groupes de catégories -->
+    <% groupOrder.forEach(function(gk) { 
+        var categories = groupedCategories[gk];
+        if (!categories || categories.length === 0) return;
+        
+        var groupInfo = contextGroups[gk] || { name: '📦 Autres', color: '#6b7280' };
+    %>
+    <div id="group-<%= gk %>" style="margin-bottom: 4rem; scroll-margin-top: 100px;">
+        <!-- Header du groupe -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid <%= groupInfo.color %>40;">
+            <h3 style="font-size: 1.5rem; color: <%= groupInfo.color %>; margin: 0;">
+                <%= groupInfo.name %>
+            </h3>
+            <span style="background: <%= groupInfo.color %>20; color: <%= groupInfo.color %>; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">
+                <%= categories.length %> catégorie<%= categories.length > 1 ? 's' : '' %>
+            </span>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">
+                — <%= categories.reduce(function(sum, cat) { return sum + cat.posts.length; }, 0) %> articles
+            </span>
+        </div>
+        
+        <!-- Grille des catégories du groupe -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <% categories.forEach(function(category) { 
+                // Configuration personnalisée si disponible
+                var catConfig = null;
+                if (theme.categories) {
+                    for (var key in theme.categories) {
+                        if (theme.categories[key].name === category.name) {
+                            catConfig = theme.categories[key];
+                            break;
+                        }
+                    }
+                }
+                var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
+                var color = groupInfo.color;
+                categoryIndex++;
+            %>
+            <a href="<%= url_for(category.path) %>" class="category-card-grouped" style="--cat-color: <%= color %>;">
+                <div class="cat-icon"><%= icon %></div>
+                <div class="cat-content">
+                    <h4 class="cat-name"><%= category.name %></h4>
+                    <div class="cat-count"><%= category.posts.length %> article<%= category.posts.length > 1 ? 's' : '' %></div>
+                    <% if (category.posts.length > 0) { 
+                        var latestPost = category.posts.sort('date', -1).data[0];
+                    %>
+                    <div class="cat-latest">
+                        📝 <%= latestPost.title.substring(0, 35) %><%= latestPost.title.length > 35 ? '...' : '' %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="cat-arrow">→</div>
+            </a>
+            <% }); %>
+        </div>
+    </div>
+    <% }); %>
 
     <% if (site.categories.length === 0) { %>
     <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
@@ -63,6 +203,91 @@
         <a href="/archives/" class="btn btn-secondary" style="margin-left: 1rem;">Tous les articles</a>
     </div>
 </section>
+
+<style>
+.category-card-grouped {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--cat-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.category-card-grouped:hover {
+    transform: translateX(5px);
+    border-color: var(--cat-color);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    background: var(--bg-tertiary);
+}
+
+.category-card-grouped .cat-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.category-card-grouped .cat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.category-card-grouped .cat-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--cat-color);
+}
+
+.category-card-grouped .cat-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.category-card-grouped .cat-latest {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-card-grouped .cat-arrow {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.category-card-grouped:hover .cat-arrow {
+    color: var(--cat-color);
+    transform: translateX(5px);
+}
+
+@media (max-width: 600px) {
+    .category-card-grouped {
+        padding: 1rem;
+    }
+    
+    .category-card-grouped .cat-icon {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+    
+    .category-card-grouped .cat-name {
+        font-size: 1rem;
+    }
+    
+    .category-card-grouped .cat-latest {
+        display: none;
+    }
+}
+</style>
 
 <!-- Stats -->
 <% if (site.categories.length > 0) { %>
@@ -80,20 +305,17 @@
         </div>
 
         <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-subtle);">
-            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📝</div>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);"><%= site.posts.length %></div>
-            <div style="color: var(--text-muted);">Articles</div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🗂️</div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);">
+                <%= groupOrder.filter(function(gk) { return groupedCategories[gk] && groupedCategories[gk].length > 0; }).length %>
+            </div>
+            <div style="color: var(--text-muted);">Thématiques</div>
         </div>
 
         <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-subtle);">
-            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏆</div>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);">
-                <%
-                var topCategory = site.categories.sort('length', -1).data[0];
-                %>
-                <%= topCategory ? topCategory.posts.length : 0 %>
-            </div>
-            <div style="color: var(--text-muted);">Plus populaire</div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📝</div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);"><%= site.posts.length %></div>
+            <div style="color: var(--text-muted);">Articles</div>
         </div>
 
         <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-subtle);">
@@ -105,26 +327,30 @@
         </div>
     </div>
 
-    <% if (site.categories.length > 0) { %>
-    <div style="margin-top: 3rem; text-align: center;">
-        <h3 style="margin-bottom: 1.5rem;">Top 5 catégories</h3>
-        <div style="max-width: 600px; margin: 0 auto;">
-            <% 
-            site.categories.sort('length', -1).limit(5).each(function(category, index) {
-                var percentage = Math.round((category.posts.length / site.posts.length) * 100);
+    <!-- Top catégories par groupe -->
+    <div style="margin-top: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">📊 Répartition par thématique</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <% groupOrder.forEach(function(gk) { 
+                if (!groupedCategories[gk] || groupedCategories[gk].length === 0) return;
+                var groupInfo = contextGroups[gk] || { name: '📦 Autres', color: '#6b7280' };
+                var totalPosts = groupedCategories[gk].reduce(function(sum, cat) { return sum + cat.posts.length; }, 0);
+                var percentage = Math.round((totalPosts / site.posts.length) * 100) || 0;
             %>
-            <div style="margin-bottom: 1rem;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
-                    <span><%= index + 1 %>. <%= category.name %></span>
-                    <span style="color: var(--text-muted);"><%= category.posts.length %> articles (<%= percentage %>%)</span>
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid <%= groupInfo.color %>;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.9rem;"><%= groupInfo.name.split(' ')[0] %> <%= groupInfo.name.split(' ').slice(1).join(' ') %></span>
+                    <span style="color: <%= groupInfo.color %>; font-weight: 600;"><%= percentage %>%</span>
                 </div>
-                <div style="width: 100%; height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden;">
-                    <div style="width: <%= percentage %>%; height: 100%; background: linear-gradient(90deg, var(--accent-orange), var(--accent-amber)); transition: width 0.3s ease;"></div>
+                <div style="width: 100%; height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden;">
+                    <div style="width: <%= percentage %>%; height: 100%; background: <%= groupInfo.color %>; transition: width 0.5s ease;"></div>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
+                    <%= totalPosts %> articles • <%= groupedCategories[gk].length %> cat.
                 </div>
             </div>
             <% }); %>
         </div>
     </div>
-    <% } %>
 </section>
 <% } %>
