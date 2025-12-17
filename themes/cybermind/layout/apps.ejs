@@ -7,9 +7,40 @@
         </p>
     </div>
 
-    <% if (theme.apps && theme.apps.length > 0) { %>
+    <% 
+    // Scanner les pages apps depuis site.pages OU utiliser la config
+    var allApps = [];
+    
+    // D'abord scanner les fichiers .md dans source/apps/
+    site.pages.forEach(function(page) {
+        if (page.source && page.source.indexOf('apps/') === 0 && page.source !== 'apps/index.md') {
+            allApps.push({
+                name: page.title,
+                icon: page.icon || '🚀',
+                url: page.url || url_for(page.path),
+                description: page.description || '',
+                isPage: true,
+                path: page.path
+            });
+        }
+    });
+    
+    // Si pas de pages apps, utiliser la config theme.apps
+    if (allApps.length === 0 && theme.apps && theme.apps.length > 0) {
+        theme.apps.forEach(function(app) {
+            allApps.push({
+                name: app.name,
+                icon: app.icon || '🚀',
+                url: app.url,
+                description: app.description || '',
+                isPage: false
+            });
+        });
+    }
+    
+    if (allApps.length > 0) { %>
     <div class="apps-grid">
-        <% theme.apps.forEach(app => { %>
+        <% allApps.forEach(function(app) { %>
         <div class="app-card">
             <div class="app-preview">
                 <iframe 
@@ -36,7 +67,7 @@
     <% } else { %>
     <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
         <p style="font-size: 1.2rem;">Aucune application pour le moment.</p>
-        <p>Configurez vos applications dans <code>themes/cybermind/_config.yml</code></p>
+        <p>Créez des fichiers .md dans <code>source/apps/</code> ou configurez dans <code>themes/cybermind/_config.yml</code></p>
     </div>
     <% } %>
 
@@ -46,7 +77,7 @@
 </section>
 
 <!-- Stats -->
-<% if (theme.apps && theme.apps.length > 0) { %>
+<% if (allApps.length > 0) { %>
 <section style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Technologies</div>
@@ -62,7 +93,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 3rem;">
             <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
                 <div style="font-size: 3rem; margin-bottom: 0.5rem;">🚀</div>
-                <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);"><%= theme.apps.length %></div>
+                <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);"><%= allApps.length %></div>
                 <div style="color: var(--text-muted);">Applications</div>
             </div>
 

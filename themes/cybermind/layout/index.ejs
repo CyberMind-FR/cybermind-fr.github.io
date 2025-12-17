@@ -83,7 +83,26 @@
 </section>
 
 <!-- Services Section -->
-<% if (theme.services && theme.services.length > 0) { %>
+<%
+var showServices = true;
+if (theme.sections && theme.sections.services === false) showServices = false;
+
+var allServices = [];
+site.pages.forEach(function(page) {
+    if (page.source && page.source.indexOf('services/') === 0 && page.source !== 'services/index.md') {
+        allServices.push(page);
+    }
+});
+
+allServices.sort(function(a, b) {
+    var orderA = a.order || 999;
+    var orderB = b.order || 999;
+    if (orderA !== orderB) return orderA - orderB;
+    return (a.title || '').localeCompare(b.title || '');
+});
+
+if (showServices && allServices.length > 0) {
+%>
 <section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Services</div>
@@ -92,36 +111,40 @@
 
     <div class="services-detailed">
         <% 
-        // Appliquer la limite de services
         var servicesLimit = theme.index && theme.index.services_limit ? theme.index.services_limit : 2;
-        var servicesToShow = servicesLimit > 0 ? theme.services.slice(0, servicesLimit) : theme.services;
+        var servicesToShow = servicesLimit > 0 ? allServices.slice(0, servicesLimit) : allServices;
         
-        servicesToShow.forEach(service => { %>
+        servicesToShow.forEach(function(service) { 
+            var icon = service.icon || '⚙️';
+            var features = service.features || [];
+        %>
         <div class="service-detail-card">
-            <div class="service-detail-icon"><%= service.icon %></div>
-            <h3><%= service.name %></h3>
-            <p><%= service.description %></p>
+            <div class="service-detail-icon"><%= icon %></div>
+            <h3><%= service.title %></h3>
+            <p><%= service.description || '' %></p>
+            <% if (features.length > 0) { %>
             <ul class="service-features">
-                <% service.features.forEach(feature => { %>
+                <% features.forEach(function(feature) { %>
                 <li>✓ <%= feature %></li>
                 <% }); %>
             </ul>
-            <a href="/services/<%= service.slug %>/" class="btn btn-primary">En savoir plus →</a>
+            <% } %>
+            <a href="<%= url_for(service.path) %>" class="btn btn-primary">En savoir plus →</a>
         </div>
         <% }); %>
     </div>
     
-    <% if (servicesLimit > 0 && theme.services.length > servicesLimit) { %>
+    <% if (servicesLimit > 0 && allServices.length > servicesLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
         <a href="/services/" class="btn btn-secondary">
-            Voir tous les services (<%= theme.services.length %>) →
+            Voir tous les services (<%= allServices.length %>) →
         </a>
     </div>
     <% } %>
 </section>
 <% } %>
 
-<!-- Blog Articles (Main Content) -->
+<!-- Blog Articles -->
 <section id="articles" style="padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Blog Technique</div>
@@ -136,7 +159,7 @@
         var postsLimit = theme.index && theme.index.posts_limit ? theme.index.posts_limit : 6;
         var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
         
-        postsToShow.each(post => { %>
+        postsToShow.each(function(post) { %>
             <%- partial('partials/article', {post: post}) %>
         <% }); %>
     </div>
@@ -158,6 +181,12 @@
 </section>
 
 <!-- Categories Section -->
+<%
+var showCategories = true;
+if (theme.sections && theme.sections.categories === false) showCategories = false;
+
+if (showCategories && site.categories.length > 0) {
+%>
 <section id="categories" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Thématiques</div>
@@ -169,11 +198,9 @@
 
     <div class="categories-grid">
         <% 
-        // Liste des couleurs par défaut pour les catégories
         var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
         var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
         
-        // Appliquer la limite de catégories
         var categoriesLimit = theme.index && theme.index.categories_limit ? theme.index.categories_limit : 6;
         var allCategories = site.categories.sort('name');
         var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
@@ -181,7 +208,6 @@
         var categoryIndex = 0;
         
         categoriesToShow.each(function(category) {
-            // Chercher la config dans le thème
             var catConfig = null;
             if (theme.categories) {
                 for (var key in theme.categories) {
@@ -192,7 +218,6 @@
                 }
             }
             
-            // Utiliser config du thème ou valeurs par défaut
             var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
             var color = catConfig ? catConfig.color : defaultColors[categoryIndex % defaultColors.length];
             
@@ -215,15 +240,112 @@
         </a>
     </div>
     <% } %>
+</section>
+<% } %>
+
+<!-- Tags Section -->
+<%
+var showTags = false;
+if (theme.sections && theme.sections.tags === true) showTags = true;
+
+if (showTags && site.tags.length > 0) {
+%>
+<section id="tags" style="padding: 4rem 2rem;">
+    <div class="section-header">
+        <div class="section-tag">Mots-clés</div>
+        <h2 class="section-title">Explorer par Tag</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+            Naviguez par mots-clés techniques
+        </p>
+    </div>
+
+    <div class="tags-cloud" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <% 
+        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
+        
+        var tagsLimit = theme.index && theme.index.tags_limit ? theme.index.tags_limit : 10;
+        var allTags = site.tags.sort('length', -1);
+        var tagsToShow = tagsLimit > 0 ? allTags.limit(tagsLimit) : allTags;
+        
+        var tagIndex = 0;
+        
+        tagsToShow.each(function(tag) {
+            var color = defaultColors[tagIndex % defaultColors.length];
+            var size = Math.min(Math.max(tag.posts.length, 1), 10);
+            var fontSize = 0.85 + (size * 0.1);
+            tagIndex++;
+        %>
+        <a href="<%= url_for(tag.path) %>" 
+           class="tag-item" 
+           style="
+               font-size: <%= fontSize %>rem;
+               color: <%= color %>;
+               text-decoration: none;
+               padding: 0.5rem 1rem;
+               background: linear-gradient(135deg, <%= color %>15, <%= color %>08);
+               border: 1px solid <%= color %>30;
+               border-radius: 8px;
+               transition: all 0.3s ease;
+               display: inline-flex;
+               align-items: center;
+               gap: 0.5rem;
+           ">
+            #<%= tag.name %>
+            <span style="
+                background: <%= color %>25;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: 600;
+            "><%= tag.posts.length %></span>
+        </a>
+        <% }); %>
+    </div>
     
-    <% if (allCategories.length === 0) { %>
-    <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
-        <p>Aucune catégorie pour le moment. Ajoutez des catégories à vos articles !</p>
+    <% if (tagsLimit > 0 && allTags.length > tagsLimit) { %>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/tags/" class="btn btn-secondary">
+            Voir tous les tags (<%= allTags.length %>) →
+        </a>
     </div>
     <% } %>
 </section>
+<% } %>
 
-<% if (theme.apps && theme.apps.length > 0) { %>
+<!-- Apps Section -->
+<%
+var showApps = true;
+if (theme.sections && theme.sections.apps === false) showApps = false;
+
+var allApps = [];
+
+site.pages.forEach(function(page) {
+    if (page.source && page.source.indexOf('apps/') === 0 && page.source !== 'apps/index.md') {
+        allApps.push({
+            name: page.title,
+            icon: page.icon || '🚀',
+            url: page.url || url_for(page.path),
+            description: page.description || '',
+            isPage: true,
+            path: page.path
+        });
+    }
+});
+
+if (allApps.length === 0 && theme.apps && theme.apps.length > 0) {
+    theme.apps.forEach(function(app) {
+        allApps.push({
+            name: app.name,
+            icon: app.icon || '🚀',
+            url: app.url,
+            description: app.description || '',
+            isPage: false
+        });
+    });
+}
+
+if (showApps && allApps.length > 0) {
+%>
 <section id="applications" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Outils</div>
@@ -232,11 +354,10 @@
 
     <div class="apps-grid">
         <% 
-        // Appliquer la limite d'apps
         var appsLimit = theme.index && theme.index.apps_limit ? theme.index.apps_limit : 2;
-        var appsToShow = appsLimit > 0 ? theme.apps.slice(0, appsLimit) : theme.apps;
+        var appsToShow = appsLimit > 0 ? allApps.slice(0, appsLimit) : allApps;
         
-        appsToShow.forEach(app => { %>
+        appsToShow.forEach(function(app) { %>
         <div class="app-card">
             <div class="app-preview">
                 <iframe 
@@ -261,16 +382,17 @@
         <% }); %>
     </div>
     
-    <% if (appsLimit > 0 && theme.apps.length > appsLimit) { %>
+    <% if (appsLimit > 0 && allApps.length > appsLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
         <a href="/apps/" class="btn btn-secondary">
-            Voir toutes les applications (<%= theme.apps.length %>) →
+            Voir toutes les applications (<%= allApps.length %>) →
         </a>
     </div>
     <% } %>
 </section>
 <% } %>
 
+<!-- YouTube Section -->
 <% if (theme.youtube && theme.youtube.playlist_id) { %>
 <section id="creations" style="padding: 4rem 2rem;">
     <div class="section-header">
@@ -294,7 +416,7 @@
             <p><%= theme.youtube.description %></p>
             
             <div class="media-tags">
-                <% theme.youtube.tags.forEach(tag => { %>
+                <% theme.youtube.tags.forEach(function(tag) { %>
                 <span class="media-tag"><%= tag %></span>
                 <% }); %>
             </div>
@@ -310,6 +432,7 @@
 </section>
 <% } %>
 
+<!-- About Section -->
 <section id="apropos" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">À propos</div>
@@ -321,7 +444,7 @@
             <h3><%= theme.about.name %> — <%= theme.about.title %></h3>
             <%- markdown(theme.about.description) %>
             <div class="expertise-list">
-                <% theme.about.expertise.forEach(item => { %>
+                <% theme.about.expertise.forEach(function(item) { %>
                 <span class="expertise-tag"><%= item %></span>
                 <% }); %>
             </div>
@@ -333,7 +456,7 @@
                 <h4 class="profile-name"><%= theme.about.name %></h4>
                 <p class="profile-title"><%= theme.about.title %></p>
                 <div class="profile-stats">
-                    <% theme.about.stats.forEach(stat => { %>
+                    <% theme.about.stats.forEach(function(stat) { %>
                     <div class="profile-stat">
                         <span class="profile-stat-value"><%= stat.value %></span>
                         <span class="profile-stat-label"><%= stat.label %></span>
@@ -345,6 +468,7 @@
     </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact" style="padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Contact</div>
@@ -359,7 +483,7 @@
                 contribution au blog, ou simplement pour échanger sur les technologies.
             </p>
             <div class="contact-methods">
-                <% for (let name in theme.social) { %>
+                <% for (var name in theme.social) { %>
                 <a href="<%= name === 'email' ? 'mailto:' + theme.social[name] : theme.social[name] %>" class="contact-method" target="_blank">
                     <div class="contact-method-icon">
                         <% if (name === 'email') { %>📧<% } %>
@@ -394,7 +518,7 @@
                 <div class="form-group">
                     <label for="sujet">Sujet</label>
                     <select id="sujet" name="sujet">
-                        <% theme.contact.subjects.forEach(subject => { %>
+                        <% theme.contact.subjects.forEach(function(subject) { %>
                         <option value="<%= subject.value %>"><%= subject.label %></option>
                         <% }); %>
                     </select>

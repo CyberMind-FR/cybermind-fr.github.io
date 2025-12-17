@@ -7,26 +7,48 @@
         </p>
     </div>
 
-    <% if (theme.services && theme.services.length > 0) { %>
+    <% 
+    // Scanner les pages services depuis site.pages
+    var allServices = [];
+    site.pages.forEach(function(page) {
+        if (page.source && page.source.indexOf('services/') === 0 && page.source !== 'services/index.md') {
+            allServices.push(page);
+        }
+    });
+    
+    // Trier par ordre (si défini) ou par titre
+    allServices.sort(function(a, b) {
+        var orderA = a.order || 999;
+        var orderB = b.order || 999;
+        if (orderA !== orderB) return orderA - orderB;
+        return (a.title || '').localeCompare(b.title || '');
+    });
+    
+    if (allServices.length > 0) { %>
     <div class="services-detailed">
-        <% theme.services.forEach(service => { %>
+        <% allServices.forEach(function(service) { 
+            var icon = service.icon || '⚙️';
+            var features = service.features || [];
+        %>
         <div class="service-detail-card">
-            <div class="service-detail-icon"><%= service.icon %></div>
-            <h3><%= service.name %></h3>
-            <p><%= service.description %></p>
+            <div class="service-detail-icon"><%= icon %></div>
+            <h3><%= service.title %></h3>
+            <p><%= service.description || '' %></p>
+            <% if (features.length > 0) { %>
             <ul class="service-features">
-                <% service.features.forEach(feature => { %>
-                <li><%= feature %></li>
+                <% features.forEach(function(feature) { %>
+                <li>✓ <%= feature %></li>
                 <% }); %>
             </ul>
-            <a href="/services/<%= service.slug %>/" class="btn btn-primary">En savoir plus →</a>
+            <% } %>
+            <a href="<%= url_for(service.path) %>" class="btn btn-primary">En savoir plus →</a>
         </div>
         <% }); %>
     </div>
     <% } else { %>
     <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
         <p style="font-size: 1.2rem;">Aucun service configuré.</p>
-        <p>Configurez vos services dans <code>themes/cybermind/_config.yml</code></p>
+        <p>Créez des fichiers .md dans <code>source/services/</code></p>
     </div>
     <% } %>
 

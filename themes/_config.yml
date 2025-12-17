@@ -1,41 +1,22 @@
 # Hexo Theme CyberMind Configuration
 
-# Page d'accueil - Limites d'affichage
-index:
-  posts_limit: 6           # Articles (0 = tous)
-  categories_limit: 6      # Catégories (0 = toutes)
-  apps_limit: 2            # Applications (0 = toutes)
-  services_limit: 2        # Services (0 = tous)
-  
 # Menu
+# Pour activer/désactiver une section, commenter/décommenter la ligne
 menu:
   Accueil: /
   Services: /services/
-  Blog: /archives/        # Renommer "Articles"
-  Tags: /tags/
-  Categories: /categories/
-  Projects: /projects/
+  Articles: /archives/
+  Catégories: /categories/     # Section dynamique - liste toutes les catégories
+  Tags: /tags/                 # Section dynamique - liste tous les tags
+  Apps: /apps/               # Section dynamique - liste toutes les applications
   À propos: /about/
-  Portfolio: /apps/  # Ajouter un lien
-  References: /references/
-  Support: /legal/
   Contact: /contact/
-
-avatar:
-  # Replace the default image and set the url here.
-  url: /uploads/images/avatar.jpg
-  # If true, the avatar will be displayed in circle.
-  rounded: true
-  # If true, the avatar will be rotated with the cursor.
-  rotated: false
 
 # Social Links
 social:
-  GitHub: https://github.com/CyberMind-FR
-  Twitter: https://twitter.com/CyberMindFR
-  YouTube: https://www.youtube.com/channel/UCDSECcnxHuJeHPJSLHvBzbQ/about
-  LinkedIn: https://www.linkedin.com/company/Cybermindfr
-  E-Mail: mailto:info@cybermind.fr?subject=contact
+  email: contact@cybermind.fr
+  website: https://cybermind.fr
+  linkedin: https://linkedin.com
   github: https://github.com/CyberMind-FR
 
 # Hero Section
@@ -89,6 +70,19 @@ apps:
     url: "https://photos.streamlit.app/"
     description: "Générateur de compositions photographiques. Création de mosaïques et collages d'images pour supports visuels, présentations et impressions personnalisées."
 
+# Services - MAINTENANT SCANNÉS DEPUIS source/services/*.md
+# Les fichiers .md dans source/services/ sont automatiquement ajoutés à la section
+# Format du front-matter requis :
+# ---
+# title: "Nom du service"
+# icon: "🛡️"
+# description: "Description courte"
+# order: 1
+# features:
+#   - "Feature 1"
+#   - "Feature 2"
+# ---
+
 # YouTube Playlist
 youtube:
   playlist_id: "PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd"
@@ -101,19 +95,9 @@ youtube:
     - "Prototypage"
     - "Tutoriels"
 
-favicon:
-  small: /uploads/images/favicon-16x16-next.png
-  medium: /uploads/images/favicon-32x32-next.png
-  apple_touch_icon: /uploads/images/apple-touch-icon-next.png
-  safari_pinned_tab: /uploads/images/logo.svg
-  #android_manifest: /manifest.json
-
-# Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: /uploads/images/custom-logo.jpg
-
 # About Section
 about:
-  name: "G.Kerma"
+  name: "Gandalf"
   avatar: "🧙"
   title: "Cybersecurity & Linux Expert"
   description: |
@@ -168,6 +152,21 @@ footer:
 # Pagination
 per_page: 10
 pagination_dir: page
+
+# Page d'accueil - Limites d'affichage
+index:
+  posts_limit: 6           # Nombre d'articles sur page principale (0 = tous)
+  categories_limit: 6      # Nombre de catégories sur page principale (0 = toutes)
+  tags_limit: 10           # Nombre de tags sur page principale (0 = tous)
+  apps_limit: 2            # Nombre d'apps sur page principale (0 = toutes)
+  services_limit: 2        # Nombre de services sur page principale (0 = tous)
+
+# Sections dynamiques sur page d'accueil (true = afficher, false = masquer)
+sections:
+  categories: true         # Afficher section catégories
+  tags: false              # Afficher section tags
+  services: true           # Afficher section services (scanne source/services/*.md)
+  apps: true               # Afficher section applications
 
 # Article Settings
 excerpt_length: 200
