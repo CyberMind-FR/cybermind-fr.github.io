@@ -1,23 +1,15 @@
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge">
-            <%= theme.hero.badge %>
-        </div>
-        <h1>
-            <%- theme.hero.title %>
-        </h1>
-        <p class="hero-subtitle">
-            <%= theme.hero.subtitle %>
-        </p>
+        <div class="hero-badge"><%= theme.hero.badge %></div>
+        <h1><%- theme.hero.title %></h1>
+        <p class="hero-subtitle"><%= theme.hero.subtitle %></p>
         
-        <!-- Services Cards in Hero -->
         <div class="services-hero">
             <a href="/services/pentest/" class="service-card-hero">
                 <div class="service-icon-hero">🛡️</div>
                 <h3>Pentest & Sécurité</h3>
                 <p>Audit de sécurité et tests d'intrusion</p>
             </a>
-            
             <a href="/services/dev/" class="service-card-hero">
                 <div class="service-icon-hero">⚙️</div>
                 <h3>Dev & Conseil</h3>
@@ -26,12 +18,12 @@
         </div>
         
         <div class="hero-stats">
-            <% theme.hero.stats.forEach(stat => { %>
+            <% if (theme.hero && theme.hero.stats) { theme.hero.stats.forEach(function(stat) { %>
             <div class="stat">
                 <span class="stat-value"><%= stat.value %></span>
                 <span class="stat-label"><%= stat.label %></span>
             </div>
-            <% }); %>
+            <% }); } %>
         </div>
         
         <div class="hero-cta">
@@ -42,65 +34,31 @@
 
     <div class="hero-visual">
         <div class="tech-grid-visual">
-            <div class="tech-cell">
-                <span class="tech-cell-icon">🔐</span>
-                <span class="tech-cell-label">Security</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">🐧</span>
-                <span class="tech-cell-label">Linux</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">💻</span>
-                <span class="tech-cell-label">Dev</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">📡</span>
-                <span class="tech-cell-label">IoT</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">⚙️</span>
-                <span class="tech-cell-label">Embedded</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">🔬</span>
-                <span class="tech-cell-label">Research</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">📝</span>
-                <span class="tech-cell-label">Tuto</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">🎓</span>
-                <span class="tech-cell-label">Learning</span>
-            </div>
-            <div class="tech-cell">
-                <span class="tech-cell-icon">🚀</span>
-                <span class="tech-cell-label">Innovation</span>
-            </div>
+            <div class="tech-cell"><span class="tech-cell-icon">🔐</span><span class="tech-cell-label">Security</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">🐧</span><span class="tech-cell-label">Linux</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">💻</span><span class="tech-cell-label">Dev</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">📡</span><span class="tech-cell-label">IoT</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">⚙️</span><span class="tech-cell-label">Embedded</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">🔬</span><span class="tech-cell-label">Research</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">📝</span><span class="tech-cell-label">Tuto</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">🎓</span><span class="tech-cell-label">Learning</span></div>
+            <div class="tech-cell"><span class="tech-cell-icon">🚀</span><span class="tech-cell-label">Innovation</span></div>
         </div>
     </div>
 </section>
 
 <!-- Services Section -->
 <%
-var showServices = true;
-if (theme.sections && theme.sections.services === false) showServices = false;
-
+var showServices = !(theme.sections && theme.sections.services === false);
 var allServices = [];
-site.pages.forEach(function(page) {
-    if (page.source && page.source.indexOf('services/') === 0 && page.source !== 'services/index.md') {
-        allServices.push(page);
-    }
-});
-
-allServices.sort(function(a, b) {
-    var orderA = a.order || 999;
-    var orderB = b.order || 999;
-    if (orderA !== orderB) return orderA - orderB;
-    return (a.title || '').localeCompare(b.title || '');
-});
-
+if (site.pages && site.pages.length) {
+    site.pages.forEach(function(page) {
+        if (page.source && page.source.indexOf('services/') === 0 && page.source !== 'services/index.md') {
+            allServices.push(page);
+        }
+    });
+}
+allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); });
 if (showServices && allServices.length > 0) {
 %>
 <section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
@@ -108,37 +66,28 @@ if (showServices && allServices.length > 0) {
         <div class="section-tag">Services</div>
         <h2 class="section-title">Nos Expertises</h2>
     </div>
-
     <div class="services-detailed">
         <% 
-        var servicesLimit = theme.index && theme.index.services_limit ? theme.index.services_limit : 2;
+        var servicesLimit = (theme.index && theme.index.services_limit) || 2;
         var servicesToShow = servicesLimit > 0 ? allServices.slice(0, servicesLimit) : allServices;
-        
         servicesToShow.forEach(function(service) { 
-            var icon = service.icon || '⚙️';
-            var features = service.features || [];
         %>
         <div class="service-detail-card">
-            <div class="service-detail-icon"><%= icon %></div>
+            <div class="service-detail-icon"><%= service.icon || '⚙️' %></div>
             <h3><%= service.title %></h3>
             <p><%= service.description || '' %></p>
-            <% if (features.length > 0) { %>
+            <% if (service.features && service.features.length > 0) { %>
             <ul class="service-features">
-                <% features.forEach(function(feature) { %>
-                <li>✓ <%= feature %></li>
-                <% }); %>
+                <% service.features.forEach(function(f) { %><li>✓ <%= f %></li><% }); %>
             </ul>
             <% } %>
             <a href="<%= url_for(service.path) %>" class="btn btn-primary">En savoir plus →</a>
         </div>
         <% }); %>
     </div>
-    
     <% if (servicesLimit > 0 && allServices.length > servicesLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
-        <a href="/services/" class="btn btn-secondary">
-            Voir tous les services (<%= allServices.length %>) →
-        </a>
+        <a href="/services/" class="btn btn-secondary">Voir tous les services (<%= allServices.length %>) →</a>
     </div>
     <% } %>
 </section>
@@ -153,28 +102,19 @@ if (showServices && allServices.length > 0) {
             Découvrez nos derniers articles sur la cybersécurité, le développement embarqué et les technologies open source
         </p>
     </div>
-
     <div class="articles-grid">
         <% 
-        var postsLimit = theme.index && theme.index.posts_limit ? theme.index.posts_limit : 6;
+        var postsLimit = (theme.index && theme.index.posts_limit) || 6;
         var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
-        
         postsToShow.each(function(post) { %>
             <%- partial('partials/article', {post: post}) %>
         <% }); %>
     </div>
-
     <% if (page.total > 1) { %>
     <nav class="pagination">
-        <%- paginator({
-            prev_text: '← Précédent',
-            next_text: 'Suivant →',
-            mid_size: 2,
-            end_size: 1
-        }) %>
+        <%- paginator({ prev_text: '← Précédent', next_text: 'Suivant →', mid_size: 2, end_size: 1 }) %>
     </nav>
     <% } %>
-    
     <div style="text-align: center; margin-top: 3rem;">
         <a href="/archives/" class="btn btn-secondary">Voir tous les articles →</a>
     </div>
@@ -182,46 +122,35 @@ if (showServices && allServices.length > 0) {
 
 <!-- Categories Section -->
 <%
-var showCategories = true;
-if (theme.sections && theme.sections.categories === false) showCategories = false;
-
-if (showCategories && site.categories.length > 0) {
+var showCategories = !(theme.sections && theme.sections.categories === false);
+var categoriesExist = site.categories && site.categories.length > 0;
+if (showCategories && categoriesExist) {
 %>
 <section id="categories" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Thématiques</div>
         <h2 class="section-title">Explorer par Catégorie</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
-            Parcourez nos articles classés par domaine d'expertise
-        </p>
     </div>
-
     <div class="categories-grid">
         <% 
         var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
         var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
-        
-        var categoriesLimit = theme.index && theme.index.categories_limit ? theme.index.categories_limit : 6;
+        var categoriesLimit = (theme.index && theme.index.categories_limit) || 6;
         var allCategories = site.categories.sort('name');
         var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
-        
-        var categoryIndex = 0;
-        
+        var idx = 0;
         categoriesToShow.each(function(category) {
-            var catConfig = null;
+            var icon = defaultIcons[idx % 10];
+            var color = defaultColors[idx % 10];
             if (theme.categories) {
                 for (var key in theme.categories) {
                     if (theme.categories[key].name === category.name) {
-                        catConfig = theme.categories[key];
-                        break;
+                        icon = theme.categories[key].icon || icon;
+                        color = theme.categories[key].color || color;
                     }
                 }
             }
-            
-            var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
-            var color = catConfig ? catConfig.color : defaultColors[categoryIndex % defaultColors.length];
-            
-            categoryIndex++;
+            idx++;
         %>
         <a href="<%= url_for(category.path) %>" class="category-card" style="--category-color: <%= color %>">
             <div class="category-icon"><%= icon %></div>
@@ -232,12 +161,9 @@ if (showCategories && site.categories.length > 0) {
         </a>
         <% }); %>
     </div>
-    
     <% if (categoriesLimit > 0 && allCategories.length > categoriesLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
-        <a href="/categories/" class="btn btn-secondary">
-            Voir toutes les catégories (<%= allCategories.length %>) →
-        </a>
+        <a href="/categories/" class="btn btn-secondary">Voir toutes les catégories (<%= allCategories.length %>) →</a>
     </div>
     <% } %>
 </section>
@@ -245,68 +171,35 @@ if (showCategories && site.categories.length > 0) {
 
 <!-- Tags Section -->
 <%
-var showTags = false;
-if (theme.sections && theme.sections.tags === true) showTags = true;
-
-if (showTags && site.tags.length > 0) {
+var showTags = theme.sections && theme.sections.tags === true;
+var tagsExist = site.tags && site.tags.length > 0;
+if (showTags && tagsExist) {
 %>
 <section id="tags" style="padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Mots-clés</div>
         <h2 class="section-title">Explorer par Tag</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
-            Naviguez par mots-clés techniques
-        </p>
     </div>
-
     <div class="tags-cloud" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
         <% 
         var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
-        
-        var tagsLimit = theme.index && theme.index.tags_limit ? theme.index.tags_limit : 10;
+        var tagsLimit = (theme.index && theme.index.tags_limit) || 10;
         var allTags = site.tags.sort('length', -1);
         var tagsToShow = tagsLimit > 0 ? allTags.limit(tagsLimit) : allTags;
-        
-        var tagIndex = 0;
-        
+        var idx = 0;
         tagsToShow.each(function(tag) {
-            var color = defaultColors[tagIndex % defaultColors.length];
-            var size = Math.min(Math.max(tag.posts.length, 1), 10);
-            var fontSize = 0.85 + (size * 0.1);
-            tagIndex++;
+            var color = defaultColors[idx % 10];
+            var fontSize = 0.85 + (Math.min(tag.posts.length, 10) * 0.1);
+            idx++;
         %>
-        <a href="<%= url_for(tag.path) %>" 
-           class="tag-item" 
-           style="
-               font-size: <%= fontSize %>rem;
-               color: <%= color %>;
-               text-decoration: none;
-               padding: 0.5rem 1rem;
-               background: linear-gradient(135deg, <%= color %>15, <%= color %>08);
-               border: 1px solid <%= color %>30;
-               border-radius: 8px;
-               transition: all 0.3s ease;
-               display: inline-flex;
-               align-items: center;
-               gap: 0.5rem;
-           ">
-            #<%= tag.name %>
-            <span style="
-                background: <%= color %>25;
-                padding: 0.2rem 0.5rem;
-                border-radius: 4px;
-                font-size: 0.85rem;
-                font-weight: 600;
-            "><%= tag.posts.length %></span>
+        <a href="<%= url_for(tag.path) %>" style="font-size:<%= fontSize %>rem;color:<%= color %>;text-decoration:none;padding:0.5rem 1rem;background:linear-gradient(135deg,<%= color %>15,<%= color %>08);border:1px solid <%= color %>30;border-radius:8px;">
+            #<%= tag.name %> <span style="background:<%= color %>25;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.85rem;font-weight:600;"><%= tag.posts.length %></span>
         </a>
         <% }); %>
     </div>
-    
     <% if (tagsLimit > 0 && allTags.length > tagsLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
-        <a href="/tags/" class="btn btn-secondary">
-            Voir tous les tags (<%= allTags.length %>) →
-        </a>
+        <a href="/tags/" class="btn btn-secondary">Voir tous les tags (<%= allTags.length %>) →</a>
     </div>
     <% } %>
 </section>
@@ -314,79 +207,38 @@ if (showTags && site.tags.length > 0) {
 
 <!-- Apps Section -->
 <%
-var showApps = true;
-if (theme.sections && theme.sections.apps === false) showApps = false;
-
-var allApps = [];
-
-site.pages.forEach(function(page) {
-    if (page.source && page.source.indexOf('apps/') === 0 && page.source !== 'apps/index.md') {
-        allApps.push({
-            name: page.title,
-            icon: page.icon || '🚀',
-            url: page.url || url_for(page.path),
-            description: page.description || '',
-            isPage: true,
-            path: page.path
-        });
-    }
-});
-
-if (allApps.length === 0 && theme.apps && theme.apps.length > 0) {
-    theme.apps.forEach(function(app) {
-        allApps.push({
-            name: app.name,
-            icon: app.icon || '🚀',
-            url: app.url,
-            description: app.description || '',
-            isPage: false
-        });
-    });
-}
-
-if (showApps && allApps.length > 0) {
+var showApps = !(theme.sections && theme.sections.apps === false);
+var appsExist = theme.apps && theme.apps.length > 0;
+if (showApps && appsExist) {
 %>
 <section id="applications" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">Outils</div>
         <h2 class="section-title">Applications & Ressources</h2>
     </div>
-
     <div class="apps-grid">
         <% 
-        var appsLimit = theme.index && theme.index.apps_limit ? theme.index.apps_limit : 2;
-        var appsToShow = appsLimit > 0 ? allApps.slice(0, appsLimit) : allApps;
-        
+        var appsLimit = (theme.index && theme.index.apps_limit) || 2;
+        var appsToShow = appsLimit > 0 ? theme.apps.slice(0, appsLimit) : theme.apps;
         appsToShow.forEach(function(app) { %>
         <div class="app-card">
             <div class="app-preview">
-                <iframe 
-                    src="<%= app.url %>?embedded=true" 
-                    title="<%= app.name %>"
-                    loading="lazy">
-                </iframe>
+                <iframe src="<%= app.url %>?embedded=true" title="<%= app.name %>" loading="lazy"></iframe>
                 <div class="app-overlay">
-                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">
-                        Ouvrir l'application ↗
-                    </a>
+                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">Ouvrir ↗</a>
                 </div>
             </div>
             <div class="app-info">
-                <h3><%= app.icon %> <%= app.name %></h3>
-                <p><%= app.description %></p>
-                <a href="<%= app.url %>" target="_blank" class="app-link">
-                    Accéder à l'application →
-                </a>
+                <h3><%= app.icon || '🚀' %> <%= app.name %></h3>
+                <p><%= app.description || '' %></p>
+                <a href="<%= app.url %>" target="_blank" class="app-link">Accéder →</a>
             </div>
         </div>
         <% }); %>
     </div>
-    
-    <% if (appsLimit > 0 && allApps.length > appsLimit) { %>
+    <% if (appsLimit > 0 && theme.apps.length > appsLimit) { %>
     <div style="text-align: center; margin-top: 3rem;">
-        <a href="/apps/" class="btn btn-secondary">
-            Voir toutes les applications (<%= allApps.length %>) →
-        </a>
+        <a href="/apps/" class="btn btn-secondary">Voir toutes les applications (<%= theme.apps.length %>) →</a>
     </div>
     <% } %>
 </section>
@@ -399,62 +251,47 @@ if (showApps && allApps.length > 0) {
         <div class="section-tag">Réalisations</div>
         <h2 class="section-title">Portfolio & Démonstrations</h2>
     </div>
-
     <div class="media-showcase">
         <div class="youtube-embed">
-            <iframe 
-                src="https://www.youtube.com/embed/videoseries?list=<%= theme.youtube.playlist_id %>" 
-                title="<%= theme.youtube.title %>"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=<%= theme.youtube.playlist_id %>" title="<%= theme.youtube.title %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        
         <div class="media-info">
             <h3>🎬 <%= theme.youtube.title %></h3>
             <p><%= theme.youtube.description %></p>
-            
+            <% if (theme.youtube.tags) { %>
             <div class="media-tags">
-                <% theme.youtube.tags.forEach(function(tag) { %>
-                <span class="media-tag"><%= tag %></span>
-                <% }); %>
+                <% theme.youtube.tags.forEach(function(tag) { %><span class="media-tag"><%= tag %></span><% }); %>
             </div>
-            
-            <a href="https://www.youtube.com/playlist?list=<%= theme.youtube.playlist_id %>" 
-               class="btn btn-primary" 
-               target="_blank"
-               style="margin-top: 1rem;">
-                Voir la chaîne →
-            </a>
+            <% } %>
+            <a href="https://www.youtube.com/playlist?list=<%= theme.youtube.playlist_id %>" class="btn btn-primary" target="_blank" style="margin-top: 1rem;">Voir la chaîne →</a>
         </div>
     </div>
 </section>
 <% } %>
 
 <!-- About Section -->
+<% if (theme.about) { %>
 <section id="apropos" style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
         <div class="section-tag">À propos</div>
         <h2 class="section-title">Expertise & Parcours</h2>
     </div>
-
     <div class="about-content">
         <div class="about-text">
             <h3><%= theme.about.name %> — <%= theme.about.title %></h3>
             <%- markdown(theme.about.description) %>
+            <% if (theme.about.expertise) { %>
             <div class="expertise-list">
-                <% theme.about.expertise.forEach(function(item) { %>
-                <span class="expertise-tag"><%= item %></span>
-                <% }); %>
+                <% theme.about.expertise.forEach(function(item) { %><span class="expertise-tag"><%= item %></span><% }); %>
             </div>
+            <% } %>
         </div>
-
         <div class="about-visual">
             <div class="profile-card">
                 <div class="profile-avatar"><%= theme.about.avatar %></div>
                 <h4 class="profile-name"><%= theme.about.name %></h4>
                 <p class="profile-title"><%= theme.about.title %></p>
+                <% if (theme.about.stats) { %>
                 <div class="profile-stats">
                     <% theme.about.stats.forEach(function(stat) { %>
                     <div class="profile-stat">
@@ -463,10 +300,12 @@ if (showApps && allApps.length > 0) {
                     </div>
                     <% }); %>
                 </div>
+                <% } %>
             </div>
         </div>
     </div>
 </section>
+<% } %>
 
 <!-- Contact Section -->
 <section id="contact" style="padding: 4rem 2rem;">
@@ -474,59 +313,33 @@ if (showApps && allApps.length > 0) {
         <div class="section-tag">Contact</div>
         <h2 class="section-title">Restons en Contact</h2>
     </div>
-
     <div class="contact-content">
         <div class="contact-info">
             <h3>Une question ? Un projet ?</h3>
-            <p>
-                Pour toute demande de prestation (pentest, développement, conseil), 
-                contribution au blog, ou simplement pour échanger sur les technologies.
-            </p>
+            <p>Pour toute demande de prestation, contribution au blog, ou simplement pour échanger.</p>
+            <% if (theme.social) { %>
             <div class="contact-methods">
                 <% for (var name in theme.social) { %>
                 <a href="<%= name === 'email' ? 'mailto:' + theme.social[name] : theme.social[name] %>" class="contact-method" target="_blank">
-                    <div class="contact-method-icon">
-                        <% if (name === 'email') { %>📧<% } %>
-                        <% if (name === 'website') { %>🌐<% } %>
-                        <% if (name === 'linkedin') { %>💼<% } %>
-                        <% if (name === 'github') { %>💻<% } %>
-                    </div>
-                    <div>
-                        <strong><%= name.charAt(0).toUpperCase() + name.slice(1) %></strong>
-                        <div style="color: var(--text-muted); font-size: 0.9rem;"><%= theme.social[name] %></div>
-                    </div>
+                    <div class="contact-method-icon"><% if (name === 'email') { %>📧<% } else if (name === 'website') { %>🌐<% } else if (name === 'linkedin') { %>💼<% } else if (name === 'github') { %>💻<% } else { %>🔗<% } %></div>
+                    <div><strong><%= name.charAt(0).toUpperCase() + name.slice(1) %></strong><div style="color: var(--text-muted); font-size: 0.9rem;"><%= theme.social[name] %></div></div>
                 </a>
                 <% } %>
             </div>
+            <% } %>
         </div>
-
         <% if (theme.contact && theme.contact.formspree_id) { %>
         <div class="contact-form">
             <form action="https://formspree.io/f/<%= theme.contact.formspree_id %>" method="POST">
                 <input type="hidden" name="_subject" value="📧 Contact CyberMind Blog">
-                <input type="hidden" name="_next" value="<%= config.url %>/merci/">
-                <input type="text" name="_gotcha" style="display:none">
-                
-                <div class="form-group">
-                    <label for="name">Nom / Organisation</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="sujet">Sujet</label>
+                <div class="form-group"><label for="name">Nom</label><input type="text" id="name" name="name" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                <div class="form-group"><label for="sujet">Sujet</label>
                     <select id="sujet" name="sujet">
-                        <% theme.contact.subjects.forEach(function(subject) { %>
-                        <option value="<%= subject.value %>"><%= subject.label %></option>
-                        <% }); %>
+                        <% if (theme.contact.subjects) { theme.contact.subjects.forEach(function(s) { %><option value="<%= s.value %>"><%= s.label %></option><% }); } %>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Décrivez votre demande..."></textarea>
-                </div>
+                <div class="form-group"><label for="message">Message</label><textarea id="message" name="message"></textarea></div>
                 <button type="submit" class="btn btn-primary btn-submit">Envoyer</button>
             </form>
         </div>
