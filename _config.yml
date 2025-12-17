@@ -30,14 +30,6 @@ i18n_dir: :lang
 skip_render:
   - lib/**/*
   - 'demos/64-hexagrammes-animation.html'
-  - apps/**/*
-  - services/creative/*
-  - services/pentest/*
-  - demos/**/*
-  - 'services/index.html'
-  - 'services/pentest/cybermind-landing-page.html'
-  - 'services/creative/cybermind-creative-thinking.html'
-  - 'services/dev/cybermind-dev-conseil.html'
 
 # Writing
 ##new_post_name: :title.md # File name of new posts

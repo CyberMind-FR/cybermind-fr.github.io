@@ -7,42 +7,33 @@
         </p>
     </div>
 
-    <% 
-    // Scanner les pages services depuis site.pages
+    <%
     var allServices = [];
+    
     site.pages.forEach(function(page) {
-        // Vérifier si c'est une page de service (pas l'index)
         var src = page.source || '';
-        var isService = src.indexOf('services/') >= 0 && 
-                        src.indexOf('index.md') === -1 ||
-                        (src.indexOf('services/') >= 0 && 
-                         src !== 'services/index.md' &&
-                         src.indexOf('/index.md') > 0);
-        
-        // Alternative : vérifier le path
         var pth = page.path || '';
-        var isServiceByPath = pth.indexOf('services/') >= 0 && 
-                              pth !== 'services/' &&
-                              pth !== 'services/index.html';
         
-        if (isService || isServiceByPath) {
-            // Éviter les doublons
-            var exists = allServices.some(function(s) { return s.title === page.title; });
+        var isServicePage = (src.indexOf('services/') >= 0 || pth.indexOf('services/') >= 0) &&
+                           src !== 'services/index.md' &&
+                           pth !== 'services/' &&
+                           pth !== 'services/index.html' &&
+                           page.layout !== 'services';
+        
+        if (isServicePage) {
+            var exists = allServices.some(function(s) { return s.path === page.path; });
             if (!exists) {
                 allServices.push(page);
             }
         }
     });
     
-    // Trier par ordre (si défini) ou par titre
-    allServices.sort(function(a, b) {
-        var orderA = a.order || 999;
-        var orderB = b.order || 999;
-        if (orderA !== orderB) return orderA - orderB;
-        return (a.title || '').localeCompare(b.title || '');
+    allServices.sort(function(a, b) { 
+        return (a.order || 999) - (b.order || 999); 
     });
-    
-    if (allServices.length > 0) { %>
+    %>
+
+    <% if (allServices.length > 0) { %>
     <div class="services-detailed">
         <% allServices.forEach(function(service) { 
             var icon = service.icon || '⚙️';
