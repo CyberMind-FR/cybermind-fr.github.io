@@ -1,5 +1,5 @@
 ---
-title: "Ganimed.fr - Site Vitrine Professionnel"
+title: "Gk2.fr - Site Vitrine Professionnel"
 layout: portfolio
 date: 2024-06-15
 icon: 🌐
@@ -7,8 +7,8 @@ type: client
 
 # Client info
 client:
-  name: "Ganimed"
-  logo: /images/portfolio/ganimed-logo.png
+  name: "Gk2"
+  logo: /images/portfolio/Gk2-logo.png
   sector: "Services aux entreprises"
   location: "Savoie, France"
 
@@ -25,20 +25,20 @@ project:
   year: 2024
 
 # URLs
-live_url: "https://ganimed.fr"
+live_url: "https://gk2.fr"
 demo_url: null
 github_url: null
 
 # Visuels
-thumbnail: /images/portfolio/ganimed-thumb.jpg
+thumbnail: /images/portfolio/gk2-thumb.jpg
 screenshots:
-  - url: /images/portfolio/ganimed-home.jpg
+  - url: /images/portfolio/gk2-home.jpg
     caption: "Page d'accueil"
-  - url: /images/portfolio/ganimed-services.jpg
+  - url: /images/portfolio/gk2-services.jpg
     caption: "Présentation des services"
-  - url: /images/portfolio/ganimed-contact.jpg
+  - url: /images/portfolio/gk2-contact.jpg
     caption: "Formulaire de contact"
-  - url: /images/portfolio/ganimed-mobile.jpg
+  - url: /images/portfolio/gk2-mobile.jpg
     caption: "Version mobile responsive"
 
 # Témoignage
@@ -47,7 +47,7 @@ testimonial:
   author: "Jean D., Gérant Ganimed"
 
 # Références
-related_article: "/2024/06/20/creation-site-vitrine-ganimed/"
+related_article: "/2024/06/20/creation-site-vitrine-gk2/"
 
 # Métadonnées
 featured: true
