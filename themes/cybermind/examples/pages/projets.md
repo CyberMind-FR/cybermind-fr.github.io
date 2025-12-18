@@ -63,7 +63,7 @@ Le réseau **Guignol.net** préserve le patrimoine numérique personnel et profe
 | Archive | Domaine | Époque |
 |---------|---------|--------|
 | 🌐 [GK2.NET](https://web.archive.org/web/20010401091245/http://www.gk2.com/) | [gk2.guignol.net](https://gk2.guignol.net) | Premier ISP (1996) |
-| 💼 [Ganimed](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | [ganimed.guignol.net](https://ganimed.guignol.net) | Services IT |
+| 🔮 [GANIMED](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | [ganimed.guignol.net](https://ganimed.guignol.net) | Haute Magie & Géométrie Sacrée |
 | 🏛️ [ICIEB](https://web.archive.org/web/20210318200344/https://icieb.fr/) | [icieb.guignol.net](https://icieb.guignol.net) | Institution |
 
 ### ☯️ Ressources Yi Jing
