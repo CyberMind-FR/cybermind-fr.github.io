@@ -21,7 +21,7 @@ theme:
 # ─────────────────────────────────────────────────────────────────────────────
 branding:
   logo_symbol: "◆"
-  logo_text: "Gk2_"
+  logo_text: "CyberMind_"
   tagline: "Votre tagline ici"
   logo_image: "/images/custom_logo.png"  # Décommentez pour utiliser une image
   favicon: "/images/favicon.ico"
@@ -215,11 +215,11 @@ footer:
 # ─────────────────────────────────────────────────────────────────────────────
 # Categories with colors
 categories:
-  security:
+  cybersecurity:
     name: "Cybersécurité"
     icon: "🔐"
     color: "#00d4ff"
-  kernel:
+  linux:
     name: "Linux Kernel"
     icon: "🐧"
     color: "#3b82f6"
@@ -227,12 +227,12 @@ categories:
     name: "Systèmes Embarqués"
     icon: "⚙️"
     color: "#9945ff"
-  opensource:
-    name: "Open Source"
+  creative:
+    name: "Creative"
     icon: "📦"
     color: "#10b981"
-  iot:
-    name: "IoT & Réseau"
+  philosophy:
+    name: "Philosophie"
     icon: "📡"
     color: "#8b5cf6"
   tutorials:

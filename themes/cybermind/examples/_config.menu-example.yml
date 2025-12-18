@@ -1,0 +1,91 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# CONFIGURATION MENU AVEC SOUS-MENUS - Exemple pour _config.cybermind.yml
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Menu principal avec support des sous-menus dropdown
+# 
+# Syntaxe:
+#   - Menu simple:     "Nom": "/chemin/"
+#   - Menu avec dropdown:
+#       "Nom":
+#         _path: "/chemin/"           # Chemin principal (optionnel)
+#         "Sous-menu 1": "/chemin1/"
+#         "Sous-menu 2": "/chemin2/"
+
+menu:
+  Accueil: /
+  
+  # Menu Blog avec sous-catégories
+  Blog:
+    _path: /blog/
+    🛡️ Cybersécurité: /blog/cybersecurity/
+    ⚙️ Embarqué: /blog/embedded/
+    🐧 Linux: /blog/linux/
+    🎨 Créativité: /blog/creative/
+    🧘 Philosophie: /blog/philosophy/
+    📖 Tutoriels: /blog/tutorials/
+  
+  # Menu Apps avec sous-sections
+  Apps:
+    _path: /apps/
+    ∞ Tresse Lemniscate: /apps/tresse-lemniscate/
+    ☯️ Yi Jing Oracle: /apps/yijing/
+    🎵 Formes Sonores: /apps/formes-sonores/
+  
+  # Menus simples
+  Services: /services/
+  Portfolio: /portfolio/
+  Contact: /contact/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# STRUCTURE SOURCE CORRESPONDANTE
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# source/
+# ├── blog/
+# │   ├── index.md              (layout: blog-index)
+# │   ├── cybersecurity/
+# │   │   ├── index.md          (layout: category, category: cybersecurity)
+# │   │   └── article.md
+# │   ├── embedded/
+# │   │   └── index.md          (layout: category, category: embedded)
+# │   ├── linux/
+# │   │   └── index.md          (layout: category, category: linux)
+# │   ├── creative/
+# │   │   └── index.md          (layout: category, category: creative)
+# │   ├── philosophy/
+# │   │   └── index.md          (layout: category, category: philosophy)
+# │   └── tutorials/
+# │       └── index.md          (layout: category, category: tutorials)
+# │
+# ├── apps/
+# │   ├── index.md
+# │   ├── tresse-lemniscate/
+# │   └── yijing/
+# │
+# ├── services/
+# │   └── index.md
+# │
+# ├── portfolio/
+# │   └── index.md
+# │
+# └── contact/
+#     └── index.md
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXEMPLE INDEX DE CATÉGORIE
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# source/blog/cybersecurity/index.md:
+# ---
+# title: "🛡️ Cybersécurité"
+# layout: category
+# category: cybersecurity
+# description: "Articles sur la sécurité informatique"
+# icon: 🛡️
+# color: "#00ff88"
+# featured_apps: [enigmasuite]
+# featured_services: [pentest]
+# ---
+# 
+# Contenu personnalisé de la catégorie...

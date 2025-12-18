@@ -1,383 +1,232 @@
 <%#
   Layout: category.ejs
-  Description: Affiche une page de catégorie avec ses articles
-  Note: page.posts peut être undefined si on utilise layout: category manuellement
+  Page de catégorie - VERSION SIMPLE
 %>
 
 <%
-// Récupérer les posts de cette catégorie de manière sécurisée
-let categoryPosts = [];
-const categoryName = page.category || page.title;
-
-// Méthode 1: page.posts existe (catégorie Hexo native)
-if (page.posts && page.posts.length) {
-  categoryPosts = page.posts.toArray();
-}
-// Méthode 2: Chercher dans site.posts par catégorie
-else if (site.posts && site.posts.length) {
-  categoryPosts = site.posts.filter(function(post) {
-    // Vérifier si le post a cette catégorie
-    if (post.categories && post.categories.length) {
-      return post.categories.some(function(cat) {
-        return cat.name === categoryName || cat.slug === page.category;
-      });
-    }
-    // Ou vérifier le champ category du front matter
-    return post.category === page.category;
-  }).sort('date', -1).toArray();
-}
-
-const postCount = categoryPosts.length;
-
-// Couleurs par catégorie
-const categoryColors = {
-  cybersecurity: '#00ff88',
-  embedded: '#ff6600',
-  linux: '#ffcc00',
-  creative: '#ff6699',
-  philosophy: '#9966ff',
-  tutorials: '#66ccff'
+// Catégories disponibles
+var categoriesInfo = {
+  'cybersecurity': { name: 'Cybersécurité', color: '#00ff88', icon: '🛡️' },
+  'embedded': { name: 'Embarqué', color: '#ff6600', icon: '⚙️' },
+  'linux': { name: 'Linux', color: '#ffcc00', icon: '🐧' },
+  'creative': { name: 'Créativité', color: '#ff6699', icon: '🎨' },
+  'philosophy': { name: 'Philosophie', color: '#9966ff', icon: '🧘' },
+  'tutorials': { name: 'Tutoriels', color: '#66ccff', icon: '📖' }
 };
-const catColor = page.color || categoryColors[page.category] || '#00ff88';
-const catIcon = page.icon || '📁';
+
+// Détecter la catégorie de cette page
+var categorySlug = '';
+
+// 1. Depuis le front matter
+if (page.category) {
+  categorySlug = page.category.toLowerCase();
+}
+
+// 2. Depuis le chemin
+if (!categorySlug && page.source) {
+  var match = page.source.match(/blog\/([^\/]+)\//);
+  if (match) categorySlug = match[1].toLowerCase();
+}
+
+// 3. Depuis le path URL
+if (!categorySlug && page.path) {
+  var pathMatch = page.path.match(/blog\/([^\/]+)/);
+  if (pathMatch) categorySlug = pathMatch[1].toLowerCase();
+}
+
+// Infos de la catégorie
+var catInfo = categoriesInfo[categorySlug] || { name: page.title || 'Catégorie', color: '#888888', icon: '📁' };
+var catColor = page.color || catInfo.color;
+var catIcon = page.icon || catInfo.icon;
+var catName = page.title || catInfo.name;
+var catDesc = page.description || '';
+
+// Fonction pour extraire la catégorie d'un post
+function getPostCat(post) {
+  if (post.category && typeof post.category === 'string') {
+    return post.category.toLowerCase();
+  }
+  if (post.categories && post.categories.length) {
+    try {
+      var cats = post.categories.toArray ? post.categories.toArray() : [];
+      if (cats.length > 0) {
+        var c = cats[0];
+        return (c.name || c.slug || c || '').toLowerCase();
+      }
+    } catch(e) {}
+  }
+  return '';
+}
+
+// Filtrer les posts de cette catégorie
+var categoryPosts = [];
+
+// Méthode 1: page.posts (catégorie Hexo native)
+if (page.posts && page.posts.length) {
+  categoryPosts = page.posts.toArray ? page.posts.toArray() : [];
+}
+
+// Méthode 2: Filtrer site.posts manuellement
+if (categoryPosts.length === 0 && site.posts && site.posts.length && categorySlug) {
+  var allPosts = site.posts.toArray ? site.posts.toArray() : [];
+  
+  allPosts.forEach(function(post) {
+    var postCat = getPostCat(post);
+    
+    // Comparaison directe
+    if (postCat === categorySlug) {
+      categoryPosts.push(post);
+      return;
+    }
+    
+    // Comparaison avec le nom de catégorie
+    if (catInfo.name && postCat === catInfo.name.toLowerCase()) {
+      categoryPosts.push(post);
+      return;
+    }
+    
+    // Comparaison dans le chemin du fichier
+    if (post.source && post.source.toLowerCase().indexOf('/' + categorySlug + '/') !== -1) {
+      categoryPosts.push(post);
+      return;
+    }
+  });
+  
+  // Trier par date décroissante
+  categoryPosts.sort(function(a, b) {
+    return new Date(b.date) - new Date(a.date);
+  });
+}
+
+var postCount = categoryPosts.length;
 %>
 
-<div class="category-page" style="--cat-color: <%= catColor %>">
+<div class="category-page">
   
-  <%# En-tête de catégorie %>
-  <header class="category-header">
-    <div class="category-hero">
-      <span class="category-icon"><%= catIcon %></span>
-      <h1 class="category-title"><%= page.title %></h1>
-      <p class="category-description">
-        <% if (page.description) { %>
-          <%= page.description %>
-        <% } %>
-      </p>
-      <p class="category-count">
-        <%= postCount %> article<%= postCount > 1 ? 's' : '' %> dans cette catégorie
-      </p>
-    </div>
+  <header class="cat-header" style="--cat-color: <%= catColor %>">
+    <span class="cat-icon"><%= catIcon %></span>
+    <h1><%= catName %></h1>
+    <% if (catDesc) { %><p class="cat-desc"><%= catDesc %></p><% } %>
+    <p class="cat-count"><%= postCount %> article<%= postCount > 1 ? 's' : '' %></p>
+    <nav class="breadcrumb">
+      <a href="/">Accueil</a> / <a href="/blog/">Blog</a> / <span><%= catName %></span>
+    </nav>
   </header>
 
-  <%# Ressources liées (apps, services, etc.) %>
-  <% if (page.featured_apps || page.featured_services || page.featured_demos || page.featured_portfolio) { %>
-  <section class="category-resources">
-    
+  <% if (page.featured_apps || page.featured_services) { %>
+  <section class="resources">
     <% if (page.featured_apps && page.featured_apps.length) { %>
-    <div class="resource-section">
-      <h3>🚀 Applications</h3>
-      <div class="resource-grid">
-        <% page.featured_apps.forEach(function(app) { %>
-        <a href="/apps/<%= app %>/" class="resource-card resource-app">
-          <span class="resource-name"><%= app %></span>
-        </a>
-        <% }); %>
-      </div>
+    <div class="res-group">
+      <h3>🚀 Apps</h3>
+      <% page.featured_apps.forEach(function(app) { %>
+      <a href="/apps/<%= app %>/" class="res-link"><%= app %></a>
+      <% }); %>
     </div>
     <% } %>
-    
     <% if (page.featured_services && page.featured_services.length) { %>
-    <div class="resource-section">
+    <div class="res-group">
       <h3>🛡️ Services</h3>
-      <div class="resource-grid">
-        <% page.featured_services.forEach(function(service) { %>
-        <a href="/services/<%= service %>/" class="resource-card resource-service">
-          <span class="resource-name"><%= service %></span>
-        </a>
-        <% }); %>
-      </div>
+      <% page.featured_services.forEach(function(svc) { %>
+      <a href="/services/<%= svc %>/" class="res-link"><%= svc %></a>
+      <% }); %>
     </div>
     <% } %>
-    
-    <% if (page.featured_portfolio && page.featured_portfolio.length) { %>
-    <div class="resource-section">
-      <h3>💼 Projets</h3>
-      <div class="resource-grid">
-        <% page.featured_portfolio.forEach(function(project) { %>
-        <a href="/portfolio/archives/<%= project %>/" class="resource-card resource-portfolio">
-          <span class="resource-name"><%= project %></span>
-        </a>
-        <% }); %>
-      </div>
-    </div>
-    <% } %>
-    
   </section>
   <% } %>
 
-  <%# Contenu personnalisé de la page %>
   <% if (page.content && page.content.trim()) { %>
-  <section class="category-content">
-    <%- page.content %>
-  </section>
+  <section class="cat-content"><%- page.content %></section>
   <% } %>
 
-  <%# Liste des articles %>
-  <section class="category-posts">
+  <section class="posts-section">
     <h2>📝 Articles</h2>
     
     <% if (postCount > 0) { %>
-    <div class="posts-grid">
+    <div class="posts-list">
       <% categoryPosts.forEach(function(post) { %>
-      <article class="post-card">
+      <article class="post-item">
         <a href="<%- url_for(post.path) %>">
-          <% if (post.thumbnail) { %>
-          <div class="post-thumbnail">
-            <img src="<%= post.thumbnail %>" alt="<%= post.title %>" loading="lazy">
+          <span class="post-date"><%= date(post.date, 'DD/MM/YYYY') %></span>
+          <h3><%= post.title %></h3>
+          <% if (post.description) { %><p><%= post.description %></p><% } %>
+          <% if (post.tags && post.tags.length) { %>
+          <div class="post-tags">
+            <% var tags = post.tags.toArray ? post.tags.toArray() : []; %>
+            <% tags.slice(0, 4).forEach(function(tag) { %>
+            <span class="tag">#<%= tag.name || tag %></span>
+            <% }); %>
           </div>
           <% } %>
-          <div class="post-info">
-            <h3 class="post-title"><%= post.title %></h3>
-            <% if (post.description) { %>
-            <p class="post-excerpt"><%= post.description %></p>
-            <% } %>
-            <div class="post-meta">
-              <span class="post-date"><%= date(post.date, 'DD/MM/YYYY') %></span>
-              <% if (post.reading_time) { %>
-              <span class="post-reading">📖 <%= post.reading_time %> min</span>
-              <% } %>
-              <% if (post.difficulty) { %>
-              <span class="post-difficulty <%= post.difficulty %>"><%= post.difficulty %></span>
-              <% } %>
-            </div>
-            <% if (post.tags && post.tags.length) { %>
-            <div class="post-tags">
-              <% post.tags.forEach(function(tag) { %>
-              <span class="tag">#<%= tag.name %></span>
-              <% }); %>
-            </div>
-            <% } %>
-          </div>
         </a>
       </article>
       <% }); %>
     </div>
     <% } else { %>
     <div class="no-posts">
-      <p>Aucun article dans cette catégorie pour le moment.</p>
-      <p>Les articles arrivent bientôt ! 🚀</p>
+      <p>🚧 Aucun article dans cette catégorie pour le moment.</p>
+      <p><a href="/blog/">← Retour au blog</a></p>
     </div>
     <% } %>
-    
   </section>
 
 </div>
 
 <style>
-/* ══════════════════════════════════════════════════════════════
-   CATEGORY PAGE STYLES
-   ══════════════════════════════════════════════════════════════ */
+.category-page { max-width: 900px; margin: 0 auto; padding: 2rem; }
 
-.category-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+.cat-header {
+  text-align: center; padding: 2rem 0; margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.cat-header .cat-icon { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.cat-header h1 { font-size: 2rem; color: var(--cat-color); margin: 0 0 0.5rem; }
+.cat-header .cat-desc { color: #9898a6; margin: 0 0 0.5rem; }
+.cat-header .cat-count { color: #6a6a7a; font-size: 0.9rem; margin: 0 0 0.5rem; }
+.breadcrumb { font-size: 0.85rem; color: #6a6a7a; }
+.breadcrumb a { color: var(--cat-color); text-decoration: none; }
+
+.resources {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 1.5rem;
+}
+.res-group h3 { font-size: 0.9rem; color: #9898a6; margin: 0 0 0.5rem; }
+.res-link {
+  display: inline-block; padding: 0.3rem 0.6rem; margin-right: 0.5rem;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; color: #e8e8ed; text-decoration: none; font-size: 0.85rem;
+}
+.res-link:hover { border-color: var(--cat-color); color: var(--cat-color); }
+
+.cat-content {
+  padding: 1.5rem; margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px;
+  border-left: 3px solid var(--cat-color);
 }
 
-/* Header */
-.category-header {
-  text-align: center;
-  padding: 3rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
+.posts-section h2 { color: var(--cat-color, #e8e8ed); margin-bottom: 1rem; }
+
+.posts-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.post-item {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; transition: border-color 0.2s, transform 0.2s;
 }
+.post-item:hover { border-color: var(--cat-color); transform: translateX(4px); }
+.post-item a { display: block; padding: 1rem; text-decoration: none; color: inherit; }
+.post-item .post-date { font-size: 0.8rem; color: #6a6a7a; }
+.post-item h3 { margin: 0.3rem 0 0.5rem; font-size: 1.05rem; color: #e8e8ed; }
+.post-item p { margin: 0 0 0.5rem; font-size: 0.9rem; color: #9898a6; }
+.post-item .post-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.post-item .tag { font-size: 0.75rem; color: var(--cat-color); opacity: 0.7; }
 
-.category-icon {
-  font-size: 4rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.category-title {
-  font-size: 2.5rem;
-  color: var(--cat-color);
-  margin-bottom: 0.5rem;
-}
-
-.category-description {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 1rem;
-}
-
-.category-count {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* Resources */
-.category-resources {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--bg-secondary);
-  border-radius: 12px;
-}
-
-.resource-section h3 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-secondary);
-}
-
-.resource-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.resource-card {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.resource-card:hover {
-  border-color: var(--cat-color);
-  transform: translateY(-2px);
-}
-
-.resource-app { border-left: 3px solid #00F6FF; }
-.resource-service { border-left: 3px solid #00ff88; }
-.resource-portfolio { border-left: 3px solid #9966ff; }
-
-.resource-name {
-  color: var(--text-primary);
-  font-size: 0.9rem;
-}
-
-/* Content */
-.category-content {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  border-left: 4px solid var(--cat-color);
-}
-
-/* Posts */
-.category-posts h2 {
-  margin-bottom: 1.5rem;
-  color: var(--cat-color);
-}
-
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-}
-
-.post-card {
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s;
-}
-
-.post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  border-color: var(--cat-color);
-}
-
-.post-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.post-thumbnail {
-  height: 180px;
-  overflow: hidden;
-}
-
-.post-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.post-card:hover .post-thumbnail img {
-  transform: scale(1.05);
-}
-
-.post-info {
-  padding: 1.25rem;
-}
-
-.post-info .post-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-  line-height: 1.4;
-}
-
-.post-excerpt {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.post-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.post-difficulty {
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-}
-.post-difficulty.beginner { background: #00ff8833; color: #00ff88; }
-.post-difficulty.intermediate { background: #ffcc0033; color: #ffcc00; }
-.post-difficulty.advanced { background: #ff666633; color: #ff6666; }
-
-.post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.post-tags .tag {
-  font-size: 0.75rem;
-  color: var(--cat-color);
-  opacity: 0.8;
-}
-
-/* No posts */
 .no-posts {
-  text-align: center;
-  padding: 3rem;
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  color: var(--text-muted);
+  text-align: center; padding: 2rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px; color: #6a6a7a;
 }
+.no-posts a { color: var(--cat-color); }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .category-title { font-size: 1.8rem; }
-  .category-icon { font-size: 3rem; }
-  .posts-grid { grid-template-columns: 1fr; }
-  .category-resources { flex-direction: column; }
-}
+@media (max-width: 600px) { .cat-header h1 { font-size: 1.5rem; } }
+[data-theme="light"] .category-page { background: #fff; }
+[data-theme="light"] .post-item, [data-theme="light"] .resources, 
+[data-theme="light"] .cat-content { background: #f8f9fa; border-color: #e0e0e0; }
+[data-theme="light"] .post-item h3, [data-theme="light"] h2 { color: #2a2a3a; }
 </style>
