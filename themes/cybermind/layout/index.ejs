@@ -1,11 +1,11 @@
 <%
-// ═══════════════════════════════════════════════════════════════════════════════
+// 
 // INDEX.EJS - Page d'accueil 100% dynamique
-// ═══════════════════════════════════════════════════════════════════════════════
+// 
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // CONFIGURATION
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 // Sections à afficher
 var sections = theme.sections || {};
@@ -26,9 +26,9 @@ var appsLimit = limits.apps || limits.apps_limit || 2;
 var portfolioLimit = limits.portfolio || 4;
 var categoriesLimit = limits.categories || limits.categories_limit || 6;
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // COLLECTE DES CONTENUS DYNAMIQUES
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 // Services depuis source/services/*.md
 var allServices = [];
@@ -148,9 +148,9 @@ var heroCta = hero.cta || [
 var about = theme.about || {};
 %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      HERO SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showHero) { %>
 <section class="hero">
     <div class="hero-content">
@@ -200,9 +200,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      SERVICES SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showServices && allServices.length > 0) { %>
 <section id="services" class="section-alt">
     <div class="section-header">
@@ -232,9 +232,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      APPS SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showApps && allApps.length > 0) { %>
 <section id="applications" class="section">
     <div class="section-header">
@@ -276,9 +276,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      PORTFOLIO SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showPortfolio && allPortfolio.length > 0) { %>
 <section id="portfolio" class="section-alt">
     <div class="section-header">
@@ -321,9 +321,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      ARTICLES SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showArticles) { %>
 <section id="articles" class="section">
     <div class="section-header">
@@ -352,9 +352,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      CATEGORIES SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showCategories && site.categories && site.categories.length > 0) { %>
 <section id="categories" class="section-alt">
     <div class="section-header">
@@ -396,9 +396,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      YOUTUBE SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showYoutube) { %>
 <section id="youtube" class="section">
     <div class="section-header">
@@ -420,9 +420,9 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      ABOUT SECTION
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <% if (showAbout && about.name) { %>
 <section id="about" class="section-alt">
     <div class="section-header">
@@ -472,20 +472,20 @@ var about = theme.about || {};
 </section>
 <% } %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      DATA POUR JAVASCRIPT
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <script type="application/json" id="servicesData">
 <%- JSON.stringify(allServices) %>
 </script>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      STYLES
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <style>
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    SECTIONS
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .section {
     padding: 4rem 2rem;
 }
@@ -528,9 +528,9 @@ var about = theme.about || {};
     margin-top: 3rem;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    HERO
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .hero {
     min-height: 90vh;
     display: grid;
@@ -655,9 +655,9 @@ var about = theme.about || {};
     text-transform: uppercase;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    SERVICES
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -705,9 +705,9 @@ var about = theme.about || {};
     font-weight: 500;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    APPS
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .apps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -780,9 +780,9 @@ var about = theme.about || {};
     font-size: 0.9rem;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    PORTFOLIO
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -860,9 +860,9 @@ var about = theme.about || {};
     color: var(--text-muted);
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    ARTICLES
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -899,9 +899,9 @@ var about = theme.about || {};
     border-color: var(--accent-primary);
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    CATEGORIES
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .categories-grid {
     display: flex;
     flex-wrap: wrap;
@@ -946,9 +946,9 @@ var about = theme.about || {};
     font-weight: 600;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    YOUTUBE
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .youtube-embed {
     position: relative;
     padding-bottom: 56.25%;
@@ -966,9 +966,9 @@ var about = theme.about || {};
     height: 100%;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    ABOUT
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 .about-content {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -1053,9 +1053,9 @@ var about = theme.about || {};
     color: var(--text-muted);
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
+/* 
    RESPONSIVE
-   ───────────────────────────────────────────────────────────────────────────── */
+    */
 @media (max-width: 968px) {
     .hero {
         grid-template-columns: 1fr;
@@ -1127,9 +1127,9 @@ var about = theme.about || {};
 }
 </style>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════════
+<!-- 
      JAVASCRIPT - Interactions
-     ═══════════════════════════════════════════════════════════════════════════════ -->
+      -->
 <script>
 (function() {
     // Récupérer les services

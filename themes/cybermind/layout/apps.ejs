@@ -1,89 +1,81 @@
-<section style="padding: 4rem 2rem; min-height: 60vh;">
+<%
+// APPS LAYOUT - Liste des applications interactives
+var allApps = [];
+
+// 1. Scanner les fichiers source/apps/*.md
+site.pages.forEach(function(p) {
+    var src = p.source || '';
+    if (p.layout === 'app' || (src.indexOf('apps/') === 0 && src !== 'apps/index.md')) {
+        if (!allApps.find(function(a) { return a.name === p.title; })) {
+            allApps.push({
+                name: p.title,
+                url: p.embed_url || url_for(p.path),
+                path: p.path,
+                icon: p.icon || '🚀',
+                description: p.description || '',
+                category: p.category || 'tools',
+                featured: p.featured || false,
+                order: p.order || 999,
+                article: p.related_article || '',
+                tags: p.tags_list || [],
+                isMarkdown: true
+            });
+        }
+    }
+});
+
+// 2. Ajouter aussi depuis theme.apps si configuré
+if (theme.apps && theme.apps.length) {
+    theme.apps.forEach(function(app) {
+        if (!allApps.find(function(a) { return a.name === app.name; })) {
+            allApps.push({
+                name: app.name,
+                url: app.url,
+                path: app.url,
+                icon: app.icon || '🚀',
+                description: app.description || '',
+                category: app.category || 'tools',
+                featured: app.featured || false,
+                order: app.order || 999,
+                article: app.article || '',
+                tags: app.tags || [],
+                isExternal: true
+            });
+        }
+    });
+}
+
+// Trier : featured en premier, puis par order
+allApps.sort(function(a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return (a.order || 999) - (b.order || 999);
+});
+%>
+<section class="apps-section">
     <div class="section-header">
         <div class="section-tag">Outils Interactifs</div>
         <h2 class="section-title"><%= page.icon || '🚀' %> Applications & Démos</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto;">
-            Découvrez nos applications interactives, outils et démonstrations
-        </p>
+        <p class="section-subtitle">Découvrez nos applications interactives, outils et démonstrations</p>
     </div>
 
-    <% 
-    // ═══════════════════════════════════════════════════════════════════════════════
-    // COLLECTE DES APPS - depuis Markdown ET config
-    // ═══════════════════════════════════════════════════════════════════════════════
+    <% if (allApps.length > 0) { %>
     
-    var allApps = [];
-    
-    // 1. Scanner les fichiers source/apps/*.md
-    site.pages.forEach(function(p) {
-        var src = p.source || '';
-        if (p.layout === 'app' || (src.indexOf('apps/') === 0 && src !== 'apps/index.md')) {
-            if (!allApps.find(function(a) { return a.name === p.title; })) {
-                allApps.push({
-                    name: p.title,
-                    url: p.embed_url || url_for(p.path),
-                    path: p.path,
-                    icon: p.icon || '🚀',
-                    description: p.description || '',
-                    category: p.category || 'tools',
-                    featured: p.featured || false,
-                    order: p.order || 999,
-                    article: p.related_article || '',
-                    tags: p.tags_list || [],
-                    isMarkdown: true
-                });
-            }
-        }
-    });
-    
-    // 2. Ajouter aussi depuis theme.apps si configuré
-    if (theme.apps && theme.apps.length) {
-        theme.apps.forEach(function(app) {
-            if (!allApps.find(function(a) { return a.name === app.name; })) {
-                allApps.push({
-                    name: app.name,
-                    url: app.url,
-                    path: app.url,
-                    icon: app.icon || '🚀',
-                    description: app.description || '',
-                    category: app.category || 'tools',
-                    featured: app.featured || false,
-                    order: app.order || 999,
-                    article: app.article || '',
-                    tags: app.tags || [],
-                    isExternal: true
-                });
-            }
-        });
-    }
-    
-    // Trier : featured en premier, puis par order
-    allApps.sort(function(a, b) {
-        if (a.featured && !b.featured) return -1;
-        if (!a.featured && b.featured) return 1;
-        return (a.order || 999) - (b.order || 999);
-    });
-    
-    if (allApps.length > 0) { 
-    %>
-    
-    <!-- Statistiques -->
-    <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
-        <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.length %></div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Applications</div>
+    <div class="apps-stats">
+        <div class="stat-item">
+            <div class="stat-value"><%= allApps.length %></div>
+            <div class="stat-label">Applications</div>
         </div>
-        <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.filter(function(a) { return a.featured; }).length %></div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">En vedette</div>
+        <div class="stat-item">
+            <div class="stat-value"><%= allApps.filter(function(a) { return a.featured; }).length %></div>
+            <div class="stat-label">En vedette</div>
         </div>
-        <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.filter(function(a) { return a.isMarkdown; }).length %></div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Documentées</div>
+        <div class="stat-item">
+            <div class="stat-value"><%= allApps.filter(function(a) { return a.isMarkdown; }).length %></div>
+            <div class="stat-label">Documentées</div>
         </div>
     </div>
     
-    <!-- Filtres par catégorie -->
     <div class="apps-filters" id="appsFilters">
         <button class="filter-btn active" data-filter="all">🎲 Tous</button>
         <button class="filter-btn" data-filter="philosophy">🧘 Philosophie</button>
@@ -94,7 +86,6 @@
         <button class="filter-btn" data-filter="network">🌐 Réseau</button>
     </div>
     
-    <!-- Grille des applications -->
     <div class="apps-gallery" id="appsGallery">
         <% allApps.forEach(function(app) { 
             var catColor = app.category === 'philosophy' ? '#a855f7' :
@@ -104,41 +95,29 @@
                           app.category === 'network' ? '#3b82f6' :
                           '#f97316';
         %>
-        <div class="app-card-full" data-category="<%= app.category || 'tools' %>" style="--app-color: <%= catColor %>;">
-            <!-- Badge featured -->
+        <div class="app-card" data-category="<%= app.category || 'tools' %>">
             <% if (app.featured) { %>
-            <div class="app-featured-badge">⭐ En vedette</div>
+            <div class="app-featured">⭐ Vedette</div>
             <% } %>
             
-            <!-- Barre titre style GUI -->
-            <div class="app-titlebar">
-                <div class="app-titlebar-buttons">
-                    <span class="app-btn-dot close">●</span>
-                    <span class="app-btn-dot minimize">●</span>
-                    <span class="app-btn-dot maximize">●</span>
-                </div>
-                <div class="app-titlebar-title">
-                    <%= app.icon || '🚀' %> <%= app.name %>
-                </div>
-                <div class="app-titlebar-category">
-                    <%= app.category || 'app' %>
-                </div>
+            <div class="app-header">
+                <span class="app-icon"><%= app.icon || '🚀' %></span>
+                <h3 class="app-name"><%= app.name %></h3>
+                <span class="app-category" style="background: <%= catColor %>20; color: <%= catColor %>;"><%= app.category %></span>
             </div>
             
-            <!-- Prévisualisation iframe -->
-            <div class="app-preview-large">
+            <div class="app-preview">
                 <iframe src="<%= app.url %>?embedded=true" title="<%= app.name %>" loading="lazy"></iframe>
-                <div class="app-overlay-full">
+                <div class="app-preview-overlay">
                     <% if (app.isMarkdown) { %>
-                    <a href="<%= url_for(app.path) %>" class="btn btn-primary">📖 Voir la page</a>
+                    <a href="<%= url_for(app.path) %>" class="btn btn-primary">📖 Page</a>
                     <% } %>
-                    <a href="<%= app.url %>" target="_blank" class="btn btn-<%= app.isMarkdown ? 'secondary' : 'primary' %>">▶ Lancer l'app</a>
+                    <a href="<%= app.url %>" target="_blank" class="btn btn-secondary">▶ Lancer</a>
                 </div>
             </div>
             
-            <!-- Informations -->
-            <div class="app-info-full">
-                <p class="app-description"><%= app.description || 'Application interactive' %></p>
+            <div class="app-body">
+                <p class="app-desc"><%= app.description || 'Application interactive' %></p>
                 
                 <% if (app.tags && app.tags.length > 0) { %>
                 <div class="app-tags">
@@ -150,24 +129,12 @@
                 
                 <div class="app-actions">
                     <% if (app.isMarkdown) { %>
-                    <a href="<%= url_for(app.path) %>" class="app-btn-launch">
-                        <span class="app-btn-icon">📖</span>
-                        <span>Détails</span>
-                        <span class="app-btn-arrow">→</span>
-                    </a>
-                    <a href="<%= app.url %>" target="_blank" class="app-btn-doc">
-                        ▶ Lancer ↗
-                    </a>
+                    <a href="<%= url_for(app.path) %>" class="app-btn primary">📖 Détails →</a>
+                    <a href="<%= app.url %>" target="_blank" class="app-btn">▶ Lancer ↗</a>
                     <% } else { %>
-                    <a href="<%= app.url %>" target="_blank" class="app-btn-launch">
-                        <span class="app-btn-icon">▶</span>
-                        <span>Ouvrir</span>
-                        <span class="app-btn-arrow">↗</span>
-                    </a>
+                    <a href="<%= app.url %>" target="_blank" class="app-btn primary">▶ Ouvrir ↗</a>
                     <% if (app.article) { %>
-                    <a href="<%= app.article %>" class="app-btn-doc">
-                        📖 Article
-                    </a>
+                    <a href="<%= app.article %>" class="app-btn">📖 Article</a>
                     <% } %>
                     <% } %>
                 </div>
@@ -177,169 +144,142 @@
     </div>
     
     <% } else { %>
-    <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
-        <div style="font-size: 4rem; margin-bottom: 1rem;">🚀</div>
-        <p style="font-size: 1.2rem;">Aucune application disponible pour le moment.</p>
-        <p>Créez des fichiers dans <code>source/apps/</code> ou configurez dans <code>_config.yml</code></p>
+    <div class="apps-empty">
+        <div class="empty-icon">🚀</div>
+        <h3>Aucune application trouvée</h3>
+        <p>Debug: <%= site.pages.length %> pages scannées</p>
+        <div class="empty-help">
+            <p>Créez des fichiers dans <code>source/apps/</code> avec <code>layout: app</code></p>
+        </div>
     </div>
     <% } %>
 
-    <div style="text-align: center; margin-top: 4rem;">
-        <a href="/" class="btn btn-secondary">← Retour à l'accueil</a>
-        <a href="/categories/" class="btn btn-secondary" style="margin-left: 1rem;">Explorer les catégories</a>
+    <div class="apps-nav">
+        <a href="/" class="btn btn-secondary">← Accueil</a>
+        <a href="/categories/" class="btn btn-secondary">Catégories</a>
     </div>
 </section>
 
 <style>
-/* Filtres */
+.apps-section {
+    padding: 4rem 2rem;
+    min-height: 60vh;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+.apps-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+.stat-value { font-size: 2.5rem; color: var(--accent-primary); font-weight: 700; }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
 .apps-filters {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
-    padding: 1rem;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.apps-filters .filter-btn {
+.filter-btn {
     padding: 0.5rem 1rem;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
-    border-radius: 8px;
+    border-radius: 20px;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.2s ease;
-    font-family: inherit;
     font-size: 0.85rem;
 }
 
-.apps-filters .filter-btn:hover {
-    border-color: var(--accent-orange);
-    color: var(--accent-orange);
-}
-
-.apps-filters .filter-btn.active {
-    background: var(--accent-orange);
+.filter-btn:hover { border-color: var(--accent-primary); }
+.filter-btn.active {
+    background: var(--accent-primary);
     color: #000;
-    border-color: var(--accent-orange);
+    border-color: var(--accent-primary);
 }
 
-/* Grille des apps */
 .apps-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Carte application style GUI */
-.app-card-full {
-    position: relative;
-    background: var(--bg-primary);
-    border: 2px solid var(--border-subtle);
+.app-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
+    position: relative;
 }
 
-.app-card-full:hover {
+.app-card:hover {
     transform: translateY(-5px);
-    box-shadow: 
-        0 15px 40px rgba(0,0,0,0.4),
-        0 0 30px var(--app-color, var(--accent-orange))30;
-    border-color: var(--app-color, var(--accent-orange));
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Badge featured */
-.app-featured-badge {
+.app-featured {
     position: absolute;
-    top: 45px;
-    right: -30px;
-    background: var(--accent-orange);
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #f59e0b, #f97316);
     color: #000;
-    padding: 0.25rem 2rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    transform: rotate(45deg);
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-/* Barre de titre */
-.app-titlebar {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    background: var(--app-color, var(--accent-orange));
-    color: #000;
-    font-family: 'JetBrains Mono', monospace;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
-    gap: 0.75rem;
+    z-index: 10;
 }
 
-.app-titlebar-buttons {
+.app-header {
+    padding: 1rem;
     display: flex;
-    gap: 5px;
-}
-
-.app-btn-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    font-size: 8px;
-    line-height: 12px;
-    text-align: center;
-}
-
-.app-btn-dot.close { background: #ff5f57; color: #ff5f57; }
-.app-btn-dot.minimize { background: #ffbd2e; color: #ffbd2e; }
-.app-btn-dot.maximize { background: #28ca42; color: #28ca42; }
-
-.app-titlebar-title {
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.app-titlebar-category {
-    text-transform: uppercase;
-    font-size: 0.65rem;
-    opacity: 0.7;
-    padding: 0.15rem 0.5rem;
-    background: rgba(0,0,0,0.15);
-    border-radius: 4px;
-}
-
-/* Prévisualisation */
-.app-preview-large {
-    position: relative;
-    height: 220px;
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border-subtle);
+    align-items: center;
+    gap: 0.75rem;
     border-bottom: 1px solid var(--border-subtle);
 }
 
-.app-preview-large iframe {
+.app-icon { font-size: 1.5rem; }
+.app-name { flex: 1; font-size: 1rem; margin: 0; }
+.app-category {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.app-preview {
+    position: relative;
+    height: 200px;
+    background: var(--bg-tertiary);
+}
+
+.app-preview iframe {
     width: 100%;
     height: 100%;
     border: none;
     pointer-events: none;
 }
 
-.app-overlay-full {
+.app-preview-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.8);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
@@ -347,16 +287,11 @@
     transition: opacity 0.3s ease;
 }
 
-.app-card-full:hover .app-overlay-full {
-    opacity: 1;
-}
+.app-card:hover .app-preview-overlay { opacity: 1; }
 
-/* Infos */
-.app-info-full {
-    padding: 1.25rem;
-}
+.app-body { padding: 1rem; }
 
-.app-description {
+.app-desc {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 1rem;
@@ -373,133 +308,88 @@
 .app-tag {
     font-size: 0.7rem;
     padding: 0.15rem 0.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
+    background: var(--bg-tertiary);
     border-radius: 4px;
     color: var(--text-muted);
 }
 
-/* Actions */
 .app-actions {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
 }
 
-.app-btn-launch {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.25rem;
-    background: var(--app-color, var(--accent-orange));
-    color: #000;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-}
-
-.app-btn-launch:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px var(--app-color, var(--accent-orange))50;
-}
-
-.app-btn-launch .app-btn-arrow {
-    transition: transform 0.2s ease;
-}
-
-.app-btn-launch:hover .app-btn-arrow {
-    transform: translate(3px, -3px);
-}
-
-.app-btn-doc {
+.app-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.6rem 1rem;
-    background: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
     color: var(--text-secondary);
     text-decoration: none;
-    border: 1px solid var(--border-subtle);
     border-radius: 6px;
     font-size: 0.85rem;
     transition: all 0.2s ease;
 }
 
-.app-btn-doc:hover {
-    border-color: var(--app-color, var(--accent-orange));
-    color: var(--app-color, var(--accent-orange));
+.app-btn:hover { color: var(--accent-primary); }
+
+.app-btn.primary {
+    background: var(--accent-primary);
+    color: #000;
 }
 
-/* Animation filtrage */
-.app-card-full.hidden {
-    display: none;
+.app-btn.primary:hover { transform: scale(1.05); }
+
+.apps-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
 }
 
-.app-card-full.fade-in {
-    animation: fadeInUp 0.4s ease forwards;
+.empty-icon { font-size: 4rem; margin-bottom: 1rem; }
+
+.empty-help {
+    margin-top: 1.5rem;
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.apps-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
 }
 
-/* Responsive */
+.app-card.hidden { display: none; }
+
 @media (max-width: 768px) {
-    .apps-gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    .apps-filters {
-        padding: 0.75rem;
-    }
-    
-    .filter-btn {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.8rem;
-    }
-    
-    .app-preview-large {
-        height: 180px;
-    }
-    
-    .app-featured-badge {
-        top: 40px;
-        right: -35px;
-        font-size: 0.6rem;
-    }
+    .apps-gallery { grid-template-columns: 1fr; }
+    .app-preview { height: 160px; }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const appCards = document.querySelectorAll('.app-card-full');
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var appCards = document.querySelectorAll('.app-card');
     
-    filterBtns.forEach(btn => {
+    filterBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-            const filter = this.dataset.filter;
+            var filter = this.dataset.filter;
             
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
+            filterBtns.forEach(function(b) { b.classList.remove('active'); });
             this.classList.add('active');
             
-            // Filter cards with animation
-            appCards.forEach(card => {
-                const category = card.dataset.category;
-                
+            appCards.forEach(function(card) {
+                var category = card.dataset.category;
                 if (filter === 'all' || category === filter) {
                     card.classList.remove('hidden');
-                    card.classList.add('fade-in');
-                    setTimeout(() => card.classList.remove('fade-in'), 400);
                 } else {
                     card.classList.add('hidden');
                 }
@@ -508,48 +398,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
-<!-- Guide d'ajout -->
-<section style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Documentation</div>
-        <h2 class="section-title">💡 Ajouter une application</h2>
-    </div>
-
-    <div style="max-width: 800px; margin: 0 auto;">
-        <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
-            <div style="color: var(--text-muted); margin-bottom: 1rem;"># themes/cybermind/_config.yml</div>
-            <pre style="color: var(--text-primary); margin: 0;">apps:
-  - name: "64 Hexagrammes du Yi Jing"
-    url: "https://cybermind.fr/demos/64-hexagrammes-animation.html"
-    icon: "☯️"
-    description: "Animation interactive des 64 hexagrammes"
-    category: "philosophy"
-    tags:
-      - yi-jing
-      - animation
-    article: "/2024/12/18/yi-jing-64-hexagrammes/"
-    featured: true
-    order: 1</pre>
-        </div>
-        
-        <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #a855f7;">
-                <strong>🧘 philosophy</strong>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Yi Jing, méditation</div>
-            </div>
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #ef4444;">
-                <strong>🔐 security</strong>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Outils sécurité</div>
-            </div>
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #9945ff;">
-                <strong>🎨 creative</strong>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Art, musique</div>
-            </div>
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #10b981;">
-                <strong>💻 dev</strong>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Développement</div>
-            </div>
-        </div>
-    </div>
-</section>
