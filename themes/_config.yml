@@ -94,10 +94,10 @@ tech_grid:
 # ─────────────────────────────────────────────────────────────────────────────
 sections:
   hero: true
-  services: false
-  apps: false
-  portfolio: false
-  articles: false
+  services: true
+  apps: true
+  portfolio: true
+  articles: true
   categories: true
   youtube: true
   about: true
