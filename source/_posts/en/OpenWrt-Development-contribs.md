@@ -3,12 +3,11 @@ title: OpenWrt - Development contribs
 lang: en
 date: 2014-12-23 00:00:00
 tags:
-- OpenWrt
+- openwrt
 - packages
 - contribute
 categories: Cyber
 ---
-
 Here a list of contributions on the Master [OpenWrt](https://openwrt.org/)
 
 [What is OpenWrt ?](https://en.wikipedia.org/wiki/OpenWrt)

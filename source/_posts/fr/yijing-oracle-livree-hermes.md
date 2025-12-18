@@ -1,32 +1,33 @@
 ---
-title: "Yi Jing 易經 - Oracle avec Grilles La Livrée d'Hermès"
+title: Yi Jing 易經 - Oracle avec Grilles La Livrée d'Hermès
 date: 2025-12-14 05:55:00
 updated: 2025-12-14 05:55:00
 categories:
-  - Ésotérisme
-  - Outils Interactifs
+- Ésotérisme
+- Outils Interactifs
 tags:
-  - Yi Jing
-  - I Ching
-  - Oracle
-  - Divination
-  - La Livrée d'Hermès
-  - Hexagrammes
-  - Taoïsme
-  - Application Web
+- yi-jing
+- I Ching
+- Oracle
+- Divination
+- La Livrée d'Hermès
+- Hexagrammes
+- Taoïsme
+- Application Web
 keywords:
-  - yi jing oracle
-  - i ching tirage
-  - hexagrammes chinois
-  - livre des mutations
-  - divination taoïste
-  - la livrée d'hermès
-description: "Application interactive de consultation du Yi Jing (I Ching) avec visualisation sur les grilles de jeu La Livrée d'Hermès. Tirage des 64 hexagrammes, interprétation des traits mutants et animation des transformations."
+- yi jing oracle
+- i ching tirage
+- hexagrammes chinois
+- livre des mutations
+- divination taoïste
+- la livrée d'hermès
+description: Application interactive de consultation du Yi Jing (I Ching) avec visualisation
+  sur les grilles de jeu La Livrée d'Hermès. Tirage des 64 hexagrammes, interprétation
+  des traits mutants et animation des transformations.
 thumbnail: /images/yijing-oracle-thumb.png
 toc: true
 comments: true
 ---
-
 ## Introduction au Yi Jing 易經
 
 Le **Yi Jing** (易經), également connu sous le nom de **I Ching** ou **Livre des Mutations**, est l'un des plus anciens textes classiques chinois. Datant de plus de 3000 ans, il constitue à la fois un système de divination et un traité philosophique fondamental du taoïsme et du confucianisme.

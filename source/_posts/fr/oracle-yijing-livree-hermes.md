@@ -1,23 +1,24 @@
 ---
-title: "Oracle Yi Jing : La Livrée d'Hermès en Application Web"
+title: 'Oracle Yi Jing : La Livrée d''Hermès en Application Web'
 date: 2025-12-16 17:45:00
 updated: 2025-12-16 17:45:00
 categories:
-  - Projets
-  - Spiritualité
+- Projets
+- Spiritualité
 tags:
-  - Yi Jing
-  - I Ching
-  - Oracle
-  - PWA
-  - JavaScript
-  - La Livrée d'Hermès
-  - Divination
-  - Taoïsme
+- yi-jing
+- I Ching
+- Oracle
+- PWA
+- js
+- La Livrée d'Hermès
+- Divination
+- Taoïsme
 thumbnail: /images/yijing-oracle-thumb.png
-excerpt: "Découvrez l'Oracle Yi Jing en version web progressive, enrichi des grilles décoratives de La Livrée d'Hermès. Une application complète pour consulter le Livre des Transformations, disponible hors-ligne sur tous vos appareils."
+excerpt: Découvrez l'Oracle Yi Jing en version web progressive, enrichi des grilles
+  décoratives de La Livrée d'Hermès. Une application complète pour consulter le Livre
+  des Transformations, disponible hors-ligne sur tous vos appareils.
 ---
-
 ## Le Yi Jing : Sagesse Millénaire
 
 Le **Yi Jing** (易經), ou *Livre des Mutations*, est l'un des textes fondateurs de la pensée chinoise. Vieux de plus de trois mille ans, ce classique confucéen n'est pas qu'un simple oracle divinatoire : c'est un véritable traité philosophique sur le changement, l'équilibre des forces et la nature cyclique de l'existence.

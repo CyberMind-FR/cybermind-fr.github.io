@@ -2,18 +2,17 @@
 title: 🚀 Implémenter le MOCHAbin de GlobalScale dans Armbian
 date: 2025-12-04 18:45:00
 tags:
-  - MOCHAbin
-  - Armbian
-  - GlobalScale
-  - Marvell
-  - Armada 7040
-  - Build
+- MOCHAbin
+- armbian
+- GlobalScale
+- Marvell
+- Armada 7040
+- Build
 categories:
-  - Tutoriels
-  - Embedded Systems
-  - Development
+- Tutoriels
+- Embedded Systems
+- Development
 ---
-
 # 🚀 Implémenter le MOCHAbin de GlobalScale dans Armbian
 
 ## 📖 Introduction

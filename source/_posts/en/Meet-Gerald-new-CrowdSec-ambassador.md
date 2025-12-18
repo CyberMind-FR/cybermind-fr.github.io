@@ -1,15 +1,14 @@
 ---
-title: 'Meet Gérald, new CrowdSec ambassador'
+title: Meet Gérald, new CrowdSec ambassador
 date: 2022-02-24 20:00:00
-tags: 
+tags:
 - news
 - CrowdSecurity
-- CrowdSec
+- crowdsec
 - SECUBOX
 - contribute
 categories: Cyber
 ---
-
 <img src="/uploads/images/Gerald-750-×-400-px.webp" width="750px" heigth="400px">
 
 # Meet Gérald, new CrowdSec ambassador

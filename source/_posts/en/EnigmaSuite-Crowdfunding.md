@@ -1,16 +1,15 @@
 ---
-title: "EnigmaSuite — Secure Overlay Network Crowdfunding Campaign"
+title: EnigmaSuite — Secure Overlay Network Crowdfunding Campaign
 date: 2025-12-04 09:00:00
 tags:
-  - OpenWrt
-  - Enigmabox
-  - overlay
-  - cryptography
-  - crowdfunding
+- openwrt
+- Enigmabox
+- overlay
+- cryptography
+- crowdfunding
 categories:
-  - Cyber
+- Cyber
 ---
-
 # 🔐 EnigmaSuite — Secure Overlay Network  
 ## ⚡ A Sovereign, Encrypted, OpenWrt-Powered Infrastructure
 <!-- more -->

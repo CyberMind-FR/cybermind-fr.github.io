@@ -2,16 +2,15 @@
 title: 🚀 Compiler Armbian pour ESPRESSObin - Guide Complet
 date: 2025-12-04 17:30:00
 tags:
-  - Armbian
-  - ESPRESSObin
-  - Linux
-  - Compilation
-  - ARM
+- armbian
+- ESPRESSObin
+- Linux
+- Compilation
+- ARM
 categories:
-  - Tutoriels
-  - Embedded Systems
+- Tutoriels
+- Embedded Systems
 ---
-
 # 🚀 Compiler Armbian pour ESPRESSObin - Guide Complet
 
 ## 📖 Introduction

@@ -1,23 +1,23 @@
 ---
-title: "Kragzouy"
+title: Kragzouy
 layout: app
 icon: 🧙
-description: "Application mystique et créative de l'univers Kragzouy. Exploration de mondes imaginaires et symboliques."
+description: Application mystique et créative de l'univers Kragzouy. Exploration de
+  mondes imaginaires et symboliques.
 category: creative
-embed_url: "https://kragzouy.streamlit.app"
+embed_url: https://kragzouy.streamlit.app
 status: active
-version: "1.0"
+version: '1.0'
 featured: false
 order: 2
 tags_list:
-  - kragzouy
-  - creative
-  - mystique
-  - streamlit
-  - maegia
+- kragzouy
+- créatif
+- mystique
+- streamlit
+- maegia
 domain: kragzouy.maegia.tv
 ---
-
 ## 🧙 Kragzouy
 
 Application créative explorant l'univers mystique de Kragzouy.

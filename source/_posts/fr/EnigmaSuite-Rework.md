@@ -2,13 +2,12 @@
 title: EnigmaSuite — Rework complet pour OpenWrt 19.07
 date: 2025-12-02 14:30:00
 tags:
-  - OpenWrt
-  - EnigmaSuite
-  - ARM
-  - EspressoBin
-  - EnigmaBox
+- openwrt
+- EnigmaSuite
+- ARM
+- EspressoBin
+- EnigmaBox
 ---
-
 # EnigmaSuite — Rework complet pour OpenWrt 19.07
 
 Ce document présente la version **entièrement retravaillée** d’EnigmaSuite pour **OpenWrt 19.07**, basée sur la version *v19.07.7*.

@@ -6,11 +6,10 @@ tags:
 - MOCHAbin
 - Armada
 - SECUBOX
-- OpenWrt
+- openwrt
 - contribute
 categories: Cyber
 ---
-
 I prefer my own method to flash from u-boot, than the one from the commit!
 <!-- more -->
 <details>

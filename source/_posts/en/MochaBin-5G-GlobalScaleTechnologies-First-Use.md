@@ -6,11 +6,10 @@ tags:
 - MOCHAbin
 - Armada
 - SECUBOX
-- OpenWrt
+- openwrt
 - contribute
 categories: Cyber
 ---
-
 I already plan to Sell or CrowdFund a personal, secure, home cloud box.
 It is only in prototyping stage.
 The first candidate was the ESPRESSOBIN which came in a trap, because of a annoying MARVELL CPU BUGS which is still unresolved !

@@ -2,23 +2,23 @@
 title: Photo Geo Sorter v3.0 - Tri automatique de photos et vidéos par géolocalisation
 date: 2025-12-10 13:35:00
 tags:
-  - Python
-  - EXIF
-  - Géolocalisation
-  - Photos
-  - Vidéos
-  - Scripts
-  - RAW
-  - GUI
-  - OpenStreetMap
+- python
+- EXIF
+- Géolocalisation
+- Photos
+- Vidéos
+- Scripts
+- RAW
+- GUI
+- OpenStreetMap
 categories:
-  - Outils
-  - Photographie
+- Outils
+- Photographie
 toc: true
 cover: /images/photo-geo-sorter-cover.png
-excerpt: Application Python complète pour trier photos et vidéos par lieu avec support RAW, détection de doublons, clustering et génération de cartes.
+excerpt: Application Python complète pour trier photos et vidéos par lieu avec support
+  RAW, détection de doublons, clustering et génération de cartes.
 ---
-
 ## Introduction
 
 Vous avez des milliers de photos et vidéos accumulées au fil des années, éparpillées dans des dossiers sans logique apparente ? **Photo Geo Sorter v3.0** est un outil Python complet qui analyse les métadonnées EXIF/GPS de vos médias pour les organiser automatiquement par lieu géographique.

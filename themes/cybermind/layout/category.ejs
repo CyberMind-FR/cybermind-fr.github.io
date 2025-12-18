@@ -1,111 +1,383 @@
-<%
-// Catégories dynamiques avec valeurs par défaut
-var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
-var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
-
-// Chercher la config dans le thème
-var categoryIcon = '📁';
-var categoryColor = '#3b82f6';
-
-if (theme.categories) {
-    for (var key in theme.categories) {
-        if (theme.categories[key].name === page.category) {
-            categoryIcon = theme.categories[key].icon;
-            categoryColor = theme.categories[key].color;
-            break;
-        }
-    }
-}
-
-// Si pas trouvé, utiliser une couleur aléatoire basée sur le nom
-if (categoryIcon === '📁') {
-    var hash = 0;
-    for (var i = 0; i < page.category.length; i++) {
-        hash = page.category.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var index = Math.abs(hash) % defaultColors.length;
-    categoryColor = defaultColors[index];
-    categoryIcon = defaultIcons[index];
-}
+<%#
+  Layout: category.ejs
+  Description: Affiche une page de catégorie avec ses articles
+  Note: page.posts peut être undefined si on utilise layout: category manuellement
 %>
 
-<section style="padding: 4rem 2rem; min-height: 60vh;">
-    <div class="category-hero" style="text-align: center; margin-bottom: 4rem;">
-        <div class="category-icon" style="font-size: 5rem; margin-bottom: 1rem;">
-            <%= categoryIcon %>
-        </div>
-        <div class="section-tag">Catégorie</div>
-        <h1 class="section-title" style="margin: 1rem 0;">
-            <span style="color: <%= categoryColor %>"><%= page.category %></span>
-        </h1>
-        <p style="color: var(--text-muted); font-size: 1.1rem;">
-            <%= page.posts.length %> article<%= page.posts.length > 1 ? 's' : '' %> dans cette catégorie
-        </p>
+<%
+// Récupérer les posts de cette catégorie de manière sécurisée
+let categoryPosts = [];
+const categoryName = page.category || page.title;
+
+// Méthode 1: page.posts existe (catégorie Hexo native)
+if (page.posts && page.posts.length) {
+  categoryPosts = page.posts.toArray();
+}
+// Méthode 2: Chercher dans site.posts par catégorie
+else if (site.posts && site.posts.length) {
+  categoryPosts = site.posts.filter(function(post) {
+    // Vérifier si le post a cette catégorie
+    if (post.categories && post.categories.length) {
+      return post.categories.some(function(cat) {
+        return cat.name === categoryName || cat.slug === page.category;
+      });
+    }
+    // Ou vérifier le champ category du front matter
+    return post.category === page.category;
+  }).sort('date', -1).toArray();
+}
+
+const postCount = categoryPosts.length;
+
+// Couleurs par catégorie
+const categoryColors = {
+  cybersecurity: '#00ff88',
+  embedded: '#ff6600',
+  linux: '#ffcc00',
+  creative: '#ff6699',
+  philosophy: '#9966ff',
+  tutorials: '#66ccff'
+};
+const catColor = page.color || categoryColors[page.category] || '#00ff88';
+const catIcon = page.icon || '📁';
+%>
+
+<div class="category-page" style="--cat-color: <%= catColor %>">
+  
+  <%# En-tête de catégorie %>
+  <header class="category-header">
+    <div class="category-hero">
+      <span class="category-icon"><%= catIcon %></span>
+      <h1 class="category-title"><%= page.title %></h1>
+      <p class="category-description">
+        <% if (page.description) { %>
+          <%= page.description %>
+        <% } %>
+      </p>
+      <p class="category-count">
+        <%= postCount %> article<%= postCount > 1 ? 's' : '' %> dans cette catégorie
+      </p>
     </div>
+  </header>
 
-    <div class="articles-grid">
-        <% page.posts.sort('date', -1).each(function(post) { %>
-            <%- partial('partials/article', {post: post}) %>
-        <% }); %>
-    </div>
-
-    <% if (page.total > 1) { %>
-    <nav class="pagination">
-        <%- paginator({
-            prev_text: '← Précédent',
-            next_text: 'Suivant →',
-            mid_size: 2,
-            end_size: 1
-        }) %>
-    </nav>
-    <% } %>
-
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="/#categories" class="btn btn-secondary">← Toutes les catégories</a>
-        <a href="/archives/" class="btn btn-secondary" style="margin-left: 1rem;">Tous les articles</a>
-    </div>
-</section>
-
-<!-- Other Categories -->
-<% if (site.categories.length > 1) { %>
-<section style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Autres thématiques</div>
-        <h2 class="section-title">Découvrez aussi</h2>
-    </div>
-
-    <div class="categories-grid">
-        <% 
-        var categoryIndex = 0;
-        
-        site.categories.sort('name').each(function(category) {
-            // Ne pas afficher la catégorie actuelle
-            if (category.name === page.category) return;
-            
-            var catConfig = null;
-            if (theme.categories) {
-                for (var key in theme.categories) {
-                    if (theme.categories[key].name === category.name) {
-                        catConfig = theme.categories[key];
-                        break;
-                    }
-                }
-            }
-            
-            // Valeurs par défaut si pas de config
-            var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
-            var color = catConfig ? catConfig.color : defaultColors[categoryIndex % defaultColors.length];
-            
-            categoryIndex++;
-        %>
-        <a href="<%= url_for(category.path) %>" class="category-card" style="--category-color: <%= color %>">
-            <div class="category-icon"><%= icon %></div>
-            <div class="category-info">
-                <h3 class="category-name"><%= category.name %></h3>
-                <div class="category-count"><%= category.posts.length %> article<%= category.posts.length > 1 ? 's' : '' %></div>
-            </div>
+  <%# Ressources liées (apps, services, etc.) %>
+  <% if (page.featured_apps || page.featured_services || page.featured_demos || page.featured_portfolio) { %>
+  <section class="category-resources">
+    
+    <% if (page.featured_apps && page.featured_apps.length) { %>
+    <div class="resource-section">
+      <h3>🚀 Applications</h3>
+      <div class="resource-grid">
+        <% page.featured_apps.forEach(function(app) { %>
+        <a href="/apps/<%= app %>/" class="resource-card resource-app">
+          <span class="resource-name"><%= app %></span>
         </a>
         <% }); %>
+      </div>
     </div>
-</section>
-<% } %>
+    <% } %>
+    
+    <% if (page.featured_services && page.featured_services.length) { %>
+    <div class="resource-section">
+      <h3>🛡️ Services</h3>
+      <div class="resource-grid">
+        <% page.featured_services.forEach(function(service) { %>
+        <a href="/services/<%= service %>/" class="resource-card resource-service">
+          <span class="resource-name"><%= service %></span>
+        </a>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+    
+    <% if (page.featured_portfolio && page.featured_portfolio.length) { %>
+    <div class="resource-section">
+      <h3>💼 Projets</h3>
+      <div class="resource-grid">
+        <% page.featured_portfolio.forEach(function(project) { %>
+        <a href="/portfolio/archives/<%= project %>/" class="resource-card resource-portfolio">
+          <span class="resource-name"><%= project %></span>
+        </a>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+    
+  </section>
+  <% } %>
+
+  <%# Contenu personnalisé de la page %>
+  <% if (page.content && page.content.trim()) { %>
+  <section class="category-content">
+    <%- page.content %>
+  </section>
+  <% } %>
+
+  <%# Liste des articles %>
+  <section class="category-posts">
+    <h2>📝 Articles</h2>
+    
+    <% if (postCount > 0) { %>
+    <div class="posts-grid">
+      <% categoryPosts.forEach(function(post) { %>
+      <article class="post-card">
+        <a href="<%- url_for(post.path) %>">
+          <% if (post.thumbnail) { %>
+          <div class="post-thumbnail">
+            <img src="<%= post.thumbnail %>" alt="<%= post.title %>" loading="lazy">
+          </div>
+          <% } %>
+          <div class="post-info">
+            <h3 class="post-title"><%= post.title %></h3>
+            <% if (post.description) { %>
+            <p class="post-excerpt"><%= post.description %></p>
+            <% } %>
+            <div class="post-meta">
+              <span class="post-date"><%= date(post.date, 'DD/MM/YYYY') %></span>
+              <% if (post.reading_time) { %>
+              <span class="post-reading">📖 <%= post.reading_time %> min</span>
+              <% } %>
+              <% if (post.difficulty) { %>
+              <span class="post-difficulty <%= post.difficulty %>"><%= post.difficulty %></span>
+              <% } %>
+            </div>
+            <% if (post.tags && post.tags.length) { %>
+            <div class="post-tags">
+              <% post.tags.forEach(function(tag) { %>
+              <span class="tag">#<%= tag.name %></span>
+              <% }); %>
+            </div>
+            <% } %>
+          </div>
+        </a>
+      </article>
+      <% }); %>
+    </div>
+    <% } else { %>
+    <div class="no-posts">
+      <p>Aucun article dans cette catégorie pour le moment.</p>
+      <p>Les articles arrivent bientôt ! 🚀</p>
+    </div>
+    <% } %>
+    
+  </section>
+
+</div>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   CATEGORY PAGE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+.category-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.category-header {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.category-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.category-title {
+  font-size: 2.5rem;
+  color: var(--cat-color);
+  margin-bottom: 0.5rem;
+}
+
+.category-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.category-count {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Resources */
+.category-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+.resource-section h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.resource-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resource-card {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.resource-card:hover {
+  border-color: var(--cat-color);
+  transform: translateY(-2px);
+}
+
+.resource-app { border-left: 3px solid #00F6FF; }
+.resource-service { border-left: 3px solid #00ff88; }
+.resource-portfolio { border-left: 3px solid #9966ff; }
+
+.resource-name {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* Content */
+.category-content {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border-left: 4px solid var(--cat-color);
+}
+
+/* Posts */
+.category-posts h2 {
+  margin-bottom: 1.5rem;
+  color: var(--cat-color);
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-color: var(--cat-color);
+}
+
+.post-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.post-thumbnail {
+  height: 180px;
+  overflow: hidden;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.post-card:hover .post-thumbnail img {
+  transform: scale(1.05);
+}
+
+.post-info {
+  padding: 1.25rem;
+}
+
+.post-info .post-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.post-excerpt {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.post-difficulty {
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.post-difficulty.beginner { background: #00ff8833; color: #00ff88; }
+.post-difficulty.intermediate { background: #ffcc0033; color: #ffcc00; }
+.post-difficulty.advanced { background: #ff666633; color: #ff6666; }
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.post-tags .tag {
+  font-size: 0.75rem;
+  color: var(--cat-color);
+  opacity: 0.8;
+}
+
+/* No posts */
+.no-posts {
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-title { font-size: 1.8rem; }
+  .category-icon { font-size: 3rem; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .category-resources { flex-direction: column; }
+}
+</style>

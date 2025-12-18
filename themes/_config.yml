@@ -32,11 +32,17 @@ branding:
 # ─────────────────────────────────────────────────────────────────────────────
 menu:
   Accueil: /
-  Gallerie: /gallery/
-  Portfolio: /portfolio/
-  Services: /services/
+  Blog:
+    _path: /blog/
+    🛡️ Cybersécurité: /blog/cybersecurity/
+    ⚙️ Embarqué: /blog/embedded/
+    🐧 Linux: /blog/linux/
+    🎨 Créativité: /blog/creative/
+    🧘 Philosophie: /blog/philosophy/
+    📖 Tutoriels: /blog/tutorials/
   Apps: /apps/
-  Blog: /archives/
+  Services: /services/
+  Portfolio: /portfolio/
   Contact: /contact/
 
 # ─────────────────────────────────────────────────────────────────────────────
