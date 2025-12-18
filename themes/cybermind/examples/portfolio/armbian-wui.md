@@ -4,7 +4,7 @@ layout: portfolio
 type: project
 icon: 🐧
 description: "Interface web d'administration pour Armbian, style LuCI/OpenWrt. Dashboard système, configuration réseau, gestion des services."
-thumbnail: /images/portfolio/armbian-wui.jpg
+thumbnail: /images/portfolio/thumbnails/armbian-wui.svg
 status: demo
 featured: false
 order: 3

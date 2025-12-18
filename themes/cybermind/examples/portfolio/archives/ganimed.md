@@ -5,7 +5,7 @@ icon: 🔮
 type: project
 status: archived
 description: "Site dédié à la Haute Magie, géométrie sacrée, cymatics, symbolisme, alchimie, hermétisme et tradition primordiale. Exploration des mystères anciens et du décryptage des formes et ondes."
-thumbnail: "/images/portfolio/ganimed-banner.jpg"
+thumbnail: "/images/portfolio/thumbnails/ganimed.svg"
 featured: true
 order: 1
 date: 2015-01-01

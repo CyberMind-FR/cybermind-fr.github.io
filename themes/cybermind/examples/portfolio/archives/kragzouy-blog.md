@@ -5,7 +5,7 @@ icon: 🧙
 type: project
 status: live
 description: "Blog créatif Kragzouy - Univers fantastique, poésie, réflexions philosophiques et humour depuis 1982."
-thumbnail: ""
+thumbnail: "/images/portfolio/thumbnails/kragzouy-blog.svg"
 featured: true
 order: 4
 date: 1982-01-01

@@ -4,7 +4,7 @@ layout: portfolio
 type: opensource
 icon: 🔐
 description: "Réseau overlay sécurisé basé sur OpenWrt. Chiffrement E2E, builds reproductibles, CI/CD zero-trust."
-thumbnail: /images/portfolio/enigmasuite.jpg
+thumbnail: /images/portfolio/thumbnails/enigmasuite.svg
 status: development
 featured: true
 order: 1
