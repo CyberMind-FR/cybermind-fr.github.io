@@ -7,7 +7,7 @@ icon: 🛡️
 color: "#00ff88"
 order: 1
 featured_apps: [enigmasuite]
-featured_services: [pentest, audit]
+featured_services: [pentest]
 ---
 
 La **cybersécurité** est au cœur de CyberMind.

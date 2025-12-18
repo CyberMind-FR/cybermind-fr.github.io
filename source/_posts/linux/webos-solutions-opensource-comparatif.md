@@ -2,7 +2,7 @@
 title: "Solutions WebOS Open Source : Guide Comparatif 2025"
 date: 2025-12-16 15:40:00
 updated: 2025-12-16 15:40:00
-category: infrastructure
+category: linux
 tags:
 keywords:
 description: "Étude comparative des environnements desktop web open source : Puter, OS.js, daedalOS, ArozOS, LinuxServer Webtop. Guide complet pour choisir la solution adaptée à votre homelab, serveur ou Raspberry Pi."

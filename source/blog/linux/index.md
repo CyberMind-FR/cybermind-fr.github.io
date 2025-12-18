@@ -6,7 +6,7 @@ description: "Articles sur le kernel Linux, l'administration système et les con
 icon: 🐧
 color: "#ffcc00"
 order: 3
-featured_services: [dev-conseil]
+featured_services: [dev]
 ---
 
 **Linux** est notre terrain de jeu depuis plus de 25 ans.

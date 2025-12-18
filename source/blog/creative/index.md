@@ -18,7 +18,7 @@ featured_apps:
 
 # Services associés
 featured_services:
-  - creative
+  - formation
 
 # Démos associées  
 featured_demos:

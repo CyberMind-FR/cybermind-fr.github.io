@@ -7,7 +7,7 @@ icon: ⚙️
 color: "#ff6600"
 order: 2
 featured_apps: [pidebugger]
-featured_services: [dev-conseil]
+featured_services: [embedded]
 featured_portfolio: [armbian-wui]
 ---
 

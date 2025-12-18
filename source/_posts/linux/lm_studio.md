@@ -10,7 +10,7 @@ tags:
   - Hexo
   - gPage
   - gTube
-category: intelligence artificielle
+category: linux
 ---
 ## 1. Contexte de l’échange
 
