@@ -40,9 +40,9 @@ Le domaine **guignol.net** préserve le patrimoine numérique via des miroirs et
 | Sous-domaine | Type | Destination | Description |
 |--------------|------|-------------|-------------|
 | [gk2.guignol.net](https://gk2.guignol.net) | **Permanent** | [Archive 2001](https://web.archive.org/web/20010401091245/http://www.gk2.com/) | 🌐 Premier ISP GK2.NET (1996) |
-| [ganimed.guignol.net](https://ganimed.guignol.net) | **Permanent** | [Archive 2024](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | 💼 Services Ganimed |
-| [gani.guignol.net](https://gani.guignol.net) | **Permanent** | [Archive 2024](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | 💼 Alias Ganimed |
-| [icieb.guignol.net](https://icieb.guignol.net) | **Permanent** | [Archive 2021](https://web.archive.org/web/20210318200344/https://icieb.fr/#carousel) | 🏛️ ICIEB.fr |
+| [ganimed.guignol.net](https://ganimed.guignol.net) | **Permanent** | [Archive 2024](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | 🔮 GANIMED - Haute Magie |
+| [gani.guignol.net](https://gani.guignol.net) | **Permanent** | [Archive 2024](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | 🔮 Alias GANIMED |
+| [icieb.guignol.net](https://icieb.guignol.net) | **Permanent** | [Archive 2021](https://web.archive.org/web/20210318200344/https://icieb.fr/#carousel) | 🌸 ICIEB - Gravure Laser & Géométrie Sacrée |
 
 ### 📝 Blogs & Créations
 

@@ -64,7 +64,7 @@ Le réseau **Guignol.net** préserve le patrimoine numérique personnel et profe
 |---------|---------|--------|
 | 🌐 [GK2.NET](https://web.archive.org/web/20010401091245/http://www.gk2.com/) | [gk2.guignol.net](https://gk2.guignol.net) | Premier ISP (1996) |
 | 🔮 [GANIMED](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | [ganimed.guignol.net](https://ganimed.guignol.net) | Haute Magie & Géométrie Sacrée |
-| 🏛️ [ICIEB](https://web.archive.org/web/20210318200344/https://icieb.fr/) | [icieb.guignol.net](https://icieb.guignol.net) | Institution |
+| 🌸 [ICIEB](https://web.archive.org/web/20210318200344/https://icieb.fr/) | [icieb.guignol.net](https://icieb.guignol.net) | Boutique Gravure Laser & Géométrie Sacrée |
 
 ### ☯️ Ressources Yi Jing
 

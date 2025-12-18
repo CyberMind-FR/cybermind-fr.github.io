@@ -65,7 +65,7 @@ examples/images/gallery/ganimed/
 |---------|---------|-------------|
 | `portfolio/archives/gk2-net.md` | 🌐 GK2.NET | Premier ISP (1996) |
 | `portfolio/archives/ganimed.md` | 🔮 GANIMED | Haute Magie & Géométrie Sacrée |
-| `portfolio/archives/icieb.md` | 🏛️ ICIEB.fr | Institution |
+| `portfolio/archives/icieb.md` | 🌸 ICIEB | Boutique Gravure Laser & Géométrie Sacrée |
 | `portfolio/archives/kragzouy-blog.md` | 🧙 Kragzouy Blog | Univers créatif depuis 1982 |
 | `portfolio/archives/wengu-yijing.md` | ☯️ Wengu Yi Jing | Ressources Yi Jing |
 | `portfolio/archives/michel-murty.md` | 👤 Michel Murty | Site personnel |
@@ -181,7 +181,7 @@ source/
 - gk2.guignol.net → Archive GK2.NET (1996)
 - ganimed.guignol.net → Archive GANIMED (Haute Magie)
 - gani.guignol.net → Alias GANIMED
-- icieb.guignol.net → Archive ICIEB
+- icieb.guignol.net → Archive ICIEB (Gravure Laser)
 - blog.guignol.net → Blog Kragzouy
 - kragzouy.guignol.net → Univers Kragzouy
 - michmur.guignol.net → Michel Murty
