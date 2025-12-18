@@ -8,29 +8,77 @@
     </div>
 
     <% 
-    var allApps = theme.apps || [];
+    // ═══════════════════════════════════════════════════════════════════════════════
+    // COLLECTE DES APPS - depuis Markdown ET config
+    // ═══════════════════════════════════════════════════════════════════════════════
+    
+    var allApps = [];
+    
+    // 1. Scanner les fichiers source/apps/*.md
+    site.pages.forEach(function(p) {
+        var src = p.source || '';
+        if (p.layout === 'app' || (src.indexOf('apps/') === 0 && src !== 'apps/index.md')) {
+            if (!allApps.find(function(a) { return a.name === p.title; })) {
+                allApps.push({
+                    name: p.title,
+                    url: p.embed_url || url_for(p.path),
+                    path: p.path,
+                    icon: p.icon || '🚀',
+                    description: p.description || '',
+                    category: p.category || 'tools',
+                    featured: p.featured || false,
+                    order: p.order || 999,
+                    article: p.related_article || '',
+                    tags: p.tags_list || [],
+                    isMarkdown: true
+                });
+            }
+        }
+    });
+    
+    // 2. Ajouter aussi depuis theme.apps si configuré
+    if (theme.apps && theme.apps.length) {
+        theme.apps.forEach(function(app) {
+            if (!allApps.find(function(a) { return a.name === app.name; })) {
+                allApps.push({
+                    name: app.name,
+                    url: app.url,
+                    path: app.url,
+                    icon: app.icon || '🚀',
+                    description: app.description || '',
+                    category: app.category || 'tools',
+                    featured: app.featured || false,
+                    order: app.order || 999,
+                    article: app.article || '',
+                    tags: app.tags || [],
+                    isExternal: true
+                });
+            }
+        });
+    }
+    
+    // Trier : featured en premier, puis par order
+    allApps.sort(function(a, b) {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return (a.order || 999) - (b.order || 999);
+    });
     
     if (allApps.length > 0) { 
-        // Trier : featured en premier, puis par order
-        allApps = allApps.slice().sort(function(a, b) {
-            if (a.featured && !b.featured) return -1;
-            if (!a.featured && b.featured) return 1;
-            return (a.order || 999) - (b.order || 999);
-        });
     %>
     
     <!-- Statistiques -->
     <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
         <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.length %></div>
+            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.length %></div>
             <div style="font-size: 0.85rem; color: var(--text-muted);">Applications</div>
         </div>
         <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.filter(function(a) { return a.featured; }).length %></div>
+            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.filter(function(a) { return a.featured; }).length %></div>
             <div style="font-size: 0.85rem; color: var(--text-muted);">En vedette</div>
         </div>
         <div style="text-align: center;">
-            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.filter(function(a) { return a.article; }).length %></div>
+            <div style="font-size: 2.5rem; color: var(--accent-primary); font-weight: 700;"><%= allApps.filter(function(a) { return a.isMarkdown; }).length %></div>
             <div style="font-size: 0.85rem; color: var(--text-muted);">Documentées</div>
         </div>
     </div>
@@ -81,10 +129,10 @@
             <div class="app-preview-large">
                 <iframe src="<%= app.url %>?embedded=true" title="<%= app.name %>" loading="lazy"></iframe>
                 <div class="app-overlay-full">
-                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">▶ Lancer l'app</a>
-                    <% if (app.article) { %>
-                    <a href="<%= app.article %>" class="btn btn-secondary">📖 Documentation</a>
+                    <% if (app.isMarkdown) { %>
+                    <a href="<%= url_for(app.path) %>" class="btn btn-primary">📖 Voir la page</a>
                     <% } %>
+                    <a href="<%= app.url %>" target="_blank" class="btn btn-<%= app.isMarkdown ? 'secondary' : 'primary' %>">▶ Lancer l'app</a>
                 </div>
             </div>
             
@@ -101,6 +149,16 @@
                 <% } %>
                 
                 <div class="app-actions">
+                    <% if (app.isMarkdown) { %>
+                    <a href="<%= url_for(app.path) %>" class="app-btn-launch">
+                        <span class="app-btn-icon">📖</span>
+                        <span>Détails</span>
+                        <span class="app-btn-arrow">→</span>
+                    </a>
+                    <a href="<%= app.url %>" target="_blank" class="app-btn-doc">
+                        ▶ Lancer ↗
+                    </a>
+                    <% } else { %>
                     <a href="<%= app.url %>" target="_blank" class="app-btn-launch">
                         <span class="app-btn-icon">▶</span>
                         <span>Ouvrir</span>
@@ -110,6 +168,7 @@
                     <a href="<%= app.article %>" class="app-btn-doc">
                         📖 Article
                     </a>
+                    <% } %>
                     <% } %>
                 </div>
             </div>
@@ -121,7 +180,7 @@
     <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
         <div style="font-size: 4rem; margin-bottom: 1rem;">🚀</div>
         <p style="font-size: 1.2rem;">Aucune application disponible pour le moment.</p>
-        <p>Configurez vos apps dans <code>themes/cybermind/_config.yml</code></p>
+        <p>Créez des fichiers dans <code>source/apps/</code> ou configurez dans <code>_config.yml</code></p>
     </div>
     <% } %>
 

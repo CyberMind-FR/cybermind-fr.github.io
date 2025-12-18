@@ -1,37 +1,212 @@
-# Hexo Theme CyberMind Configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+# HEXO THEME CYBERMIND v4.1
+# Configuration générique - Personnalisez selon vos besoins
+# ═══════════════════════════════════════════════════════════════════════════════
 
-# Menu
-# Pour activer/désactiver une section, commenter/décommenter la ligne
+# ─────────────────────────────────────────────────────────────────────────────
+# APPARENCE
+# ─────────────────────────────────────────────────────────────────────────────
+theme:
+  # Mode par défaut: 'dark' ou 'light'
+  default_mode: dark
+  
+  # Afficher le bouton de changement de thème
+  allow_toggle: true
+  
+  # Couleur d'accent (modifie toute l'interface)
+  accent_color: "#f97316"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BRANDING
+# ─────────────────────────────────────────────────────────────────────────────
+branding:
+  logo_symbol: "◆"
+  logo_text: "Gk2_"
+  tagline: "Votre tagline ici"
+  logo_image: "/images/custom_logo.png"  # Décommentez pour utiliser une image
+  favicon: "/images/favicon.ico"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NAVIGATION
+# Liens affichés dans le menu principal
+# ─────────────────────────────────────────────────────────────────────────────
 menu:
   Accueil: /
   Services: /services/
-  Articles: /archives/
-  Catégories: /categories/     # Section dynamique - liste toutes les catégories
-  Tags: /tags/                 # Section dynamique - liste tous les tags
-  Apps: /apps/               # Section dynamique - liste toutes les applications
-#  À propos: /about/
+  Apps: /apps/
+  Gallerie: /gallery/
+  Portfolio: /portfolio/
+  Blog: /archives/
   Contact: /contact/
 
-# Social Links
+# ─────────────────────────────────────────────────────────────────────────────
+# RÉSEAUX SOCIAUX
+# Laissez vide pour masquer
+# ─────────────────────────────────────────────────────────────────────────────
 social:
   email: contact@cybermind.fr
   website: https://cybermind.fr
   linkedin: https://linkedin.com
   github: https://github.com/CyberMind-FR
+  youtube: "https://www.youtube.com/@SpiritualCept"
+  twitter: ""
 
-# Hero Section
+# ─────────────────────────────────────────────────────────────────────────────
+# PAGE D'ACCUEIL - HERO
+# ─────────────────────────────────────────────────────────────────────────────
 hero:
   badge: "📝 Blog • Articles • Réflexions"
   title: "Blog &<br><span class='highlight'>Publications</span><br>Techniques"
   subtitle: "Articles techniques, tutoriels, réflexions sur la cybersécurité, le développement embarqué et les technologies de fabrication numérique."
   stats:
-    - value: "25+"
+    - value: "35+"
       label: "Ans d'expérience"
     - value: "Blog"
       label: "CyberMind.FR"
     - value: "Tech"
       label: "Articles & Tutos"
+  cta:
+    - text: "Découvrir"
+      url: "#articles"
+      style: primary
+    - text: "Services"
+      url: "#services"
+      style: secondary
 
+# ─────────────────────────────────────────────────────────────────────────────
+# PAGE D'ACCUEIL - GRILLE TECH
+# Personnalisez les icônes et filtres
+# ─────────────────────────────────────────────────────────────────────────────
+tech_grid:
+  - { icon: "🔐", label: "Security", filter: "security" }
+  - { icon: "🐧", label: "Linux", filter: "linux" }
+  - { icon: "💻", label: "Dev", filter: "dev" }
+  - { icon: "📡", label: "IoT", filter: "iot" }
+  - { icon: "⚙️", label: "Embedded", filter: "embedded" }
+  - { icon: "🔬", label: "Forensic", filter: "forensic" }
+  - { icon: "🌐", label: "Web", filter: "web" }
+  - { icon: "🎓", label: "Formation", filter: "formation" }
+  - { icon: "🎲", label: "Random", filter: "all" }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SECTIONS DE LA PAGE D'ACCUEIL
+# true = afficher, false = masquer
+# ─────────────────────────────────────────────────────────────────────────────
+sections:
+  hero: true
+  services: true
+  apps: true
+  portfolio: true
+  articles: true
+  categories: true
+  youtube: true
+  about: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LIMITES D'AFFICHAGE
+# Nombre d'éléments sur la page d'accueil (0 = tous)
+# ─────────────────────────────────────────────────────────────────────────────
+limits:
+  posts: 6
+  services: 3
+  apps: 2
+  portfolio: 4
+  categories: 6
+  tags: 15
+
+# ─────────────────────────────────────────────────────────────────────────────
+# APPLICATIONS
+# Option 1: Configurer ici (pour apps externes)
+# Option 2: Créer des fichiers dans source/apps/*.md (recommandé)
+# ─────────────────────────────────────────────────────────────────────────────
+# apps:
+#   - name: "Mon App"
+#     url: "https://app.example.com"
+#     icon: "🚀"
+#     description: "Description de l'app"
+#     category: "tools"
+#     featured: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# YOUTUBE
+# ─────────────────────────────────────────────────────────────────────────────
+youtube:
+  playlist_id: "PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd"
+  title: "Réalisations CyberMind"
+  description: "Découvrez nos réalisations et tutoriels : projets de fabrication numérique, créations artistiques génératives et démonstrations techniques des équipements FabLab."
+  tags:
+    - "Découpe laser"
+    - "Impression 3D"
+    - "Design génératif"
+    - "Prototypage"
+    - "Tutoriels"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# À PROPOS
+# ─────────────────────────────────────────────────────────────────────────────
+about:
+  name: "G.KERMA (aka) Gandalf"
+  avatar: "🧙"
+  title: "Cybersecurity & Linux Expert"
+  description: |
+    Fort de plus de 35 ans d'expérience en cybersécurité et développement systèmes embarqués, je partage mon expertise à travers des articles techniques, tutoriels et retours d'expérience.
+    
+    Mon blog CyberMind.FR couvre la cybersécurité offensive, le développement noyau Linux, les systèmes embarqués ARM et les technologies open source. Des guides pratiques aux analyses approfondies.
+    
+    Contributeur au noyau Linux, ambassadeur CrowdSec, ex-Thales, je mets mon expérience terrain au service de la communauté technique.
+  expertise:
+    - "🔐 Pentesting"
+    - "🐧 Linux Kernel"
+    - "⚙️ Embedded ARM"
+    - "📦 OpenWrt/Armbian"
+    - "📡 IoT Security"
+    - "📝 Tech Writing"
+  stats:
+    - value: "35+"
+      label: "Ans XP"
+    - value: "📝"
+      label: "Blog"
+    - value: "🌍"
+      label: "Savoie & Remote"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONTACT
+# ─────────────────────────────────────────────────────────────────────────────
+contact:
+  formspree_id: "mnnekqnp"
+  subjects:
+    - value: "prestation-pentest"
+      label: "Prestation Pentest / Audit"
+    - value: "prestation-dev"
+      label: "Prestation Développement"
+    - value: "conseil"
+      label: "Conseil Technique"
+    - value: "contribution"
+      label: "Contribution au blog"
+    - value: "question"
+      label: "Question technique"
+    - value: "autre"
+      label: "Autre"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FOOTER
+# ─────────────────────────────────────────────────────────────────────────────
+footer:
+  copyright: "© 2025 CyberMind.fr — Blog • Cybersécurité • Linux"
+  links:
+    - text: "Mentions légales"
+      url: "#"
+    - text: "Confidentialité"
+      url: "#"
+    - text: "Blog"
+      url: "https://cybermind.fr/about"
+  show_theme_credit: true
+  theme_repo: "https://github.com/CyberMind-FR/hexo-theme-cybermind"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CATÉGORIES (optionnel)
+# Personnaliser icônes et couleurs
+# ─────────────────────────────────────────────────────────────────────────────
 # Categories with colors
 categories:
   security:
@@ -59,134 +234,34 @@ categories:
     icon: "📝"
     color: "#f59e0b"
 
-# Streamlit Apps
-apps:
-  - name: "Yi Jing Oracle"
-    icon: "☯️"
-    url: "https://yijing-oracle.streamlit.app/"
-    description: "Application de consultation du Yi Jing (Livre des Mutations). Méthode traditionnelle des 3 pièces, visualisation des hexagrammes. Outil de réflexion stratégique et aide à la décision."
-  - name: "Photo Cloud Generator"
-    icon: "📸"
-    url: "https://photos.streamlit.app/"
-    description: "Générateur de compositions photographiques. Création de mosaïques et collages d'images pour supports visuels, présentations et impressions personnalisées."
-
-# Services - MAINTENANT SCANNÉS DEPUIS source/services/*.md
-# Les fichiers .md dans source/services/ sont automatiquement ajoutés à la section
-# Format du front-matter requis :
-# ---
-# title: "Nom du service"
-# icon: "🛡️"
-# description: "Description courte"
-# order: 1
-# features:
-#   - "Feature 1"
-#   - "Feature 2"
-# ---
-
-# YouTube Playlist
-youtube:
-  playlist_id: "PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd"
-  title: "Réalisations CyberMind"
-  description: "Découvrez nos réalisations et tutoriels : projets de fabrication numérique, créations artistiques génératives et démonstrations techniques des équipements FabLab."
-  tags:
-    - "Découpe laser"
-    - "Impression 3D"
-    - "Design génératif"
-    - "Prototypage"
-    - "Tutoriels"
-
-# About Section
-about:
-  name: "Gandalf"
-  avatar: "🧙"
-  title: "Cybersecurity & Linux Expert"
-  description: |
-    Fort de plus de 25 ans d'expérience en cybersécurité et développement systèmes embarqués, je partage mon expertise à travers des articles techniques, tutoriels et retours d'expérience.
-    
-    Mon blog CyberMind.FR couvre la cybersécurité offensive, le développement noyau Linux, les systèmes embarqués ARM et les technologies open source. Des guides pratiques aux analyses approfondies.
-    
-    Contributeur au noyau Linux, ambassadeur CrowdSec, ex-Thales, je mets mon expérience terrain au service de la communauté technique.
-  expertise:
-    - "🔐 Pentesting"
-    - "🐧 Linux Kernel"
-    - "⚙️ Embedded ARM"
-    - "📦 OpenWrt/Armbian"
-    - "📡 IoT Security"
-    - "📝 Tech Writing"
-  stats:
-    - value: "25+"
-      label: "Ans XP"
-    - value: "📝"
-      label: "Blog"
-    - value: "🇫🇷"
-      label: "Savoie"
-
-# Contact Form (Formspree)
-contact:
-  formspree_id: "mnnekqnp"
-  subjects:
-    - value: "prestation-pentest"
-      label: "Prestation Pentest / Audit"
-    - value: "prestation-dev"
-      label: "Prestation Développement"
-    - value: "conseil"
-      label: "Conseil Technique"
-    - value: "contribution"
-      label: "Contribution au blog"
-    - value: "question"
-      label: "Question technique"
-    - value: "autre"
-      label: "Autre"
-
-# Footer
-footer:
-  copyright: "© 2025 CyberMind.fr — Blog • Cybersécurité • Linux"
-  links:
-    - text: "Mentions légales"
-      url: "#"
-    - text: "Confidentialité"
-      url: "#"
-    - text: "Blog"
-      url: "https://cybermind.fr"
-
-# Pagination
-per_page: 10
-pagination_dir: page
-
-# Page d'accueil - Limites d'affichage
-index:
-  posts_limit: 6           # Nombre d'articles sur page principale (0 = tous)
-  categories_limit: 6      # Nombre de catégories sur page principale (0 = toutes)
-  tags_limit: 10           # Nombre de tags sur page principale (0 = tous)
-  apps_limit: 2            # Nombre d'apps sur page principale (0 = toutes)
-  services_limit: 2        # Nombre de services sur page principale (0 = tous)
-
-# Sections dynamiques sur page d'accueil (true = afficher, false = masquer)
-sections:
-  categories: true         # Afficher section catégories
-  tags: false              # Afficher section tags
-  services: true           # Afficher section services (scanne source/services/*.md)
-  apps: true               # Afficher section applications
-
-# Article Settings
+# ─────────────────────────────────────────────────────────────────────────────
+# ARTICLES
+# ─────────────────────────────────────────────────────────────────────────────
 excerpt_length: 200
 read_more: "Lire la suite →"
 
-# Code Highlighting
+# ─────────────────────────────────────────────────────────────────────────────
+# CODE
+# ─────────────────────────────────────────────────────────────────────────────
 highlight:
   enable: true
   theme: monokai
   line_number: true
-  auto_detect: true
 
-# Comments (optional - can be enabled later)
+# ─────────────────────────────────────────────────────────────────────────────
+# COMMENTAIRES (optionnel)
+# ─────────────────────────────────────────────────────────────────────────────
 comments:
   enable: false
 
-# Analytics (optional)
+# ─────────────────────────────────────────────────────────────────────────────
+# ANALYTICS (optionnel)
+# ─────────────────────────────────────────────────────────────────────────────
 analytics:
   google: ""
-  
-# Search (optional)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RECHERCHE (optionnel)
+# ─────────────────────────────────────────────────────────────────────────────
 search:
   enable: false

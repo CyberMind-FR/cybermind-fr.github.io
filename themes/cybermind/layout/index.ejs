@@ -1,260 +1,1149 @@
+<%
+// ═══════════════════════════════════════════════════════════════════════════════
+// INDEX.EJS - Page d'accueil 100% dynamique
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CONFIGURATION
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Sections à afficher
+var sections = theme.sections || {};
+var showHero = sections.hero !== false;
+var showServices = sections.services !== false;
+var showApps = sections.apps !== false;
+var showPortfolio = sections.portfolio !== false;
+var showArticles = sections.articles !== false;
+var showCategories = sections.categories !== false;
+var showYoutube = sections.youtube !== false && theme.youtube && theme.youtube.playlist_id;
+var showAbout = sections.about !== false;
+
+// Limites d'affichage
+var limits = theme.limits || theme.index || {};
+var postsLimit = limits.posts || limits.posts_limit || 6;
+var servicesLimit = limits.services || limits.services_limit || 3;
+var appsLimit = limits.apps || limits.apps_limit || 2;
+var portfolioLimit = limits.portfolio || 4;
+var categoriesLimit = limits.categories || limits.categories_limit || 6;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COLLECTE DES CONTENUS DYNAMIQUES
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Services depuis source/services/*.md
+var allServices = [];
+site.pages.forEach(function(p) {
+    var src = p.source || '';
+    var pth = p.path || '';
+    if ((src.indexOf('services/') === 0 || pth.indexOf('services/') === 0) &&
+        src !== 'services/index.md' && pth !== 'services/' && p.layout !== 'services') {
+        if (!allServices.find(function(s) { return s.path === p.path; })) {
+            allServices.push({
+                title: p.title || 'Service',
+                path: p.path,
+                icon: p.icon || '🔧',
+                description: p.description || '',
+                order: p.order || 999,
+                tags: p.tags ? (Array.isArray(p.tags) ? p.tags : []) : []
+            });
+        }
+    }
+});
+allServices.sort(function(a, b) { return a.order - b.order; });
+
+// Apps depuis source/apps/*.md OU theme.apps
+var allApps = [];
+site.pages.forEach(function(p) {
+    var src = p.source || '';
+    if (p.layout === 'app' || (src.indexOf('apps/') === 0 && src !== 'apps/index.md')) {
+        if (!allApps.find(function(a) { return a.path === p.path; })) {
+            allApps.push({
+                title: p.title,
+                path: p.path,
+                icon: p.icon || '🚀',
+                description: p.description || '',
+                embed_url: p.embed_url || '',
+                category: p.category || 'tools',
+                featured: p.featured || false,
+                order: p.order || 999
+            });
+        }
+    }
+});
+// Ajouter aussi depuis theme.apps si configuré
+if (theme.apps && theme.apps.length) {
+    theme.apps.forEach(function(app) {
+        if (!allApps.find(function(a) { return a.title === app.name; })) {
+            allApps.push({
+                title: app.name,
+                path: app.url,
+                icon: app.icon || '🚀',
+                description: app.description || '',
+                embed_url: app.url,
+                category: app.category || 'tools',
+                featured: app.featured || false,
+                order: app.order || 999,
+                isExternal: true
+            });
+        }
+    });
+}
+allApps.sort(function(a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.order - b.order;
+});
+
+// Portfolio depuis source/portfolio/*.md
+var allPortfolio = [];
+site.pages.forEach(function(p) {
+    var src = p.source || '';
+    if (p.layout === 'portfolio' || (src.indexOf('portfolio/') === 0 && src !== 'portfolio/index.md')) {
+        if (!allPortfolio.find(function(a) { return a.path === p.path; })) {
+            allPortfolio.push({
+                title: p.title,
+                path: p.path,
+                icon: p.icon || '💼',
+                description: p.description || '',
+                thumbnail: p.thumbnail || '',
+                type: p.type || 'project',
+                client: p.client || {},
+                featured: p.featured || false,
+                order: p.order || 999
+            });
+        }
+    }
+});
+allPortfolio.sort(function(a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.order - b.order;
+});
+
+// Grille tech configurable
+var techGrid = theme.tech_grid || [
+    { icon: '🔐', label: 'Security', filter: 'security' },
+    { icon: '🐧', label: 'Linux', filter: 'linux' },
+    { icon: '💻', label: 'Dev', filter: 'dev' },
+    { icon: '📡', label: 'IoT', filter: 'iot' },
+    { icon: '⚙️', label: 'Embedded', filter: 'embedded' },
+    { icon: '🔬', label: 'Forensic', filter: 'forensic' },
+    { icon: '🌐', label: 'Web', filter: 'web' },
+    { icon: '🎓', label: 'Formation', filter: 'formation' },
+    { icon: '🎲', label: 'Random', filter: 'all' }
+];
+
+// Hero configuration
+var hero = theme.hero || {};
+var heroTitle = hero.title || 'Bienvenue';
+var heroSubtitle = hero.subtitle || '';
+var heroBadge = hero.badge || '';
+var heroStats = hero.stats || [];
+var heroCta = hero.cta || [
+    { text: 'Découvrir', url: '#articles', style: 'primary' },
+    { text: 'Services', url: '#services', style: 'secondary' }
+];
+
+// About configuration
+var about = theme.about || {};
+%>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showHero) { %>
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge"><%= theme.hero.badge %></div>
-        <h1><%- theme.hero.title %></h1>
-        <p class="hero-subtitle"><%= theme.hero.subtitle %></p>
+        <% if (heroBadge) { %>
+        <div class="hero-badge"><%= heroBadge %></div>
+        <% } %>
         
-        <!-- Services filtrés dynamiquement -->
-        <div class="services-hero" id="heroServices">
-            <!-- Rempli par JS -->
-        </div>
+        <h1 class="hero-title"><%- heroTitle %></h1>
         
-        <p id="filterInfo" style="text-align: center; color: var(--accent-orange); font-size: 0.85rem; margin-top: 1rem; opacity: 0; transition: opacity 0.3s;">
-            <!-- Info filtre actif -->
-        </p>
+        <% if (heroSubtitle) { %>
+        <p class="hero-subtitle"><%= heroSubtitle %></p>
+        <% } %>
         
+        <!-- Services highlight (rempli par JS) -->
+        <div class="services-hero" id="heroServices"></div>
+        
+        <p id="filterInfo" class="filter-info"></p>
+        
+        <% if (heroStats.length > 0) { %>
         <div class="hero-stats">
-            <% if (theme.hero && theme.hero.stats) { theme.hero.stats.forEach(function(stat) { %>
+            <% heroStats.forEach(function(stat) { %>
             <div class="stat">
                 <span class="stat-value"><%= stat.value %></span>
                 <span class="stat-label"><%= stat.label %></span>
             </div>
-            <% }); } %>
+            <% }); %>
         </div>
+        <% } %>
         
         <div class="hero-cta">
-            <a href="#articles" class="btn btn-primary">Découvrir le blog</a>
-            <a href="#services" class="btn btn-secondary">Nos services</a>
+            <% heroCta.forEach(function(btn) { %>
+            <a href="<%= btn.url %>" class="btn btn-<%= btn.style || 'primary' %>"><%= btn.text %></a>
+            <% }); %>
         </div>
     </div>
 
     <div class="hero-visual">
         <div class="tech-grid-visual" id="techGrid">
-            <div class="tech-cell" data-filter="security" tabindex="0">
-                <span class="tech-cell-icon">🔐</span>
-                <span class="tech-cell-label">Security</span>
+            <% techGrid.forEach(function(tech) { %>
+            <div class="tech-cell" data-filter="<%= tech.filter %>" tabindex="0">
+                <span class="tech-cell-icon"><%= tech.icon %></span>
+                <span class="tech-cell-label"><%= tech.label %></span>
             </div>
-            <div class="tech-cell" data-filter="linux" tabindex="0">
-                <span class="tech-cell-icon">🐧</span>
-                <span class="tech-cell-label">Linux</span>
-            </div>
-            <div class="tech-cell" data-filter="dev" tabindex="0">
-                <span class="tech-cell-icon">💻</span>
-                <span class="tech-cell-label">Dev</span>
-            </div>
-            <div class="tech-cell" data-filter="iot" tabindex="0">
-                <span class="tech-cell-icon">📡</span>
-                <span class="tech-cell-label">IoT</span>
-            </div>
-            <div class="tech-cell" data-filter="embedded" tabindex="0">
-                <span class="tech-cell-icon">⚙️</span>
-                <span class="tech-cell-label">Embedded</span>
-            </div>
-            <div class="tech-cell" data-filter="forensic" tabindex="0">
-                <span class="tech-cell-icon">🔬</span>
-                <span class="tech-cell-label">Forensic</span>
-            </div>
-            <div class="tech-cell" data-filter="web" tabindex="0">
-                <span class="tech-cell-icon">🌐</span>
-                <span class="tech-cell-label">Web</span>
-            </div>
-            <div class="tech-cell" data-filter="formation" tabindex="0">
-                <span class="tech-cell-icon">🎓</span>
-                <span class="tech-cell-label">Formation</span>
-            </div>
-            <div class="tech-cell" data-filter="all" tabindex="0">
-                <span class="tech-cell-icon">🎲</span>
-                <span class="tech-cell-label">Random</span>
-            </div>
+            <% }); %>
         </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<%
-var showServices = !(theme.sections && theme.sections.services === false);
-var allServices = [];
-if (site.pages && site.pages.length) {
-    site.pages.forEach(function(page) {
-        var src = page.source || '';
-        var pth = page.path || '';
-        
-        var isServicePage = (src.indexOf('services/') >= 0 || pth.indexOf('services/') >= 0) &&
-                           src !== 'services/index.md' &&
-                           pth !== 'services/' &&
-                           pth !== 'services/index.html' &&
-                           page.layout !== 'services';
-        
-        if (isServicePage) {
-            var exists = allServices.some(function(s) { return s.path === page.path; });
-            if (!exists) {
-                // Déterminer les tags en fonction du chemin/titre
-                var tags = [];
-                var pathLower = pth.toLowerCase();
-                var titleLower = (page.title || '').toLowerCase();
-                
-                if (pathLower.indexOf('pentest') >= 0 || titleLower.indexOf('pentest') >= 0 || titleLower.indexOf('sécurité') >= 0) {
-                    tags.push('security', 'forensic');
-                }
-                if (pathLower.indexOf('dev') >= 0 || titleLower.indexOf('développement') >= 0) {
-                    tags.push('dev', 'linux', 'embedded');
-                }
-                if (pathLower.indexOf('formation') >= 0 || titleLower.indexOf('formation') >= 0) {
-                    tags.push('formation', 'security', 'linux');
-                }
-                if (pathLower.indexOf('forensic') >= 0 || titleLower.indexOf('forensic') >= 0 || titleLower.indexOf('investigation') >= 0) {
-                    tags.push('forensic', 'security');
-                }
-                if (pathLower.indexOf('gk2') >= 0 || titleLower.indexOf('web') >= 0 || titleLower.indexOf('hébergement') >= 0) {
-                    tags.push('web', 'dev');
-                }
-                if (pathLower.indexOf('embedded') >= 0 || titleLower.indexOf('embarqué') >= 0 || titleLower.indexOf('openwrt') >= 0 || titleLower.indexOf('arm') >= 0) {
-                    tags.push('embedded', 'linux', 'iot', 'security');
-                }
-                
-                // Tags par défaut si aucun trouvé
-                if (tags.length === 0) {
-                    tags.push('dev');
-                }
-                
-                allServices.push({
-                    path: page.path,
-                    title: page.title,
-                    icon: page.icon || '⚙️',
-                    description: page.description || '',
-                    features: page.features || [],
-                    order: page.order || 999,
-                    tags: tags
-                });
-            }
-        }
-    });
-}
-allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); });
-%>
-
-<!-- Données des services pour JavaScript -->
-<script id="servicesData" type="application/json">
-<%- JSON.stringify(allServices) %>
-</script>
-
-<% if (showServices && allServices.length > 0) { %>
-<section id="services" style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Services</div>
-        <h2 class="section-title">Nos Expertises</h2>
-        <p id="servicesFilterInfo" style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-            🎲 Cliquez sur les icônes à droite pour filtrer
-        </p>
-    </div>
-    <div class="services-detailed" id="servicesGrid">
-        <!-- Rempli par JavaScript -->
-    </div>
-    <div style="text-align: center; margin-top: 3rem;">
-        <button onclick="resetFilter()" class="btn btn-secondary" style="margin-right: 1rem;">🔄 Réinitialiser</button>
-        <a href="/services/" class="btn btn-primary">Voir tous les services (<%= allServices.length %>) →</a>
     </div>
 </section>
 <% } %>
 
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SERVICES SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showServices && allServices.length > 0) { %>
+<section id="services" class="section-alt">
+    <div class="section-header">
+        <div class="section-tag">Expertise</div>
+        <h2 class="section-title">Services</h2>
+    </div>
+    
+    <div class="services-grid" id="servicesGrid">
+        <% 
+        var servicesToShow = servicesLimit > 0 ? allServices.slice(0, servicesLimit) : allServices;
+        servicesToShow.forEach(function(service) { 
+        %>
+        <a href="<%= url_for(service.path) %>" class="service-card" data-tags="<%= (service.tags || []).join(',') %>">
+            <div class="service-icon"><%= service.icon %></div>
+            <h3><%= service.title %></h3>
+            <p><%= service.description %></p>
+            <span class="service-link">En savoir plus →</span>
+        </a>
+        <% }); %>
+    </div>
+    
+    <% if (servicesLimit > 0 && allServices.length > servicesLimit) { %>
+    <div class="section-footer">
+        <a href="/services/" class="btn btn-secondary">Tous les services (<%= allServices.length %>) →</a>
+    </div>
+    <% } %>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     APPS SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showApps && allApps.length > 0) { %>
+<section id="applications" class="section">
+    <div class="section-header">
+        <div class="section-tag">Outils</div>
+        <h2 class="section-title">Applications</h2>
+    </div>
+    
+    <div class="apps-grid">
+        <% 
+        var appsToShow = appsLimit > 0 ? allApps.slice(0, appsLimit) : allApps;
+        appsToShow.forEach(function(app) { 
+        %>
+        <div class="app-card">
+            <div class="app-preview">
+                <% if (app.embed_url) { %>
+                <iframe src="<%= app.embed_url %>?embedded=true" title="<%= app.title %>" loading="lazy"></iframe>
+                <% } else { %>
+                <div class="app-placeholder"><%= app.icon %></div>
+                <% } %>
+                <div class="app-overlay">
+                    <a href="<%= app.isExternal ? app.path : url_for(app.path) %>" <%= app.isExternal ? 'target="_blank"' : '' %> class="btn btn-primary">
+                        <%= app.isExternal ? 'Ouvrir ↗' : 'Voir l\'app →' %>
+                    </a>
+                </div>
+            </div>
+            <div class="app-info">
+                <h3><%= app.icon %> <%= app.title %></h3>
+                <p><%= app.description %></p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    
+    <% if (appsLimit > 0 && allApps.length > appsLimit) { %>
+    <div class="section-footer">
+        <a href="/apps/" class="btn btn-secondary">Toutes les applications (<%= allApps.length %>) →</a>
+    </div>
+    <% } %>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     PORTFOLIO SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showPortfolio && allPortfolio.length > 0) { %>
+<section id="portfolio" class="section-alt">
+    <div class="section-header">
+        <div class="section-tag">Réalisations</div>
+        <h2 class="section-title">Portfolio</h2>
+    </div>
+    
+    <div class="portfolio-grid">
+        <% 
+        var portfolioToShow = portfolioLimit > 0 ? allPortfolio.slice(0, portfolioLimit) : allPortfolio;
+        portfolioToShow.forEach(function(item) { 
+            var typeColors = { client: '#10b981', project: '#3b82f6', opensource: '#f59e0b' };
+            var typeLabels = { client: '🏢 Client', project: '🚀 Projet', opensource: '🔓 OSS' };
+        %>
+        <a href="<%= url_for(item.path) %>" class="portfolio-card" style="--item-color: <%= typeColors[item.type] || '#f97316' %>">
+            <div class="portfolio-visual">
+                <% if (item.thumbnail) { %>
+                <img src="<%= item.thumbnail %>" alt="<%= item.title %>" loading="lazy">
+                <% } else { %>
+                <div class="portfolio-placeholder"><%= item.icon %></div>
+                <% } %>
+                <div class="portfolio-type"><%= typeLabels[item.type] || '📦 Projet' %></div>
+            </div>
+            <div class="portfolio-info">
+                <h3><%= item.icon %> <%= item.title %></h3>
+                <p><%= item.description %></p>
+                <% if (item.client && item.client.name) { %>
+                <span class="portfolio-client">🏢 <%= item.client.name %></span>
+                <% } %>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    
+    <% if (portfolioLimit > 0 && allPortfolio.length > portfolioLimit) { %>
+    <div class="section-footer">
+        <a href="/portfolio/" class="btn btn-secondary">Tout le portfolio (<%= allPortfolio.length %>) →</a>
+    </div>
+    <% } %>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     ARTICLES SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showArticles) { %>
+<section id="articles" class="section">
+    <div class="section-header">
+        <div class="section-tag">Blog</div>
+        <h2 class="section-title">Articles Récents</h2>
+    </div>
+    
+    <div class="articles-grid">
+        <% 
+        var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
+        postsToShow.each(function(post) { 
+        %>
+        <%- partial('partials/article', {post: post}) %>
+        <% }); %>
+    </div>
+    
+    <% if (page.total > 1) { %>
+    <nav class="pagination">
+        <%- paginator({ prev_text: '← Précédent', next_text: 'Suivant →', mid_size: 2 }) %>
+    </nav>
+    <% } %>
+    
+    <div class="section-footer">
+        <a href="/archives/" class="btn btn-secondary">Tous les articles →</a>
+    </div>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     CATEGORIES SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showCategories && site.categories && site.categories.length > 0) { %>
+<section id="categories" class="section-alt">
+    <div class="section-header">
+        <div class="section-tag">Thématiques</div>
+        <h2 class="section-title">Catégories</h2>
+    </div>
+    
+    <div class="categories-grid">
+        <% 
+        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#f59e0b', '#ef4444'];
+        var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📝'];
+        var allCategories = site.categories.sort('name');
+        var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
+        var idx = 0;
+        categoriesToShow.each(function(cat) {
+            var icon = defaultIcons[idx % defaultIcons.length];
+            var color = defaultColors[idx % defaultColors.length];
+            // Override depuis config si disponible
+            if (theme.categories && theme.categories[cat.name.toLowerCase()]) {
+                var conf = theme.categories[cat.name.toLowerCase()];
+                icon = conf.icon || icon;
+                color = conf.color || color;
+            }
+            idx++;
+        %>
+        <a href="<%= url_for(cat.path) %>" class="category-card" style="--cat-color: <%= color %>">
+            <span class="category-icon"><%= icon %></span>
+            <span class="category-name"><%= cat.name %></span>
+            <span class="category-count"><%= cat.posts.length %></span>
+        </a>
+        <% }); %>
+    </div>
+    
+    <% if (categoriesLimit > 0 && allCategories.length > categoriesLimit) { %>
+    <div class="section-footer">
+        <a href="/categories/" class="btn btn-secondary">Toutes les catégories →</a>
+    </div>
+    <% } %>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     YOUTUBE SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showYoutube) { %>
+<section id="youtube" class="section">
+    <div class="section-header">
+        <div class="section-tag">Vidéos</div>
+        <h2 class="section-title"><%= theme.youtube.title || 'Chaîne YouTube' %></h2>
+        <% if (theme.youtube.description) { %>
+        <p class="section-subtitle"><%= theme.youtube.description %></p>
+        <% } %>
+    </div>
+    
+    <div class="youtube-embed">
+        <iframe 
+            src="https://www.youtube.com/embed/videoseries?list=<%= theme.youtube.playlist_id %>" 
+            frameborder="0" 
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     ABOUT SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<% if (showAbout && about.name) { %>
+<section id="about" class="section-alt">
+    <div class="section-header">
+        <div class="section-tag">Qui suis-je</div>
+        <h2 class="section-title">À propos</h2>
+    </div>
+    
+    <div class="about-content">
+        <div class="about-avatar">
+            <% if (about.avatar_image) { %>
+            <img src="<%= about.avatar_image %>" alt="<%= about.name %>">
+            <% } else { %>
+            <span class="avatar-emoji"><%= about.avatar || '👨‍💻' %></span>
+            <% } %>
+        </div>
+        
+        <div class="about-info">
+            <h3><%= about.name %></h3>
+            <% if (about.title) { %>
+            <p class="about-title"><%= about.title %></p>
+            <% } %>
+            
+            <% if (about.description) { %>
+            <div class="about-description"><%- about.description.replace(/\n/g, '<br>') %></div>
+            <% } %>
+            
+            <% if (about.expertise && about.expertise.length) { %>
+            <div class="about-expertise">
+                <% about.expertise.forEach(function(skill) { %>
+                <span class="expertise-tag"><%= skill %></span>
+                <% }); %>
+            </div>
+            <% } %>
+            
+            <% if (about.stats && about.stats.length) { %>
+            <div class="about-stats">
+                <% about.stats.forEach(function(stat) { %>
+                <div class="about-stat">
+                    <span class="stat-value"><%= stat.value %></span>
+                    <span class="stat-label"><%= stat.label %></span>
+                </div>
+                <% }); %>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     DATA POUR JAVASCRIPT
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<script type="application/json" id="servicesData">
+<%- JSON.stringify(allServices) %>
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════════════════════════════════════════ -->
 <style>
-/* Styles pour l'interaction */
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+.section {
+    padding: 4rem 2rem;
+}
+
+.section-alt {
+    padding: 4rem 2rem;
+    background: var(--bg-secondary);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--accent-primary);
+    color: var(--text-inverted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────────────────────────────────────── */
+.hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
+    align-items: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--glow-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title .highlight {
+    color: var(--accent-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.services-hero {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-info {
+    color: var(--accent-primary);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    min-height: 1.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.filter-info.visible {
+    opacity: 1;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-stats .stat {
+    text-align: center;
+}
+
+.hero-stats .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.hero-stats .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Tech Grid */
+.tech-grid-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .tech-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 
 .tech-cell:hover,
-.tech-cell:focus {
-    transform: scale(1.1);
-    border-color: var(--accent-orange) !important;
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-}
-
 .tech-cell.active {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(245, 158, 11, 0.2)) !important;
-    border-color: var(--accent-orange) !important;
-    box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
+    border-color: var(--accent-primary);
+    background: var(--glow-primary);
     transform: scale(1.05);
 }
 
-.tech-cell.active .tech-cell-icon {
-    animation: bounce 0.5s ease;
+.tech-cell-icon {
+    font-size: 2rem;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+.tech-cell-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
 }
 
-.service-card-hero,
-.service-detail-card {
-    transition: all 0.4s ease;
+/* ─────────────────────────────────────────────────────────────────────────────
+   SERVICES
+   ───────────────────────────────────────────────────────────────────────────── */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.service-card-hero.fade-in,
-.service-detail-card.fade-in {
-    animation: fadeInScale 0.4s ease forwards;
+.service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
 }
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
+.service-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.service-link {
+    color: var(--accent-primary);
+    font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPS
+   ───────────────────────────────────────────────────────────────────────────── */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.app-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.app-preview {
+    position: relative;
+    height: 250px;
+    background: var(--bg-tertiary);
+}
+
+.app-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.app-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.app-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.app-card:hover .app-overlay {
+    opacity: 1;
+}
+
+.app-info {
+    padding: 1.5rem;
+}
+
+.app-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PORTFOLIO
+   ───────────────────────────────────────────────────────────────────────────── */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
+}
+
+.portfolio-card:hover {
+    border-color: var(--item-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--item-color)20;
+}
+
+.portfolio-visual {
+    position: relative;
+    height: 180px;
+    background: var(--bg-tertiary);
+}
+
+.portfolio-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.portfolio-type {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 0.25rem 0.75rem;
+    background: var(--item-color);
+    color: var(--text-inverted);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.portfolio-info {
+    padding: 1.25rem;
+}
+
+.portfolio-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-info p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-client {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ARTICLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+.pagination a,
+.pagination span {
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.pagination .current {
+    background: var(--accent-primary);
+    color: var(--text-inverted);
+    border-color: var(--accent-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CATEGORIES
+   ───────────────────────────────────────────────────────────────────────────── */
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
+}
+
+.category-card:hover {
+    border-color: var(--cat-color);
+    transform: translateY(-2px);
+}
+
+.category-icon {
+    font-size: 1.5rem;
+}
+
+.category-name {
+    font-weight: 500;
+}
+
+.category-count {
+    padding: 0.2rem 0.5rem;
+    background: var(--cat-color)20;
+    color: var(--cat-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   YOUTUBE
+   ───────────────────────────────────────────────────────────────────────────── */
+.youtube-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ABOUT
+   ───────────────────────────────────────────────────────────────────────────── */
+.about-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.about-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--accent-primary);
+}
+
+.about-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-emoji {
+    font-size: 4rem;
+}
+
+.about-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-title {
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.about-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.expertise-tag {
+    padding: 0.4rem 0.75rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+}
+
+.about-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.about-stat {
+    text-align: center;
+}
+
+.about-stat .stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.about-stat .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 968px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 2rem;
+        text-align: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .hero-visual {
+        order: -1;
+    }
+    
+    .tech-grid-visual {
+        max-width: 300px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-avatar {
+        margin: 0 auto;
+    }
+    
+    .about-expertise,
+    .about-stats {
+        justify-content: center;
     }
 }
 
-#filterInfo {
-    min-height: 1.5rem;
-}
-
-/* Animation pulse sur les cases */
-.tech-cell.pulse {
-    animation: pulse-glow 1s ease infinite;
-}
-
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 5px rgba(249, 115, 22, 0.2); }
-    50% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+@media (max-width: 600px) {
+    .section,
+    .section-alt {
+        padding: 3rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid,
+    .apps-grid,
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 </style>
 
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     JAVASCRIPT - Interactions
+     ═══════════════════════════════════════════════════════════════════════════════ -->
 <script>
 (function() {
-    // Récupérer les données des services
+    // Récupérer les services
     var servicesDataEl = document.getElementById('servicesData');
-    if (!servicesDataEl) return;
-    
     var allServices = [];
     try {
         allServices = JSON.parse(servicesDataEl.textContent);
     } catch(e) {
-        console.error('Erreur parsing services:', e);
-        return;
+        console.warn('No services data');
     }
-    
-    if (!allServices || allServices.length === 0) return;
     
     var currentFilter = 'all';
     
-    // Mapping des filtres vers les labels
-    var filterLabels = {
-        'security': '🔐 Sécurité',
-        'linux': '🐧 Linux',
-        'dev': '💻 Développement',
-        'iot': '📡 IoT',
-        'embedded': '⚙️ Embarqué',
-        'forensic': '🔬 Forensic',
-        'web': '🌐 Web',
-        'formation': '🎓 Formation',
-        'all': '🎲 Tous'
-    };
-    
-    // Fonction de mélange Fisher-Yates
+    // Fisher-Yates shuffle
     function shuffle(array) {
         var arr = array.slice();
         for (var i = arr.length - 1; i > 0; i--) {
@@ -266,156 +1155,98 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
         return arr;
     }
     
-    // Filtrer les services par tag
-    function filterServices(tag) {
-        if (tag === 'all') {
-            return shuffle(allServices);
-        }
-        var filtered = allServices.filter(function(s) {
-            return s.tags && s.tags.indexOf(tag) >= 0;
+    // Filtrer les services par tags
+    function filterServices(filter) {
+        if (filter === 'all') return allServices;
+        return allServices.filter(function(s) {
+            return s.tags && s.tags.indexOf(filter) >= 0;
         });
-        return filtered.length > 0 ? filtered : shuffle(allServices).slice(0, 2);
     }
     
-    // Générer le HTML d'une carte service (hero)
-    function renderHeroCard(service) {
-        var shortTitle = service.title.replace(/^[^\s]+\s*/, '').substring(0, 25);
-        if (shortTitle.length >= 25) shortTitle += '...';
+    // Afficher les services dans le hero
+    function displayHeroServices(services) {
+        var container = document.getElementById('heroServices');
+        if (!container) return;
         
-        return '<a href="/' + service.path + '" class="service-card-hero fade-in">' +
-               '<div class="service-icon-hero">' + service.icon + '</div>' +
-               '<h3>' + shortTitle + '</h3>' +
-               '<p>' + (service.description ? service.description.substring(0, 50) + '...' : '') + '</p>' +
-               '</a>';
+        var toShow = shuffle(services).slice(0, 2);
+        container.innerHTML = toShow.map(function(s) {
+            return '<a href="' + s.path + '" class="hero-service-card">' +
+                   '<span class="hsc-icon">' + s.icon + '</span>' +
+                   '<span class="hsc-title">' + s.title + '</span>' +
+                   '</a>';
+        }).join('');
     }
     
-    // Générer le HTML d'une carte service (détaillée)
-    function renderDetailCard(service) {
-        var featuresHtml = '';
-        if (service.features && service.features.length > 0) {
-            featuresHtml = '<ul class="service-features">';
-            for (var i = 0; i < Math.min(service.features.length, 4); i++) {
-                featuresHtml += '<li>' + service.features[i] + '</li>';
-            }
-            featuresHtml += '</ul>';
-        }
-        
-        return '<div class="service-detail-card fade-in">' +
-               '<div class="service-detail-icon">' + service.icon + '</div>' +
-               '<h3>' + service.title + '</h3>' +
-               '<p>' + service.description + '</p>' +
-               featuresHtml +
-               '<a href="/' + service.path + '" class="btn btn-primary">En savoir plus →</a>' +
-               '</div>';
-    }
-    
-    // Mettre à jour l'affichage des services
+    // Mettre à jour l'affichage
     function updateDisplay(filter) {
         currentFilter = filter;
         var filtered = filterServices(filter);
+        displayHeroServices(filtered.length > 0 ? filtered : allServices);
         
-        // Hero services (max 2)
-        var heroEl = document.getElementById('heroServices');
-        if (heroEl) {
-            var heroHtml = '';
-            var heroServices = filtered.slice(0, Math.min(2, filtered.length));
-            for (var i = 0; i < heroServices.length; i++) {
-                heroHtml += renderHeroCard(heroServices[i]);
-            }
-            heroEl.innerHTML = heroHtml;
-        }
-        
-        // Grid services (max 3)
-        var gridEl = document.getElementById('servicesGrid');
-        if (gridEl) {
-            var gridHtml = '';
-            var gridServices = filtered.slice(0, Math.min(3, filtered.length));
-            for (var j = 0; j < gridServices.length; j++) {
-                gridHtml += renderDetailCard(gridServices[j]);
-            }
-            gridEl.innerHTML = gridHtml;
-        }
-        
-        // Info filtre
+        // Update filter info
         var filterInfo = document.getElementById('filterInfo');
-        var servicesFilterInfo = document.getElementById('servicesFilterInfo');
-        
-        if (filter !== 'all') {
-            if (filterInfo) {
-                filterInfo.textContent = '🎯 Filtre actif : ' + filterLabels[filter] + ' (' + filtered.length + ' service' + (filtered.length > 1 ? 's' : '') + ')';
-                filterInfo.style.opacity = '1';
-            }
-            if (servicesFilterInfo) {
-                servicesFilterInfo.innerHTML = '🎯 <strong>' + filterLabels[filter] + '</strong> — ' + filtered.length + ' service' + (filtered.length > 1 ? 's' : '') + ' correspondant' + (filtered.length > 1 ? 's' : '');
-                servicesFilterInfo.style.color = 'var(--accent-orange)';
-            }
-        } else {
-            if (filterInfo) {
-                filterInfo.textContent = '🎲 Sélection aléatoire';
-                filterInfo.style.opacity = '0.7';
-            }
-            if (servicesFilterInfo) {
-                servicesFilterInfo.innerHTML = '🎲 Cliquez sur les icônes à droite pour filtrer';
-                servicesFilterInfo.style.color = 'var(--text-muted)';
-            }
-        }
-        
-        // Mettre à jour les classes actives
-        var cells = document.querySelectorAll('.tech-cell');
-        for (var k = 0; k < cells.length; k++) {
-            var cell = cells[k];
-            if (cell.getAttribute('data-filter') === filter) {
-                cell.classList.add('active');
+        if (filterInfo) {
+            if (filter !== 'all' && filtered.length > 0) {
+                filterInfo.textContent = '🔍 Filtré: ' + filter + ' (' + filtered.length + ' services)';
+                filterInfo.classList.add('visible');
             } else {
-                cell.classList.remove('active');
+                filterInfo.classList.remove('visible');
             }
         }
-    }
-    
-    // Fonction globale pour réinitialiser
-    window.resetFilter = function() {
-        updateDisplay('all');
-    };
-    
-    // Initialiser les événements sur la grille tech
-    function initTechGrid() {
-        var cells = document.querySelectorAll('.tech-cell[data-filter]');
         
-        for (var i = 0; i < cells.length; i++) {
-            (function(cell) {
-                // Click
-                cell.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var filter = this.getAttribute('data-filter');
-                    updateDisplay(filter);
-                });
-                
-                // Keyboard (Enter/Space)
-                cell.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        var filter = this.getAttribute('data-filter');
-                        updateDisplay(filter);
-                    }
-                });
-                
-                // Touch
-                cell.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    var filter = this.getAttribute('data-filter');
-                    updateDisplay(filter);
-                });
-            })(cells[i]);
-        }
+        // Update active cell
+        var cells = document.querySelectorAll('.tech-cell');
+        cells.forEach(function(cell) {
+            cell.classList.toggle('active', cell.dataset.filter === filter);
+        });
     }
     
-    // Initialisation
+    // Init tech grid interactions
+    function initTechGrid() {
+        var cells = document.querySelectorAll('.tech-cell');
+        cells.forEach(function(cell) {
+            cell.addEventListener('click', function() {
+                updateDisplay(this.dataset.filter);
+            });
+            cell.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    updateDisplay(this.dataset.filter);
+                }
+            });
+        });
+    }
+    
+    // Inject hero service card styles
+    var style = document.createElement('style');
+    style.textContent = `
+        .hero-service-card {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-normal);
+        }
+        .hero-service-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+        .hsc-icon { font-size: 1.5rem; }
+        .hsc-title { font-weight: 500; }
+    `;
+    document.head.appendChild(style);
+    
+    // Init
     function init() {
         initTechGrid();
         updateDisplay('all');
     }
     
-    // Lancer l'initialisation
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
@@ -423,257 +1254,3 @@ allServices.sort(function(a, b) { return (a.order || 999) - (b.order || 999); })
     }
 })();
 </script>
-
-<!-- Blog Articles -->
-<section id="articles" style="padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Blog Technique</div>
-        <h2 class="section-title">Articles Récents</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
-            Découvrez nos derniers articles sur la cybersécurité, le développement embarqué et les technologies open source
-        </p>
-    </div>
-    <div class="articles-grid">
-        <% 
-        var postsLimit = (theme.index && theme.index.posts_limit) || 6;
-        var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
-        postsToShow.each(function(post) { %>
-            <%- partial('partials/article', {post: post}) %>
-        <% }); %>
-    </div>
-    <% if (page.total > 1) { %>
-    <nav class="pagination">
-        <%- paginator({ prev_text: '← Précédent', next_text: 'Suivant →', mid_size: 2, end_size: 1 }) %>
-    </nav>
-    <% } %>
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="/archives/" class="btn btn-secondary">Voir tous les articles →</a>
-    </div>
-</section>
-
-<!-- Categories Section -->
-<%
-var showCategories = !(theme.sections && theme.sections.categories === false);
-var categoriesExist = site.categories && site.categories.length > 0;
-if (showCategories && categoriesExist) {
-%>
-<section id="categories" style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Thématiques</div>
-        <h2 class="section-title">Explorer par Catégorie</h2>
-    </div>
-    <div class="categories-grid">
-        <% 
-        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
-        var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
-        var categoriesLimit = (theme.index && theme.index.categories_limit) || 6;
-        var allCategories = site.categories.sort('name');
-        var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
-        var idx = 0;
-        categoriesToShow.each(function(category) {
-            var icon = defaultIcons[idx % 10];
-            var color = defaultColors[idx % 10];
-            if (theme.categories) {
-                for (var key in theme.categories) {
-                    if (theme.categories[key].name === category.name) {
-                        icon = theme.categories[key].icon || icon;
-                        color = theme.categories[key].color || color;
-                    }
-                }
-            }
-            idx++;
-        %>
-        <a href="<%= url_for(category.path) %>" class="category-card" style="--category-color: <%= color %>">
-            <div class="category-icon"><%= icon %></div>
-            <div class="category-info">
-                <h3 class="category-name"><%= category.name %></h3>
-                <div class="category-count"><%= category.posts.length %> article<%= category.posts.length > 1 ? 's' : '' %></div>
-            </div>
-        </a>
-        <% }); %>
-    </div>
-    <% if (categoriesLimit > 0 && allCategories.length > categoriesLimit) { %>
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="/categories/" class="btn btn-secondary">Voir toutes les catégories (<%= allCategories.length %>) →</a>
-    </div>
-    <% } %>
-</section>
-<% } %>
-
-<!-- Tags Section -->
-<%
-var showTags = theme.sections && theme.sections.tags === true;
-var tagsExist = site.tags && site.tags.length > 0;
-if (showTags && tagsExist) {
-%>
-<section id="tags" style="padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Mots-clés</div>
-        <h2 class="section-title">Explorer par Tag</h2>
-    </div>
-    <div class="tags-cloud" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-        <% 
-        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
-        var tagsLimit = (theme.index && theme.index.tags_limit) || 10;
-        var allTags = site.tags.sort('length', -1);
-        var tagsToShow = tagsLimit > 0 ? allTags.limit(tagsLimit) : allTags;
-        var idx = 0;
-        tagsToShow.each(function(tag) {
-            var color = defaultColors[idx % 10];
-            var fontSize = 0.85 + (Math.min(tag.posts.length, 10) * 0.1);
-            idx++;
-        %>
-        <a href="<%= url_for(tag.path) %>" style="font-size:<%= fontSize %>rem;color:<%= color %>;text-decoration:none;padding:0.5rem 1rem;background:linear-gradient(135deg,<%= color %>15,<%= color %>08);border:1px solid <%= color %>30;border-radius:8px;">
-            #<%= tag.name %> <span style="background:<%= color %>25;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.85rem;font-weight:600;"><%= tag.posts.length %></span>
-        </a>
-        <% }); %>
-    </div>
-    <% if (tagsLimit > 0 && allTags.length > tagsLimit) { %>
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="/tags/" class="btn btn-secondary">Voir tous les tags (<%= allTags.length %>) →</a>
-    </div>
-    <% } %>
-</section>
-<% } %>
-
-<!-- Apps Section -->
-<%
-var showApps = !(theme.sections && theme.sections.apps === false);
-var appsExist = theme.apps && theme.apps.length > 0;
-if (showApps && appsExist) {
-%>
-<section id="applications" style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Outils</div>
-        <h2 class="section-title">Applications & Ressources</h2>
-    </div>
-    <div class="apps-grid">
-        <% 
-        var appsLimit = (theme.index && theme.index.apps_limit) || 2;
-        var appsToShow = appsLimit > 0 ? theme.apps.slice(0, appsLimit) : theme.apps;
-        appsToShow.forEach(function(app) { %>
-        <div class="app-card">
-            <div class="app-preview">
-                <iframe src="<%= app.url %>?embedded=true" title="<%= app.name %>" loading="lazy"></iframe>
-                <div class="app-overlay">
-                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">Ouvrir ↗</a>
-                </div>
-            </div>
-            <div class="app-info">
-                <h3><%= app.icon || '🚀' %> <%= app.name %></h3>
-                <p><%= app.description || '' %></p>
-                <a href="<%= app.url %>" target="_blank" class="app-link">Accéder →</a>
-            </div>
-        </div>
-        <% }); %>
-    </div>
-    <% if (appsLimit > 0 && theme.apps.length > appsLimit) { %>
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="/apps/" class="btn btn-secondary">Voir toutes les applications (<%= theme.apps.length %>) →</a>
-    </div>
-    <% } %>
-</section>
-<% } %>
-
-<!-- YouTube Section -->
-<% if (theme.youtube && theme.youtube.playlist_id) { %>
-<section id="creations" style="padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Réalisations</div>
-        <h2 class="section-title">Portfolio & Démonstrations</h2>
-    </div>
-    <div class="media-showcase">
-        <div class="youtube-embed">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=<%= theme.youtube.playlist_id %>" title="<%= theme.youtube.title %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="media-info">
-            <h3>🎬 <%= theme.youtube.title %></h3>
-            <p><%= theme.youtube.description %></p>
-            <% if (theme.youtube.tags) { %>
-            <div class="media-tags">
-                <% theme.youtube.tags.forEach(function(tag) { %><span class="media-tag"><%= tag %></span><% }); %>
-            </div>
-            <% } %>
-            <a href="https://www.youtube.com/playlist?list=<%= theme.youtube.playlist_id %>" class="btn btn-primary" target="_blank" style="margin-top: 1rem;">Voir la chaîne →</a>
-        </div>
-    </div>
-</section>
-<% } %>
-
-<!-- About Section -->
-<% if (theme.about) { %>
-<section id="apropos" style="background: var(--bg-secondary); padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">À propos</div>
-        <h2 class="section-title">Expertise & Parcours</h2>
-    </div>
-    <div class="about-content">
-        <div class="about-text">
-            <h3><%= theme.about.name %> — <%= theme.about.title %></h3>
-            <%- markdown(theme.about.description) %>
-            <% if (theme.about.expertise) { %>
-            <div class="expertise-list">
-                <% theme.about.expertise.forEach(function(item) { %><span class="expertise-tag"><%= item %></span><% }); %>
-            </div>
-            <% } %>
-        </div>
-        <div class="about-visual">
-            <div class="profile-card">
-                <div class="profile-avatar"><%= theme.about.avatar %></div>
-                <h4 class="profile-name"><%= theme.about.name %></h4>
-                <p class="profile-title"><%= theme.about.title %></p>
-                <% if (theme.about.stats) { %>
-                <div class="profile-stats">
-                    <% theme.about.stats.forEach(function(stat) { %>
-                    <div class="profile-stat">
-                        <span class="profile-stat-value"><%= stat.value %></span>
-                        <span class="profile-stat-label"><%= stat.label %></span>
-                    </div>
-                    <% }); %>
-                </div>
-                <% } %>
-            </div>
-        </div>
-    </div>
-</section>
-<% } %>
-
-<!-- Contact Section -->
-<section id="contact" style="padding: 4rem 2rem;">
-    <div class="section-header">
-        <div class="section-tag">Contact</div>
-        <h2 class="section-title">Restons en Contact</h2>
-    </div>
-    <div class="contact-content">
-        <div class="contact-info">
-            <h3>Une question ? Un projet ?</h3>
-            <p>Pour toute demande de prestation, contribution au blog, ou simplement pour échanger.</p>
-            <% if (theme.social) { %>
-            <div class="contact-methods">
-                <% for (var name in theme.social) { %>
-                <a href="<%= name === 'email' ? 'mailto:' + theme.social[name] : theme.social[name] %>" class="contact-method" target="_blank">
-                    <div class="contact-method-icon"><% if (name === 'email') { %>📧<% } else if (name === 'website') { %>🌐<% } else if (name === 'linkedin') { %>💼<% } else if (name === 'github') { %>💻<% } else { %>🔗<% } %></div>
-                    <div><strong><%= name.charAt(0).toUpperCase() + name.slice(1) %></strong><div style="color: var(--text-muted); font-size: 0.9rem;"><%= theme.social[name] %></div></div>
-                </a>
-                <% } %>
-            </div>
-            <% } %>
-        </div>
-        <% if (theme.contact && theme.contact.formspree_id) { %>
-        <div class="contact-form">
-            <form action="https://formspree.io/f/<%= theme.contact.formspree_id %>" method="POST">
-                <input type="hidden" name="_subject" value="📧 Contact CyberMind Blog">
-                <div class="form-group"><label for="name">Nom</label><input type="text" id="name" name="name" required></div>
-                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-                <div class="form-group"><label for="sujet">Sujet</label>
-                    <select id="sujet" name="sujet">
-                        <% if (theme.contact.subjects) { theme.contact.subjects.forEach(function(s) { %><option value="<%= s.value %>"><%= s.label %></option><% }); } %>
-                    </select>
-                </div>
-                <div class="form-group"><label for="message">Message</label><textarea id="message" name="message"></textarea></div>
-                <button type="submit" class="btn btn-primary btn-submit">Envoyer</button>
-            </form>
-        </div>
-        <% } %>
-    </div>
-</section>

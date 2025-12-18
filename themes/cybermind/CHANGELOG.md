@@ -1,46 +1,52 @@
 # 📋 Changelog - Theme CyberMind
 
-Toutes les modifications notables du thème sont documentées ici.
+## [4.1.0] - 2024-12-18 - Dynamic Edition
+
+### ✨ Nouveautés majeures
+
+#### 🌓 Mode Jour/Nuit
+- Switch intégré dans le header (desktop + mobile)
+- Détection automatique des préférences système
+- Mémorisation dans localStorage
+- 60+ variables CSS pour les deux modes
+- Transitions fluides
+
+#### 📄 Page d'accueil 100% dynamique
+- Hero configurable (titre, stats, CTA)
+- Grille tech personnalisable
+- Sections activables/désactivables
+- Scan automatique des contenus
+
+#### 🗂️ Collections dynamiques
+- **Services** scannés depuis `source/services/*.md`
+- **Apps** scannées depuis `source/apps/*.md`
+- **Portfolio** scanné depuis `source/portfolio/*.md`
+- **Gallery** scannée depuis `source/gallery/*.md`
+
+#### ⚙️ Configuration simplifiée
+- `_config.yml` générique et documenté
+- Toutes les options commentées
+- Exemples pour chaque section
+
+### 📦 Layouts (18)
+app, apps, archive, categories, category, contact, gallery, gallery-item,
+index, layout, page, portfolio, portfolio-index, post, services, showcase, tag, tags
 
 ---
 
 ## [4.0.0] - 2024-12-18
-
-### ✨ Added
-
-#### Système de contenu dynamique
-- **📱 Apps** - Layout `app.ejs` pour applications interactives
-- **💼 Portfolio** - Layout `portfolio.ejs` pour réalisations
-- **🏪 Showcase** - Layout `showcase.ejs` style boutique
-
-#### Documentation
-- APPS-GUIDE.md, ARCHITECTURE-v4.md
-- Exemples dans `/examples/`
-
-#### Footer amélioré
-- Lien GitHub du thème avec version
-
----
+- Système Apps/Portfolio/Gallery
+- Layout showcase style boutique
+- Footer avec lien GitHub
 
 ## [3.0.0] - 2024-12-17
-- 🪟 Articles style fenêtre GUI
-- 🏷️ Lettrines sur articles
+- Articles style fenêtre GUI
+- Lettrines sur articles
 
-## [2.9.0] - 2024-12-17
-- Emojis multiples par thématique
-
-## [2.8.0] - 2024-12-17
-- Catégories groupées par contexte
-
-## [2.7.0] - 2024-12-17
-- Interaction réactive grille ↔ services
-
-## [2.6.0] - 2024-12-17
-- Affichage aléatoire des services
-
-## [2.5.0] - 2024-12-17
+## [2.x] - 2024-12-17
+- Catégories groupées, emojis multiples
+- Interaction grille ↔ services
 - Menu mobile hamburger
-- Pages Gk2.NET et Embedded
 
 ---
 

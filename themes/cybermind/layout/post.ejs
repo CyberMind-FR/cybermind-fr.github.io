@@ -4,14 +4,65 @@ var categoryColor = '#f97316';
 var categoryName = '';
 var categoryIcon = '📝';
 
+// Couleurs par défaut pour les catégories
+var defaultCategoryColors = {
+    'security': '#ef4444',
+    'linux': '#3b82f6',
+    'embedded': '#9945ff',
+    'dev': '#10b981',
+    'iot': '#8b5cf6',
+    'tutorials': '#f59e0b',
+    'tutoriels': '#f59e0b',
+    'tools': '#f97316',
+    'outils': '#f97316',
+    'projets': '#06b6d4',
+    'documentation': '#3b82f6',
+    'spiritualite': '#a855f7',
+    'esoterisme': '#ec4899',
+    'conjurations': '#9945ff',
+    'philosophy': '#a855f7',
+    'infrastructure': '#64748b',
+    'self-hosting': '#10b981'
+};
+
+var defaultCategoryIcons = {
+    'security': '🔐',
+    'linux': '🐧',
+    'embedded': '⚙️',
+    'dev': '💻',
+    'iot': '📡',
+    'tutorials': '📝',
+    'tutoriels': '📝',
+    'tools': '🔧',
+    'outils': '🔧',
+    'projets': '🚀',
+    'documentation': '📚',
+    'spiritualite': '🧘',
+    'esoterisme': '🔮',
+    'conjurations': '✨',
+    'philosophy': '☯️',
+    'infrastructure': '🏗️',
+    'self-hosting': '🏠'
+};
+
 if (page.categories && page.categories.length > 0) {
     var cat = page.categories.data[0];
     categoryClass = cat.slug;
     categoryName = cat.name;
-    if (theme.categories[cat.slug]) {
-        categoryColor = theme.categories[cat.slug].color;
-        categoryName = theme.categories[cat.slug].name;
-        categoryIcon = theme.categories[cat.slug].icon;
+    
+    // Chercher couleur/icône dans la config du thème
+    var catKey = cat.slug.toLowerCase();
+    
+    if (theme.categories && theme.categories[catKey]) {
+        categoryColor = theme.categories[catKey].color || categoryColor;
+        categoryIcon = theme.categories[catKey].icon || categoryIcon;
+        if (theme.categories[catKey].name) {
+            categoryName = theme.categories[catKey].name;
+        }
+    } else {
+        // Utiliser les défauts
+        categoryColor = defaultCategoryColors[catKey] || categoryColor;
+        categoryIcon = defaultCategoryIcons[catKey] || categoryIcon;
     }
 }
 %>

@@ -3,6 +3,18 @@
 // GALLERY INDEX - Scan automatique des créations artistiques
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Helper pour extraire les tags
+function extractTags(tags) {
+    if (!tags) return [];
+    if (typeof tags.toArray === 'function') {
+        return tags.toArray().map(function(t) { return t.name || t; });
+    }
+    if (Array.isArray(tags)) {
+        return tags.map(function(t) { return typeof t === 'object' ? t.name : t; });
+    }
+    return [];
+}
+
 // Collecter toutes les pages de type gallery-item
 var galleryItems = [];
 
@@ -28,7 +40,7 @@ site.pages.forEach(function(p) {
             artwork: p.artwork || {},
             featured: p.featured || false,
             order: p.order || 999,
-            tags: p.tags ? p.tags.toArray().map(t => t.name) : []
+            tags: extractTags(p.tags)
         });
     }
 });
