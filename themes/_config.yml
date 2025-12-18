@@ -32,9 +32,10 @@ branding:
 # ─────────────────────────────────────────────────────────────────────────────
 menu:
   Accueil: /
+  Gallerie: /gallery/
+  Portfolio: /portfolio/
   Services: /services/
   Apps: /apps/
-  Portfolio: /portfolio/
   Blog: /archives/
   Contact: /contact/
 
@@ -140,7 +141,6 @@ youtube:
     - "Prototypage"
     - "Tutoriels"
 
-
 # ─────────────────────────────────────────────────────────────────────────────
 # À PROPOS
 # ─────────────────────────────────────────────────────────────────────────────
@@ -149,7 +149,7 @@ about:
   avatar: "🧙"
   title: "Cybersecurity & Linux Expert"
   description: |
-    Fort de plus de 25 ans d'expérience en cybersécurité et développement systèmes embarqués, je partage mon expertise à travers des articles techniques, tutoriels et retours d'expérience.
+    Fort de plus de 35 ans d'expérience en cybersécurité et développement systèmes embarqués, je partage mon expertise à travers des articles techniques, tutoriels et retours d'expérience.
     
     Mon blog CyberMind.FR couvre la cybersécurité offensive, le développement noyau Linux, les systèmes embarqués ARM et les technologies open source. Des guides pratiques aux analyses approfondies.
     
@@ -264,4 +264,4 @@ analytics:
 # RECHERCHE (optionnel)
 # ─────────────────────────────────────────────────────────────────────────────
 search:
-  enable: true
+  enable: false

@@ -32,10 +32,10 @@ branding:
 # ─────────────────────────────────────────────────────────────────────────────
 menu:
   Accueil: /
-  Services: /services/
-  Apps: /apps/
   Gallerie: /gallery/
   Portfolio: /portfolio/
+  Services: /services/
+  Apps: /apps/
   Blog: /archives/
   Contact: /contact/
 
