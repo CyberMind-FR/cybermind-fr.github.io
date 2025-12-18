@@ -1,0 +1,401 @@
+<%
+// ═══════════════════════════════════════════════════════════════════════════════
+// GALLERY INDEX - Scan automatique des créations artistiques
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// Collecter toutes les pages de type gallery-item
+var galleryItems = [];
+
+site.pages.forEach(function(p) {
+    if (p.layout === 'gallery-item' || 
+        (p.source && p.source.indexOf('gallery/') === 0 && p.source !== 'gallery/index.md')) {
+        
+        // Première image pour thumbnail
+        var thumbnail = p.thumbnail || '';
+        if (!thumbnail && p.images && p.images.length > 0) {
+            thumbnail = p.images[0].url;
+        }
+        
+        galleryItems.push({
+            title: p.title,
+            path: p.path,
+            date: p.date,
+            icon: p.icon || '🎨',
+            type: p.type || 'art',
+            description: p.description || '',
+            thumbnail: thumbnail,
+            images: p.images || [],
+            artwork: p.artwork || {},
+            featured: p.featured || false,
+            order: p.order || 999,
+            tags: p.tags ? p.tags.toArray().map(t => t.name) : []
+        });
+    }
+});
+
+// Trier
+galleryItems.sort(function(a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    if (a.order !== b.order) return a.order - b.order;
+    return new Date(b.date) - new Date(a.date);
+});
+
+// Types
+var typeColors = {
+    'art-ia': '#9945ff',
+    'art': '#9945ff',
+    'photo': '#3b82f6',
+    'music': '#ec4899',
+    'video': '#ef4444',
+    'design': '#10b981'
+};
+
+var typeLabels = {
+    'art-ia': { icon: '🤖', name: 'Art IA' },
+    'art': { icon: '🎨', name: 'Art' },
+    'photo': { icon: '📸', name: 'Photo' },
+    'music': { icon: '🎵', name: 'Musique' },
+    'video': { icon: '🎬', name: 'Vidéo' },
+    'design': { icon: '✨', name: 'Design' }
+};
+
+// Compter par type
+var typeCounts = {};
+galleryItems.forEach(function(item) {
+    typeCounts[item.type] = (typeCounts[item.type] || 0) + 1;
+});
+%>
+
+<div class="gallery-index">
+    <!-- Header -->
+    <header class="gallery-header">
+        <div class="section-header">
+            <div class="section-tag">Créations</div>
+            <h1 class="section-title"><%= page.icon || '🖼️' %> <%= page.title || 'Galerie' %></h1>
+            <p class="section-subtitle"><%= page.description || 'Explorez mes créations artistiques, photographies et œuvres numériques' %></p>
+        </div>
+        
+        <!-- Stats -->
+        <div class="gallery-stats">
+            <div class="stat"><span class="stat-value"><%= galleryItems.length %></span><span class="stat-label">Œuvres</span></div>
+            <% Object.keys(typeCounts).forEach(function(type) { 
+                var label = typeLabels[type] || { icon: '📦', name: type };
+            %>
+            <div class="stat">
+                <span class="stat-value"><%= typeCounts[type] %></span>
+                <span class="stat-label"><%= label.icon %> <%= label.name %></span>
+            </div>
+            <% }); %>
+        </div>
+        
+        <!-- Filtres -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">🎲 Tous</button>
+            <% Object.keys(typeLabels).forEach(function(type) { 
+                if (typeCounts[type]) {
+                    var label = typeLabels[type];
+            %>
+            <button class="filter-btn" data-filter="<%= type %>"><%= label.icon %> <%= label.name %></button>
+            <% } }); %>
+        </div>
+    </header>
+    
+    <% if (galleryItems.length > 0) { %>
+    
+    <!-- Masonry Gallery -->
+    <div class="gallery-masonry" id="galleryGrid">
+        <% galleryItems.forEach(function(item) { 
+            var color = typeColors[item.type] || '#f97316';
+            var label = typeLabels[item.type] || { icon: '🎨', name: 'Art' };
+        %>
+        <a href="<%= url_for(item.path) %>" class="gallery-card" data-type="<%= item.type %>" style="--item-color: <%= color %>;">
+            <% if (item.featured) { %>
+            <div class="featured-star">⭐</div>
+            <% } %>
+            
+            <div class="card-image">
+                <% if (item.thumbnail) { %>
+                <img src="<%= item.thumbnail %>" alt="<%= item.title %>" loading="lazy">
+                <% } else { %>
+                <div class="card-placeholder"><%= item.icon %></div>
+                <% } %>
+                
+                <div class="card-overlay">
+                    <div class="overlay-content">
+                        <span class="overlay-icon"><%= item.icon %></span>
+                        <span class="overlay-title"><%= item.title %></span>
+                        <% if (item.images.length > 1) { %>
+                        <span class="overlay-count">📷 <%= item.images.length %> images</span>
+                        <% } %>
+                    </div>
+                </div>
+                
+                <div class="card-type"><%= label.icon %></div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    
+    <% } else { %>
+    
+    <div class="empty-state">
+        <div class="empty-icon">🖼️</div>
+        <h3>Galerie vide</h3>
+        <p>Ajoutez des fichiers .md dans <code>source/gallery/</code></p>
+    </div>
+    
+    <% } %>
+    
+    <!-- Navigation -->
+    <nav class="gallery-nav">
+        <a href="/portfolio/" class="btn btn-secondary">💼 Portfolio</a>
+        <a href="/" class="btn btn-secondary">← Accueil</a>
+    </nav>
+</div>
+
+<style>
+.gallery-index {
+    padding: 4rem 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.gallery-stats .stat {
+    text-align: center;
+}
+
+.gallery-stats .stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.gallery-stats .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Filtres */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent-primary);
+    color: var(--text-inverted);
+    border-color: var(--accent-primary);
+}
+
+/* Masonry Grid */
+.gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    grid-auto-flow: dense;
+}
+
+/* Cards variées */
+.gallery-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform var(--transition-normal);
+}
+
+.gallery-card:hover {
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+/* Tailles variées pour effet masonry */
+.gallery-card:nth-child(5n+1) { grid-row: span 2; }
+.gallery-card:nth-child(7n+3) { grid-column: span 2; }
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    background: var(--bg-tertiary);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.gallery-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 30%, rgba(0,0,0,0.9));
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.gallery-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    padding: 1.5rem;
+    color: #fff;
+}
+
+.overlay-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.overlay-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.overlay-count {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.card-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    background: var(--item-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.featured-star {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    z-index: 5;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.gallery-card.hidden {
+    display: none;
+}
+
+/* Empty */
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+/* Nav */
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-masonry {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-card:nth-child(5n+1),
+    .gallery-card:nth-child(7n+3) {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.gallery-card');
+    
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var filter = this.dataset.filter;
+            
+            filterBtns.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            
+            cards.forEach(function(card) {
+                if (filter === 'all' || card.dataset.type === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>

@@ -29,6 +29,23 @@
                     <a href="<%= url_for(link.url) %>"><%= link.text %></a>
                     <% }); %>
                 </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
             </div>
         </footer>
         
@@ -116,6 +133,70 @@
             color: var(--accent-orange);
         }
         
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
         @media (max-width: 600px) {
             .footer-social {
                 gap: 0.75rem;
@@ -124,6 +205,15 @@
             .social-icon {
                 width: 36px;
                 height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
             }
         }
         </style>

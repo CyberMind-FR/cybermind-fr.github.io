@@ -1,20 +1,66 @@
+<%
+// Configuration du branding
+var logoSymbol = (theme.branding && theme.branding.logo_symbol) || '◆';
+var logoText = (theme.branding && theme.branding.logo_text) || 'CyberMind_';
+var logoImage = (theme.branding && theme.branding.logo_image) || '';
+
+// Configuration du thème
+var defaultMode = (theme.theme && theme.theme.default_mode) || 'dark';
+var allowToggle = theme.theme ? (theme.theme.allow_toggle !== false) : true;
+var accentColor = (theme.theme && theme.theme.accent_color) || '#f97316';
+%>
+
 <nav id="mainNav">
-    <a href="<%= config.root %>" class="nav-logo">◆ CyberMind_</a>
+    <!-- Logo -->
+    <a href="<%= config.root %>" class="nav-logo">
+        <% if (logoImage) { %>
+        <img src="<%= logoImage %>" alt="<%= logoText %>" class="logo-img">
+        <% } else { %>
+        <span class="logo-symbol"><%= logoSymbol %></span>
+        <span class="logo-text"><%= logoText %></span>
+        <% } %>
+    </a>
     
-    <button id="menuToggle" type="button" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        <% if (allowToggle) { %>
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        <% } %>
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
     
+    <!-- Menu -->
     <ul id="menuList">
         <% for (let name in theme.menu) { %>
         <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
+        <% } %>
+        
+        <% if (allowToggle) { %>
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
         <% } %>
     </ul>
 </nav>
 
 <style>
+/* Variables dynamiques */
+:root {
+    --accent-color: <%= accentColor %>;
+}
+
 #mainNav {
     position: sticky;
     top: 0;
@@ -24,19 +70,99 @@
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
-    background: rgba(0, 0, 0, 0.98);
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
+/* Logo */
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.4rem;
     font-weight: 600;
-    color: #f97316;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+[data-theme="dark"] #themeToggle .moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+[data-theme="light"] #themeToggle .moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+/* Default state (before JS loads) */
+#themeToggle .sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+#themeToggle .moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Hamburger Menu Toggle */
 #menuToggle {
     display: none;
     flex-direction: column;
@@ -54,11 +180,12 @@
     display: block;
     width: 100%;
     height: 3px;
-    background: #f97316;
+    background: var(--accent-color);
     border-radius: 3px;
     transition: all 0.3s ease;
 }
 
+/* Menu List */
 #menuList {
     display: flex;
     gap: 2rem;
@@ -70,7 +197,7 @@
 #menuList a {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    color: #9898a6;
+    color: var(--nav-link, #9898a6);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -78,13 +205,22 @@
 }
 
 #menuList a:hover {
-    color: #f97316;
+    color: var(--accent-color);
+}
+
+.mobile-theme-toggle {
+    display: none;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
     #mainNav {
         padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
     }
     
     #menuToggle {
@@ -98,7 +234,7 @@
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background: #0a0a0f;
+        background: var(--mobile-menu-bg, #0a0a0f);
         flex-direction: column;
         gap: 0;
         padding: 80px 0 2rem 0;
@@ -114,21 +250,58 @@
     
     #menuList li {
         width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
     }
     
     #menuList a {
         display: block;
         padding: 1.2rem 2rem;
         font-size: 1rem;
-        color: #e8e8ed;
+        color: var(--mobile-menu-link, #e8e8ed);
     }
     
     #menuList a:hover,
     #menuList a:active {
-        background: rgba(249, 115, 22, 0.15);
-        color: #f97316;
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
     }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
     
     /* Hamburger animation */
     #menuToggle.open span:nth-child(1) {
@@ -143,77 +316,157 @@
         transform: rotate(-45deg) translate(6px, -6px);
     }
     
-    /* Overlay */
-    #menuOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 9998;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
+    /* Hide desktop toggle on mobile when menu open */
+    .nav-actions #themeToggle {
+        display: flex;
     }
-    
-    #menuOverlay.show {
-        opacity: 1;
-        visibility: visible;
-    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
 }
 </style>
 
 <div id="menuOverlay"></div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var toggle = document.getElementById('menuToggle');
-    var menu = document.getElementById('menuList');
-    var overlay = document.getElementById('menuOverlay');
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
     
-    if (!toggle || !menu) {
-        console.log('Menu elements not found');
-        return;
-    }
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = '<%= defaultMode %>';
     
-    function openMenu() {
-        menu.classList.add('open');
-        toggle.classList.add('open');
-        if (overlay) overlay.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeMenu() {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        if (overlay) overlay.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (menu.classList.contains('open')) {
-            closeMenu();
-        } else {
-            openMenu();
+    function getStoredTheme() {
+        try {
+            return localStorage.getItem(STORAGE_KEY);
+        } catch (e) {
+            return null;
         }
-    });
-    
-    // Fermer au clic sur overlay
-    if (overlay) {
-        overlay.addEventListener('click', closeMenu);
     }
     
-    // Fermer au clic sur lien
-    var links = menu.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', closeMenu);
+    function setStoredTheme(theme) {
+        try {
+            localStorage.setItem(STORAGE_KEY, theme);
+        } catch (e) {}
     }
     
-    // Fermer avec Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeMenu();
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            return 'light';
+        }
+        
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        
+        // Dispatch event for other components
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        var next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+    }
+    
+    // Apply theme immediately to prevent flash
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', function() {
+                toggleTheme();
+            });
+        }
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (menu.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+        
+        if (overlay) {
+            overlay.addEventListener('click', closeMenu);
+        }
+        
+        // Close on link click (except theme toggle)
+        var links = menu.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
     });
-});
+})();
 </script>

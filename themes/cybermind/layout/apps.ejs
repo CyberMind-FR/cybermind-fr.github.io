@@ -1,87 +1,496 @@
 <section style="padding: 4rem 2rem; min-height: 60vh;">
     <div class="section-header">
-        <div class="section-tag">Outils & Applications</div>
-        <h2 class="section-title">Applications</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto 2rem;">
-            Découvrez nos applications interactives et outils en ligne
+        <div class="section-tag">Outils Interactifs</div>
+        <h2 class="section-title"><%= page.icon || '🚀' %> Applications & Démos</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 1rem auto;">
+            Découvrez nos applications interactives, outils et démonstrations
         </p>
     </div>
 
     <% 
-    // Utiliser directement theme.apps de la config
     var allApps = theme.apps || [];
     
-    if (allApps.length > 0) { %>
-    <div class="apps-grid">
-        <% allApps.forEach(function(app) { %>
-        <div class="app-card">
-            <div class="app-preview">
-                <iframe 
-                    src="<%= app.url %>?embedded=true" 
-                    title="<%= app.name %>"
-                    loading="lazy">
-                </iframe>
-                <div class="app-overlay">
-                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">
-                        Ouvrir l'application ↗
-                    </a>
+    if (allApps.length > 0) { 
+        // Trier : featured en premier, puis par order
+        allApps = allApps.slice().sort(function(a, b) {
+            if (a.featured && !b.featured) return -1;
+            if (!a.featured && b.featured) return 1;
+            return (a.order || 999) - (b.order || 999);
+        });
+    %>
+    
+    <!-- Statistiques -->
+    <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.length %></div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Applications</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.filter(function(a) { return a.featured; }).length %></div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">En vedette</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 2.5rem; color: var(--accent-orange); font-weight: 700;"><%= allApps.filter(function(a) { return a.article; }).length %></div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Documentées</div>
+        </div>
+    </div>
+    
+    <!-- Filtres par catégorie -->
+    <div class="apps-filters" id="appsFilters">
+        <button class="filter-btn active" data-filter="all">🎲 Tous</button>
+        <button class="filter-btn" data-filter="philosophy">🧘 Philosophie</button>
+        <button class="filter-btn" data-filter="security">🔐 Sécurité</button>
+        <button class="filter-btn" data-filter="creative">🎨 Créatif</button>
+        <button class="filter-btn" data-filter="tools">🔧 Outils</button>
+        <button class="filter-btn" data-filter="dev">💻 Dev</button>
+        <button class="filter-btn" data-filter="network">🌐 Réseau</button>
+    </div>
+    
+    <!-- Grille des applications -->
+    <div class="apps-gallery" id="appsGallery">
+        <% allApps.forEach(function(app) { 
+            var catColor = app.category === 'philosophy' ? '#a855f7' :
+                          app.category === 'security' ? '#ef4444' :
+                          app.category === 'creative' ? '#9945ff' :
+                          app.category === 'dev' ? '#10b981' :
+                          app.category === 'network' ? '#3b82f6' :
+                          '#f97316';
+        %>
+        <div class="app-card-full" data-category="<%= app.category || 'tools' %>" style="--app-color: <%= catColor %>;">
+            <!-- Badge featured -->
+            <% if (app.featured) { %>
+            <div class="app-featured-badge">⭐ En vedette</div>
+            <% } %>
+            
+            <!-- Barre titre style GUI -->
+            <div class="app-titlebar">
+                <div class="app-titlebar-buttons">
+                    <span class="app-btn-dot close">●</span>
+                    <span class="app-btn-dot minimize">●</span>
+                    <span class="app-btn-dot maximize">●</span>
+                </div>
+                <div class="app-titlebar-title">
+                    <%= app.icon || '🚀' %> <%= app.name %>
+                </div>
+                <div class="app-titlebar-category">
+                    <%= app.category || 'app' %>
                 </div>
             </div>
-            <div class="app-info">
-                <h3><%= app.icon || '🚀' %> <%= app.name %></h3>
-                <p><%= app.description || '' %></p>
-                <a href="<%= app.url %>" target="_blank" class="app-link">
-                    Accéder à l'application →
-                </a>
+            
+            <!-- Prévisualisation iframe -->
+            <div class="app-preview-large">
+                <iframe src="<%= app.url %>?embedded=true" title="<%= app.name %>" loading="lazy"></iframe>
+                <div class="app-overlay-full">
+                    <a href="<%= app.url %>" target="_blank" class="btn btn-primary">▶ Lancer l'app</a>
+                    <% if (app.article) { %>
+                    <a href="<%= app.article %>" class="btn btn-secondary">📖 Documentation</a>
+                    <% } %>
+                </div>
+            </div>
+            
+            <!-- Informations -->
+            <div class="app-info-full">
+                <p class="app-description"><%= app.description || 'Application interactive' %></p>
+                
+                <% if (app.tags && app.tags.length > 0) { %>
+                <div class="app-tags">
+                    <% app.tags.forEach(function(tag) { %>
+                    <span class="app-tag">#<%= tag %></span>
+                    <% }); %>
+                </div>
+                <% } %>
+                
+                <div class="app-actions">
+                    <a href="<%= app.url %>" target="_blank" class="app-btn-launch">
+                        <span class="app-btn-icon">▶</span>
+                        <span>Ouvrir</span>
+                        <span class="app-btn-arrow">↗</span>
+                    </a>
+                    <% if (app.article) { %>
+                    <a href="<%= app.article %>" class="app-btn-doc">
+                        📖 Article
+                    </a>
+                    <% } %>
+                </div>
             </div>
         </div>
         <% }); %>
     </div>
+    
     <% } else { %>
     <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
-        <p style="font-size: 1.2rem;">Aucune application pour le moment.</p>
-        <p>Créez des fichiers .md dans <code>source/apps/</code> ou configurez dans <code>themes/cybermind/_config.yml</code></p>
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🚀</div>
+        <p style="font-size: 1.2rem;">Aucune application disponible pour le moment.</p>
+        <p>Configurez vos apps dans <code>themes/cybermind/_config.yml</code></p>
     </div>
     <% } %>
 
     <div style="text-align: center; margin-top: 4rem;">
         <a href="/" class="btn btn-secondary">← Retour à l'accueil</a>
+        <a href="/categories/" class="btn btn-secondary" style="margin-left: 1rem;">Explorer les catégories</a>
     </div>
 </section>
 
-<!-- Stats -->
-<% if (allApps.length > 0) { %>
+<style>
+/* Filtres */
+.apps-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.apps-filters .filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.apps-filters .filter-btn:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+}
+
+.apps-filters .filter-btn.active {
+    background: var(--accent-orange);
+    color: #000;
+    border-color: var(--accent-orange);
+}
+
+/* Grille des apps */
+.apps-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Carte application style GUI */
+.app-card-full {
+    position: relative;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.app-card-full:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.4),
+        0 0 30px var(--app-color, var(--accent-orange))30;
+    border-color: var(--app-color, var(--accent-orange));
+}
+
+/* Badge featured */
+.app-featured-badge {
+    position: absolute;
+    top: 45px;
+    right: -30px;
+    background: var(--accent-orange);
+    color: #000;
+    padding: 0.25rem 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Barre de titre */
+.app-titlebar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: var(--app-color, var(--accent-orange));
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.75rem;
+}
+
+.app-titlebar-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.app-btn-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 8px;
+    line-height: 12px;
+    text-align: center;
+}
+
+.app-btn-dot.close { background: #ff5f57; color: #ff5f57; }
+.app-btn-dot.minimize { background: #ffbd2e; color: #ffbd2e; }
+.app-btn-dot.maximize { background: #28ca42; color: #28ca42; }
+
+.app-titlebar-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-titlebar-category {
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    opacity: 0.7;
+    padding: 0.15rem 0.5rem;
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+}
+
+/* Prévisualisation */
+.app-preview-large {
+    position: relative;
+    height: 220px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.app-preview-large iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.app-overlay-full {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.app-card-full:hover .app-overlay-full {
+    opacity: 1;
+}
+
+/* Infos */
+.app-info-full {
+    padding: 1.25rem;
+}
+
+.app-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.app-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.app-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+/* Actions */
+.app-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.app-btn-launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--app-color, var(--accent-orange));
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.app-btn-launch:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px var(--app-color, var(--accent-orange))50;
+}
+
+.app-btn-launch .app-btn-arrow {
+    transition: transform 0.2s ease;
+}
+
+.app-btn-launch:hover .app-btn-arrow {
+    transform: translate(3px, -3px);
+}
+
+.app-btn-doc {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.app-btn-doc:hover {
+    border-color: var(--app-color, var(--accent-orange));
+    color: var(--app-color, var(--accent-orange));
+}
+
+/* Animation filtrage */
+.app-card-full.hidden {
+    display: none;
+}
+
+.app-card-full.fade-in {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .apps-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .apps-filters {
+        padding: 0.75rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .app-preview-large {
+        height: 180px;
+    }
+    
+    .app-featured-badge {
+        top: 40px;
+        right: -35px;
+        font-size: 0.6rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const appCards = document.querySelectorAll('.app-card-full');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter cards with animation
+            appCards.forEach(card => {
+                const category = card.dataset.category;
+                
+                if (filter === 'all' || category === filter) {
+                    card.classList.remove('hidden');
+                    card.classList.add('fade-in');
+                    setTimeout(() => card.classList.remove('fade-in'), 400);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
+
+<!-- Guide d'ajout -->
 <section style="background: var(--bg-secondary); padding: 4rem 2rem;">
     <div class="section-header">
-        <div class="section-tag">Technologies</div>
-        <h2 class="section-title">À propos</h2>
+        <div class="section-tag">Documentation</div>
+        <h2 class="section-title">💡 Ajouter une application</h2>
     </div>
 
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
-            Ces applications ont été développées avec les technologies modernes de développement web
-            et sont hébergées sur des plateformes cloud pour garantir leur disponibilité.
-        </p>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+            <div style="color: var(--text-muted); margin-bottom: 1rem;"># themes/cybermind/_config.yml</div>
+            <pre style="color: var(--text-primary); margin: 0;">apps:
+  - name: "64 Hexagrammes du Yi Jing"
+    url: "https://cybermind.fr/demos/64-hexagrammes-animation.html"
+    icon: "☯️"
+    description: "Animation interactive des 64 hexagrammes"
+    category: "philosophy"
+    tags:
+      - yi-jing
+      - animation
+    article: "/2024/12/18/yi-jing-64-hexagrammes/"
+    featured: true
+    order: 1</pre>
+        </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 3rem;">
-            <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🚀</div>
-                <div style="font-size: 2rem; font-weight: 700; color: var(--accent-orange);"><%= allApps.length %></div>
-                <div style="color: var(--text-muted);">Applications</div>
+        <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #a855f7;">
+                <strong>🧘 philosophy</strong>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Yi Jing, méditation</div>
             </div>
-
-            <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">☁️</div>
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-orange);">Cloud</div>
-                <div style="color: var(--text-muted);">Hébergement</div>
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #ef4444;">
+                <strong>🔐 security</strong>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Outils sécurité</div>
             </div>
-
-            <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔓</div>
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-orange);">Gratuit</div>
-                <div style="color: var(--text-muted);">Accès libre</div>
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #9945ff;">
+                <strong>🎨 creative</strong>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Art, musique</div>
+            </div>
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border-left: 3px solid #10b981;">
+                <strong>💻 dev</strong>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Développement</div>
             </div>
         </div>
     </div>
 </section>
-<% } %>

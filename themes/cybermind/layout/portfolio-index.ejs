@@ -1,0 +1,499 @@
+<%
+// ═══════════════════════════════════════════════════════════════════════════════
+// PORTFOLIO INDEX - Scan automatique des réalisations
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// Collecter toutes les pages de type portfolio
+var portfolioItems = [];
+
+site.pages.forEach(function(p) {
+    // Détecter les pages portfolio par leur chemin ou layout
+    if (p.layout === 'portfolio' || 
+        (p.source && p.source.indexOf('portfolio/') === 0 && p.source !== 'portfolio/index.md')) {
+        portfolioItems.push({
+            title: p.title,
+            path: p.path,
+            date: p.date,
+            icon: p.icon || '💼',
+            type: p.type || 'project',
+            description: p.description || '',
+            thumbnail: p.thumbnail || '',
+            client: p.client || {},
+            project: p.project || {},
+            live_url: p.live_url || '',
+            featured: p.featured || false,
+            status: p.status || 'live',
+            order: p.order || 999,
+            tags: p.tags ? p.tags.toArray().map(t => t.name) : []
+        });
+    }
+});
+
+// Trier : featured d'abord, puis par order, puis par date
+portfolioItems.sort(function(a, b) {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    if (a.order !== b.order) return a.order - b.order;
+    return new Date(b.date) - new Date(a.date);
+});
+
+// Séparer par type
+var clients = portfolioItems.filter(function(p) { return p.type === 'client'; });
+var projects = portfolioItems.filter(function(p) { return p.type === 'project'; });
+var opensource = portfolioItems.filter(function(p) { return p.type === 'opensource'; });
+
+// Couleurs par type
+var typeColors = {
+    'client': '#10b981',
+    'project': '#3b82f6',
+    'opensource': '#f59e0b'
+};
+
+var typeLabels = {
+    'client': { icon: '🏢', name: 'Clients' },
+    'project': { icon: '🚀', name: 'Projets' },
+    'opensource': { icon: '🔓', name: 'Open Source' }
+};
+%>
+
+<div class="portfolio-index">
+    <!-- Header -->
+    <header class="portfolio-header">
+        <div class="section-header">
+            <div class="section-tag">Réalisations</div>
+            <h1 class="section-title"><%= page.icon || '💼' %> <%= page.title || 'Portfolio' %></h1>
+            <p class="section-subtitle"><%= page.description || 'Découvrez mes réalisations, projets clients et contributions open source' %></p>
+        </div>
+        
+        <!-- Stats -->
+        <div class="portfolio-stats">
+            <div class="stat-card">
+                <span class="stat-value"><%= clients.length %></span>
+                <span class="stat-label">🏢 Clients</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value"><%= projects.length %></span>
+                <span class="stat-label">🚀 Projets</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value"><%= opensource.length %></span>
+                <span class="stat-label">🔓 Open Source</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value"><%= portfolioItems.length %></span>
+                <span class="stat-label">📦 Total</span>
+            </div>
+        </div>
+        
+        <!-- Filtres -->
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">🎲 Tous</button>
+            <button class="filter-btn" data-filter="client">🏢 Clients</button>
+            <button class="filter-btn" data-filter="project">🚀 Projets</button>
+            <button class="filter-btn" data-filter="opensource">🔓 Open Source</button>
+        </div>
+    </header>
+    
+    <% if (portfolioItems.length > 0) { %>
+    
+    <!-- Grille des réalisations -->
+    <div class="portfolio-grid" id="portfolioGrid">
+        <% portfolioItems.forEach(function(item) { 
+            var color = typeColors[item.type] || '#f97316';
+            var label = typeLabels[item.type] || { icon: '📦', name: 'Autre' };
+        %>
+        <a href="<%= url_for(item.path) %>" class="portfolio-card" data-type="<%= item.type %>" style="--item-color: <%= color %>;">
+            <% if (item.featured) { %>
+            <div class="featured-badge">⭐ Featured</div>
+            <% } %>
+            
+            <div class="card-visual">
+                <% if (item.thumbnail) { %>
+                <img src="<%= item.thumbnail %>" alt="<%= item.title %>" loading="lazy">
+                <% } else { %>
+                <div class="card-placeholder"><%= item.icon %></div>
+                <% } %>
+                
+                <div class="card-overlay">
+                    <span class="view-btn">Voir le projet →</span>
+                </div>
+                
+                <div class="card-type-badge">
+                    <%= label.icon %> <%= label.name %>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <h3><%= item.icon %> <%= item.title %></h3>
+                <p><%= item.description %></p>
+                
+                <% if (item.client && item.client.name) { %>
+                <div class="card-client">
+                    🏢 <%= item.client.name %>
+                    <% if (item.client.sector) { %> • <%= item.client.sector %><% } %>
+                </div>
+                <% } %>
+                
+                <% if (item.project && item.project.technologies && item.project.technologies.length) { %>
+                <div class="card-tech">
+                    <% item.project.technologies.slice(0, 4).forEach(function(tech) { %>
+                    <span class="tech-tag"><%= tech %></span>
+                    <% }); %>
+                </div>
+                <% } %>
+                
+                <div class="card-footer">
+                    <span class="card-status status-<%= item.status %>">
+                        <%= item.status === 'live' ? '🟢 En ligne' : item.status === 'demo' ? '🟡 Démo' : '📦 Archivé' %>
+                    </span>
+                    <% if (item.live_url) { %>
+                    <span class="card-link">↗</span>
+                    <% } %>
+                </div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+    
+    <% } else { %>
+    
+    <!-- État vide -->
+    <div class="empty-state">
+        <div class="empty-icon">💼</div>
+        <h3>Aucune réalisation pour le moment</h3>
+        <p>Ajoutez des fichiers .md dans <code>source/portfolio/</code></p>
+        <p class="empty-hint">
+            Utilisez <code>layout: portfolio</code> et <code>type: client|project|opensource</code>
+        </p>
+    </div>
+    
+    <% } %>
+    
+    <!-- Navigation -->
+    <nav class="portfolio-nav">
+        <a href="/showcase/" class="btn btn-primary">🏪 Voir le Showcase</a>
+        <a href="/" class="btn btn-secondary">← Accueil</a>
+    </nav>
+</div>
+
+<style>
+.portfolio-index {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+}
+
+/* Stats */
+.portfolio-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Filtres */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.filter-btn.active {
+    background: var(--accent-primary);
+    color: var(--text-inverted);
+    border-color: var(--accent-primary);
+}
+
+/* Grille */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Card */
+.portfolio-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow), 0 0 30px var(--item-color)20;
+    border-color: var(--item-color);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    padding: 0.25rem 2rem;
+    background: var(--accent-primary);
+    color: var(--text-inverted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    z-index: 10;
+}
+
+.card-visual {
+    position: relative;
+    aspect-ratio: 16/10;
+    background: var(--bg-tertiary);
+    overflow: hidden;
+}
+
+.card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.portfolio-card:hover .card-visual img {
+    transform: scale(1.05);
+}
+
+.card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.portfolio-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--item-color);
+    color: var(--text-inverted);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+.card-type-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 0.25rem 0.75rem;
+    background: var(--item-color);
+    color: var(--text-inverted);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-client {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.tech-tag {
+    padding: 0.15rem 0.4rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.card-status {
+    font-size: 0.75rem;
+}
+
+.card-link {
+    color: var(--item-color);
+    font-size: 1.2rem;
+}
+
+/* Hidden state for filtering */
+.portfolio-card.hidden {
+    display: none;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state code {
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+}
+
+.empty-hint {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+}
+
+/* Navigation */
+.portfolio-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-stats {
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 0.75rem 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.portfolio-card');
+    
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var filter = this.dataset.filter;
+            
+            // Update active button
+            filterBtns.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(function(card) {
+                if (filter === 'all' || card.dataset.type === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
