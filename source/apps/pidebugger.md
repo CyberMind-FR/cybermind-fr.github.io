@@ -16,7 +16,7 @@ tags_list:
   - embedded
   - debugging
   - openwrt
-related_article: "/2024/pidebugger-arm-debugger/"
+related_article: "/embedded/pidebugger-arm-debugger/"
 ---
 
 ## 🎯 Présentation
