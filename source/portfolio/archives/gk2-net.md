@@ -5,7 +5,7 @@ icon: 🌐
 type: project
 status: archived
 description: "L'un des premiers FAI (Fournisseur d'Accès Internet) personnels en France, créé sur un Pentium Pro 200 'Milenium' sous RedHat Linux. Aux origines de l'Internet français."
-thumbnail: "/images/portfolio/gk2-banner.jpg"
+thumbnail: "/images/portfolio/thumbnails/gk2-net.svg"
 featured: true
 order: 1
 date: 1996-01-01

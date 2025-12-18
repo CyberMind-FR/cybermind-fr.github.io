@@ -5,7 +5,7 @@ icon: 👤
 type: project
 status: archived
 description: "Archive du site personnel de Michel Murty hébergé sur Free.fr."
-thumbnail: ""
+thumbnail: "/images/portfolio/thumbnails/michel-murty.svg"
 featured: false
 order: 6
 date: 2000-01-01

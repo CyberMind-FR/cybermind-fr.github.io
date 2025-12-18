@@ -5,7 +5,7 @@ icon: ☯️
 type: opensource
 status: archived
 description: "Archive de Wengu Tartarie - Ressource majeure sur le Yi Jing (Livre des Mutations). Textes classiques, hexagrammes, interprétations."
-thumbnail: ""
+thumbnail: "/images/portfolio/thumbnails/wengu-yijing.svg"
 featured: true
 order: 5
 date: 2000-01-01

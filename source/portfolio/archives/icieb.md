@@ -5,7 +5,7 @@ icon: 🌸
 type: project
 status: archived
 description: "Boutique e-commerce spécialisée dans la gravure laser haute précision sur bois brut : fleur de vie, crop circles, objets énergétiques. Pièces uniques, fait main, sur mesure."
-thumbnail: "/images/portfolio/icieb-banner.jpg"
+thumbnail: "/images/portfolio/thumbnails/icieb.svg"
 featured: true
 order: 3
 date: 2018-01-01
