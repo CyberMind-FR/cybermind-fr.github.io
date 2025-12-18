@@ -1,5 +1,5 @@
 ---
-title: "Ganimed.fr - Site Vitrine"
+title: "Gk2.fr - Site Vitrine"
 layout: portfolio
 date: 2024-06-15
 icon: 🌐
@@ -7,7 +7,7 @@ type: client  # client | project | opensource
 
 # Client info
 client:
-  name: "Ganimed"
+  name: "Gk2"
   logo: /images/portfolio/ganimed-logo.png
   sector: "Services"
   location: "Savoie, France"
@@ -47,7 +47,7 @@ before_after:
 related_article: "/2024/06/20/creation-site-ganimed/"
 testimonial:
   text: "Excellent travail, site livré dans les délais..."
-  author: "Jean D., Gérant Ganimed"
+  author: "Jean D., Gérant Gk2"
 
 # Métadonnées
 featured: true
@@ -57,7 +57,7 @@ status: live  # live | archived | demo
 
 ## Le Projet
 
-Création d'un site vitrine moderne pour Ganimed...
+Création d'un site vitrine moderne pour Gk2...
 
 ## Objectifs
 
