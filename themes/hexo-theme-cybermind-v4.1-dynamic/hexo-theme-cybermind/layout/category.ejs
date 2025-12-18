@@ -1,0 +1,111 @@
+<%
+// Catégories dynamiques avec valeurs par défaut
+var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16'];
+var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📃', '📝', '✏️', '📖', '📚'];
+
+// Chercher la config dans le thème
+var categoryIcon = '📁';
+var categoryColor = '#3b82f6';
+
+if (theme.categories) {
+    for (var key in theme.categories) {
+        if (theme.categories[key].name === page.category) {
+            categoryIcon = theme.categories[key].icon;
+            categoryColor = theme.categories[key].color;
+            break;
+        }
+    }
+}
+
+// Si pas trouvé, utiliser une couleur aléatoire basée sur le nom
+if (categoryIcon === '📁') {
+    var hash = 0;
+    for (var i = 0; i < page.category.length; i++) {
+        hash = page.category.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var index = Math.abs(hash) % defaultColors.length;
+    categoryColor = defaultColors[index];
+    categoryIcon = defaultIcons[index];
+}
+%>
+
+<section style="padding: 4rem 2rem; min-height: 60vh;">
+    <div class="category-hero" style="text-align: center; margin-bottom: 4rem;">
+        <div class="category-icon" style="font-size: 5rem; margin-bottom: 1rem;">
+            <%= categoryIcon %>
+        </div>
+        <div class="section-tag">Catégorie</div>
+        <h1 class="section-title" style="margin: 1rem 0;">
+            <span style="color: <%= categoryColor %>"><%= page.category %></span>
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">
+            <%= page.posts.length %> article<%= page.posts.length > 1 ? 's' : '' %> dans cette catégorie
+        </p>
+    </div>
+
+    <div class="articles-grid">
+        <% page.posts.sort('date', -1).each(function(post) { %>
+            <%- partial('partials/article', {post: post}) %>
+        <% }); %>
+    </div>
+
+    <% if (page.total > 1) { %>
+    <nav class="pagination">
+        <%- paginator({
+            prev_text: '← Précédent',
+            next_text: 'Suivant →',
+            mid_size: 2,
+            end_size: 1
+        }) %>
+    </nav>
+    <% } %>
+
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="/#categories" class="btn btn-secondary">← Toutes les catégories</a>
+        <a href="/archives/" class="btn btn-secondary" style="margin-left: 1rem;">Tous les articles</a>
+    </div>
+</section>
+
+<!-- Other Categories -->
+<% if (site.categories.length > 1) { %>
+<section style="background: var(--bg-secondary); padding: 4rem 2rem;">
+    <div class="section-header">
+        <div class="section-tag">Autres thématiques</div>
+        <h2 class="section-title">Découvrez aussi</h2>
+    </div>
+
+    <div class="categories-grid">
+        <% 
+        var categoryIndex = 0;
+        
+        site.categories.sort('name').each(function(category) {
+            // Ne pas afficher la catégorie actuelle
+            if (category.name === page.category) return;
+            
+            var catConfig = null;
+            if (theme.categories) {
+                for (var key in theme.categories) {
+                    if (theme.categories[key].name === category.name) {
+                        catConfig = theme.categories[key];
+                        break;
+                    }
+                }
+            }
+            
+            // Valeurs par défaut si pas de config
+            var icon = catConfig ? catConfig.icon : defaultIcons[categoryIndex % defaultIcons.length];
+            var color = catConfig ? catConfig.color : defaultColors[categoryIndex % defaultColors.length];
+            
+            categoryIndex++;
+        %>
+        <a href="<%= url_for(category.path) %>" class="category-card" style="--category-color: <%= color %>">
+            <div class="category-icon"><%= icon %></div>
+            <div class="category-info">
+                <h3 class="category-name"><%= category.name %></h3>
+                <div class="category-count"><%= category.posts.length %> article<%= category.posts.length > 1 ? 's' : '' %></div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+</section>
+<% } %>

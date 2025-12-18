@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberMind.fr — Services</title>
+    <meta name="description" content="Services professionnels par CyberMind : Cybersécurité & Pentesting, Formations Creative Thinking, Conseil & Développement sur mesure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Force override Hexo/NexT theme styles */
+        html, body, 
+        .main, .main-inner, 
+        .content, .content-wrap, 
+        .post, .post-body, .post-block,
+        .page, .page-body,
+        article, main, section,
+        .container, .container-inner {
+            background: #000000 !important;
+            background-color: #000000 !important;
+        }
+        
+        .sidebar, .sidebar-inner,
+        .header, .site-nav,
+        .footer, .footer-inner,
+        .back-to-top,
+        .post-meta, .post-nav,
+        .comments, .post-widgets,
+        .breadcrumb, .post-toc,
+        .site-brand-container {
+            display: none !important;
+        }
+        
+        .post-body, .page-body, .content {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0f;
+            --bg-tertiary: #111118;
+            --accent-cyan: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-magenta: #ff3399;
+            --accent-gold: #ffd700;
+            --accent-purple: #9945ff;
+            --accent-blue: #3b82f6;
+            --text-primary: #e8e8ed;
+            --text-secondary: #9898a6;
+            --text-muted: #5a5a6e;
+            --border-subtle: rgba(255,255,255,0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: #000000;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #000000;
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(0,212,255,0.04) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(255,51,153,0.04) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(59,130,246,0.03) 0%, transparent 50%);
+            animation: patternShift 20s ease-in-out infinite;
+        }
+
+        @keyframes patternShift {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '>';
+            -webkit-text-fill-color: var(--accent-green);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-magenta) 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Card specific colors */
+        .service-card.pentest {
+            border-color: rgba(0,212,255,0.1);
+        }
+        .service-card.pentest::before {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+        }
+        .service-card.pentest:hover {
+            border-color: rgba(0,212,255,0.3);
+        }
+
+        .service-card.creative {
+            border-color: rgba(153,69,255,0.1);
+        }
+        .service-card.creative::before {
+            background: linear-gradient(90deg, #9945ff, #f97316);
+        }
+        .service-card.creative:hover {
+            border-color: rgba(153,69,255,0.3);
+        }
+
+        .service-card.dev {
+            border-color: rgba(59,130,246,0.1);
+        }
+        .service-card.dev::before {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        .service-card.dev:hover {
+            border-color: rgba(59,130,246,0.3);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card.pentest .service-icon {
+            background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,255,136,0.1));
+        }
+        .service-card.creative .service-icon {
+            background: linear-gradient(135deg, rgba(153,69,255,0.15), rgba(249,115,22,0.1));
+        }
+        .service-card.dev .service-icon {
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(153,69,255,0.1));
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card > p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-card.pentest .service-features li::before {
+            content: '→';
+            color: var(--accent-cyan);
+        }
+        .service-card.creative .service-features li::before {
+            content: '✦';
+            color: #9945ff;
+        }
+        .service-card.dev .service-features li::before {
+            content: '⚡';
+            color: var(--accent-blue);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .service-card.pentest .service-link {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            color: #000;
+        }
+        .service-card.creative .service-link {
+            background: linear-gradient(135deg, #9945ff, #f97316);
+            color: #fff;
+        }
+        .service-card.dev .service-link {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #fff;
+        }
+
+        .service-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 4rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta), var(--accent-gold));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+
+        .profile-name {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .profile-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            display: block;
+        }
+
+        .profile-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 4rem;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-content > p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .contact-method-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-method strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        .contact-method span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero, .services-section, .about-section, .contact-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="main-wrapper">
+        <nav>
+            <a href="https://cybermind.fr" class="logo">CyberMind_</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://cybermind.fr">Blog</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-badge">
+                🚀 Expertise • Innovation • Sur-mesure
+            </div>
+            <h1>
+                <span class="gradient-text">CyberMind</span><br>
+                Services
+            </h1>
+            <p class="hero-subtitle">
+                Deux pôles d'expertise complémentaires : cybersécurité offensive 
+                et développement sur mesure.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">25+</span>
+                    <span class="stat-label">Ans d'expérience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Pôles d'expertise</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">∞</span>
+                    <span class="stat-label">Passion</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section" id="services">
+            <div class="section-header">
+                <span class="section-tag">// Nos expertises</span>
+                <h2 class="section-title">Deux Pôles de Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- PENTEST -->
+                <div class="service-card pentest">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Cybersécurité & Pentesting</h3>
+                    <p>
+                        Tests d'intrusion, programmes bug bounty et recherche de vulnérabilités. 
+                        Protégez vos systèmes avant que d'autres ne les exploitent.
+                    </p>
+                    <ul class="service-features">
+                        <li>Tests d'intrusion (Web, Réseau, IoT)</li>
+                        <li>Bug Bounty Managé</li>
+                        <li>Audit systèmes embarqués & ARM</li>
+                        <li>Recherche de vulnérabilités</li>
+                        <li>Reverse engineering</li>
+                    </ul>
+                    <a href="/services/pentest/cybermind-landing-page.html" class="service-link">
+                        Découvrir l'offre →
+                    </a>
+                </div>
+
+
+                <!-- DEV -->
+                <div class="service-card dev">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Conseil & Développement</h3>
+                    <p>
+                        Solutions logicielles sur mesure, expertise Linux embarqué et 
+                        accompagnement technique de vos projets innovants.
+                    </p>
+                    <ul class="service-features">
+                        <li>Développement Linux & Kernel</li>
+                        <li>Systèmes embarqués ARM</li>
+                        <li>Solutions OpenWrt / Armbian</li>
+                        <li>Conseil architecture technique</li>
+                        <li>Prototypage & POC</li>
+                    </ul>
+                    <a href="/services/dev/cybermind-dev-conseil.html" class="service-link">
+                        Découvrir l'offre →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <div class="profile-card">
+                    <div class="profile-avatar">🧙</div>
+                    <h3 class="profile-name">Gandalf</h3>
+                    <p class="profile-title">Founder @ CyberMind.fr</p>
+                    <div class="profile-stats">
+                        <div>
+                            <span class="profile-stat-value">25+</span>
+                            <span class="profile-stat-label">Ans XP</span>
+                        </div>
+                        <div>
+                            <span class="profile-stat-value">2010</span>
+                            <span class="profile-stat-label">Open Source</span>
+                        </div>
+                        <div>
+                            <span class="profile-stat-value">🇫🇷</span>
+                            <span class="profile-stat-label">Savoie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h2>Un Parcours Technique, Une Vision Globale</h2>
+                    <p>
+                        Depuis plus de 25 ans, je navigue entre deux mondes : la rigueur de la 
+                        cybersécurité et l'excellence technique du développement bas niveau.
+                    </p>
+                    <p>
+                        Cette double expertise — forgée chez Thales, enrichie par des contributions 
+                        au noyau Linux et nourrie par des années de pratique terrain — me permet 
+                        d'offrir un accompagnement technique complet.
+                    </p>
+                    <p>
+                        Que vous cherchiez à sécuriser vos systèmes ou à développer des solutions 
+                        embarquées sur mesure, je mets mon expérience à votre service.
+                    </p>
+                    <div class="credentials">
+                        <span class="credential">🛡️ CrowdSec Ambassador</span>
+                        <span class="credential">🐧 Linux Kernel Contributor</span>
+                        <span class="credential">📦 OpenWrt Packager</span>
+                        <span class="credential">🏢 Ex-Thales</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="contact-content">
+                <h2>Discutons de Votre Projet</h2>
+                <p>
+                    Quel que soit votre besoin — sécurité, formation ou développement — 
+                    je suis à votre écoute pour construire ensemble la solution adaptée.
+                </p>
+                <div class="contact-methods">
+                    <a href="mailto:contact@cybermind.fr" class="contact-method">
+                        <span class="contact-method-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <span>contact@cybermind.fr</span>
+                        </div>
+                    </a>
+                    <a href="https://cybermind.fr" class="contact-method">
+                        <span class="contact-method-icon">🌐</span>
+                        <div>
+                            <strong>Site Web</strong>
+                            <span>cybermind.fr</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com" class="contact-method">
+                        <span class="contact-method-icon">💼</span>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <span>Profil professionnel</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-copy">
+                © 2025 CyberMind.fr — Expertise • Innovation • Sur-mesure
+            </div>
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Confidentialité</a>
+                <a href="https://cybermind.fr">Blog</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

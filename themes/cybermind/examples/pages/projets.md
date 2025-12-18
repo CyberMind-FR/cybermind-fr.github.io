@@ -2,7 +2,7 @@
 title: "Projets"
 layout: page
 icon: 🚀
-description: "Découvrez les projets CyberMind : cybersécurité, contributions open source, et initiatives Mind."
+description: "Découvrez les projets CyberMind : contributions open source, applications Maegia.tv, archives Guignol.net, initiatives soutenues et philosophie M00d."
 ---
 
 <div class="projects-hero">
@@ -40,6 +40,47 @@ CyberMind développe actuellement un **matériel réseau de sécurisation**, en 
 
 ---
 
+## 🎭 Maegia.tv - Applications Créatives
+
+Le réseau **Maegia.tv** héberge les applications interactives et services créatifs :
+
+| Application | Domaine | Description |
+|-------------|---------|-------------|
+| 🎮 [Console Game](https://console-game.streamlit.app) | [game.maegia.tv](https://game.maegia.tv) | Jeu d'aventure textuel rétro |
+| ☯️ [Oracle Yi Jing](https://oracle-pali.streamlit.app) | [oracle.maegia.tv](https://oracle.maegia.tv) | Consultation divinatoire |
+| 🧙 [Kragzouy](https://kragzouy.streamlit.app) | [kragzouy.maegia.tv](https://kragzouy.maegia.tv) | Univers créatif mystique |
+| 🛡️ [CyberSecurity](https://cybermind.fr/services/pentest/) | [maegia.tv](https://maegia.tv) | Services sécurité |
+| 💡 [Creative Thinking](https://cybermind.fr/services/creative/) | [www.maegia.tv](https://www.maegia.tv) | Formation créativité |
+
+---
+
+## 🏛️ Guignol.net - Archives & Patrimoine
+
+Le réseau **Guignol.net** préserve le patrimoine numérique personnel et professionnel :
+
+### 📚 Sites historiques
+
+| Archive | Domaine | Époque |
+|---------|---------|--------|
+| 🌐 [GK2.NET](https://web.archive.org/web/20010401091245/http://www.gk2.com/) | [gk2.guignol.net](https://gk2.guignol.net) | Premier ISP (1996) |
+| 💼 [Ganimed](https://web.archive.org/web/20240914150157/https://ganimed.fr/) | [ganimed.guignol.net](https://ganimed.guignol.net) | Services IT |
+| 🏛️ [ICIEB](https://web.archive.org/web/20210318200344/https://icieb.fr/) | [icieb.guignol.net](https://icieb.guignol.net) | Institution |
+
+### ☯️ Ressources Yi Jing
+
+| Ressource | Domaine | Contenu |
+|-----------|---------|---------|
+| 📖 [Wengu Tartarie](https://web.archive.org/web/20250219091819/http://wengu.tartarie.com/wg/wengu.php?l=intro) | [wengu.guignol.net](https://wengu.guignol.net) | Introduction Yi Jing |
+| ☯️ [Yi Jing Textes](https://web.archive.org/web/20250519081128/http://wengu.tartarie.com/wg/wengu.php?l=Yijing) | [yijing.guignol.net](https://yijing.guignol.net) | 64 Hexagrammes |
+
+### 📝 Blogs & Créations
+
+| Blog | Domaine | Thème |
+|------|---------|-------|
+| 🧙 [Kragzouy](https://kragzouy.blogspot.com/) | [blog.guignol.net](https://blog.guignol.net) | Univers créatif depuis 1982 |
+
+---
+
 ## 🧩 Mind
 
 CyberMind soutient des initiatives promouvant l'**esprit critique**, la **vulgarisation scientifique** et l'**intelligence créative** :
@@ -72,9 +113,10 @@ M00d est la **vibration commune** qui relie les lignes de code et les lignes de 
 ---
 
 <div class="projects-cta">
-    <a href="/apps/" class="btn btn-primary">🚀 Voir les Applications</a>
-    <a href="/portfolio/" class="btn btn-secondary">💼 Voir le Portfolio</a>
-    <a href="/services/" class="btn btn-secondary">🛡️ Nos Services</a>
+    <a href="/apps/" class="btn btn-primary">🚀 Applications</a>
+    <a href="/portfolio/" class="btn btn-secondary">💼 Portfolio</a>
+    <a href="/pages/domaines-archives/" class="btn btn-secondary">🌐 Tous les domaines</a>
+    <a href="/services/" class="btn btn-secondary">🛡️ Services</a>
 </div>
 
 <style>

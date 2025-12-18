@@ -1,0 +1,139 @@
+<%
+var categoryClass = '';
+var categoryColor = '#f97316';
+var categoryName = '';
+var categoryIcon = '📝';
+
+// Couleurs par défaut pour les catégories
+var defaultCategoryColors = {
+    'security': '#ef4444',
+    'linux': '#3b82f6',
+    'embedded': '#9945ff',
+    'dev': '#10b981',
+    'iot': '#8b5cf6',
+    'tutorials': '#f59e0b',
+    'tutoriels': '#f59e0b',
+    'tools': '#f97316',
+    'outils': '#f97316',
+    'projets': '#06b6d4',
+    'documentation': '#3b82f6',
+    'spiritualite': '#a855f7',
+    'esoterisme': '#ec4899',
+    'conjurations': '#9945ff',
+    'philosophy': '#a855f7',
+    'infrastructure': '#64748b',
+    'self-hosting': '#10b981'
+};
+
+var defaultCategoryIcons = {
+    'security': '🔐',
+    'linux': '🐧',
+    'embedded': '⚙️',
+    'dev': '💻',
+    'iot': '📡',
+    'tutorials': '📝',
+    'tutoriels': '📝',
+    'tools': '🔧',
+    'outils': '🔧',
+    'projets': '🚀',
+    'documentation': '📚',
+    'spiritualite': '🧘',
+    'esoterisme': '🔮',
+    'conjurations': '✨',
+    'philosophy': '☯️',
+    'infrastructure': '🏗️',
+    'self-hosting': '🏠'
+};
+
+if (page.categories && page.categories.length > 0) {
+    var cat = page.categories.data[0];
+    categoryClass = cat.slug;
+    categoryName = cat.name;
+    
+    // Chercher couleur/icône dans la config du thème
+    var catKey = cat.slug.toLowerCase();
+    
+    if (theme.categories && theme.categories[catKey]) {
+        categoryColor = theme.categories[catKey].color || categoryColor;
+        categoryIcon = theme.categories[catKey].icon || categoryIcon;
+        if (theme.categories[catKey].name) {
+            categoryName = theme.categories[catKey].name;
+        }
+    } else {
+        // Utiliser les défauts
+        categoryColor = defaultCategoryColors[catKey] || categoryColor;
+        categoryIcon = defaultCategoryIcons[catKey] || categoryIcon;
+    }
+}
+%>
+
+<article class="post-article">
+    <header class="post-header">
+        <% if (page.categories && page.categories.length > 0) { %>
+        <div class="post-category <%= categoryClass %>">
+            <%= categoryIcon %> <%= categoryName %>
+        </div>
+        <% } %>
+        
+        <h1 class="post-title"><%= page.title %></h1>
+        
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime="<%= page.date.toISOString() %>">
+                    <%= page.date.format('DD MMMM YYYY') %>
+                </time>
+            </span>
+            
+            <% if (page.updated && page.updated.toDate().getTime() !== page.date.toDate().getTime()) { %>
+            <span class="post-updated">
+                Mis à jour le <%= page.updated.format('DD MMMM YYYY') %>
+            </span>
+            <% } %>
+            
+            <% if (page.tags && page.tags.length > 0) { %>
+            <div class="post-tags">
+                <% page.tags.forEach(tag => { %>
+                <a href="<%= url_for(tag.path) %>" class="post-tag"><%= tag.name %></a>
+                <% }); %>
+            </div>
+            <% } %>
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <%- page.content %>
+    </div>
+    
+    <footer class="post-footer">
+        <% if (page.tags && page.tags.length > 0) { %>
+        <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            <% page.tags.forEach(tag => { %>
+            <a href="<%= url_for(tag.path) %>" class="tag-link"><%= tag.name %></a>
+            <% }); %>
+        </div>
+        <% } %>
+        
+        <div class="post-nav">
+            <% if (page.prev) { %>
+            <a href="<%= url_for(page.prev.path) %>" class="post-nav-link prev">
+                <span class="post-nav-label">← Article précédent</span>
+                <span class="post-nav-title"><%= page.prev.title %></span>
+            </a>
+            <% } %>
+            
+            <% if (page.next) { %>
+            <a href="<%= url_for(page.next.path) %>" class="post-nav-link next">
+                <span class="post-nav-label">Article suivant →</span>
+                <span class="post-nav-title"><%= page.next.title %></span>
+            </a>
+            <% } %>
+        </div>
+    </footer>
+</article>
+
+<% if (theme.comments && theme.comments.enable) { %>
+<section class="comments">
+    <%- partial('partials/comments') %>
+</section>
+<% } %>
