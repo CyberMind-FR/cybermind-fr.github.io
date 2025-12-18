@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" 
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg-icieb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#330011"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="accent-icieb" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6699"/>
+      <stop offset="100%" stop-color="#ff6699" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="shadow-icieb">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow-icieb">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="preview-clip-icieb">
+      <rect x="420" y="60" width="360" height="280" rx="8"/>
+    </clipPath>
+    <style>
+      @keyframes pulse { 0%,100% { opacity:0.8 } 50% { opacity:1 } }
+      @keyframes scan { 0% { transform:translateY(0) } 100% { transform:translateY(450px) } }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-icieb)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid-icieb" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0L0 0 0 40" fill="none" stroke="#ff6699" stroke-width="0.3" opacity="0.15"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid-icieb)"/>
+  
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="100%" height="4" fill="url(#accent-icieb)"/>
+  
+  <!-- Scan line animation -->
+  <rect x="0" y="0" width="100%" height="2" fill="#ff6699" opacity="0.08">
+    <animate attributeName="y" values="0;450;0" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Left side: Info -->
+  <g>
+    <!-- Icon -->
+    <circle cx="70" cy="140" r="45" fill="#330011" stroke="#ff6699" stroke-width="2" opacity="0.9" style="animation:pulse 3s infinite"/>
+    <text x="70" y="155" font-size="36" text-anchor="middle" fill="#ff6699">🌸</text>
+    
+    <!-- Title -->
+    <text x="30" y="240" font-family="'JetBrains Mono',monospace" font-size="32" font-weight="bold" 
+          fill="#ff6699" filter="url(#glow-icieb)">ICIEB</text>
+    
+    <!-- Subtitle -->
+    <text x="30" y="275" font-family="system-ui,sans-serif" font-size="14" fill="#999">Gravure Laser & Géométrie Sacrée</text>
+    
+    <!-- Archive URL -->
+    <text x="30" y="310" font-family="monospace" font-size="10" fill="#555">web.archive.org/web/2021/icieb.fr</text>
+  </g>
+  
+  <!-- Right side: Live Preview -->
+  <g filter="url(#shadow-icieb)">
+    <!-- Browser chrome -->
+    <rect x="418" y="36" width="364" height="308" rx="10" 
+          fill="#1a1a1a" stroke="#ff6699" stroke-width="1" opacity="0.9"/>
+    
+    <!-- Browser header -->
+    <circle cx="432" cy="48" r="4" fill="#ff5f56"/>
+    <circle cx="446" cy="48" r="4" fill="#ffbd2e"/>
+    <circle cx="460" cy="48" r="4" fill="#27ca3f"/>
+    
+    <!-- URL bar -->
+    <rect x="475" y="42" width="290" height="14" rx="3" fill="#2a2a2a"/>
+    <text x="482" y="52" font-family="monospace" font-size="7" fill="#666">
+      web.archive.org/web/2021/icieb.fr
+    </text>
+    
+    <!-- Preview content (foreignObject with HTML) -->
+    <g clip-path="url(#preview-clip-icieb)">
+      
+    <foreignObject x="420" y="60" width="360" height="280">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;overflow:hidden;border-radius:6px;">
+            <div style="background:#ffffff;width:100%;height:100%;font-family:Arial,sans-serif;overflow:hidden"><div style="background:#2a2a2a;padding:4px 8px;display:flex;justify-content:space-between;align-items:center"><span style="color:#ff6699;font-size:10px;font-weight:bold">ICIEB</span><span style="color:#888;font-size:5px">🛒 Panier</span></div><div style="background:#f5f5f5;padding:4px 8px;border-bottom:1px solid #ddd"><span style="color:#333;font-size:5px">Accueil</span><span style="color:#999;font-size:5px;margin:0 4px">›</span><span style="color:#ff6699;font-size:5px">Boutique</span></div><div style="padding:6px;display:flex;gap:4px"><div style="background:#f9f9f9;border:1px solid #eee;width:45%;padding:4px;text-align:center"><div style="background:#d4a574;height:35px;border-radius:2px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:14px">✿</span></div><div style="color:#333;font-size:5px;margin-top:3px">Fleur de Vie</div><div style="color:#ff6699;font-size:6px;font-weight:bold">29,90€</div></div><div style="background:#f9f9f9;border:1px solid #eee;width:45%;padding:4px;text-align:center"><div style="background:#8b7355;height:35px;border-radius:2px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:12px">◎</span></div><div style="color:#333;font-size:5px;margin-top:3px">Crop Circle</div><div style="color:#ff6699;font-size:6px;font-weight:bold">34,90€</div></div></div></div>
+        </div>
+    </foreignObject>
+    
+    </g>
+    
+    <!-- Corner decorations -->
+    <path d="M420,72 L420,60 L432,60" fill="none" stroke="#ff6699" stroke-width="2" opacity="0.5"/>
+    <path d="M768,60 L780,60 L780,72" fill="none" stroke="#ff6699" stroke-width="2" opacity="0.5"/>
+    <path d="M420,328 L420,340 L432,340" fill="none" stroke="#ff6699" stroke-width="2" opacity="0.5"/>
+    <path d="M768,340 L780,340 L780,328" fill="none" stroke="#ff6699" stroke-width="2" opacity="0.5"/>
+  </g>
+  
+  <!-- Year badge -->
+  <rect x="670" y="15" width="115" height="28" rx="4" fill="#ff6699" opacity="0.15"/>
+  <rect x="670" y="15" width="115" height="28" rx="4" fill="none" stroke="#ff6699" stroke-width="1" opacity="0.5"/>
+  <text x="728" y="35" font-family="monospace" font-size="12" text-anchor="middle" fill="#ff6699">2018-2021</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="412" width="100%" height="38" fill="#0a0a0a" opacity="0.95"/>
+  <line x1="0" y1="412" x2="100%" y2="412" stroke="#ff6699" stroke-width="1" opacity="0.3"/>
+  <text x="15" y="436" font-family="monospace" font-size="11" fill="#ff6699" opacity="0.8">cybermind.fr/portfolio/icieb</text>
+  
+  <!-- Live indicator -->
+  <circle cx="770" cy="431" r="5" fill="#ff6699" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="750" y="436" font-family="monospace" font-size="9" text-anchor="end" fill="#666">PREVIEW</text>
+  
+  <!-- Corner accent -->
+  <path d="M800,0 L800,50 L750,0 Z" fill="#ff6699" opacity="0.06"/>
+</svg>

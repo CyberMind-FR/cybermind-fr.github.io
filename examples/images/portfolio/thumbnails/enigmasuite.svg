@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" 
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg-enigmasuite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003333"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="accent-enigmasuite" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffcc"/>
+      <stop offset="100%" stop-color="#00ffcc" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="shadow-enigmasuite">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow-enigmasuite">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="preview-clip-enigmasuite">
+      <rect x="420" y="60" width="360" height="280" rx="8"/>
+    </clipPath>
+    <style>
+      @keyframes pulse { 0%,100% { opacity:0.8 } 50% { opacity:1 } }
+      @keyframes scan { 0% { transform:translateY(0) } 100% { transform:translateY(450px) } }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-enigmasuite)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid-enigmasuite" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0L0 0 0 40" fill="none" stroke="#00ffcc" stroke-width="0.3" opacity="0.15"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid-enigmasuite)"/>
+  
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="100%" height="4" fill="url(#accent-enigmasuite)"/>
+  
+  <!-- Scan line animation -->
+  <rect x="0" y="0" width="100%" height="2" fill="#00ffcc" opacity="0.08">
+    <animate attributeName="y" values="0;450;0" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Left side: Info -->
+  <g>
+    <!-- Icon -->
+    <circle cx="70" cy="140" r="45" fill="#003333" stroke="#00ffcc" stroke-width="2" opacity="0.9" style="animation:pulse 3s infinite"/>
+    <text x="70" y="155" font-size="36" text-anchor="middle" fill="#00ffcc">🔐</text>
+    
+    <!-- Title -->
+    <text x="30" y="240" font-family="'JetBrains Mono',monospace" font-size="32" font-weight="bold" 
+          fill="#00ffcc" filter="url(#glow-enigmasuite)">EnigmaSuite</text>
+    
+    <!-- Subtitle -->
+    <text x="30" y="275" font-family="system-ui,sans-serif" font-size="14" fill="#999">Outils Sécurité Réseau</text>
+    
+    <!-- Archive URL -->
+    <text x="30" y="310" font-family="monospace" font-size="10" fill="#555">None</text>
+  </g>
+  
+  <!-- Right side: Live Preview -->
+  <g filter="url(#shadow-enigmasuite)">
+    <!-- Browser chrome -->
+    <rect x="418" y="36" width="364" height="308" rx="10" 
+          fill="#1a1a1a" stroke="#00ffcc" stroke-width="1" opacity="0.9"/>
+    
+    <!-- Browser header -->
+    <circle cx="432" cy="48" r="4" fill="#ff5f56"/>
+    <circle cx="446" cy="48" r="4" fill="#ffbd2e"/>
+    <circle cx="460" cy="48" r="4" fill="#27ca3f"/>
+    
+    <!-- URL bar -->
+    <rect x="475" y="42" width="290" height="14" rx="3" fill="#2a2a2a"/>
+    <text x="482" y="52" font-family="monospace" font-size="7" fill="#666">
+      enigmasuite.local
+    </text>
+    
+    <!-- Preview content (foreignObject with HTML) -->
+    <g clip-path="url(#preview-clip-enigmasuite)">
+      
+    <foreignObject x="420" y="60" width="360" height="280">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;overflow:hidden;border-radius:6px;">
+            <div style="background:#0a1a1a;width:100%;height:100%;font-family:'Segoe UI',sans-serif;overflow:hidden"><div style="background:linear-gradient(90deg,#00ffcc22,transparent);padding:4px 8px;border-bottom:1px solid #00ffcc33"><span style="color:#00ffcc;font-size:9px;font-weight:bold">🛡️ EnigmaSuite</span></div><div style="padding:6px"><div style="display:flex;gap:4px;margin-bottom:6px"><div style="background:#00ffcc11;border:1px solid #00ffcc33;flex:1;padding:4px;text-align:center;border-radius:3px"><div style="color:#00ffcc;font-size:10px">247</div><div style="color:#666;font-size:4px">Blocked</div></div><div style="background:#00ffcc11;border:1px solid #00ffcc33;flex:1;padding:4px;text-align:center;border-radius:3px"><div style="color:#0f0;font-size:10px">●</div><div style="color:#666;font-size:4px">Protected</div></div></div><div style="background:#0f1f1f;padding:4px;border-radius:3px;border:1px solid #00ffcc22"><div style="color:#00ffcc;font-size:5px;opacity:0.7">Recent Activity</div><div style="color:#888;font-size:4px;margin-top:2px">✓ CrowdSec sync OK</div><div style="color:#888;font-size:4px">✓ Firewall rules: 42</div><div style="color:#888;font-size:4px">✓ Last scan: 2m ago</div></div></div></div>
+        </div>
+    </foreignObject>
+    
+    </g>
+    
+    <!-- Corner decorations -->
+    <path d="M420,72 L420,60 L432,60" fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.5"/>
+    <path d="M768,60 L780,60 L780,72" fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.5"/>
+    <path d="M420,328 L420,340 L432,340" fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.5"/>
+    <path d="M768,340 L780,340 L780,328" fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.5"/>
+  </g>
+  
+  <!-- Year badge -->
+  <rect x="670" y="15" width="115" height="28" rx="4" fill="#00ffcc" opacity="0.15"/>
+  <rect x="670" y="15" width="115" height="28" rx="4" fill="none" stroke="#00ffcc" stroke-width="1" opacity="0.5"/>
+  <text x="728" y="35" font-family="monospace" font-size="12" text-anchor="middle" fill="#00ffcc">2023</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="412" width="100%" height="38" fill="#0a0a0a" opacity="0.95"/>
+  <line x1="0" y1="412" x2="100%" y2="412" stroke="#00ffcc" stroke-width="1" opacity="0.3"/>
+  <text x="15" y="436" font-family="monospace" font-size="11" fill="#00ffcc" opacity="0.8">cybermind.fr/portfolio/enigmasuite</text>
+  
+  <!-- Live indicator -->
+  <circle cx="770" cy="431" r="5" fill="#00ffcc" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="750" y="436" font-family="monospace" font-size="9" text-anchor="end" fill="#666">PREVIEW</text>
+  
+  <!-- Corner accent -->
+  <path d="M800,0 L800,50 L750,0 Z" fill="#00ffcc" opacity="0.06"/>
+</svg>
