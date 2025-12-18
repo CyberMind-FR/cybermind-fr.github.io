@@ -40,6 +40,19 @@ CyberMind développe actuellement un **matériel réseau de sécurisation**, en 
 
 ---
 
+## ∞ CyberMind Studio - Apps Génératives
+
+Applications de visualisation et création générative développées par **CyberMind Studio** :
+
+| Application | Type | Description |
+|-------------|------|-------------|
+| ∞ [Tresse × Lemniscate](/apps/tresse-lemniscate/) | PWA | Générateur de motifs géométriques A000940 avec export PNG/SVG |
+| 🎵 [Formes Sonores](/apps/formes-sonores/) | Web | Sonification de formes géométriques |
+| ☯️ [Yi Jing 64](/apps/yi-jing-64-hexagrammes/) | Web | Visualisation des 64 hexagrammes |
+| 🔧 [PiDebugger](/apps/pidebugger/) | Hardware | Outil de débogage ARM portable |
+
+---
+
 ## 🎭 Maegia.tv - Applications Créatives
 
 Le réseau **Maegia.tv** héberge les applications interactives et services créatifs :

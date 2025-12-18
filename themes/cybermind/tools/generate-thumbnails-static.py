@@ -11,6 +11,24 @@ OUTPUT_DIR = "examples/images/portfolio/thumbnails"
 
 PROJECTS = [
     {
+        "id": "tresse-lemniscate",
+        "title": "Tresse × Lemniscate",
+        "subtitle": "Fusion A000940 • Géométrie Générative",
+        "color": "#00F6FF",
+        "bg": "#0A0E14",
+        "url": "cybermind.fr/apps/tresse-lemniscate",
+        "content": [
+            ("app_header", "∞ Tresse × Lemniscate — Fusion A000940"),
+            ("quote", "L'intelligence n'est pas un sommet, mais une trame."),
+            ("divider", ""),
+            ("lemniscate", "∞"),
+            ("controls", [("n", "12"), ("Depth", "0.35"), ("Speed", "0.5")]),
+            ("palette_preview", ["#B87333", "#C0C0C0", "#FFD700"]),
+            ("buttons", ["Start", "Reset", "Export PNG"]),
+            ("version", "v1.0 · PWA · © CyberMind Studio"),
+        ]
+    },
+    {
         "id": "gk2-net",
         "title": "GK2.NET",
         "subtitle": "Premier ISP Personnel • 1996",
@@ -271,6 +289,42 @@ def render_content_to_svg(content, color, x_start, y_start, width):
             elements.append(f'<text x="{x_start + 10}" y="{y}" font-family="sans-serif" font-size="8" fill="#66ccff" text-decoration="underline">{data}</text>')
             y += 14
             
+        elif item_type == "app_header":
+            elements.append(f'<rect x="{x_start}" y="{y - 12}" width="{width}" height="20" fill="{color}" opacity="0.1"/>')
+            elements.append(f'<text x="{x_start + width//2}" y="{y + 2}" font-family="Orbitron,monospace" font-size="9" text-anchor="middle" fill="{color}" font-weight="bold">{data}</text>')
+            y += 24
+            
+        elif item_type == "lemniscate":
+            elements.append(f'<text x="{x_start + width//2}" y="{y + 30}" font-size="60" text-anchor="middle" fill="{color}" opacity="0.4">{data}</text>')
+            y += 70
+            
+        elif item_type == "controls":
+            ctrl_x = x_start + 10
+            for label, value in data:
+                elements.append(f'<rect x="{ctrl_x}" y="{y - 8}" width="55" height="22" rx="4" fill="#0D1420" stroke="#2A3240" stroke-width="0.5"/>')
+                elements.append(f'<text x="{ctrl_x + 5}" y="{y}" font-family="monospace" font-size="6" fill="#9AA4AE">{label}</text>')
+                elements.append(f'<text x="{ctrl_x + 5}" y="{y + 10}" font-family="monospace" font-size="8" fill="{color}">{value}</text>')
+                ctrl_x += 60
+            y += 28
+            
+        elif item_type == "palette_preview":
+            pal_x = x_start + 10
+            for i, col in enumerate(data):
+                elements.append(f'<rect x="{pal_x}" y="{y - 5}" width="40" height="12" rx="2" fill="{col}"/>')
+                pal_x += 45
+            y += 18
+            
+        elif item_type == "buttons":
+            btn_x = x_start + 10
+            for btn in data:
+                btn_w = len(btn) * 6 + 12
+                is_primary = btn == "Start" or btn == "Export PNG"
+                stroke = color if is_primary else "#2A3240"
+                elements.append(f'<rect x="{btn_x}" y="{y - 8}" width="{btn_w}" height="18" rx="6" fill="#0D1420" stroke="{stroke}" stroke-width="1"/>')
+                elements.append(f'<text x="{btn_x + btn_w//2}" y="{y + 2}" font-family="sans-serif" font-size="7" text-anchor="middle" fill="{"#fff" if is_primary else "#9AA4AE"}">{btn}</text>')
+                btn_x += btn_w + 8
+            y += 24
+            
         elif item_type in ["shop_header", "admin_header", "security_header", "blog_header", "classic_header", "free_header"]:
             elements.append(f'<rect x="{x_start}" y="{y - 12}" width="{width}" height="18" fill="{color}" opacity="0.15"/>')
             elements.append(f'<text x="{x_start + 10}" y="{y}" font-family="sans-serif" font-size="10" fill="{color}" font-weight="bold">{data}</text>')
@@ -342,7 +396,7 @@ def generate_static_thumbnail(project):
   
   <!-- Left side info -->
   <circle cx="60" cy="120" r="40" fill="{p['bg']}" stroke="{p['color']}" stroke-width="2"/>
-  <text x="60" y="130" font-size="28" text-anchor="middle" fill="{p['color']}">{"🌐" if "gk2" in p['id'] else "🔮" if "ganimed" in p['id'] else "🌸" if "icieb" in p['id'] else "🧙" if "krag" in p['id'] else "☯️" if "wengu" in p['id'] else "👤" if "michel" in p['id'] else "🖥️" if "armbian" in p['id'] else "🔐"}</text>
+  <text x="60" y="130" font-size="28" text-anchor="middle" fill="{p['color']}">{"∞" if "tresse" in p['id'] else "🌐" if "gk2" in p['id'] else "🔮" if "ganimed" in p['id'] else "🌸" if "icieb" in p['id'] else "🧙" if "krag" in p['id'] else "☯️" if "wengu" in p['id'] else "👤" if "michel" in p['id'] else "🖥️" if "armbian" in p['id'] else "🔐"}</text>
   
   <text x="25" y="200" font-family="'JetBrains Mono',monospace" font-size="28" font-weight="bold" fill="{p['color']}">{p['title']}</text>
   <text x="25" y="230" font-family="system-ui,sans-serif" font-size="12" fill="#888">{p['subtitle']}</text>

@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tresse × Lemniscate — Fusion A000940 (Ultimate)</title>
+
+  <!-- PWA hooks -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0A0E14">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(()=>{});
+      });
+    }
+  </script>
+
+  <!-- Fonts (Orbitron if online; graceful fallback offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0A0E14;
+      --fg: #E6EDF3;
+      --muted: #9AA4AE;
+      --accent: #00F6FF; /* cyan neon */
+      --panel: #0F1521;
+      --ring: #2A3240;
+      --ok: #56d364;
+      --warn: #e3b341;
+      --danger: #f85149;
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    }
+    .orbitron { font-family: 'Orbitron', system-ui, sans-serif }
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--ring);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(0,246,255,0.06), rgba(0,0,0,0));
+    }
+    h1 { margin: 0; font-size: 18px }
+    .badge { padding: 4px 8px; border: 1px solid var(--ring); border-radius: 999px; color: var(--muted) }
+    main {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 16px;
+      padding: 16px;
+      height: calc(100% - 64px);
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; height: auto }
+      .pane { height: auto }
+    }
+    .pane {
+      background: var(--panel);
+      border: 1px solid var(--ring);
+      border-radius: 16px;
+      padding: 12px;
+      height: calc(100vh - 64px - 32px);
+      display: flex; flex-direction: column;
+      gap: 12px;
+    }
+    .controls { overflow: auto; padding-right: 4px }
+    .row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; margin-bottom: 10px }
+    .label { color: var(--muted) }
+    .slider { width: 100% }
+    .btns { display: flex; flex-wrap: wrap; gap: 8px }
+    button, select, input[type="number"], input[type="text"] {
+      background: #0D1420; color: var(--fg);
+      border: 1px solid var(--ring); border-radius: 12px; padding: 8px 10px;
+      outline: none;
+    }
+    button:hover { border-color: var(--accent) }
+    .btn-primary { border-color: var(--accent) }
+    .kv { display: grid; grid-template-columns: 1fr auto; gap: 8px }
+    canvas { width: 100%; height: 100%; display: block; background: transparent }
+    .foot { margin-top: auto; display:flex; justify-content: space-between; align-items:center; gap:8px; color:var(--muted) }
+    .dot { display:inline-block; width:8px; height:8px; border-radius:999px; background: var(--danger) }
+    .dot.play { background: var(--ok) }
+    .hint { color: var(--muted); font-size: 12px }
+    .tiny { font-size: 12px; color: var(--muted) }
+    .switch { display:flex; gap:8px; align-items:center }
+    .switch input { transform: scale(1.1) }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 8px }
+    .grid3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px }
+    .title { font-weight:600 }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 class="orbitron">Tresse × Lemniscate — Fusion A000940</h1>
+      <div class="tiny">« L’intelligence n’est pas un sommet, mais une trame. »</div>
+    </div>
+    <div class="badge tiny">v1 · PWA</div>
+  </header>
+
+  <main>
+    <aside class="pane">
+      <div class="controls">
+        <div class="row">
+          <div class="label">Preset</div>
+          <select id="preset">
+            <option value="conservatif">Conservatif</option>
+            <option value="neon_cm">Neon CM</option>
+            <option value="orbitron">Orbitron</option>
+            <option value="mono">Monochrome</option>
+          </select>
+        </div>
+
+        <div class="row"><div class="label">n (A000940-ish)</div><input id="n" class="slider" type="range" min="3" max="64" step="1" value="12"></div>
+        <div class="row"><div class="label">Profondeur</div><input id="depth" class="slider" type="range" min="0" max="1" step="0.001" value="0.35"></div>
+        <div class="row"><div class="label">Rotation</div><input id="rot" class="slider" type="range" min="0" max="360" step="0.1" value="0"></div>
+        <div class="row"><div class="label">Vitesse</div><input id="speed" class="slider" type="range" min="-2" max="2" step="0.01" value="0.5"></div>
+        <div class="row"><div class="label">Épaisseur</div><input id="thick" class="slider" type="range" min="0.2" max="6" step="0.1" value="2.0"></div>
+
+        <div class="grid2">
+          <div class="switch"><input id="animate" type="checkbox" checked><label for="animate">Animer</label></div>
+          <div class="switch"><input id="glow" type="checkbox" checked><label for="glow">Lueur</label></div>
+        </div>
+        <div class="grid2">
+          <div class="switch"><input id="axes" type="checkbox"><label for="axes">Axes</label></div>
+          <div class="switch"><input id="transparent" type="checkbox"><label for="transparent">Fond transparent</label></div>
+        </div>
+
+        <div class="row"><div class="label">Palette</div>
+          <select id="palette">
+            <option value="copper-silver-gold">Cuivre/Argent/Or</option>
+            <option value="violet-cyan">Violet/Cyan</option>
+            <option value="mono">Mono</option>
+            <option value="sunset">Sunset</option>
+          </select>
+        </div>
+
+        <div class="btns">
+          <button id="btnStartStop" class="btn-primary">Stop</button>
+          <button id="btnReset">Reset</button>
+          <button id="btnCopyURL">Copier URL</button>
+        </div>
+
+        <hr style="border:0;border-top:1px solid var(--ring)">
+
+        <div class="grid3">
+          <div class="kv">
+            <select id="exportSize">
+              <option value="2048">PNG 2K</option>
+              <option value="4096">PNG 4K</option>
+              <option value="8192">PNG 8K</option>
+            </select>
+            <button id="btnExportPNG">Export PNG</button>
+          </div>
+          <div class="kv">
+            <input id="exportName" type="text" placeholder="nom_fichier" value="tresse_lemni">
+            <div class="tiny" style="align-self:center">.png</div>
+          </div>
+          <div class="kv">
+            <button id="btnExportSVG">Export SVG</button>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="hint">
+          Raccourcis : <kbd>r</kbd> reset · <kbd>s</kbd> start/stop.
+        </div>
+      </div>
+
+      <div class="foot">
+        <div><span id="led" class="dot play"></span> <span class="tiny">statut</span></div>
+        <div class="tiny">© CyberMind Studio</div>
+      </div>
+    </aside>
+
+    <section class="pane" style="padding:0">
+      <canvas id="cv"></canvas>
+    </section>
+  </main>
+
+  <script>
+    // ---------- State / Persistence ----------
+    const $ = (id) => document.getElementById(id);
+    const state = {
+      n: 12,
+      depth: 0.35,
+      rot: 0,
+      speed: 0.5,
+      thick: 2.0,
+      animate: true,
+      glow: true,
+      axes: false,
+      transparent: false,
+      palette: 'copper-silver-gold',
+      preset: 'conservatif',
+      t: 0
+    };
+
+    const PRESETS = {
+      conservatif: { n: 12, depth: 0.35, speed: 0.5, thick: 2.0, rot: 0, palette: 'copper-silver-gold', glow: true, axes:false, transparent:false },
+      neon_cm:     { n: 21, depth: 0.52, speed: 0.9, thick: 1.8, rot: 10, palette: 'violet-cyan', glow: true, axes:false, transparent:true },
+      orbitron:    { n: 34, depth: 0.28, speed: 0.3, thick: 2.6, rot: 45, palette: 'sunset', glow: true, axes:false, transparent:false },
+      mono:        { n: 16, depth: 0.40, speed: 0.2, thick: 3.2, rot: 0, palette: 'mono', glow: false, axes:false, transparent:false },
+    };
+
+    const LS_KEY = 'tresse-lemni-v1';
+
+    function saveLS() {
+      try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch {}
+    }
+    function loadLS() {
+      try {
+        const obj = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+        if (obj) Object.assign(state, obj);
+      } catch {}
+    }
+
+    function applyStateToUI() {
+      $('n').value = state.n;
+      $('depth').value = state.depth;
+      $('rot').value = state.rot;
+      $('speed').value = state.speed;
+      $('thick').value = state.thick;
+      $('animate').checked = state.animate;
+      $('glow').checked = state.glow;
+      $('axes').checked = state.axes;
+      $('transparent').checked = state.transparent;
+      $('palette').value = state.palette;
+      $('preset').value = state.preset;
+      $('btnStartStop').textContent = state.animate ? 'Stop' : 'Start';
+      $('led').classList.toggle('play', state.animate);
+    }
+
+    // ---------- URL params ----------
+    function loadFromURL() {
+      const u = new URL(location.href);
+      const assignNum = (k, fn=parseFloat) => u.searchParams.has(k) && (state[k] = fn(u.searchParams.get(k)));
+      const assignBool = (k) => u.searchParams.has(k) && (state[k] = u.searchParams.get(k) === '1');
+      const assignStr = (k) => u.searchParams.has(k) && (state[k] = u.searchParams.get(k));
+
+      assignNum('n', v=>Math.max(3, Math.min(256, parseInt(v))));
+      assignNum('depth');
+      assignNum('rot');
+      assignNum('speed');
+      assignNum('thick');
+      assignBool('animate');
+      assignBool('glow');
+      assignBool('axes');
+      assignBool('transparent');
+      assignStr('palette');
+      assignStr('preset');
+    }
+    function writeToURL() {
+      const u = new URL(location.href);
+      const set = (k, v) => u.searchParams.set(k, String(v));
+      set('n', state.n);
+      set('depth', state.depth);
+      set('rot', state.rot);
+      set('speed', state.speed);
+      set('thick', state.thick);
+      set('animate', state.animate ? 1 : 0);
+      set('glow', state.glow ? 1 : 0);
+      set('axes', state.axes ? 1 : 0);
+      set('transparent', state.transparent ? 1 : 0);
+      set('palette', state.palette);
+      set('preset', state.preset);
+      history.replaceState(null, '', u.toString());
+    }
+
+    // ---------- Colors ----------
+    function paletteColors(name, t) {
+      switch(name) {
+        case 'violet-cyan':
+          return [
+            `hsl(${(280 + 40*Math.sin(t*0.7))%360} 90% 65%)`,
+            `hsl(${(190 + 40*Math.cos(t*0.8))%360} 90% 60%)`,
+            `hsl(${(320 + 20*Math.sin(t*1.1))%360} 90% 70%)`
+          ];
+        case 'mono':
+          return ['#FFFFFF','#D0D0D0','#A0A0A0'];
+        case 'sunset':
+          return [
+            `hsl(${(20 + 10*Math.sin(t*0.9))%360} 90% 60%)`,
+            `hsl(${(45 + 10*Math.cos(t*0.6))%360} 90% 60%)`,
+            `hsl(${(10 + 10*Math.sin(t*1.2))%360} 90% 50%)`
+          ];
+        default: // copper-silver-gold
+          return ['#B87333','#C0C8D0','#FFD166'];
+      }
+    }
+
+    // ---------- Geometry (lemniscate-ish ribbon + star/hamiltonian sweep) ----------
+    function computePoints(N, depth, rotRad, t) {
+      // Hybrid: lemniscate of Bernoulli in polar-like param + star stride inspired by A000940 patterning
+      const pts = [];
+      const stride = 2 * Math.floor(N/5) + 1; // odd stride yields star-like traversal
+      const R = 0.9;
+      for (let i=0;i<N;i++) {
+        const k = (i * stride + Math.floor(t*10)) % N;
+        const a = (k / N) * Math.PI * 2;
+        // Lemniscate-ish radius
+        const r = R * (Math.sqrt(Math.abs(Math.cos(2*a))) ** (0.5 + depth*1.5));
+        // Möbius-like twist using depth and time
+        const twist = depth * 0.8 * Math.sin(a*2 + t*0.8);
+        const ar = a + twist + rotRad;
+        const x = r * Math.cos(ar);
+        const y = r * Math.sin(ar) * (0.8 + 0.2*Math.cos(t)); // slight stereo squeeze
+        pts.push([x, y]);
+      }
+      return pts;
+    }
+
+    // ---------- Drawing ----------
+    const cv = $('cv');
+    const ctx = cv.getContext('2d');
+
+    function resize() {
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      const w = cv.clientWidth * dpr;
+      const h = cv.clientHeight * dpr;
+      if (cv.width !== w || cv.height !== h) {
+        cv.width = w; cv.height = h;
+      }
+    }
+    window.addEventListener('resize', resize);
+
+    function drawBG(ctx, w, h) {
+      if (state.transparent) {
+        ctx.clearRect(0,0,w,h);
+      } else {
+        // subtle slate gradient
+        const g = ctx.createLinearGradient(0,0,0,h);
+        g.addColorStop(0,'#0A0E14');
+        g.addColorStop(1,'#0B0F19');
+        ctx.fillStyle = g;
+        ctx.fillRect(0,0,w,h);
+      }
+      // cosmic tiny stars
+      ctx.save();
+      ctx.globalAlpha = 0.15;
+      for (let i=0;i<80;i++) {
+        const x = Math.random()*w;
+        const y = Math.random()*h;
+        const r = Math.random()*1.1;
+        ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle = '#1c2230'; ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    function drawAxes(ctx, w, h) {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(120,140,160,0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, h/2); ctx.lineTo(w, h/2);
+      ctx.moveTo(w/2, 0); ctx.lineTo(w/2, h);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function strokeRibbon(ctx, pts, colors, thick) {
+      const w = cv.width, h = cv.height;
+      const cx = w/2, cy = h/2;
+      const S = Math.min(w, h) * 0.42;
+
+      // draw 3 layered strokes (tri-band ribbon)
+      for (let b=0;b<3;b++) {
+        ctx.save();
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = (thick * (3-b)) * (w/2048);
+        ctx.strokeStyle = colors[b];
+        if (state.glow) {
+          ctx.shadowColor = colors[b];
+          ctx.shadowBlur = 12 * (w/2048);
+        }
+        ctx.beginPath();
+        for (let i=0;i<pts.length;i++) {
+          const [x,y] = pts[i];
+          const px = cx + x * S * (1 + 0.02*b);
+          const py = cy + y * S * (1 + 0.02*b);
+          if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+        }
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    let rafId = 0;
+    let last = performance.now();
+    function loop(now) {
+      const dt = (now - last) / 1000;
+      last = now;
+
+      if (state.animate) {
+        state.t += dt * state.speed;
+      }
+      resize();
+      const w = cv.width, h = cv.height;
+      drawBG(ctx, w, h);
+      if (state.axes) drawAxes(ctx, w, h);
+
+      const rotRad = state.rot * Math.PI/180;
+      const pts = computePoints(state.n, state.depth, rotRad, state.t);
+      const colors = paletteColors(state.palette, state.t);
+      strokeRibbon(ctx, pts, colors, state.thick);
+
+      writeToURL();
+      saveLS();
+      rafId = requestAnimationFrame(loop);
+    }
+
+    // ---------- UI wiring ----------
+    function fromUI() {
+      state.n = parseInt($('n').value);
+      state.depth = parseFloat($('depth').value);
+      state.rot = parseFloat($('rot').value);
+      state.speed = parseFloat($('speed').value);
+      state.thick = parseFloat($('thick').value);
+      state.animate = $('animate').checked;
+      state.glow = $('glow').checked;
+      state.axes = $('axes').checked;
+      state.transparent = $('transparent').checked;
+      state.palette = $('palette').value;
+    }
+
+    ['n','depth','rot','speed','thick','animate','glow','axes','transparent','palette'].forEach(id => {
+      $(id).addEventListener(id==='animate'||id==='glow'||id==='axes'||id==='transparent' ? 'change' : 'input', () => {
+        fromUI();
+        $('btnStartStop').textContent = state.animate ? 'Stop' : 'Start';
+        $('led').classList.toggle('play', state.animate);
+      });
+    });
+
+    $('preset').addEventListener('change', () => {
+      const p = $('preset').value;
+      state.preset = p;
+      Object.assign(state, PRESETS[p]);
+      applyStateToUI();
+    });
+
+    $('btnStartStop').addEventListener('click', () => {
+      state.animate = !state.animate;
+      $('btnStartStop').textContent = state.animate ? 'Stop' : 'Start';
+      $('led').classList.toggle('play', state.animate);
+    });
+    $('btnReset').addEventListener('click', () => {
+      Object.assign(state, PRESETS['conservatif'], { preset: 'conservatif', t: 0, animate: true });
+      applyStateToUI();
+    });
+    $('btnCopyURL').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); } catch {}
+    });
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'r') $('btnReset').click();
+      if (e.key === 's') $('btnStartStop').click();
+    });
+
+    // ---------- Export ----------
+    function downloadBlob(blob, filename) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        URL.revokeObjectURL(a.href);
+        a.remove();
+      }, 250);
+    }
+
+    $('btnExportPNG').addEventListener('click', () => {
+      const size = parseInt($('exportSize').value, 10);
+      const name = ($('exportName').value || 'tresse_lemni') + '_' + size + '.png';
+
+      const c = document.createElement('canvas');
+      c.width = size; c.height = size;
+      const cx = c.getContext('2d');
+
+      // draw with same code but onto offscreen canvas
+      const save = Object.assign({}, state);
+      // background
+      if (!state.transparent) {
+        const g = cx.createLinearGradient(0,0,0,size);
+        g.addColorStop(0,'#0A0E14'); g.addColorStop(1,'#0B0F19');
+        cx.fillStyle = g; cx.fillRect(0,0,size,size);
+      } else {
+        cx.clearRect(0,0,size,size);
+      }
+      // axes off for export
+      const rotRad = state.rot * Math.PI/180;
+      const pts = computePoints(state.n, state.depth, rotRad, state.t);
+      const colors = paletteColors(state.palette, state.t);
+
+      // scale param mimic
+      const w = size, h = size;
+      const S = Math.min(w, h) * 0.42;
+      for (let b=0;b<3;b++) {
+        cx.save();
+        cx.lineJoin='round'; cx.lineCap='round';
+        cx.lineWidth = (state.thick * (3-b)) * (w/2048);
+        cx.strokeStyle = colors[b];
+        if (state.glow) { cx.shadowColor = colors[b]; cx.shadowBlur = 12 * (w/2048); }
+        cx.beginPath();
+        for (let i=0;i<pts.length;i++) {
+          const [x,y] = pts[i];
+          const px = w/2 + x * S * (1 + 0.02*b);
+          const py = h/2 + y * S * (1 + 0.02*b);
+          if (i===0) cx.moveTo(px,py); else cx.lineTo(px,py);
+        }
+        cx.closePath(); cx.stroke();
+        cx.restore();
+      }
+
+      c.toBlob((blob)=> downloadBlob(blob, name), 'image/png');
+    });
+
+    $('btnExportSVG').addEventListener('click', () => {
+      const size = 2048;
+      const name = ($('exportName').value || 'tresse_lemni') + '.svg';
+      const rotRad = state.rot * Math.PI/180;
+      const pts = computePoints(state.n, state.depth, rotRad, state.t);
+      const colors = paletteColors(state.palette, state.t);
+      const S = size * 0.42;
+      function pathFor(band) {
+        const k = 1 + 0.02*band;
+        let d = 'M ';
+        for (let i=0;i<pts.length;i++) {
+          const [x,y] = pts[i];
+          const px = size/2 + x * S * k;
+          const py = size/2 + y * S * k;
+          d += (i===0 ? '' : ' L ') + px.toFixed(2) + ' ' + py.toFixed(2);
+        }
+        return d + ' Z';
+      }
+      const bg = state.transparent ? 'none' : 'url(#g)';
+      const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0E14"/>
+      <stop offset="100%" stop-color="#0B0F19"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="${bg}"/>
+  ${[0,1,2].map(b => `<path d="${pathFor(b)}" fill="none" stroke="${colors[b]}" stroke-width="${(state.thick*(3-b))*(2048/2048)}" stroke-linejoin="round" stroke-linecap="round" ${state.glow?'filter="url(#glow)"':''} />`).join('\n  ')}
+</svg>`;
+      const blob = new Blob([svg], {type:'image/svg+xml'});
+      downloadBlob(blob, name);
+    });
+
+    // ---------- Boot ----------
+    loadLS();
+    loadFromURL();
+    applyStateToUI();
+    resize();
+    last = performance.now();
+    rafId = requestAnimationFrame(loop);
+  </script>
+</body>
+</html>

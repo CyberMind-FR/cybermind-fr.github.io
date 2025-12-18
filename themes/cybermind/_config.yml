@@ -94,10 +94,10 @@ tech_grid:
 # ─────────────────────────────────────────────────────────────────────────────
 sections:
   hero: true
-  services: true
-  apps: true
-  portfolio: true
-  articles: true
+  services: false
+  apps: false
+  portfolio: false
+  articles: false
   categories: true
   youtube: true
   about: true
@@ -109,10 +109,10 @@ sections:
 limits:
   posts: 6
   services: 3
-  apps: 2
-  portfolio: 4
+  apps: 3
+  portfolio: 3
   categories: 6
-  tags: 15
+  tags: 12
 
 # ─────────────────────────────────────────────────────────────────────────────
 # APPLICATIONS
