@@ -25,7 +25,7 @@ project:
   duration: "En cours"
   year: 2024
 live_url: "/demos/enigmasuite.html"
-github_url: "https://github.com/CyberMind-FR/enigmasuite"
+github_url: "https://github.com/CyberMind-FR/enigmabox-openwrt-public"
 ---
 
 ## 🎯 Vision
