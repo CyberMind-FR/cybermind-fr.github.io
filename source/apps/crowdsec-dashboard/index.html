@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdSec Dashboard Demo - CyberMind.fr</title>
+    <meta name="description" content="Démo interactive du dashboard CrowdSec pour LuCI/OpenWrt">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cs-bg-primary: #0a0e14;
+            --cs-bg-secondary: #151b23;
+            --cs-bg-tertiary: #1e2632;
+            --cs-bg-card: linear-gradient(145deg, #151b23 0%, #1a2231 100%);
+            --cs-border: #2a3444;
+            --cs-border-glow: rgba(0, 212, 170, 0.3);
+            --cs-text-primary: #e6edf3;
+            --cs-text-secondary: #8b949e;
+            --cs-text-muted: #6e7681;
+            --cs-accent-green: #00d4aa;
+            --cs-accent-green-glow: rgba(0, 212, 170, 0.4);
+            --cs-accent-red: #ff6b6b;
+            --cs-accent-red-glow: rgba(255, 107, 107, 0.4);
+            --cs-accent-orange: #ffa94d;
+            --cs-accent-blue: #4dabf7;
+            --cs-accent-purple: #b197fc;
+            --cs-font-mono: 'JetBrains Mono', monospace;
+            --cs-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --cs-radius: 8px;
+            --cs-radius-lg: 12px;
+            --cs-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --cs-shadow-glow: 0 0 20px var(--cs-accent-green-glow);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--cs-font-sans);
+            background: var(--cs-bg-primary);
+            color: var(--cs-text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--cs-accent-purple), var(--cs-accent-blue));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--cs-bg-secondary);
+            border-bottom: 1px solid var(--cs-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 32px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 0;
+            text-decoration: none;
+            color: var(--cs-text-primary);
+        }
+
+        .nav-brand-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cs-accent-green), var(--cs-accent-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-brand-text {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nav-brand-text span {
+            color: var(--cs-accent-green);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-tab {
+            padding: 16px 20px;
+            color: var(--cs-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-tab:hover {
+            color: var(--cs-text-primary);
+        }
+
+        .nav-tab.active {
+            color: var(--cs-accent-green);
+            border-bottom-color: var(--cs-accent-green);
+        }
+
+        .nav-status {
+            margin-left: auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--cs-bg-tertiary);
+            border: 1px solid var(--cs-border);
+            border-radius: 50px;
+            font-size: 12px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cs-accent-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--cs-bg-card);
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius-lg);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--cs-border-glow);
+            transform: translateY(-2px);
+            box-shadow: var(--cs-shadow);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cs-accent-green), transparent);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cs-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-family: var(--cs-font-mono);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-value.danger { color: var(--cs-accent-red); }
+        .stat-value.warning { color: var(--cs-accent-orange); }
+        .stat-value.success { color: var(--cs-accent-green); }
+
+        .stat-trend {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--cs-text-secondary);
+        }
+
+        .stat-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            opacity: 0.1;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--cs-bg-card);
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius-lg);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--cs-border);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--cs-accent-green);
+            border-radius: 2px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body.no-padding {
+            padding: 0;
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .grid-2-1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cs-text-muted);
+            border-bottom: 1px solid var(--cs-border);
+        }
+
+        .table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--cs-border);
+            vertical-align: middle;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tr:hover td {
+            background: rgba(0, 212, 170, 0.05);
+        }
+
+        .ip {
+            font-family: var(--cs-font-mono);
+            color: var(--cs-accent-blue);
+            font-weight: 500;
+        }
+
+        .scenario {
+            display: inline-block;
+            padding: 4px 8px;
+            background: rgba(177, 151, 252, 0.15);
+            color: var(--cs-accent-purple);
+            border-radius: 4px;
+            font-family: var(--cs-font-mono);
+            font-size: 11px;
+        }
+
+        .country {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .action-badge.ban {
+            background: rgba(255, 107, 107, 0.15);
+            color: var(--cs-accent-red);
+        }
+
+        .action-badge.valid {
+            background: rgba(0, 212, 170, 0.15);
+            color: var(--cs-accent-green);
+        }
+
+        .time {
+            font-family: var(--cs-font-mono);
+            font-size: 11px;
+            color: var(--cs-text-muted);
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bar-label {
+            width: 100px;
+            font-size: 12px;
+            color: var(--cs-text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 24px;
+            background: var(--cs-bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cs-accent-green), var(--cs-accent-blue));
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .bar-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .bar-value {
+            width: 50px;
+            text-align: right;
+            font-family: var(--cs-font-mono);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--cs-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--cs-accent-red);
+            border-radius: 50%;
+            border: 2px solid var(--cs-bg-secondary);
+        }
+
+        .timeline-time {
+            font-family: var(--cs-font-mono);
+            font-size: 11px;
+            color: var(--cs-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            background: var(--cs-bg-tertiary);
+            padding: 12px 16px;
+            border-radius: var(--cs-radius);
+            border: 1px solid var(--cs-border);
+            font-size: 13px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius);
+            background: var(--cs-bg-secondary);
+            color: var(--cs-text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background: var(--cs-bg-tertiary);
+            border-color: var(--cs-accent-green);
+        }
+
+        .btn-primary {
+            background: var(--cs-accent-green);
+            border-color: var(--cs-accent-green);
+            color: var(--cs-bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #00e6b8;
+            box-shadow: var(--cs-shadow-glow);
+        }
+
+        .btn-danger {
+            border-color: var(--cs-accent-red);
+            color: var(--cs-accent-red);
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 107, 107, 0.15);
+        }
+
+        .btn-sm {
+            padding: 4px 10px;
+            font-size: 11px;
+        }
+
+        /* Input */
+        .input {
+            padding: 10px 14px;
+            background: var(--cs-bg-tertiary);
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius);
+            color: var(--cs-text-primary);
+            font-family: var(--cs-font-mono);
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--cs-accent-green);
+            box-shadow: 0 0 0 3px var(--cs-accent-green-glow);
+        }
+
+        .input::placeholder {
+            color: var(--cs-text-muted);
+        }
+
+        /* Search box */
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding-left: 40px;
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* Actions bar */
+        .actions-bar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Metrics grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-section {
+            background: var(--cs-bg-card);
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius-lg);
+            overflow: hidden;
+        }
+
+        .metric-section-title {
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cs-text-muted);
+            border-bottom: 1px solid var(--cs-border);
+        }
+
+        .metric-list {
+            padding: 12px 0;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+        }
+
+        .metric-item:hover {
+            background: rgba(0, 212, 170, 0.05);
+        }
+
+        .metric-name {
+            font-size: 13px;
+            color: var(--cs-text-secondary);
+        }
+
+        .metric-value {
+            font-family: var(--cs-font-mono);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--cs-accent-green);
+        }
+
+        /* Empty state */
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--cs-text-muted);
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--cs-bg-secondary);
+            border: 1px solid var(--cs-border);
+            border-radius: var(--cs-radius-lg);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--cs-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--cs-text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--cs-text-primary);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--cs-border);
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cs-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group .input {
+            width: 100%;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 14px 20px;
+            background: var(--cs-bg-secondary);
+            border: 1px solid var(--cs-accent-green);
+            border-radius: var(--cs-radius);
+            box-shadow: var(--cs-shadow);
+            z-index: 1001;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--cs-border);
+            margin-top: 40px;
+            color: var(--cs-text-muted);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: var(--cs-accent-green);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .nav-tabs {
+                order: 3;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 8px;
+            }
+
+            .nav-status {
+                order: 2;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .table {
+                font-size: 11px;
+            }
+
+            .table th, .table td {
+                padding: 8px 10px;
+            }
+
+            .bar-label {
+                width: 80px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cs-bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--cs-border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--cs-text-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        🎮 <strong>Démo interactive</strong> — Ceci est une simulation avec des données fictives. 
+        <a href="https://github.com/gkerma/luci-app-crowdsec-dashboard" target="_blank">Voir le projet sur GitHub</a>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🛡️</div>
+                <div class="nav-brand-text">Crowd<span>Sec</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="decisions">Decisions</div>
+                <div class="nav-tab" data-view="alerts">Alerts</div>
+                <div class="nav-tab" data-view="metrics">Metrics</div>
+            </div>
+            <div class="nav-status">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Engine: running
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    v1.6.2
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Overview View -->
+        <div id="overview" class="view active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Active Bans</div>
+                    <div class="stat-value danger" id="stat-bans">47</div>
+                    <div class="stat-trend">Currently blocked IPs</div>
+                    <div class="stat-icon">🚫</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Alerts (24h)</div>
+                    <div class="stat-value warning" id="stat-alerts">156</div>
+                    <div class="stat-trend">Detected threats</div>
+                    <div class="stat-icon">⚠️</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Bouncers</div>
+                    <div class="stat-value success">2</div>
+                    <div class="stat-trend">Active remediation</div>
+                    <div class="stat-icon">🔒</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Protection Rate</div>
+                    <div class="stat-value">99.2%</div>
+                    <div class="stat-trend">Threats blocked</div>
+                    <div class="stat-icon">📊</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Attack Scenarios</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">ssh-bf</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+                                <div class="bar-value">89</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">http-probing</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 67%"></div></div>
+                                <div class="bar-value">52</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">http-bad-ua</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 45%"></div></div>
+                                <div class="bar-value">34</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">http-sqli</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 23%"></div></div>
+                                <div class="bar-value">18</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">smb-bf</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 12%"></div></div>
+                                <div class="bar-value">9</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Countries</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">🇨🇳 CN</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+                                <div class="bar-value">127</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">🇷🇺 RU</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 58%"></div></div>
+                                <div class="bar-value">74</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">🇺🇸 US</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 34%"></div></div>
+                                <div class="bar-value">43</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">🇧🇷 BR</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 22%"></div></div>
+                                <div class="bar-value">28</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">🇮🇳 IN</div>
+                                <div class="bar-track"><div class="bar-fill" style="width: 15%"></div></div>
+                                <div class="bar-value">19</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2-1">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Active Decisions</div>
+                        <button class="btn btn-primary btn-sm" onclick="openBanModal()">+ Add Ban</button>
+                    </div>
+                    <div class="card-body no-padding">
+                        <table class="table" id="decisions-table">
+                            <thead>
+                                <tr>
+                                    <th>IP Address</th>
+                                    <th>Scenario</th>
+                                    <th>Country</th>
+                                    <th>Action</th>
+                                    <th>Expires</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="decisions-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Recent Alerts</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline" id="alerts-timeline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decisions View -->
+        <div id="decisions" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        All Active Decisions
+                        <span style="font-weight: normal; margin-left: 12px; font-size: 12px; color: var(--cs-text-muted)">47 decisions</span>
+                    </div>
+                    <div class="actions-bar">
+                        <div class="search-box">
+                            <input type="text" class="input" placeholder="Search IP, scenario, country..." id="decisions-search">
+                        </div>
+                        <button class="btn btn-danger">Unban Selected</button>
+                        <button class="btn btn-primary" onclick="openBanModal()">+ Add Ban</button>
+                    </div>
+                </div>
+                <div class="card-body no-padding">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px"><input type="checkbox"></th>
+                                <th>IP Address ↕</th>
+                                <th>Scenario ↕</th>
+                                <th>Country ↕</th>
+                                <th>Origin</th>
+                                <th>Action</th>
+                                <th>Expires</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-decisions-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts View -->
+        <div id="alerts" class="view">
+            <div class="stats-grid" style="margin-bottom: 24px">
+                <div class="stat-card">
+                    <div class="stat-label">Total Alerts</div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-trend">156 in last 24h</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Unique Scenarios</div>
+                    <div class="stat-value success">12</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Countries</div>
+                    <div class="stat-value">34</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Alert History</div>
+                    <div class="actions-bar">
+                        <div class="search-box">
+                            <input type="text" class="input" placeholder="Search IP, scenario, country...">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body no-padding">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Source IP</th>
+                                <th>Scenario</th>
+                                <th>Country</th>
+                                <th>Events</th>
+                                <th>Decision</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alerts-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics View -->
+        <div id="metrics" class="view">
+            <div class="stats-grid" style="margin-bottom: 24px">
+                <div class="stat-card">
+                    <div class="stat-label">Collections</div>
+                    <div class="stat-value success">4</div>
+                    <div class="stat-trend">installed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Parsers</div>
+                    <div class="stat-value success">12</div>
+                    <div class="stat-trend">installed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Scenarios</div>
+                    <div class="stat-value success">8</div>
+                    <div class="stat-trend">installed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Postoverflows</div>
+                    <div class="stat-value success">2</div>
+                    <div class="stat-trend">installed</div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">🔒 Registered Bouncers</div>
+                    </div>
+                    <div class="card-body no-padding">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>IP</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Last Pull</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>cs-firewall-bouncer</strong></td>
+                                    <td class="ip">127.0.0.1</td>
+                                    <td>firewall</td>
+                                    <td><span class="action-badge valid">Valid</span></td>
+                                    <td class="time">2m ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>cs-nginx-bouncer</strong></td>
+                                    <td class="ip">192.168.1.10</td>
+                                    <td>nginx</td>
+                                    <td><span class="action-badge valid">Valid</span></td>
+                                    <td class="time">5m ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">🖥️ Registered Machines</div>
+                    </div>
+                    <div class="card-body no-padding">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Machine ID</th>
+                                    <th>IP</th>
+                                    <th>Status</th>
+                                    <th>Heartbeat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>openwrt-router</strong></td>
+                                    <td class="ip">127.0.0.1</td>
+                                    <td><span class="action-badge valid">Validated</span></td>
+                                    <td class="time">30s ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">📦 Installed Collections</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-list">
+                            <div class="metric-item">
+                                <span class="metric-name">crowdsecurity/linux</span>
+                                <span class="scenario">v0.3</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">crowdsecurity/sshd</span>
+                                <span class="scenario">v0.4</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">crowdsecurity/nginx</span>
+                                <span class="scenario">v1.1</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">crowdsecurity/http-cve</span>
+                                <span class="scenario">v2.4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">📊 Acquisition Sources</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="metric-list">
+                            <div class="metric-item" style="flex-direction: column; align-items: flex-start; gap: 4px">
+                                <strong style="font-size: 12px">/var/log/auth.log</strong>
+                                <div style="font-size: 11px; color: var(--cs-text-muted)">
+                                    Read: 45,231 | Parsed: 44,892 | Buckets: 1,247
+                                </div>
+                            </div>
+                            <div class="metric-item" style="flex-direction: column; align-items: flex-start; gap: 4px">
+                                <strong style="font-size: 12px">/var/log/nginx/access.log</strong>
+                                <div style="font-size: 11px; color: var(--cs-text-muted)">
+                                    Read: 128,456 | Parsed: 127,901 | Buckets: 3,421
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            <strong>luci-app-crowdsec-dashboard</strong> — Dashboard de sécurité pour OpenWrt<br>
+            Créé par <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> | 
+            <a href="https://github.com/gandalf-music/luci-app-crowdsec-dashboard" target="_blank">GitHub</a> | 
+            Licence Apache-2.0
+        </p>
+    </footer>
+
+    <!-- Ban Modal -->
+    <div class="modal-overlay" id="ban-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Add IP Ban</div>
+                <button class="modal-close" onclick="closeBanModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">IP Address or Range</label>
+                    <input type="text" class="input" id="ban-ip" placeholder="192.168.1.100 or 10.0.0.0/24">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Duration</label>
+                    <input type="text" class="input" id="ban-duration" value="4h" placeholder="4h, 24h, 7d...">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Reason</label>
+                    <input type="text" class="input" id="ban-reason" placeholder="Manual ban from dashboard">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeBanModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitBan()">Add Ban</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data
+        const mockDecisions = [
+            { ip: '185.220.101.34', scenario: 'ssh-bf', country: 'DE', flag: '🇩🇪', action: 'ban', duration: '3h 45m', created: '2h ago', origin: 'crowdsec' },
+            { ip: '45.155.205.233', scenario: 'http-probing', country: 'RU', flag: '🇷🇺', action: 'ban', duration: '2h 12m', created: '3h ago', origin: 'crowdsec' },
+            { ip: '103.145.13.45', scenario: 'ssh-bf', country: 'CN', flag: '🇨🇳', action: 'ban', duration: '1h 30m', created: '4h ago', origin: 'CAPI' },
+            { ip: '194.26.135.119', scenario: 'http-bad-ua', country: 'NL', flag: '🇳🇱', action: 'ban', duration: '45m', created: '5h ago', origin: 'crowdsec' },
+            { ip: '91.242.217.81', scenario: 'http-sqli', country: 'UA', flag: '🇺🇦', action: 'ban', duration: '5h 20m', created: '6h ago', origin: 'crowdsec' },
+            { ip: '23.94.24.163', scenario: 'smb-bf', country: 'US', flag: '🇺🇸', action: 'ban', duration: '2h 55m', created: '7h ago', origin: 'CAPI' },
+            { ip: '177.234.145.89', scenario: 'ssh-bf', country: 'BR', flag: '🇧🇷', action: 'ban', duration: '4h 10m', created: '8h ago', origin: 'crowdsec' },
+            { ip: '122.176.45.231', scenario: 'http-probing', country: 'IN', flag: '🇮🇳', action: 'ban', duration: '1h 5m', created: '9h ago', origin: 'crowdsec' },
+        ];
+
+        const mockAlerts = [
+            { time: '2m ago', ip: '185.220.101.34', scenario: 'ssh-bf', country: 'DE', flag: '🇩🇪', events: 12 },
+            { time: '15m ago', ip: '45.155.205.233', scenario: 'http-probing', country: 'RU', flag: '🇷🇺', events: 8 },
+            { time: '32m ago', ip: '103.145.13.45', scenario: 'ssh-bf', country: 'CN', flag: '🇨🇳', events: 24 },
+            { time: '1h ago', ip: '194.26.135.119', scenario: 'http-bad-ua', country: 'NL', flag: '🇳🇱', events: 5 },
+            { time: '1h 30m ago', ip: '91.242.217.81', scenario: 'http-sqli', country: 'UA', flag: '🇺🇦', events: 3 },
+            { time: '2h ago', ip: '23.94.24.163', scenario: 'smb-bf', country: 'US', flag: '🇺🇸', events: 18 },
+            { time: '3h ago', ip: '177.234.145.89', scenario: 'ssh-bf', country: 'BR', flag: '🇧🇷', events: 15 },
+            { time: '4h ago', ip: '122.176.45.231', scenario: 'http-probing', country: 'IN', flag: '🇮🇳', events: 7 },
+        ];
+
+        // Render functions
+        function renderDecisionsTable(containerId, decisions, showCheckbox = false) {
+            const tbody = document.getElementById(containerId);
+            tbody.innerHTML = decisions.map(d => `
+                <tr>
+                    ${showCheckbox ? '<td><input type="checkbox"></td>' : ''}
+                    <td><span class="ip">${d.ip}</span></td>
+                    <td><span class="scenario">${d.scenario}</span></td>
+                    <td><span class="country">${d.flag} ${d.country}</span></td>
+                    ${showCheckbox ? `<td>${d.origin}</td>` : ''}
+                    <td><span class="action-badge ban">${d.action}</span></td>
+                    <td><span class="time">${d.duration}</span></td>
+                    ${showCheckbox ? `<td class="time">${d.created}</td>` : ''}
+                    <td><button class="btn btn-danger btn-sm" onclick="handleUnban('${d.ip}')">Unban</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderTimeline() {
+            const timeline = document.getElementById('alerts-timeline');
+            timeline.innerHTML = mockAlerts.slice(0, 6).map(a => `
+                <div class="timeline-item">
+                    <div class="timeline-time">${a.time}</div>
+                    <div class="timeline-content">
+                        <strong>${a.scenario}</strong><br>
+                        <span class="ip">${a.ip}</span> → ${a.events} events
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAlertsTable() {
+            const tbody = document.getElementById('alerts-body');
+            tbody.innerHTML = mockAlerts.map(a => `
+                <tr>
+                    <td class="time">${a.time}</td>
+                    <td><span class="ip">${a.ip}</span></td>
+                    <td><span class="scenario">${a.scenario}</span></td>
+                    <td><span class="country">${a.flag} ${a.country}</span></td>
+                    <td>${a.events}</td>
+                    <td><span class="action-badge ban">Banned</span></td>
+                    <td><button class="btn btn-sm" onclick="handleBanFromAlert('${a.ip}')">Ban</button></td>
+                </tr>
+            `).join('');
+        }
+
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Modal functions
+        function openBanModal() {
+            document.getElementById('ban-modal').classList.add('active');
+        }
+
+        function closeBanModal() {
+            document.getElementById('ban-modal').classList.remove('active');
+            document.getElementById('ban-ip').value = '';
+            document.getElementById('ban-duration').value = '4h';
+            document.getElementById('ban-reason').value = '';
+        }
+
+        function submitBan() {
+            const ip = document.getElementById('ban-ip').value;
+            const duration = document.getElementById('ban-duration').value;
+            
+            if (!ip) {
+                showToast('Please enter an IP address', 'error');
+                return;
+            }
+            
+            showToast(`IP ${ip} banned for ${duration}`, 'success');
+            closeBanModal();
+        }
+
+        function handleUnban(ip) {
+            if (confirm(`Remove ban for ${ip}?`)) {
+                showToast(`IP ${ip} unbanned successfully`, 'success');
+            }
+        }
+
+        function handleBanFromAlert(ip) {
+            document.getElementById('ban-ip').value = ip;
+            openBanModal();
+        }
+
+        function showToast(message, type) {
+            const existing = document.querySelector('.toast');
+            if (existing) existing.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            if (type === 'error') toast.style.borderColor = 'var(--cs-accent-red)';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => toast.remove(), 4000);
+        }
+
+        // Search
+        document.getElementById('decisions-search')?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = mockDecisions.filter(d => 
+                d.ip.includes(query) || 
+                d.scenario.includes(query) || 
+                d.country.toLowerCase().includes(query)
+            );
+            renderDecisionsTable('all-decisions-body', filtered, true);
+        });
+
+        // Simulate live updates
+        function simulateLiveUpdate() {
+            const bansEl = document.getElementById('stat-bans');
+            const alertsEl = document.getElementById('stat-alerts');
+            
+            if (bansEl && alertsEl) {
+                const currentBans = parseInt(bansEl.textContent);
+                const currentAlerts = parseInt(alertsEl.textContent);
+                
+                // Random small changes
+                if (Math.random() > 0.7) {
+                    bansEl.textContent = currentBans + (Math.random() > 0.5 ? 1 : -1);
+                }
+                if (Math.random() > 0.5) {
+                    alertsEl.textContent = currentAlerts + Math.floor(Math.random() * 3);
+                }
+            }
+        }
+
+        // Initialize
+        renderDecisionsTable('decisions-body', mockDecisions.slice(0, 6));
+        renderDecisionsTable('all-decisions-body', mockDecisions, true);
+        renderTimeline();
+        renderAlertsTable();
+        
+        // Live simulation
+        setInterval(simulateLiveUpdate, 5000);
+
+        // Close modal on overlay click
+        document.getElementById('ban-modal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                closeBanModal();
+            }
+        });
+    </script>
+</body>
+</html>
