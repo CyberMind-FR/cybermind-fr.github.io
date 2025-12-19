@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netifyd Dashboard Demo - Network Intelligence</title>
+    <meta name="description" content="Démo interactive du dashboard Netifyd - Deep Packet Inspection pour OpenWrt">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nf-bg-primary: #0a0f1a;
+            --nf-bg-secondary: #111827;
+            --nf-bg-tertiary: #1f2937;
+            --nf-border: #374151;
+            --nf-text-primary: #f9fafb;
+            --nf-text-secondary: #9ca3af;
+            --nf-text-muted: #6b7280;
+            --nf-accent-purple: #8b5cf6;
+            --nf-accent-blue: #3b82f6;
+            --nf-accent-cyan: #06b6d4;
+            --nf-accent-green: #10b981;
+            --nf-accent-yellow: #f59e0b;
+            --nf-accent-red: #ef4444;
+            --nf-accent-pink: #ec4899;
+            --nf-font-mono: 'JetBrains Mono', monospace;
+            --nf-font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--nf-font-sans);
+            background: var(--nf-bg-primary);
+            color: var(--nf-text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .demo-banner {
+            background: linear-gradient(90deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container {
+            background: var(--nf-bg-secondary);
+            border-bottom: 1px solid var(--nf-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 32px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 0;
+            text-decoration: none;
+            color: var(--nf-text-primary);
+        }
+
+        .nav-brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .nav-brand-text { font-size: 20px; font-weight: 700; }
+        .nav-brand-text span { color: var(--nf-accent-purple); }
+
+        .nav-tabs { display: flex; gap: 4px; }
+
+        .nav-tab {
+            padding: 16px 20px;
+            color: var(--nf-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-tab:hover { color: var(--nf-text-primary); }
+
+        .nav-tab.active {
+            color: var(--nf-accent-purple);
+            border-bottom-color: var(--nf-accent-purple);
+        }
+
+        .nav-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--nf-accent-green);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        .version {
+            font-family: var(--nf-font-mono);
+            font-size: 11px;
+            color: var(--nf-text-muted);
+            padding: 4px 10px;
+            background: var(--nf-bg-tertiary);
+            border-radius: 12px;
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quick-stat {
+            background: var(--nf-bg-secondary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .quick-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--stat-color);
+        }
+
+        .quick-stat:hover {
+            border-color: var(--nf-accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .quick-stat-icon { font-size: 24px; margin-bottom: 8px; }
+
+        .quick-stat-value {
+            font-family: var(--nf-font-mono);
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+            color: var(--stat-color);
+        }
+
+        .quick-stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--nf-text-muted);
+        }
+
+        .quick-stat-sub {
+            font-size: 10px;
+            color: var(--nf-text-muted);
+            margin-top: 4px;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card */
+        .card {
+            background: var(--nf-bg-secondary);
+            border: 1px solid var(--nf-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--nf-border);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-title-icon { font-size: 18px; }
+
+        .card-badge {
+            font-family: var(--nf-font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: var(--nf-accent-purple);
+            color: white;
+        }
+
+        .card-body { padding: 18px; }
+
+        /* Donut */
+        .donut-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .donut {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+
+        .donut-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .donut-value {
+            font-family: var(--nf-font-mono);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .donut-label {
+            font-size: 11px;
+            color: var(--nf-text-muted);
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+        }
+
+        .legend-name {
+            color: var(--nf-text-secondary);
+            flex: 1;
+        }
+
+        .legend-value {
+            font-family: var(--nf-font-mono);
+            font-weight: 600;
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bar-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 70px;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .bar-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--nf-text-secondary);
+        }
+
+        .bar-label-icon { font-size: 16px; }
+
+        .bar-track {
+            height: 10px;
+            background: var(--nf-bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .bar-value {
+            font-family: var(--nf-font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .table th {
+            text-align: left;
+            padding: 12px 14px;
+            background: var(--nf-bg-tertiary);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--nf-text-muted);
+            position: sticky;
+            top: 0;
+        }
+
+        .table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--nf-border);
+        }
+
+        .table tr:last-child td { border-bottom: none; }
+        .table tr:hover td { background: rgba(139, 92, 246, 0.05); }
+
+        .mono { font-family: var(--nf-font-mono); font-size: 11px; }
+
+        .app-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .app-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: var(--nf-bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .category.web { background: rgba(59, 130, 246, 0.2); color: var(--nf-accent-blue); }
+        .category.streaming { background: rgba(236, 72, 153, 0.2); color: var(--nf-accent-pink); }
+        .category.social { background: rgba(6, 182, 212, 0.2); color: var(--nf-accent-cyan); }
+        .category.gaming { background: rgba(139, 92, 246, 0.2); color: var(--nf-accent-purple); }
+        .category.voip { background: rgba(16, 185, 129, 0.2); color: var(--nf-accent-green); }
+        .category.network { background: rgba(245, 158, 11, 0.2); color: var(--nf-accent-yellow); }
+
+        .proto {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--nf-font-mono);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .proto.tcp { background: rgba(59, 130, 246, 0.2); color: var(--nf-accent-blue); }
+        .proto.udp { background: rgba(16, 185, 129, 0.2); color: var(--nf-accent-green); }
+
+        .traffic { display: flex; align-items: center; gap: 4px; }
+        .traffic-rx { color: var(--nf-accent-green); }
+        .traffic-tx { color: var(--nf-accent-blue); }
+
+        /* Device Grid */
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .device-card {
+            background: var(--nf-bg-tertiary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            padding: 14px;
+            transition: all 0.2s;
+        }
+
+        .device-card:hover { border-color: var(--nf-accent-purple); }
+
+        .device-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .device-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .device-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 2px 0;
+        }
+
+        .device-info p {
+            font-size: 11px;
+            color: var(--nf-text-muted);
+            margin: 0;
+        }
+
+        .device-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .device-detail { display: flex; flex-direction: column; gap: 2px; }
+
+        .device-detail-label {
+            color: var(--nf-text-muted);
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .device-detail-value {
+            font-family: var(--nf-font-mono);
+            color: var(--nf-text-secondary);
+        }
+
+        /* Search */
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--nf-bg-tertiary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .search input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--nf-text-primary);
+            font-size: 13px;
+            outline: none;
+        }
+
+        .search input::placeholder { color: var(--nf-text-muted); }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--nf-border);
+            margin-top: 40px;
+            color: var(--nf-text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--nf-accent-purple); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--nf-bg-tertiary); }
+        ::-webkit-scrollbar-thumb { background: var(--nf-border); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🔍 <strong>Démo interactive</strong> — Deep Packet Inspection simulé.
+        <a href="https://github.com/gkerma/luci-app-netifyd-dashboard" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🔍</div>
+                <div class="nav-brand-text">Netif<span>yd</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="flows">Flows</div>
+                <div class="nav-tab" data-view="applications">Applications</div>
+                <div class="nav-tab" data-view="devices">Devices</div>
+            </div>
+            <div class="nav-status">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    DPI Active
+                </div>
+                <span class="version">v4.4.1</span>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Overview -->
+        <div id="overview" class="view active">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #8b5cf6">
+                    <div class="quick-stat-icon">🔄</div>
+                    <div class="quick-stat-value" id="total-flows">342</div>
+                    <div class="quick-stat-label">Active Flows</div>
+                    <div class="quick-stat-sub">245 TCP / 97 UDP</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #3b82f6">
+                    <div class="quick-stat-icon">📱</div>
+                    <div class="quick-stat-value">24</div>
+                    <div class="quick-stat-label">Applications</div>
+                    <div class="quick-stat-sub">Detected by DPI</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #06b6d4">
+                    <div class="quick-stat-icon">💻</div>
+                    <div class="quick-stat-value">12</div>
+                    <div class="quick-stat-label">Devices</div>
+                    <div class="quick-stat-sub">On network</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-icon">📥</div>
+                    <div class="quick-stat-value">2.4 GB</div>
+                    <div class="quick-stat-label">Downloaded</div>
+                    <div class="quick-stat-sub">Total RX</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #f59e0b">
+                    <div class="quick-stat-icon">📤</div>
+                    <div class="quick-stat-value">856 MB</div>
+                    <div class="quick-stat-label">Uploaded</div>
+                    <div class="quick-stat-sub">Total TX</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #ec4899">
+                    <div class="quick-stat-icon">🏷️</div>
+                    <div class="quick-stat-value">8</div>
+                    <div class="quick-stat-label">Categories</div>
+                    <div class="quick-stat-sub">Traffic types</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">📊</span>
+                            Protocol Distribution
+                        </div>
+                        <div class="card-badge">342 flows</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="donut-container">
+                            <div class="donut">
+                                <svg width="160" height="160" viewBox="0 0 160 160">
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#8b5cf6" stroke-width="24" 
+                                            stroke-dasharray="270 377" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#3b82f6" stroke-width="24" 
+                                            stroke-dasharray="85 377" stroke-dashoffset="-270" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#06b6d4" stroke-width="24" 
+                                            stroke-dasharray="22 377" stroke-dashoffset="-355" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="35" fill="#111827"/>
+                                </svg>
+                                <div class="donut-center">
+                                    <div class="donut-value">342</div>
+                                    <div class="donut-label">Flows</div>
+                                </div>
+                            </div>
+                            <div class="legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#8b5cf6"></div>
+                                    <span class="legend-name">TCP</span>
+                                    <span class="legend-value">245</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#3b82f6"></div>
+                                    <span class="legend-name">UDP</span>
+                                    <span class="legend-value">78</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#06b6d4"></div>
+                                    <span class="legend-name">QUIC</span>
+                                    <span class="legend-value">19</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">📱</span>
+                            Top Applications
+                        </div>
+                        <div class="card-badge">24 detected</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">🔒</span> HTTPS</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+                                <span class="bar-value">1.2 GB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📺</span> YouTube</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+                                <span class="bar-value">780 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">🎬</span> Netflix</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>
+                                <span class="bar-value">504 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📹</span> Zoom</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>
+                                <span class="bar-value">336 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">💬</span> Discord</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:15%"></div></div>
+                                <span class="bar-value">180 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📋</span> DNS</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:8%"></div></div>
+                                <span class="bar-value">96 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flows -->
+        <div id="flows" class="view">
+            <div class="search">
+                <span>🔍</span>
+                <input type="text" placeholder="Search by IP, port, or application...">
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📋</span>
+                        Active Connections
+                    </div>
+                    <div class="card-badge">342 flows</div>
+                </div>
+                <div class="card-body" style="padding:0">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Protocol</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Application</th>
+                                    <th>Category</th>
+                                    <th>Traffic</th>
+                                </tr>
+                            </thead>
+                            <tbody id="flows-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications -->
+        <div id="applications" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #8b5cf6">
+                    <div class="quick-stat-icon">📱</div>
+                    <div class="quick-stat-value">24</div>
+                    <div class="quick-stat-label">Applications</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #3b82f6">
+                    <div class="quick-stat-icon">🔄</div>
+                    <div class="quick-stat-value">342</div>
+                    <div class="quick-stat-label">Total Flows</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-icon">📊</div>
+                    <div class="quick-stat-value">3.2 GB</div>
+                    <div class="quick-stat-label">Total Traffic</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📋</span>
+                        Detected Applications
+                    </div>
+                </div>
+                <div class="card-body" style="padding:0">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Application</th>
+                                    <th>Category</th>
+                                    <th>Flows</th>
+                                    <th>Traffic</th>
+                                    <th>% Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="apps-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devices -->
+        <div id="devices" class="view">
+            <div class="search">
+                <span>🔍</span>
+                <input type="text" placeholder="Search by hostname, IP, or MAC...">
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📡</span>
+                        Discovered Devices
+                    </div>
+                    <div class="card-badge">12 devices</div>
+                </div>
+                <div class="card-body">
+                    <div class="device-grid" id="devices-grid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <strong>luci-app-netifyd-dashboard</strong> — Deep Packet Inspection for OpenWrt<br>
+            Créé par <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> |
+            <a href="https://github.com/gkerma/luci-app-netifyd-dashboard" target="_blank">GitHub</a> |
+            Licence Apache-2.0
+        </p>
+    </footer>
+
+    <script>
+        // Mock data
+        const mockFlows = [
+            { proto: 'TCP', src: '192.168.1.105', sport: 52341, dst: '142.250.185.206', dport: 443, app: 'YouTube', category: 'Streaming', bytes: 45678000, packets: 34521 },
+            { proto: 'TCP', src: '192.168.1.108', sport: 49234, dst: '52.96.166.194', dport: 443, app: 'Microsoft 365', category: 'Web', bytes: 12340000, packets: 8765 },
+            { proto: 'UDP', src: '192.168.1.112', sport: 51234, dst: '162.125.66.6', dport: 443, app: 'Zoom', category: 'VoIP', bytes: 8900000, packets: 12345 },
+            { proto: 'TCP', src: '192.168.1.105', sport: 53421, dst: '151.101.1.140', dport: 443, app: 'Reddit', category: 'Social', bytes: 5670000, packets: 4532 },
+            { proto: 'TCP', src: '192.168.1.120', sport: 48765, dst: '44.240.131.89', dport: 443, app: 'Discord', category: 'Social', bytes: 3450000, packets: 2341 },
+            { proto: 'UDP', src: '192.168.1.1', sport: 53, dst: '8.8.8.8', dport: 53, app: 'DNS', category: 'Network', bytes: 234000, packets: 1234 },
+            { proto: 'TCP', src: '192.168.1.108', sport: 55123, dst: '54.239.28.85', dport: 443, app: 'Netflix', category: 'Streaming', bytes: 89000000, packets: 67890 },
+            { proto: 'QUIC', src: '192.168.1.105', sport: 443, dst: '172.217.14.110', dport: 443, app: 'Google', category: 'Web', bytes: 2340000, packets: 1890 },
+            { proto: 'TCP', src: '192.168.1.115', sport: 49876, dst: '104.16.249.249', dport: 443, app: 'Cloudflare', category: 'Network', bytes: 1230000, packets: 876 },
+            { proto: 'UDP', src: '192.168.1.112', sport: 3478, dst: '52.114.77.34', dport: 3478, app: 'Teams', category: 'VoIP', bytes: 4560000, packets: 3456 }
+        ];
+
+        const mockApps = [
+            { name: 'HTTPS', icon: '🔒', category: 'Web', flows: 156, bytes: 1200000000, pct: 37.5 },
+            { name: 'YouTube', icon: '📺', category: 'Streaming', flows: 24, bytes: 780000000, pct: 24.4 },
+            { name: 'Netflix', icon: '🎬', category: 'Streaming', flows: 12, bytes: 504000000, pct: 15.8 },
+            { name: 'Zoom', icon: '📹', category: 'VoIP', flows: 8, bytes: 336000000, pct: 10.5 },
+            { name: 'Discord', icon: '💬', category: 'Social', flows: 15, bytes: 180000000, pct: 5.6 },
+            { name: 'DNS', icon: '📋', category: 'Network', flows: 89, bytes: 96000000, pct: 3.0 },
+            { name: 'SSH', icon: '💻', category: 'Network', flows: 3, bytes: 45000000, pct: 1.4 },
+            { name: 'Spotify', icon: '🎵', category: 'Streaming', flows: 6, bytes: 58000000, pct: 1.8 }
+        ];
+
+        const mockDevices = [
+            { hostname: 'MacBook-Pro', vendor: 'Apple', ip: '192.168.1.105', mac: 'F8:FF:C2:12:34:56', iface: 'br-lan' },
+            { hostname: 'iPhone-Jean', vendor: 'Apple', ip: '192.168.1.108', mac: 'D4:61:9D:AB:CD:EF', iface: 'br-lan' },
+            { hostname: 'PC-Bureau', vendor: 'Intel', ip: '192.168.1.112', mac: 'B0:BE:83:11:22:33', iface: 'br-lan' },
+            { hostname: 'Samsung-TV', vendor: 'Samsung', ip: '192.168.1.115', mac: '5C:8A:38:44:55:66', iface: 'br-lan' },
+            { hostname: 'Raspberry-Pi', vendor: 'Raspberry Pi', ip: '192.168.1.120', mac: 'B8:27:EB:77:88:99', iface: 'br-lan' },
+            { hostname: 'Echo-Dot', vendor: 'Amazon', ip: '192.168.1.125', mac: 'AC:DE:48:AA:BB:CC', iface: 'br-lan' },
+            { hostname: 'Nest-Hub', vendor: 'Google', ip: '192.168.1.130', mac: '54:60:09:DD:EE:FF', iface: 'br-lan' },
+            { hostname: 'HP-Printer', vendor: 'HP', ip: '192.168.1.200', mac: '3C:2C:30:12:34:56', iface: 'br-lan' }
+        ];
+
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Populate flows table
+        function populateFlows() {
+            const tbody = document.getElementById('flows-table');
+            tbody.innerHTML = mockFlows.map(f => `
+                <tr>
+                    <td><span class="proto ${f.proto.toLowerCase()}">${f.proto}</span></td>
+                    <td class="mono">${f.src}:${f.sport}</td>
+                    <td class="mono">${f.dst}:${f.dport}</td>
+                    <td><div class="app-name"><span class="app-icon">${getAppIcon(f.app)}</span>${f.app}</div></td>
+                    <td><span class="category ${getCategoryClass(f.category)}">${f.category}</span></td>
+                    <td class="mono"><span class="traffic"><span class="traffic-rx">↓${formatBytes(f.bytes)}</span> <span class="traffic-tx">${f.packets.toLocaleString()} pkts</span></span></td>
+                </tr>
+            `).join('');
+        }
+
+        // Populate apps table
+        function populateApps() {
+            const tbody = document.getElementById('apps-table');
+            tbody.innerHTML = mockApps.map(a => `
+                <tr>
+                    <td><div class="app-name"><span class="app-icon">${a.icon}</span><strong>${a.name}</strong></div></td>
+                    <td><span class="category ${getCategoryClass(a.category)}">${a.category}</span></td>
+                    <td class="mono">${a.flows}</td>
+                    <td class="mono">${formatBytes(a.bytes)}</td>
+                    <td>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <div style="width:60px;height:6px;background:#1f2937;border-radius:3px;overflow:hidden">
+                                <div style="height:100%;width:${a.pct}%;background:linear-gradient(90deg,#8b5cf6,#3b82f6);border-radius:3px"></div>
+                            </div>
+                            <span class="mono" style="font-size:11px">${a.pct}%</span>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Populate devices grid
+        function populateDevices() {
+            const grid = document.getElementById('devices-grid');
+            grid.innerHTML = mockDevices.map(d => `
+                <div class="device-card">
+                    <div class="device-header">
+                        <div class="device-icon">${getDeviceIcon(d.vendor)}</div>
+                        <div class="device-info">
+                            <h4>${d.hostname}</h4>
+                            <p>${d.vendor}</p>
+                        </div>
+                    </div>
+                    <div class="device-details">
+                        <div class="device-detail">
+                            <span class="device-detail-label">IP Address</span>
+                            <span class="device-detail-value">${d.ip}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">MAC Address</span>
+                            <span class="device-detail-value">${d.mac}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">Interface</span>
+                            <span class="device-detail-value">${d.iface}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">Last Seen</span>
+                            <span class="device-detail-value">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function formatBytes(bytes) {
+            if (bytes >= 1e9) return (bytes / 1e9).toFixed(1) + ' GB';
+            if (bytes >= 1e6) return (bytes / 1e6).toFixed(1) + ' MB';
+            if (bytes >= 1e3) return (bytes / 1e3).toFixed(1) + ' KB';
+            return bytes + ' B';
+        }
+
+        function getAppIcon(app) {
+            const icons = { 'HTTPS': '🔒', 'YouTube': '📺', 'Netflix': '🎬', 'Zoom': '📹', 'Discord': '💬', 'DNS': '📋', 'SSH': '💻', 'Reddit': '🔴', 'Microsoft 365': '📊', 'Google': '🔍', 'Cloudflare': '☁️', 'Teams': '👥', 'Spotify': '🎵' };
+            return icons[app] || '📦';
+        }
+
+        function getDeviceIcon(vendor) {
+            const icons = { 'Apple': '🍎', 'Samsung': '📱', 'Raspberry Pi': '🍓', 'Intel': '💻', 'Amazon': '📦', 'Google': '🔍', 'HP': '🖨️' };
+            return icons[vendor] || '💻';
+        }
+
+        function getCategoryClass(cat) {
+            const classes = { 'Web': 'web', 'Streaming': 'streaming', 'Social': 'social', 'Gaming': 'gaming', 'VoIP': 'voip', 'Network': 'network' };
+            return classes[cat] || 'network';
+        }
+
+        // Live update simulation
+        function updateStats() {
+            const flows = 342 + Math.floor(Math.random() * 20) - 10;
+            document.getElementById('total-flows').textContent = flows;
+        }
+
+        populateFlows();
+        populateApps();
+        populateDevices();
+        setInterval(updateStats, 3000);
+    </script>
+</body>
+</html>
