@@ -1,5 +1,5 @@
 <%
-// PORTFOLIO INDEX - Scan automatique des réalisations
+// PORTFOLIO INDEX - Scan automatique des réalisations avec vignettes intelligentes
 
 function extractTags(tags) {
     if (!tags) return [];
@@ -44,15 +44,20 @@ site.pages.forEach(function(p) {
                 date: p.date,
                 icon: p.icon || '💼',
                 type: p.type || 'project',
+                category: p.category || p.type || 'project',
                 description: p.description || '',
+                // Données pour vignettes intelligentes
+                cover: p.cover || '',
                 thumbnail: p.thumbnail || '',
+                images: p.images || [],
                 client: p.client || {},
                 project: p.project || {},
                 live_url: p.live_url || '',
                 featured: p.featured || false,
                 status: p.status || 'live',
                 order: p.order || 999,
-                tags: itemTags
+                tags: itemTags,
+                _page: p  // Référence à la page pour render_smart_thumbnail
             });
         }
     }
@@ -72,13 +77,15 @@ var opensource = portfolioItems.filter(function(p) { return p.type === 'opensour
 var typeColors = {
     'client': '#10b981',
     'project': '#3b82f6',
-    'opensource': '#f59e0b'
+    'opensource': '#f59e0b',
+    'security': '#ef4444'
 };
 
 var typeLabels = {
     'client': { icon: '🏢', name: 'Clients' },
     'project': { icon: '🚀', name: 'Projets' },
-    'opensource': { icon: '🔓', name: 'Open Source' }
+    'opensource': { icon: '🔓', name: 'Open Source' },
+    'security': { icon: '🛡️', name: 'Sécurité' }
 };
 %>
 <div class="portfolio-index">
@@ -122,21 +129,32 @@ var typeLabels = {
         <% portfolioItems.forEach(function(item) { 
             var color = typeColors[item.type] || '#f97316';
             var label = typeLabels[item.type] || { icon: '📦', name: 'Autre' };
+            var hasImage = item.cover || item.thumbnail || (item.images && item.images.length > 0);
         %>
-        <a href="<%= url_for(item.path) %>" class="portfolio-card" data-type="<%= item.type %>">
+        <a href="<%= url_for(item.path) %>" class="portfolio-card" data-type="<%= item.type %>" style="--item-color: <%= color %>">
             <% if (item.featured) { %>
             <div class="featured-badge">⭐ Featured</div>
             <% } %>
             
             <div class="card-visual">
-                <% if (item.thumbnail) { %>
-                <img src="<%= item.thumbnail %>" alt="<%= item.title %>" loading="lazy">
+                <% if (hasImage) { %>
+                    <% var imgSrc = item.cover || item.thumbnail || item.images[0]; %>
+                    <img src="<%= imgSrc %>" alt="<%= item.title %>" loading="lazy" class="card-thumb-img">
+                <% } else if (item._page && typeof render_smart_thumbnail === 'function') { %>
+                    <%- render_smart_thumbnail(item._page, { class: 'card-thumb-dynamic' }) %>
                 <% } else { %>
-                <div class="card-placeholder"><%= item.icon %></div>
+                    <!-- Vignette CSS générée -->
+                    <div class="card-thumb-generated" style="background: linear-gradient(135deg, <%= color %>15, <%= color %>30);">
+                        <span class="card-thumb-icon"><%= item.icon %></span>
+                        <span class="card-thumb-title"><%= item.title %></span>
+                        <% if (item.client && item.client.name) { %>
+                        <span class="card-thumb-client">🏢 <%= item.client.name %></span>
+                        <% } %>
+                    </div>
                 <% } %>
                 
                 <div class="card-overlay">
-                    <span class="view-btn">Voir le projet →</span>
+                    <span class="view-btn">👁️ Voir le projet</span>
                 </div>
                 
                 <div class="card-type-badge" style="background: <%= color %>;">
@@ -262,13 +280,13 @@ var typeLabels = {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .portfolio-card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
@@ -277,8 +295,9 @@ var typeLabels = {
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+    border-color: var(--item-color);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
 }
 
 .featured-badge {
@@ -296,29 +315,58 @@ var typeLabels = {
 
 .card-visual {
     position: relative;
-    height: 180px;
+    aspect-ratio: 16/10;
     background: var(--bg-tertiary);
+    overflow: hidden;
 }
 
-.card-visual img {
+.card-thumb-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.card-placeholder {
+.portfolio-card:hover .card-thumb-img {
+    transform: scale(1.05);
+}
+
+.card-thumb-dynamic {
+    width: 100%;
+    height: 100%;
+}
+
+.card-thumb-generated {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.card-thumb-icon {
+    font-size: 2.5rem;
+}
+
+.card-thumb-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--item-color, var(--accent-primary));
+    text-align: center;
+}
+
+.card-thumb-client {
+    font-size: 0.75rem;
+    color: var(--text-muted);
 }
 
 .card-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,18 +377,29 @@ var typeLabels = {
 .portfolio-card:hover .card-overlay { opacity: 1; }
 
 .view-btn {
-    color: white;
+    background: var(--item-color, var(--accent-primary));
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.85rem;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .view-btn {
+    transform: scale(1);
 }
 
 .card-type-badge {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 10px;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: white;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #000;
 }
 
 .card-content {

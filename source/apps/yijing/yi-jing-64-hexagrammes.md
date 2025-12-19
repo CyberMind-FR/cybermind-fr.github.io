@@ -15,7 +15,7 @@ embed_url: "https://cybermind.fr/demos/64-hexagrammes-animation.html"
 embed_height: 600
 
 # Références croisées
-related_article: "/2024/12/15/introduction-yi-jing/"
+related_article: "/philosophy/introduction-yi-jing/"
 
 # Métadonnées
 status: active
