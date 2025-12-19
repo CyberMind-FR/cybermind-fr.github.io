@@ -9,7 +9,7 @@ embed_height: 600
 status: active
 version: "2.1"
 featured: true
-order: 1
+order: 3
 tags_list:
   - arm
   - raspberry-pi
