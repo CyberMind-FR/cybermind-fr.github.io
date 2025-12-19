@@ -188,7 +188,7 @@ Le projet est open-source sous licence Apache-2.0. Les contributions sont bienve
 - 🔀 **Pull Requests** : Code, traductions, documentation
 - ⭐ **Star** : Si le projet vous est utile !
 
-**Repository GitHub** : [github.com/gandalf-music/luci-app-crowdsec-dashboard](https://github.com/gandalf-music/luci-app-crowdsec-dashboard)
+**Repository GitHub** : [github.com/gkerma/luci-app-crowdsec-dashboard](https://github.com/gkerma/luci-app-crowdsec-dashboard)
 
 ## Conclusion
 
