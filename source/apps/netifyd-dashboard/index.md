@@ -13,6 +13,7 @@ app:
   demo: true
 tags: [netifyd, openwrt, luci, dpi, network-intelligence, dashboard, security]
 image: /images/netifyd-dashboard-hero.png
+embed_url: "/apps/netifyd-dashboard/demo.html"
 ---
 
 <div class="app-hero">
