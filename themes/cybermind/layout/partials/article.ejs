@@ -101,18 +101,67 @@ var tagEmojiMap = {
 
 var displayCategoryName = '';
 
-if (post.categories && post.categories.length > 0) {
-    var cat = post.categories.data[0];
-    categoryClass = cat.slug;
-    categoryName = cat.name.toLowerCase();
-    displayCategoryName = cat.name;
-    
-    if (theme.categories && theme.categories[cat.slug]) {
-        categoryColor = theme.categories[cat.slug].color || categoryColor;
-        displayCategoryName = theme.categories[cat.slug].name || cat.name;
+// Détection robuste de la catégorie
+var cat = null;
+
+// Méthode 1: depuis post.category (string)
+if (post.category && typeof post.category === 'string') {
+    categoryName = post.category.toLowerCase();
+    displayCategoryName = post.category;
+    categoryClass = categoryName;
+}
+
+// Méthode 2: depuis post.categories (Hexo)
+if (!categoryName && post.categories && post.categories.length > 0) {
+    try {
+        var cats = [];
+        if (typeof post.categories.toArray === 'function') {
+            cats = post.categories.toArray();
+        } else if (post.categories.data && Array.isArray(post.categories.data)) {
+            cats = post.categories.data;
+        } else if (Array.isArray(post.categories)) {
+            cats = post.categories;
+        }
+        
+        if (cats.length > 0 && cats[0]) {
+            cat = cats[0];
+            if (typeof cat === 'string') {
+                categoryName = cat.toLowerCase();
+                displayCategoryName = cat;
+                categoryClass = categoryName;
+            } else if (cat.name) {
+                categoryName = cat.name.toLowerCase();
+                displayCategoryName = cat.name;
+                categoryClass = cat.slug || categoryName;
+            } else if (cat.slug) {
+                categoryName = cat.slug.toLowerCase();
+                displayCategoryName = cat.slug;
+                categoryClass = cat.slug;
+            }
+        }
+    } catch(e) {
+        // Ignorer les erreurs
     }
-    
-    // Trouver les emojis correspondants
+}
+
+// Méthode 3: depuis le chemin source
+if (!categoryName && post.source) {
+    var pathMatch = post.source.match(/blog\/([^\/]+)\//);
+    if (pathMatch) {
+        categoryName = pathMatch[1].toLowerCase();
+        displayCategoryName = categoryName;
+        categoryClass = categoryName;
+    }
+}
+
+// Appliquer la couleur depuis le thème
+if (categoryName && theme.categories && theme.categories[categoryClass]) {
+    categoryColor = theme.categories[categoryClass].color || categoryColor;
+    displayCategoryName = theme.categories[categoryClass].name || displayCategoryName;
+}
+
+// Trouver les emojis correspondants
+if (categoryName) {
     for (var key in categoryEmojiMap) {
         if (categoryName.indexOf(key) >= 0) {
             categoryEmojis = categoryEmojiMap[key];
@@ -134,12 +183,19 @@ titleWords.forEach(function(word) {
 // Extraire aussi des tags
 var tagLettrines = [];
 if (post.tags && post.tags.length > 0) {
-    post.tags.forEach(function(tag) {
-        var tagName = tag.name.toLowerCase();
-        if (tagEmojiMap[tagName]) {
-            tagLettrines.push({ word: tag.name, emoji: tagEmojiMap[tagName] });
-        }
-    });
+    try {
+        var tagsArray = post.tags.toArray ? post.tags.toArray() : [];
+        tagsArray.forEach(function(tag) {
+            if (tag && tag.name) {
+                var tagName = tag.name.toLowerCase();
+                if (tagEmojiMap[tagName]) {
+                    tagLettrines.push({ word: tag.name, emoji: tagEmojiMap[tagName] });
+                }
+            }
+        });
+    } catch(e) {
+        // Ignorer les erreurs de tags
+    }
 }
 
 // Générer un ID unique pour l'article
@@ -200,7 +256,18 @@ var articleId = 'art-' + (post._id || Math.random().toString(36).substr(2, 9));
             <div class="status-right">
                 <% if (post.tags && post.tags.length > 0) { %>
                 <div class="status-tags">
-                    <% post.tags.limit(3).forEach(function(tag) { 
+                    <% 
+                    var tagsToShow = [];
+                    try {
+                        if (post.tags.limit) {
+                            tagsToShow = post.tags.limit(3).toArray ? post.tags.limit(3).toArray() : [];
+                        } else if (post.tags.toArray) {
+                            tagsToShow = post.tags.toArray().slice(0, 3);
+                        }
+                    } catch(e) {}
+                    
+                    tagsToShow.forEach(function(tag) { 
+                        if (!tag || !tag.name) return;
                         var tagEmoji = tagEmojiMap[tag.name.toLowerCase()] || '🏷️';
                     %>
                     <a href="<%= url_for(tag.path) %>" class="status-tag">
