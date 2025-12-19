@@ -12,7 +12,8 @@ app:
   repo: https://github.com/gkerma/luci-app-crowdsec-dashboard
   demo: true
 tags: [crowdsec, openwrt, luci, security, dashboard, open-source]
-image: /images/crowdsec-dashboard-hero.png
+cover: /images/crowdsec-dashboard-hero.png
+embed_url: "/apps/crowdsec-dashboard/demo.html"
 ---
 
 <div class="app-hero">
