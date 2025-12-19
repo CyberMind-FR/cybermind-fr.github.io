@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e14"/>
+      <stop offset="50%" style="stop-color:#0f1419"/>
+      <stop offset="100%" style="stop-color:#151b23"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#4dabf7"/>
+    </linearGradient>
+    
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#ffa94d"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2231"/>
+      <stop offset="100%" style="stop-color:#151b23"/>
+    </linearGradient>
+    
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0"/>
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2632" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Grid overlay -->
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Decorative glow circles -->
+  <circle cx="100" cy="100" r="200" fill="url(#glowGrad)" opacity="0.5"/>
+  <circle cx="1100" cy="530" r="250" fill="url(#glowGrad)" opacity="0.3"/>
+  
+  <!-- Main Dashboard Window -->
+  <g transform="translate(80, 80)" filter="url(#shadow)">
+    <!-- Window frame -->
+    <rect width="1040" height="470" rx="12" fill="url(#cardGrad)" stroke="#2a3444" stroke-width="1"/>
+    
+    <!-- Title bar -->
+    <rect width="1040" height="44" rx="12" fill="#0d1117"/>
+    <rect y="32" width="1040" height="12" fill="#0d1117"/>
+    
+    <!-- Window controls -->
+    <circle cx="24" cy="22" r="6" fill="#ff5f57"/>
+    <circle cx="48" cy="22" r="6" fill="#ffbd2e"/>
+    <circle cx="72" cy="22" r="6" fill="#28c840"/>
+    
+    <!-- Title -->
+    <text x="520" y="28" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#8b949e" text-anchor="middle">
+      CrowdSec Dashboard — LuCI @ OpenWrt
+    </text>
+    
+    <!-- Navigation bar -->
+    <rect y="44" width="1040" height="40" fill="#151b23"/>
+    <rect y="83" width="1040" height="1" fill="#2a3444"/>
+    
+    <!-- Logo -->
+    <rect x="16" y="52" width="28" height="28" rx="6" fill="url(#accentGrad)"/>
+    <text x="30" y="72" font-family="Arial" font-size="16" fill="#0a0e14" text-anchor="middle">🛡</text>
+    
+    <text x="56" y="72" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#e6edf3">
+      Crowd<tspan fill="#00d4aa">Sec</tspan>
+    </text>
+    
+    <!-- Nav tabs -->
+    <text x="180" y="70" font-family="Inter, sans-serif" font-size="13" fill="#00d4aa" font-weight="500">Overview</text>
+    <rect x="170" y="80" width="60" height="3" rx="1" fill="#00d4aa"/>
+    
+    <text x="280" y="70" font-family="Inter, sans-serif" font-size="13" fill="#8b949e">Decisions</text>
+    <text x="380" y="70" font-family="Inter, sans-serif" font-size="13" fill="#8b949e">Alerts</text>
+    <text x="460" y="70" font-family="Inter, sans-serif" font-size="13" fill="#8b949e">Metrics</text>
+    
+    <!-- Status badges -->
+    <rect x="820" y="54" width="100" height="26" rx="13" fill="#1e2632" stroke="#2a3444"/>
+    <circle cx="838" cy="67" r="4" fill="#00d4aa">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="852" y="72" font-family="Inter, sans-serif" font-size="11" fill="#e6edf3">Engine: running</text>
+    
+    <rect x="930" y="54" width="60" height="26" rx="13" fill="#1e2632" stroke="#2a3444"/>
+    <text x="960" y="72" font-family="Inter, sans-serif" font-size="11" fill="#e6edf3" text-anchor="middle">v1.6.2</text>
+    
+    <!-- Stats cards row -->
+    <g transform="translate(20, 104)">
+      <!-- Card 1: Active Bans -->
+      <g>
+        <rect width="240" height="100" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect width="240" height="3" rx="1" fill="url(#accentGrad)"/>
+        <text x="20" y="32" font-family="Inter, sans-serif" font-size="10" fill="#6e7681" font-weight="600" letter-spacing="1">ACTIVE BANS</text>
+        <text x="20" y="70" font-family="JetBrains Mono, monospace" font-size="36" fill="#ff6b6b" font-weight="700">47</text>
+        <text x="20" y="88" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">Currently blocked IPs</text>
+        <text x="200" y="60" font-size="32" opacity="0.1">🚫</text>
+      </g>
+      
+      <!-- Card 2: Alerts 24h -->
+      <g transform="translate(260, 0)">
+        <rect width="240" height="100" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect width="240" height="3" rx="1" fill="url(#accentGrad)"/>
+        <text x="20" y="32" font-family="Inter, sans-serif" font-size="10" fill="#6e7681" font-weight="600" letter-spacing="1">ALERTS (24H)</text>
+        <text x="20" y="70" font-family="JetBrains Mono, monospace" font-size="36" fill="#ffa94d" font-weight="700">156</text>
+        <text x="20" y="88" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">Detected threats</text>
+        <text x="200" y="60" font-size="32" opacity="0.1">⚠️</text>
+      </g>
+      
+      <!-- Card 3: Bouncers -->
+      <g transform="translate(520, 0)">
+        <rect width="240" height="100" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect width="240" height="3" rx="1" fill="url(#accentGrad)"/>
+        <text x="20" y="32" font-family="Inter, sans-serif" font-size="10" fill="#6e7681" font-weight="600" letter-spacing="1">BOUNCERS</text>
+        <text x="20" y="70" font-family="JetBrains Mono, monospace" font-size="36" fill="#00d4aa" font-weight="700">2</text>
+        <text x="20" y="88" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">Active remediation</text>
+        <text x="200" y="60" font-size="32" opacity="0.1">🔒</text>
+      </g>
+      
+      <!-- Card 4: Protection -->
+      <g transform="translate(780, 0)">
+        <rect width="220" height="100" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect width="220" height="3" rx="1" fill="url(#accentGrad)"/>
+        <text x="20" y="32" font-family="Inter, sans-serif" font-size="10" fill="#6e7681" font-weight="600" letter-spacing="1">PROTECTION RATE</text>
+        <text x="20" y="70" font-family="JetBrains Mono, monospace" font-size="36" fill="#e6edf3" font-weight="700">99.2%</text>
+        <text x="20" y="88" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">Threats blocked</text>
+        <text x="180" y="60" font-size="32" opacity="0.1">📊</text>
+      </g>
+    </g>
+    
+    <!-- Charts row -->
+    <g transform="translate(20, 224)">
+      <!-- Top Scenarios Card -->
+      <g>
+        <rect width="490" height="220" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect y="0" width="490" height="44" rx="10" fill="rgba(0,0,0,0.3)"/>
+        <rect y="34" width="490" height="10" fill="rgba(0,0,0,0.3)"/>
+        <rect x="16" y="14" width="4" height="16" rx="2" fill="#00d4aa"/>
+        <text x="32" y="27" font-family="Inter, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" letter-spacing="0.5">TOP ATTACK SCENARIOS</text>
+        
+        <!-- Bar chart -->
+        <g transform="translate(20, 60)">
+          <text x="0" y="14" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">ssh-bf</text>
+          <rect x="80" y="2" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="2" width="300" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="16" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">89</text>
+          
+          <text x="0" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">http-probing</text>
+          <rect x="80" y="32" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="32" width="200" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="46" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">52</text>
+          
+          <text x="0" y="74" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">http-bad-ua</text>
+          <rect x="80" y="62" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="62" width="135" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="76" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">34</text>
+          
+          <text x="0" y="104" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">http-sqli</text>
+          <rect x="80" y="92" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="92" width="70" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="106" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">18</text>
+          
+          <text x="0" y="134" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">smb-bf</text>
+          <rect x="80" y="122" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="122" width="35" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="136" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">9</text>
+        </g>
+      </g>
+      
+      <!-- Top Countries Card -->
+      <g transform="translate(510, 0)">
+        <rect width="490" height="220" rx="10" fill="url(#cardGrad)" stroke="#2a3444"/>
+        <rect y="0" width="490" height="44" rx="10" fill="rgba(0,0,0,0.3)"/>
+        <rect y="34" width="490" height="10" fill="rgba(0,0,0,0.3)"/>
+        <rect x="16" y="14" width="4" height="16" rx="2" fill="#00d4aa"/>
+        <text x="32" y="27" font-family="Inter, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" letter-spacing="0.5">TOP COUNTRIES</text>
+        
+        <!-- Country bars -->
+        <g transform="translate(20, 60)">
+          <text x="0" y="14" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">🇨🇳 CN</text>
+          <rect x="80" y="2" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="2" width="300" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="16" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">127</text>
+          
+          <text x="0" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">🇷🇺 RU</text>
+          <rect x="80" y="32" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="32" width="175" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="46" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">74</text>
+          
+          <text x="0" y="74" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">🇺🇸 US</text>
+          <rect x="80" y="62" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="62" width="100" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="76" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">43</text>
+          
+          <text x="0" y="104" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">🇧🇷 BR</text>
+          <rect x="80" y="92" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="92" width="65" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="106" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">28</text>
+          
+          <text x="0" y="134" font-family="Inter, sans-serif" font-size="11" fill="#8b949e">🇮🇳 IN</text>
+          <rect x="80" y="122" width="300" height="20" rx="4" fill="#1e2632"/>
+          <rect x="80" y="122" width="45" height="20" rx="4" fill="url(#accentGrad)"/>
+          <text x="400" y="136" font-family="JetBrains Mono, monospace" font-size="12" fill="#e6edf3" font-weight="600">19</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Floating elements for visual interest -->
+  <g filter="url(#glow)">
+    <!-- Accent line top -->
+    <rect x="0" y="0" width="400" height="3" fill="url(#accentGrad)" opacity="0.8"/>
+    
+    <!-- Shield icon floating -->
+    <g transform="translate(1050, 50)">
+      <circle cx="40" cy="40" r="35" fill="#151b23" stroke="url(#accentGrad)" stroke-width="2"/>
+      <text x="40" y="52" font-size="32" text-anchor="middle">🛡️</text>
+    </g>
+  </g>
+  
+  <!-- Corner decorations -->
+  <path d="M0 630 L0 580 L50 630 Z" fill="url(#accentGrad)" opacity="0.3"/>
+  <path d="M1200 0 L1200 50 L1150 0 Z" fill="url(#accentGrad)" opacity="0.3"/>
+  
+  <!-- Text overlay -->
+  <g transform="translate(600, 590)">
+    <text x="0" y="0" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#6e7681" text-anchor="middle">
+      CyberMind.fr — Open Source Security Dashboard for OpenWrt
+    </text>
+  </g>
+</svg>
