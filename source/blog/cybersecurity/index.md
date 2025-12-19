@@ -1,12 +1,13 @@
 ---
-title: "🛡️ Cybersécurité"
+title: "Cybersécurité"
 layout: category
 category: cybersecurity
-description: "Articles sur la sécurité informatique, les tests d'intrusion, CrowdSec et OpenWrt."
-icon: 🛡️
+icon: "🛡️"
 color: "#00ff88"
-featured_apps: [enigmasuite]
-featured_services: [pentest]
+description: "Sécurité informatique, pentests, CrowdSec et bonnes pratiques"
+order: 1
+featured_apps:
+  - crowdsec-dashboard
 ---
 
-La **cybersécurité** est au cœur de CyberMind.
+Articles sur la sécurité informatique, les tests d'intrusion, et les outils comme CrowdSec.

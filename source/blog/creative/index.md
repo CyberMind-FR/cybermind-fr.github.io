@@ -1,12 +1,11 @@
 ---
-title: "🎨 Créativité & Art Génératif"
+title: "Créativité"
 layout: category
 category: creative
-description: "Articles sur l'art génératif, la géométrie sacrée, la musique et la poésie."
-icon: 🎨
+icon: "🎨"
 color: "#ff6699"
-featured_apps: [tresse-lemniscate, formes-sonores]
-featured_services: [creative]
+description: "Art génératif, géométrie sacrée, musique et poésie"
+order: 4
 ---
 
-Ici vous trouverez des articles explorant l'intersection entre **mathématiques**, **code** et **expression artistique**.
+Articles sur l'art génératif, la géométrie, la création musicale et poétique.

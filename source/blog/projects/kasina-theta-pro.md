@@ -1,6 +1,6 @@
 ---
 title: "Kasina θ Pro : L'Art de l'Entrainement Neuronal"
-date: 2025-12-19 10:50:00
+date: 2024-12-19
 category: projects
 tags:
   - meditation

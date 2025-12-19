@@ -1,12 +1,11 @@
 ---
-title: "⚙️ Systèmes Embarqués"
+title: "Embarqué"
 layout: category
 category: embedded
-description: "Articles sur ARM, Raspberry Pi, Armbian, U-Boot et le développement embarqué."
-icon: ⚙️
+icon: "⚙️"
 color: "#ff6600"
-featured_apps: [pidebugger]
-featured_portfolio: [armbian-wui]
+description: "Systèmes embarqués, ARM, Raspberry Pi, Armbian"
+order: 2
 ---
 
-Le monde de l'**embarqué** : du bootloader au kernel.
+Articles sur les systèmes embarqués, l'architecture ARM, et le développement sur Raspberry Pi.

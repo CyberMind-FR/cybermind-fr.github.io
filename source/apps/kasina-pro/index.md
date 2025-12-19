@@ -5,11 +5,11 @@ icon: "🧠"
 description: "Application de méditation et d'entraînement cérébral avec battements binauraux et géométries sacrées"
 embed_url: "https://brain.maegia.tv"
 embed_height: "700px"
+cover: /images/kasina-theta-pro-cover.jpg
 github: "https://github.com/CyberMind-FR/kasina-pro"
 blog_article: "/blog/projects/kasina-theta-pro/"
 category: meditation
 featured: true
-order: 1
 tags:
   - meditation
   - neuroscience

@@ -1,10 +1,11 @@
 ---
-title: "🐧 Linux & Open Source"
+title: "Linux"
 layout: category
 category: linux
-description: "Articles sur le kernel Linux, l'administration système et les contributions open source."
-icon: 🐧
+icon: "🐧"
 color: "#ffcc00"
+description: "Kernel, administration système, open source"
+order: 3
 ---
 
-**Linux** est notre terrain de jeu depuis plus de 25 ans.
+Articles sur Linux, le kernel, l'administration système et le monde open source.

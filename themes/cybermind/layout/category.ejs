@@ -2,7 +2,8 @@
   Layout: category.ejs
   Page de catégorie
   
-  Utilise get_posts_by_category() pour récupérer les articles
+  Utilise get_category_info() et get_posts_by_category() 
+  avec les catégories découvertes dynamiquement depuis source/blog/
 %>
 
 <%
@@ -26,16 +27,17 @@ if (!categorySlug && page.path) {
   if (pathMatch) categorySlug = pathMatch[1].toLowerCase();
 }
 
-// Infos de la catégorie
-var catInfo = { name: page.title || 'Catégorie', color: '#888888', icon: '📁' };
+// Obtenir les infos de la catégorie dynamiquement
+var catInfo = { name: page.title || 'Catégorie', color: '#888888', icon: '📁', description: '' };
 if (typeof get_category_info === 'function' && categorySlug) {
   catInfo = get_category_info(categorySlug);
 }
 
+// Utiliser les valeurs du front matter en priorité
 var catColor = page.color || catInfo.color;
 var catIcon = page.icon || catInfo.icon;
 var catName = page.title || catInfo.name;
-var catDesc = page.description || '';
+var catDesc = page.description || catInfo.description || '';
 
 // Récupérer les articles de cette catégorie
 var categoryPosts = [];
@@ -50,6 +52,12 @@ if (categoryPosts.length === 0 && page.posts && page.posts.length) {
 }
 
 var postCount = categoryPosts.length;
+
+// Obtenir toutes les catégories pour la navigation
+var allCategories = [];
+if (typeof get_blog_categories === 'function') {
+  allCategories = get_blog_categories();
+}
 %>
 
 <div class="category-page">
@@ -99,15 +107,16 @@ var postCount = categoryPosts.length;
         <a href="<%- url_for(post.path) %>">
           <span class="post-date"><%= date(post.date, 'DD/MM/YYYY') %></span>
           <h3><%= post.title %></h3>
-          <% if (post.description) { %><p><%= post.description %></p><% } %>
+          <% if (post.description || post.excerpt) { %><p><%= post.description || strip_html(post.excerpt).substring(0, 150) %></p><% } %>
           <% if (post.tags && post.tags.length) { %>
           <div class="post-tags">
             <% 
             var tags = [];
             try { tags = post.tags.toArray ? post.tags.toArray() : []; } catch(e) {}
             tags.slice(0, 4).forEach(function(tag) { 
+              if (!tag || !tag.name) return;
             %>
-            <span class="tag">#<%= tag.name || tag %></span>
+            <span class="tag">#<%= tag.name %></span>
             <% }); %>
           </div>
           <% } %>
@@ -122,6 +131,23 @@ var postCount = categoryPosts.length;
     </div>
     <% } %>
   </section>
+
+  <% if (allCategories.length > 1) { %>
+  <section class="other-categories">
+    <h2>📁 Autres catégories</h2>
+    <div class="cat-nav">
+      <% allCategories.forEach(function(cat) { 
+        if (cat.slug === categorySlug) return;
+      %>
+      <a href="<%= cat.path %>" class="cat-nav-item" style="--nav-color: <%= cat.color %>">
+        <span><%= cat.icon %></span>
+        <span><%= cat.name %></span>
+        <span class="nav-count"><%= cat.count %></span>
+      </a>
+      <% }); %>
+    </div>
+  </section>
+  <% } %>
 
 </div>
 
@@ -177,6 +203,22 @@ var postCount = categoryPosts.length;
   background: rgba(255,255,255,0.03); border-radius: 8px; color: #6a6a7a;
 }
 .no-posts a { color: var(--cat-color); }
+
+.other-categories { margin-top: 2rem; }
+.other-categories h2 { color: #9898a6; font-size: 1rem; margin-bottom: 1rem; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cat-nav-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;
+  text-decoration: none; color: #c8c8d0; font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.cat-nav-item:hover { border-color: var(--nav-color); color: var(--nav-color); }
+.cat-nav-item .nav-count {
+  background: rgba(255,255,255,0.1); padding: 0.1rem 0.4rem;
+  border-radius: 4px; font-size: 0.7rem;
+}
 
 @media (max-width: 600px) { .cat-header h1 { font-size: 1.5rem; } }
 [data-theme="light"] .category-page { background: #fff; }

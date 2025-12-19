@@ -1,12 +1,13 @@
 ---
-title: "🧘 Philosophie & Yi Jing"
+title: "Philosophie"
 layout: category
 category: philosophy
-description: "Réflexions sur le Yi Jing, l'esprit critique et la philosophie du M00d."
-icon: 🧘
+icon: "🧘"
 color: "#9966ff"
-featured_apps: [yi-jing-64-hexagrammes]
-featured_portfolio: [wengu-yijing, ganimed]
+description: "Yi Jing, esprit critique, réflexions"
+order: 5
+featured_apps:
+  - yijing
 ---
 
-L'espace de réflexion **philosophique** de CyberMind.
+Articles sur le Yi Jing, la philosophie et l'esprit critique.

@@ -1,10 +1,11 @@
 ---
-title: "📖 Tutoriels & Guides"
+title: "Tutoriels"
 layout: category
 category: tutorials
-description: "Guides pratiques et tutoriels pas à pas."
-icon: 📖
+icon: "📖"
 color: "#66ccff"
+description: "Guides pratiques et how-to"
+order: 6
 ---
 
-Des **tutoriels** concrets pour apprendre et progresser.
+Guides pratiques et tutoriels pas-à-pas.
