@@ -333,8 +333,15 @@ var about = theme.about || {};
     
     <div class="articles-grid">
         <% 
-        var postsToShow = postsLimit > 0 ? page.posts.limit(postsLimit) : page.posts;
-        postsToShow.each(function(post) { 
+        // Utiliser get_blog_posts() si disponible (supporte source/blog/)
+        var allBlogPosts = [];
+        if (typeof get_blog_posts === 'function') {
+            allBlogPosts = get_blog_posts();
+        } else if (page.posts && page.posts.length) {
+            allBlogPosts = page.posts.toArray ? page.posts.toArray() : [];
+        }
+        var postsToShow = allBlogPosts.slice(0, postsLimit);
+        postsToShow.forEach(function(post) { 
         %>
         <%- partial('partials/article', {post: post}) %>
         <% }); %>
@@ -355,7 +362,19 @@ var about = theme.about || {};
 <!-- 
      CATEGORIES SECTION
       -->
-<% if (showCategories && site.categories && site.categories.length > 0) { %>
+<% 
+// Utiliser get_all_categories_with_counts() si disponible (supporte source/blog/)
+var blogCategories = [];
+var hasCategories = false;
+
+if (typeof get_all_categories_with_counts === 'function') {
+    blogCategories = get_all_categories_with_counts();
+    hasCategories = blogCategories.some(function(c) { return c.count > 0; });
+} else if (site.categories && site.categories.length > 0) {
+    hasCategories = true;
+}
+%>
+<% if (showCategories && (hasCategories || (site.categories && site.categories.length > 0))) { %>
 <section id="categories" class="section-alt">
     <div class="section-header">
         <div class="section-tag">Thématiques</div>
@@ -363,36 +382,43 @@ var about = theme.about || {};
     </div>
     
     <div class="categories-grid">
-        <% 
-        var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#f59e0b', '#ef4444'];
-        var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📝'];
-        var allCategories = site.categories.sort('name');
-        var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
-        var idx = 0;
-        categoriesToShow.each(function(cat) {
-            var icon = defaultIcons[idx % defaultIcons.length];
-            var color = defaultColors[idx % defaultColors.length];
-            // Override depuis config si disponible
-            if (theme.categories && theme.categories[cat.name.toLowerCase()]) {
-                var conf = theme.categories[cat.name.toLowerCase()];
-                icon = conf.icon || icon;
-                color = conf.color || color;
-            }
-            idx++;
-        %>
-        <a href="<%= url_for(cat.path) %>" class="category-card" style="--cat-color: <%= color %>">
-            <span class="category-icon"><%= icon %></span>
-            <span class="category-name"><%= cat.name %></span>
-            <span class="category-count"><%= cat.posts.length %></span>
-        </a>
-        <% }); %>
+        <% if (blogCategories.length > 0) { %>
+            <% blogCategories.slice(0, categoriesLimit).forEach(function(cat) { %>
+            <a href="/blog/<%= cat.slug %>/" class="category-card" style="--cat-color: <%= cat.color %>">
+                <span class="category-icon"><%= cat.icon %></span>
+                <span class="category-name"><%= cat.name %></span>
+                <span class="category-count"><%= cat.count %></span>
+            </a>
+            <% }); %>
+        <% } else { %>
+            <% 
+            var defaultColors = ['#00d4ff', '#3b82f6', '#9945ff', '#10b981', '#f59e0b', '#ef4444'];
+            var defaultIcons = ['📁', '📂', '🗂️', '📋', '📄', '📝'];
+            var allCategories = site.categories.sort('name');
+            var categoriesToShow = categoriesLimit > 0 ? allCategories.limit(categoriesLimit) : allCategories;
+            var idx = 0;
+            categoriesToShow.each(function(cat) {
+                var icon = defaultIcons[idx % defaultIcons.length];
+                var color = defaultColors[idx % defaultColors.length];
+                if (theme.categories && theme.categories[cat.name.toLowerCase()]) {
+                    var conf = theme.categories[cat.name.toLowerCase()];
+                    icon = conf.icon || icon;
+                    color = conf.color || color;
+                }
+                idx++;
+            %>
+            <a href="<%= url_for(cat.path) %>" class="category-card" style="--cat-color: <%= color %>">
+                <span class="category-icon"><%= icon %></span>
+                <span class="category-name"><%= cat.name %></span>
+                <span class="category-count"><%= cat.posts.length %></span>
+            </a>
+            <% }); %>
+        <% } %>
     </div>
     
-    <% if (categoriesLimit > 0 && allCategories.length > categoriesLimit) { %>
     <div class="section-footer">
-        <a href="/categories/" class="btn btn-secondary">Toutes les catégories →</a>
+        <a href="/blog/" class="btn btn-secondary">Voir le blog →</a>
     </div>
-    <% } %>
 </section>
 <% } %>
 

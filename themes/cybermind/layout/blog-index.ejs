@@ -1,58 +1,54 @@
 <%#
   Layout: blog-index.ejs
-  Page d'accueil du blog - VERSION SIMPLE
+  Page d'accueil du blog
+  
+  Utilise get_blog_posts() pour récupérer TOUS les articles
+  (y compris ceux dans source/blog/)
 %>
 
 <%
-// Catégories avec leurs infos
-var categories = [
-  { slug: 'cybersecurity', name: 'Cybersécurité', color: '#00ff88', icon: '🛡️', desc: 'Sécurité, pentests, CrowdSec' },
-  { slug: 'embedded', name: 'Embarqué', color: '#ff6600', icon: '⚙️', desc: 'ARM, Raspberry Pi, Armbian' },
-  { slug: 'linux', name: 'Linux', color: '#ffcc00', icon: '🐧', desc: 'Kernel, admin, open source' },
-  { slug: 'creative', name: 'Créativité', color: '#ff6699', icon: '🎨', desc: 'Art génératif, géométrie' },
-  { slug: 'philosophy', name: 'Philosophie', color: '#9966ff', icon: '🧘', desc: 'Yi Jing, esprit critique' },
-  { slug: 'tutorials', name: 'Tutoriels', color: '#66ccff', icon: '📖', desc: 'Guides pratiques' }
-];
-
-// Récupérer tous les posts
+// Récupérer tous les articles via le helper
 var allPosts = [];
-if (site.posts && site.posts.length) {
-  allPosts = site.posts.sort('date', -1).toArray();
+if (typeof get_blog_posts === 'function') {
+  allPosts = get_blog_posts();
+} else {
+  // Fallback: site.posts classique
+  if (site.posts && site.posts.length) {
+    allPosts = site.posts.sort('date', -1).toArray();
+  }
 }
+
 var totalPosts = allPosts.length;
 
-// Fonction pour extraire la catégorie d'un post
-function getPostCat(post) {
-  // 1. Depuis category (string)
-  if (post.category && typeof post.category === 'string') {
-    return post.category.toLowerCase();
-  }
-  // 2. Depuis categories (Hexo)
-  if (post.categories && post.categories.length) {
-    try {
-      var cats = post.categories.toArray ? post.categories.toArray() : [];
-      if (cats.length > 0) {
-        var c = cats[0];
-        return (c.name || c.slug || c || '').toLowerCase();
-      }
-    } catch(e) {}
-  }
-  return '';
+// Catégories avec counts
+var categories = [];
+if (typeof get_all_categories_with_counts === 'function') {
+  categories = get_all_categories_with_counts();
+} else {
+  // Fallback
+  categories = [
+    { slug: 'cybersecurity', name: 'Cybersécurité', color: '#00ff88', icon: '🛡️', count: 0 },
+    { slug: 'embedded', name: 'Embarqué', color: '#ff6600', icon: '⚙️', count: 0 },
+    { slug: 'linux', name: 'Linux', color: '#ffcc00', icon: '🐧', count: 0 },
+    { slug: 'creative', name: 'Créativité', color: '#ff6699', icon: '🎨', count: 0 },
+    { slug: 'philosophy', name: 'Philosophie', color: '#9966ff', icon: '🧘', count: 0 },
+    { slug: 'tutorials', name: 'Tutoriels', color: '#66ccff', icon: '📖', count: 0 }
+  ];
 }
-
-// Compter les posts par catégorie
-categories.forEach(function(cat) {
-  cat.count = 0;
-  allPosts.forEach(function(post) {
-    var postCat = getPostCat(post);
-    if (postCat === cat.slug || postCat === cat.name.toLowerCase()) {
-      cat.count++;
-    }
-  });
-});
 
 // Articles récents (6 derniers)
 var recentPosts = allPosts.slice(0, 6);
+
+// Descriptions
+var categoryDescs = {
+  'cybersecurity': 'Sécurité, pentests, CrowdSec',
+  'embedded': 'ARM, Raspberry Pi, Armbian',
+  'linux': 'Kernel, admin, open source',
+  'creative': 'Art génératif, géométrie',
+  'philosophy': 'Yi Jing, esprit critique',
+  'tutorials': 'Guides pratiques',
+  'projects': 'Applications et projets open source'
+};
 %>
 
 <div class="blog-index">
@@ -73,7 +69,7 @@ var recentPosts = allPosts.slice(0, 6);
           <span class="cat-name" style="color: <%= cat.color %>"><%= cat.name %></span>
           <span class="cat-count" style="background: <%= cat.color %>"><%= cat.count %></span>
         </div>
-        <p class="cat-desc"><%= cat.desc %></p>
+        <p class="cat-desc"><%= categoryDescs[cat.slug] || '' %></p>
       </a>
       <% }); %>
     </div>
@@ -84,8 +80,19 @@ var recentPosts = allPosts.slice(0, 6);
     <% if (recentPosts.length > 0) { %>
     <div class="recent-list">
       <% recentPosts.forEach(function(post) { 
-        var postCat = getPostCat(post);
-        var catInfo = categories.find(function(c) { return c.slug === postCat; }) || {};
+        // Obtenir la catégorie du post
+        var postCat = '';
+        var catInfo = { name: '', color: '#888', icon: '' };
+        
+        if (typeof get_post_category === 'function') {
+          postCat = get_post_category(post);
+        } else if (post.category) {
+          postCat = post.category;
+        }
+        
+        if (postCat && typeof get_category_info === 'function') {
+          catInfo = get_category_info(postCat);
+        }
       %>
       <article class="recent-item">
         <a href="<%- url_for(post.path) %>">

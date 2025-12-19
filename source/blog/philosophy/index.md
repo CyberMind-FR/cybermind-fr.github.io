@@ -5,7 +5,6 @@ category: philosophy
 description: "Réflexions sur le Yi Jing, l'esprit critique et la philosophie du M00d."
 icon: 🧘
 color: "#9966ff"
-order: 5
 featured_apps: [yi-jing-64-hexagrammes]
 featured_portfolio: [wengu-yijing, ganimed]
 ---

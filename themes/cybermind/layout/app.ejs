@@ -14,7 +14,9 @@ var catColors = {
     'creative': '#9945ff',
     'dev': '#10b981',
     'network': '#3b82f6',
-    'tools': '#f97316'
+    'tools': '#f97316',
+    'meditation': '#06b6d4',
+    'projects': '#06b6d4'
 };
 var catColor = catColors[appCategory] || '#f97316';
 
@@ -70,9 +72,19 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
                         ▶ Lancer l'application ↗
                     </a>
                     <% } %>
+                    <% if (page.blog_article) { %>
+                    <a href="<%= page.blog_article %>" class="btn btn-secondary">
+                        📖 Lire l'article
+                    </a>
+                    <% } %>
+                    <% if (page.github) { %>
+                    <a href="<%= page.github %>" target="_blank" class="btn btn-github">
+                        💻 GitHub
+                    </a>
+                    <% } %>
                     <% if (page.related_article) { %>
                     <a href="<%= page.related_article %>" class="btn btn-secondary">
-                        📖 Lire l'article
+                        📖 Article
                     </a>
                     <% } %>
                 </div>
@@ -266,6 +278,15 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.btn-github {
+    background: #24292e !important;
+    color: #fff !important;
+    border: none !important;
+}
+.btn-github:hover {
+    background: #3a3f44 !important;
 }
 
 .app-thumbnail {

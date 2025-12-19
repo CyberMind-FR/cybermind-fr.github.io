@@ -1,28 +1,20 @@
 <%#
   Layout: category.ejs
-  Page de catégorie - VERSION SIMPLE
+  Page de catégorie
+  
+  Utilise get_posts_by_category() pour récupérer les articles
 %>
 
 <%
-// Catégories disponibles
-var categoriesInfo = {
-  'cybersecurity': { name: 'Cybersécurité', color: '#00ff88', icon: '🛡️' },
-  'embedded': { name: 'Embarqué', color: '#ff6600', icon: '⚙️' },
-  'linux': { name: 'Linux', color: '#ffcc00', icon: '🐧' },
-  'creative': { name: 'Créativité', color: '#ff6699', icon: '🎨' },
-  'philosophy': { name: 'Philosophie', color: '#9966ff', icon: '🧘' },
-  'tutorials': { name: 'Tutoriels', color: '#66ccff', icon: '📖' }
-};
-
 // Détecter la catégorie de cette page
 var categorySlug = '';
 
 // 1. Depuis le front matter
 if (page.category) {
-  categorySlug = page.category.toLowerCase();
+  categorySlug = String(page.category).toLowerCase();
 }
 
-// 2. Depuis le chemin
+// 2. Depuis le chemin du fichier
 if (!categorySlug && page.source) {
   var match = page.source.match(/blog\/([^\/]+)\//);
   if (match) categorySlug = match[1].toLowerCase();
@@ -35,67 +27,26 @@ if (!categorySlug && page.path) {
 }
 
 // Infos de la catégorie
-var catInfo = categoriesInfo[categorySlug] || { name: page.title || 'Catégorie', color: '#888888', icon: '📁' };
+var catInfo = { name: page.title || 'Catégorie', color: '#888888', icon: '📁' };
+if (typeof get_category_info === 'function' && categorySlug) {
+  catInfo = get_category_info(categorySlug);
+}
+
 var catColor = page.color || catInfo.color;
 var catIcon = page.icon || catInfo.icon;
 var catName = page.title || catInfo.name;
 var catDesc = page.description || '';
 
-// Fonction pour extraire la catégorie d'un post
-function getPostCat(post) {
-  if (post.category && typeof post.category === 'string') {
-    return post.category.toLowerCase();
-  }
-  if (post.categories && post.categories.length) {
-    try {
-      var cats = post.categories.toArray ? post.categories.toArray() : [];
-      if (cats.length > 0) {
-        var c = cats[0];
-        return (c.name || c.slug || c || '').toLowerCase();
-      }
-    } catch(e) {}
-  }
-  return '';
-}
-
-// Filtrer les posts de cette catégorie
+// Récupérer les articles de cette catégorie
 var categoryPosts = [];
 
-// Méthode 1: page.posts (catégorie Hexo native)
-if (page.posts && page.posts.length) {
-  categoryPosts = page.posts.toArray ? page.posts.toArray() : [];
+if (typeof get_posts_by_category === 'function' && categorySlug) {
+  categoryPosts = get_posts_by_category(categorySlug);
 }
 
-// Méthode 2: Filtrer site.posts manuellement
-if (categoryPosts.length === 0 && site.posts && site.posts.length && categorySlug) {
-  var allPosts = site.posts.toArray ? site.posts.toArray() : [];
-  
-  allPosts.forEach(function(post) {
-    var postCat = getPostCat(post);
-    
-    // Comparaison directe
-    if (postCat === categorySlug) {
-      categoryPosts.push(post);
-      return;
-    }
-    
-    // Comparaison avec le nom de catégorie
-    if (catInfo.name && postCat === catInfo.name.toLowerCase()) {
-      categoryPosts.push(post);
-      return;
-    }
-    
-    // Comparaison dans le chemin du fichier
-    if (post.source && post.source.toLowerCase().indexOf('/' + categorySlug + '/') !== -1) {
-      categoryPosts.push(post);
-      return;
-    }
-  });
-  
-  // Trier par date décroissante
-  categoryPosts.sort(function(a, b) {
-    return new Date(b.date) - new Date(a.date);
-  });
+// Fallback: page.posts (catégorie Hexo native)
+if (categoryPosts.length === 0 && page.posts && page.posts.length) {
+  categoryPosts = page.posts.toArray ? page.posts.toArray() : [];
 }
 
 var postCount = categoryPosts.length;
@@ -151,8 +102,11 @@ var postCount = categoryPosts.length;
           <% if (post.description) { %><p><%= post.description %></p><% } %>
           <% if (post.tags && post.tags.length) { %>
           <div class="post-tags">
-            <% var tags = post.tags.toArray ? post.tags.toArray() : []; %>
-            <% tags.slice(0, 4).forEach(function(tag) { %>
+            <% 
+            var tags = [];
+            try { tags = post.tags.toArray ? post.tags.toArray() : []; } catch(e) {}
+            tags.slice(0, 4).forEach(function(tag) { 
+            %>
             <span class="tag">#<%= tag.name || tag %></span>
             <% }); %>
           </div>
