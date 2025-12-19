@@ -90,9 +90,10 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
                 </div>
             </div>
             
-            <% if (page.thumbnail) { %>
+            <% var coverImage = page.cover || page.thumbnail; %>
+            <% if (coverImage) { %>
             <div class="app-thumbnail">
-                <img src="<%= page.thumbnail %>" alt="<%= page.title %>">
+                <img src="<%= coverImage %>" alt="<%= page.title %>">
             </div>
             <% } %>
         </div>
@@ -290,13 +291,21 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
 }
 
 .app-thumbnail {
-    max-width: 300px;
+    max-width: 400px;
+    flex-shrink: 0;
 }
 
 .app-thumbnail img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    border: 2px solid var(--app-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-thumbnail img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 
 /* Embed section */
