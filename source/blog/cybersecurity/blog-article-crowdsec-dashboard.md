@@ -1,6 +1,6 @@
 ---
 title: "LuCI CrowdSec Dashboard : Surveillance de sécurité en temps réel pour OpenWrt"
-date: 2024-12-19
+date: 2025-12-19 17:22:00
 author: Gandalf
 tags: [crowdsec, openwrt, luci, cybersecurity, open-source, dashboard]
 categories: [Projets, Sécurité]
