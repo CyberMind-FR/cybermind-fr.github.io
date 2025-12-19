@@ -363,18 +363,18 @@ var about = theme.about || {};
      CATEGORIES SECTION
       -->
 <% 
-// Utiliser get_all_categories_with_counts() si disponible (supporte source/blog/)
+// Utiliser get_blog_categories() pour les catégories dynamiques depuis source/blog/
 var blogCategories = [];
 var hasCategories = false;
 
-if (typeof get_all_categories_with_counts === 'function') {
-    blogCategories = get_all_categories_with_counts();
-    hasCategories = blogCategories.some(function(c) { return c.count > 0; });
+if (typeof get_blog_categories === 'function') {
+    blogCategories = get_blog_categories();
+    hasCategories = blogCategories.length > 0;
 } else if (site.categories && site.categories.length > 0) {
     hasCategories = true;
 }
 %>
-<% if (showCategories && (hasCategories || (site.categories && site.categories.length > 0))) { %>
+<% if (showCategories && hasCategories) { %>
 <section id="categories" class="section-alt">
     <div class="section-header">
         <div class="section-tag">Thématiques</div>
@@ -384,7 +384,7 @@ if (typeof get_all_categories_with_counts === 'function') {
     <div class="categories-grid">
         <% if (blogCategories.length > 0) { %>
             <% blogCategories.slice(0, categoriesLimit).forEach(function(cat) { %>
-            <a href="/blog/<%= cat.slug %>/" class="category-card" style="--cat-color: <%= cat.color %>">
+            <a href="<%= cat.path %>" class="category-card" style="--cat-color: <%= cat.color %>">
                 <span class="category-icon"><%= cat.icon %></span>
                 <span class="category-name"><%= cat.name %></span>
                 <span class="category-count"><%= cat.count %></span>

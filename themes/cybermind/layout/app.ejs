@@ -60,7 +60,12 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
                         <%= appCategory %>
                     </span>
                     <% if (page.tags && page.tags.length) { %>
-                        <% page.tags.forEach(function(tag) { %>
+                        <% 
+                        var tagsArr = [];
+                        try { tagsArr = page.tags.toArray ? page.tags.toArray() : []; } catch(e) {}
+                        tagsArr.slice(0, 5).forEach(function(tag) { 
+                            if (!tag || !tag.name) return;
+                        %>
                         <a href="<%= url_for(tag.path) %>" class="badge tag">#<%= tag.name %></a>
                         <% }); %>
                     <% } %>
@@ -90,10 +95,27 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
                 </div>
             </div>
             
-            <% var coverImage = page.cover || page.thumbnail; %>
-            <% if (coverImage) { %>
+            <% 
+            // Utiliser le système de vignettes intelligentes
+            var thumbType = 'none';
+            var thumbSrc = null;
+            
+            if (page.cover) { thumbType = 'cover'; thumbSrc = page.cover; }
+            else if (page.thumbnail) { thumbType = 'thumbnail'; thumbSrc = page.thumbnail; }
+            else if (page.images && page.images.length) { thumbType = 'images'; thumbSrc = page.images[0]; }
+            %>
+            
+            <% if (thumbSrc) { %>
             <div class="app-thumbnail">
-                <img src="<%= coverImage %>" alt="<%= page.title %>">
+                <img src="<%= thumbSrc %>" alt="<%= page.title %>" loading="lazy">
+            </div>
+            <% } else if (typeof render_smart_thumbnail === 'function') { %>
+            <div class="app-thumbnail app-thumbnail-generated">
+                <%- render_smart_thumbnail(page, { class: 'hero-thumb' }) %>
+            </div>
+            <% } else if (typeof render_thumbnail === 'function') { %>
+            <div class="app-thumbnail app-thumbnail-generated">
+                <%- render_thumbnail(page, { class: 'hero-thumb', width: 400, height: 225 }) %>
             </div>
             <% } %>
         </div>
@@ -306,6 +328,16 @@ var statusBadge = statusBadges[appStatus] || statusBadges['active'];
 .app-thumbnail img:hover {
     transform: scale(1.02);
     box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.app-thumbnail-generated {
+    max-width: 400px;
+}
+
+.app-thumbnail-generated .hero-thumb {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    border: 2px solid var(--app-color);
 }
 
 /* Embed section */

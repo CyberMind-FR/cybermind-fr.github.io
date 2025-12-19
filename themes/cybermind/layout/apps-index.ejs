@@ -1,8 +1,15 @@
 <%#
   Layout: apps-index.ejs
-  Page listant toutes les applications avec vignettes
+  Page listant toutes les applications avec vignettes intelligentes
   
   Usage: source/apps/index.md avec layout: apps-index
+  
+  Hiérarchie des vignettes (fallback):
+  1. cover/thumbnail - Image spécifiée
+  2. images[0] - Première image du contenu
+  3. embed-preview - Miniature de l'embed
+  4. summary - Carte avec description
+  5. generated - Image avec tags/catégories
 %>
 
 <%
@@ -31,6 +38,7 @@ var catColors = {
   'creative': '#ec4899',
   'philosophy': '#a855f7',
   'security': '#ef4444',
+  'cybersecurity': '#00ff88',
   'dev': '#3b82f6',
   'tools': '#f97316'
 };
@@ -51,25 +59,30 @@ var catColors = {
   <% if (apps.length > 0) { %>
   <section class="apps-grid">
     <% apps.forEach(function(app) { 
-      var appColor = catColors[app.category] || '#888888';
-      var coverImage = app.cover || app.thumbnail || '';
+      var appColor = catColors[app.category] || '#6366f1';
     %>
     <article class="app-card" style="--app-color: <%= appColor %>">
-      <% if (coverImage) { %>
-      <a href="<%= url_for(app.path) %>" class="app-cover">
-        <img src="<%= coverImage %>" alt="<%= app.title %>" loading="lazy">
+      <a href="<%= url_for(app.path) %>" class="app-cover-link">
+        <% if (typeof render_smart_thumbnail === 'function') { %>
+        <%- render_smart_thumbnail(app, { class: 'app-thumb' }) %>
+        <% } else if (typeof render_thumbnail === 'function') { %>
+        <%- render_thumbnail(app, { class: 'app-thumb', width: 400, height: 225 }) %>
+        <% } else { %>
+        <div class="app-thumb app-thumb-fallback" style="
+          aspect-ratio: 16/9;
+          background: linear-gradient(135deg, <%= appColor %>15, <%= appColor %>30);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">
+          <span style="font-size: 3rem;"><%= app.icon || '🚀' %></span>
+        </div>
+        <% } %>
         <div class="app-overlay">
           <span class="play-icon">▶</span>
         </div>
       </a>
-      <% } else { %>
-      <a href="<%= url_for(app.path) %>" class="app-cover app-cover-placeholder">
-        <span class="app-icon-large"><%= app.icon || '🚀' %></span>
-        <div class="app-overlay">
-          <span class="play-icon">▶</span>
-        </div>
-      </a>
-      <% } %>
       
       <div class="app-card-body">
         <div class="app-card-header">
@@ -90,6 +103,9 @@ var catColors = {
         
         <div class="app-actions">
           <a href="<%= url_for(app.path) %>" class="btn btn-sm btn-primary">Voir →</a>
+          <% if (app.embed_url) { %>
+          <a href="<%= app.embed_url %>" target="_blank" class="btn btn-sm btn-secondary">Lancer ↗</a>
+          <% } %>
           <% if (app.github) { %>
           <a href="<%= app.github %>" target="_blank" class="btn btn-sm btn-github">GitHub</a>
           <% } %>
@@ -146,7 +162,7 @@ var catColors = {
 /* Grid d'apps */
 .apps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
 }
 
@@ -166,34 +182,32 @@ var catColors = {
 }
 
 /* Cover / Vignette */
-.app-cover {
+.app-cover-link {
   display: block;
   position: relative;
-  aspect-ratio: 16/9;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(168,85,247,0.1));
 }
 
-.app-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.app-thumb {
+  display: block;
   transition: transform 0.3s ease;
 }
 
-.app-card:hover .app-cover img {
+.app-card:hover .app-thumb img {
   transform: scale(1.05);
 }
 
-.app-cover-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Pour les cartes générées, pas de scale */
+.app-thumb.summary-card,
+.app-thumb.generated-card,
+.app-thumb.placeholder-card {
+  transition: filter 0.3s ease;
 }
 
-.app-icon-large {
-  font-size: 4rem;
-  opacity: 0.5;
+.app-card:hover .app-thumb.summary-card,
+.app-card:hover .app-thumb.generated-card,
+.app-card:hover .app-thumb.placeholder-card {
+  filter: brightness(1.1);
 }
 
 .app-overlay {
@@ -205,6 +219,7 @@ var catColors = {
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .app-card:hover .app-overlay {
@@ -293,10 +308,11 @@ var catColors = {
 .app-actions {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .app-actions .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 8px;
   font-size: 0.8rem;
   text-decoration: none;
@@ -311,6 +327,17 @@ var catColors = {
 
 .btn-primary:hover {
   filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #e8e8ed;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--app-color);
+  color: var(--app-color);
 }
 
 .btn-github {
@@ -333,6 +360,11 @@ var catColors = {
   padding: 1.5rem;
   background: rgba(255,255,255,0.03);
   border-radius: 12px;
+}
+
+/* Embed preview special */
+.embed-preview iframe {
+  border-radius: 12px 12px 0 0;
 }
 
 /* Responsive */
@@ -362,5 +394,11 @@ var catColors = {
 
 [data-theme="light"] .app-desc {
   color: #555;
+}
+
+[data-theme="light"] .btn-secondary {
+  background: #e9ecef;
+  color: #333;
+  border-color: #dee2e6;
 }
 </style>
