@@ -1,0 +1,326 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="50%" style="stop-color:#161b22"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3fb950"/>
+      <stop offset="100%" style="stop-color:#39c5cf"/>
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#a371f7"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#161b22"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    
+    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3fb950"/>
+      <stop offset="100%" style="stop-color:#56d364"/>
+    </linearGradient>
+    
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3fb950;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:0"/>
+    </linearGradient>
+    
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3fb950;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:0"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#21262d" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Glow effects -->
+  <circle cx="150" cy="150" r="200" fill="url(#glowGrad)"/>
+  <circle cx="1050" cy="480" r="200" fill="url(#glowGrad)"/>
+  
+  <!-- Main Dashboard Window -->
+  <g transform="translate(80, 70)" filter="url(#shadow)">
+    <!-- Window frame -->
+    <rect width="1040" height="490" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+    
+    <!-- Title bar -->
+    <rect width="1040" height="40" rx="12" fill="#0d1117"/>
+    <rect y="28" width="1040" height="12" fill="#0d1117"/>
+    
+    <!-- Window controls -->
+    <circle cx="22" cy="20" r="6" fill="#ff5f57"/>
+    <circle cx="44" cy="20" r="6" fill="#ffbd2e"/>
+    <circle cx="66" cy="20" r="6" fill="#28c840"/>
+    
+    <!-- Title -->
+    <text x="520" y="26" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle">
+      Netdata Dashboard — LuCI @ OpenWrt
+    </text>
+    
+    <!-- Navigation bar -->
+    <rect y="40" width="1040" height="36" fill="#161b22"/>
+    <rect y="75" width="1040" height="1" fill="#30363d"/>
+    
+    <!-- Logo -->
+    <rect x="14" y="48" width="24" height="24" rx="5" fill="url(#greenGrad)"/>
+    <text x="26" y="66" font-family="Arial" font-size="14" fill="#0d1117" text-anchor="middle">📊</text>
+    
+    <text x="48" y="65" font-family="Inter, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#f0f6fc">
+      Net<tspan fill="#3fb950">data</tspan>
+    </text>
+    
+    <!-- Nav tabs -->
+    <text x="150" y="63" font-family="Inter, sans-serif" font-size="12" fill="#3fb950" font-weight="500">Real-time</text>
+    <rect x="140" y="72" width="55" height="3" rx="1" fill="#3fb950"/>
+    
+    <text x="240" y="63" font-family="Inter, sans-serif" font-size="12" fill="#8b949e">System</text>
+    <text x="320" y="63" font-family="Inter, sans-serif" font-size="12" fill="#8b949e">Network</text>
+    <text x="410" y="63" font-family="Inter, sans-serif" font-size="12" fill="#8b949e">Processes</text>
+    
+    <!-- Live badge -->
+    <g transform="translate(920, 50)">
+      <circle cx="8" cy="10" r="4" fill="#3fb950">
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="18" y="14" font-family="Inter, sans-serif" font-size="11" fill="#3fb950" font-weight="500">Live</text>
+    </g>
+    
+    <text x="980" y="64" font-family="JetBrains Mono, monospace" font-size="11" fill="#6e7681">openwrt-router</text>
+    
+    <!-- Quick Stats Row -->
+    <g transform="translate(16, 92)">
+      <!-- CPU -->
+      <g>
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#3fb950" font-weight="700" text-anchor="middle">23%</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle" text-transform="uppercase" letter-spacing="0.5">CPU</text>
+      </g>
+      
+      <!-- Memory -->
+      <g transform="translate(130, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#d29922" font-weight="700" text-anchor="middle">67%</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">MEMORY</text>
+      </g>
+      
+      <!-- Disk -->
+      <g transform="translate(260, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#3fb950" font-weight="700" text-anchor="middle">34%</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">DISK</text>
+      </g>
+      
+      <!-- Load -->
+      <g transform="translate(390, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#58a6ff" font-weight="700" text-anchor="middle">0.45</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">LOAD</text>
+      </g>
+      
+      <!-- Temp -->
+      <g transform="translate(520, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#3fb950" font-weight="700" text-anchor="middle">42°C</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">TEMP</text>
+      </g>
+      
+      <!-- Processes -->
+      <g transform="translate(650, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#58a6ff" font-weight="700" text-anchor="middle">87</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">PROCESSES</text>
+      </g>
+      
+      <!-- Uptime -->
+      <g transform="translate(780, 0)">
+        <rect width="120" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="60" y="32" font-family="JetBrains Mono, monospace" font-size="22" fill="#3fb950" font-weight="700" text-anchor="middle">12d 5h</text>
+        <text x="60" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">UPTIME</text>
+      </g>
+      
+      <!-- Connections -->
+      <g transform="translate(910, 0)">
+        <rect width="114" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="57" y="32" font-family="JetBrains Mono, monospace" font-size="24" fill="#58a6ff" font-weight="700" text-anchor="middle">234</text>
+        <text x="57" y="52" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">CONNS</text>
+      </g>
+    </g>
+    
+    <!-- Charts Row -->
+    <g transform="translate(16, 180)">
+      <!-- CPU Gauge Card -->
+      <g>
+        <rect width="500" height="200" rx="10" fill="#161b22" stroke="#30363d"/>
+        <!-- Header -->
+        <rect width="500" height="36" rx="10" fill="rgba(0,0,0,0.3)"/>
+        <rect y="26" width="500" height="10" fill="rgba(0,0,0,0.3)"/>
+        <text x="16" y="24" font-size="14">⚡</text>
+        <text x="38" y="24" font-family="Inter, sans-serif" font-size="12" fill="#f0f6fc" font-weight="600">CPU Usage</text>
+        <text x="460" y="24" font-family="JetBrains Mono, monospace" font-size="12" fill="#3fb950" font-weight="600">23%</text>
+        
+        <!-- Gauge -->
+        <g transform="translate(100, 110)">
+          <circle cx="0" cy="0" r="55" fill="none" stroke="#21262d" stroke-width="10"/>
+          <circle cx="0" cy="0" r="55" fill="none" stroke="url(#gaugeGrad)" stroke-width="10" 
+                  stroke-dasharray="345.6" stroke-dashoffset="266" stroke-linecap="round"
+                  transform="rotate(-90)"/>
+          <text x="0" y="8" font-family="JetBrains Mono, monospace" font-size="26" fill="#f0f6fc" font-weight="700" text-anchor="middle">23%</text>
+          <text x="0" y="26" font-family="Inter, sans-serif" font-size="10" fill="#6e7681" text-anchor="middle">CPU</text>
+        </g>
+        
+        <!-- Sparkline -->
+        <g transform="translate(220, 55)">
+          <polygon points="0,120 0,100 20,85 40,95 60,75 80,90 100,60 120,80 140,50 160,70 180,40 200,55 220,30 240,45 240,120" 
+                   fill="url(#sparkGrad)"/>
+          <polyline points="0,100 20,85 40,95 60,75 80,90 100,60 120,80 140,50 160,70 180,40 200,55 220,30 240,45" 
+                    fill="none" stroke="#3fb950" stroke-width="2"/>
+          <circle cx="240" cy="45" r="3" fill="#3fb950"/>
+          <text x="120" y="140" font-family="Inter, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">Last 60 samples</text>
+        </g>
+      </g>
+      
+      <!-- Memory Card -->
+      <g transform="translate(516, 0)">
+        <rect width="500" height="200" rx="10" fill="#161b22" stroke="#30363d"/>
+        <!-- Header -->
+        <rect width="500" height="36" rx="10" fill="rgba(0,0,0,0.3)"/>
+        <rect y="26" width="500" height="10" fill="rgba(0,0,0,0.3)"/>
+        <text x="16" y="24" font-size="14">🧠</text>
+        <text x="38" y="24" font-family="Inter, sans-serif" font-size="12" fill="#f0f6fc" font-weight="600">Memory Usage</text>
+        <text x="380" y="24" font-family="JetBrains Mono, monospace" font-size="11" fill="#3fb950" font-weight="600">342 MB / 512 MB</text>
+        
+        <!-- Stacked bar -->
+        <g transform="translate(20, 55)">
+          <rect width="460" height="20" rx="4" fill="#21262d"/>
+          <rect width="207" height="20" rx="4" fill="#f85149"/>
+          <rect x="207" width="37" height="20" fill="#d29922"/>
+          <rect x="244" width="64" height="20" fill="#3fb950"/>
+        </g>
+        
+        <!-- Legend -->
+        <g transform="translate(20, 95)" font-family="Inter, sans-serif" font-size="10">
+          <rect width="8" height="8" rx="2" fill="#f85149"/>
+          <text x="14" y="8" fill="#8b949e">Used: 230 MB</text>
+          
+          <g transform="translate(110, 0)">
+            <rect width="8" height="8" rx="2" fill="#d29922"/>
+            <text x="14" y="8" fill="#8b949e">Buffers: 42 MB</text>
+          </g>
+          
+          <g transform="translate(230, 0)">
+            <rect width="8" height="8" rx="2" fill="#3fb950"/>
+            <text x="14" y="8" fill="#8b949e">Cached: 70 MB</text>
+          </g>
+          
+          <g transform="translate(350, 0)">
+            <rect width="8" height="8" rx="2" fill="#21262d"/>
+            <text x="14" y="8" fill="#8b949e">Free: 170 MB</text>
+          </g>
+        </g>
+        
+        <!-- Memory sparkline -->
+        <g transform="translate(20, 125)">
+          <polygon points="0,50 0,40 30,35 60,42 90,30 120,38 150,25 180,32 210,20 240,28 270,15 300,22 330,10 360,18 390,12 420,16 450,8 460,50" 
+                   fill="url(#sparkGrad)" opacity="0.6"/>
+          <polyline points="0,40 30,35 60,42 90,30 120,38 150,25 180,32 210,20 240,28 270,15 300,22 330,10 360,18 390,12 420,16 450,8" 
+                    fill="none" stroke="#58a6ff" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Bottom Row -->
+    <g transform="translate(16, 398)">
+      <!-- Network -->
+      <g>
+        <rect width="340" height="76" rx="10" fill="#161b22" stroke="#30363d"/>
+        <text x="16" y="26" font-size="14">🌐</text>
+        <text x="38" y="26" font-family="Inter, sans-serif" font-size="12" fill="#f0f6fc" font-weight="600">Network Traffic</text>
+        
+        <g transform="translate(40, 45)">
+          <text x="0" y="0" font-size="16">📥</text>
+          <text x="25" y="0" font-family="JetBrains Mono, monospace" font-size="14" fill="#3fb950" font-weight="700">1.24 GB</text>
+          <text x="25" y="16" font-family="Inter, sans-serif" font-size="9" fill="#6e7681">Received</text>
+        </g>
+        
+        <g transform="translate(180, 45)">
+          <text x="0" y="0" font-size="16">📤</text>
+          <text x="25" y="0" font-family="JetBrains Mono, monospace" font-size="14" fill="#58a6ff" font-weight="700">856 MB</text>
+          <text x="25" y="16" font-family="Inter, sans-serif" font-size="9" fill="#6e7681">Transmitted</text>
+        </g>
+      </g>
+      
+      <!-- Disk Usage -->
+      <g transform="translate(356, 0)">
+        <rect width="340" height="76" rx="10" fill="#161b22" stroke="#30363d"/>
+        <text x="16" y="26" font-size="14">💾</text>
+        <text x="38" y="26" font-family="Inter, sans-serif" font-size="12" fill="#f0f6fc" font-weight="600">Disk Usage</text>
+        
+        <g transform="translate(20, 40)">
+          <text x="0" y="8" font-family="JetBrains Mono, monospace" font-size="10" fill="#8b949e">/</text>
+          <rect x="30" y="0" width="200" height="8" rx="4" fill="#21262d"/>
+          <rect x="30" y="0" width="68" height="8" rx="4" fill="#3fb950"/>
+          <text x="240" y="8" font-family="JetBrains Mono, monospace" font-size="9" fill="#6e7681">34%</text>
+        </g>
+        
+        <g transform="translate(20, 58)">
+          <text x="0" y="8" font-family="JetBrains Mono, monospace" font-size="10" fill="#8b949e">/mnt</text>
+          <rect x="30" y="0" width="200" height="8" rx="4" fill="#21262d"/>
+          <rect x="30" y="0" width="140" height="8" rx="4" fill="#d29922"/>
+          <text x="240" y="8" font-family="JetBrains Mono, monospace" font-size="9" fill="#6e7681">70%</text>
+        </g>
+      </g>
+      
+      <!-- Temperature -->
+      <g transform="translate(712, 0)">
+        <rect width="312" height="76" rx="10" fill="#161b22" stroke="#30363d"/>
+        <text x="16" y="26" font-size="14">🌡️</text>
+        <text x="38" y="26" font-family="Inter, sans-serif" font-size="12" fill="#f0f6fc" font-weight="600">Temperature</text>
+        
+        <g transform="translate(60, 50)">
+          <text x="0" y="0" font-size="28">🔥</text>
+          <text x="50" y="5" font-family="JetBrains Mono, monospace" font-size="32" fill="#3fb950" font-weight="700">42</text>
+          <text x="110" y="5" font-family="JetBrains Mono, monospace" font-size="18" fill="#6e7681">°C</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Floating icon -->
+  <g transform="translate(1050, 45)" filter="url(#glow)">
+    <circle cx="35" cy="35" r="32" fill="#161b22" stroke="url(#greenGrad)" stroke-width="2"/>
+    <text x="35" y="47" font-size="28" text-anchor="middle">📊</text>
+  </g>
+  
+  <!-- Corner decorations -->
+  <rect x="0" y="0" width="350" height="3" fill="url(#greenGrad)" opacity="0.8"/>
+  <path d="M0 630 L0 590 L40 630 Z" fill="url(#greenGrad)" opacity="0.3"/>
+  <path d="M1200 0 L1200 40 L1160 0 Z" fill="url(#greenGrad)" opacity="0.3"/>
+  
+  <!-- Footer text -->
+  <text x="600" y="605" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#6e7681" text-anchor="middle">
+    CyberMind.fr — Real-time System Monitoring for OpenWrt
+  </text>
+</svg>
