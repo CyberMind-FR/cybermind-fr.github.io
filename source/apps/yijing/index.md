@@ -3,7 +3,6 @@ title: "Yi Jing Oracle"
 icon: "☯️"
 url: "https://yijing-oracle.streamlit.app/"
 description: "Application de consultation du Yi Jing (Livre des Mutations). Méthode traditionnelle des 3 pièces, visualisation des hexagrammes."
-order: 1
 ---
 
 ## Yi Jing Oracle

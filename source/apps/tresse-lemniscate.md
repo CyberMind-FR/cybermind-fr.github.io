@@ -6,8 +6,6 @@ type: app
 status: active
 description: "Générateur de motifs géométriques basé sur la suite A000940 (OEIS). Visualisation interactive de tresses et lemniscates avec animations, palettes de couleurs et export PNG/SVG haute résolution."
 thumbnail: "/images/apps/tresse-lemniscate.svg"
-featured: true
-order: 1
 date: 2025-01-01
 tags_list:
   - géométrie

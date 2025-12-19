@@ -1,7 +1,7 @@
 ---
 title: "64 Hexagrammes du Yi Jing"
 layout: app
-date: 2024-12-18
+date: 2025-12-18
 icon: ☯️
 category: philosophy
 tags:
@@ -18,8 +18,6 @@ embed_height: 600
 related_article: "/2024/12/15/introduction-yi-jing/"
 
 # Métadonnées
-featured: true
-order: 1
 status: active
 version: "2.1"
 
