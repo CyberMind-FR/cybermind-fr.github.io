@@ -2,8 +2,8 @@
 title: "Netifyd Dashboard pour OpenWrt"
 description: "Dashboard de Network Intelligence avec Deep Packet Inspection pour visualiser applications, protocoles et appareils sur votre réseau OpenWrt."
 layout: app
-date: 2024-12-19
-updated: 2024-12-19
+date: 2026-01-01
+updated: 2026-01-01
 author: Gandalf
 app:
   name: luci-app-netifyd-dashboard

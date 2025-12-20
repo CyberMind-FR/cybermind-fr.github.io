@@ -2,8 +2,8 @@
 title: "WireGuard Dashboard pour OpenWrt"
 description: "Dashboard moderne pour visualiser vos tunnels WireGuard sur OpenWrt : interfaces, peers, trafic et configuration en temps réel."
 layout: app
-date: 2024-12-19
-updated: 2024-12-19
+date: 2026-01-01
+updated: 2026-01-01
 author: Gandalf
 app:
   name: luci-app-wireguard-dashboard

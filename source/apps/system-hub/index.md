@@ -1,6 +1,6 @@
 ---
 title: "System Hub - Central Control for OpenWrt"
-date: 2024-12-20
+date: 2026-01-01
 layout: app
 app:
   name: System Hub
@@ -11,7 +11,8 @@ app:
   demo: /demos/system-hub
   icon: 🎛️
   color: "#6366f1"
-image: /images/system-hub-hero.png
+cover: /images/system-hub-hero.png
+embed_url: "/apps//system-hub/demo.html"
 ---
 
 <style>

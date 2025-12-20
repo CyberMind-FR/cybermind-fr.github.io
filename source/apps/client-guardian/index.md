@@ -1,6 +1,6 @@
 ---
 title: "Client Guardian - Network Access Control for OpenWrt"
-date: 2024-12-20
+date: 2026-01-01
 layout: app
 app:
   name: Client Guardian

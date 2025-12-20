@@ -2,8 +2,8 @@
 title: "CrowdSec Dashboard pour OpenWrt"
 description: "Dashboard de sécurité moderne et responsive pour surveiller CrowdSec directement depuis LuCI sur votre routeur OpenWrt."
 layout: app
-date: 2025-12-19
-updated: 2025-12-19
+date: 2026-01-01
+updated: 2026-01-01
 author: Gandalf
 app:
   name: luci-app-crowdsec-dashboard

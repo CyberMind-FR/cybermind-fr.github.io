@@ -2,8 +2,8 @@
 title: "Netdata Dashboard pour OpenWrt"
 description: "Dashboard de monitoring système temps réel inspiré de Netdata, directement intégré à LuCI pour surveiller votre routeur OpenWrt."
 layout: app
-date: 2025-12-19
-updated: 2025-12-19
+date: 2026-01-01
+updated: 2026-01-01
 author: Gandalf
 app:
   name: luci-app-netdata-dashboard
