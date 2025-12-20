@@ -13,6 +13,7 @@ app:
   demo: true
 tags: [wireguard, openwrt, luci, vpn, dashboard, security, tunnel]
 image: /images/wireguard-dashboard-hero.png
+embed_url: "/apps/wireguard-dashboard/demo.html"
 ---
 
 <div class="app-hero">
