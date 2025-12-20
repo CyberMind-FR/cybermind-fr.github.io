@@ -243,14 +243,14 @@ Nous croyons en la transparence et la communauté. Le crowdfunding nous permet d
 ### Calendrier Prévisionnel
 
 ```
-2024 Q4  ████████░░░░  Développement modules (FAIT ✅)
-2025 Q1  ░░░░░░░░░░░░  Finalisation System Hub
-2025 Q2  ░░░░░░░░░░░░  Prototypage hardware
-2025 Q3  ░░░░░░░░░░░░  Beta testeurs (100 unités)
-2025 Q4  ░░░░░░░░░░░░  Préparation campagne
-Q2 2027  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
-Q3 2027  ░░░░░░░░░░░░  Production
-2026 Q3  ░░░░░░░░░░░░  📦 Livraison backers
+2026 Q1  ████████░░░░  Développement modules (FAIT ✅)
+2026 Q2  ░░░░░░░░░░░░  Finalisation System Hub
+2026 Q3  ░░░░░░░░░░░░  Prototypage hardware
+2026 Q4  ░░░░░░░░░░░░  Beta testeurs (100 unités)
+2027 Q1  ░░░░░░░░░░░░  Préparation campagne
+2027 Q2  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
+2027 Q3  ░░░░░░░░░░░░  Production
+2027 Q4  ░░░░░░░░░░░░  📦 Livraison backers
 ```
 
 ### Paliers de Financement
