@@ -8,7 +8,6 @@ category: creative
 embed_url: https://kragzouy.streamlit.app
 status: active
 version: '1.0'
-featured: false
 order: 2
 tags_list:
 - kragzouy

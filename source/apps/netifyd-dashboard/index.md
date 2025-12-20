@@ -13,7 +13,9 @@ app:
   demo: true
 tags: [netifyd, openwrt, luci, dpi, network-intelligence, dashboard, security]
 image: /images/netifyd-dashboard-hero.png
+featured: true
 ---
+
 
 <div class="app-hero">
   <div class="app-hero-content">

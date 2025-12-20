@@ -8,7 +8,6 @@ category: creative
 embed_url: https://cybermind.fr/services/creative/cybermind-creative-thinking.html
 status: active
 version: '1.0'
-featured: true
 order: 2
 tags_list:
 - créatif

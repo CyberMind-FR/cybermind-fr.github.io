@@ -8,7 +8,6 @@ embed_url: "/demos/formes-sonores.html"
 embed_height: 550
 status: active
 version: "1.0"
-featured: false
 tags_list:
   - generative
   - audio

@@ -13,7 +13,9 @@ app:
   color: "#6366f1"
 cover: /images/system-hub-hero.png
 embed_url: "/apps//system-hub/demo.html"
+featured: true
 ---
+
 
 <style>
 .sh-hero {

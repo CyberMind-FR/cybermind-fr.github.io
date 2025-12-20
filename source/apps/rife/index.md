@@ -8,7 +8,6 @@ embed_height: "750px"
 cover: /images/rife-cover.jpg
 github: "https://github.com/gkerma/s2"
 category: wellness
-featured: true
 tags:
   - frequencies
   - wellness

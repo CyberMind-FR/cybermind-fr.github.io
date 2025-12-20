@@ -14,7 +14,9 @@ app:
 tags: [crowdsec, openwrt, luci, security, dashboard, open-source]
 cover: /images/crowdsec-dashboard-hero.png
 embed_url: "/apps/crowdsec-dashboard/demo.html"
+featured: true
 ---
+
 
 <div class="app-hero">
   <div class="app-hero-content">

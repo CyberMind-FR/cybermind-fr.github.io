@@ -7,7 +7,6 @@ category: creative
 embed_url: "https://console-game.streamlit.app"
 status: active
 version: "1.0"
-featured: true
 order: 1
 tags_list:
   - game

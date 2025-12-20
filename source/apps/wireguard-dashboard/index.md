@@ -13,7 +13,9 @@ app:
   demo: true
 image: /images/wireguard-dashboard-hero.png
 embed_url: "/apps//wireguard-dashboard/demo.html"
+featured: true
 ---
+
 
 <div class="app-hero">
   <div class="app-hero-content">

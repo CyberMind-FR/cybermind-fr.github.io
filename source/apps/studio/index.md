@@ -8,7 +8,6 @@ embed_height: "750px"
 cover: /images/studio-cover.jpg
 github: "https://github.com/CyberMind-FR/cybermind-studio"
 category: creative
-featured: true
 tags:
   - creative
   - generative

@@ -7,7 +7,6 @@ category: security
 embed_url: "https://cybermind.fr/services/pentest/cybermind-landing-page.html"
 status: active
 version: "1.0"
-featured: true
 order: 1
 tags_list:
   - cybersecurity

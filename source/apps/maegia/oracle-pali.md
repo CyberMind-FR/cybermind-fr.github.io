@@ -7,7 +7,6 @@ category: philosophy
 embed_url: "https://oracle-pali.streamlit.app"
 status: active
 version: "2.0"
-featured: true
 order: 1
 tags_list:
   - yi-jing

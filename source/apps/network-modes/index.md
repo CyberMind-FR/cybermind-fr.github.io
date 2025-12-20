@@ -13,7 +13,9 @@ app:
   color: "#f97316"
 cover: /images/network-modes-hero.png
 embed_url: "/apps/network-modes/demo.html"
+featured: true
 ---
+
 
 <style>
 .nm-hero {

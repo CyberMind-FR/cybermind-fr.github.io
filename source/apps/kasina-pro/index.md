@@ -9,7 +9,6 @@ cover: /images/kasina-theta-pro-cover.jpg
 github: "https://github.com/CyberMind-FR/kasina-pro"
 blog_article: "/blog/projects/kasina-theta-pro/"
 category: meditation
-featured: true
 tags:
   - meditation
   - neuroscience

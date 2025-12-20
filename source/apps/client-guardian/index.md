@@ -13,6 +13,7 @@ app:
   color: "#ef4444"
 cover: /images/client-guardian-hero.png
 embed_url: "/apps/client-guardian/demo.html"
+featured: true
 ---
 
 <style>

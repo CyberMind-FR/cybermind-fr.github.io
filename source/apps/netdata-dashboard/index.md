@@ -14,7 +14,9 @@ app:
 tags: [netdata, openwrt, luci, monitoring, dashboard, open-source, system]
 cover: /images/netdata-dashboard-hero.png
 embed_url: "/apps/netdata-dashboard/demo.html"
+featured: true
 ---
+
 
 <div class="app-hero">
   <div class="app-hero-content">
