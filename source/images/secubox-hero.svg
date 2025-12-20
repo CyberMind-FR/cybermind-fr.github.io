@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a12"/>
+      <stop offset="50%" style="stop-color:#0f1019"/>
+      <stop offset="100%" style="stop-color:#0a0a12"/>
+    </linearGradient>
+    <linearGradient id="secuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="50%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="url(#secuGrad)" opacity="0.03"/>
+  <circle cx="1100" cy="530" r="250" fill="url(#secuGrad)" opacity="0.03"/>
+  
+  <!-- Main content area -->
+  <g transform="translate(80, 50)">
+    <!-- Left side - Text content -->
+    <g transform="translate(0, 80)">
+      <!-- Badge -->
+      <rect width="180" height="32" rx="16" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1"/>
+      <text x="90" y="21" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#10b981" text-anchor="middle">🛡️ CAMPAGNE 2027</text>
+      
+      <!-- Title -->
+      <text y="80" font-family="Inter, sans-serif" font-size="72" font-weight="800" fill="url(#secuGrad)">SecuBox</text>
+      
+      <!-- Subtitle -->
+      <text y="130" font-family="Inter, sans-serif" font-size="24" fill="#94a3b8">Cybersécurité Tout-en-Un</text>
+      <text y="165" font-family="Inter, sans-serif" font-size="18" fill="#64748b">7 modules • 1 box • 0 abonnement</text>
+      
+      <!-- Features list -->
+      <g transform="translate(0, 200)">
+        <g transform="translate(0, 0)">
+          <circle cx="10" cy="10" r="6" fill="#10b981"/>
+          <text x="28" y="15" font-family="Inter, sans-serif" font-size="14" fill="#cbd5e1">CrowdSec — Threat Intelligence</text>
+        </g>
+        <g transform="translate(0, 32)">
+          <circle cx="10" cy="10" r="6" fill="#06b6d4"/>
+          <text x="28" y="15" font-family="Inter, sans-serif" font-size="14" fill="#cbd5e1">WireGuard — VPN Moderne</text>
+        </g>
+        <g transform="translate(0, 64)">
+          <circle cx="10" cy="10" r="6" fill="#3b82f6"/>
+          <text x="28" y="15" font-family="Inter, sans-serif" font-size="14" fill="#cbd5e1">Client Guardian — NAC et Portail Captif</text>
+        </g>
+        <g transform="translate(0, 96)">
+          <circle cx="10" cy="10" r="6" fill="#8b5cf6"/>
+          <text x="28" y="15" font-family="Inter, sans-serif" font-size="14" fill="#cbd5e1">Netifyd — Deep Packet Inspection</text>
+        </g>
+        <g transform="translate(0, 128)">
+          <circle cx="10" cy="10" r="6" fill="#f59e0b"/>
+          <text x="28" y="15" font-family="Inter, sans-serif" font-size="14" fill="#cbd5e1">+ Netdata, Network Modes, System Hub</text>
+        </g>
+      </g>
+      
+      <!-- CTA Button -->
+      <g transform="translate(0, 380)">
+        <rect width="220" height="50" rx="12" fill="url(#secuGrad)" filter="url(#glow)"/>
+        <text x="110" y="32" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">🚀 Rejoindre la Liste</text>
+      </g>
+      
+      <!-- Price -->
+      <g transform="translate(240, 380)">
+        <text y="20" font-family="Inter, sans-serif" font-size="14" fill="#64748b">Early Bird à partir de</text>
+        <text y="42" font-family="JetBrains Mono, monospace" font-size="24" font-weight="800" fill="#10b981">1490€</text>
+      </g>
+    </g>
+    
+    <!-- Right side - Box illustration -->
+    <g transform="translate(550, 60)" filter="url(#shadow)">
+      <!-- SecuBox device - 3D isometric view -->
+      <g transform="rotate(-5)">
+        <!-- Box body -->
+        <rect x="50" y="100" width="400" height="280" rx="24" fill="url(#boxGrad)" stroke="#334155" stroke-width="2"/>
+        
+        <!-- Top edge highlight -->
+        <rect x="50" y="100" width="400" height="6" rx="3" fill="url(#secuGrad)" opacity="0.8"/>
+        
+        <!-- Front panel -->
+        <rect x="80" y="140" width="340" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+        
+        <!-- LED indicators -->
+        <g transform="translate(100, 160)">
+          <circle cx="0" cy="0" r="5" fill="#10b981">
+            <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="15" y="4" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">PWR</text>
+          
+          <circle cx="70" cy="0" r="5" fill="#06b6d4">
+            <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="85" y="4" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">WAN</text>
+          
+          <circle cx="140" cy="0" r="5" fill="#3b82f6">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="0.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="155" y="4" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">LAN</text>
+          
+          <circle cx="210" cy="0" r="5" fill="#22c55e">
+            <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <text x="225" y="4" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748b">SEC</text>
+        </g>
+        
+        <!-- Display screen -->
+        <rect x="100" y="190" width="300" height="130" rx="8" fill="#0a0a12" stroke="#1e293b" stroke-width="1"/>
+        
+        <!-- Screen content - Dashboard preview -->
+        <g transform="translate(115, 205)">
+          <!-- Header -->
+          <text y="12" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#10b981">SecuBox</text>
+          <text x="230" y="12" font-family="JetBrains Mono, monospace" font-size="10" fill="#22c55e" text-anchor="end">● PROTECTED</text>
+          
+          <!-- Stats -->
+          <g transform="translate(0, 30)">
+            <rect width="60" height="40" rx="4" fill="#1e293b"/>
+            <text x="30" y="18" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#10b981" text-anchor="middle">247</text>
+            <text x="30" y="32" font-family="Inter, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Blocked</text>
+          </g>
+          <g transform="translate(70, 30)">
+            <rect width="60" height="40" rx="4" fill="#1e293b"/>
+            <text x="30" y="18" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#06b6d4" text-anchor="middle">12</text>
+            <text x="30" y="32" font-family="Inter, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Clients</text>
+          </g>
+          <g transform="translate(140, 30)">
+            <rect width="60" height="40" rx="4" fill="#1e293b"/>
+            <text x="30" y="18" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#3b82f6" text-anchor="middle">3</text>
+            <text x="30" y="32" font-family="Inter, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">VPN</text>
+          </g>
+          <g transform="translate(210, 30)">
+            <rect width="60" height="40" rx="4" fill="#1e293b"/>
+            <text x="30" y="18" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#22c55e" text-anchor="middle">92</text>
+            <text x="30" y="32" font-family="Inter, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Score</text>
+          </g>
+          
+          <!-- Bottom info -->
+          <text y="95" font-family="JetBrains Mono, monospace" font-size="9" fill="#475569">CPU: 23% | RAM: 58% | 52°C</text>
+        </g>
+        
+        <!-- Branding -->
+        <text x="250" y="360" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#334155" text-anchor="middle">SecuBox</text>
+        
+        <!-- Ports indication -->
+        <g transform="translate(120, 370)">
+          <rect width="30" height="8" rx="2" fill="#1e293b"/>
+          <rect x="40" width="30" height="8" rx="2" fill="#1e293b"/>
+          <rect x="80" width="30" height="8" rx="2" fill="#1e293b"/>
+          <text x="65" y="22" font-family="JetBrains Mono, monospace" font-size="8" fill="#475569" text-anchor="middle">WAN | LAN | USB</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Bottom info bar -->
+  <g transform="translate(0, 580)">
+    <rect width="1200" height="50" fill="#0f172a"/>
+    <g transform="translate(100, 30)">
+      <text font-family="Inter, sans-serif" font-size="13" fill="#64748b">
+        <tspan>🌐 cybermind.fr/secubox</tspan>
+        <tspan dx="40">📧 contact@cybermind.fr</tspan>
+        <tspan dx="40">💻 github.com/gkerma</tspan>
+        <tspan dx="40" fill="#10b981">Made in France</tspan>
+      </text>
+    </g>
+  </g>
+  
+  <!-- Floating badges -->
+  <g transform="translate(920, 480)" filter="url(#glow)">
+    <rect width="100" height="30" rx="15" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="1"/>
+    <text x="50" y="20" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">Open Source</text>
+  </g>
+  
+  <g transform="translate(1030, 480)" filter="url(#glow)">
+    <rect width="80" height="30" rx="15" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="1"/>
+    <text x="40" y="20" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#06b6d4" text-anchor="middle">OpenWrt</text>
+  </g>
+</svg>
