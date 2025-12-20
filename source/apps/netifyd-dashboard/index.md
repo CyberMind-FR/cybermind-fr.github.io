@@ -12,7 +12,8 @@ app:
   repo: https://github.com/gkerma/luci-app-netifyd-dashboard
   demo: true
 tags: [netifyd, openwrt, luci, dpi, network-intelligence, dashboard, security]
-image: /images/netifyd-dashboard-hero.png
+cover: /images/netifyd-dashboard-hero.png
+embed_url: "/apps/netifyd-dashboard/demo.html"
 featured: true
 ---
 
