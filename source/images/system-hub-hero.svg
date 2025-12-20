@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="50%" style="stop-color:#12121a"/>
+      <stop offset="100%" style="stop-color:#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a2a3a" stroke-width="0.5" opacity="0.3"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <g transform="translate(80, 70)" filter="url(#cardShadow)">
+    <rect width="1040" height="490" rx="16" fill="#12121a" stroke="#2a2a3a" stroke-width="2"/>
+    <rect width="1040" height="50" rx="16" fill="#1a1a24"/>
+    <rect y="35" width="1040" height="15" fill="#1a1a24"/>
+    
+    <circle cx="28" cy="25" r="7" fill="#ef4444"/>
+    <circle cx="52" cy="25" r="7" fill="#f59e0b"/>
+    <circle cx="76" cy="25" r="7" fill="#22c55e"/>
+    
+    <text x="520" y="32" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#fafafa" text-anchor="middle">System Hub — Central Control Dashboard</text>
+    
+    <g transform="translate(20, 60)">
+      <rect width="90" height="30" rx="6" fill="url(#hubGrad)" opacity="0.2"/>
+      <rect width="90" height="30" rx="6" fill="none" stroke="url(#hubGrad)" stroke-width="1"/>
+      <text x="45" y="20" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6366f1" text-anchor="middle">Overview</text>
+      
+      <text x="130" y="20" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">Composants</text>
+      <text x="220" y="20" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">Santé</text>
+      <text x="290" y="20" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">Assistance</text>
+      <text x="380" y="20" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">Diagnostics</text>
+      <text x="470" y="20" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">Logs</text>
+      
+      <g transform="translate(850, 0)">
+        <rect width="150" height="42" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <circle cx="35" cy="21" r="18" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="3"/>
+        <text x="35" y="26" font-family="JetBrains Mono, monospace" font-size="12" font-weight="800" fill="#22c55e" text-anchor="middle">92</text>
+        <text x="95" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#fafafa">Système Sain</text>
+        <text x="95" y="30" font-family="Inter, sans-serif" font-size="9" fill="#707080">il y a 5min</text>
+      </g>
+    </g>
+    
+    <g transform="translate(20, 105)">
+      <g transform="translate(0, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">🧩</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="url(#hubGrad)" text-anchor="middle">6</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">COMPOSANTS</text>
+      </g>
+      <g transform="translate(170, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">✅</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="#22c55e" text-anchor="middle">5</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">EN MARCHE</text>
+      </g>
+      <g transform="translate(340, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">⚠️</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="#f59e0b" text-anchor="middle">1</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">ATTENTION</text>
+      </g>
+      <g transform="translate(510, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">📱</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="#3b82f6" text-anchor="middle">12</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">CLIENTS</text>
+      </g>
+      <g transform="translate(680, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">⏱️</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="#a855f7" text-anchor="middle">14j</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">UPTIME</text>
+      </g>
+      <g transform="translate(850, 0)">
+        <rect width="160" height="75" rx="10" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+        <text x="80" y="28" font-size="22" text-anchor="middle">🖥️</text>
+        <text x="80" y="52" font-family="JetBrains Mono, monospace" font-size="26" font-weight="800" fill="#06b6d4" text-anchor="middle">ON</text>
+        <text x="80" y="68" font-family="Inter, sans-serif" font-size="9" fill="#707080" text-anchor="middle">RUSTDESK</text>
+      </g>
+    </g>
+    
+    <g transform="translate(20, 195)">
+      <rect width="490" height="275" rx="12" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+      <rect width="490" height="40" rx="12" fill="rgba(0,0,0,0.3)"/>
+      <rect y="28" width="490" height="12" fill="rgba(0,0,0,0.3)"/>
+      <text x="20" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#fafafa">🧩 Composants Actifs</text>
+      
+      <g transform="translate(16, 50)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#22c55e"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(34, 197, 94, 0.2)" stroke="#22c55e" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">🛡️</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">CrowdSec</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">Cybersécurité</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#22c55e" text-anchor="middle">RUNNING</text>
+      </g>
+      
+      <g transform="translate(248, 50)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#00ab44"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(0, 171, 68, 0.2)" stroke="#00ab44" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">📊</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">Netdata</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">Monitoring</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#22c55e" text-anchor="middle">RUNNING</text>
+      </g>
+      
+      <g transform="translate(16, 126)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#8b5cf6"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(139, 92, 246, 0.2)" stroke="#8b5cf6" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">🔍</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">Netifyd</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">DPI</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#22c55e" text-anchor="middle">RUNNING</text>
+      </g>
+      
+      <g transform="translate(248, 126)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#ef4444"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">🛡️</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">Client Guardian</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">NAC</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(239, 68, 68, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#ef4444" text-anchor="middle">STOPPED</text>
+      </g>
+      
+      <g transform="translate(16, 202)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#88171a"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(136, 23, 26, 0.2)" stroke="#88171a" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">🔒</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">WireGuard</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">VPN</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#22c55e" text-anchor="middle">RUNNING</text>
+      </g>
+      
+      <g transform="translate(248, 202)">
+        <rect width="220" height="68" rx="8" fill="#12121a" stroke="#2a2a3a" stroke-width="1"/>
+        <rect width="220" height="3" rx="1" fill="#f97316"/>
+        <rect x="12" y="14" width="32" height="32" rx="8" fill="rgba(249, 115, 22, 0.2)" stroke="#f97316" stroke-width="1"/>
+        <text x="28" y="36" font-size="16" text-anchor="middle">🔀</text>
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fafafa">Network Modes</text>
+        <text x="56" y="42" font-family="Inter, sans-serif" font-size="9" fill="#707080">Multi-mode</text>
+        <rect x="160" y="22" width="50" height="18" rx="9" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="185" y="35" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#22c55e" text-anchor="middle">RUNNING</text>
+      </g>
+    </g>
+    
+    <g transform="translate(530, 195)">
+      <rect width="490" height="130" rx="12" fill="linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05))" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1"/>
+      <rect width="490" height="40" rx="12" fill="rgba(0,0,0,0.3)"/>
+      <rect y="28" width="490" height="12" fill="rgba(0,0,0,0.3)"/>
+      <text x="20" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#fafafa">🖥️ RustDesk - Assistance Remote</text>
+      
+      <g transform="translate(20, 55)">
+        <rect width="50" height="50" rx="10" fill="url(#hubGrad)"/>
+        <text x="25" y="34" font-size="24" text-anchor="middle">🖥️</text>
+        <text x="75" y="30" font-family="JetBrains Mono, monospace" font-size="22" font-weight="800" fill="#fafafa">847 293 156</text>
+        <text x="75" y="48" font-family="Inter, sans-serif" font-size="10" fill="#707080">ID RustDesk - Partagez avec le support</text>
+      </g>
+      
+      <g transform="translate(320, 55)">
+        <rect width="150" height="50" rx="10" fill="url(#hubGrad)" filter="url(#glow)"/>
+        <text x="75" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle">🚀 Démarrer Session</text>
+      </g>
+    </g>
+    
+    <g transform="translate(530, 340)">
+      <rect width="490" height="130" rx="12" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+      <rect width="490" height="40" rx="12" fill="rgba(0,0,0,0.3)"/>
+      <rect y="28" width="490" height="12" fill="rgba(0,0,0,0.3)"/>
+      <text x="20" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#fafafa">📊 Métriques Santé</text>
+      
+      <g transform="translate(20, 55)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">🔲 CPU</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#22c55e">23%</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="30" height="6" rx="3" fill="#22c55e"/>
+      </g>
+      
+      <g transform="translate(180, 55)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">💾 RAM</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#22c55e">58%</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="75" height="6" rx="3" fill="#22c55e"/>
+      </g>
+      
+      <g transform="translate(340, 55)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">💿 Disk</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#f59e0b">76%</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="100" height="6" rx="3" fill="#f59e0b"/>
+      </g>
+      
+      <g transform="translate(20, 95)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">🌡️ Temp</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#22c55e">52°C</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="68" height="6" rx="3" fill="#22c55e"/>
+      </g>
+      
+      <g transform="translate(180, 95)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">🌐 WAN</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#22c55e">UP</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="130" height="6" rx="3" fill="#22c55e"/>
+      </g>
+      
+      <g transform="translate(340, 95)">
+        <text x="0" y="12" font-family="Inter, sans-serif" font-size="11" fill="#a0a0b0">⚙️ Services</text>
+        <text x="100" y="12" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#22c55e">12/12</text>
+        <rect y="20" width="130" height="6" rx="3" fill="#0a0a0f"/>
+        <rect y="20" width="130" height="6" rx="3" fill="#22c55e"/>
+      </g>
+    </g>
+  </g>
+  
+  <g filter="url(#glow)">
+    <circle cx="50" cy="90" r="25" fill="url(#hubGrad)" opacity="0.15">
+      <animate attributeName="r" values="25;30;25" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1150" cy="540" r="35" fill="url(#greenGrad)" opacity="0.1">
+      <animate attributeName="r" values="35;40;35" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

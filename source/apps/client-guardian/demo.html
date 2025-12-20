@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Guardian Demo - Network Access Control & Captive Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cg-bg-primary: #0f0a0a;
+            --cg-bg-secondary: #1a1212;
+            --cg-bg-tertiary: #251a1a;
+            --cg-border: #3d2828;
+            --cg-text-primary: #fafafa;
+            --cg-text-secondary: #b8a8a8;
+            --cg-text-muted: #8a7575;
+            --cg-accent-red: #ef4444;
+            --cg-accent-green: #22c55e;
+            --cg-accent-amber: #f59e0b;
+            --cg-accent-blue: #3b82f6;
+            --cg-accent-purple: #8b5cf6;
+            --cg-accent-cyan: #06b6d4;
+            --cg-gradient: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+            --cg-font-mono: 'JetBrains Mono', monospace;
+            --cg-font-sans: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--cg-font-sans); background: var(--cg-bg-primary); color: var(--cg-text-primary); min-height: 100vh; }
+
+        .demo-banner { background: var(--cg-gradient); color: white; text-align: center; padding: 10px; font-size: 14px; }
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container { background: var(--cg-bg-secondary); border-bottom: 1px solid var(--cg-border); position: sticky; top: 0; z-index: 100; }
+        .nav { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px; gap: 24px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; color: var(--cg-text-primary); }
+        .nav-brand-icon { width: 44px; height: 44px; background: var(--cg-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 25px rgba(239, 68, 68, 0.4); }
+        .nav-brand-text { font-size: 22px; font-weight: 700; }
+        .nav-brand-text span { background: var(--cg-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+        .nav-tab { padding: 14px 16px; color: var(--cg-text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; }
+        .nav-tab:hover { color: var(--cg-text-primary); }
+        .nav-tab.active { color: var(--cg-accent-red); border-bottom-color: var(--cg-accent-red); }
+        .nav-status { margin-left: auto; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 20px; background: rgba(34, 197, 94, 0.15); color: var(--cg-accent-green); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .status-dot { width: 8px; height: 8px; background: currentColor; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .view { display: none; }
+        .view.active { display: block; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--cg-bg-secondary); border: 1px solid var(--cg-border); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.3s; }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        .stat-icon { font-size: 28px; margin-bottom: 8px; }
+        .stat-value { font-size: 32px; font-weight: 800; font-family: var(--cg-font-mono); background: var(--cg-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 11px; color: var(--cg-text-muted); text-transform: uppercase; margin-top: 4px; }
+
+        .card { background: var(--cg-bg-secondary); border: 1px solid var(--cg-border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--cg-border); background: rgba(0,0,0,0.3); }
+        .card-title { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+        .card-badge { font-family: var(--cg-font-mono); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; background: var(--cg-gradient); color: white; }
+        .card-body { padding: 20px; }
+
+        .client-list { display: flex; flex-direction: column; gap: 10px; }
+        .client-item { display: flex; align-items: center; gap: 14px; padding: 14px; background: var(--cg-bg-tertiary); border: 1px solid var(--cg-border); border-radius: 10px; transition: all 0.2s; }
+        .client-item:hover { border-color: var(--cg-accent-red); }
+        .client-item.online { border-left: 3px solid var(--cg-accent-green); }
+        .client-item.offline { border-left: 3px solid var(--cg-text-muted); opacity: 0.6; }
+        .client-item.quarantine { border-left: 3px solid var(--cg-accent-red); background: rgba(239, 68, 68, 0.08); animation: client-pulse 2s infinite; }
+        .client-item.banned { border-left: 3px solid #6b7280; opacity: 0.4; }
+        @keyframes client-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); } }
+        .client-avatar { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: var(--cg-bg-secondary); border: 1px solid var(--cg-border); }
+        .client-info { flex: 1; }
+        .client-name { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .online-indicator { width: 8px; height: 8px; border-radius: 50%; background: var(--cg-accent-green); box-shadow: 0 0 8px var(--cg-accent-green); }
+        .client-meta { display: flex; gap: 12px; font-size: 11px; color: var(--cg-text-muted); font-family: var(--cg-font-mono); margin-top: 4px; }
+        .client-zone { padding: 3px 8px; border-radius: 8px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .client-zone.private { background: rgba(34, 197, 94, 0.15); color: var(--cg-accent-green); }
+        .client-zone.iot { background: rgba(245, 158, 11, 0.15); color: var(--cg-accent-amber); }
+        .client-zone.kids { background: rgba(6, 182, 212, 0.15); color: var(--cg-accent-cyan); }
+        .client-zone.guest { background: rgba(139, 92, 246, 0.15); color: var(--cg-accent-purple); }
+        .client-zone.quarantine { background: rgba(239, 68, 68, 0.15); color: var(--cg-accent-red); }
+        .client-zone.blocked { background: rgba(107, 114, 128, 0.15); color: #6b7280; }
+        .client-traffic { text-align: right; min-width: 80px; }
+        .client-traffic-value { font-family: var(--cg-font-mono); font-size: 13px; font-weight: 600; }
+        .client-traffic-label { font-size: 9px; color: var(--cg-text-muted); }
+        .client-actions { display: flex; gap: 6px; }
+        .client-action { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--cg-border); background: var(--cg-bg-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 14px; }
+        .client-action:hover { background: var(--cg-bg-tertiary); }
+        .client-action.approve:hover { border-color: var(--cg-accent-green); }
+        .client-action.ban:hover { border-color: #dc2626; }
+
+        .zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+        .zone-card { background: var(--cg-bg-tertiary); border: 1px solid var(--cg-border); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; transition: all 0.3s; }
+        .zone-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--zone-color); }
+        .zone-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .zone-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .zone-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--zone-color); color: var(--zone-color); }
+        .zone-title { font-size: 16px; font-weight: 700; }
+        .zone-subtitle { font-size: 11px; color: var(--cg-text-muted); }
+        .zone-features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .zone-feature { padding: 3px 8px; background: var(--cg-bg-secondary); border-radius: 6px; font-size: 10px; color: var(--cg-text-secondary); }
+        .zone-feature.enabled { color: var(--cg-accent-green); }
+        .zone-feature.disabled { color: var(--cg-text-muted); text-decoration: line-through; }
+        .zone-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--cg-border); }
+        .zone-stat { text-align: center; padding: 8px; background: var(--cg-bg-secondary); border-radius: 6px; }
+        .zone-stat-value { font-family: var(--cg-font-mono); font-size: 18px; font-weight: 700; color: var(--zone-color); }
+        .zone-stat-label { font-size: 9px; color: var(--cg-text-muted); text-transform: uppercase; }
+
+        .toggle { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--cg-bg-tertiary); border-radius: 8px; margin-bottom: 10px; }
+        .toggle-info { display: flex; align-items: center; gap: 12px; }
+        .toggle-icon { font-size: 18px; }
+        .toggle-label { font-size: 13px; font-weight: 500; }
+        .toggle-desc { font-size: 10px; color: var(--cg-text-muted); }
+        .toggle-switch { width: 44px; height: 24px; background: var(--cg-bg-primary); border-radius: 12px; position: relative; cursor: pointer; transition: background 0.3s; }
+        .toggle-switch.active { background: var(--cg-accent-red); }
+        .toggle-switch::after { content: ''; position: absolute; width: 18px; height: 18px; background: white; border-radius: 50%; top: 3px; left: 3px; transition: transform 0.3s; }
+        .toggle-switch.active::after { transform: translateX(20px); }
+
+        .portal-preview { background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid var(--cg-border); border-radius: 16px; padding: 40px; text-align: center; margin: 20px 0; }
+        .portal-preview-logo { width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; background: var(--cg-gradient); }
+        .portal-preview-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .portal-preview-subtitle { font-size: 14px; color: var(--cg-text-secondary); margin-bottom: 24px; }
+        .portal-preview-input { max-width: 280px; margin: 0 auto 16px; padding: 12px 18px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white; text-align: center; display: block; width: 100%; font-size: 14px; }
+        .portal-preview-btn { padding: 12px 36px; border-radius: 8px; font-weight: 600; color: white; border: none; cursor: pointer; background: var(--cg-gradient); font-size: 14px; }
+
+        .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 16px; }
+        .schedule-day { padding: 10px; text-align: center; background: var(--cg-bg-tertiary); border: 1px solid var(--cg-border); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .schedule-day.active { background: rgba(239, 68, 68, 0.2); border-color: var(--cg-accent-red); color: var(--cg-accent-red); }
+        .schedule-day-name { font-size: 10px; font-weight: 600; }
+
+        .alert-item { display: flex; gap: 14px; padding: 14px; background: var(--cg-bg-tertiary); border-radius: 10px; border-left: 3px solid var(--cg-accent-red); margin-bottom: 12px; }
+        .alert-icon { font-size: 24px; }
+        .alert-title { font-weight: 600; margin-bottom: 4px; }
+        .alert-text { font-size: 12px; color: var(--cg-text-secondary); }
+        .alert-time { font-size: 10px; color: var(--cg-text-muted); margin-top: 6px; font-family: var(--cg-font-mono); }
+
+        .log-list { max-height: 400px; overflow-y: auto; }
+        .log-item { display: flex; gap: 12px; padding: 10px; border-bottom: 1px solid var(--cg-border); font-size: 12px; }
+        .log-time { font-family: var(--cg-font-mono); font-size: 10px; color: var(--cg-text-muted); min-width: 130px; }
+        .log-level { padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 600; text-transform: uppercase; min-width: 55px; text-align: center; }
+        .log-level.info { background: rgba(59, 130, 246, 0.15); color: var(--cg-accent-blue); }
+        .log-level.warning { background: rgba(245, 158, 11, 0.15); color: var(--cg-accent-amber); }
+        .log-level.error { background: rgba(239, 68, 68, 0.15); color: var(--cg-accent-red); }
+        .log-message { flex: 1; color: var(--cg-text-secondary); }
+
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--cg-border); border-radius: 8px; background: var(--cg-bg-tertiary); color: var(--cg-text-primary); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { border-color: var(--cg-accent-red); }
+        .btn-primary { background: var(--cg-gradient); border: none; color: white; }
+        .btn-primary:hover { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); transform: translateY(-2px); }
+        .btn-success { background: var(--cg-accent-green); border: none; color: white; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+        .form-group { margin-bottom: 14px; }
+        .form-label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--cg-text-secondary); }
+        .input, .select { width: 100%; padding: 10px 14px; background: var(--cg-bg-primary); border: 1px solid var(--cg-border); border-radius: 8px; color: var(--cg-text-primary); font-size: 13px; font-family: var(--cg-font-mono); }
+        .input:focus, .select:focus { outline: none; border-color: var(--cg-accent-red); }
+
+        .footer { text-align: center; padding: 30px; border-top: 1px solid var(--cg-border); margin-top: 30px; color: var(--cg-text-muted); font-size: 13px; }
+        .footer a { color: var(--cg-accent-red); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; padding: 12px; gap: 12px; }
+            .nav-tabs { width: 100%; justify-content: center; }
+            .nav-status { margin: 0; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .zones-grid { grid-template-columns: 1fr; }
+            .client-item { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🛡️ <strong>Démo interactive</strong> — Network Access Control simulé.
+        <a href="https://github.com/gkerma/luci-app-client-guardian" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🛡️</div>
+                <div class="nav-brand-text">Client <span>Guardian</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="clients">Clients</div>
+                <div class="nav-tab" data-view="zones">Zones</div>
+                <div class="nav-tab" data-view="portal">Portail Captif</div>
+                <div class="nav-tab" data-view="parental">Contrôle Parental</div>
+                <div class="nav-tab" data-view="alerts">Alertes</div>
+                <div class="nav-tab" data-view="logs">Logs</div>
+            </div>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                Protection Active
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Overview -->
+        <div id="overview" class="view active">
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon">📱</div><div class="stat-value">12</div><div class="stat-label">Clients En Ligne</div></div>
+                <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-value">18</div><div class="stat-label">Approuvés</div></div>
+                <div class="stat-card"><div class="stat-icon">⏳</div><div class="stat-value">3</div><div class="stat-label">En Quarantaine</div></div>
+                <div class="stat-card"><div class="stat-icon">🚫</div><div class="stat-value">2</div><div class="stat-label">Bannis</div></div>
+                <div class="stat-card"><div class="stat-icon">🌐</div><div class="stat-value">6</div><div class="stat-label">Zones</div></div>
+                <div class="stat-card"><div class="stat-icon">🔔</div><div class="stat-value">5</div><div class="stat-label">Alertes Aujourd'hui</div></div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⚡ Clients Récents</div>
+                    <div class="card-badge">Temps réel</div>
+                </div>
+                <div class="card-body">
+                    <div class="client-list" id="recent-clients"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⏳ En Attente d'Approbation</div>
+                    <div class="card-badge">3 clients</div>
+                </div>
+                <div class="card-body">
+                    <div class="client-list" id="pending-clients"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clients -->
+        <div id="clients" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📱 Tous les Clients</div>
+                    <div class="card-badge">23 total</div>
+                </div>
+                <div class="card-body">
+                    <div class="client-list" id="all-clients"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zones -->
+        <div id="zones" class="view">
+            <div class="zones-grid" id="zones-grid"></div>
+        </div>
+
+        <!-- Portal -->
+        <div id="portal" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🚪 Configuration du Portail Captif</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🚪</span><div><div class="toggle-label">Portail Captif</div><div class="toggle-desc">Activer pour les zones Guest et Quarantine</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📝</span><div><div class="toggle-label">Conditions d'utilisation</div><div class="toggle-desc">Exiger l'acceptation des CGU</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📧</span><div><div class="toggle-label">Inscription</div><div class="toggle-desc">Permettre l'auto-inscription (avec approbation)</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="form-label">Titre du Portail</label>
+                        <input type="text" class="input" value="Bienvenue sur le Réseau">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Sous-titre</label>
+                        <input type="text" class="input" value="Veuillez vous identifier pour accéder à Internet">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mot de passe Invité</label>
+                        <input type="text" class="input" value="guest2024">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">👁️ Aperçu du Portail</div>
+                </div>
+                <div class="card-body">
+                    <div class="portal-preview">
+                        <div class="portal-preview-logo">🛡️</div>
+                        <div class="portal-preview-title">Bienvenue sur le Réseau</div>
+                        <div class="portal-preview-subtitle">Veuillez vous identifier pour accéder à Internet</div>
+                        <input type="password" class="portal-preview-input" placeholder="Mot de passe invité">
+                        <button class="portal-preview-btn">Se Connecter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parental -->
+        <div id="parental" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🕐 Plages Horaires</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🌙</span><div><div class="toggle-label">Blocage Nocturne</div><div class="toggle-desc">22:00 - 07:00 tous les jours</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🎓</span><div><div class="toggle-label">Heures Scolaires</div><div class="toggle-desc">08:00 - 16:00 Lun-Ven (désactivé)</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <h4 style="margin: 20px 0 10px; font-size: 14px;">Jours actifs (Blocage Nocturne)</h4>
+                    <div class="schedule-grid">
+                        <div class="schedule-day active"><div class="schedule-day-name">LUN</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">MAR</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">MER</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">JEU</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">VEN</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">SAM</div></div>
+                        <div class="schedule-day active"><div class="schedule-day-name">DIM</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🔒 Filtrage de Contenu</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔍</span><div><div class="toggle-label">SafeSearch Forcé</div><div class="toggle-desc">Google, Bing, YouTube</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🎬</span><div><div class="toggle-label">YouTube Mode Restreint</div><div class="toggle-desc">Filtrer les contenus inappropriés</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🚫</span><div><div class="toggle-label">Bloquer Contenu Adulte</div><div class="toggle-desc">Sites pornographiques, violence</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🎰</span><div><div class="toggle-label">Bloquer Jeux d'Argent</div><div class="toggle-desc">Casinos, paris en ligne</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📋 Listes d'URL</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Liste Blanche (toujours autorisé)</label>
+                        <textarea class="input" style="min-height:80px;resize:vertical">google.com
+wikipedia.org
+education.gouv.fr
+scratch.mit.edu</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Liste Noire (toujours bloqué)</label>
+                        <textarea class="input" style="min-height:80px;resize:vertical">tiktok.com
+snapchat.com</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div id="alerts" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📧 Configuration Email</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📧</span><div><div class="toggle-label">Alertes Email</div><div class="toggle-desc">Recevoir les alertes par email</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="form-group" style="margin-top:16px">
+                        <label class="form-label">Serveur SMTP</label>
+                        <input type="text" class="input" value="smtp.gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Destinataires</label>
+                        <input type="text" class="input" value="admin@example.com">
+                    </div>
+                    <button class="btn" style="margin-top:10px">📧 Envoyer Test</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📱 Configuration SMS</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📱</span><div><div class="toggle-label">Alertes SMS</div><div class="toggle-desc">Via Twilio/Nexmo</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="form-group" style="margin-top:16px">
+                        <label class="form-label">Fournisseur</label>
+                        <select class="select"><option>Twilio</option><option>Nexmo</option><option>OVH SMS</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🔔 Types d'Alertes</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🆕</span><div><div class="toggle-label">Nouveau Client Détecté</div><div class="toggle-desc">Alerte quand un appareil inconnu se connecte</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🚫</span><div><div class="toggle-label">Tentative Client Banni</div><div class="toggle-desc">Alerte si un client banni tente de se reconnecter</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📊</span><div><div class="toggle-label">Quota Dépassé</div><div class="toggle-desc">Alerte si un client dépasse son quota</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">⚠️</span><div><div class="toggle-label">Activité Suspecte</div><div class="toggle-desc">Scan de ports, tentatives d'intrusion</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📋 Alertes Récentes</div>
+                </div>
+                <div class="card-body" id="recent-alerts"></div>
+            </div>
+        </div>
+
+        <!-- Logs -->
+        <div id="logs" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📋 Journal d'Événements</div>
+                    <div class="card-badge">100 dernières entrées</div>
+                </div>
+                <div class="card-body">
+                    <div class="log-list" id="log-list"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <strong>luci-app-client-guardian</strong> — Network Access Control & Captive Portal<br>
+        <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> | <a href="https://github.com/gkerma/luci-app-client-guardian">GitHub</a> | Apache-2.0
+    </footer>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Toggle schedule days
+        document.querySelectorAll('.schedule-day').forEach(day => {
+            day.addEventListener('click', () => day.classList.toggle('active'));
+        });
+
+        // Mock data - Clients
+        const clients = [
+            { name: 'PC Bureau Papa', mac: 'AA:BB:CC:DD:EE:01', ip: '192.168.1.10', zone: 'private', status: 'approved', online: true, rx: '2.4 GB', tx: '890 MB', icon: '💻' },
+            { name: 'iPhone Marie', mac: 'AA:BB:CC:DD:EE:02', ip: '192.168.1.15', zone: 'private', status: 'approved', online: true, rx: '1.2 GB', tx: '340 MB', icon: '📱' },
+            { name: 'Tablette Enfant', mac: 'AA:BB:CC:DD:EE:03', ip: '192.168.1.20', zone: 'kids', status: 'approved', online: true, rx: '890 MB', tx: '120 MB', icon: '📱' },
+            { name: 'Caméra Salon', mac: 'AA:BB:CC:DD:EE:04', ip: '192.168.1.50', zone: 'iot', status: 'approved', online: true, rx: '45 MB', tx: '2.1 GB', icon: '📷' },
+            { name: 'Thermostat Nest', mac: 'AA:BB:CC:DD:EE:05', ip: '192.168.1.51', zone: 'iot', status: 'approved', online: true, rx: '12 MB', tx: '8 MB', icon: '🌡️' },
+            { name: 'Smart TV', mac: 'AA:BB:CC:DD:EE:06', ip: '192.168.1.30', zone: 'private', status: 'approved', online: false, rx: '5.6 GB', tx: '45 MB', icon: '📺' },
+            { name: 'Laptop Travail', mac: 'AA:BB:CC:DD:EE:07', ip: '192.168.1.11', zone: 'private', status: 'approved', online: true, rx: '3.2 GB', tx: '1.1 GB', icon: '💻' },
+            { name: 'Invité - Samsung', mac: 'AA:BB:CC:DD:EE:08', ip: '192.168.2.10', zone: 'guest', status: 'approved', online: true, rx: '234 MB', tx: '56 MB', icon: '📱' },
+        ];
+
+        const pendingClients = [
+            { name: 'Unknown-D4E5F6', mac: 'D4:E5:F6:11:22:33', ip: '192.168.1.99', zone: 'quarantine', status: 'unknown', online: true, rx: '1.2 MB', tx: '0.8 MB', icon: '❓' },
+            { name: 'Android-XYZ', mac: 'A1:B2:C3:44:55:66', ip: '192.168.1.98', zone: 'quarantine', status: 'unknown', online: true, rx: '0.5 MB', tx: '0.2 MB', icon: '❓' },
+            { name: 'ESP32-Device', mac: 'E8:DB:84:99:88:77', ip: '192.168.1.97', zone: 'quarantine', status: 'unknown', online: true, rx: '0.1 MB', tx: '0.1 MB', icon: '🔧' },
+        ];
+
+        const bannedClients = [
+            { name: 'Intrus Détecté', mac: 'AA:BB:CC:DD:EE:99', ip: 'N/A', zone: 'blocked', status: 'banned', online: false, rx: '0', tx: '0', icon: '🚫' },
+            { name: 'MAC Spoofing', mac: 'FF:FF:FF:00:00:01', ip: 'N/A', zone: 'blocked', status: 'banned', online: false, rx: '0', tx: '0', icon: '🚫' },
+        ];
+
+        function renderClient(c, showActions = true) {
+            const statusClass = c.online ? 'online' : 'offline';
+            const extraClass = c.status === 'unknown' ? 'quarantine' : (c.status === 'banned' ? 'banned' : '');
+            return `
+                <div class="client-item ${statusClass} ${extraClass}">
+                    <div class="client-avatar">${c.icon}</div>
+                    <div class="client-info">
+                        <div class="client-name">${c.online ? '<span class="online-indicator"></span>' : ''} ${c.name}</div>
+                        <div class="client-meta">
+                            <span>${c.mac}</span>
+                            <span>${c.ip}</span>
+                        </div>
+                    </div>
+                    <span class="client-zone ${c.zone}">${c.zone}</span>
+                    <div class="client-traffic">
+                        <div class="client-traffic-value">↓ ${c.rx}</div>
+                        <div class="client-traffic-label">↑ ${c.tx}</div>
+                    </div>
+                    ${showActions ? `
+                    <div class="client-actions">
+                        ${c.status === 'unknown' ? '<div class="client-action approve" title="Approuver">✅</div>' : ''}
+                        ${c.status !== 'banned' ? '<div class="client-action ban" title="Bannir">🚫</div>' : ''}
+                        <div class="client-action edit" title="Modifier">✏️</div>
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        document.getElementById('recent-clients').innerHTML = clients.slice(0, 5).map(c => renderClient(c, false)).join('');
+        document.getElementById('pending-clients').innerHTML = pendingClients.map(c => renderClient(c)).join('');
+        document.getElementById('all-clients').innerHTML = [...clients, ...pendingClients, ...bannedClients].map(c => renderClient(c)).join('');
+
+        // Zones
+        const zones = [
+            { id: 'lan_private', name: 'LAN Privé', desc: 'Réseau local de confiance', icon: '🏠', color: '#22c55e', clients: 5, features: ['Internet', 'Local', 'Inter-client'], internet: true },
+            { id: 'iot', name: 'IoT', desc: 'Objets connectés isolés', icon: '🔧', color: '#f59e0b', clients: 2, features: ['Internet', '~Local', '~Inter-client'], internet: true },
+            { id: 'kids', name: 'Enfants', desc: 'Accès filtré pour enfants', icon: '👶', color: '#06b6d4', clients: 1, features: ['Internet', 'Local', 'Filtrage', 'Horaires'], internet: true },
+            { id: 'guest', name: 'Invités', desc: 'Accès Internet limité', icon: '👥', color: '#8b5cf6', clients: 1, features: ['Internet', '~Local', 'Portail'], internet: true },
+            { id: 'quarantine', name: 'Quarantaine', desc: 'Clients non approuvés', icon: '⏳', color: '#ef4444', clients: 3, features: ['~Internet', '~Local', 'Portail Only'], internet: false },
+            { id: 'blocked', name: 'Bloqué', desc: 'Clients bannis', icon: '🚫', color: '#6b7280', clients: 2, features: ['~Internet', '~Local', '~Tout'], internet: false },
+        ];
+
+        document.getElementById('zones-grid').innerHTML = zones.map(z => `
+            <div class="zone-card" style="--zone-color: ${z.color}">
+                <div class="zone-header">
+                    <div class="zone-icon">${z.icon}</div>
+                    <div>
+                        <div class="zone-title">${z.name}</div>
+                        <div class="zone-subtitle">${z.desc}</div>
+                    </div>
+                </div>
+                <div class="zone-features">
+                    ${z.features.map(f => `<span class="zone-feature ${f.startsWith('~') ? 'disabled' : 'enabled'}">${f.replace('~', '')}</span>`).join('')}
+                </div>
+                <div class="zone-stats">
+                    <div class="zone-stat"><div class="zone-stat-value">${z.clients}</div><div class="zone-stat-label">Clients</div></div>
+                    <div class="zone-stat"><div class="zone-stat-value">${z.internet ? '✅' : '❌'}</div><div class="zone-stat-label">Internet</div></div>
+                </div>
+            </div>
+        `).join('');
+
+        // Alerts
+        const alerts = [
+            { icon: '🆕', title: 'Nouveau Client Détecté', text: 'MAC: D4:E5:F6:11:22:33 - Mis en quarantaine', time: '2024-12-20 15:45:23' },
+            { icon: '🚫', title: 'Tentative Client Banni', text: 'MAC: AA:BB:CC:DD:EE:99 a tenté de se connecter', time: '2024-12-20 14:32:11' },
+            { icon: '📊', title: 'Quota Dépassé', text: 'Tablette Enfant a dépassé 2h de quota', time: '2024-12-20 13:15:00' },
+            { icon: '⚠️', title: 'Activité Suspecte', text: 'Scan de ports détecté depuis 192.168.1.99', time: '2024-12-20 12:05:44' },
+            { icon: '✅', title: 'Client Approuvé', text: 'iPhone Marie ajouté à LAN Privé', time: '2024-12-20 10:22:15' },
+        ];
+
+        document.getElementById('recent-alerts').innerHTML = alerts.map(a => `
+            <div class="alert-item">
+                <div class="alert-icon">${a.icon}</div>
+                <div>
+                    <div class="alert-title">${a.title}</div>
+                    <div class="alert-text">${a.text}</div>
+                    <div class="alert-time">${a.time}</div>
+                </div>
+            </div>
+        `).join('');
+
+        // Logs
+        const logs = [
+            { time: '2024-12-20 15:45:23', level: 'info', message: 'New client detected: D4:E5:F6:11:22:33' },
+            { time: '2024-12-20 15:45:23', level: 'info', message: 'Client D4:E5:F6:11:22:33 moved to quarantine' },
+            { time: '2024-12-20 15:30:00', level: 'info', message: 'DHCP lease renewed for AA:BB:CC:DD:EE:01' },
+            { time: '2024-12-20 14:32:11', level: 'warning', message: 'Banned client AA:BB:CC:DD:EE:99 connection attempt blocked' },
+            { time: '2024-12-20 14:32:11', level: 'info', message: 'Alert sent: banned_attempt' },
+            { time: '2024-12-20 13:15:00', level: 'warning', message: 'Quota exceeded for client AA:BB:CC:DD:EE:03' },
+            { time: '2024-12-20 12:05:44', level: 'error', message: 'Suspicious activity: port scan from 192.168.1.99' },
+            { time: '2024-12-20 12:05:44', level: 'info', message: 'Alert sent: suspicious_activity' },
+            { time: '2024-12-20 10:22:15', level: 'info', message: 'Client AA:BB:CC:DD:EE:02 approved -> lan_private' },
+            { time: '2024-12-20 09:00:00', level: 'info', message: 'Client Guardian service started' },
+        ];
+
+        document.getElementById('log-list').innerHTML = logs.map(l => `
+            <div class="log-item">
+                <div class="log-time">${l.time}</div>
+                <div class="log-level ${l.level}">${l.level}</div>
+                <div class="log-message">${l.message}</div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>

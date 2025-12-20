@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Hub Demo - Central Control & Remote Assistance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sh-bg-primary: #0a0a0f;
+            --sh-bg-secondary: #12121a;
+            --sh-bg-tertiary: #1a1a24;
+            --sh-border: #2a2a3a;
+            --sh-text-primary: #fafafa;
+            --sh-text-secondary: #a0a0b0;
+            --sh-text-muted: #707080;
+            --sh-accent-indigo: #6366f1;
+            --sh-accent-violet: #8b5cf6;
+            --sh-success: #22c55e;
+            --sh-warning: #f59e0b;
+            --sh-danger: #ef4444;
+            --sh-info: #3b82f6;
+            --sh-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            --sh-font-mono: 'JetBrains Mono', monospace;
+            --sh-font-sans: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sh-font-sans); background: var(--sh-bg-primary); color: var(--sh-text-primary); min-height: 100vh; }
+
+        .demo-banner { background: var(--sh-gradient); color: white; text-align: center; padding: 10px; font-size: 14px; }
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container { background: var(--sh-bg-secondary); border-bottom: 1px solid var(--sh-border); position: sticky; top: 0; z-index: 100; }
+        .nav { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px; gap: 24px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; color: var(--sh-text-primary); }
+        .nav-brand-icon { width: 44px; height: 44px; background: var(--sh-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 25px rgba(99, 102, 241, 0.4); }
+        .nav-brand-text { font-size: 22px; font-weight: 700; }
+        .nav-brand-text span { background: var(--sh-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+        .nav-tab { padding: 14px 16px; color: var(--sh-text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; }
+        .nav-tab:hover { color: var(--sh-text-primary); }
+        .nav-tab.active { color: var(--sh-accent-indigo); border-bottom-color: var(--sh-accent-indigo); }
+
+        .health-badge { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+        .health-score { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--sh-font-mono); font-size: 14px; font-weight: 800; }
+        .health-score.healthy { background: rgba(34, 197, 94, 0.15); color: var(--sh-success); border: 2px solid var(--sh-success); }
+        .health-info { font-size: 12px; }
+        .health-label { font-weight: 600; }
+        .health-status { color: var(--sh-text-muted); font-size: 10px; }
+
+        .main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .view { display: none; }
+        .view.active { display: block; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; margin-bottom: 24px; }
+        .stat-card { background: var(--sh-bg-secondary); border: 1px solid var(--sh-border); border-radius: 12px; padding: 18px; text-align: center; transition: all 0.3s; }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-color: var(--sh-accent-indigo); }
+        .stat-icon { font-size: 26px; margin-bottom: 8px; }
+        .stat-value { font-size: 28px; font-weight: 800; font-family: var(--sh-font-mono); background: var(--sh-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 10px; color: var(--sh-text-muted); text-transform: uppercase; margin-top: 4px; }
+
+        .card { background: var(--sh-bg-secondary); border: 1px solid var(--sh-border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--sh-border); background: rgba(0,0,0,0.3); }
+        .card-title { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+        .card-badge { font-family: var(--sh-font-mono); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; background: var(--sh-gradient); color: white; }
+        .card-body { padding: 20px; }
+
+        .components-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+        .component-card { background: var(--sh-bg-tertiary); border: 1px solid var(--sh-border); border-radius: 12px; padding: 18px; position: relative; overflow: hidden; transition: all 0.3s; }
+        .component-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--component-color); }
+        .component-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .component-card.planned { opacity: 0.6; border-style: dashed; }
+        .component-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+        .component-info { display: flex; align-items: center; gap: 10px; }
+        .component-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,255,255,0.05); border: 1px solid var(--component-color); color: var(--component-color); }
+        .component-name { font-size: 14px; font-weight: 700; }
+        .component-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .component-status { padding: 3px 8px; border-radius: 10px; font-size: 9px; font-weight: 600; text-transform: uppercase; }
+        .component-status.running { background: rgba(34, 197, 94, 0.15); color: var(--sh-success); }
+        .component-status.stopped { background: rgba(239, 68, 68, 0.15); color: var(--sh-danger); }
+        .component-status.planned { background: rgba(99, 102, 241, 0.15); color: var(--sh-accent-indigo); }
+        .component-actions { display: flex; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--sh-border); }
+        .component-action { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--sh-border); background: var(--sh-bg-secondary); color: var(--sh-text-secondary); font-size: 10px; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .component-action:hover { border-color: var(--sh-accent-indigo); color: var(--sh-text-primary); }
+
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+        .health-metric { background: var(--sh-bg-tertiary); border: 1px solid var(--sh-border); border-radius: 10px; padding: 14px; }
+        .metric-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .metric-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+        .metric-icon { font-size: 16px; }
+        .metric-value { font-family: var(--sh-font-mono); font-size: 13px; font-weight: 600; }
+        .metric-value.ok { color: var(--sh-success); }
+        .metric-value.warning { color: var(--sh-warning); }
+        .metric-value.critical { color: var(--sh-danger); }
+        .progress-bar { height: 6px; background: var(--sh-bg-primary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+        .progress-fill.ok { background: var(--sh-success); }
+        .progress-fill.warning { background: var(--sh-warning); }
+        .progress-fill.critical { background: var(--sh-danger); }
+
+        .remote-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05)); border-color: rgba(99, 102, 241, 0.3); }
+        .remote-id { display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--sh-bg-tertiary); border-radius: 10px; margin-bottom: 16px; }
+        .remote-id-icon { width: 56px; height: 56px; background: var(--sh-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+        .remote-id-value { font-family: var(--sh-font-mono); font-size: 26px; font-weight: 800; letter-spacing: 2px; }
+        .remote-id-label { font-size: 11px; color: var(--sh-text-muted); }
+
+        .toggle { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--sh-bg-tertiary); border-radius: 8px; margin-bottom: 8px; }
+        .toggle-info { display: flex; align-items: center; gap: 10px; }
+        .toggle-icon { font-size: 16px; }
+        .toggle-label { font-size: 12px; font-weight: 500; }
+        .toggle-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .toggle-switch { width: 40px; height: 22px; background: var(--sh-bg-primary); border-radius: 11px; position: relative; cursor: pointer; transition: background 0.3s; }
+        .toggle-switch.active { background: var(--sh-accent-indigo); }
+        .toggle-switch::after { content: ''; position: absolute; width: 16px; height: 16px; background: white; border-radius: 50%; top: 3px; left: 3px; transition: transform 0.3s; }
+        .toggle-switch.active::after { transform: translateX(18px); }
+
+        .log-list { max-height: 350px; overflow-y: auto; }
+        .log-item { display: flex; gap: 10px; padding: 8px; border-bottom: 1px solid var(--sh-border); font-size: 11px; }
+        .log-time { font-family: var(--sh-font-mono); font-size: 9px; color: var(--sh-text-muted); min-width: 120px; }
+        .log-source { padding: 2px 6px; border-radius: 4px; font-size: 8px; font-weight: 600; background: var(--sh-bg-tertiary); color: var(--sh-accent-indigo); min-width: 70px; text-align: center; }
+        .log-level { padding: 2px 6px; border-radius: 4px; font-size: 8px; font-weight: 600; text-transform: uppercase; min-width: 50px; text-align: center; }
+        .log-level.info { background: rgba(59, 130, 246, 0.15); color: var(--sh-info); }
+        .log-level.warning { background: rgba(245, 158, 11, 0.15); color: var(--sh-warning); }
+        .log-level.error { background: rgba(239, 68, 68, 0.15); color: var(--sh-danger); }
+        .log-message { flex: 1; color: var(--sh-text-secondary); }
+
+        .sysinfo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+        .sysinfo-item { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--sh-bg-tertiary); border-radius: 6px; }
+        .sysinfo-label { font-size: 11px; color: var(--sh-text-muted); }
+        .sysinfo-value { font-family: var(--sh-font-mono); font-size: 11px; font-weight: 600; }
+
+        .roadmap-item { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--sh-bg-tertiary); border: 1px dashed var(--sh-border); border-radius: 10px; margin-bottom: 10px; }
+        .roadmap-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(99, 102, 241, 0.1); border: 1px solid var(--sh-accent-indigo); color: var(--sh-accent-indigo); }
+        .roadmap-info { flex: 1; }
+        .roadmap-name { font-size: 13px; font-weight: 600; }
+        .roadmap-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .roadmap-date { padding: 4px 10px; background: var(--sh-bg-primary); border-radius: 6px; font-family: var(--sh-font-mono); font-size: 10px; color: var(--sh-accent-indigo); }
+
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid var(--sh-border); border-radius: 8px; background: var(--sh-bg-tertiary); color: var(--sh-text-primary); font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { border-color: var(--sh-accent-indigo); }
+        .btn-primary { background: var(--sh-gradient); border: none; color: white; }
+        .btn-primary:hover { box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); transform: translateY(-2px); }
+        .btn-success { background: var(--sh-success); border: none; color: white; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+        .form-group { margin-bottom: 12px; }
+        .form-label { display: block; font-size: 11px; font-weight: 600; margin-bottom: 6px; color: var(--sh-text-secondary); }
+        .input { width: 100%; padding: 10px 14px; background: var(--sh-bg-primary); border: 1px solid var(--sh-border); border-radius: 8px; color: var(--sh-text-primary); font-size: 12px; font-family: var(--sh-font-mono); }
+        .input:focus { outline: none; border-color: var(--sh-accent-indigo); }
+
+        .footer { text-align: center; padding: 30px; border-top: 1px solid var(--sh-border); margin-top: 30px; color: var(--sh-text-muted); font-size: 13px; }
+        .footer a { color: var(--sh-accent-indigo); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; padding: 12px; gap: 12px; }
+            .nav-tabs { width: 100%; justify-content: center; }
+            .health-badge { margin: 0; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .components-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎛️ <strong>Démo interactive</strong> — System Hub simulé.
+        <a href="https://github.com/gkerma/luci-app-system-hub" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🎛️</div>
+                <div class="nav-brand-text">System <span>Hub</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="components">Composants</div>
+                <div class="nav-tab" data-view="health">Santé</div>
+                <div class="nav-tab" data-view="remote">Assistance</div>
+                <div class="nav-tab" data-view="diagnostics">Diagnostics</div>
+                <div class="nav-tab" data-view="logs">Logs</div>
+                <div class="nav-tab" data-view="settings">Paramètres</div>
+            </div>
+            <div class="health-badge">
+                <div class="health-score healthy">92</div>
+                <div class="health-info">
+                    <div class="health-label">Système Sain</div>
+                    <div class="health-status">Dernière vérif: il y a 5min</div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Overview -->
+        <div id="overview" class="view active">
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon">🧩</div><div class="stat-value">6</div><div class="stat-label">Composants Installés</div></div>
+                <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-value">5</div><div class="stat-label">En Fonctionnement</div></div>
+                <div class="stat-card"><div class="stat-icon">⚠️</div><div class="stat-value">1</div><div class="stat-label">Attention Requise</div></div>
+                <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-value">92</div><div class="stat-label">Score Santé</div></div>
+                <div class="stat-card"><div class="stat-icon">📱</div><div class="stat-value">12</div><div class="stat-label">Clients Connectés</div></div>
+                <div class="stat-card"><div class="stat-icon">⏱️</div><div class="stat-value">14j</div><div class="stat-label">Uptime</div></div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💻 Informations Système</div>
+                </div>
+                <div class="card-body">
+                    <div class="sysinfo-grid">
+                        <div class="sysinfo-item"><span class="sysinfo-label">Hostname</span><span class="sysinfo-value">OpenWrt-Gateway</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Modèle</span><span class="sysinfo-value">Linksys WRT3200ACM</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Architecture</span><span class="sysinfo-value">ARMv7 (mvebu)</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Kernel</span><span class="sysinfo-value">5.15.134</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">OpenWrt</span><span class="sysinfo-value">23.05.2</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Uptime</span><span class="sysinfo-value">14 jours, 6h 32m</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">WAN IP</span><span class="sysinfo-value">82.xxx.xxx.42</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">LAN IP</span><span class="sysinfo-value">192.168.1.1</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📊 Métriques Rapides</div>
+                </div>
+                <div class="card-body">
+                    <div class="health-grid">
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🔲</span> CPU</div><div class="metric-value ok">23%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 23%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💾</span> RAM</div><div class="metric-value ok">58%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 58%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💿</span> Disque</div><div class="metric-value warning">76%</div></div>
+                            <div class="progress-bar"><div class="progress-fill warning" style="width: 76%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌡️</span> Temp</div><div class="metric-value ok">52°C</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 52%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🧩 Composants Actifs</div>
+                    <div class="card-badge">6 installés</div>
+                </div>
+                <div class="card-body">
+                    <div class="components-grid" id="quick-components"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Components -->
+        <div id="components" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🧩 Composants Installés</div>
+                    <div class="card-badge">6 actifs</div>
+                </div>
+                <div class="card-body">
+                    <div class="components-grid" id="installed-components"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🗓️ Roadmap - Composants Planifiés</div>
+                </div>
+                <div class="card-body" id="roadmap-components"></div>
+            </div>
+        </div>
+
+        <!-- Health -->
+        <div id="health" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💚 Score de Santé Global</div>
+                    <div class="card-badge">92/100</div>
+                </div>
+                <div class="card-body" style="text-align: center; padding: 40px;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); border: 6px solid #22c55e; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; font-weight: 800; font-family: var(--sh-font-mono); color: #22c55e;">92</div>
+                    <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Système en Bonne Santé</div>
+                    <div style="color: var(--sh-text-muted);">Dernière vérification : 2024-12-20 15:45:00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📊 Métriques Détaillées</div>
+                </div>
+                <div class="card-body">
+                    <div class="health-grid">
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🔲</span> CPU</div><div class="metric-value ok">23%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 23%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Load: 0.42, 0.38, 0.35 • 2 cores</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💾</span> Mémoire</div><div class="metric-value ok">58%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 58%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">298 MB / 512 MB utilisés</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💿</span> Stockage</div><div class="metric-value warning">76%</div></div>
+                            <div class="progress-bar"><div class="progress-fill warning" style="width: 76%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">⚠️ 19.2 MB / 25.6 MB utilisés</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌡️</span> Température</div><div class="metric-value ok">52°C</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 52%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Zone 0: CPU</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌐</span> Réseau WAN</div><div class="metric-value ok">UP</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 100%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">82.xxx.xxx.42 • Uptime: 14j</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">⚙️</span> Services</div><div class="metric-value ok">12/12</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 100%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Tous les services actifs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💡 Recommandations</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; border-left: 3px solid #f59e0b;">
+                        <span style="font-size: 24px;">⚠️</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 4px;">Espace Disque Limité</div>
+                            <div style="font-size: 12px; color: var(--sh-text-secondary);">Le stockage atteint 76%. Pensez à nettoyer les anciens logs et fichiers temporaires pour éviter des problèmes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">📋 Générer Rapport</button>
+                <button class="btn">📧 Envoyer par Email</button>
+                <button class="btn">📥 Télécharger PDF</button>
+            </div>
+        </div>
+
+        <!-- Remote -->
+        <div id="remote" class="view">
+            <div class="card remote-card">
+                <div class="card-header">
+                    <div class="card-title">🖥️ RustDesk - Assistance à Distance</div>
+                    <div class="card-badge">Actif</div>
+                </div>
+                <div class="card-body">
+                    <div class="remote-id">
+                        <div class="remote-id-icon">🖥️</div>
+                        <div>
+                            <div class="remote-id-value">847 293 156</div>
+                            <div class="remote-id-label">ID RustDesk - Communiquez ce code au support</div>
+                        </div>
+                    </div>
+
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔒</span><div><div class="toggle-label">Accès sans surveillance</div><div class="toggle-desc">Permettre la connexion sans approbation</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">✅</span><div><div class="toggle-label">Approbation requise</div><div class="toggle-desc">Confirmer chaque connexion entrante</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔔</span><div><div class="toggle-label">Notification de connexion</div><div class="toggle-desc">Recevoir une alerte à chaque session</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary">🚀 Démarrer Session</button>
+                        <button class="btn">⚙️ Configurer RustDesk</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📞 Contact Support</div>
+                </div>
+                <div class="card-body">
+                    <div class="sysinfo-grid">
+                        <div class="sysinfo-item"><span class="sysinfo-label">Fournisseur</span><span class="sysinfo-value">CyberMind.fr</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Email</span><span class="sysinfo-value">support@cybermind.fr</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Téléphone</span><span class="sysinfo-value">+33 X XX XX XX XX</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Horaires</span><span class="sysinfo-value">Lun-Ven 9h-18h</span></div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary">🎫 Ouvrir un Ticket</button>
+                        <button class="btn">📚 Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagnostics -->
+        <div id="diagnostics" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🔍 Collecte de Diagnostics</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📋</span><div><div class="toggle-label">Inclure les Logs</div><div class="toggle-desc">System log, kernel log, composants</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">⚙️</span><div><div class="toggle-label">Inclure la Configuration</div><div class="toggle-desc">network, wireless, firewall, dhcp</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🌐</span><div><div class="toggle-label">Inclure Infos Réseau</div><div class="toggle-desc">Interfaces, routes, connexions, ARP</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔐</span><div><div class="toggle-label">Anonymiser les données</div><div class="toggle-desc">Masquer mots de passe et clés</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary">📦 Générer Archive</button>
+                        <button class="btn btn-success">☁️ Envoyer au Support</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📁 Archives Récentes</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--sh-bg-tertiary); border-radius: 8px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="font-size: 20px;">📦</span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 600;">diagnostic_20241220_154500.tar.gz</div>
+                                    <div style="font-size: 10px; color: var(--sh-text-muted);">256 KB • 2024-12-20 15:45:00</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">📥 Télécharger</button>
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">☁️ Envoyer</button>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--sh-bg-tertiary); border-radius: 8px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="font-size: 20px;">📦</span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 600;">diagnostic_20241219_093000.tar.gz</div>
+                                    <div style="font-size: 10px; color: var(--sh-text-muted);">312 KB • 2024-12-19 09:30:00</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">📥 Télécharger</button>
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">☁️ Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logs -->
+        <div id="logs" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📋 Logs Unifiés</div>
+                    <div class="card-badge">Tous composants</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                        <select class="input" style="width: auto; min-width: 120px;">
+                            <option>Tous</option>
+                            <option>system</option>
+                            <option>crowdsec</option>
+                            <option>netifyd</option>
+                            <option>client-guardian</option>
+                        </select>
+                        <select class="input" style="width: auto; min-width: 100px;">
+                            <option>Tous niveaux</option>
+                            <option>info</option>
+                            <option>warning</option>
+                            <option>error</option>
+                        </select>
+                        <input type="text" class="input" placeholder="Rechercher..." style="flex: 1; min-width: 200px;">
+                        <button class="btn">🔄 Rafraîchir</button>
+                        <button class="btn">📥 Exporter</button>
+                    </div>
+                    <div class="log-list" id="unified-logs"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⚙️ Configuration Générale</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔄</span><div><div class="toggle-label">Rafraîchissement automatique</div><div class="toggle-desc">Mettre à jour le dashboard toutes les 30s</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">💚</span><div><div class="toggle-label">Vérification santé auto</div><div class="toggle-desc">Exécuter un health check toutes les heures</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🐛</span><div><div class="toggle-label">Mode Debug</div><div class="toggle-desc">Activer les logs détaillés</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🚨 Seuils d'Alerte</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">CPU Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mémoire Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Disque Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Température Warning / Critical (°C)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="70" style="width: 100px;">
+                            <input type="number" class="input" value="85" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📅 Tâches Planifiées</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📋</span><div><div class="toggle-label">Rapport Santé Quotidien</div><div class="toggle-desc">Tous les jours à 6h00</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">💾</span><div><div class="toggle-label">Sauvegarde Hebdomadaire</div><div class="toggle-desc">Dimanche à 3h00, garde 4 versions</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🧹</span><div><div class="toggle-label">Nettoyage Logs</div><div class="toggle-desc">Supprimer logs > 30 jours</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">💾 Sauvegarder</button>
+                <button class="btn">🔄 Réinitialiser</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <strong>luci-app-system-hub</strong> — Central Control & Remote Assistance<br>
+        <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> | <a href="https://github.com/gkerma/luci-app-system-hub">GitHub</a> | Apache-2.0
+    </footer>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Mock data - Components
+        const components = [
+            { id: 'crowdsec', name: 'CrowdSec', desc: 'Cybersécurité collaborative', icon: '🛡️', color: '#22c55e', status: 'installed', running: true, category: 'security' },
+            { id: 'netdata', name: 'Netdata', desc: 'Monitoring temps réel', icon: '📊', color: '#00ab44', status: 'installed', running: true, category: 'monitoring' },
+            { id: 'netifyd', name: 'Netifyd', desc: 'Deep Packet Inspection', icon: '🔍', color: '#8b5cf6', status: 'installed', running: true, category: 'network' },
+            { id: 'wireguard', name: 'WireGuard', desc: 'VPN moderne', icon: '🔒', color: '#88171a', status: 'installed', running: true, category: 'vpn' },
+            { id: 'network_modes', name: 'Network Modes', desc: 'Multi-mode réseau', icon: '🔀', color: '#f97316', status: 'installed', running: true, category: 'network' },
+            { id: 'client_guardian', name: 'Client Guardian', desc: 'NAC & Portail Captif', icon: '🛡️', color: '#ef4444', status: 'installed', running: false, category: 'security' },
+        ];
+
+        const roadmapComponents = [
+            { id: 'adguard', name: 'AdGuard Home', desc: 'Blocage publicités DNS', icon: '🚫', color: '#68bc71', date: '2025-Q1' },
+            { id: 'prometheus', name: 'Prometheus', desc: 'Métriques & Alerting', icon: '📈', color: '#e6522c', date: '2025-Q1' },
+            { id: 'tailscale', name: 'Tailscale', desc: 'Mesh VPN zero-config', icon: '🌐', color: '#0ea5e9', date: '2025-Q1' },
+            { id: 'grafana', name: 'Grafana', desc: 'Visualisation avancée', icon: '📉', color: '#f46800', date: '2025-Q2' },
+            { id: 'homeassistant', name: 'Home Assistant', desc: 'Domotique intégrée', icon: '🏠', color: '#41bdf5', date: '2025-Q2' },
+            { id: 'ntopng', name: 'ntopng', desc: 'Analyse trafic avancée', icon: '📶', color: '#1e88e5', date: '2025-Q2' },
+        ];
+
+        function renderComponent(c, showActions = true) {
+            return `
+                <div class="component-card ${c.status === 'planned' ? 'planned' : ''}" style="--component-color: ${c.color}">
+                    <div class="component-header">
+                        <div class="component-info">
+                            <div class="component-icon">${c.icon}</div>
+                            <div>
+                                <div class="component-name">${c.name}</div>
+                                <div class="component-desc">${c.desc}</div>
+                            </div>
+                        </div>
+                        <div class="component-status ${c.running ? 'running' : (c.status === 'planned' ? 'planned' : 'stopped')}">
+                            ${c.running ? 'Running' : (c.status === 'planned' ? c.date || 'Planifié' : 'Stopped')}
+                        </div>
+                    </div>
+                    ${showActions && c.status === 'installed' ? `
+                    <div class="component-actions">
+                        <div class="component-action">${c.running ? '⏹️ Stop' : '▶️ Start'}</div>
+                        <div class="component-action">🔄 Restart</div>
+                        <div class="component-action">📊 Status</div>
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        function renderRoadmap(c) {
+            return `
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">${c.icon}</div>
+                    <div class="roadmap-info">
+                        <div class="roadmap-name">${c.name}</div>
+                        <div class="roadmap-desc">${c.desc}</div>
+                    </div>
+                    <div class="roadmap-date">${c.date}</div>
+                </div>
+            `;
+        }
+
+        document.getElementById('quick-components').innerHTML = components.slice(0, 4).map(c => renderComponent(c, false)).join('');
+        document.getElementById('installed-components').innerHTML = components.map(c => renderComponent(c)).join('');
+        document.getElementById('roadmap-components').innerHTML = roadmapComponents.map(c => renderRoadmap(c)).join('');
+
+        // Logs
+        const logs = [
+            { time: '2024-12-20 15:45:23', source: 'system', level: 'info', message: 'System health check completed - Score: 92' },
+            { time: '2024-12-20 15:44:12', source: 'crowdsec', level: 'info', message: 'Blocked IP 192.168.1.254 - Reason: ssh-bf' },
+            { time: '2024-12-20 15:42:00', source: 'client-guardian', level: 'warning', message: 'New unknown client detected: AA:BB:CC:DD:EE:FF' },
+            { time: '2024-12-20 15:40:30', source: 'netifyd', level: 'info', message: 'Application detected: Netflix on 192.168.1.45' },
+            { time: '2024-12-20 15:38:15', source: 'system', level: 'info', message: 'Service wireguard restarted' },
+            { time: '2024-12-20 15:35:00', source: 'system', level: 'warning', message: 'Disk usage reached 76%' },
+            { time: '2024-12-20 15:30:00', source: 'crowdsec', level: 'info', message: 'Decisions synced: 15234 IPs in blocklist' },
+            { time: '2024-12-20 15:25:44', source: 'client-guardian', level: 'info', message: 'Client approved: iPhone-Marie -> zone LAN' },
+            { time: '2024-12-20 15:20:00', source: 'netifyd', level: 'info', message: 'Flow detected: 192.168.1.20 -> YouTube (2.4 GB)' },
+            { time: '2024-12-20 15:15:30', source: 'system', level: 'error', message: 'Service adguardhome failed to start' },
+        ];
+
+        document.getElementById('unified-logs').innerHTML = logs.map(l => `
+            <div class="log-item">
+                <div class="log-time">${l.time}</div>
+                <div class="log-source">${l.source}</div>
+                <div class="log-level ${l.level}">${l.level}</div>
+                <div class="log-message">${l.message}</div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
