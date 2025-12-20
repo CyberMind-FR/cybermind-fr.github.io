@@ -23,7 +23,7 @@ project:
     - Sigstore
     - GitHub Actions
   duration: "En cours"
-  year: 2024
+  year: 2022
 live_url: "/demos/enigmasuite.html"
 github_url: "https://github.com/CyberMind-FR/enigmasuite"
 ---

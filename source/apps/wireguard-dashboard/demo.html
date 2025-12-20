@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WireGuard Dashboard Demo - VPN Monitoring</title>
+    <meta name="description" content="Démo interactive du dashboard WireGuard - Monitoring VPN pour OpenWrt">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wg-bg-primary: #030712;
+            --wg-bg-secondary: #0f172a;
+            --wg-bg-tertiary: #1e293b;
+            --wg-border: #334155;
+            --wg-text-primary: #f8fafc;
+            --wg-text-secondary: #94a3b8;
+            --wg-text-muted: #64748b;
+            --wg-accent-cyan: #06b6d4;
+            --wg-accent-blue: #0ea5e9;
+            --wg-accent-indigo: #6366f1;
+            --wg-accent-green: #10b981;
+            --wg-accent-yellow: #f59e0b;
+            --wg-accent-red: #ef4444;
+            --wg-tunnel-gradient: linear-gradient(135deg, #06b6d4, #0ea5e9, #6366f1);
+            --wg-font-mono: 'JetBrains Mono', monospace;
+            --wg-font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--wg-font-sans);
+            background: var(--wg-bg-primary);
+            color: var(--wg-text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .demo-banner {
+            background: var(--wg-tunnel-gradient);
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container {
+            background: var(--wg-bg-secondary);
+            border-bottom: 1px solid var(--wg-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 32px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            text-decoration: none;
+            color: var(--wg-text-primary);
+        }
+
+        .nav-brand-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--wg-tunnel-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+        }
+
+        .nav-brand-text { font-size: 22px; font-weight: 700; }
+        .nav-brand-text span { 
+            background: var(--wg-tunnel-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-tabs { display: flex; gap: 4px; }
+
+        .nav-tab {
+            padding: 16px 20px;
+            color: var(--wg-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-tab:hover { color: var(--wg-text-primary); }
+
+        .nav-tab.active {
+            color: var(--wg-accent-cyan);
+            border-bottom-color: var(--wg-accent-cyan);
+        }
+
+        .nav-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 24px;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--wg-accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .quick-stat {
+            background: var(--wg-bg-secondary);
+            border: 1px solid var(--wg-border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .quick-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--stat-gradient, var(--wg-tunnel-gradient));
+        }
+
+        .quick-stat:hover {
+            border-color: var(--wg-accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .quick-stat-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quick-stat-icon { font-size: 22px; }
+
+        .quick-stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--wg-text-muted);
+        }
+
+        .quick-stat-value {
+            font-family: var(--wg-font-mono);
+            font-size: 30px;
+            font-weight: 700;
+            background: var(--stat-gradient, var(--wg-tunnel-gradient));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quick-stat-sub {
+            font-size: 11px;
+            color: var(--wg-text-muted);
+            margin-top: 6px;
+        }
+
+        /* Card */
+        .card {
+            background: var(--wg-bg-secondary);
+            border: 1px solid var(--wg-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--wg-border);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .card-title-icon { font-size: 20px; }
+
+        .card-badge {
+            font-family: var(--wg-font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 16px;
+            background: var(--wg-tunnel-gradient);
+            color: white;
+        }
+
+        .card-body { padding: 20px; }
+
+        /* Interface Card */
+        .interface-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 860px) {
+            .interface-grid { grid-template-columns: 1fr; }
+        }
+
+        .interface-card {
+            background: linear-gradient(135deg, var(--wg-bg-tertiary), var(--wg-bg-secondary));
+            border: 1px solid var(--wg-border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .interface-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--wg-tunnel-gradient);
+        }
+
+        .interface-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .interface-name {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .interface-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--wg-tunnel-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .interface-name h3 { font-size: 20px; font-weight: 700; margin: 0; }
+        .interface-name p { font-size: 12px; color: var(--wg-text-muted); margin: 2px 0 0 0; }
+
+        .interface-status {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .interface-status.up {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--wg-accent-green);
+        }
+
+        .interface-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .interface-detail {
+            padding: 12px;
+            background: var(--wg-bg-primary);
+            border-radius: 8px;
+        }
+
+        .interface-detail-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--wg-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .interface-detail-value {
+            font-family: var(--wg-font-mono);
+            font-size: 12px;
+            color: var(--wg-text-primary);
+            word-break: break-all;
+        }
+
+        /* Peer Card */
+        .peer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .peer-card {
+            background: var(--wg-bg-tertiary);
+            border: 1px solid var(--wg-border);
+            border-radius: 12px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+
+        .peer-card:hover { border-color: var(--wg-accent-cyan); transform: translateY(-2px); }
+
+        .peer-card.active { border-color: var(--wg-accent-green); }
+        .peer-card.active::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--wg-accent-green);
+        }
+
+        .peer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .peer-info { display: flex; align-items: center; gap: 12px; }
+
+        .peer-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--wg-bg-secondary);
+            border: 1px solid var(--wg-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .peer-card.active .peer-icon {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--wg-accent-green);
+        }
+
+        .peer-name { font-size: 15px; font-weight: 600; margin: 0; }
+        .peer-key { font-family: var(--wg-font-mono); font-size: 10px; color: var(--wg-text-muted); margin: 2px 0 0 0; }
+
+        .peer-status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .peer-status.active { background: rgba(16, 185, 129, 0.15); color: var(--wg-accent-green); }
+        .peer-status.idle { background: rgba(245, 158, 11, 0.15); color: var(--wg-accent-yellow); }
+        .peer-status.inactive { background: rgba(100, 116, 139, 0.15); color: var(--wg-text-muted); }
+
+        .peer-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .peer-detail { display: flex; flex-direction: column; gap: 2px; }
+        .peer-detail-label { font-size: 9px; text-transform: uppercase; color: var(--wg-text-muted); }
+        .peer-detail-value { font-family: var(--wg-font-mono); font-size: 11px; color: var(--wg-text-secondary); }
+
+        .peer-traffic {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--wg-border);
+        }
+
+        .peer-traffic-item { text-align: center; }
+        .peer-traffic-icon { font-size: 16px; margin-bottom: 4px; }
+        .peer-traffic-value { font-family: var(--wg-font-mono); font-size: 14px; font-weight: 600; }
+        .peer-traffic-value.rx { color: var(--wg-accent-green); }
+        .peer-traffic-value.tx { color: var(--wg-accent-blue); }
+        .peer-traffic-label { font-size: 9px; text-transform: uppercase; color: var(--wg-text-muted); }
+
+        /* Traffic bars */
+        .traffic-bar { margin-top: 12px; }
+        .traffic-bar-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 11px; }
+        .traffic-bar-track { height: 8px; background: var(--wg-bg-primary); border-radius: 4px; overflow: hidden; display: flex; }
+        .traffic-bar-rx { height: 100%; background: linear-gradient(90deg, #10b981, #34d399); transition: width 0.5s; }
+        .traffic-bar-tx { height: 100%; background: linear-gradient(90deg, #0ea5e9, #38bdf8); transition: width 0.5s; }
+
+        /* Config block */
+        .config-block {
+            background: var(--wg-bg-primary);
+            border: 1px solid var(--wg-border);
+            border-radius: 8px;
+            padding: 16px;
+            font-family: var(--wg-font-mono);
+            font-size: 12px;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .config-section { color: var(--wg-accent-cyan); font-weight: 600; }
+        .config-key { color: #a855f7; }
+        .config-value { color: var(--wg-text-secondary); }
+
+        /* Tunnel viz */
+        .tunnel-viz {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            background: var(--wg-bg-primary);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tunnel-node { text-align: center; }
+        .tunnel-node-icon {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: var(--wg-bg-tertiary);
+            border: 2px solid var(--wg-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .tunnel-node-label { font-size: 12px; color: var(--wg-text-secondary); }
+
+        .tunnel-line {
+            flex: 1;
+            height: 6px;
+            background: var(--wg-tunnel-gradient);
+            border-radius: 3px;
+            max-width: 250px;
+            position: relative;
+            background-size: 200% 100%;
+            animation: tunnel-flow 2s linear infinite;
+        }
+
+        .tunnel-line::before {
+            content: '🔒';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--wg-bg-primary);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 16px;
+        }
+
+        @keyframes tunnel-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--wg-border);
+            margin-top: 40px;
+            color: var(--wg-text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--wg-accent-cyan); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--wg-bg-tertiary); }
+        ::-webkit-scrollbar-thumb { background: var(--wg-border); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🔐 <strong>Démo interactive</strong> — VPN WireGuard simulé.
+        <a href="https://github.com/gandalf-music/luci-app-wireguard-dashboard" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🔐</div>
+                <div class="nav-brand-text">Wire<span>Guard</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="status">Status</div>
+                <div class="nav-tab" data-view="peers">Peers</div>
+                <div class="nav-tab" data-view="traffic">Traffic</div>
+                <div class="nav-tab" data-view="config">Config</div>
+            </div>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                VPN Active
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Status View -->
+        <div id="status" class="view active">
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🌐</span>
+                        <span class="quick-stat-label">Interfaces</span>
+                    </div>
+                    <div class="quick-stat-value">2</div>
+                    <div class="quick-stat-sub">Active tunnels</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">👥</span>
+                        <span class="quick-stat-label">Total Peers</span>
+                    </div>
+                    <div class="quick-stat-value">5</div>
+                    <div class="quick-stat-sub">Configured</div>
+                </div>
+                <div class="quick-stat" style="--stat-gradient: linear-gradient(135deg, #10b981, #34d399)">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">✅</span>
+                        <span class="quick-stat-label">Active Peers</span>
+                    </div>
+                    <div class="quick-stat-value" id="active-peers">3</div>
+                    <div class="quick-stat-sub">Connected now</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📥</span>
+                        <span class="quick-stat-label">Downloaded</span>
+                    </div>
+                    <div class="quick-stat-value">2.8 GB</div>
+                    <div class="quick-stat-sub">Total received</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📤</span>
+                        <span class="quick-stat-label">Uploaded</span>
+                    </div>
+                    <div class="quick-stat-value">1.2 GB</div>
+                    <div class="quick-stat-sub">Total sent</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🔗</span>
+                        WireGuard Interfaces
+                    </div>
+                    <div class="card-badge">2 tunnels</div>
+                </div>
+                <div class="card-body">
+                    <div class="interface-grid" id="interfaces-grid"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">👥</span>
+                        Connected Peers
+                    </div>
+                    <div class="card-badge">3/5 active</div>
+                </div>
+                <div class="card-body">
+                    <div class="peer-grid" id="status-peers-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peers View -->
+        <div id="peers" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📋</span>
+                        All Peers
+                    </div>
+                    <div class="card-badge">5 configured</div>
+                </div>
+                <div class="card-body">
+                    <div class="peer-grid" id="peers-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Traffic View -->
+        <div id="traffic" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-gradient: linear-gradient(135deg, #10b981, #34d399)">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📥</span>
+                        <span class="quick-stat-label">Total Downloaded</span>
+                    </div>
+                    <div class="quick-stat-value">2.8 GB</div>
+                    <div class="quick-stat-sub">All interfaces</div>
+                </div>
+                <div class="quick-stat" style="--stat-gradient: linear-gradient(135deg, #0ea5e9, #38bdf8)">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📤</span>
+                        <span class="quick-stat-label">Total Uploaded</span>
+                    </div>
+                    <div class="quick-stat-value">1.2 GB</div>
+                    <div class="quick-stat-sub">All interfaces</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📈</span>
+                        <span class="quick-stat-label">Total Traffic</span>
+                    </div>
+                    <div class="quick-stat-value">4.0 GB</div>
+                    <div class="quick-stat-sub">RX + TX combined</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📊</span>
+                        Traffic by Interface
+                    </div>
+                </div>
+                <div class="card-body" id="traffic-content"></div>
+            </div>
+        </div>
+
+        <!-- Config View -->
+        <div id="config" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">⚙️</span>
+                        Interface: wg0
+                    </div>
+                    <div class="card-badge">3 peers</div>
+                </div>
+                <div class="card-body">
+                    <div class="config-block">
+                        <div><span class="config-section">[Interface]</span></div>
+                        <div><span class="config-key">PublicKey</span><span class="config-value"> = gN65BkIK...7oBzBPs=</span></div>
+                        <div><span class="config-key">ListenPort</span><span class="config-value"> = 51820</span></div>
+                        <div><span class="config-key">Address</span><span class="config-value"> = 10.0.0.1/24</span></div>
+                        <br>
+                        <div><span class="config-section">[Peer]</span></div>
+                        <div><span class="config-key">PublicKey</span><span class="config-value"> = xTIBA5rR...QH4xM0=</span></div>
+                        <div><span class="config-key">Endpoint</span><span class="config-value"> = 85.123.45.67:51820</span></div>
+                        <div><span class="config-key">AllowedIPs</span><span class="config-value"> = 10.0.0.2/32</span></div>
+                        <div><span class="config-key">PersistentKeepalive</span><span class="config-value"> = 25</span></div>
+                        <br>
+                        <div><span class="config-section">[Peer]</span></div>
+                        <div><span class="config-key">PublicKey</span><span class="config-value"> = peer2Key...abc123=</span></div>
+                        <div><span class="config-key">AllowedIPs</span><span class="config-value"> = 10.0.0.3/32</span></div>
+                    </div>
+
+                    <div class="tunnel-viz">
+                        <div class="tunnel-node">
+                            <div class="tunnel-node-icon">🏠</div>
+                            <div class="tunnel-node-label">This Router</div>
+                        </div>
+                        <div class="tunnel-line"></div>
+                        <div class="tunnel-node">
+                            <div class="tunnel-node-icon">🌐</div>
+                            <div class="tunnel-node-label">Remote Peers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <strong>luci-app-wireguard-dashboard</strong> — VPN Monitoring for OpenWrt<br>
+            Créé par <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> |
+            <a href="https://github.com/gandalf-music/luci-app-wireguard-dashboard" target="_blank">GitHub</a> |
+            Licence Apache-2.0
+        </p>
+    </footer>
+
+    <script>
+        // Mock data
+        const mockInterfaces = [
+            { name: 'wg0', pubkey: 'gN65BkIK...7oBzBPs=', port: 51820, ip: '10.0.0.1/24', mtu: 1420, state: 'up', rx: 2400000000, tx: 1000000000, peers: 3 },
+            { name: 'wg1', pubkey: 'hM78CjLK...9pDcEQt=', port: 51821, ip: '10.1.0.1/24', mtu: 1420, state: 'up', rx: 400000000, tx: 200000000, peers: 2 }
+        ];
+
+        const mockPeers = [
+            { iface: 'wg0', shortKey: 'xTIBA5rR', pubkey: 'xTIBA5rR...QH4xM0=', endpoint: '85.123.45.67:51820', allowedIps: '10.0.0.2/32', status: 'active', handshake: 45, rx: 1200000000, tx: 500000000, keepalive: 25, psk: true },
+            { iface: 'wg0', shortKey: 'peer2Key', pubkey: 'peer2Key...abc123=', endpoint: '91.78.12.34:51820', allowedIps: '10.0.0.3/32', status: 'active', handshake: 120, rx: 800000000, tx: 300000000, keepalive: 25, psk: false },
+            { iface: 'wg0', shortKey: 'mobileXY', pubkey: 'mobileXY...def456=', endpoint: '(roaming)', allowedIps: '10.0.0.4/32', status: 'idle', handshake: 480, rx: 400000000, tx: 200000000, keepalive: 25, psk: true },
+            { iface: 'wg1', shortKey: 'serverAB', pubkey: 'serverAB...ghi789=', endpoint: '45.67.89.12:51821', allowedIps: '10.1.0.0/24', status: 'active', handshake: 30, rx: 300000000, tx: 150000000, keepalive: 0, psk: false },
+            { iface: 'wg1', shortKey: 'backupCD', pubkey: 'backupCD...jkl012=', endpoint: '(none)', allowedIps: '10.1.0.10/32', status: 'inactive', handshake: 0, rx: 100000000, tx: 50000000, keepalive: 0, psk: false }
+        ];
+
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        function formatBytes(bytes) {
+            if (!bytes) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        function formatHandshake(seconds) {
+            if (!seconds) return 'Never';
+            if (seconds < 60) return seconds + ' seconds ago';
+            if (seconds < 3600) return Math.floor(seconds / 60) + ' minutes ago';
+            return Math.floor(seconds / 3600) + ' hours ago';
+        }
+
+        // Populate interfaces
+        function populateInterfaces() {
+            document.getElementById('interfaces-grid').innerHTML = mockInterfaces.map(i => `
+                <div class="interface-card">
+                    <div class="interface-header">
+                        <div class="interface-name">
+                            <div class="interface-icon">🌐</div>
+                            <div>
+                                <h3>${i.name}</h3>
+                                <p>Listen port: ${i.port}</p>
+                            </div>
+                        </div>
+                        <span class="interface-status ${i.state}">${i.state}</span>
+                    </div>
+                    <div class="interface-details">
+                        <div class="interface-detail">
+                            <div class="interface-detail-label">Public Key</div>
+                            <div class="interface-detail-value">${i.pubkey}</div>
+                        </div>
+                        <div class="interface-detail">
+                            <div class="interface-detail-label">IPv4 Address</div>
+                            <div class="interface-detail-value">${i.ip}</div>
+                        </div>
+                        <div class="interface-detail">
+                            <div class="interface-detail-label">MTU</div>
+                            <div class="interface-detail-value">${i.mtu}</div>
+                        </div>
+                        <div class="interface-detail">
+                            <div class="interface-detail-label">Traffic</div>
+                            <div class="interface-detail-value">↓${formatBytes(i.rx)} / ↑${formatBytes(i.tx)}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Populate peers
+        function populatePeers(containerId, limit) {
+            const peers = limit ? mockPeers.slice(0, limit) : mockPeers;
+            document.getElementById(containerId).innerHTML = peers.map(p => `
+                <div class="peer-card ${p.status === 'active' ? 'active' : ''}">
+                    <div class="peer-header">
+                        <div class="peer-info">
+                            <div class="peer-icon">${p.status === 'active' ? '✅' : p.status === 'idle' ? '💤' : '👤'}</div>
+                            <div>
+                                <p class="peer-name">Peer ${p.shortKey}</p>
+                                <p class="peer-key">${p.iface}</p>
+                            </div>
+                        </div>
+                        <span class="peer-status ${p.status}">${p.status}</span>
+                    </div>
+                    <div class="peer-details">
+                        <div class="peer-detail">
+                            <span class="peer-detail-label">Endpoint</span>
+                            <span class="peer-detail-value">${p.endpoint}</span>
+                        </div>
+                        <div class="peer-detail">
+                            <span class="peer-detail-label">Last Handshake</span>
+                            <span class="peer-detail-value">${formatHandshake(p.handshake)}</span>
+                        </div>
+                        <div class="peer-detail">
+                            <span class="peer-detail-label">Allowed IPs</span>
+                            <span class="peer-detail-value">${p.allowedIps}</span>
+                        </div>
+                        <div class="peer-detail">
+                            <span class="peer-detail-label">PSK</span>
+                            <span class="peer-detail-value">${p.psk ? '✓ Set' : '✗ None'}</span>
+                        </div>
+                    </div>
+                    <div class="peer-traffic">
+                        <div class="peer-traffic-item">
+                            <div class="peer-traffic-icon">📥</div>
+                            <div class="peer-traffic-value rx">${formatBytes(p.rx)}</div>
+                            <div class="peer-traffic-label">Received</div>
+                        </div>
+                        <div class="peer-traffic-item">
+                            <div class="peer-traffic-icon">📤</div>
+                            <div class="peer-traffic-value tx">${formatBytes(p.tx)}</div>
+                            <div class="peer-traffic-label">Sent</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Populate traffic
+        function populateTraffic() {
+            document.getElementById('traffic-content').innerHTML = mockInterfaces.map(i => {
+                const ifacePeers = mockPeers.filter(p => p.iface === i.name);
+                const rxPct = (i.rx / (i.rx + i.tx) * 100).toFixed(0);
+                const txPct = (100 - rxPct);
+                return `
+                <div class="interface-card" style="margin-bottom: 16px">
+                    <div class="interface-header">
+                        <div class="interface-name">
+                            <div class="interface-icon">🌐</div>
+                            <div>
+                                <h3>${i.name}</h3>
+                                <p>${formatBytes(i.rx + i.tx)} total</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="traffic-bar">
+                        <div class="traffic-bar-header">
+                            <span style="color: #10b981">↓ ${formatBytes(i.rx)}</span>
+                            <span style="color: #0ea5e9">↑ ${formatBytes(i.tx)}</span>
+                        </div>
+                        <div class="traffic-bar-track">
+                            <div class="traffic-bar-rx" style="width:${rxPct}%"></div>
+                            <div class="traffic-bar-tx" style="width:${txPct}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        // Initialize
+        populateInterfaces();
+        populatePeers('status-peers-grid', 4);
+        populatePeers('peers-grid');
+        populateTraffic();
+
+        // Simulate updates
+        setInterval(() => {
+            const active = 2 + Math.floor(Math.random() * 2);
+            document.getElementById('active-peers').textContent = active;
+        }, 5000);
+    </script>
+</body>
+</html>
