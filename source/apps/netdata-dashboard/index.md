@@ -15,6 +15,7 @@ tags: [netdata, openwrt, luci, monitoring, dashboard, open-source, system]
 cover: /images/netdata-dashboard-hero.png
 embed_url: "/apps/netdata-dashboard/demo.html"
 featured: true
+github: "https://github.com/gkerma/luci-app-netdata-dashboard"
 ---
 
 

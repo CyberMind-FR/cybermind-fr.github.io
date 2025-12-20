@@ -14,6 +14,7 @@ app:
 cover: /images/network-modes-hero.png
 embed_url: "/apps/network-modes/demo.html"
 featured: true
+github: "https://github.com/gkerma/luci-app-network-modes"
 ---
 
 

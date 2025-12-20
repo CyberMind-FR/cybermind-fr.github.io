@@ -14,6 +14,7 @@ app:
 cover: /images/system-hub-hero.png
 embed_url: "/apps//system-hub/demo.html"
 featured: true
+github: "https://github.com/gkerma/luci-app-system-hub"
 ---
 
 

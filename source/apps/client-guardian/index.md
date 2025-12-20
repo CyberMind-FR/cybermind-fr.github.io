@@ -14,6 +14,7 @@ app:
 cover: /images/client-guardian-hero.png
 embed_url: "/apps/client-guardian/demo.html"
 featured: true
+github: "https://github.com/gkerma/luci-app-client-guardian"
 ---
 
 <style>
