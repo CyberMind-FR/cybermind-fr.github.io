@@ -6,7 +6,7 @@ tags:
   - cinema
   - promo-cd
   - press-kit
-category: collection
+
 ---
 <img src="/uploads/images/LOT_CINE.png" width="512px" height=""> 
 
