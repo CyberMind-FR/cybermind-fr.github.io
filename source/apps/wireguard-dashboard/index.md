@@ -2,8 +2,8 @@
 title: "WireGuard Dashboard pour OpenWrt"
 description: "Dashboard moderne pour visualiser vos tunnels WireGuard sur OpenWrt : interfaces, peers, trafic et configuration en temps réel."
 layout: app
-date: 2025-12-19
-updated: 20254-12-19
+date: 2024-12-19
+updated: 2024-12-19
 author: Gandalf
 app:
   name: luci-app-wireguard-dashboard
@@ -13,7 +13,6 @@ app:
   demo: true
 tags: [wireguard, openwrt, luci, vpn, dashboard, security, tunnel]
 image: /images/wireguard-dashboard-hero.png
-embed_url: "/apps/wireguard-dashboard/demo.html"
 ---
 
 <div class="app-hero">
@@ -269,7 +268,7 @@ Le projet est open-source sous licence **Apache-2.0**. Les contributions sont bi
 - [WireGuard Official](https://www.wireguard.com/)
 - [OpenWrt Wiki - WireGuard](https://openwrt.org/docs/guide-user/services/vpn/wireguard/start)
 - [WireGuard White Paper](https://www.wireguard.com/papers/wireguard.pdf)
-- [Article de blog : Présentation du dashboard](/blog/cybersecurity/luci-wireguard-dashboard/)
+- [Article de blog : Présentation du dashboard](/blog/2024/12/luci-wireguard-dashboard/)
 
 ---
 

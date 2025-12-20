@@ -13,7 +13,6 @@ app:
   demo: true
 tags: [netifyd, openwrt, luci, dpi, network-intelligence, dashboard, security]
 image: /images/netifyd-dashboard-hero.png
-embed_url: "/apps/netifyd-dashboard/demo.html"
 ---
 
 <div class="app-hero">
@@ -305,7 +304,7 @@ Le projet est open-source sous licence **Apache-2.0**. Les contributions sont bi
 - [Documentation Netifyd](https://www.netify.ai/developer/netify-agent)
 - [OpenWrt Wiki - Netifyd](https://openwrt.org/docs/guide-user/services/network_monitoring/netifyd)
 - [Netify DPI Signatures](https://gitlab.com/netify.ai/public/netify-agent)
-- [Article de blog : Présentation du dashboard](/blog/cybersecurity/luci-netifyd-dashboard/)
+- [Article de blog : Présentation du dashboard](/blog/2024/12/luci-netifyd-dashboard/)
 
 ---
 

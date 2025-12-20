@@ -583,6 +583,8 @@
                 <div class="nav-tab" data-view="flows">Flows</div>
                 <div class="nav-tab" data-view="applications">Applications</div>
                 <div class="nav-tab" data-view="devices">Devices</div>
+                <div class="nav-tab" data-view="talkers">Top Talkers</div>
+                <div class="nav-tab" data-view="risks">Risks</div>
             </div>
             <div class="nav-status">
                 <div class="status-badge">
@@ -833,6 +835,92 @@
                 </div>
             </div>
         </div>
+
+        <!-- Top Talkers View -->
+        <div id="talkers" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🏠</span>
+                        <span class="quick-stat-label">Active Hosts</span>
+                    </div>
+                    <div class="quick-stat-value">15</div>
+                    <div class="quick-stat-sub">Generating traffic</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📈</span>
+                        <span class="quick-stat-label">Total Traffic</span>
+                    </div>
+                    <div class="quick-stat-value">4.2 GB</div>
+                    <div class="quick-stat-sub">All hosts combined</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🥇</span>
+                        <span class="quick-stat-label">Top Host</span>
+                    </div>
+                    <div class="quick-stat-value" style="font-size:18px">gaming-pc</div>
+                    <div class="quick-stat-sub">1.8 GB</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🏆</span>
+                        Bandwidth Leaders
+                    </div>
+                    <div class="card-badge">Top 10</div>
+                </div>
+                <div class="card-body">
+                    <div id="talkers-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risks View -->
+        <div id="risks" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #ef4444">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🔴</span>
+                        <span class="quick-stat-label">High Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#ef4444">1</div>
+                    <div class="quick-stat-sub">Immediate attention</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #f59e0b">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🟠</span>
+                        <span class="quick-stat-label">Medium Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#f59e0b">2</div>
+                    <div class="quick-stat-sub">Review recommended</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🟢</span>
+                        <span class="quick-stat-label">Low Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#10b981">3</div>
+                    <div class="quick-stat-sub">Informational</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🛡️</span>
+                        Security Findings
+                    </div>
+                    <div class="card-badge">6 issues</div>
+                </div>
+                <div class="card-body">
+                    <div id="risks-list"></div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -989,9 +1077,85 @@
             document.getElementById('total-flows').textContent = flows;
         }
 
+        // Top Talkers data and rendering
+        const mockTalkers = [
+            { hostname: 'gaming-pc', ip: '192.168.1.105', connections: 47, rx: 1200000000, tx: 600000000, topApp: 'Steam' },
+            { hostname: 'macbook-pro', ip: '192.168.1.110', connections: 32, rx: 800000000, tx: 200000000, topApp: 'YouTube' },
+            { hostname: 'iphone-sarah', ip: '192.168.1.115', connections: 28, rx: 500000000, tx: 100000000, topApp: 'TikTok' },
+            { hostname: 'smart-tv', ip: '192.168.1.120', connections: 15, rx: 400000000, tx: 50000000, topApp: 'Netflix' },
+            { hostname: 'work-laptop', ip: '192.168.1.125', connections: 42, rx: 300000000, tx: 150000000, topApp: 'Teams' },
+            { hostname: 'raspberry-pi', ip: '192.168.1.200', connections: 8, rx: 100000000, tx: 50000000, topApp: 'SSH' },
+            { hostname: 'android-tablet', ip: '192.168.1.130', connections: 12, rx: 200000000, tx: 30000000, topApp: 'Chrome' },
+            { hostname: 'nas-server', ip: '192.168.1.50', connections: 25, rx: 150000000, tx: 400000000, topApp: 'SMB' }
+        ];
+
+        function populateTalkers() {
+            const totalBytes = mockTalkers.reduce((sum, t) => sum + t.rx + t.tx, 0);
+            document.getElementById('talkers-list').innerHTML = `
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    ${mockTalkers.map((t, i) => {
+                        const total = t.rx + t.tx;
+                        const pct = ((total / totalBytes) * 100).toFixed(1);
+                        return `
+                        <div style="display:flex;align-items:center;gap:16px;padding:12px;background:var(--nf-bg-tertiary);border-radius:10px;">
+                            <div style="width:30px;text-align:center;font-weight:700;color:var(--nf-accent-purple)">#${i+1}</div>
+                            <div style="flex:1">
+                                <div style="font-weight:600">${t.hostname}</div>
+                                <div style="font-size:11px;color:var(--nf-text-muted)">${t.ip} • ${t.connections} connections</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div style="font-family:var(--nf-font-mono);font-size:13px">${formatBytes(total)}</div>
+                                <div style="font-size:10px;color:var(--nf-text-muted)">↓${formatBytes(t.rx)} ↑${formatBytes(t.tx)}</div>
+                            </div>
+                            <div style="width:100px">
+                                <div style="height:8px;background:var(--nf-bg-primary);border-radius:4px;overflow:hidden;">
+                                    <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#8b5cf6,#3b82f6);border-radius:4px;"></div>
+                                </div>
+                                <div style="text-align:center;font-size:10px;margin-top:2px">${pct}%</div>
+                            </div>
+                        </div>`;
+                    }).join('')}
+                </div>`;
+        }
+
+        // Risks data and rendering
+        const mockRisks = [
+            { severity: 'high', title: 'Telnet Traffic Detected', desc: 'Unencrypted remote access on port 23', src: '192.168.1.105', dst: '10.0.0.50:23', rec: 'Use SSH instead of Telnet for secure remote access' },
+            { severity: 'medium', title: 'SMB Shares Exposed', desc: 'Windows file sharing detected on multiple hosts', src: '192.168.1.110', dst: '192.168.1.50:445', rec: 'Restrict SMB access to trusted networks only' },
+            { severity: 'medium', title: 'High Connection Count', desc: '192.168.1.105 has 47 active connections', src: '192.168.1.105', dst: 'Multiple', rec: 'Investigate for potential scanning or malware activity' },
+            { severity: 'low', title: 'P2P Traffic: BitTorrent', desc: '3 active P2P connections detected', src: '192.168.1.105', dst: 'Various', rec: 'Monitor bandwidth usage and ensure compliance with policies' },
+            { severity: 'low', title: 'DNS over HTTPS Detected', desc: 'Some devices bypassing local DNS', src: '192.168.1.115', dst: '1.1.1.1:443', rec: 'Consider network-wide DNS policy' },
+            { severity: 'low', title: 'IoT Device Communication', desc: 'Smart TV communicating with cloud services', src: '192.168.1.120', dst: 'Various', rec: 'Review IoT device network permissions' }
+        ];
+
+        function populateRisks() {
+            document.getElementById('risks-list').innerHTML = mockRisks.map(r => {
+                const icon = r.severity === 'high' ? '🔴' : r.severity === 'medium' ? '🟠' : '🟢';
+                const borderColor = r.severity === 'high' ? '#ef4444' : r.severity === 'medium' ? '#f59e0b' : '#10b981';
+                return `
+                <div style="background:var(--nf-bg-tertiary);border:1px solid var(--nf-border);border-left:4px solid ${borderColor};border-radius:10px;padding:16px;margin-bottom:12px;">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+                        <span style="font-size:24px">${icon}</span>
+                        <div style="flex:1">
+                            <h4 style="margin:0 0 4px 0;font-size:15px">${r.title}</h4>
+                            <span style="font-size:10px;font-weight:700;padding:2px 8px;background:rgba(255,255,255,0.1);border-radius:10px">${r.severity.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <p style="color:var(--nf-text-secondary);font-size:13px;margin:0 0 10px 0">${r.desc}</p>
+                    <div style="font-size:12px;margin:4px 0"><span style="color:var(--nf-text-muted)">Source:</span> <code style="background:var(--nf-bg-primary);padding:2px 6px;border-radius:4px">${r.src}</code></div>
+                    <div style="font-size:12px;margin:4px 0"><span style="color:var(--nf-text-muted)">Destination:</span> <code style="background:var(--nf-bg-primary);padding:2px 6px;border-radius:4px">${r.dst}</code></div>
+                    <div style="margin-top:10px;padding:10px;background:rgba(139,92,246,0.1);border-radius:6px;font-size:12px;color:var(--nf-text-secondary)">
+                        <strong>💡 Recommendation:</strong> ${r.rec}
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
         populateFlows();
         populateApps();
         populateDevices();
+        populateTalkers();
+        populateRisks();
         setInterval(updateStats, 3000);
     </script>
 </body>

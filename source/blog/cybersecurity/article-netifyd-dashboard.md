@@ -1,6 +1,6 @@
 ---
 title: "LuCI Netifyd Dashboard : Deep Packet Inspection pour OpenWrt"
-date: 2025-12-19
+date: 2024-12-19
 author: Gandalf
 tags: [netifyd, openwrt, luci, dpi, network-intelligence, dashboard, security]
 categories: [Projets, Réseau]

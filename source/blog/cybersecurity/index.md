@@ -9,6 +9,7 @@ order: 1
 featured_apps:
   - crowdsec-dashboard
   - netifyd-dashboard
+  - wireguard-dashboard
   - netdata-dashboard
 ---
 

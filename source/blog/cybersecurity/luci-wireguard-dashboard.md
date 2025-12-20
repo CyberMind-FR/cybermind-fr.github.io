@@ -137,7 +137,7 @@ opkg install luci-proto-wireguard
 ```bash
 # Depuis les sources OpenWrt
 cd ~/openwrt/feeds/luci/applications/
-git clone https://github.com/gandalf-music/luci-app-wireguard-dashboard.git
+git clone https://github.com/gkerma/luci-app-wireguard-dashboard.git
 
 ./scripts/feeds update -a && ./scripts/feeds install -a
 make package/luci-app-wireguard-dashboard/compile V=s
@@ -210,7 +210,7 @@ Testez l'interface complète avec des données simulées :
 
 Projet open-source sous licence Apache-2.0 :
 
-**GitHub** : [github.com/gandalf-music/luci-app-wireguard-dashboard](https://github.com/gandalf-music/luci-app-wireguard-dashboard)
+**GitHub** : [github.com/gkerma/luci-app-wireguard-dashboard](https://github.com/gkerma/luci-app-wireguard-dashboard)
 
 ## Conclusion
 
