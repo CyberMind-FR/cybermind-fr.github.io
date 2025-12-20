@@ -1,6 +1,6 @@
 ---
 title: "SecuBox : La Solution de Cybersécurité Tout-en-Un pour Votre Réseau"
-date: 2026-01-01
+date: 2024-12-20
 categories: [Security, OpenWrt, Crowdfunding]
 tags: [secubox, openwrt, security, crowdsec, wireguard, nac, firewall, crowdfunding, open-source]
 author: Gandalf
@@ -248,7 +248,7 @@ Nous croyons en la transparence et la communauté. Le crowdfunding nous permet d
 2025 Q2  ░░░░░░░░░░░░  Prototypage hardware
 2025 Q3  ░░░░░░░░░░░░  Beta testeurs (100 unités)
 2025 Q4  ░░░░░░░░░░░░  Préparation campagne
-Q1 2027  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
+Q2 2027  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
 Q3 2027  ░░░░░░░░░░░░  Production
 2026 Q3  ░░░░░░░░░░░░  📦 Livraison backers
 ```
@@ -357,6 +357,6 @@ La campagne participative de 2027 sera l'occasion de concrétiser cette vision a
 
 ---
 
-*Article par [Gandalf @ CyberMind.fr](https://cybermind.fr) — Décembre 2025*
+*Article par [Gandalf @ CyberMind.fr](https://cybermind.fr) — Décembre 2024*
 
 #SecuBox #OpenSource #Cybersécurité #Crowdfunding #OpenWrt #MadeInFrance
