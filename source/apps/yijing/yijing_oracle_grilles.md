@@ -32,8 +32,6 @@ layout: app
 icon: ☯️
 embed_url: "https://yijing-oracle.streamlit.app/"
 category: philosophy
-featured: true
-order: 2
 ---
 
 ## Introduction au Yi Jing
