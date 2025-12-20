@@ -1,6 +1,6 @@
 ---
 title: "SecuBox : La Solution de Cybersécurité Tout-en-Un pour Votre Réseau"
-date: 226-01-01
+date: 2026-01-01
 categories: [Security, OpenWrt, Crowdfunding]
 tags: [secubox, openwrt, security, crowdsec, wireguard, nac, firewall, crowdfunding, open-source]
 author: Gandalf
