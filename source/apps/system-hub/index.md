@@ -11,6 +11,7 @@ app:
   demo: /demos/system-hub
   icon: 🎛️
   color: "#6366f1"
+image: /images/system-hub-hero.png
 ---
 
 <style>

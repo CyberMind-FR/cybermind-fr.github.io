@@ -8,9 +8,11 @@ app:
   category: Security
   license: Apache-2.0
   repo: https://github.com/gkerma/luci-app-client-guardian
-  demo: /demos/client-guardian
+  demo: true
   icon: 🛡️
   color: "#ef4444"
+cover: /images/client-guardian-hero.png
+embed_url: "/apps/client-guardian/demo.html"
 ---
 
 <style>
