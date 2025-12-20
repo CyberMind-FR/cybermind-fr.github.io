@@ -12,7 +12,7 @@ app:
   repo: https://github.com/gkerma/luci-app-wireguard-dashboard
   demo: true
 image: /images/wireguard-dashboard-hero.png
-embed_url: "/apps//wireguard-dashboard/demo.html"
+embed_url: "/apps//wireguard/demo.html"
 featured: true
 github: https://github.com/gkerma/luci-app-wireguard-dashboard
 ---

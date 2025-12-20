@@ -13,7 +13,7 @@ app:
   demo: true
 tags: [crowdsec, openwrt, luci, security, dashboard, open-source]
 cover: /images/crowdsec-dashboard-hero.png
-embed_url: "/apps/crowdsec-dashboard/demo.html"
+embed_url: "/apps/crowdsec/demo.html"
 featured: true
 github: "https://github.com/gkerma/luci-app-crowdsec-dashboard"
 ---
