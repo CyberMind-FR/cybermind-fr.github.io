@@ -1,39 +1,29 @@
----
-title: "SecuBox - Cybersécurité Tout-en-Un"
-date: 2025-12-20
-layout: campaign
-campaign:
-  name: SecuBox
-  tagline: "7 modules • 1 box • 0 abonnement"
-  launch: "Q2 2027"
-  goal: "50 000 €"
-  status: "coming-soon"
----
-
-<style>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecuBox - Cybersécurité Tout-en-Un | GlobalScale Inside</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
 :root {
   --sb-bg: #0a0a12;
   --sb-bg-secondary: #0f1019;
-  --sb-bg-card: #1e293b;
-  --sb-border: #334155;
+  --sb-bg-card: #1a1a24;
+  --sb-border: #2a2a3a;
   --sb-text: #f1f5f9;
   --sb-text-muted: #94a3b8;
   --sb-text-dim: #64748b;
-  --sb-accent-green: #10b981;
-  --sb-accent-cyan: #06b6d4;
-  --sb-accent-blue: #3b82f6;
+  --sb-green: #10b981;
+  --sb-cyan: #06b6d4;
+  --sb-blue: #3b82f6;
+  --sb-purple: #8b5cf6;
+  --sb-orange: #f97316;
   --sb-gradient: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--sb-bg);
-  color: var(--sb-text);
-  line-height: 1.6;
-}
-
+body { font-family: 'Inter', sans-serif; background: var(--sb-bg); color: var(--sb-text); line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 /* Hero */
@@ -41,880 +31,348 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 60px 0;
+  padding: 80px 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(16,185,129,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(6,182,212,0.08) 0%, transparent 50%);
 }
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: 
-    radial-gradient(ellipse at 20% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
+.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-badge {
-  display: inline-block;
-  padding: 8px 20px;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--sb-accent-green);
-  margin-bottom: 24px;
+  display: inline-block; padding: 8px 20px;
+  background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4);
+  border-radius: 30px; font-size: 14px; font-weight: 600; color: var(--sb-green); margin-bottom: 24px;
 }
-
-.hero-title {
-  font-size: 72px;
-  font-weight: 800;
-  background: var(--sb-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 16px;
-}
-
-.hero-subtitle {
-  font-size: 28px;
-  color: var(--sb-text-muted);
-  margin-bottom: 12px;
-}
-
-.hero-tagline {
-  font-size: 18px;
-  color: var(--sb-text-dim);
-  margin-bottom: 32px;
-}
-
-.hero-features {
-  list-style: none;
-  margin-bottom: 40px;
-}
-
-.hero-features li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 16px;
-  color: var(--sb-text-muted);
-}
-
-.hero-features li::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.hero-features li:nth-child(1)::before { background: #10b981; }
-.hero-features li:nth-child(2)::before { background: #06b6d4; }
-.hero-features li:nth-child(3)::before { background: #3b82f6; }
-.hero-features li:nth-child(4)::before { background: #8b5cf6; }
-.hero-features li:nth-child(5)::before { background: #f59e0b; }
-
-.hero-cta {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+.hero-title { font-size: 64px; font-weight: 800; background: var(--sb-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+.hero-subtitle { font-size: 24px; color: var(--sb-text-muted); margin-bottom: 12px; }
+.hero-tagline { font-size: 16px; color: var(--sb-text-dim); margin-bottom: 32px; }
+.hero-features { list-style: none; margin-bottom: 32px; }
+.hero-features li { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 15px; color: var(--sb-text-muted); }
+.hero-features li::before { content: ''; width: 10px; height: 10px; border-radius: 50%; }
+.hero-features li:nth-child(1)::before { background: var(--sb-green); }
+.hero-features li:nth-child(2)::before { background: var(--sb-cyan); }
+.hero-features li:nth-child(3)::before { background: var(--sb-blue); }
+.hero-features li:nth-child(4)::before { background: var(--sb-purple); }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+  border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
 }
+.btn-primary { background: var(--sb-gradient); color: white; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(16,185,129,0.4); }
+.btn-secondary { background: var(--sb-bg-card); color: var(--sb-text); border: 1px solid var(--sb-border); }
+.btn-secondary:hover { border-color: var(--sb-cyan); }
+.hero-price { margin-top: 16px; font-size: 14px; color: var(--sb-text-dim); }
+.hero-price strong { font-size: 24px; color: var(--sb-green); font-family: 'JetBrains Mono', monospace; }
 
-.btn-primary {
-  background: var(--sb-gradient);
-  color: white;
+/* Sections */
+.section { padding: 100px 0; }
+.section-alt { background: var(--sb-bg-secondary); }
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+.section-badge { display: inline-block; padding: 6px 16px; background: rgba(6,182,212,0.15); border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--sb-cyan); margin-bottom: 16px; }
+.section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+.section-desc { font-size: 17px; color: var(--sb-text-muted); }
+
+/* Hardware Grid */
+.hardware-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.hardware-card {
+  background: var(--sb-bg-card); border: 1px solid var(--sb-border); border-radius: 16px;
+  padding: 28px; position: relative; overflow: hidden; transition: all 0.3s;
 }
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+.hardware-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--card-color); }
+.hardware-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-color: var(--card-color); }
+.hardware-card.featured { border-color: var(--sb-green); }
+.hardware-card.featured::after {
+  content: '⭐ POPULAIRE'; position: absolute; top: 16px; right: -30px;
+  background: var(--sb-gradient); color: white; font-size: 10px; font-weight: 700;
+  padding: 4px 40px; transform: rotate(45deg);
 }
+.hardware-icon { font-size: 36px; margin-bottom: 12px; }
+.hardware-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.hardware-base { font-size: 12px; color: var(--sb-text-dim); margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; }
+.hardware-desc { font-size: 13px; color: var(--sb-text-muted); margin-bottom: 16px; }
+.hardware-specs { font-size: 12px; color: var(--sb-text-dim); margin-bottom: 16px; }
+.hardware-specs span { display: block; padding: 3px 0; }
+.hardware-price { font-family: 'JetBrains Mono', monospace; }
+.hardware-price .amount { font-size: 32px; font-weight: 800; color: var(--sb-green); }
+.hardware-price .note { font-size: 11px; color: var(--sb-text-dim); }
 
-.btn-secondary {
-  background: var(--sb-bg-card);
-  color: var(--sb-text);
-  border: 1px solid var(--sb-border);
+/* Subscriptions */
+.subs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.sub-card {
+  background: var(--sb-bg-card); border: 1px solid var(--sb-border); border-radius: 16px;
+  padding: 28px; text-align: center; transition: all 0.3s; position: relative;
 }
-
-.btn-secondary:hover {
-  border-color: var(--sb-accent-cyan);
-}
-
-.hero-price {
-  font-size: 14px;
-  color: var(--sb-text-dim);
-}
-
-.hero-price strong {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--sb-accent-green);
-  font-family: 'JetBrains Mono', monospace;
-}
-
-.hero-visual {
-  position: relative;
-}
-
-.hero-visual img {
-  width: 100%;
-  max-width: 500px;
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
-}
-
-/* Section */
-.section {
-  padding: 100px 0;
-}
-
-.section-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(6, 182, 212, 0.15);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--sb-accent-cyan);
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.section-desc {
-  font-size: 18px;
-  color: var(--sb-text-muted);
-}
-
-/* Modules Grid */
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-}
-
-.module-card {
-  background: var(--sb-bg-secondary);
-  border: 1px solid var(--sb-border);
-  border-radius: 16px;
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s;
-}
-
-.module-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--module-color);
-}
-
-.module-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  border-color: var(--module-color);
-}
-
-.module-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.module-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--module-color);
-}
-
-.module-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: var(--sb-bg-card);
-  border-radius: 8px;
-  font-size: 12px;
-  color: var(--sb-text-muted);
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.module-links a:hover {
-  color: var(--sb-accent-cyan);
-  background: rgba(6, 182, 212, 0.1);
-}
-
-.module-name {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.module-desc {
-  font-size: 15px;
-  color: var(--sb-text-muted);
-  margin-bottom: 20px;
-}
-
-.module-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.module-feature {
-  padding: 6px 12px;
-  background: var(--sb-bg-card);
-  border-radius: 8px;
-  font-size: 12px;
-  color: var(--sb-text-dim);
-}
-
-/* Comparison */
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 40px;
-}
-
-.comparison-table th,
-.comparison-table td {
-  padding: 20px;
-  text-align: left;
-  border-bottom: 1px solid var(--sb-border);
-}
-
-.comparison-table th {
-  background: var(--sb-bg-secondary);
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--sb-text-muted);
-}
-
-.comparison-table td {
-  font-size: 15px;
-}
-
-.comparison-table tr:hover td {
-  background: rgba(16, 185, 129, 0.05);
-}
-
-.comparison-table .highlight {
-  background: rgba(16, 185, 129, 0.1);
-  font-weight: 600;
-  color: var(--sb-accent-green);
-}
-
-.check { color: #22c55e; font-size: 18px; }
-.cross { color: #ef4444; font-size: 18px; }
-.partial { color: #f59e0b; font-size: 18px; }
-
-/* Pricing */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.pricing-card {
-  background: var(--sb-bg-secondary);
-  border: 1px solid var(--sb-border);
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  position: relative;
-  transition: all 0.3s;
-}
-
-.pricing-card.featured {
-  border-color: var(--sb-accent-green);
-  background: linear-gradient(180deg, rgba(16, 185, 129, 0.1) 0%, var(--sb-bg-secondary) 100%);
-}
-
-.pricing-card.featured::before {
-  content: '⭐ POPULAIRE';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 20px;
-  background: var(--sb-gradient);
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
-}
-
-.pricing-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-.pricing-tier {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--sb-text-muted);
-  margin-bottom: 8px;
-}
-
-.pricing-name {
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.pricing-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--sb-accent-green);
-  margin-bottom: 8px;
-}
-
-.pricing-price span {
-  font-size: 18px;
-  color: var(--sb-text-dim);
-}
-
-.pricing-note {
-  font-size: 13px;
-  color: var(--sb-text-dim);
-  margin-bottom: 24px;
-}
-
-.pricing-features {
-  list-style: none;
-  text-align: left;
-  margin-bottom: 32px;
-}
-
-.pricing-features li {
-  padding: 10px 0;
-  font-size: 14px;
-  color: var(--sb-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pricing-features li::before {
-  content: '✓';
-  color: var(--sb-accent-green);
-  font-weight: 700;
-}
-
-.pricing-limit {
-  font-size: 13px;
-  color: var(--sb-text-dim);
-  margin-top: 12px;
-}
+.sub-card.featured { border-color: var(--sb-green); background: linear-gradient(180deg, rgba(16,185,129,0.1), var(--sb-bg-card)); }
+.sub-card:hover { transform: translateY(-3px); }
+.sub-tier { font-size: 12px; font-weight: 600; color: var(--sb-text-dim); margin-bottom: 8px; }
+.sub-name { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.sub-price { font-family: 'JetBrains Mono', monospace; margin-bottom: 4px; }
+.sub-price .amount { font-size: 36px; font-weight: 800; color: var(--sb-green); }
+.sub-price .period { font-size: 14px; color: var(--sb-text-dim); }
+.sub-annual { font-size: 12px; color: var(--sb-cyan); margin-bottom: 20px; }
+.sub-features { list-style: none; text-align: left; margin-bottom: 20px; }
+.sub-features li { font-size: 13px; color: var(--sb-text-muted); padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
+.sub-features li::before { content: '✓'; color: var(--sb-green); font-weight: 700; flex-shrink: 0; }
 
 /* Timeline */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+.timeline { max-width: 700px; margin: 0 auto; position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: var(--sb-gradient); border-radius: 2px; }
+.timeline-item { position: relative; padding: 20px 0; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -33px; top: 26px;
+  width: 16px; height: 16px; background: var(--sb-green); border-radius: 50%; border: 3px solid var(--sb-bg);
 }
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--sb-gradient);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.timeline-item:nth-child(odd) {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-.timeline-content {
-  width: 45%;
-  padding: 24px;
-  background: var(--sb-bg-secondary);
-  border: 1px solid var(--sb-border);
-  border-radius: 12px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background: var(--sb-accent-green);
-  border-radius: 50%;
-  border: 4px solid var(--sb-bg);
-}
-
-.timeline-item.done .timeline-dot { background: #22c55e; }
-.timeline-item.current .timeline-dot { background: #f59e0b; animation: pulse 2s infinite; }
-
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
-  50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
-}
-
-.timeline-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--sb-accent-cyan);
-  margin-bottom: 8px;
-}
-
-.timeline-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.timeline-desc {
-  font-size: 14px;
-  color: var(--sb-text-muted);
-}
+.timeline-item.done::before { background: #22c55e; }
+.timeline-item.current::before { background: var(--sb-orange); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); } 50% { box-shadow: 0 0 0 8px rgba(249,115,22,0); } }
+.timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--sb-cyan); margin-bottom: 6px; }
+.timeline-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.timeline-desc { font-size: 13px; color: var(--sb-text-muted); }
 
 /* Newsletter */
 .newsletter {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 24px;
-  padding: 60px;
-  text-align: center;
+  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.08));
+  border: 1px solid rgba(16,185,129,0.3); border-radius: 20px; padding: 50px; text-align: center;
 }
-
-.newsletter-title {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.newsletter-desc {
-  font-size: 18px;
-  color: var(--sb-text-muted);
-  margin-bottom: 32px;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 12px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
+.newsletter-title { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+.newsletter-desc { font-size: 16px; color: var(--sb-text-muted); margin-bottom: 24px; }
+.newsletter-form { display: flex; gap: 12px; max-width: 450px; margin: 0 auto; }
 .newsletter-input {
-  flex: 1;
-  padding: 16px 24px;
-  background: var(--sb-bg);
-  border: 1px solid var(--sb-border);
-  border-radius: 12px;
-  color: var(--sb-text);
-  font-size: 16px;
+  flex: 1; padding: 14px 20px; background: var(--sb-bg); border: 1px solid var(--sb-border);
+  border-radius: 10px; color: var(--sb-text); font-size: 15px;
 }
-
-.newsletter-input:focus {
-  outline: none;
-  border-color: var(--sb-accent-green);
-}
+.newsletter-input:focus { outline: none; border-color: var(--sb-green); }
 
 /* Footer */
-.footer {
-  padding: 60px 0;
-  border-top: 1px solid var(--sb-border);
-  text-align: center;
-}
+.footer { padding: 50px 0; border-top: 1px solid var(--sb-border); text-align: center; }
+.footer-brand { font-size: 24px; font-weight: 800; background: var(--sb-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+.footer-links a { color: var(--sb-text-muted); text-decoration: none; font-size: 14px; }
+.footer-links a:hover { color: var(--sb-cyan); }
+.footer-copy { font-size: 12px; color: var(--sb-text-dim); }
 
-.footer-brand {
-  font-size: 28px;
-  font-weight: 800;
-  background: var(--sb-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 24px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: var(--sb-text-muted);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: var(--sb-accent-cyan);
-}
-
-.footer-copy {
-  font-size: 13px;
-  color: var(--sb-text-dim);
-}
-
-/* Responsive */
 @media (max-width: 900px) {
   .hero-content { grid-template-columns: 1fr; text-align: center; }
-  .hero-title { font-size: 48px; }
-  .hero-visual { display: none; }
-  .timeline::before { left: 20px; }
-  .timeline-item { flex-direction: column !important; text-align: left !important; }
-  .timeline-content { width: 100%; margin-left: 50px; }
-  .timeline-dot { left: 20px; }
+  .hero-title { font-size: 42px; }
+  .hero-features { display: inline-block; text-align: left; }
+  .hero-cta { justify-content: center; }
   .newsletter-form { flex-direction: column; }
 }
-</style>
+  </style>
+</head>
+<body>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-text">
+      <div>
         <span class="hero-badge">🛡️ Campagne Participative Q2 2027</span>
         <h1 class="hero-title">SecuBox</h1>
         <p class="hero-subtitle">Cybersécurité Tout-en-Un</p>
-        <p class="hero-tagline">7 modules open source • 1 box dédiée • 0 abonnement</p>
+        <p class="hero-tagline">7 modules open source • Hardware GlobalScale • Abonnements flexibles</p>
         
         <ul class="hero-features">
           <li><strong>CrowdSec</strong> — Threat Intelligence collaborative</li>
           <li><strong>WireGuard</strong> — VPN nouvelle génération</li>
           <li><strong>Client Guardian</strong> — NAC & Portail Captif</li>
-          <li><strong>Netifyd</strong> — Deep Packet Inspection</li>
-          <li><strong>+ 3 modules</strong> — Netdata, Network Modes, System Hub</li>
+          <li><strong>+ 4 modules</strong> — Netdata, Netifyd, Network Modes, System Hub</li>
         </ul>
         
         <div class="hero-cta">
           <a href="#newsletter" class="btn btn-primary">🚀 Rejoindre la Liste</a>
-          <a href="#modules" class="btn btn-secondary">Découvrir les Modules</a>
+          <a href="#hardware" class="btn btn-secondary">Voir les Modèles</a>
         </div>
-        <p class="hero-price">Early Bird à partir de <strong>1490€</strong></p>
+        <p class="hero-price">À partir de <strong>199€</strong> + abonnements optionnels</p>
       </div>
-      <div class="hero-visual">
-        <img src="/images/secubox-device.png" alt="SecuBox Device">
+      <div style="text-align: center;">
+        <img src="/images/secubox-device.png" alt="SecuBox" style="max-width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Modules Section -->
-<section class="section" id="modules">
+<!-- Hardware -->
+<section class="section" id="hardware">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">🧩 7 Modules Intégrés</span>
-      <h2 class="section-title">Une Suite Complète de Sécurité</h2>
-      <p class="section-desc">Chaque module est disponible en open source. SecuBox les réunit dans une appliance optimisée.</p>
+      <span class="section-badge">🔧 Hardware GlobalScale</span>
+      <h2 class="section-title">Choisissez Votre SecuBox</h2>
+      <p class="section-desc">4 plateformes éprouvées, du studio à l'entreprise. Marvell Armada Inside.</p>
     </div>
     
-    <div class="modules-grid">
-      <div class="module-card" style="--module-color: #22c55e">
-        <div class="module-header">
-          <div class="module-icon">🛡️</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-crowdsec-status" target="_blank">GitHub</a>
-          </div>
+    <div class="hardware-grid">
+      <div class="hardware-card" style="--card-color: #10b981;">
+        <div class="hardware-icon">☕</div>
+        <h3 class="hardware-name">SecuBox Espresso</h3>
+        <div class="hardware-base">ESPRESSObin V7</div>
+        <p class="hardware-desc">Parfait pour appartement, studio ou télétravailleur solo.</p>
+        <div class="hardware-specs">
+          <span>🔲 Dual-Core A53 @1.2GHz</span>
+          <span>💾 1-2GB DDR4 + eMMC/SD</span>
+          <span>🌐 1 WAN + 2 LAN Gigabit</span>
+          <span>⚡ < 5W</span>
         </div>
-        <h3 class="module-name">CrowdSec</h3>
-        <p class="module-desc">Cybersécurité collaborative avec threat intelligence mondiale. Bloquez les attaquants avant qu'ils ne frappent.</p>
-        <div class="module-features">
-          <span class="module-feature">15M+ IPs</span>
-          <span class="module-feature">Real-time</span>
-          <span class="module-feature">Bouncer</span>
-        </div>
-      </div>
-      
-      <div class="module-card" style="--module-color: #06b6d4">
-        <div class="module-header">
-          <div class="module-icon">🔒</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-wireguard-dashboard" target="_blank">GitHub</a>
-          </div>
-        </div>
-        <h3 class="module-name">WireGuard</h3>
-        <p class="module-desc">VPN moderne ultra-performant. Connectez-vous à votre réseau de n'importe où en toute sécurité.</p>
-        <div class="module-features">
-          <span class="module-feature">QR Codes</span>
-          <span class="module-feature">Multi-peers</span>
-          <span class="module-feature">Mobile</span>
+        <div class="hardware-price">
+          <span class="amount">199€</span>
+          <span class="note">à 249€ selon config</span>
         </div>
       </div>
       
-      <div class="module-card" style="--module-color: #ef4444">
-        <div class="module-header">
-          <div class="module-icon">🛡️</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-client-guardian" target="_blank">GitHub</a>
-          </div>
+      <div class="hardware-card featured" style="--card-color: #06b6d4;">
+        <div class="hardware-icon">☕</div>
+        <h3 class="hardware-name">SecuBox Espresso Ultra</h3>
+        <div class="hardware-base">ESPRESSObin Ultra</div>
+        <p class="hardware-desc">Idéal pour maison connectée et famille avec WiFi intégré.</p>
+        <div class="hardware-specs">
+          <span>🔲 Dual-Core A53 @1.2GHz</span>
+          <span>💾 1-2GB DDR4 + M.2</span>
+          <span>🌐 1 WAN PoE + 4 LAN Gigabit</span>
+          <span>📶 WiFi 802.11ac intégré</span>
+          <span>⚡ < 8W</span>
         </div>
-        <h3 class="module-name">Client Guardian</h3>
-        <p class="module-desc">Contrôle d'accès réseau avec quarantaine automatique et portail captif nouvelle génération.</p>
-        <div class="module-features">
-          <span class="module-feature">NAC</span>
-          <span class="module-feature">Portail Captif</span>
-          <span class="module-feature">Alertes SMS</span>
-        </div>
-      </div>
-      
-      <div class="module-card" style="--module-color: #8b5cf6">
-        <div class="module-header">
-          <div class="module-icon">🔍</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-netifyd-status" target="_blank">GitHub</a>
-          </div>
-        </div>
-        <h3 class="module-name">Netifyd</h3>
-        <p class="module-desc">Deep Packet Inspection pour identifier chaque application sur votre réseau en temps réel.</p>
-        <div class="module-features">
-          <span class="module-feature">300+ Apps</span>
-          <span class="module-feature">DPI</span>
-          <span class="module-feature">Stats</span>
+        <div class="hardware-price">
+          <span class="amount">299€</span>
+          <span class="note">à 349€ avec PoE</span>
         </div>
       </div>
       
-      <div class="module-card" style="--module-color: #00ab44">
-        <div class="module-header">
-          <div class="module-icon">📊</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-netdata-status" target="_blank">GitHub</a>
-          </div>
+      <div class="hardware-card" style="--card-color: #8b5cf6;">
+        <div class="hardware-icon">🔌</div>
+        <h3 class="hardware-name">SecuBox Sheeva</h3>
+        <div class="hardware-base">Sheeva64 WiFi</div>
+        <p class="hardware-desc">Format plug mural ultra-discret pour Airbnb ou bureau.</p>
+        <div class="hardware-specs">
+          <span>🔲 Dual-Core A53 @1.2GHz</span>
+          <span>💾 1GB DDR4 + 4GB eMMC</span>
+          <span>🌐 2x Gigabit Ethernet</span>
+          <span>📶 WiFi ac + Bluetooth 4.2</span>
+          <span>🔌 Plug mural intégré</span>
         </div>
-        <h3 class="module-name">Netdata</h3>
-        <p class="module-desc">Monitoring temps réel avec 1000+ métriques et alertes configurables.</p>
-        <div class="module-features">
-          <span class="module-feature">Real-time</span>
-          <span class="module-feature">Alertes</span>
-          <span class="module-feature">Historique</span>
-        </div>
-      </div>
-      
-      <div class="module-card" style="--module-color: #f97316">
-        <div class="module-header">
-          <div class="module-icon">🔀</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-network-modes" target="_blank">GitHub</a>
-          </div>
-        </div>
-        <h3 class="module-name">Network Modes</h3>
-        <p class="module-desc">Changez de topologie réseau en un clic : Routeur, Bridge, AP, Répéteur, Travel.</p>
-        <div class="module-features">
-          <span class="module-feature">5 Modes</span>
-          <span class="module-feature">Auto-config</span>
-          <span class="module-feature">Backup</span>
+        <div class="hardware-price">
+          <span class="amount">249€</span>
+          <span class="note">à 299€ avec WiFi</span>
         </div>
       </div>
       
-      <div class="module-card" style="--module-color: #6366f1">
-        <div class="module-header">
-          <div class="module-icon">🎛️</div>
-          <div class="module-links">
-            <a href="https://github.com/gkerma/luci-app-system-hub" target="_blank">GitHub</a>
-          </div>
+      <div class="hardware-card" style="--card-color: #f97316;">
+        <div class="hardware-icon">☕</div>
+        <h3 class="hardware-name">SecuBox Mocha</h3>
+        <div class="hardware-base">MOCHAbin</div>
+        <p class="hardware-desc">Puissance quad-core pour PME, multi-sites et edge computing.</p>
+        <div class="hardware-specs">
+          <span>🔲 Quad-Core A72 @1.4GHz</span>
+          <span>💾 4-8GB DDR4 + M.2 + SATA</span>
+          <span>🌐 4 LAN + WAN + SFP+ 10G</span>
+          <span>📶 Option WiFi 6 + 5G</span>
+          <span>⚡ < 12W</span>
         </div>
-        <h3 class="module-name">System Hub</h3>
-        <p class="module-desc">Centre de contrôle unifié avec health reports, RustDesk et diagnostics.</p>
-        <div class="module-features">
-          <span class="module-feature">Dashboard</span>
-          <span class="module-feature">RustDesk</span>
-          <span class="module-feature">Diagnostics</span>
+        <div class="hardware-price">
+          <span class="amount">449€</span>
+          <span class="note">à 799€ full options</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Comparison Section -->
-<section class="section" style="background: var(--sb-bg-secondary)">
+<!-- Subscriptions -->
+<section class="section section-alt" id="subscriptions">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">📊 Comparatif</span>
-      <h2 class="section-title">Pourquoi SecuBox ?</h2>
+      <span class="section-badge">💳 Abonnements Care</span>
+      <h2 class="section-title">Services & Support</h2>
+      <p class="section-desc">Le logiciel est 100% gratuit. Les abonnements financent le développement continu et ajoutent des services premium.</p>
     </div>
     
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Fonctionnalité</th>
-          <th>Box FAI</th>
-          <th>Firewall Pro</th>
-          <th class="highlight">SecuBox</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Prix</td>
-          <td>"Gratuit"*</td>
-          <td>500-2000€/an</td>
-          <td class="highlight">1990€ (une fois)</td>
-        </tr>
-        <tr>
-          <td>Threat Intelligence</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓</span></td>
-          <td class="highlight"><span class="check">✓</span> CrowdSec</td>
-        </tr>
-        <tr>
-          <td>VPN intégré</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓</span></td>
-          <td class="highlight"><span class="check">✓</span> WireGuard</td>
-        </tr>
-        <tr>
-          <td>Contrôle Parental</td>
-          <td><span class="partial">◐</span> Basique</td>
-          <td><span class="check">✓</span></td>
-          <td class="highlight"><span class="check">✓</span> Avancé</td>
-        </tr>
-        <tr>
-          <td>Deep Packet Inspection</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓</span></td>
-          <td class="highlight"><span class="check">✓</span> Netifyd</td>
-        </tr>
-        <tr>
-          <td>Open Source</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td class="highlight"><span class="check">✓</span> 100%</td>
-        </tr>
-        <tr>
-          <td>Données locales</td>
-          <td><span class="cross">✗</span> Cloud FAI</td>
-          <td><span class="cross">✗</span> Cloud vendor</td>
-          <td class="highlight"><span class="check">✓</span> Chez vous</td>
-        </tr>
-        <tr>
-          <td>Mises à jour</td>
-          <td><span class="partial">◐</span> Rares</td>
-          <td>Payantes</td>
-          <td class="highlight"><span class="check">✓</span> Gratuites à vie</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="subs-grid">
+      <div class="sub-card">
+        <div class="sub-tier">🆓</div>
+        <h3 class="sub-name">Free</h3>
+        <div class="sub-price">
+          <span class="amount">0€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="sub-annual">Gratuit à vie</div>
+        <ul class="sub-features">
+          <li>7 modules inclus</li>
+          <li>Mises à jour sécurité</li>
+          <li>CrowdSec Community</li>
+          <li>Forum communautaire</li>
+        </ul>
+      </div>
+      
+      <div class="sub-card">
+        <div class="sub-tier">🥉</div>
+        <h3 class="sub-name">Basic</h3>
+        <div class="sub-price">
+          <span class="amount">9€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="sub-annual">ou 89€/an (2 mois offerts)</div>
+        <ul class="sub-features">
+          <li>Support email 48h</li>
+          <li>MAJ prioritaires</li>
+          <li>Accès bêta features</li>
+          <li>1 session RustDesk/mois</li>
+        </ul>
+      </div>
+      
+      <div class="sub-card featured">
+        <div class="sub-tier">🥈</div>
+        <h3 class="sub-name">Pro</h3>
+        <div class="sub-price">
+          <span class="amount">19€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="sub-annual">ou 189€/an (2 mois offerts)</div>
+        <ul class="sub-features">
+          <li>Support email 24h</li>
+          <li>Threat Intel Premium</li>
+          <li>Backup cloud chiffré</li>
+          <li>Monitoring 24/7</li>
+          <li>RustDesk illimité</li>
+        </ul>
+      </div>
+      
+      <div class="sub-card">
+        <div class="sub-tier">🥇</div>
+        <h3 class="sub-name">Enterprise</h3>
+        <div class="sub-price">
+          <span class="amount">49€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="sub-annual">ou 490€/an (2 mois offerts)</div>
+        <ul class="sub-features">
+          <li>Support téléphone</li>
+          <li>SLA < 4h critique</li>
+          <li>Multi-sites (5 SecuBox)</li>
+          <li>Intégration SIEM</li>
+          <li>Formation 2h visio</li>
+        </ul>
+      </div>
+      
+      <div class="sub-card">
+        <div class="sub-tier">🏢</div>
+        <h3 class="sub-name">Corporate</h3>
+        <div class="sub-price">
+          <span class="amount">149€+</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="sub-annual">Sur devis</div>
+        <ul class="sub-features">
+          <li>Support 24/7</li>
+          <li>SLA < 1h</li>
+          <li>Sites illimités</li>
+          <li>Développements sur mesure</li>
+          <li>Audit pentest annuel</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Pricing Section -->
+<!-- Timeline -->
 <section class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-badge">💰 Early Bird</span>
-      <h2 class="section-title">Récompenses Campagne</h2>
-      <p class="section-desc">Prix préférentiels réservés aux premiers soutiens.</p>
-    </div>
-    
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-tier">🥉 TIER 1</div>
-        <h3 class="pricing-name">Pioneer</h3>
-        <div class="pricing-price">1490€</div>
-        <p class="pricing-note">+ frais de port</p>
-        <ul class="pricing-features">
-          <li>1x SecuBox</li>
-          <li>7 modules pré-installés</li>
-          <li>1 an de support email</li>
-          <li>Mises à jour gratuites</li>
-        </ul>
-        <a href="#newsletter" class="btn btn-secondary" style="width: 100%">Réserver</a>
-        <p class="pricing-limit">Limité à 100 unités</p>
-      </div>
-      
-      <div class="pricing-card featured">
-        <div class="pricing-tier">🥈 TIER 2</div>
-        <h3 class="pricing-name">Guardian</h3>
-        <div class="pricing-price">1990€</div>
-        <p class="pricing-note">+ frais de port</p>
-        <ul class="pricing-features">
-          <li>1x SecuBox</li>
-          <li>7 modules pré-installés</li>
-          <li>2 ans de support prioritaire</li>
-          <li>Pack stickers exclusifs</li>
-          <li>Accès beta nouvelles features</li>
-        </ul>
-        <a href="#newsletter" class="btn btn-primary" style="width: 100%">Réserver</a>
-        <p class="pricing-limit">Limité à 500 unités</p>
-      </div>
-      
-      <div class="pricing-card">
-        <div class="pricing-tier">🥇 TIER 3</div>
-        <h3 class="pricing-name">Protector</h3>
-        <div class="pricing-price">2990€</div>
-        <p class="pricing-note">+ frais de port</p>
-        <ul class="pricing-features">
-          <li>1x SecuBox</li>
-          <li>Support à vie</li>
-          <li>T-shirt SecuBox</li>
-          <li>Nom dans les crédits</li>
-          <li>Assistance remote incluse</li>
-        </ul>
-        <a href="#newsletter" class="btn btn-secondary" style="width: 100%">Réserver</a>
-        <p class="pricing-limit">Limité à 200 unités</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section class="section" style="background: var(--sb-bg-secondary)">
   <div class="container">
     <div class="section-header">
       <span class="section-badge">🗓️ Calendrier</span>
@@ -923,69 +381,41 @@ body {
     
     <div class="timeline">
       <div class="timeline-item done">
-        <div class="timeline-content">
-          <div class="timeline-date">Q1 2026</div>
-          <h4 class="timeline-title">Développement Modules ✅</h4>
-          <p class="timeline-desc">7 dashboards LuCI finalisés et testés</p>
-        </div>
-        <div class="timeline-dot"></div>
+        <div class="timeline-date">Q1 2026</div>
+        <h4 class="timeline-title">Développement Modules ✅</h4>
+        <p class="timeline-desc">7 dashboards LuCI finalisés</p>
       </div>
-      
       <div class="timeline-item current">
-        <div class="timeline-content">
-          <div class="timeline-date">Q2 2026</div>
-          <h4 class="timeline-title">Finalisation Software</h4>
-          <p class="timeline-desc">System Hub, intégration, documentation</p>
-        </div>
-        <div class="timeline-dot"></div>
+        <div class="timeline-date">Q2-Q3 2026</div>
+        <h4 class="timeline-title">Intégration Hardware</h4>
+        <p class="timeline-desc">Tests sur ESPRESSObin, Sheeva64, MOCHAbin</p>
       </div>
-      
       <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">Q3 2026</div>
-          <h4 class="timeline-title">Prototypage Hardware</h4>
-          <p class="timeline-desc">Design boîtier, sélection composants</p>
-        </div>
-        <div class="timeline-dot"></div>
+        <div class="timeline-date">Q4 2026</div>
+        <h4 class="timeline-title">Beta Testeurs</h4>
+        <p class="timeline-desc">100 unités pour la communauté</p>
       </div>
-      
       <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">Q4 2026</div>
-          <h4 class="timeline-title">Beta Testeurs</h4>
-          <p class="timeline-desc">100 unités pour tests community</p>
-        </div>
-        <div class="timeline-dot"></div>
+        <div class="timeline-date">Q2 2027</div>
+        <h4 class="timeline-title">🚀 Lancement Campagne</h4>
+        <p class="timeline-desc">Crowdfunding objectif 50 000€</p>
       </div>
-      
       <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">Q2 2027</div>
-          <h4 class="timeline-title">🚀 Lancement Campagne</h4>
-          <p class="timeline-desc">Crowdfunding objectif 50 000 €</p>
-        </div>
-        <div class="timeline-dot"></div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-date">Q4 2027</div>
-          <h4 class="timeline-title">📦 Livraison Backers</h4>
-          <p class="timeline-desc">Expédition des premières SecuBox</p>
-        </div>
-        <div class="timeline-dot"></div>
+        <div class="timeline-date">Q4 2027</div>
+        <h4 class="timeline-title">📦 Livraison Backers</h4>
+        <p class="timeline-desc">Expédition des SecuBox</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Newsletter Section -->
-<section class="section" id="newsletter">
+<!-- Newsletter -->
+<section class="section section-alt" id="newsletter">
   <div class="container">
     <div class="newsletter">
       <h2 class="newsletter-title">🚀 Soyez les Premiers Informés</h2>
-      <p class="newsletter-desc">Inscrivez-vous pour recevoir l'annonce du lancement et bénéficier des prix early bird.</p>
-      <form class="newsletter-form" action="https://newsletter.secubox.io/subscribe" method="POST">
+      <p class="newsletter-desc">Inscrivez-vous pour l'annonce du lancement et les prix early bird.</p>
+      <form class="newsletter-form">
         <input type="email" class="newsletter-input" placeholder="votre@email.com" required>
         <button type="submit" class="btn btn-primary">S'inscrire</button>
       </form>
@@ -1000,10 +430,12 @@ body {
     <div class="footer-links">
       <a href="https://cybermind.fr">CyberMind.fr</a>
       <a href="https://github.com/gkerma">GitHub</a>
-      <a href="https://discord.gg/secubox">Discord</a>
-      <a href="https://twitter.com/cybermind_fr">Twitter</a>
+      <a href="https://globalscaletechnologies.com">GlobalScale</a>
       <a href="mailto:contact@cybermind.fr">Contact</a>
     </div>
-    <p class="footer-copy">© 2024 CyberMind.fr — SecuBox est un projet open source sous licence Apache-2.0<br>🇫🇷 Made with ❤️ in France</p>
+    <p class="footer-copy">© 2025 CyberMind.fr — Open Source Apache-2.0 — 🇫🇷 Made in France</p>
   </div>
 </footer>
+
+</body>
+</html>

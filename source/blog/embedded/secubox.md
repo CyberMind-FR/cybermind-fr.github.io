@@ -1,19 +1,19 @@
 ---
 title: "SecuBox : La Solution de Cybersécurité Tout-en-Un pour Votre Réseau"
-date: 2026-01-01
+date: 2025-12-20
 categories: [Security, OpenWrt, Crowdfunding]
-tags: [secubox, openwrt, security, crowdsec, wireguard, nac, firewall, crowdfunding, open-source]
+tags: [secubox, openwrt, security, crowdsec, wireguard, nac, firewall, crowdfunding, open-source, globalscale]
 author: Gandalf
 image: /images/secubox-hero.png
-description: "SecuBox réunit 7 modules de sécurité open source sur une box dédiée : CrowdSec, WireGuard, NAC, DPI, Monitoring et plus. Campagne participative 2026."
+description: "SecuBox réunit 7 modules de sécurité open source sur appliances GlobalScale : CrowdSec, WireGuard, NAC, DPI, Monitoring. Campagne participative 2027."
 featured: true
 ---
 
 # SecuBox : Reprenez le Contrôle Total de Votre Réseau
 
-**Votre réseau domestique ou professionnel mérite une protection de niveau entreprise, sans la complexité ni le coût.**
+**Votre réseau domestique ou professionnel mérite une protection de niveau entreprise, sans la complexité ni le coût prohibitif.**
 
-Après des années de développement de solutions de sécurité open source pour OpenWrt, nous sommes fiers de présenter **SecuBox** — une appliance de cybersécurité tout-en-un qui réunit nos 7 modules dans un boîtier prêt à l'emploi.
+Après des années de développement de solutions de sécurité open source pour OpenWrt, nous sommes fiers de présenter **SecuBox** — une appliance de cybersécurité tout-en-un qui réunit nos 7 modules sur du hardware **GlobalScale Technologies** éprouvé et supporté.
 
 ---
 
@@ -35,13 +35,13 @@ Aujourd'hui, sécuriser son réseau implique de :
 
 > *"La sécurité réseau ne devrait pas être réservée aux grandes entreprises."*
 
-SecuBox est une **box physique dédiée** qui se place entre votre box opérateur et votre réseau local. Elle embarque tous nos modules de sécurité, préconfigurés et prêts à fonctionner.
+SecuBox est une **appliance physique dédiée** basée sur les plateformes GlobalScale Technologies qui se place entre votre box opérateur et votre réseau local. Elle embarque tous nos modules de sécurité, préconfigurés et prêts à fonctionner.
 
 ```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   Internet  │──────│   SECUBOX   │──────│ Votre Réseau│
-│  (Box FAI)  │      │  🛡️ 7 modules │      │   (LAN)     │
-└─────────────┘      └─────────────┘      └─────────────┘
+┌─────────────┐      ┌─────────────────────┐      ┌─────────────┐
+│   Internet  │──────│      SECUBOX        │──────│ Votre Réseau│
+│  (Box FAI)  │      │  GlobalScale Inside │      │   (LAN)     │
+└─────────────┘      └─────────────────────┘      └─────────────┘
 ```
 
 ---
@@ -57,7 +57,7 @@ SecuBox est une **box physique dédiée** qui se place entre votre box opérateu
 - 🔄 Mise à jour temps réel de la threat intelligence
 - 📊 Dashboard avec visualisation des attaques bloquées
 
-[📖 Documentation](/apps/crowdsec) | [💻 GitHub](https://github.com/gkerma/luci-app-crowdsec-status)
+[📖 Documentation](/apps/crowdsec) | [💻 GitHub](https://github.com/gkerma/luci-app-crowdsec-dashboard)
 
 ---
 
@@ -70,7 +70,7 @@ SecuBox est une **box physique dédiée** qui se place entre votre box opérateu
 - 🚨 Alertes configurables (CPU, RAM, disque, réseau)
 - 📱 Interface responsive mobile/desktop
 
-[📖 Documentation](/apps/netdata) | [💻 GitHub](https://github.com/gkerma/luci-app-netdata-status)
+[📖 Documentation](/apps/netdata) | [💻 GitHub](https://github.com/gkerma/luci-app-netdata-dashboard)
 
 ---
 
@@ -83,7 +83,7 @@ SecuBox est une **box physique dédiée** qui se place entre votre box opérateu
 - 🔒 Détection des protocoles à risque
 - 📋 Catégorisation automatique du trafic
 
-[📖 Documentation](/apps/netifyd) | [💻 GitHub](https://github.com/gkerma/luci-app-netifyd-status)
+[📖 Documentation](/apps/netifyd) | [💻 GitHub](https://github.com/gkerma/luci-app-netifyd-dashboard)
 
 ---
 
@@ -142,135 +142,262 @@ SecuBox est une **box physique dédiée** qui se place entre votre box opérateu
 
 ---
 
-## 📊 Comparatif des Solutions
+## 🔧 Gamme SecuBox — Hardware GlobalScale Technologies
 
-| Fonctionnalité | Box FAI | Pare-feu Pro | SecuBox |
-|----------------|---------|--------------|---------|
-| Prix | "Gratuit"* | 500-2000€/an | **1990€ (une fois)** |
-| Threat Intelligence | ❌ | ✅ | ✅ CrowdSec |
-| VPN intégré | ❌ | ✅ | ✅ WireGuard |
-| Contrôle parental | Basique | ✅ | ✅ Avancé |
-| Deep Packet Inspection | ❌ | ✅ | ✅ Netifyd |
-| Quarantaine auto | ❌ | Partiel | ✅ Client Guardian |
-| Monitoring temps réel | ❌ | ✅ | ✅ Netdata |
-| Open Source | ❌ | ❌ | ✅ 100% |
-| Données locales | ❌ Cloud FAI | ❌ Cloud vendor | ✅ Chez vous |
-| Mises à jour | Rares | Payantes | ✅ Gratuites à vie |
+### Pourquoi GlobalScale Technologies ?
 
-*\* Le prix est inclus dans votre abonnement, mais vos données transitent par leurs serveurs.*
+- ✅ **Éprouvé** : Marvell Armada SoC depuis 2008 (SheevaPlug legacy)
+- ✅ **Support Linux** : Mainline kernel, OpenWrt officiel
+- ✅ **Networking natif** : Switch Topaz intégré, multi-Gigabit
+- ✅ **Faible consommation** : < 15W
+- ✅ **Made for networking** : Conçu spécifiquement pour routage/firewall
+- ✅ **Certifié** : FCC, CE
 
 ---
 
-## 🔧 Spécifications Techniques
+## 📦 Les 4 Modèles SecuBox
 
-### Hardware SecuBox v1 (Prévisionnel)
+### ☕ SecuBox Espresso — ESPRESSObin V7
 
-| Composant | Spécification |
-|-----------|---------------|
-| **CPU** | ARM Cortex-A72 Quad-Core 1.5GHz |
-| **RAM** | 4 GB DDR4 |
-| **Stockage** | 32 GB eMMC + slot microSD |
-| **Ethernet** | 2x Gigabit (WAN + LAN) |
-| **WiFi** | WiFi 6 (802.11ax) dual-band |
-| **USB** | 2x USB 3.0 |
-| **Alimentation** | USB-C 5V/3A (15W) |
-| **Dimensions** | 12 x 12 x 3 cm |
-| **Consommation** | < 10W idle, < 15W charge |
+*Idéal pour : Appartement, studio, télétravailleur solo*
 
-### Software Stack
+| Spécification | Détail |
+|---------------|--------|
+| **SoC** | Marvell Armada 3720 Dual-Core A53 @1.2GHz |
+| **RAM** | 1 GB ou 2 GB DDR4 |
+| **Stockage** | microSD ou 4 GB eMMC |
+| **Réseau** | 1x WAN + 2x LAN Gigabit (Switch Topaz 6341) |
+| **WiFi** | Option miniPCIe 802.11ac |
+| **Interfaces** | USB 3.0, SATA 3.0, miniPCIe |
+| **Consommation** | < 5W |
 
-| Couche | Technologie |
-|--------|-------------|
-| **OS** | OpenWrt 23.05+ |
-| **Interface** | LuCI + Modules CyberMind |
-| **Sécurité** | CrowdSec, iptables, WireGuard |
-| **Monitoring** | Netdata, Netifyd |
-| **Backend** | RPCD, UCI, ubus |
+| Variante | Hardware | Marge Dev | **Prix Campagne** |
+|----------|----------|-----------|-------------------|
+| 1GB DDR4 + SD | ~70€ | +130€ | **199€** |
+| 2GB DDR4 + eMMC | ~90€ | +160€ | **249€** |
 
 ---
 
-## 🎯 Cas d'Usage
+### ☕ SecuBox Espresso Ultra — ESPRESSObin Ultra
 
-### 🏠 Maison Connectée
+*Idéal pour : Maison connectée, famille, petit bureau*
 
-> *"J'ai 15 objets connectés et 2 enfants. SecuBox isole automatiquement les IoT, bloque les contenus inappropriés et me prévient si un nouvel appareil se connecte."*
+| Spécification | Détail |
+|---------------|--------|
+| **SoC** | Marvell Armada 3720 Dual-Core A53 @1.2GHz |
+| **RAM** | 1 GB ou 2 GB DDR4 |
+| **Stockage** | 4 GB eMMC + M.2 2280 slot |
+| **Réseau** | 1x WAN PoE (30W) + 4x LAN Gigabit |
+| **WiFi** | 802.11ac dual-band intégré |
+| **Interfaces** | USB 3.0, M.2, miniPCIe, NanoSIM |
+| **PoE** | 30W via WAN |
+| **Consommation** | < 8W |
 
-- Isolation IoT automatique
-- Contrôle parental avec horaires
-- Alertes intrusion SMS
-- VPN pour accès distant
-
-### 🏢 Petite Entreprise
-
-> *"Nos 10 employés travaillent en hybride. SecuBox sécurise le bureau et leur permet de se connecter en VPN de n'importe où."*
-
-- Portail captif pour visiteurs
-- VPN employés avec QR codes
-- Logs de connexion pour audit
-- Blocage menaces CrowdSec
-
-### 🏨 Location Airbnb
-
-> *"Chaque voyageur a son propre réseau isolé avec portail de bienvenue. Mes caméras restent sur un réseau séparé."*
-
-- Portail captif personnalisé
-- Réseau invités isolé
-- Protection des équipements propriétaire
-- Quota de bande passante
-
-### 🧑‍💻 Télétravailleur
-
-> *"Je travaille sur des données sensibles. SecuBox chiffre tout mon trafic et bloque les tentatives de phishing."*
-
-- VPN permanent vers le bureau
-- Blocage sites malveillants
-- Monitoring du trafic
-- Alertes activité suspecte
+| Variante | Hardware | Marge Dev | **Prix Campagne** |
+|----------|----------|-----------|-------------------|
+| 1GB + WiFi | ~120€ | +180€ | **299€** |
+| 2GB + WiFi + PoE | ~150€ | +200€ | **349€** |
 
 ---
 
-## 🚀 Campagne Participative 2027
+### 🔌 SecuBox Sheeva — Sheeva64 WiFi
 
-### Pourquoi le Crowdfunding ?
+*Idéal pour : Discret, plug & play, location Airbnb*
 
-Nous croyons en la transparence et la communauté. Le crowdfunding nous permet de :
+| Spécification | Détail |
+|---------------|--------|
+| **SoC** | Marvell Armada 3720 Dual-Core A53 @1.2GHz |
+| **RAM** | 1 GB DDR4 |
+| **Stockage** | 4 GB eMMC + microSD |
+| **Réseau** | 2x Gigabit Ethernet natif |
+| **WiFi** | 802.11ac 2x2 + Bluetooth 4.2 |
+| **USB** | 2x USB 2.0 Type-A + micro-USB OTG |
+| **Format** | Plug mural compact (alimentation intégrée) |
+| **Consommation** | < 5W |
 
-1. **Valider l'intérêt** du marché avant production
-2. **Impliquer la communauté** dans le développement
-3. **Rester indépendants** des investisseurs traditionnels
-4. **Offrir des prix early-bird** avantageux
+| Variante | Hardware | Marge Dev | **Prix Campagne** |
+|----------|----------|-----------|-------------------|
+| Sheeva64 (sans WiFi) | ~90€ | +160€ | **249€** |
+| Sheeva64 WiFi | ~110€ | +190€ | **299€** |
 
-### Calendrier Prévisionnel
+---
+
+### ☕ SecuBox Mocha — MOCHAbin
+
+*Idéal pour : PME, grande maison, multi-sites, edge computing*
+
+| Spécification | Détail |
+|---------------|--------|
+| **SoC** | Marvell Armada 7040 Quad-Core A72 @1.4GHz |
+| **RAM** | 4 GB ou 8 GB DDR4 |
+| **Stockage** | 16 GB eMMC + M.2 SATA + SATA HDD |
+| **Réseau** | 1x WAN + 4x LAN Gigabit + **SFP+ 10G** |
+| **WiFi** | Option WiFi 6 (802.11ax) + BT 5.0 |
+| **Cellular** | Slot M.2 pour modem 4G/5G |
+| **Interfaces** | 2x USB 3.0, PCIe, M.2 |
+| **PoE** | Support 30W via WAN |
+| **Consommation** | < 12W |
+
+| Variante | Hardware | Marge Dev | **Prix Campagne** |
+|----------|----------|-----------|-------------------|
+| 4GB DDR4 | ~180€ | +270€ | **449€** |
+| 4GB + WiFi 6 | ~220€ | +330€ | **549€** |
+| 8GB DDR4 | ~220€ | +330€ | **549€** |
+| 8GB + WiFi 6 + 5G | ~350€ | +450€ | **799€** |
+
+---
+
+## 💳 Abonnements SecuBox Care
+
+### Pourquoi un abonnement optionnel ?
+
+Le logiciel SecuBox est **100% open source et gratuit**. Les abonnements financent :
+
+- 🔧 **Développement continu** de nouvelles fonctionnalités
+- 🛡️ **Threat Intelligence premium** (au-delà de CrowdSec community)
+- 📞 **Support technique** réactif
+- 🖥️ **Assistance remote** via RustDesk
+- ☁️ **Services cloud** optionnels (backup, monitoring externe)
+- 🔬 **R&D** : nouveaux modules, intégrations, optimisations
+
+---
+
+### 🆓 SecuBox Care Free
+
+**Gratuit à vie**
+
+- ✅ Tous les 7 modules inclus
+- ✅ Mises à jour de sécurité critiques
+- ✅ CrowdSec Community blocklist
+- ✅ Documentation en ligne
+- ✅ Forum communautaire
+- ❌ Support direct
+- ❌ Threat Intel premium
+
+---
+
+### 🥉 SecuBox Care Basic
+
+**9€/mois** ou **89€/an** *(2 mois offerts)*
+
+- ✅ Tout Free +
+- ✅ Support email (réponse 48h)
+- ✅ Mises à jour fonctionnelles prioritaires
+- ✅ Newsletter développeurs mensuelle
+- ✅ Accès bêta nouvelles features
+- ✅ 1 session assistance RustDesk/mois (30min)
+- ✅ Guides de configuration avancés
+
+---
+
+### 🥈 SecuBox Care Pro
+
+**19€/mois** ou **189€/an** *(2 mois offerts)*
+
+- ✅ Tout Basic +
+- ✅ Support email prioritaire (réponse 24h)
+- ✅ **Threat Intelligence Premium** :
+  - Blocklists sectorielles (finance, santé, industrie)
+  - IOC (Indicators of Compromise) avancés
+  - Alertes zero-day et CVE critiques
+  - Réputation IP/domaine enrichie
+- ✅ Sessions RustDesk illimitées
+- ✅ Backup configuration cloud chiffré (E2E)
+- ✅ Dashboard monitoring externe 24/7
+- ✅ Rapports de sécurité mensuels PDF
+- ✅ Webhooks et notifications Slack/Teams
+
+---
+
+### 🥇 SecuBox Care Enterprise
+
+**49€/mois** ou **490€/an** *(2 mois offerts)*
+
+- ✅ Tout Pro +
+- ✅ Support téléphone (lun-ven 9h-18h)
+- ✅ **SLA garanti** : réponse < 4h critique
+- ✅ **Multi-sites** : jusqu'à 5 SecuBox
+- ✅ API REST accès programmatique
+- ✅ Intégration SIEM (Splunk, ELK, Graylog, Wazuh)
+- ✅ Audit de sécurité annuel (rapport)
+- ✅ Formation administrateur (2h visio)
+- ✅ Personnalisation portail captif
+- ✅ DNS sécurisé premium (malware, phishing)
+
+---
+
+### 🏢 SecuBox Care Corporate
+
+**Sur devis** — *À partir de 149€/mois*
+
+- ✅ Tout Enterprise +
+- ✅ Support 24/7/365
+- ✅ SLA < 1h incidents critiques
+- ✅ **Sites illimités**
+- ✅ Account manager dédié
+- ✅ Développements sur mesure
+- ✅ Formation sur site (France)
+- ✅ Audit pentest annuel
+- ✅ Conformité RGPD, ISO 27001
+- ✅ Contrat de maintenance hardware
+
+---
+
+## 📊 Récapitulatif Tarifs
+
+### Hardware SecuBox (achat unique)
+
+| Modèle | Base | Usage Cible | Prix |
+|--------|------|-------------|------|
+| **Espresso** | ESPRESSObin V7 1GB | Studio/Solo | **199€** |
+| **Espresso+** | ESPRESSObin V7 2GB | Appartement | **249€** |
+| **Espresso Ultra** | ESPRESSObin Ultra 1GB | Maison | **299€** |
+| **Espresso Ultra+** | ESPRESSObin Ultra 2GB PoE | Famille | **349€** |
+| **Sheeva** | Sheeva64 | Discret/Airbnb | **249€** |
+| **Sheeva WiFi** | Sheeva64 WiFi+BT | Plug & Play | **299€** |
+| **Mocha** | MOCHAbin 4GB | PME | **449€** |
+| **Mocha Pro** | MOCHAbin 4GB WiFi6 | Business | **549€** |
+| **Mocha Max** | MOCHAbin 8GB | Multi-sites | **549€** |
+| **Mocha Ultimate** | MOCHAbin 8GB WiFi6+5G | Enterprise | **799€** |
+
+### Abonnements SecuBox Care (optionnel)
+
+| Plan | Mensuel | Annuel | Inclus |
+|------|---------|--------|--------|
+| **Free** | 0€ | 0€ | Modules + MAJ sécurité |
+| **Basic** | 9€ | 89€ | + Support email + Bêta |
+| **Pro** | 19€ | 189€ | + Threat Intel + Backup cloud |
+| **Enterprise** | 49€ | 490€ | + Multi-sites + SIEM + Formation |
+| **Corporate** | 149€+ | Sur devis | + 24/7 + Illimité + Sur mesure |
+
+---
+
+## 🎁 Bundles Campagne Participative
+
+### Early Bird (quantités limitées)
+
+| Bundle | Contenu | Prix | Économie |
+|--------|---------|------|----------|
+| 🥉 **Starter** | Espresso + Basic 1 an | **249€** | 39€ |
+| 🥈 **Family** | Espresso Ultra+ + Pro 1 an | **489€** | 49€ |
+| 🥇 **Business** | Mocha Pro + Enterprise 1 an | **899€** | 140€ |
+| 💎 **Multi-Site** | 2x Mocha + Enterprise 1 an | **1399€** | 189€ |
+| 👑 **Founder** | Mocha Ultimate + Corporate 1 an | **1999€** | ~400€ |
+
+---
+
+## 🗓️ Calendrier Projet
 
 ```
-2026 Q1  ████████░░░░  Développement modules (FAIT ✅)
-2026 Q2  ░░░░░░░░░░░░  Finalisation System Hub
-2026 Q3  ░░░░░░░░░░░░  Prototypage hardware
-2026 Q4  ░░░░░░░░░░░░  Beta testeurs (100 unités)
-2027 Q1  ░░░░░░░░░░░░  Préparation campagne
-2027 Q2  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
-2027 Q3  ░░░░░░░░░░░░  Production
-2027 Q4  ░░░░░░░░░░░░  📦 Livraison backers
+Q1 2026  ████████████  Développement modules ✅
+Q2 2026  ████████░░░░  Finalisation System Hub
+Q3 2026  ░░░░░░░░░░░░  Intégration hardware GlobalScale
+Q4 2026  ░░░░░░░░░░░░  Beta testeurs (100 unités)
+Q1 2027  ░░░░░░░░░░░░  Préparation campagne
+Q2 2027  ░░░░░░░░░░░░  🚀 LANCEMENT CROWDFUNDING
+Q3 2027  ░░░░░░░░░░░░  Production & Tests
+Q4 2027  ░░░░░░░░░░░░  📦 Livraison backers
 ```
-
-### Paliers de Financement
-
-| Objectif | Déblocage |
-|----------|-----------|
-| **50 000 €** | Production 500 unités |
-| **100 000 €** | + App mobile iOS/Android |
-| **200 000 €** | + Boîtier aluminium premium |
-| **500 000 €** | + WiFi 6E + 2.5Gb Ethernet |
-
-### Récompenses Early Bird
-
-| Tier | Prix | Inclus | Limité à |
-|------|------|--------|----------|
-| 🥉 **Pioneer** | 1490€ | SecuBox + 1 an support | 100 |
-| 🥈 **Guardian** | 1990€ | SecuBox + 2 ans support + stickers | 500 |
-| 🥇 **Protector** | 2990€ | SecuBox + lifetime support + t-shirt | 200 |
-| 💎 **Defender** | 4990€ | 2x SecuBox + nom dans les crédits | 50 |
-| 🏆 **Champion** | 9990€ | SecuBox custom + visite atelier | 10 |
 
 ---
 
@@ -278,27 +405,19 @@ Nous croyons en la transparence et la communauté. Le crowdfunding nous permet d
 
 ### Newsletter
 
-Inscrivez-vous pour être informé du lancement :
-
 👉 **[newsletter.secubox.io](https://newsletter.secubox.io)**
 
 ### Discord
 
-Rejoignez notre serveur pour échanger avec l'équipe et les beta-testeurs :
-
 👉 **[discord.gg/secubox](https://discord.gg/secubox)**
 
-### GitHub
-
-Tous nos modules sont open source :
-
-👉 **[github.com/gkerma](https://github.com/gkerma)**
+### GitHub — Tous nos modules open source
 
 | Repository | Description |
 |------------|-------------|
-| [luci-app-crowdsec-status](https://github.com/gkerma/luci-app-crowdsec-status) | Dashboard CrowdSec |
-| [luci-app-netdata-status](https://github.com/gkerma/luci-app-netdata-status) | Dashboard Netdata |
-| [luci-app-netifyd-status](https://github.com/gkerma/luci-app-netifyd-status) | Dashboard Netifyd |
+| [luci-app-crowdsec-dashboard](https://github.com/gkerma/luci-app-crowdsec-dashboard) | Dashboard CrowdSec |
+| [luci-app-netdata-dashboard](https://github.com/gkerma/luci-app-netdata-dashboard) | Dashboard Netdata |
+| [luci-app-netifyd-dashboard](https://github.com/gkerma/luci-app-netifyd-dashboard) | Dashboard Netifyd |
 | [luci-app-wireguard-dashboard](https://github.com/gkerma/luci-app-wireguard-dashboard) | Dashboard WireGuard |
 | [luci-app-network-modes](https://github.com/gkerma/luci-app-network-modes) | Multi-mode réseau |
 | [luci-app-client-guardian](https://github.com/gkerma/luci-app-client-guardian) | NAC & Portail Captif |
@@ -306,57 +425,22 @@ Tous nos modules sont open source :
 
 ---
 
-## ❓ FAQ
-
-### Le logiciel est-il vraiment gratuit ?
-
-**Oui, 100%.** Tous les modules sont sous licence Apache-2.0. Vous pouvez les installer sur n'importe quel routeur OpenWrt compatible. SecuBox est simplement une version "clé en main" avec hardware optimisé.
-
-### Puis-je installer les modules sur mon routeur existant ?
-
-**Absolument.** Consultez nos [démos interactives](/demos) et [guides d'installation](/docs). Nous recommandons un routeur avec au moins 256 MB de RAM et OpenWrt 22.03+.
-
-### Mes données restent-elles chez moi ?
-
-**Oui.** Aucune donnée ne quitte votre réseau. Les seules connexions sortantes sont :
-- CrowdSec : synchronisation de la blocklist (anonymisée)
-- Mises à jour : vérification des nouvelles versions
-
-### Quelle est la différence avec un Pi-hole ?
-
-Pi-hole bloque uniquement les publicités via DNS. SecuBox est une solution complète : firewall, VPN, NAC, monitoring, DPI. Pi-hole peut être installé en complément sur SecuBox.
-
-### Y a-t-il un abonnement ?
-
-**Non.** Prix unique, mises à jour gratuites à vie. Le support premium (prioritaire + assistance remote) est optionnel (49€/an).
-
----
-
 ## 📞 Contact
 
 **CyberMind.fr** — Solutions de Cybersécurité Open Source
 
-- 🌐 Website : [cybermind.fr](https://cybermind.fr)
-- 📧 Email : [contact@cybermind.fr](mailto:contact@cybermind.fr)
-- 🐦 Twitter : [@cybermind_fr](https://twitter.com/cybermind_fr)
-- 💼 LinkedIn : [CyberMind](https://linkedin.com/company/cybermind-fr)
+- 🌐 [cybermind.fr](https://cybermind.fr)
+- 📧 [contact@cybermind.fr](mailto:contact@cybermind.fr)
+- 🐦 [@cybermind_fr](https://twitter.com/cybermind_fr)
 
 ---
 
-## 🎬 Conclusion
-
-**SecuBox** représente des années de travail pour démocratiser la cybersécurité réseau. En combinant 7 modules open source éprouvés dans une appliance dédiée, nous rendons accessible à tous une protection de niveau professionnel.
-
-La campagne participative de 2027 sera l'occasion de concrétiser cette vision avec votre soutien.
-
-> *"La sécurité n'est pas un produit, mais un processus. SecuBox automatise ce processus pour vous."*
-
-**Inscrivez-vous à la newsletter pour ne pas manquer le lancement !**
+**Inscrivez-vous à la newsletter pour ne pas manquer le lancement Q2 2027 !**
 
 👉 **[newsletter.secubox.io](https://newsletter.secubox.io)**
 
 ---
 
-*Article par [Gandalf @ CyberMind.fr](https://cybermind.fr) — Décembre 2024*
+*Article par [Gandalf @ CyberMind.fr](https://cybermind.fr) — Décembre 2025*
 
-#SecuBox #OpenSource #Cybersécurité #Crowdfunding #OpenWrt #MadeInFrance
+#SecuBox #OpenSource #Cybersécurité #Crowdfunding #OpenWrt #GlobalScale #MadeInFrance
