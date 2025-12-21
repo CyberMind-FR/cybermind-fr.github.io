@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDN Cache Dashboard - SecuBox Module | CyberMind.fr</title>
+  <meta name="description" content="Proxy cache local pour OpenWrt. Réduisez votre bande passante de 40-60% avec le module CDN Cache de SecuBox.">
+  <meta name="keywords" content="cdn, cache, proxy, openwrt, luci, secubox, bandwidth, optimization, nginx">
+  <meta property="og:title" content="CDN Cache Dashboard - SecuBox">
+  <meta property="og:description" content="Optimisez votre bande passante avec un proxy cache local intelligent.">
+  <meta property="og:image" content="https://cybermind.fr/images/cdn-cache-og.png">
+  <link rel="canonical" href="https://cybermind.fr/apps/cdn-cache">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --primary: #06b6d4;
+  --primary-dark: #0891b2;
+  --primary-light: #22d3ee;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #0a0a12;
+  --bg-card: #1a1a24;
+  --bg-section: #0f1019;
+  --border: #2a2a3a;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Navigation */
+.nav {
+  background: rgba(10,10,18,0.9); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border); padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-size: 20px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+.nav-links a:hover { color: var(--primary); text-decoration: none; }
+
+/* Hero */
+.hero {
+  padding: 100px 0 80px;
+  background: radial-gradient(ellipse at 30% 0%, rgba(6,182,212,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 100%, rgba(6,182,212,0.08) 0%, transparent 50%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+  background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.3);
+  border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 24px;
+}
+.hero-title { font-size: 56px; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
+.hero-title span { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-desc { font-size: 20px; color: var(--text-muted); max-width: 600px; margin-bottom: 32px; }
+.hero-stats { display: flex; gap: 40px; margin-bottom: 40px; }
+.hero-stat-value { font-size: 36px; font-weight: 800; color: var(--success); font-family: 'JetBrains Mono', monospace; }
+.hero-stat-label { font-size: 14px; color: var(--text-dim); }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+  border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.3s;
+}
+.btn-primary { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(6,182,212,0.3); text-decoration: none; }
+.btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--primary); text-decoration: none; }
+
+/* Sections */
+.section { padding: 80px 0; }
+.section-alt { background: var(--bg-section); }
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+.section-badge { display: inline-block; padding: 6px 14px; background: rgba(6,182,212,0.15); border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+.section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+.section-desc { font-size: 17px; color: var(--text-muted); }
+
+/* Features Grid */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px; transition: all 0.3s;
+}
+.feature-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+.feature-icon { font-size: 36px; margin-bottom: 16px; }
+.feature-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.feature-desc { font-size: 14px; color: var(--text-muted); }
+
+/* How It Works */
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.how-step {
+  text-align: center; padding: 24px; position: relative;
+}
+.how-step::after {
+  content: '→'; position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%); color: var(--primary); font-size: 24px;
+}
+.how-step:last-child::after { display: none; }
+.how-number {
+  width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 700; margin: 0 auto 16px;
+}
+.how-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.how-desc { font-size: 13px; color: var(--text-muted); }
+
+/* Policies */
+.policies-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.policy-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; display: flex; gap: 16px;
+}
+.policy-icon { font-size: 32px; flex-shrink: 0; }
+.policy-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.policy-details { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+.policy-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.policy-tag { padding: 3px 8px; background: rgba(6,182,212,0.15); color: var(--primary); border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+
+/* Screenshots */
+.screenshots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.screenshot {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.screenshot-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.screenshot-dot { width: 10px; height: 10px; border-radius: 50%; }
+.screenshot-title { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.screenshot-body { padding: 20px; min-height: 200px; background: var(--bg); }
+
+/* Code Block */
+.code-block {
+  background: #0d1117; border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin: 24px 0;
+}
+.code-header { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-dim); display: flex; justify-content: space-between; }
+.code-content { padding: 20px; overflow-x: auto; }
+.code-content pre { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: #e6edf3; }
+.code-comment { color: #8b949e; }
+.code-keyword { color: #ff7b72; }
+.code-string { color: #a5d6ff; }
+.code-number { color: #79c0ff; }
+
+/* Specs Table */
+.specs-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 12px; overflow: hidden; }
+.specs-table th, .specs-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+.specs-table th { background: var(--bg-section); font-weight: 600; font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
+.specs-table td { font-size: 14px; }
+.specs-table tr:last-child td { border-bottom: none; }
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(6,182,212,0.05));
+  border: 1px solid rgba(6,182,212,0.2); border-radius: 24px; padding: 60px; text-align: center;
+}
+.cta-title { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+.cta-desc { font-size: 17px; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* Footer */
+.footer { padding: 60px 0 40px; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.footer-desc { font-size: 14px; color: var(--text-muted); }
+.footer-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: var(--text-muted); font-size: 14px; }
+.footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-step::after { display: none; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; }
+  .hero-stats { flex-direction: column; gap: 20px; }
+  .features-grid, .policies-grid, .screenshots { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta { padding: 40px 24px; }
+}
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container nav-content">
+    <a href="/" class="nav-brand">
+      <span>🛡️</span> CyberMind.fr
+    </a>
+    <div class="nav-links">
+      <a href="/apps">Apps</a>
+      <a href="/secubox">SecuBox</a>
+      <a href="/blog">Blog</a>
+      <a href="https://github.com/gkerma">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">📦 SecuBox Module #8</span>
+    <h1 class="hero-title"><span>CDN Cache</span> Dashboard</h1>
+    <p class="hero-desc">Transformez votre routeur OpenWrt en proxy cache intelligent. Réduisez votre consommation de bande passante et accélérez les téléchargements répétitifs.</p>
+    
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">40-60%</div>
+        <div class="hero-stat-label">Économies bande passante</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">73%</div>
+        <div class="hero-stat-label">Hit ratio moyen</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">~10 MB</div>
+        <div class="hero-stat-label">Empreinte RAM</div>
+      </div>
+    </div>
+    
+    <div class="hero-actions">
+      <a href="https://github.com/gkerma/luci-app-cdn-cache" class="btn btn-primary">
+        <span>📥</span> Télécharger
+      </a>
+      <a href="/apps/cdn-cache/demo" class="btn btn-secondary">
+        <span>🎮</span> Démo Interactive
+      </a>
+      <a href="#documentation" class="btn btn-secondary">
+        <span>📖</span> Documentation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">✨ Fonctionnalités</span>
+      <h2 class="section-title">Un Cache Intelligent et Complet</h2>
+      <p class="section-desc">Tout ce dont vous avez besoin pour optimiser votre bande passante réseau.</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Dashboard Temps Réel</h3>
+        <p class="feature-desc">Statistiques de hit ratio, économies de bande passante, et visualisation du cache en temps réel.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3 class="feature-title">Policies Configurables</h3>
+        <p class="feature-desc">Règles de cache par domaine, extension de fichier, durée et priorité. Policies préconfigurées incluses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">Graphiques Statistiques</h3>
+        <p class="feature-desc">Évolution du hit ratio et des économies sur 24h, 7 jours ou 30 jours.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3 class="feature-title">Top Domaines</h3>
+        <p class="feature-desc">Identifiez quels sites bénéficient le plus du cache et optimisez vos policies.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <h3 class="feature-title">Outils Maintenance</h3>
+        <p class="feature-desc">Purge sélective, préchargement d'URLs, nettoyage des expirés, logs détaillés.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚫</div>
+        <h3 class="feature-title">Exclusions Intelligentes</h3>
+        <p class="feature-desc">Excluez automatiquement les sites bancaires, streaming et contenus sensibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">⚙️ Fonctionnement</span>
+      <h2 class="section-title">Comment Ça Marche</h2>
+    </div>
+    
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-number">1</div>
+        <h4 class="how-title">Requête Client</h4>
+        <p class="how-desc">Un appareil demande un fichier (mise à jour, ressource web...)</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">2</div>
+        <h4 class="how-title">Vérification Cache</h4>
+        <p class="how-desc">SecuBox vérifie si le fichier est déjà en cache local</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">3</div>
+        <h4 class="how-title">Réponse Optimisée</h4>
+        <p class="how-desc">HIT: servi depuis le cache. MISS: téléchargé et stocké</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">4</div>
+        <h4 class="how-title">Économies</h4>
+        <p class="how-desc">Les prochaines requêtes identiques sont servies instantanément</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Policies -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">📋 Policies</span>
+      <h2 class="section-title">Règles de Cache Préconfigurées</h2>
+      <p class="section-desc">Optimisé pour les cas d'usage les plus courants. Entièrement personnalisable.</p>
+    </div>
+    
+    <div class="policies-grid">
+      <div class="policy-card">
+        <div class="policy-icon">🪟</div>
+        <div>
+          <h4 class="policy-name">Windows Update</h4>
+          <p class="policy-details">windowsupdate.com, download.microsoft.com • 7 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.exe</span>
+            <span class="policy-tag">.msu</span>
+            <span class="policy-tag">.cab</span>
+            <span class="policy-tag">.msi</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🐧</div>
+        <div>
+          <h4 class="policy-name">Linux Repositories</h4>
+          <p class="policy-details">ubuntu.com, debian.org, kernel.org • 3 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.deb</span>
+            <span class="policy-tag">.rpm</span>
+            <span class="policy-tag">.pkg.tar.zst</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🤖</div>
+        <div>
+          <h4 class="policy-name">Android Apps</h4>
+          <p class="policy-details">play.googleapis.com • 7 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.apk</span>
+            <span class="policy-tag">.obb</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🌐</div>
+        <div>
+          <h4 class="policy-name">Contenu Web Statique</h4>
+          <p class="policy-details">Tous domaines • 1 jour</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.js</span>
+            <span class="policy-tag">.css</span>
+            <span class="policy-tag">.woff2</span>
+            <span class="policy-tag">.png</span>
+            <span class="policy-tag">.jpg</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🎮</div>
+        <div>
+          <h4 class="policy-name">Steam Games</h4>
+          <p class="policy-details">steamcontent.com • 30 jours (désactivé par défaut)</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.zip</span>
+            <span class="policy-tag">.pak</span>
+            <span class="policy-tag">.vpk</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🚫</div>
+        <div>
+          <h4 class="policy-name">Exclusions par Défaut</h4>
+          <p class="policy-details">Sites sensibles jamais cachés</p>
+          <div class="policy-tags">
+            <span class="policy-tag">bank*</span>
+            <span class="policy-tag">paypal</span>
+            <span class="policy-tag">netflix</span>
+            <span class="policy-tag">youtube</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Installation -->
+<section class="section section-alt" id="documentation">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">📥 Installation</span>
+      <h2 class="section-title">Démarrage Rapide</h2>
+    </div>
+    
+    <div class="code-block">
+      <div class="code-header">
+        <span>Terminal</span>
+        <span>Installation OpenWrt</span>
+      </div>
+      <div class="code-content">
+<pre><span class="code-comment"># Installation depuis les packages SecuBox</span>
+opkg update
+opkg install luci-app-cdn-cache
+
+<span class="code-comment"># Recharger RPCD</span>
+/etc/init.d/rpcd reload
+
+<span class="code-comment"># Activer et configurer</span>
+uci set cdn-cache.main.enabled=<span class="code-number">1</span>
+uci set cdn-cache.main.cache_size=<span class="code-number">2048</span>  <span class="code-comment"># 2 GB</span>
+uci set cdn-cache.main.listen_port=<span class="code-number">3128</span>
+uci commit cdn-cache
+
+<span class="code-comment"># Démarrer le service</span>
+/etc/init.d/cdn-cache start
+/etc/init.d/cdn-cache enable</pre>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 20px; margin: 40px 0 20px;">Spécifications Techniques</h3>
+    
+    <table class="specs-table">
+      <tr>
+        <th>Composant</th>
+        <th>Détail</th>
+      </tr>
+      <tr>
+        <td>Moteur de cache</td>
+        <td>Nginx avec proxy_cache</td>
+      </tr>
+      <tr>
+        <td>Interface</td>
+        <td>LuCI JavaScript (client-side rendering)</td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>RPCD (ubus)</td>
+      </tr>
+      <tr>
+        <td>Configuration</td>
+        <td>UCI (/etc/config/cdn-cache)</td>
+      </tr>
+      <tr>
+        <td>Dépendances</td>
+        <td>luci-base, nginx-ssl, rpcd, coreutils-stat</td>
+      </tr>
+      <tr>
+        <td>RAM requise</td>
+        <td>~10-20 MB (Nginx + cache metadata)</td>
+      </tr>
+      <tr>
+        <td>Espace disque</td>
+        <td>Configurable (recommandé: 1-4 GB)</td>
+      </tr>
+      <tr>
+        <td>OpenWrt</td>
+        <td>23.05+ avec LuCI</td>
+      </tr>
+      <tr>
+        <td>Licence</td>
+        <td>Apache-2.0</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- API -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">🔌 API</span>
+      <h2 class="section-title">API RPCD</h2>
+      <p class="section-desc">Intégrez CDN Cache dans vos scripts et automatisations.</p>
+    </div>
+    
+    <div class="code-block">
+      <div class="code-header">
+        <span>Shell</span>
+        <span>Exemples d'appels ubus</span>
+      </div>
+      <div class="code-content">
+<pre><span class="code-comment"># Statut du service</span>
+ubus call luci.cdn-cache status
+
+<span class="code-comment"># Statistiques globales</span>
+ubus call luci.cdn-cache stats
+
+<span class="code-comment"># Liste des objets en cache</span>
+ubus call luci.cdn-cache cache_list
+
+<span class="code-comment"># Top domaines par utilisation</span>
+ubus call luci.cdn-cache top_domains
+
+<span class="code-comment"># Économies de bande passante (24h)</span>
+ubus call luci.cdn-cache bandwidth_savings <span class="code-string">'{"period":"24h"}'</span>
+
+<span class="code-comment"># Purger tout le cache</span>
+ubus call luci.cdn-cache purge_cache
+
+<span class="code-comment"># Purger un domaine spécifique</span>
+ubus call luci.cdn-cache purge_domain <span class="code-string">'{"domain":"example.com"}'</span>
+
+<span class="code-comment"># Précharger une URL</span>
+ubus call luci.cdn-cache preload_url <span class="code-string">'{"url":"https://example.com/file.exe"}'</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta">
+      <h2 class="cta-title">Prêt à Optimiser votre Réseau ?</h2>
+      <p class="cta-desc">Installez CDN Cache Dashboard et commencez à économiser de la bande passante dès aujourd'hui.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a href="https://github.com/gkerma/luci-app-cdn-cache" class="btn btn-primary">
+          <span>📥</span> Télécharger sur GitHub
+        </a>
+        <a href="/secubox" class="btn btn-secondary">
+          <span>🛡️</span> Découvrir SecuBox
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🛡️ CyberMind.fr</div>
+        <p class="footer-desc">Cybersécurité Open Source pour OpenWrt. Modules LuCI professionnels pour protéger et optimiser votre réseau.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">SecuBox Modules</h4>
+        <ul class="footer-links">
+          <li><a href="/apps/crowdsec">CrowdSec Dashboard</a></li>
+          <li><a href="/apps/netdata">Netdata Dashboard</a></li>
+          <li><a href="/apps/wireguard">WireGuard Dashboard</a></li>
+          <li><a href="/apps/cdn-cache">CDN Cache</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Ressources</h4>
+        <ul class="footer-links">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="https://github.com/gkerma">GitHub</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Projet</h4>
+        <ul class="footer-links">
+          <li><a href="/secubox">SecuBox</a></li>
+          <li><a href="/secubox/campaign">Campagne</a></li>
+          <li><a href="/about">À propos</a></li>
+          <li><a href="/license">Licence</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 CyberMind.fr — Open Source Apache-2.0 — 🇫🇷 Made in France with ❤️
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
