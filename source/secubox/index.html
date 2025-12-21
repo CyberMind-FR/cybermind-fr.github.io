@@ -71,6 +71,28 @@ body { font-family: 'Inter', sans-serif; background: var(--sb-bg); color: var(--
 .section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
 .section-desc { font-size: 17px; color: var(--sb-text-muted); }
 
+/* Modules Grid */
+.modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.module-card {
+  background: var(--sb-bg-card); border: 1px solid var(--sb-border); border-radius: 14px;
+  padding: 24px; position: relative; overflow: hidden; transition: all 0.3s;
+}
+.module-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--module-color); }
+.module-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.25); border-color: var(--module-color); }
+.module-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.module-icon { font-size: 32px; }
+.module-links { display: flex; gap: 8px; }
+.module-links a {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--sb-border); border-radius: 6px;
+  font-size: 11px; color: var(--sb-text-muted); text-decoration: none; transition: all 0.2s;
+}
+.module-links a:hover { color: var(--sb-cyan); border-color: var(--sb-cyan); background: rgba(6,182,212,0.1); }
+.module-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.module-desc { font-size: 13px; color: var(--sb-text-muted); margin-bottom: 14px; line-height: 1.5; }
+.module-features { display: flex; flex-wrap: wrap; gap: 6px; }
+.module-feature { padding: 4px 10px; background: var(--sb-bg); border-radius: 6px; font-size: 11px; color: var(--sb-text-dim); }
+
 /* Hardware Grid */
 .hardware-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 .hardware-card {
@@ -186,6 +208,145 @@ body { font-family: 'Inter', sans-serif; background: var(--sb-bg); color: var(--
       </div>
       <div style="text-align: center;">
         <img src="/images/secubox-device.png" alt="SecuBox" style="max-width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section class="section section-alt" id="modules">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">🧩 7 Modules Open Source</span>
+      <h2 class="section-title">Une Suite Complète de Sécurité</h2>
+      <p class="section-desc">Chaque module est disponible gratuitement sur GitHub. SecuBox les réunit dans une appliance optimisée et préconfigurée.</p>
+    </div>
+    
+    <div class="modules-grid">
+      <div class="module-card" style="--module-color: #22c55e;">
+        <div class="module-header">
+          <div class="module-icon">🛡️</div>
+          <div class="module-links">
+            <a href="/apps/crowdsec">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-crowdsec-dashboard" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">CrowdSec Dashboard</h3>
+        <p class="module-desc">Cybersécurité collaborative avec threat intelligence mondiale. Bloquez les attaquants avant qu'ils ne frappent grâce à 15M+ IPs malveillantes.</p>
+        <div class="module-features">
+          <span class="module-feature">Threat Intel</span>
+          <span class="module-feature">Real-time</span>
+          <span class="module-feature">Bouncer</span>
+          <span class="module-feature">Alertes</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #00ab44;">
+        <div class="module-header">
+          <div class="module-icon">📊</div>
+          <div class="module-links">
+            <a href="/apps/netdata">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-netdata-dashboard" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">Netdata Dashboard</h3>
+        <p class="module-desc">Monitoring temps réel avec 1000+ métriques collectées automatiquement. Alertes configurables sur CPU, RAM, disque, réseau et température.</p>
+        <div class="module-features">
+          <span class="module-feature">1000+ Métriques</span>
+          <span class="module-feature">Temps réel</span>
+          <span class="module-feature">Alertes</span>
+          <span class="module-feature">Historique</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #8b5cf6;">
+        <div class="module-header">
+          <div class="module-icon">🔍</div>
+          <div class="module-links">
+            <a href="/apps/netifyd">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-netifyd-dashboard" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">Netifyd Dashboard</h3>
+        <p class="module-desc">Deep Packet Inspection pour identifier chaque application sur votre réseau. Reconnaissance de 300+ apps : Netflix, YouTube, Teams, etc.</p>
+        <div class="module-features">
+          <span class="module-feature">300+ Apps</span>
+          <span class="module-feature">DPI</span>
+          <span class="module-feature">Bande passante</span>
+          <span class="module-feature">Catégories</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #06b6d4;">
+        <div class="module-header">
+          <div class="module-icon">🔒</div>
+          <div class="module-links">
+            <a href="/apps/wireguard">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-wireguard-dashboard" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">WireGuard Dashboard</h3>
+        <p class="module-desc">VPN moderne ultra-performant. Connectez-vous à votre réseau de n'importe où avec QR codes instantanés pour configuration mobile.</p>
+        <div class="module-features">
+          <span class="module-feature">QR Codes</span>
+          <span class="module-feature">Multi-peers</span>
+          <span class="module-feature">Crypto moderne</span>
+          <span class="module-feature">Mobile</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #f97316;">
+        <div class="module-header">
+          <div class="module-icon">🔀</div>
+          <div class="module-links">
+            <a href="/apps/network-modes">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-network-modes" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">Network Modes</h3>
+        <p class="module-desc">Changez de topologie réseau en un clic : Routeur classique, Bridge transparent, Point d'Accès WiFi, Répéteur ou Travel Router.</p>
+        <div class="module-features">
+          <span class="module-feature">5 Modes</span>
+          <span class="module-feature">Auto-config</span>
+          <span class="module-feature">Backup</span>
+          <span class="module-feature">Rollback</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #ef4444;">
+        <div class="module-header">
+          <div class="module-icon">👁️</div>
+          <div class="module-links">
+            <a href="/apps/client-guardian">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-client-guardian" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">Client Guardian</h3>
+        <p class="module-desc">Contrôle d'accès réseau nouvelle génération. Quarantaine automatique, portail captif personnalisable, contrôle parental et alertes SMS/Email.</p>
+        <div class="module-features">
+          <span class="module-feature">NAC</span>
+          <span class="module-feature">Portail Captif</span>
+          <span class="module-feature">Parental</span>
+          <span class="module-feature">Alertes SMS</span>
+        </div>
+      </div>
+      
+      <div class="module-card" style="--module-color: #6366f1;">
+        <div class="module-header">
+          <div class="module-icon">🎛️</div>
+          <div class="module-links">
+            <a href="/apps/system-hub">📖 Docs</a>
+            <a href="https://github.com/gkerma/luci-app-system-hub" target="_blank">💻 GitHub</a>
+          </div>
+        </div>
+        <h3 class="module-name">System Hub</h3>
+        <p class="module-desc">Centre de contrôle unifié pour tous vos modules. Health reports automatisés, assistance remote RustDesk et collecte de diagnostics en un clic.</p>
+        <div class="module-features">
+          <span class="module-feature">Dashboard unifié</span>
+          <span class="module-feature">Health Reports</span>
+          <span class="module-feature">RustDesk</span>
+          <span class="module-feature">Diagnostics</span>
+        </div>
       </div>
     </div>
   </div>
