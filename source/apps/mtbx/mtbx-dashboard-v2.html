@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTBX - Modular ToolBoX Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #151b2d;
+            --bg-card: #1a2332;
+            --bg-card-hover: #212d42;
+            --accent-primary: #00d9ff;
+            --accent-secondary: #ff6b35;
+            --accent-success: #00ff9f;
+            --accent-warning: #ffd700;
+            --text-primary: #e8eef5;
+            --text-secondary: #8b99b0;
+            --text-muted: #5a6a82;
+            --border-color: #2a3f5f;
+            --shadow-soft: 0 4px 20px rgba(0, 217, 255, 0.1);
+            --shadow-strong: 0 8px 40px rgba(0, 217, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 217, 255, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8)); }
+        }
+
+        .system-info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        main {
+            position: relative;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), #0088cc);
+            color: var(--bg-primary);
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 0.6s ease-out backwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-context {
+            background: rgba(0, 217, 255, 0.05);
+            border-left: 3px solid var(--accent-primary);
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .card-context-title {
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-context-text {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .context-icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .info-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-cell-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-cell-value {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .status-summary {
+            background: rgba(0, 255, 159, 0.1);
+            border: 1px solid rgba(0, 255, 159, 0.3);
+            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.8rem;
+            color: var(--accent-success);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-summary.warning {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            color: var(--accent-warning);
+        }
+
+        .status-summary.error {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+            color: var(--accent-secondary);
+        }
+
+        .status-icon {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .card-expandable {
+            margin-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .expand-toggle {
+            background: none;
+            border: none;
+            color: var(--accent-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expand-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .expand-toggle::before {
+            content: '▶';
+            transition: transform 0.3s ease;
+            font-size: 0.7rem;
+        }
+
+        .expand-toggle.expanded::before {
+            transform: rotate(90deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expandable-content.expanded {
+            max-height: 500px;
+        }
+
+        .card-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-running {
+            background: rgba(0, 255, 159, 0.2);
+            color: var(--accent-success);
+            border: 1px solid var(--accent-success);
+        }
+
+        .badge-stopped {
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--accent-secondary);
+            border: 1px solid var(--accent-secondary);
+        }
+
+        .badge-warning {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--accent-warning);
+            border: 1px solid var(--accent-warning);
+        }
+
+        .card-content {
+            margin: 1rem 0;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(42, 63, 95, 0.3);
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .metric-value {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-success));
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Card Actions */
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.6rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Module Configuration Panel */
+        .module-config {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .config-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .config-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .config-input {
+            padding: 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .config-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .toggle-switch.active::before {
+            left: 33px;
+            background: var(--bg-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .system-info {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-strong);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-message {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">MTBX</div>
+            <div class="system-info">
+                <div class="info-item">
+                    <span class="info-label">System</span>
+                    <span class="info-value">SecuBox v2.4.1</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Environment</span>
+                    <span class="info-value" id="env-context">FR-Production</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Uptime</span>
+                    <span class="info-value" id="uptime">24d 7h 32m</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Applications Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Applications</h2>
+                <div class="section-actions">
+                    <button class="btn btn-secondary" onclick="refreshDashboard()">
+                        <span style="position: relative;">↻ Refresh</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="showAddModule()">
+                        <span style="position: relative;">+ Deploy Module</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-grid" id="app-grid">
+                <!-- CrowdSec Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">CrowdSec</h3>
+                            <p class="card-subtitle">Security Engine</p>
+                        </div>
+                        <span class="card-badge badge-running">Running</span>
+                    </div>
+                    
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">🛡️</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Collaborative IPS analyzing behavior patterns. Currently protecting 3 services with 42 active scenarios. Last threat blocked 12 min ago.
+                        </div>
+                    </div>
+
+                    <div class="status-summary">
+                        <span class="status-icon"></span>
+                        All bouncers connected • Community blocklists synchronized
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Uptime</span>
+                            <span class="info-cell-value">24d 7h</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">v1.6.0</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Blocked Today</span>
+                            <span class="info-cell-value">847 IPs</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Scenarios</span>
+                            <span class="info-cell-value">42 Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">12%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 12%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">248 MB / 512 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 48%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Total Blocked IPs</span>
+                                <span class="metric-value">1,247</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Active Decisions</span>
+                                <span class="metric-value">324</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Bouncers</span>
+                                <span class="metric-value">2 Connected</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">API Status</span>
+                                <span class="metric-value">Operational</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="showConfig('crowdsec')">Configure</button>
+                        <button class="action-btn" onclick="showLogs('crowdsec')">Logs</button>
+                        <button class="action-btn" onclick="restartApp('crowdsec')">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Netdata Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Netdata</h3>
+                            <p class="card-subtitle">System Monitoring</p>
+                        </div>
+                        <span class="card-badge badge-running">Running</span>
+                    </div>
+
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">📊</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Real-time performance monitoring collecting 2,847 metrics/sec across 6 containers. Dashboard accessible at :19999.
+                        </div>
+                    </div>
+
+                    <div class="status-summary">
+                        <span class="status-icon"></span>
+                        All metrics collecting normally • No performance anomalies detected
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Uptime</span>
+                            <span class="info-cell-value">24d 7h</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">v1.44.0</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Monitored</span>
+                            <span class="info-cell-value">6 Containers</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Alerts</span>
+                            <span class="info-cell-value">0 Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">8%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 8%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">192 MB / 256 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Metrics/sec</span>
+                                <span class="metric-value">2,847</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Data Retention</span>
+                                <span class="metric-value">7 days</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">DB Size</span>
+                                <span class="metric-value">3.2 GB</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Update Check</span>
+                                <span class="metric-value">Up to date</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="showConfig('netdata')">Configure</button>
+                        <button class="action-btn" onclick="openDashboard('netdata')">Dashboard</button>
+                        <button class="action-btn" onclick="restartApp('netdata')">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Netifyd Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Netifyd</h3>
+                            <p class="card-subtitle">Network Intelligence</p>
+                        </div>
+                        <span class="card-badge badge-running">Running</span>
+                    </div>
+
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">🌐</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Deep packet inspection identifying 47 applications. Processing 3,421 flows/min across eth0 and wlan0 interfaces.
+                        </div>
+                    </div>
+
+                    <div class="status-summary">
+                        <span class="status-icon"></span>
+                        DPI engine active • Cloud sync enabled • Detecting new apps
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Uptime</span>
+                            <span class="info-cell-value">24d 7h</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">v4.5.3</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Interfaces</span>
+                            <span class="info-cell-value">2 Active</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Apps Detected</span>
+                            <span class="info-cell-value">47</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">15%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 15%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">156 MB / 256 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 61%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Flows/min</span>
+                                <span class="metric-value">3,421</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Bandwidth</span>
+                                <span class="metric-value">47.3 Mbps</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Protocols</span>
+                                <span class="metric-value">12 Active</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Cloud Sync</span>
+                                <span class="metric-value">Connected</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="showConfig('netifyd')">Configure</button>
+                        <button class="action-btn" onclick="showLogs('netifyd')">Logs</button>
+                        <button class="action-btn" onclick="restartApp('netifyd')">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Pi-hole Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Pi-hole</h3>
+                            <p class="card-subtitle">DNS Filtering</p>
+                        </div>
+                        <span class="card-badge badge-warning">Update Available</span>
+                    </div>
+
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">🚫</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Network-wide ad blocking via DNS. Processed 42,853 queries today blocking 23.4%. Update v6.0 ready to install.
+                        </div>
+                    </div>
+
+                    <div class="status-summary warning">
+                        <span class="status-icon"></span>
+                        Core v5.18.3 available (currently v5.18.2) • Gravity last updated 3h ago
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Uptime</span>
+                            <span class="info-cell-value">24d 7h</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">v5.18.2</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Blocklists</span>
+                            <span class="info-cell-value">12 Active</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Domains</span>
+                            <span class="info-cell-value">847K Blocked</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">5%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 5%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">98 MB / 128 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 77%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Queries Today</span>
+                                <span class="metric-value">42,853</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Blocked %</span>
+                                <span class="metric-value">23.4%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Clients</span>
+                                <span class="metric-value">18 Active</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Cache Hit</span>
+                                <span class="metric-value">67.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="showConfig('pihole')">Configure</button>
+                        <button class="action-btn" onclick="updateApp('pihole')">Update</button>
+                        <button class="action-btn" onclick="restartApp('pihole')">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Nginx Proxy Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Nginx Proxy</h3>
+                            <p class="card-subtitle">Reverse Proxy</p>
+                        </div>
+                        <span class="card-badge badge-running">Running</span>
+                    </div>
+
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">⚡</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Reverse proxy managing 8 upstream services. SSL/TLS termination enabled with auto-renewal. 127 active connections.
+                        </div>
+                    </div>
+
+                    <div class="status-summary">
+                        <span class="status-icon"></span>
+                        All upstreams healthy • SSL certificates valid • Caching active
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Uptime</span>
+                            <span class="info-cell-value">24d 7h</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">1.24.0</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Upstreams</span>
+                            <span class="info-cell-value">8 Online</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">SSL Certs</span>
+                            <span class="info-cell-value">4 Valid</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">3%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 3%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">64 MB / 128 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Active Connections</span>
+                                <span class="metric-value">127</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Requests/min</span>
+                                <span class="metric-value">1,847</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Cache Hit Rate</span>
+                                <span class="metric-value">78.4%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">SSL Handshakes</span>
+                                <span class="metric-value">342/min</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="showConfig('nginx')">Configure</button>
+                        <button class="action-btn" onclick="showLogs('nginx')">Logs</button>
+                        <button class="action-btn" onclick="restartApp('nginx')">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Custom App Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Yi Jing Oracle</h3>
+                            <p class="card-subtitle">Custom Application</p>
+                        </div>
+                        <span class="card-badge badge-stopped">Stopped</span>
+                    </div>
+
+                    <div class="card-context">
+                        <div class="card-context-title">
+                            <span class="context-icon">☯️</span>
+                            Context
+                        </div>
+                        <div class="card-context-text">
+                            Streamlit-based divination application with hexagram visualization. Sacred frequency audio integration and traditional 3-coin casting.
+                        </div>
+                    </div>
+
+                    <div class="status-summary error">
+                        <span class="status-icon"></span>
+                        Container stopped • Auto-start disabled • Last run: 2h ago
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-cell">
+                            <span class="info-cell-label">Last Active</span>
+                            <span class="info-cell-value">2h ago</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Version</span>
+                            <span class="info-cell-value">v1.2.0</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Port</span>
+                            <span class="info-cell-value">8501</span>
+                        </div>
+                        <div class="info-cell">
+                            <span class="info-cell-label">Auto-start</span>
+                            <span class="info-cell-value">Disabled</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="metric-row">
+                            <span class="metric-label">CPU Usage</span>
+                            <span class="metric-value">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">0 MB / 256 MB</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-expandable">
+                        <button class="expand-toggle" onclick="toggleExpand(this)">
+                            Details
+                        </button>
+                        <div class="expandable-content">
+                            <div class="metric-row">
+                                <span class="metric-label">Image</span>
+                                <span class="metric-value">streamlit:latest</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Total Runtime</span>
+                                <span class="metric-value">12h 34m</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Consultations</span>
+                                <span class="metric-value">847 Total</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Exit Code</span>
+                                <span class="metric-value">0 (Normal)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="startApp('yijing')">Start</button>
+                        <button class="action-btn" onclick="showConfig('yijing')">Configure</button>
+                        <button class="action-btn" onclick="removeApp('yijing')">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Configuration Panel -->
+        <section class="module-config" id="config-panel" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">Module Configuration</h2>
+                <div class="section-actions">
+                    <button class="btn btn-secondary" onclick="closeConfig()">
+                        <span style="position: relative;">Cancel</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="saveConfig()">
+                        <span style="position: relative;">Save Changes</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="config-grid">
+                <div class="config-item">
+                    <label class="config-label">Module Name</label>
+                    <input type="text" class="config-input" value="CrowdSec" readonly>
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Container Image</label>
+                    <input type="text" class="config-input" value="crowdsecurity/crowdsec:latest">
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Network Mode</label>
+                    <select class="config-input">
+                        <option>bridge</option>
+                        <option>host</option>
+                        <option>none</option>
+                    </select>
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Restart Policy</label>
+                    <select class="config-input">
+                        <option>unless-stopped</option>
+                        <option>always</option>
+                        <option>on-failure</option>
+                        <option>no</option>
+                    </select>
+                </div>
+                <div class="config-item">
+                    <label class="config-label">CPU Limit</label>
+                    <input type="text" class="config-input" value="1.0" placeholder="cores">
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Memory Limit</label>
+                    <input type="text" class="config-input" value="512M" placeholder="e.g., 512M, 1G">
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Auto-start</label>
+                    <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                </div>
+                <div class="config-item">
+                    <label class="config-label">Logging Enabled</label>
+                    <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <p class="toast-message" id="toast-message"></p>
+    </div>
+
+    <script>
+        // Demo functionality
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function refreshDashboard() {
+            showToast('Dashboard refreshed successfully');
+            // Simulate refresh animation
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    card.style.animation = `cardAppear 0.6s ease-out ${index * 0.1}s backwards`;
+                }, 10);
+            });
+        }
+
+        function showAddModule() {
+            showToast('Module deployment wizard would open here');
+        }
+
+        function showConfig(appName) {
+            const panel = document.getElementById('config-panel');
+            panel.style.display = 'block';
+            panel.scrollIntoView({ behavior: 'smooth' });
+            showToast(`Configuring ${appName}...`);
+        }
+
+        function closeConfig() {
+            document.getElementById('config-panel').style.display = 'none';
+        }
+
+        function saveConfig() {
+            showToast('Configuration saved successfully');
+            closeConfig();
+        }
+
+        function showLogs(appName) {
+            showToast(`Opening logs for ${appName}...`);
+        }
+
+        function openDashboard(appName) {
+            showToast(`Opening ${appName} dashboard in new window...`);
+        }
+
+        function restartApp(appName) {
+            showToast(`Restarting ${appName}...`);
+            setTimeout(() => {
+                showToast(`${appName} restarted successfully`);
+            }, 2000);
+        }
+
+        function startApp(appName) {
+            showToast(`Starting ${appName}...`);
+        }
+
+        function updateApp(appName) {
+            showToast(`Updating ${appName}...`);
+        }
+
+        function removeApp(appName) {
+            if (confirm(`Are you sure you want to remove ${appName}?`)) {
+                showToast(`${appName} removed successfully`);
+            }
+        }
+
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+        }
+
+        function toggleExpand(button) {
+            button.classList.toggle('expanded');
+            const content = button.nextElementSibling;
+            content.classList.toggle('expanded');
+        }
+
+        // Simulate live updates
+        setInterval(() => {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width);
+                const variation = Math.random() * 4 - 2; // -2 to +2
+                const newWidth = Math.max(1, Math.min(100, currentWidth + variation));
+                bar.style.width = newWidth + '%';
+                
+                // Update metric value
+                const metricValue = bar.closest('.card-content').querySelector('.metric-value');
+                if (metricValue) {
+                    metricValue.textContent = Math.round(newWidth) + '%';
+                }
+            });
+        }, 5000);
+
+        // Update uptime
+        let uptimeSeconds = 24 * 24 * 3600 + 7 * 3600 + 32 * 60;
+        setInterval(() => {
+            uptimeSeconds++;
+            const days = Math.floor(uptimeSeconds / 86400);
+            const hours = Math.floor((uptimeSeconds % 86400) / 3600);
+            const minutes = Math.floor((uptimeSeconds % 3600) / 60);
+            document.getElementById('uptime').textContent = `${days}d ${hours}h ${minutes}m`;
+        }, 60000);
+    </script>
+</body>
+</html>
