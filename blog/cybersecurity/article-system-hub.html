@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Un méta-dashboard centralisé pour OpenWrt avec gestion des composants, rapports de santé, assistance remote RustDesk et collecte de diagnostics.">
+<meta name="keywords" content=", , , , , , ">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="System Hub : Le Centre de Contrôle Unifié pour OpenWrt">
+<meta property="og:description" content="Un méta-dashboard centralisé pour OpenWrt avec gestion des composants, rapports de santé, assistance remote RustDesk et collecte de diagnostics.">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/blog/cybersecurity/article-system-hub.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-20T18:26:42.351Z">
+
+
+
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="System Hub : Le Centre de Contrôle Unifié pour OpenWrt">
+<meta name="twitter:description" content="Un méta-dashboard centralisé pour OpenWrt avec gestion des composants, rapports de santé, assistance remote RustDesk et collecte de diagnostics.">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/blog/cybersecurity/article-system-hub.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>System Hub : Le Centre de Contrôle Unifié pour OpenWrt | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title">System Hub : Le Centre de Contrôle Unifié pour OpenWrt</h1>
+        
+        <p class="page-description">Un méta-dashboard centralisé pour OpenWrt avec gestion des composants, rapports de santé, assistance remote RustDesk et collecte de diagnostics.</p>
+        
+    </div>
+    
+    <div class="page-content">
+        <h1 id="System-Hub-Votre-Tour-de-Controle-OpenWrt"><a href="#System-Hub-Votre-Tour-de-Controle-OpenWrt" class="headerlink" title="System Hub : Votre Tour de Contrôle OpenWrt"></a>System Hub : Votre Tour de Contrôle OpenWrt</h1><p>Avec la multiplication des dashboards et composants sur nos routeurs OpenWrt, il devient difficile de garder une vue d’ensemble. <strong>System Hub</strong> répond à ce besoin en offrant un centre de contrôle unifié pour administrer, diagnostiquer et maintenir votre infrastructure.</p>
+<h2 id="🎯-Le-Probleme"><a href="#🎯-Le-Probleme" class="headerlink" title="🎯 Le Problème"></a>🎯 Le Problème</h2><p>Après avoir installé CrowdSec, Netdata, Netifyd, WireGuard et d’autres dashboards, on se retrouve avec :</p>
+<ul>
+<li><strong>Multiples interfaces</strong> à surveiller individuellement</li>
+<li><strong>Pas de vue globale</strong> de l’état du système</li>
+<li><strong>Difficulté à diagnostiquer</strong> les problèmes</li>
+<li><strong>Support à distance compliqué</strong> sans outils adaptés</li>
+<li><strong>Logs dispersés</strong> dans différents fichiers</li>
+<li><strong>Pas de health check</strong> automatisé</li>
+</ul>
+<h2 id="💡-La-Solution-System-Hub"><a href="#💡-La-Solution-System-Hub" class="headerlink" title="💡 La Solution : System Hub"></a>💡 La Solution : System Hub</h2><p>System Hub centralise tout en un seul point :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│                      SYSTEM HUB                              │</span><br><span class="line">│  ┌───────────────────────────────────────────────────────┐  │</span><br><span class="line">│  │  Score: 92/100  |  6 Composants  |  5 Running  |  1⚠️ │  │</span><br><span class="line">│  └───────────────────────────────────────────────────────┘  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│  CrowdSec ✅  │  Netdata ✅  │  Netifyd ✅  │  WireGuard ✅ │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│  Client Guardian ⚠️        │  Network Modes ✅              │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│  🖥️ RustDesk ID: 847 293 156  │  📊 Health: Healthy         │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h2 id="🧩-Gestion-Centralisee-des-Composants"><a href="#🧩-Gestion-Centralisee-des-Composants" class="headerlink" title="🧩 Gestion Centralisée des Composants"></a>🧩 Gestion Centralisée des Composants</h2><h3 id="Vue-Unifiee"><a href="#Vue-Unifiee" class="headerlink" title="Vue Unifiée"></a>Vue Unifiée</h3><p>Tous vos dashboards et services en un coup d’œil :</p>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🛡️ CrowdSec</td>
+<td>✅ Running</td>
+<td>Start · Stop · Restart</td>
+</tr>
+<tr>
+<td>📊 Netdata</td>
+<td>✅ Running</td>
+<td>Start · Stop · Restart</td>
+</tr>
+<tr>
+<td>🔍 Netifyd</td>
+<td>✅ Running</td>
+<td>Start · Stop · Restart</td>
+</tr>
+<tr>
+<td>🔒 WireGuard</td>
+<td>✅ Running</td>
+<td>Start · Stop · Restart</td>
+</tr>
+<tr>
+<td>🛡️ Client Guardian</td>
+<td>⚠️ Stopped</td>
+<td><strong>Start</strong> · Stop · Restart</td>
+</tr>
+<tr>
+<td>🔀 Network Modes</td>
+<td>✅ Running</td>
+<td>Start · Stop · Restart</td>
+</tr>
+</tbody></table>
+<h3 id="Categorisation-Intelligente"><a href="#Categorisation-Intelligente" class="headerlink" title="Catégorisation Intelligente"></a>Catégorisation Intelligente</h3><p>Les composants sont organisés par fonction :</p>
+<ul>
+<li><strong>🔒 Sécurité</strong> : CrowdSec, Client Guardian, AdGuard</li>
+<li><strong>📊 Monitoring</strong> : Netdata, Prometheus, Grafana</li>
+<li><strong>🌐 Réseau</strong> : Netifyd, Network Modes, ntopng</li>
+<li><strong>🔐 VPN</strong> : WireGuard, Tailscale</li>
+<li><strong>🏠 Automation</strong> : Home Assistant</li>
+</ul>
+<h3 id="Roadmap-Integree"><a href="#Roadmap-Integree" class="headerlink" title="Roadmap Intégrée"></a>Roadmap Intégrée</h3><p>Visualisez les composants planifiés :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">🗓️ ROADMAP 2025</span><br><span class="line"></span><br><span class="line">Q1 ─────────────────────────────────</span><br><span class="line">    🚫 AdGuard Home      DNS Filtering</span><br><span class="line">    📈 Prometheus        Metrics &amp; Alerting</span><br><span class="line">    🌐 Tailscale         Mesh VPN</span><br><span class="line"></span><br><span class="line">Q2 ─────────────────────────────────</span><br><span class="line">    📉 Grafana           Visualization</span><br><span class="line">    🏠 Home Assistant    Automation</span><br><span class="line">    📶 ntopng            Traffic Analysis</span><br></pre></td></tr></table></figure>
+
+<h2 id="💚-Rapports-de-Sante-Automatises"><a href="#💚-Rapports-de-Sante-Automatises" class="headerlink" title="💚 Rapports de Santé Automatisés"></a>💚 Rapports de Santé Automatisés</h2><h3 id="Score-Global"><a href="#Score-Global" class="headerlink" title="Score Global"></a>Score Global</h3><p>Un indicateur unique de 0 à 100 :</p>
+<ul>
+<li><strong>80-100</strong> : 💚 Healthy - Tout fonctionne bien</li>
+<li><strong>50-79</strong> : 🟡 Warning - Attention requise</li>
+<li><strong>0-49</strong> : 🔴 Critical - Action immédiate nécessaire</li>
+</ul>
+<h3 id="Metriques-Surveillees"><a href="#Metriques-Surveillees" class="headerlink" title="Métriques Surveillées"></a>Métriques Surveillées</h3><table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Warning</th>
+<th>Critical</th>
+<th>Actuel</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🔲 CPU</td>
+<td>80%</td>
+<td>95%</td>
+<td><strong>23%</strong> ✅</td>
+</tr>
+<tr>
+<td>💾 RAM</td>
+<td>80%</td>
+<td>95%</td>
+<td><strong>58%</strong> ✅</td>
+</tr>
+<tr>
+<td>💿 Disque</td>
+<td>80%</td>
+<td>95%</td>
+<td><strong>76%</strong> ⚠️</td>
+</tr>
+<tr>
+<td>🌡️ Température</td>
+<td>70°C</td>
+<td>85°C</td>
+<td><strong>52°C</strong> ✅</td>
+</tr>
+<tr>
+<td>🌐 WAN</td>
+<td>-</td>
+<td>Down</td>
+<td><strong>Up</strong> ✅</td>
+</tr>
+<tr>
+<td>⚙️ Services</td>
+<td>-</td>
+<td>&lt; 100%</td>
+<td><strong>12&#x2F;12</strong> ✅</td>
+</tr>
+</tbody></table>
+<h3 id="Recommandations-Automatiques"><a href="#Recommandations-Automatiques" class="headerlink" title="Recommandations Automatiques"></a>Recommandations Automatiques</h3><p>System Hub analyse l’état et suggère des actions :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">⚠️ RECOMMANDATION</span><br><span class="line"></span><br><span class="line">Le stockage atteint 76% de capacité.</span><br><span class="line"></span><br><span class="line">Actions suggérées :</span><br><span class="line">• Nettoyer /tmp et /var/log</span><br><span class="line">• Supprimer les anciens backups</span><br><span class="line">• Désinstaller les packages inutilisés</span><br><span class="line"></span><br><span class="line">Commande : opkg list-installed | wc -l</span><br></pre></td></tr></table></figure>
+
+<h3 id="Generation-de-Rapports"><a href="#Generation-de-Rapports" class="headerlink" title="Génération de Rapports"></a>Génération de Rapports</h3><p>Créez des rapports détaillés :</p>
+<ul>
+<li><strong>📋 JSON</strong> : Pour analyse automatisée</li>
+<li><strong>📄 PDF</strong> : Pour documentation&#x2F;audit</li>
+<li><strong>📧 Email</strong> : Envoi programmé quotidien&#x2F;hebdo</li>
+</ul>
+<h2 id="🖥️-Assistance-Remote-avec-RustDesk"><a href="#🖥️-Assistance-Remote-avec-RustDesk" class="headerlink" title="🖥️ Assistance Remote avec RustDesk"></a>🖥️ Assistance Remote avec RustDesk</h2><h3 id="Pourquoi-RustDesk"><a href="#Pourquoi-RustDesk" class="headerlink" title="Pourquoi RustDesk ?"></a>Pourquoi RustDesk ?</h3><ul>
+<li><strong>Open Source</strong> : Pas de dépendance cloud propriétaire</li>
+<li><strong>Auto-hébergeable</strong> : Votre propre serveur relay</li>
+<li><strong>Sécurisé</strong> : Chiffrement E2E</li>
+<li><strong>Multi-plateforme</strong> : Windows, Mac, Linux, Mobile</li>
+</ul>
+<h3 id="Integration-System-Hub"><a href="#Integration-System-Hub" class="headerlink" title="Intégration System Hub"></a>Intégration System Hub</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────┐</span><br><span class="line">│  🖥️  RUSTDESK - ASSISTANCE REMOTE           │</span><br><span class="line">├─────────────────────────────────────────────┤</span><br><span class="line">│                                             │</span><br><span class="line">│     ID: 847 293 156                         │</span><br><span class="line">│     ─────────────────                       │</span><br><span class="line">│     Communiquez ce code au support          │</span><br><span class="line">│                                             │</span><br><span class="line">│  ┌─────────────────────────────────────┐   │</span><br><span class="line">│  │  🚀 Démarrer Session                 │   │</span><br><span class="line">│  └─────────────────────────────────────┘   │</span><br><span class="line">│                                             │</span><br><span class="line">│  ☑️ Approbation requise                     │</span><br><span class="line">│  ☑️ Notification de connexion              │</span><br><span class="line">│  ☐ Accès sans surveillance                 │</span><br><span class="line">│                                             │</span><br><span class="line">└─────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="Securite-Remote"><a href="#Securite-Remote" class="headerlink" title="Sécurité Remote"></a>Sécurité Remote</h3><ul>
+<li><strong>Approbation explicite</strong> pour chaque connexion</li>
+<li><strong>Timeout de session</strong> (1h par défaut)</li>
+<li><strong>Notification SMS&#x2F;Email</strong> à chaque connexion</li>
+<li><strong>Historique</strong> des sessions</li>
+</ul>
+<h2 id="🔍-Collecte-de-Diagnostics"><a href="#🔍-Collecte-de-Diagnostics" class="headerlink" title="🔍 Collecte de Diagnostics"></a>🔍 Collecte de Diagnostics</h2><h3 id="Ce-qui-est-collecte"><a href="#Ce-qui-est-collecte" class="headerlink" title="Ce qui est collecté"></a>Ce qui est collecté</h3><table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>📋 Logs</strong></td>
+<td>syslog, dmesg, logs composants</td>
+</tr>
+<tr>
+<td><strong>⚙️ Config</strong></td>
+<td>network, wireless, firewall, dhcp</td>
+</tr>
+<tr>
+<td><strong>🌐 Réseau</strong></td>
+<td>interfaces, routes, ARP, connexions</td>
+</tr>
+<tr>
+<td><strong>💻 Hardware</strong></td>
+<td>CPU, mémoire, stockage, température</td>
+</tr>
+<tr>
+<td><strong>📦 Packages</strong></td>
+<td>Liste des packages installés</td>
+</tr>
+</tbody></table>
+<h3 id="Anonymisation"><a href="#Anonymisation" class="headerlink" title="Anonymisation"></a>Anonymisation</h3><p>Les données sensibles sont automatiquement masquées :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Avant anonymisation</span></span><br><span class="line">option key <span class="string">&#x27;abc123secret&#x27;</span></span><br><span class="line">option password <span class="string">&#x27;mysupersecretpass&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Après anonymisation</span></span><br><span class="line">option key <span class="string">&#x27;*****&#x27;</span></span><br><span class="line">option password <span class="string">&#x27;*****&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Workflow-Support"><a href="#Workflow-Support" class="headerlink" title="Workflow Support"></a>Workflow Support</h3><ol>
+<li><strong>Générer</strong> l’archive diagnostic</li>
+<li><strong>Télécharger</strong> ou <strong>envoyer</strong> au support</li>
+<li>Le support analyse avec les données</li>
+<li>Session RustDesk si intervention nécessaire</li>
+</ol>
+<h2 id="📋-Logs-Unifies"><a href="#📋-Logs-Unifies" class="headerlink" title="📋 Logs Unifiés"></a>📋 Logs Unifiés</h2><h3 id="Agregation-Multi-Sources"><a href="#Agregation-Multi-Sources" class="headerlink" title="Agrégation Multi-Sources"></a>Agrégation Multi-Sources</h3><p>Tous les logs en un seul endroit :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2024-12-20 15:45:23 | system      | INFO  | Health check: Score 92</span><br><span class="line">2024-12-20 15:44:12 | crowdsec    | INFO  | Blocked IP 192.168.1.254</span><br><span class="line">2024-12-20 15:42:00 | client-gdn  | WARN  | New unknown client</span><br><span class="line">2024-12-20 15:40:30 | netifyd     | INFO  | Netflix detected</span><br><span class="line">2024-12-20 15:35:00 | system      | WARN  | Disk usage 76%</span><br><span class="line">2024-12-20 15:15:30 | adguard     | ERROR | Failed to start</span><br></pre></td></tr></table></figure>
+
+<h3 id="Filtres-Puissants"><a href="#Filtres-Puissants" class="headerlink" title="Filtres Puissants"></a>Filtres Puissants</h3><ul>
+<li><strong>Par source</strong> : system, crowdsec, netifyd, etc.</li>
+<li><strong>Par niveau</strong> : info, warning, error</li>
+<li><strong>Par texte</strong> : recherche libre</li>
+<li><strong>Par date</strong> : plage temporelle</li>
+</ul>
+<h3 id="Export"><a href="#Export" class="headerlink" title="Export"></a>Export</h3><ul>
+<li><strong>CSV</strong> pour Excel&#x2F;Google Sheets</li>
+<li><strong>JSON</strong> pour scripts&#x2F;API</li>
+<li><strong>Syslog forward</strong> vers serveur externe</li>
+</ul>
+<h2 id="📅-Automatisation"><a href="#📅-Automatisation" class="headerlink" title="📅 Automatisation"></a>📅 Automatisation</h2><h3 id="Taches-Planifiees"><a href="#Taches-Planifiees" class="headerlink" title="Tâches Planifiées"></a>Tâches Planifiées</h3><table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Fréquence</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Health Check</td>
+<td>1h</td>
+<td>Vérification complète</td>
+</tr>
+<tr>
+<td>Rapport Santé</td>
+<td>6h quotidien</td>
+<td>Email au admin</td>
+</tr>
+<tr>
+<td>Backup Config</td>
+<td>Dimanche 3h</td>
+<td>Sauvegarde UCI</td>
+</tr>
+<tr>
+<td>Nettoyage Logs</td>
+<td>Quotidien 4h</td>
+<td>Supprimer &gt; 30j</td>
+</tr>
+</tbody></table>
+<h3 id="Alertes"><a href="#Alertes" class="headerlink" title="Alertes"></a>Alertes</h3><p>Notification automatique en cas de :</p>
+<ul>
+<li>🔴 Score santé &lt; 50</li>
+<li>🟡 Composant stopped</li>
+<li>⚠️ Disque &gt; 90%</li>
+<li>🌡️ Température &gt; 80°C</li>
+</ul>
+<h2 id="🔧-Installation"><a href="#🔧-Installation" class="headerlink" title="🔧 Installation"></a>🔧 Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Prérequis</span></span><br><span class="line">opkg update</span><br><span class="line">opkg install luci-base rpcd</span><br><span class="line"></span><br><span class="line"><span class="comment"># RustDesk (optionnel)</span></span><br><span class="line">opkg install rustdesk</span><br><span class="line"></span><br><span class="line"><span class="comment"># Installation</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/gkerma/luci-app-system-hub.git</span><br><span class="line"><span class="built_in">cd</span> luci-app-system-hub</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redémarrer</span></span><br><span class="line">/etc/init.d/rpcd restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="🎨-Interface-Utilisateur"><a href="#🎨-Interface-Utilisateur" class="headerlink" title="🎨 Interface Utilisateur"></a>🎨 Interface Utilisateur</h2><h3 id="Theme-Indigo"><a href="#Theme-Indigo" class="headerlink" title="Thème Indigo"></a>Thème Indigo</h3><ul>
+<li><strong>Couleur principale</strong> : Gradient indigo (#6366f1 → #8b5cf6)</li>
+<li><strong>Dark mode</strong> : Fond sombre professionnel</li>
+<li><strong>Typography</strong> : Inter pour l’UI, JetBrains Mono pour les données</li>
+<li><strong>Responsive</strong> : Adapté mobile&#x2F;tablette</li>
+</ul>
+<h3 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Services → System Hub</span><br><span class="line">    ├── Overview        (vue d&#x27;ensemble)</span><br><span class="line">    ├── Composants      (gestion services)</span><br><span class="line">    ├── Santé           (health reports)</span><br><span class="line">    ├── Assistance      (RustDesk)</span><br><span class="line">    ├── Diagnostics     (collecte données)</span><br><span class="line">    ├── Logs            (logs unifiés)</span><br><span class="line">    └── Paramètres      (configuration)</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔗-Ressources"><a href="#🔗-Ressources" class="headerlink" title="🔗 Ressources"></a>🔗 Ressources</h2><ul>
+<li><strong>GitHub</strong> : <a target="_blank" rel="noopener" href="https://github.com/gkerma/luci-app-system-hub">github.com&#x2F;gkerma&#x2F;luci-app-system-hub</a></li>
+<li><strong>Démo</strong> : <a target="_blank" rel="noopener" href="https://cybermind.fr/demos/system-hub">cybermind.fr&#x2F;demos&#x2F;system-hub</a></li>
+<li><strong>RustDesk</strong> : <a target="_blank" rel="noopener" href="https://rustdesk.com/">rustdesk.com</a></li>
+</ul>
+<h2 id="🎬-Conclusion"><a href="#🎬-Conclusion" class="headerlink" title="🎬 Conclusion"></a>🎬 Conclusion</h2><p><strong>System Hub</strong> transforme l’administration OpenWrt en une expérience unifiée et professionnelle. Plus besoin de jongler entre multiples interfaces : tout est centralisé, monitoré et accessible.</p>
+<p>Avec l’intégration RustDesk, le support à distance devient simple et sécurisé. Les diagnostics automatisés réduisent le temps de résolution des problèmes.</p>
+<blockquote>
+<p><em>“La complexité est l’ennemi de l’exécution.”</em> — Tony Robbins</p>
+</blockquote>
+<p>System Hub simplifie la complexité pour vous permettre de vous concentrer sur l’essentiel.</p>
+<hr>
+<p><em>Dashboard créé par <a target="_blank" rel="noopener" href="https://cybermind.fr/">Gandalf @ CyberMind.fr</a> - Licence Apache-2.0</em></p>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

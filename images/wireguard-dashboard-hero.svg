@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#030712"/>
+      <stop offset="50%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#030712"/>
+    </linearGradient>
+    
+    <linearGradient id="tunnelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="50%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#030712"/>
+    </linearGradient>
+    
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
+    </linearGradient>
+    
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#38bdf8"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  
+  <!-- Glow effects -->
+  <circle cx="150" cy="120" r="200" fill="url(#glowGrad)"/>
+  <circle cx="1050" cy="510" r="180" fill="url(#glowGrad)"/>
+  
+  <!-- Main Dashboard Window -->
+  <g transform="translate(80, 65)" filter="url(#shadow)">
+    <!-- Window frame -->
+    <rect width="1040" height="500" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    
+    <!-- Title bar -->
+    <rect width="1040" height="42" rx="12" fill="#030712"/>
+    <rect y="30" width="1040" height="12" fill="#030712"/>
+    
+    <!-- Window controls -->
+    <circle cx="22" cy="21" r="6" fill="#ff5f57"/>
+    <circle cx="44" cy="21" r="6" fill="#ffbd2e"/>
+    <circle cx="66" cy="21" r="6" fill="#28c840"/>
+    
+    <!-- Title -->
+    <text x="520" y="27" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      WireGuard Dashboard — Secure VPN Monitoring @ OpenWrt
+    </text>
+    
+    <!-- Navigation bar -->
+    <rect y="42" width="1040" height="38" fill="#0f172a"/>
+    <rect y="79" width="1040" height="1" fill="#334155"/>
+    
+    <!-- Logo -->
+    <rect x="14" y="50" width="28" height="28" rx="7" fill="url(#tunnelGrad)"/>
+    <text x="28" y="70" font-family="Arial" font-size="14" fill="white" text-anchor="middle">🔐</text>
+    
+    <text x="52" y="69" font-family="Inter, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#f8fafc">
+      Wire<tspan fill="url(#tunnelGrad)">Guard</tspan>
+    </text>
+    
+    <!-- Nav tabs -->
+    <text x="160" y="66" font-family="Inter, sans-serif" font-size="13" fill="#06b6d4" font-weight="500">Status</text>
+    <rect x="150" y="76" width="42" height="3" rx="1" fill="#06b6d4"/>
+    
+    <text x="230" y="66" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Peers</text>
+    <text x="300" y="66" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Traffic</text>
+    <text x="375" y="66" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Config</text>
+    
+    <!-- Status badge -->
+    <g transform="translate(890, 50)">
+      <rect width="110" height="26" rx="13" fill="rgba(6, 182, 212, 0.15)" stroke="rgba(6, 182, 212, 0.3)"/>
+      <circle cx="16" cy="13" r="5" fill="#06b6d4">
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="30" y="17" font-family="Inter, sans-serif" font-size="12" fill="#06b6d4" font-weight="600">VPN Active</text>
+    </g>
+    
+    <!-- Quick Stats Row -->
+    <g transform="translate(16, 96)">
+      <!-- Interfaces -->
+      <g>
+        <rect width="195" height="90" rx="10" fill="#0f172a" stroke="#334155"/>
+        <rect width="195" height="3" rx="2" fill="url(#tunnelGrad)"/>
+        <text x="18" y="35" font-size="18">🌐</text>
+        <text x="50" y="26" font-family="Inter, sans-serif" font-size="9" fill="#64748b" text-transform="uppercase">INTERFACES</text>
+        <text x="18" y="65" font-family="JetBrains Mono, monospace" font-size="36" font-weight="700" fill="url(#tunnelGrad)">2</text>
+        <text x="18" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b">Active tunnels</text>
+      </g>
+      
+      <!-- Total Peers -->
+      <g transform="translate(208, 0)">
+        <rect width="195" height="90" rx="10" fill="#0f172a" stroke="#334155"/>
+        <rect width="195" height="3" rx="2" fill="url(#tunnelGrad)"/>
+        <text x="18" y="35" font-size="18">👥</text>
+        <text x="50" y="26" font-family="Inter, sans-serif" font-size="9" fill="#64748b">TOTAL PEERS</text>
+        <text x="18" y="65" font-family="JetBrains Mono, monospace" font-size="36" font-weight="700" fill="url(#tunnelGrad)">5</text>
+        <text x="18" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b">Configured</text>
+      </g>
+      
+      <!-- Active Peers -->
+      <g transform="translate(416, 0)">
+        <rect width="195" height="90" rx="10" fill="#0f172a" stroke="#334155"/>
+        <rect width="195" height="3" rx="2" fill="url(#greenGrad)"/>
+        <text x="18" y="35" font-size="18">✅</text>
+        <text x="50" y="26" font-family="Inter, sans-serif" font-size="9" fill="#64748b">ACTIVE PEERS</text>
+        <text x="18" y="65" font-family="JetBrains Mono, monospace" font-size="36" font-weight="700" fill="#10b981">3</text>
+        <text x="18" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b">Connected now</text>
+      </g>
+      
+      <!-- Downloaded -->
+      <g transform="translate(624, 0)">
+        <rect width="195" height="90" rx="10" fill="#0f172a" stroke="#334155"/>
+        <rect width="195" height="3" rx="2" fill="url(#tunnelGrad)"/>
+        <text x="18" y="35" font-size="18">📥</text>
+        <text x="50" y="26" font-family="Inter, sans-serif" font-size="9" fill="#64748b">DOWNLOADED</text>
+        <text x="18" y="62" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="url(#tunnelGrad)">2.8 GB</text>
+        <text x="18" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b">Total received</text>
+      </g>
+      
+      <!-- Uploaded -->
+      <g transform="translate(832, 0)">
+        <rect width="192" height="90" rx="10" fill="#0f172a" stroke="#334155"/>
+        <rect width="192" height="3" rx="2" fill="url(#tunnelGrad)"/>
+        <text x="18" y="35" font-size="18">📤</text>
+        <text x="50" y="26" font-family="Inter, sans-serif" font-size="9" fill="#64748b">UPLOADED</text>
+        <text x="18" y="62" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="url(#tunnelGrad)">1.2 GB</text>
+        <text x="18" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b">Total sent</text>
+      </g>
+    </g>
+    
+    <!-- Interface Card -->
+    <g transform="translate(16, 202)">
+      <rect width="500" height="180" rx="10" fill="linear-gradient(135deg, #1e293b, #0f172a)" stroke="#334155"/>
+      <rect width="500" height="4" rx="2" fill="url(#tunnelGrad)"/>
+      
+      <g transform="translate(18, 22)">
+        <rect width="44" height="44" rx="10" fill="url(#tunnelGrad)"/>
+        <text x="22" y="30" font-size="20" text-anchor="middle">🌐</text>
+      </g>
+      
+      <text x="76" y="38" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">wg0</text>
+      <text x="76" y="54" font-family="Inter, sans-serif" font-size="11" fill="#64748b">Listen port: 51820</text>
+      
+      <g transform="translate(400, 28)">
+        <rect width="60" height="24" rx="12" fill="rgba(16, 185, 129, 0.15)"/>
+        <text x="30" y="16" font-family="Inter, sans-serif" font-size="11" fill="#10b981" font-weight="600" text-anchor="middle">UP</text>
+      </g>
+      
+      <!-- Interface details -->
+      <g transform="translate(18, 78)">
+        <rect width="224" height="44" rx="6" fill="#030712"/>
+        <text x="10" y="16" font-family="Inter, sans-serif" font-size="8" fill="#64748b">PUBLIC KEY</text>
+        <text x="10" y="32" font-family="JetBrains Mono, monospace" font-size="11" fill="#f8fafc">gN65BkIK...7oBzBPs=</text>
+        
+        <g transform="translate(234, 0)">
+          <rect width="224" height="44" rx="6" fill="#030712"/>
+          <text x="10" y="16" font-family="Inter, sans-serif" font-size="8" fill="#64748b">IPv4 ADDRESS</text>
+          <text x="10" y="32" font-family="JetBrains Mono, monospace" font-size="11" fill="#f8fafc">10.0.0.1/24</text>
+        </g>
+      </g>
+      
+      <g transform="translate(18, 132)">
+        <rect width="224" height="44" rx="6" fill="#030712"/>
+        <text x="10" y="16" font-family="Inter, sans-serif" font-size="8" fill="#64748b">MTU</text>
+        <text x="10" y="32" font-family="JetBrains Mono, monospace" font-size="11" fill="#f8fafc">1420</text>
+        
+        <g transform="translate(234, 0)">
+          <rect width="224" height="44" rx="6" fill="#030712"/>
+          <text x="10" y="16" font-family="Inter, sans-serif" font-size="8" fill="#64748b">TRAFFIC</text>
+          <text x="10" y="32" font-family="JetBrains Mono, monospace" font-size="11" fill="#f8fafc">↓2.4 GB / ↑1.0 GB</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Peer Cards -->
+    <g transform="translate(532, 202)">
+      <!-- Peer 1 - Active -->
+      <g>
+        <rect width="240" height="135" rx="10" fill="#1e293b" stroke="#10b981"/>
+        <rect width="240" height="3" rx="2" fill="#10b981"/>
+        
+        <g transform="translate(14, 18)">
+          <rect width="36" height="36" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981"/>
+          <text x="18" y="26" font-size="16" text-anchor="middle">✅</text>
+        </g>
+        
+        <text x="60" y="32" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#f8fafc">Peer xTIBA5rR</text>
+        <text x="60" y="46" font-family="JetBrains Mono, monospace" font-size="9" fill="#64748b">wg0</text>
+        
+        <g transform="translate(175, 22)">
+          <rect width="52" height="20" rx="10" fill="rgba(16, 185, 129, 0.15)"/>
+          <text x="26" y="14" font-family="Inter, sans-serif" font-size="9" fill="#10b981" font-weight="600" text-anchor="middle">active</text>
+        </g>
+        
+        <text x="14" y="76" font-family="Inter, sans-serif" font-size="8" fill="#64748b">ENDPOINT</text>
+        <text x="14" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#94a3b8">85.123.45.67:51820</text>
+        
+        <text x="130" y="76" font-family="Inter, sans-serif" font-size="8" fill="#64748b">LAST HANDSHAKE</text>
+        <text x="130" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#94a3b8">45 seconds ago</text>
+        
+        <line x1="14" y1="102" x2="226" y2="102" stroke="#334155"/>
+        
+        <text x="60" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="#10b981" text-anchor="middle">↓1.2 GB</text>
+        <text x="180" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="#0ea5e9" text-anchor="middle">↑500 MB</text>
+      </g>
+      
+      <!-- Peer 2 - Active -->
+      <g transform="translate(254, 0)">
+        <rect width="240" height="135" rx="10" fill="#1e293b" stroke="#10b981"/>
+        <rect width="240" height="3" rx="2" fill="#10b981"/>
+        
+        <g transform="translate(14, 18)">
+          <rect width="36" height="36" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981"/>
+          <text x="18" y="26" font-size="16" text-anchor="middle">✅</text>
+        </g>
+        
+        <text x="60" y="32" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#f8fafc">Peer peer2Key</text>
+        <text x="60" y="46" font-family="JetBrains Mono, monospace" font-size="9" fill="#64748b">wg0</text>
+        
+        <g transform="translate(175, 22)">
+          <rect width="52" height="20" rx="10" fill="rgba(16, 185, 129, 0.15)"/>
+          <text x="26" y="14" font-family="Inter, sans-serif" font-size="9" fill="#10b981" font-weight="600" text-anchor="middle">active</text>
+        </g>
+        
+        <text x="14" y="76" font-family="Inter, sans-serif" font-size="8" fill="#64748b">ENDPOINT</text>
+        <text x="14" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#94a3b8">91.78.12.34:51820</text>
+        
+        <text x="130" y="76" font-family="Inter, sans-serif" font-size="8" fill="#64748b">LAST HANDSHAKE</text>
+        <text x="130" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#94a3b8">2 minutes ago</text>
+        
+        <line x1="14" y1="102" x2="226" y2="102" stroke="#334155"/>
+        
+        <text x="60" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="#10b981" text-anchor="middle">↓800 MB</text>
+        <text x="180" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="#0ea5e9" text-anchor="middle">↑300 MB</text>
+      </g>
+    </g>
+    
+    <!-- Bottom row - Idle peer and Tunnel viz -->
+    <g transform="translate(16, 392)">
+      <!-- Idle peer -->
+      <g>
+        <rect width="240" height="90" rx="10" fill="#1e293b" stroke="#334155"/>
+        
+        <g transform="translate(14, 14)">
+          <rect width="32" height="32" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b"/>
+          <text x="16" y="24" font-size="14" text-anchor="middle">💤</text>
+        </g>
+        
+        <text x="56" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Peer mobileXY</text>
+        <text x="56" y="40" font-family="JetBrains Mono, monospace" font-size="9" fill="#64748b">wg0 • (roaming)</text>
+        
+        <g transform="translate(180, 18)">
+          <rect width="45" height="18" rx="9" fill="rgba(245, 158, 11, 0.15)"/>
+          <text x="22" y="13" font-family="Inter, sans-serif" font-size="8" fill="#f59e0b" font-weight="600" text-anchor="middle">idle</text>
+        </g>
+        
+        <text x="14" y="68" font-family="JetBrains Mono, monospace" font-size="10" fill="#10b981">↓400 MB</text>
+        <text x="130" y="68" font-family="JetBrains Mono, monospace" font-size="10" fill="#0ea5e9">↑200 MB</text>
+        <text x="14" y="82" font-family="Inter, sans-serif" font-size="9" fill="#64748b">8 minutes ago</text>
+      </g>
+      
+      <!-- Tunnel visualization -->
+      <g transform="translate(280, 0)">
+        <rect width="744" height="90" rx="10" fill="#030712" stroke="#334155"/>
+        
+        <!-- This Router -->
+        <g transform="translate(100, 45)">
+          <circle r="28" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+          <text y="8" font-size="24" text-anchor="middle">🏠</text>
+        </g>
+        <text x="100" y="85" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">This Router</text>
+        
+        <!-- Tunnel line -->
+        <rect x="140" y="42" width="464" height="6" rx="3" fill="url(#tunnelGrad)"/>
+        <g transform="translate(372, 45)">
+          <rect x="-20" y="-14" width="40" height="28" rx="14" fill="#030712"/>
+          <text y="6" font-size="16" text-anchor="middle">🔒</text>
+        </g>
+        
+        <!-- Remote Peers -->
+        <g transform="translate(644, 45)">
+          <circle r="28" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+          <text y="8" font-size="24" text-anchor="middle">🌐</text>
+        </g>
+        <text x="644" y="85" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Remote Peers</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Floating lock icon -->
+  <g transform="translate(1045, 40)" filter="url(#glow)">
+    <circle cx="40" cy="40" r="36" fill="#0f172a" stroke="url(#tunnelGrad)" stroke-width="2"/>
+    <text x="40" y="52" font-size="32" text-anchor="middle">🔐</text>
+  </g>
+  
+  <!-- Corner decorations -->
+  <rect x="0" y="0" width="400" height="3" fill="url(#tunnelGrad)" opacity="0.8"/>
+  <path d="M0 630 L0 580 L50 630 Z" fill="url(#tunnelGrad)" opacity="0.3"/>
+  <path d="M1200 0 L1200 50 L1150 0 Z" fill="url(#tunnelGrad)" opacity="0.3"/>
+  
+  <!-- Footer text -->
+  <text x="600" y="608" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">
+    CyberMind.fr — Secure VPN Monitoring for OpenWrt with WireGuard®
+  </text>
+</svg>

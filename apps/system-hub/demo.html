@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/apps/system-hub/demo.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-20T18:26:42.350Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/apps/system-hub/demo.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Hub Demo - Central Control & Remote Assistance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sh-bg-primary: #0a0a0f;
+            --sh-bg-secondary: #12121a;
+            --sh-bg-tertiary: #1a1a24;
+            --sh-border: #2a2a3a;
+            --sh-text-primary: #fafafa;
+            --sh-text-secondary: #a0a0b0;
+            --sh-text-muted: #707080;
+            --sh-accent-indigo: #6366f1;
+            --sh-accent-violet: #8b5cf6;
+            --sh-success: #22c55e;
+            --sh-warning: #f59e0b;
+            --sh-danger: #ef4444;
+            --sh-info: #3b82f6;
+            --sh-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            --sh-font-mono: 'JetBrains Mono', monospace;
+            --sh-font-sans: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sh-font-sans); background: var(--sh-bg-primary); color: var(--sh-text-primary); min-height: 100vh; }
+
+        .demo-banner { background: var(--sh-gradient); color: white; text-align: center; padding: 10px; font-size: 14px; }
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container { background: var(--sh-bg-secondary); border-bottom: 1px solid var(--sh-border); position: sticky; top: 0; z-index: 100; }
+        .nav { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px; gap: 24px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; color: var(--sh-text-primary); }
+        .nav-brand-icon { width: 44px; height: 44px; background: var(--sh-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 25px rgba(99, 102, 241, 0.4); }
+        .nav-brand-text { font-size: 22px; font-weight: 700; }
+        .nav-brand-text span { background: var(--sh-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+        .nav-tab { padding: 14px 16px; color: var(--sh-text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; }
+        .nav-tab:hover { color: var(--sh-text-primary); }
+        .nav-tab.active { color: var(--sh-accent-indigo); border-bottom-color: var(--sh-accent-indigo); }
+
+        .health-badge { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+        .health-score { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--sh-font-mono); font-size: 14px; font-weight: 800; }
+        .health-score.healthy { background: rgba(34, 197, 94, 0.15); color: var(--sh-success); border: 2px solid var(--sh-success); }
+        .health-info { font-size: 12px; }
+        .health-label { font-weight: 600; }
+        .health-status { color: var(--sh-text-muted); font-size: 10px; }
+
+        .main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .view { display: none; }
+        .view.active { display: block; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; margin-bottom: 24px; }
+        .stat-card { background: var(--sh-bg-secondary); border: 1px solid var(--sh-border); border-radius: 12px; padding: 18px; text-align: center; transition: all 0.3s; }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-color: var(--sh-accent-indigo); }
+        .stat-icon { font-size: 26px; margin-bottom: 8px; }
+        .stat-value { font-size: 28px; font-weight: 800; font-family: var(--sh-font-mono); background: var(--sh-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 10px; color: var(--sh-text-muted); text-transform: uppercase; margin-top: 4px; }
+
+        .card { background: var(--sh-bg-secondary); border: 1px solid var(--sh-border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--sh-border); background: rgba(0,0,0,0.3); }
+        .card-title { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+        .card-badge { font-family: var(--sh-font-mono); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; background: var(--sh-gradient); color: white; }
+        .card-body { padding: 20px; }
+
+        .components-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+        .component-card { background: var(--sh-bg-tertiary); border: 1px solid var(--sh-border); border-radius: 12px; padding: 18px; position: relative; overflow: hidden; transition: all 0.3s; }
+        .component-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--component-color); }
+        .component-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .component-card.planned { opacity: 0.6; border-style: dashed; }
+        .component-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+        .component-info { display: flex; align-items: center; gap: 10px; }
+        .component-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,255,255,0.05); border: 1px solid var(--component-color); color: var(--component-color); }
+        .component-name { font-size: 14px; font-weight: 700; }
+        .component-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .component-status { padding: 3px 8px; border-radius: 10px; font-size: 9px; font-weight: 600; text-transform: uppercase; }
+        .component-status.running { background: rgba(34, 197, 94, 0.15); color: var(--sh-success); }
+        .component-status.stopped { background: rgba(239, 68, 68, 0.15); color: var(--sh-danger); }
+        .component-status.planned { background: rgba(99, 102, 241, 0.15); color: var(--sh-accent-indigo); }
+        .component-actions { display: flex; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--sh-border); }
+        .component-action { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--sh-border); background: var(--sh-bg-secondary); color: var(--sh-text-secondary); font-size: 10px; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .component-action:hover { border-color: var(--sh-accent-indigo); color: var(--sh-text-primary); }
+
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+        .health-metric { background: var(--sh-bg-tertiary); border: 1px solid var(--sh-border); border-radius: 10px; padding: 14px; }
+        .metric-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .metric-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+        .metric-icon { font-size: 16px; }
+        .metric-value { font-family: var(--sh-font-mono); font-size: 13px; font-weight: 600; }
+        .metric-value.ok { color: var(--sh-success); }
+        .metric-value.warning { color: var(--sh-warning); }
+        .metric-value.critical { color: var(--sh-danger); }
+        .progress-bar { height: 6px; background: var(--sh-bg-primary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+        .progress-fill.ok { background: var(--sh-success); }
+        .progress-fill.warning { background: var(--sh-warning); }
+        .progress-fill.critical { background: var(--sh-danger); }
+
+        .remote-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05)); border-color: rgba(99, 102, 241, 0.3); }
+        .remote-id { display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--sh-bg-tertiary); border-radius: 10px; margin-bottom: 16px; }
+        .remote-id-icon { width: 56px; height: 56px; background: var(--sh-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+        .remote-id-value { font-family: var(--sh-font-mono); font-size: 26px; font-weight: 800; letter-spacing: 2px; }
+        .remote-id-label { font-size: 11px; color: var(--sh-text-muted); }
+
+        .toggle { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--sh-bg-tertiary); border-radius: 8px; margin-bottom: 8px; }
+        .toggle-info { display: flex; align-items: center; gap: 10px; }
+        .toggle-icon { font-size: 16px; }
+        .toggle-label { font-size: 12px; font-weight: 500; }
+        .toggle-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .toggle-switch { width: 40px; height: 22px; background: var(--sh-bg-primary); border-radius: 11px; position: relative; cursor: pointer; transition: background 0.3s; }
+        .toggle-switch.active { background: var(--sh-accent-indigo); }
+        .toggle-switch::after { content: ''; position: absolute; width: 16px; height: 16px; background: white; border-radius: 50%; top: 3px; left: 3px; transition: transform 0.3s; }
+        .toggle-switch.active::after { transform: translateX(18px); }
+
+        .log-list { max-height: 350px; overflow-y: auto; }
+        .log-item { display: flex; gap: 10px; padding: 8px; border-bottom: 1px solid var(--sh-border); font-size: 11px; }
+        .log-time { font-family: var(--sh-font-mono); font-size: 9px; color: var(--sh-text-muted); min-width: 120px; }
+        .log-source { padding: 2px 6px; border-radius: 4px; font-size: 8px; font-weight: 600; background: var(--sh-bg-tertiary); color: var(--sh-accent-indigo); min-width: 70px; text-align: center; }
+        .log-level { padding: 2px 6px; border-radius: 4px; font-size: 8px; font-weight: 600; text-transform: uppercase; min-width: 50px; text-align: center; }
+        .log-level.info { background: rgba(59, 130, 246, 0.15); color: var(--sh-info); }
+        .log-level.warning { background: rgba(245, 158, 11, 0.15); color: var(--sh-warning); }
+        .log-level.error { background: rgba(239, 68, 68, 0.15); color: var(--sh-danger); }
+        .log-message { flex: 1; color: var(--sh-text-secondary); }
+
+        .sysinfo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+        .sysinfo-item { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--sh-bg-tertiary); border-radius: 6px; }
+        .sysinfo-label { font-size: 11px; color: var(--sh-text-muted); }
+        .sysinfo-value { font-family: var(--sh-font-mono); font-size: 11px; font-weight: 600; }
+
+        .roadmap-item { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--sh-bg-tertiary); border: 1px dashed var(--sh-border); border-radius: 10px; margin-bottom: 10px; }
+        .roadmap-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(99, 102, 241, 0.1); border: 1px solid var(--sh-accent-indigo); color: var(--sh-accent-indigo); }
+        .roadmap-info { flex: 1; }
+        .roadmap-name { font-size: 13px; font-weight: 600; }
+        .roadmap-desc { font-size: 10px; color: var(--sh-text-muted); }
+        .roadmap-date { padding: 4px 10px; background: var(--sh-bg-primary); border-radius: 6px; font-family: var(--sh-font-mono); font-size: 10px; color: var(--sh-accent-indigo); }
+
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid var(--sh-border); border-radius: 8px; background: var(--sh-bg-tertiary); color: var(--sh-text-primary); font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { border-color: var(--sh-accent-indigo); }
+        .btn-primary { background: var(--sh-gradient); border: none; color: white; }
+        .btn-primary:hover { box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); transform: translateY(-2px); }
+        .btn-success { background: var(--sh-success); border: none; color: white; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+        .form-group { margin-bottom: 12px; }
+        .form-label { display: block; font-size: 11px; font-weight: 600; margin-bottom: 6px; color: var(--sh-text-secondary); }
+        .input { width: 100%; padding: 10px 14px; background: var(--sh-bg-primary); border: 1px solid var(--sh-border); border-radius: 8px; color: var(--sh-text-primary); font-size: 12px; font-family: var(--sh-font-mono); }
+        .input:focus { outline: none; border-color: var(--sh-accent-indigo); }
+
+        .footer { text-align: center; padding: 30px; border-top: 1px solid var(--sh-border); margin-top: 30px; color: var(--sh-text-muted); font-size: 13px; }
+        .footer a { color: var(--sh-accent-indigo); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; padding: 12px; gap: 12px; }
+            .nav-tabs { width: 100%; justify-content: center; }
+            .health-badge { margin: 0; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .components-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎛️ <strong>Démo interactive</strong> — System Hub simulé.
+        <a href="https://github.com/gkerma/luci-app-system-hub" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🎛️</div>
+                <div class="nav-brand-text">System <span>Hub</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="components">Composants</div>
+                <div class="nav-tab" data-view="health">Santé</div>
+                <div class="nav-tab" data-view="remote">Assistance</div>
+                <div class="nav-tab" data-view="diagnostics">Diagnostics</div>
+                <div class="nav-tab" data-view="logs">Logs</div>
+                <div class="nav-tab" data-view="settings">Paramètres</div>
+            </div>
+            <div class="health-badge">
+                <div class="health-score healthy">92</div>
+                <div class="health-info">
+                    <div class="health-label">Système Sain</div>
+                    <div class="health-status">Dernière vérif: il y a 5min</div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Overview -->
+        <div id="overview" class="view active">
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon">🧩</div><div class="stat-value">6</div><div class="stat-label">Composants Installés</div></div>
+                <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-value">5</div><div class="stat-label">En Fonctionnement</div></div>
+                <div class="stat-card"><div class="stat-icon">⚠️</div><div class="stat-value">1</div><div class="stat-label">Attention Requise</div></div>
+                <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-value">92</div><div class="stat-label">Score Santé</div></div>
+                <div class="stat-card"><div class="stat-icon">📱</div><div class="stat-value">12</div><div class="stat-label">Clients Connectés</div></div>
+                <div class="stat-card"><div class="stat-icon">⏱️</div><div class="stat-value">14j</div><div class="stat-label">Uptime</div></div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💻 Informations Système</div>
+                </div>
+                <div class="card-body">
+                    <div class="sysinfo-grid">
+                        <div class="sysinfo-item"><span class="sysinfo-label">Hostname</span><span class="sysinfo-value">OpenWrt-Gateway</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Modèle</span><span class="sysinfo-value">Linksys WRT3200ACM</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Architecture</span><span class="sysinfo-value">ARMv7 (mvebu)</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Kernel</span><span class="sysinfo-value">5.15.134</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">OpenWrt</span><span class="sysinfo-value">23.05.2</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Uptime</span><span class="sysinfo-value">14 jours, 6h 32m</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">WAN IP</span><span class="sysinfo-value">82.xxx.xxx.42</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">LAN IP</span><span class="sysinfo-value">192.168.1.1</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📊 Métriques Rapides</div>
+                </div>
+                <div class="card-body">
+                    <div class="health-grid">
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🔲</span> CPU</div><div class="metric-value ok">23%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 23%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💾</span> RAM</div><div class="metric-value ok">58%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 58%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💿</span> Disque</div><div class="metric-value warning">76%</div></div>
+                            <div class="progress-bar"><div class="progress-fill warning" style="width: 76%"></div></div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌡️</span> Temp</div><div class="metric-value ok">52°C</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 52%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🧩 Composants Actifs</div>
+                    <div class="card-badge">6 installés</div>
+                </div>
+                <div class="card-body">
+                    <div class="components-grid" id="quick-components"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Components -->
+        <div id="components" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🧩 Composants Installés</div>
+                    <div class="card-badge">6 actifs</div>
+                </div>
+                <div class="card-body">
+                    <div class="components-grid" id="installed-components"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🗓️ Roadmap - Composants Planifiés</div>
+                </div>
+                <div class="card-body" id="roadmap-components"></div>
+            </div>
+        </div>
+
+        <!-- Health -->
+        <div id="health" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💚 Score de Santé Global</div>
+                    <div class="card-badge">92/100</div>
+                </div>
+                <div class="card-body" style="text-align: center; padding: 40px;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); border: 6px solid #22c55e; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; font-weight: 800; font-family: var(--sh-font-mono); color: #22c55e;">92</div>
+                    <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Système en Bonne Santé</div>
+                    <div style="color: var(--sh-text-muted);">Dernière vérification : 2024-12-20 15:45:00</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📊 Métriques Détaillées</div>
+                </div>
+                <div class="card-body">
+                    <div class="health-grid">
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🔲</span> CPU</div><div class="metric-value ok">23%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 23%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Load: 0.42, 0.38, 0.35 • 2 cores</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💾</span> Mémoire</div><div class="metric-value ok">58%</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 58%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">298 MB / 512 MB utilisés</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">💿</span> Stockage</div><div class="metric-value warning">76%</div></div>
+                            <div class="progress-bar"><div class="progress-fill warning" style="width: 76%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">⚠️ 19.2 MB / 25.6 MB utilisés</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌡️</span> Température</div><div class="metric-value ok">52°C</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 52%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Zone 0: CPU</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">🌐</span> Réseau WAN</div><div class="metric-value ok">UP</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 100%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">82.xxx.xxx.42 • Uptime: 14j</div>
+                        </div>
+                        <div class="health-metric">
+                            <div class="metric-header"><div class="metric-title"><span class="metric-icon">⚙️</span> Services</div><div class="metric-value ok">12/12</div></div>
+                            <div class="progress-bar"><div class="progress-fill ok" style="width: 100%"></div></div>
+                            <div style="font-size: 10px; color: var(--sh-text-muted); margin-top: 8px;">Tous les services actifs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">💡 Recommandations</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; border-left: 3px solid #f59e0b;">
+                        <span style="font-size: 24px;">⚠️</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 4px;">Espace Disque Limité</div>
+                            <div style="font-size: 12px; color: var(--sh-text-secondary);">Le stockage atteint 76%. Pensez à nettoyer les anciens logs et fichiers temporaires pour éviter des problèmes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">📋 Générer Rapport</button>
+                <button class="btn">📧 Envoyer par Email</button>
+                <button class="btn">📥 Télécharger PDF</button>
+            </div>
+        </div>
+
+        <!-- Remote -->
+        <div id="remote" class="view">
+            <div class="card remote-card">
+                <div class="card-header">
+                    <div class="card-title">🖥️ RustDesk - Assistance à Distance</div>
+                    <div class="card-badge">Actif</div>
+                </div>
+                <div class="card-body">
+                    <div class="remote-id">
+                        <div class="remote-id-icon">🖥️</div>
+                        <div>
+                            <div class="remote-id-value">847 293 156</div>
+                            <div class="remote-id-label">ID RustDesk - Communiquez ce code au support</div>
+                        </div>
+                    </div>
+
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔒</span><div><div class="toggle-label">Accès sans surveillance</div><div class="toggle-desc">Permettre la connexion sans approbation</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">✅</span><div><div class="toggle-label">Approbation requise</div><div class="toggle-desc">Confirmer chaque connexion entrante</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔔</span><div><div class="toggle-label">Notification de connexion</div><div class="toggle-desc">Recevoir une alerte à chaque session</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary">🚀 Démarrer Session</button>
+                        <button class="btn">⚙️ Configurer RustDesk</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📞 Contact Support</div>
+                </div>
+                <div class="card-body">
+                    <div class="sysinfo-grid">
+                        <div class="sysinfo-item"><span class="sysinfo-label">Fournisseur</span><span class="sysinfo-value">CyberMind.fr</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Email</span><span class="sysinfo-value">support@cybermind.fr</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Téléphone</span><span class="sysinfo-value">+33 X XX XX XX XX</span></div>
+                        <div class="sysinfo-item"><span class="sysinfo-label">Horaires</span><span class="sysinfo-value">Lun-Ven 9h-18h</span></div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary">🎫 Ouvrir un Ticket</button>
+                        <button class="btn">📚 Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagnostics -->
+        <div id="diagnostics" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🔍 Collecte de Diagnostics</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📋</span><div><div class="toggle-label">Inclure les Logs</div><div class="toggle-desc">System log, kernel log, composants</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">⚙️</span><div><div class="toggle-label">Inclure la Configuration</div><div class="toggle-desc">network, wireless, firewall, dhcp</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🌐</span><div><div class="toggle-label">Inclure Infos Réseau</div><div class="toggle-desc">Interfaces, routes, connexions, ARP</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔐</span><div><div class="toggle-label">Anonymiser les données</div><div class="toggle-desc">Masquer mots de passe et clés</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary">📦 Générer Archive</button>
+                        <button class="btn btn-success">☁️ Envoyer au Support</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📁 Archives Récentes</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--sh-bg-tertiary); border-radius: 8px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="font-size: 20px;">📦</span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 600;">diagnostic_20241220_154500.tar.gz</div>
+                                    <div style="font-size: 10px; color: var(--sh-text-muted);">256 KB • 2024-12-20 15:45:00</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">📥 Télécharger</button>
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">☁️ Envoyer</button>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--sh-bg-tertiary); border-radius: 8px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="font-size: 20px;">📦</span>
+                                <div>
+                                    <div style="font-size: 13px; font-weight: 600;">diagnostic_20241219_093000.tar.gz</div>
+                                    <div style="font-size: 10px; color: var(--sh-text-muted);">312 KB • 2024-12-19 09:30:00</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">📥 Télécharger</button>
+                                <button class="btn" style="padding: 6px 10px; font-size: 10px;">☁️ Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logs -->
+        <div id="logs" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📋 Logs Unifiés</div>
+                    <div class="card-badge">Tous composants</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                        <select class="input" style="width: auto; min-width: 120px;">
+                            <option>Tous</option>
+                            <option>system</option>
+                            <option>crowdsec</option>
+                            <option>netifyd</option>
+                            <option>client-guardian</option>
+                        </select>
+                        <select class="input" style="width: auto; min-width: 100px;">
+                            <option>Tous niveaux</option>
+                            <option>info</option>
+                            <option>warning</option>
+                            <option>error</option>
+                        </select>
+                        <input type="text" class="input" placeholder="Rechercher..." style="flex: 1; min-width: 200px;">
+                        <button class="btn">🔄 Rafraîchir</button>
+                        <button class="btn">📥 Exporter</button>
+                    </div>
+                    <div class="log-list" id="unified-logs"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⚙️ Configuration Générale</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🔄</span><div><div class="toggle-label">Rafraîchissement automatique</div><div class="toggle-desc">Mettre à jour le dashboard toutes les 30s</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">💚</span><div><div class="toggle-label">Vérification santé auto</div><div class="toggle-desc">Exécuter un health check toutes les heures</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🐛</span><div><div class="toggle-label">Mode Debug</div><div class="toggle-desc">Activer les logs détaillés</div></div></div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🚨 Seuils d'Alerte</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">CPU Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mémoire Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Disque Warning / Critical (%)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="80" style="width: 100px;">
+                            <input type="number" class="input" value="95" style="width: 100px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Température Warning / Critical (°C)</label>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="number" class="input" value="70" style="width: 100px;">
+                            <input type="number" class="input" value="85" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📅 Tâches Planifiées</div>
+                </div>
+                <div class="card-body">
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">📋</span><div><div class="toggle-label">Rapport Santé Quotidien</div><div class="toggle-desc">Tous les jours à 6h00</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">💾</span><div><div class="toggle-label">Sauvegarde Hebdomadaire</div><div class="toggle-desc">Dimanche à 3h00, garde 4 versions</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle">
+                        <div class="toggle-info"><span class="toggle-icon">🧹</span><div><div class="toggle-label">Nettoyage Logs</div><div class="toggle-desc">Supprimer logs > 30 jours</div></div></div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">💾 Sauvegarder</button>
+                <button class="btn">🔄 Réinitialiser</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <strong>luci-app-system-hub</strong> — Central Control & Remote Assistance<br>
+        <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> | <a target="_blank" rel="noopener" href="https://github.com/gkerma/luci-app-system-hub">GitHub</a> | Apache-2.0
+    </footer>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Mock data - Components
+        const components = [
+            { id: 'crowdsec', name: 'CrowdSec', desc: 'Cybersécurité collaborative', icon: '🛡️', color: '#22c55e', status: 'installed', running: true, category: 'security' },
+            { id: 'netdata', name: 'Netdata', desc: 'Monitoring temps réel', icon: '📊', color: '#00ab44', status: 'installed', running: true, category: 'monitoring' },
+            { id: 'netifyd', name: 'Netifyd', desc: 'Deep Packet Inspection', icon: '🔍', color: '#8b5cf6', status: 'installed', running: true, category: 'network' },
+            { id: 'wireguard', name: 'WireGuard', desc: 'VPN moderne', icon: '🔒', color: '#88171a', status: 'installed', running: true, category: 'vpn' },
+            { id: 'network_modes', name: 'Network Modes', desc: 'Multi-mode réseau', icon: '🔀', color: '#f97316', status: 'installed', running: true, category: 'network' },
+            { id: 'client_guardian', name: 'Client Guardian', desc: 'NAC & Portail Captif', icon: '🛡️', color: '#ef4444', status: 'installed', running: false, category: 'security' },
+        ];
+
+        const roadmapComponents = [
+            { id: 'adguard', name: 'AdGuard Home', desc: 'Blocage publicités DNS', icon: '🚫', color: '#68bc71', date: '2025-Q1' },
+            { id: 'prometheus', name: 'Prometheus', desc: 'Métriques & Alerting', icon: '📈', color: '#e6522c', date: '2025-Q1' },
+            { id: 'tailscale', name: 'Tailscale', desc: 'Mesh VPN zero-config', icon: '🌐', color: '#0ea5e9', date: '2025-Q1' },
+            { id: 'grafana', name: 'Grafana', desc: 'Visualisation avancée', icon: '📉', color: '#f46800', date: '2025-Q2' },
+            { id: 'homeassistant', name: 'Home Assistant', desc: 'Domotique intégrée', icon: '🏠', color: '#41bdf5', date: '2025-Q2' },
+            { id: 'ntopng', name: 'ntopng', desc: 'Analyse trafic avancée', icon: '📶', color: '#1e88e5', date: '2025-Q2' },
+        ];
+
+        function renderComponent(c, showActions = true) {
+            return `
+                <div class="component-card ${c.status === 'planned' ? 'planned' : ''}" style="--component-color: ${c.color}">
+                    <div class="component-header">
+                        <div class="component-info">
+                            <div class="component-icon">${c.icon}</div>
+                            <div>
+                                <div class="component-name">${c.name}</div>
+                                <div class="component-desc">${c.desc}</div>
+                            </div>
+                        </div>
+                        <div class="component-status ${c.running ? 'running' : (c.status === 'planned' ? 'planned' : 'stopped')}">
+                            ${c.running ? 'Running' : (c.status === 'planned' ? c.date || 'Planifié' : 'Stopped')}
+                        </div>
+                    </div>
+                    ${showActions && c.status === 'installed' ? `
+                    <div class="component-actions">
+                        <div class="component-action">${c.running ? '⏹️ Stop' : '▶️ Start'}</div>
+                        <div class="component-action">🔄 Restart</div>
+                        <div class="component-action">📊 Status</div>
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        function renderRoadmap(c) {
+            return `
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">${c.icon}</div>
+                    <div class="roadmap-info">
+                        <div class="roadmap-name">${c.name}</div>
+                        <div class="roadmap-desc">${c.desc}</div>
+                    </div>
+                    <div class="roadmap-date">${c.date}</div>
+                </div>
+            `;
+        }
+
+        document.getElementById('quick-components').innerHTML = components.slice(0, 4).map(c => renderComponent(c, false)).join('');
+        document.getElementById('installed-components').innerHTML = components.map(c => renderComponent(c)).join('');
+        document.getElementById('roadmap-components').innerHTML = roadmapComponents.map(c => renderRoadmap(c)).join('');
+
+        // Logs
+        const logs = [
+            { time: '2024-12-20 15:45:23', source: 'system', level: 'info', message: 'System health check completed - Score: 92' },
+            { time: '2024-12-20 15:44:12', source: 'crowdsec', level: 'info', message: 'Blocked IP 192.168.1.254 - Reason: ssh-bf' },
+            { time: '2024-12-20 15:42:00', source: 'client-guardian', level: 'warning', message: 'New unknown client detected: AA:BB:CC:DD:EE:FF' },
+            { time: '2024-12-20 15:40:30', source: 'netifyd', level: 'info', message: 'Application detected: Netflix on 192.168.1.45' },
+            { time: '2024-12-20 15:38:15', source: 'system', level: 'info', message: 'Service wireguard restarted' },
+            { time: '2024-12-20 15:35:00', source: 'system', level: 'warning', message: 'Disk usage reached 76%' },
+            { time: '2024-12-20 15:30:00', source: 'crowdsec', level: 'info', message: 'Decisions synced: 15234 IPs in blocklist' },
+            { time: '2024-12-20 15:25:44', source: 'client-guardian', level: 'info', message: 'Client approved: iPhone-Marie -> zone LAN' },
+            { time: '2024-12-20 15:20:00', source: 'netifyd', level: 'info', message: 'Flow detected: 192.168.1.20 -> YouTube (2.4 GB)' },
+            { time: '2024-12-20 15:15:30', source: 'system', level: 'error', message: 'Service adguardhome failed to start' },
+        ];
+
+        document.getElementById('unified-logs').innerHTML = logs.map(l => `
+            <div class="log-item">
+                <div class="log-time">${l.time}</div>
+                <div class="log-source">${l.source}</div>
+                <div class="log-level ${l.level}">${l.level}</div>
+                <div class="log-message">${l.message}</div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

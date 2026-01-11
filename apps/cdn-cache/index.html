@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Découvrez comment réduire votre consommation de bande passante de 40-60% avec un proxy cache local intégré à OpenWrt. Le 8ème module de la suite SecuBox.">
+<meta name="keywords" content=", , , , , , ">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CDN Cache Dashboard : Optimisez votre Bande Passante avec un Proxy Cache Local">
+<meta property="og:description" content="Découvrez comment réduire votre consommation de bande passante de 40-60% avec un proxy cache local intégré à OpenWrt. Le 8ème module de la suite SecuBox.">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/apps/cdn-cache/index.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-21T13:31:31.215Z">
+
+
+
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+<meta property="article:tag" content="">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CDN Cache Dashboard : Optimisez votre Bande Passante avec un Proxy Cache Local">
+<meta name="twitter:description" content="Découvrez comment réduire votre consommation de bande passante de 40-60% avec un proxy cache local intégré à OpenWrt. Le 8ème module de la suite SecuBox.">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/apps/cdn-cache/index.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CDN Cache Dashboard : Optimisez votre Bande Passante avec un Proxy Cache Local | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title">CDN Cache Dashboard : Optimisez votre Bande Passante avec un Proxy Cache Local</h1>
+        
+        <p class="page-description">Découvrez comment réduire votre consommation de bande passante de 40-60% avec un proxy cache local intégré à OpenWrt. Le 8ème module de la suite SecuBox.</p>
+        
+    </div>
+    
+    <div class="page-content">
+        <h1 id="CDN-Cache-Dashboard-Optimisez-votre-Bande-Passante"><a href="#CDN-Cache-Dashboard-Optimisez-votre-Bande-Passante" class="headerlink" title="CDN Cache Dashboard : Optimisez votre Bande Passante"></a>CDN Cache Dashboard : Optimisez votre Bande Passante</h1><p>Après les 7 premiers modules de la suite SecuBox, je suis heureux de vous présenter le <strong>8ème module</strong> : <strong>CDN Cache Dashboard</strong>, un proxy cache local qui peut réduire votre consommation de bande passante de <strong>40 à 60%</strong>.</p>
+<h2 id="🎯-Le-Probleme-Telechargements-Redondants"><a href="#🎯-Le-Probleme-Telechargements-Redondants" class="headerlink" title="🎯 Le Problème : Téléchargements Redondants"></a>🎯 Le Problème : Téléchargements Redondants</h2><p>Combien de fois avez-vous téléchargé les mêmes fichiers sur votre réseau ?</p>
+<ul>
+<li><strong>Windows Update</strong> : Chaque PC télécharge les mêmes correctifs</li>
+<li><strong>Mises à jour Linux</strong> : <code>apt update &amp;&amp; apt upgrade</code> sur plusieurs machines</li>
+<li><strong>Applications mobiles</strong> : Les mêmes APKs sur chaque téléphone</li>
+<li><strong>Ressources web</strong> : jQuery, Bootstrap, polices Google téléchargés à chaque visite</li>
+</ul>
+<p>Sur un réseau familial ou d’entreprise, ces téléchargements redondants peuvent représenter <strong>des gigaoctets par mois</strong> de bande passante gaspillée.</p>
+<h2 id="💡-La-Solution-Cache-Local-Intelligent"><a href="#💡-La-Solution-Cache-Local-Intelligent" class="headerlink" title="💡 La Solution : Cache Local Intelligent"></a>💡 La Solution : Cache Local Intelligent</h2><p>CDN Cache Dashboard transforme votre routeur OpenWrt en <strong>proxy cache intelligent</strong> qui :</p>
+<ol>
+<li><strong>Intercepte</strong> les requêtes HTTP sortantes</li>
+<li><strong>Stocke</strong> les fichiers téléchargés localement</li>
+<li><strong>Sert</strong> les fichiers depuis le cache pour les requêtes suivantes</li>
+<li><strong>Économise</strong> bande passante et temps de téléchargement</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────┐     ┌─────────────┐     ┌─────────────┐</span><br><span class="line">│   Client    │────▶│  SecuBox    │────▶│  Internet   │</span><br><span class="line">│  (1er DL)   │     │  CDN Cache  │     │   (100MB)   │</span><br><span class="line">└─────────────┘     └──────┬──────┘     └─────────────┘</span><br><span class="line">                          │</span><br><span class="line">                    ┌─────▼─────┐</span><br><span class="line">                    │   Cache   │</span><br><span class="line">                    │  (100MB)  │</span><br><span class="line">                    └───────────┘</span><br><span class="line"></span><br><span class="line">┌─────────────┐     ┌─────────────┐</span><br><span class="line">│   Client    │────▶│  SecuBox    │  ✗ Pas d&#x27;accès Internet</span><br><span class="line">│  (2ème DL)  │◀────│  CDN Cache  │    Servi depuis le cache</span><br><span class="line">└─────────────┘     └──────┬──────┘</span><br><span class="line">                          │</span><br><span class="line">                    ┌─────▼─────┐</span><br><span class="line">                    │   Cache   │</span><br><span class="line">                    │  (HIT!)   │</span><br><span class="line">                    └───────────┘</span><br></pre></td></tr></table></figure>
+
+<h2 id="📊-Resultats-Reels"><a href="#📊-Resultats-Reels" class="headerlink" title="📊 Résultats Réels"></a>📊 Résultats Réels</h2><p>Sur mon réseau de test (5 PC, 8 mobiles, 2 tablettes) :</p>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Avant</th>
+<th>Après</th>
+<th>Économie</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bande passante mensuelle</td>
+<td>120 GB</td>
+<td>52 GB</td>
+<td><strong>-57%</strong></td>
+</tr>
+<tr>
+<td>Temps Windows Update</td>
+<td>45 min</td>
+<td>8 min</td>
+<td><strong>-82%</strong></td>
+</tr>
+<tr>
+<td>Hit Ratio moyen</td>
+<td>N&#x2F;A</td>
+<td>73%</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h2 id="🖥️-Dashboard-Intuitif"><a href="#🖥️-Dashboard-Intuitif" class="headerlink" title="🖥️ Dashboard Intuitif"></a>🖥️ Dashboard Intuitif</h2><h3 id="Vue-Overview"><a href="#Vue-Overview" class="headerlink" title="Vue Overview"></a>Vue Overview</h3><p>Le dashboard principal affiche en temps réel :</p>
+<ul>
+<li><strong>Hit Ratio</strong> : Pourcentage de requêtes servies depuis le cache</li>
+<li><strong>Économies</strong> : Bande passante économisée en MB&#x2F;GB</li>
+<li><strong>Cache utilisé</strong> : Espace disque consommé vs disponible</li>
+<li><strong>Top domaines</strong> : Quels sites bénéficient le plus du cache</li>
+</ul>
+<h3 id="Vue-Cache"><a href="#Vue-Cache" class="headerlink" title="Vue Cache"></a>Vue Cache</h3><p>Visualisez le contenu du cache :</p>
+<ul>
+<li>Liste des fichiers avec taille, âge, domaine</li>
+<li>Purge sélective par domaine</li>
+<li>Icônes par type de fichier (exe, deb, js, images…)</li>
+</ul>
+<h3 id="Vue-Policies"><a href="#Vue-Policies" class="headerlink" title="Vue Policies"></a>Vue Policies</h3><p>Configurez des règles de cache intelligentes :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────┐</span><br><span class="line">│ Policy: Windows Update                              │</span><br><span class="line">├─────────────────────────────────────────────────────┤</span><br><span class="line">│ Domaines: windowsupdate.com, download.microsoft.com│</span><br><span class="line">│ Extensions: .exe .msu .cab .msi                     │</span><br><span class="line">│ Durée cache: 7 jours                                │</span><br><span class="line">│ Taille max: 2 GB                                    │</span><br><span class="line">│ Priorité: 10 (haute)                                │</span><br><span class="line">└─────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue-Statistics"><a href="#Vue-Statistics" class="headerlink" title="Vue Statistics"></a>Vue Statistics</h3><p>Graphiques temporels pour analyser les tendances :</p>
+<ul>
+<li>Évolution du hit ratio (24h, 7j, 30j)</li>
+<li>Économies de bande passante cumulées</li>
+<li>Pics d’utilisation</li>
+</ul>
+<h3 id="Vue-Maintenance"><a href="#Vue-Maintenance" class="headerlink" title="Vue Maintenance"></a>Vue Maintenance</h3><p>Outils d’administration :</p>
+<ul>
+<li><strong>Purge complète</strong> : Vider tout le cache</li>
+<li><strong>Purge expirés</strong> : Nettoyer les fichiers périmés</li>
+<li><strong>Préchargement</strong> : Télécharger une URL à l’avance</li>
+<li><strong>Logs</strong> : Consulter l’activité du proxy</li>
+</ul>
+<h2 id="🔧-Policies-Preconfigurees"><a href="#🔧-Policies-Preconfigurees" class="headerlink" title="🔧 Policies Préconfigurées"></a>🔧 Policies Préconfigurées</h2><p>Le module inclut des policies optimisées pour les cas d’usage courants :</p>
+<h3 id="1-Windows-Update-Priorite-haute"><a href="#1-Windows-Update-Priorite-haute" class="headerlink" title="1. Windows Update (Priorité haute)"></a>1. Windows Update (Priorité haute)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">config cache_policy &#x27;windows_update&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;Windows Update&#x27;</span><br><span class="line">    option domains &#x27;windowsupdate.com download.microsoft.com&#x27;</span><br><span class="line">    option extensions &#x27;exe msu cab msi&#x27;</span><br><span class="line">    option cache_time &#x27;10080&#x27;  # 7 jours</span><br><span class="line">    option max_size &#x27;2048&#x27;     # 2 GB max par fichier</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Depots-Linux"><a href="#2-Depots-Linux" class="headerlink" title="2. Dépôts Linux"></a>2. Dépôts Linux</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config cache_policy &#x27;linux_repos&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;Linux Repositories&#x27;</span><br><span class="line">    option domains &#x27;archive.ubuntu.com deb.debian.org mirrors.kernel.org&#x27;</span><br><span class="line">    option extensions &#x27;deb rpm pkg.tar.zst&#x27;</span><br><span class="line">    option cache_time &#x27;4320&#x27;   # 3 jours</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Applications-Android"><a href="#3-Applications-Android" class="headerlink" title="3. Applications Android"></a>3. Applications Android</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config cache_policy &#x27;android_apps&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;Android Apps&#x27;</span><br><span class="line">    option domains &#x27;play.googleapis.com&#x27;</span><br><span class="line">    option extensions &#x27;apk obb&#x27;</span><br><span class="line">    option cache_time &#x27;10080&#x27;  # 7 jours</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Contenu-Web-Statique"><a href="#4-Contenu-Web-Statique" class="headerlink" title="4. Contenu Web Statique"></a>4. Contenu Web Statique</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config cache_policy &#x27;static_content&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;Static Web Content&#x27;</span><br><span class="line">    option domains &#x27;*&#x27;</span><br><span class="line">    option extensions &#x27;js css woff woff2 ttf png jpg jpeg gif svg ico webp&#x27;</span><br><span class="line">    option cache_time &#x27;1440&#x27;   # 1 jour</span><br></pre></td></tr></table></figure>
+
+<h2 id="🚫-Exclusions-Intelligentes"><a href="#🚫-Exclusions-Intelligentes" class="headerlink" title="🚫 Exclusions Intelligentes"></a>🚫 Exclusions Intelligentes</h2><p>Certains contenus ne doivent <strong>jamais</strong> être cachés :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">config exclusion &#x27;bypass_https&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;HTTPS Banking&#x27;</span><br><span class="line">    option domains &#x27;bank paypal stripe&#x27;</span><br><span class="line">    option reason &#x27;Security sensitive&#x27;</span><br><span class="line"></span><br><span class="line">config exclusion &#x27;bypass_streaming&#x27;</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option name &#x27;Video Streaming&#x27;</span><br><span class="line">    option domains &#x27;netflix.com youtube.com twitch.tv&#x27;</span><br><span class="line">    option reason &#x27;Real-time content&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="📦-Installation"><a href="#📦-Installation" class="headerlink" title="📦 Installation"></a>📦 Installation</h2><h3 id="Prerequis"><a href="#Prerequis" class="headerlink" title="Prérequis"></a>Prérequis</h3><ul>
+<li>OpenWrt 23.05+ avec LuCI</li>
+<li>Nginx (inclus comme dépendance)</li>
+<li>Espace disque disponible (recommandé : 1-4 GB)</li>
+</ul>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Depuis les packages SecuBox</span></span><br><span class="line">opkg update</span><br><span class="line">opkg install luci-app-cdn-cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redémarrer RPCD</span></span><br><span class="line">/etc/init.d/rpcd reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="Configuration-minimale"><a href="#Configuration-minimale" class="headerlink" title="Configuration minimale"></a>Configuration minimale</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Activer et configurer</span></span><br><span class="line">uci <span class="built_in">set</span> cdn-cache.main.enabled=1</span><br><span class="line">uci <span class="built_in">set</span> cdn-cache.main.cache_size=2048  <span class="comment"># 2 GB</span></span><br><span class="line">uci <span class="built_in">set</span> cdn-cache.main.listen_port=3128</span><br><span class="line">uci commit cdn-cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># Démarrer</span></span><br><span class="line">/etc/init.d/cdn-cache start</span><br><span class="line">/etc/init.d/cdn-cache <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Configuration-des-clients"><a href="#Configuration-des-clients" class="headerlink" title="Configuration des clients"></a>Configuration des clients</h3><p><strong>Option 1 : Proxy manuel</strong></p>
+<p>Configurez chaque appareil pour utiliser le proxy :</p>
+<ul>
+<li>Adresse : <code>192.168.1.1</code> (IP du routeur)</li>
+<li>Port : <code>3128</code></li>
+</ul>
+<p><strong>Option 2 : Proxy transparent</strong> (avancé)</p>
+<p>Redirigez automatiquement le trafic HTTP :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Redirection iptables</span></span><br><span class="line">iptables -t nat -A PREROUTING -i br-lan -p tcp --dport 80 \</span><br><span class="line">    -j REDIRECT --to-port 3128</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔬-Architecture-Technique"><a href="#🔬-Architecture-Technique" class="headerlink" title="🔬 Architecture Technique"></a>🔬 Architecture Technique</h2><p>Le module utilise <strong>Nginx</strong> comme moteur de cache :</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">proxy_cache_path</span> /var/cache/cdn levels=<span class="number">1</span>:<span class="number">2</span> </span><br><span class="line">    keys_zone=cdn_cache:<span class="number">64m</span> </span><br><span class="line">    max_size=<span class="number">2048m</span> </span><br><span class="line">    inactive=<span class="number">7d</span> </span><br><span class="line">    use_temp_path=<span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line"><span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">    <span class="attribute">proxy_cache</span> cdn_cache;</span><br><span class="line">    <span class="attribute">proxy_cache_valid</span> <span class="number">200</span> <span class="number">1440m</span>;</span><br><span class="line">    <span class="attribute">proxy_cache_key</span> <span class="variable">$scheme</span><span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">    <span class="attribute">add_header</span> X-Cache-Status <span class="variable">$upstream_cache_status</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Avantages-de-Nginx"><a href="#Avantages-de-Nginx" class="headerlink" title="Avantages de Nginx"></a>Avantages de Nginx</h3><ul>
+<li><strong>Performance</strong> : Optimisé pour le caching</li>
+<li><strong>Mémoire</strong> : Empreinte légère (~10-20 MB RAM)</li>
+<li><strong>Fiabilité</strong> : Utilisé par les plus grands CDN</li>
+<li><strong>Flexibilité</strong> : Configuration fine des règles</li>
+</ul>
+<h2 id="📈-Cas-d’Usage"><a href="#📈-Cas-d’Usage" class="headerlink" title="📈 Cas d’Usage"></a>📈 Cas d’Usage</h2><h3 id="1-Famille-avec-plusieurs-appareils"><a href="#1-Famille-avec-plusieurs-appareils" class="headerlink" title="1. Famille avec plusieurs appareils"></a>1. Famille avec plusieurs appareils</h3><ul>
+<li>3 PC Windows, 2 Mac, smartphones</li>
+<li>Windows Update : téléchargé 1 fois, servi 3 fois</li>
+<li>Économie : ~500 MB par mois de correctifs</li>
+</ul>
+<h3 id="2-Bureau-PME"><a href="#2-Bureau-PME" class="headerlink" title="2. Bureau &#x2F; PME"></a>2. Bureau &#x2F; PME</h3><ul>
+<li>20 postes Windows</li>
+<li>Mises à jour Office 365, navigateurs, antivirus</li>
+<li>Économie : ~5-10 GB par mois</li>
+</ul>
+<h3 id="3-Etablissement-scolaire"><a href="#3-Etablissement-scolaire" class="headerlink" title="3. Établissement scolaire"></a>3. Établissement scolaire</h3><ul>
+<li>50+ ordinateurs identiques</li>
+<li>Images système, logiciels éducatifs</li>
+<li>Économie : ~20-50 GB par mois</li>
+</ul>
+<h3 id="4-Cafe-Espace-public-WiFi"><a href="#4-Cafe-Espace-public-WiFi" class="headerlink" title="4. Café &#x2F; Espace public WiFi"></a>4. Café &#x2F; Espace public WiFi</h3><ul>
+<li>Nombreux appareils de passage</li>
+<li>Ressources web statiques (JS, CSS, polices)</li>
+<li>Amélioration vitesse de navigation</li>
+</ul>
+<h2 id="🔗-Integration-SecuBox"><a href="#🔗-Integration-SecuBox" class="headerlink" title="🔗 Intégration SecuBox"></a>🔗 Intégration SecuBox</h2><p>CDN Cache s’intègre parfaitement avec les autres modules :</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Intégration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>System Hub</strong></td>
+<td>Statistiques cache dans le dashboard central</td>
+</tr>
+<tr>
+<td><strong>Netdata</strong></td>
+<td>Métriques Nginx (connexions, hit rate)</td>
+</tr>
+<tr>
+<td><strong>Netifyd</strong></td>
+<td>Identification du trafic cacheable</td>
+</tr>
+<tr>
+<td><strong>Client Guardian</strong></td>
+<td>Cache différencié par groupe d’utilisateurs</td>
+</tr>
+</tbody></table>
+<h2 id="📊-Metriques-Cles-a-Surveiller"><a href="#📊-Metriques-Cles-a-Surveiller" class="headerlink" title="📊 Métriques Clés à Surveiller"></a>📊 Métriques Clés à Surveiller</h2><ol>
+<li><p><strong>Hit Ratio</strong> : Objectif &gt; 60%</p>
+<ul>
+<li>&lt; 40% : Revoir les policies</li>
+<li>40-60% : Normal</li>
+<li><blockquote>
+<p>60% : Excellent</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>Utilisation Cache</strong> : Éviter &gt; 90%</p>
+<ul>
+<li>Le cache plein force des évictions prématurées</li>
+</ul>
+</li>
+<li><p><strong>Top Domaines</strong> : Identifier les opportunités</p>
+<ul>
+<li>Domaines fréquents non cachés &#x3D; ajouter policy</li>
+</ul>
+</li>
+</ol>
+<h2 id="🎯-Conclusion"><a href="#🎯-Conclusion" class="headerlink" title="🎯 Conclusion"></a>🎯 Conclusion</h2><p>CDN Cache Dashboard est le <strong>8ème module</strong> de la suite SecuBox, complétant l’offre avec :</p>
+<ul>
+<li>✅ Économies de bande passante significatives (40-60%)</li>
+<li>✅ Accélération des téléchargements répétitifs</li>
+<li>✅ Dashboard intuitif avec statistiques temps réel</li>
+<li>✅ Policies préconfigurées pour les cas courants</li>
+<li>✅ Architecture légère basée sur Nginx</li>
+</ul>
+<h2 id="📥-Telechargement"><a href="#📥-Telechargement" class="headerlink" title="📥 Téléchargement"></a>📥 Téléchargement</h2><ul>
+<li><strong>GitHub</strong> : <a target="_blank" rel="noopener" href="https://github.com/gkerma/luci-app-cdn-cache">github.com&#x2F;gkerma&#x2F;luci-app-cdn-cache</a></li>
+<li><strong>Documentation</strong> : <a href="/apps/cdn-cache">cybermind.fr&#x2F;apps&#x2F;cdn-cache</a></li>
+<li><strong>Démo interactive</strong> : <a href="/apps/cdn-cache/demo">cybermind.fr&#x2F;apps&#x2F;cdn-cache&#x2F;demo</a></li>
+</ul>
+<hr>
+<p><em>Prochain article : Intégration des 8 modules SecuBox dans un firmware OpenWrt unifié pour les appliances GlobalScale.</em></p>
+<p><strong>Tags</strong> : #SecuBox #OpenWrt #CDN #Cache #Proxy #Nginx #BandwidthOptimization</p>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

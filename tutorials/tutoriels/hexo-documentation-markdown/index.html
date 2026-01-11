@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Guide de référence complet pour la rédaction d&#39;articles Hexo sur CyberMind.FR. Front-matter YAML, syntaxe Markdown, Tag Plugins, gestion des assets et bonnes pratiques.">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Documentation Hexo - Guide Markdown Complet pour CyberMind">
+<meta property="og:description" content="Guide de référence complet pour la rédaction d&#39;articles Hexo sur CyberMind.FR. Front-matter YAML, syntaxe Markdown, Tag Plugins, gestion des assets et bonnes pratiques.">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/tutorials/tutoriels/hexo-documentation-markdown/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2025-12-12T07:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2025-12-12T07:00:00.000Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Documentation Hexo - Guide Markdown Complet pour CyberMind">
+<meta name="twitter:description" content="Guide de référence complet pour la rédaction d&#39;articles Hexo sur CyberMind.FR. Front-matter YAML, syntaxe Markdown, Tag Plugins, gestion des assets et bonnes pratiques.">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/tutorials/tutoriels/hexo-documentation-markdown/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>Documentation Hexo - Guide Markdown Complet pour CyberMind | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+
+
+
+<article class="post-article" style="--post-color: #f97316">
+  <header class="post-header">
+    
+    <div class="post-category">
+      <a href="/blog/tutoriels/" style="color: #f97316">
+        📝 tutoriels
+      </a>
+    </div>
+    
+    
+    <h1 class="post-title">Documentation Hexo - Guide Markdown Complet pour CyberMind</h1>
+    
+    <div class="post-meta">
+      <span class="post-date">
+        📅 12 December 2025
+      </span>
+      
+      
+    </div>
+    
+    
+  </header>
+  
+  <div class="post-content">
+    <h1 id="📚-Documentation-Hexo-Guide-Markdown-Complet"><a href="#📚-Documentation-Hexo-Guide-Markdown-Complet" class="headerlink" title="📚 Documentation Hexo - Guide Markdown Complet"></a>📚 Documentation Hexo - Guide Markdown Complet</h1><blockquote>
+<p>Guide de référence rapide pour la rédaction d’articles sur <strong>CyberMind.FR</strong></p>
+<p>Auteur: Gandalf @ CyberMind<br>Dernière mise à jour: 2025-12-12</p>
+</blockquote>
+<!-- more -->
+
+<hr>
+<h2 id="📑-Table-des-matieres"><a href="#📑-Table-des-matieres" class="headerlink" title="📑 Table des matières"></a>📑 Table des matières</h2><ol>
+<li><a href="#1-structure-dun-article">Structure d’un article</a></li>
+<li><a href="#2-front-matter-metadonnees-yaml">Front-matter (métadonnées YAML)</a></li>
+<li><a href="#3-syntaxe-markdown">Syntaxe Markdown</a></li>
+<li><a href="#4-tag-plugins-hexo">Tag Plugins Hexo</a></li>
+<li><a href="#5-gestion-des-assets">Gestion des assets (images, fichiers)</a></li>
+<li><a href="#6-commandes-hexo">Commandes Hexo</a></li>
+<li><a href="#7-bonnes-pratiques">Bonnes pratiques</a></li>
+<li><a href="#8-templates-darticles">Templates d’articles</a></li>
+</ol>
+<hr>
+<h2 id="1-Structure-d’un-article"><a href="#1-Structure-d’un-article" class="headerlink" title="1. Structure d’un article"></a>1. Structure d’un article</h2><p>Un article Hexo est composé de deux parties :</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section"># Front-matter (métadonnées YAML)</span></span><br><span class="line">title: Mon titre d&#x27;article</span><br><span class="line"><span class="section">date: 2025-12-12 10:30:00</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Contenu de l&#x27;article en Markdown</span></span><br><span class="line"></span><br><span class="line">Votre texte ici...</span><br></pre></td></tr></table></figure>
+
+<h3 id="Emplacements-des-fichiers"><a href="#Emplacements-des-fichiers" class="headerlink" title="Emplacements des fichiers"></a>Emplacements des fichiers</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Dossier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Posts</strong></td>
+<td><code>source/_posts/</code></td>
+<td>Articles publiés</td>
+</tr>
+<tr>
+<td><strong>Drafts</strong></td>
+<td><code>source/_drafts/</code></td>
+<td>Brouillons (non publiés)</td>
+</tr>
+<tr>
+<td><strong>Pages</strong></td>
+<td><code>source/</code></td>
+<td>Pages statiques (about, contact…)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-Front-matter-metadonnees-YAML"><a href="#2-Front-matter-metadonnees-YAML" class="headerlink" title="2. Front-matter (métadonnées YAML)"></a>2. Front-matter (métadonnées YAML)</h2><p>Le front-matter est un bloc YAML au début du fichier, délimité par <code>---</code>.</p>
+<h3 id="2-1-Template-complet"><a href="#2-1-Template-complet" class="headerlink" title="2.1 Template complet"></a>2.1 Template complet</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Titre</span> <span class="string">de</span> <span class="string">l&#x27;Article</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2025-12-12 14:30:00</span></span><br><span class="line"><span class="attr">updated:</span> <span class="number">2025-12-12 16:00:00</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Catégorie</span> <span class="string">Principale</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Sous-catégorie</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tag1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tag2</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tag3</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">custom-url/</span></span><br><span class="line"><span class="attr">excerpt:</span> <span class="string">Description</span> <span class="string">courte</span> <span class="string">de</span> <span class="string">l&#x27;article</span> <span class="string">pour</span> <span class="string">les</span> <span class="string">previews</span> <span class="string">et</span> <span class="string">le</span> <span class="string">SEO</span> <span class="string">(150-200</span> <span class="string">caractères).</span></span><br><span class="line"><span class="attr">published:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">lang:</span> <span class="string">fr</span></span><br><span class="line"><span class="attr">disableNunjucks:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Variables-detaillees"><a href="#2-2-Variables-detaillees" class="headerlink" title="2.2 Variables détaillées"></a>2.2 Variables détaillées</h3><table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Défaut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>Nom du fichier</td>
+<td>Titre affiché</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>DateTime</td>
+<td>Date création</td>
+<td>Date de publication</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>DateTime</td>
+<td>Date modif</td>
+<td>Dernière mise à jour</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>Liste</td>
+<td>-</td>
+<td>Tags de l’article</td>
+</tr>
+<tr>
+<td><code>categories</code></td>
+<td>Liste</td>
+<td>-</td>
+<td>Catégories hiérarchiques</td>
+</tr>
+<tr>
+<td><code>layout</code></td>
+<td>String</td>
+<td><code>post</code></td>
+<td>Template utilisé</td>
+</tr>
+<tr>
+<td><code>comments</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Commentaires activés</td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>String</td>
+<td>Auto</td>
+<td>URL personnalisée</td>
+</tr>
+<tr>
+<td><code>excerpt</code></td>
+<td>String</td>
+<td>-</td>
+<td>Extrait pour les listes</td>
+</tr>
+<tr>
+<td><code>disableNunjucks</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Désactive les tag plugins</td>
+</tr>
+<tr>
+<td><code>published</code></td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Article publié</td>
+</tr>
+<tr>
+<td><code>lang</code></td>
+<td>String</td>
+<td>Config</td>
+<td>Langue (fr, en…)</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-Categories-CyberMind-FR"><a href="#2-3-Categories-CyberMind-FR" class="headerlink" title="2.3 Catégories CyberMind.FR"></a>2.3 Catégories CyberMind.FR</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Catégories principales du site</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cyber</span>              <span class="comment"># Cybersécurité, hacking éthique</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Mind</span>               <span class="comment"># Réflexions, philosophie, psychologie</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Mood</span>               <span class="comment"># Bien-être, lifestyle, spiritualité</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tutoriels</span>          <span class="comment"># Guides techniques</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Hardware</span>           <span class="comment"># Matériel, embedded, ARM</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Poèmes</span>             <span class="comment"># Créations poétiques</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">FabLab</span>             <span class="comment"># Fabrication, DIY, laser</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Nouvelles</span>          <span class="comment"># Récits, histoires</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Histoire</span>           <span class="comment"># Histoire, patrimoine</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Intelligence</span> <span class="string">Artificielle</span>  <span class="comment"># IA, LLM, ChatGPT</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Network</span>            <span class="comment"># Réseau, DNS, VPN</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Engineering</span>        <span class="comment"># DevOps, Fullstack</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">contrib</span>            <span class="comment"># Contributions, fiches</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-Categories-hierarchiques"><a href="#2-4-Categories-hierarchiques" class="headerlink" title="2.4 Catégories hiérarchiques"></a>2.4 Catégories hiérarchiques</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Simple - Une seule catégorie</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cyber</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Hiérarchie - Chemin de sous-catégories</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tutoriels</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Embedded-Systems</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Development</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Multiples hiérarchies indépendantes</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">Tutoriels</span>, <span class="string">Embedded-Systems</span>, <span class="string">ARM64</span>]</span><br><span class="line">  <span class="bullet">-</span> [<span class="string">Hardware</span>, <span class="string">Projets-DIY</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-Format-JSON-alternatif"><a href="#2-5-Format-JSON-alternatif" class="headerlink" title="2.5 Format JSON alternatif"></a>2.5 Format JSON alternatif</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Mon Article&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;date&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2025-12-12 14:30:00&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;Cyber&quot;</span><span class="punctuation">,</span> <span class="string">&quot;OpenWrt&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;categories&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;Tutoriels&quot;</span><span class="punctuation">]</span></span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-Syntaxe-Markdown"><a href="#3-Syntaxe-Markdown" class="headerlink" title="3. Syntaxe Markdown"></a>3. Syntaxe Markdown</h2><h3 id="3-1-Titres"><a href="#3-1-Titres" class="headerlink" title="3.1 Titres"></a>3.1 Titres</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Titre H1</span></span><br><span class="line"><span class="section">## Titre H2</span></span><br><span class="line"><span class="section">### Titre H3</span></span><br><span class="line"><span class="section">#### Titre H4</span></span><br><span class="line"><span class="section">##### Titre H5</span></span><br><span class="line"><span class="section">###### Titre H6</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-Formatage-du-texte"><a href="#3-2-Formatage-du-texte" class="headerlink" title="3.2 Formatage du texte"></a>3.2 Formatage du texte</h3><table>
+<thead>
+<tr>
+<th>Syntaxe</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**gras**</code></td>
+<td><strong>gras</strong></td>
+</tr>
+<tr>
+<td><code>*italique*</code></td>
+<td><em>italique</em></td>
+</tr>
+<tr>
+<td><code>***gras italique***</code></td>
+<td><em><strong>gras italique</strong></em></td>
+</tr>
+<tr>
+<td><code>~~barré~~</code></td>
+<td><del>barré</del></td>
+</tr>
+<tr>
+<td><code>`code`</code></td>
+<td><code>code</code></td>
+</tr>
+</tbody></table>
+<h3 id="3-3-Citations"><a href="#3-3-Citations" class="headerlink" title="3.3 Citations"></a>3.3 Citations</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; Citation simple</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; Citation sur</span></span><br><span class="line"><span class="quote">&gt; plusieurs lignes</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; Citation niveau 1</span></span><br><span class="line">&gt;&gt; Citation imbriquée niveau 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-Listes"><a href="#3-4-Listes" class="headerlink" title="3.4 Listes"></a>3.4 Listes</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Liste non ordonnée</span></span><br><span class="line"><span class="bullet">-</span> Élément 1</span><br><span class="line"><span class="bullet">-</span> Élément 2</span><br><span class="line"><span class="bullet">  -</span> Sous-élément 2.1</span><br><span class="line"><span class="bullet">  -</span> Sous-élément 2.2</span><br><span class="line"><span class="bullet">-</span> Élément 3</span><br><span class="line"></span><br><span class="line"><span class="section"># Liste ordonnée</span></span><br><span class="line"><span class="bullet">1.</span> Premier</span><br><span class="line"><span class="bullet">2.</span> Deuxième</span><br><span class="line"><span class="bullet">3.</span> Troisième</span><br><span class="line"></span><br><span class="line"><span class="section"># Liste de tâches</span></span><br><span class="line"><span class="bullet">-</span> [x] Tâche terminée</span><br><span class="line"><span class="bullet">-</span> [ ] Tâche à faire</span><br><span class="line"><span class="bullet">-</span> [ ] Autre tâche</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-Liens"><a href="#3-5-Liens" class="headerlink" title="3.5 Liens"></a>3.5 Liens</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Lien simple</span></span><br><span class="line">[<span class="string">Texte du lien</span>](<span class="link">https://cybermind.fr</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># Lien avec titre (tooltip)</span></span><br><span class="line">[<span class="string">CyberMind</span>](<span class="link">https://cybermind.fr &quot;Site officiel CyberMind&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># Lien référence</span></span><br><span class="line">[<span class="string">Texte</span>][<span class="symbol">ref1</span>]</span><br><span class="line">[<span class="symbol">ref1</span>]: <span class="link">https://cybermind.fr &quot;Référence&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Lien email</span></span><br><span class="line"><span class="language-xml">&lt;info@cybermind.fr&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Lien automatique</span></span><br><span class="line"><span class="language-xml">&lt;https://cybermind.fr&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-Images"><a href="#3-6-Images" class="headerlink" title="3.6 Images"></a>3.6 Images</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Image simple</span></span><br><span class="line">![<span class="string">Texte alternatif</span>](<span class="link">/uploads/images/photo.jpg</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># Image avec titre</span></span><br><span class="line">![<span class="string">Logo CyberMind</span>](<span class="link">/uploads/images/avatar.jpg &quot;Logo officiel&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># Image cliquable</span></span><br><span class="line">[<span class="string">![Alt</span>](<span class="link">image.jpg</span>)](<span class="link">https://cybermind.fr</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># Image avec dimensions (certains renderers)</span></span><br><span class="line">![<span class="string">Alt</span>](<span class="link">image.jpg =400x300</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-Code"><a href="#3-7-Code" class="headerlink" title="3.7 Code"></a>3.7 Code</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Code inline</span></span><br><span class="line">Utilisez la commande <span class="code">`hexo new post &quot;titre&quot;`</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Bloc de code simple</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">Code sans coloration</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Bloc avec langage</span></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">def hello():</span></span><br><span class="line"><span class="code">    print(&quot;Hello CyberMind!&quot;)</span></span><br><span class="line"><span class="code">    return True</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Bloc avec nom de fichier</span></span><br><span class="line"><span class="code">```javascript app.js</span></span><br><span class="line"><span class="code">const express = require(&#x27;express&#x27;);</span></span><br><span class="line"><span class="code">const app = express();</span></span><br><span class="line"><span class="code">app.listen(3000);</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Langages supportés</span></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">```</span>python</span><br><span class="line"><span class="code">```javascript</span></span><br><span class="line"><span class="code">```</span>yaml</span><br><span class="line"><span class="code">```json</span></span><br><span class="line"><span class="code">```</span>html</span><br><span class="line"><span class="code">```css</span></span><br><span class="line"><span class="code">```</span>sql</span><br><span class="line"><span class="code">```c</span></span><br><span class="line"><span class="code">```</span>cpp</span><br><span class="line"><span class="code">```java</span></span><br><span class="line"><span class="code">```</span>go</span><br><span class="line"><span class="code">```rust</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-8-Tableaux"><a href="#3-8-Tableaux" class="headerlink" title="3.8 Tableaux"></a>3.8 Tableaux</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| Colonne 1 | Colonne 2 | Colonne 3 |</span><br><span class="line">|-----------|:---------:|----------:|</span><br><span class="line">| Gauche    | Centre    | Droite    |</span><br><span class="line">| Texte     | Texte     | Texte     |</span><br><span class="line">| Données   | Données   | Données   |</span><br></pre></td></tr></table></figure>
+
+<p>Alignement :</p>
+<ul>
+<li><code>:---</code> &#x3D; gauche</li>
+<li><code>:---:</code> &#x3D; centre</li>
+<li><code>---:</code> &#x3D; droite</li>
+</ul>
+<h3 id="3-9-Separateurs-et-divers"><a href="#3-9-Separateurs-et-divers" class="headerlink" title="3.9 Séparateurs et divers"></a>3.9 Séparateurs et divers</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section"># Ligne horizontale (trois tirets)</span></span><br><span class="line"></span><br><span class="line"><span class="strong">***</span></span><br><span class="line"><span class="strong"># Ligne horizontale alternative</span></span><br><span class="line"><span class="strong"></span></span><br><span class="line"><span class="strong">&lt;!-- more --&gt;</span></span><br><span class="line"><span class="strong"># Séparateur &quot;Lire la suite&quot; (crucial pour Hexo!)</span></span><br><span class="line"><span class="strong"></span></span><br><span class="line"><span class="strong">&lt;!-- Commentaire HTML invisible --&gt;</span></span><br><span class="line"><span class="strong"></span></span><br><span class="line"><span class="strong">\<span class="emphasis">*Texte échappé\*</span></span></span><br><span class="line"><span class="strong"># Affiche: <span class="emphasis">*Texte échappé*</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-10-Notes-de-bas-de-page"><a href="#3-10-Notes-de-bas-de-page" class="headerlink" title="3.10 Notes de bas de page"></a>3.10 Notes de bas de page</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Voici un texte avec une note[^1] et une autre[^note].</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">Première note de bas de page.</span></span><br><span class="line">[<span class="symbol">^note</span>]: <span class="link">Deuxième note avec identifiant texte.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-11-Emojis"><a href="#3-11-Emojis" class="headerlink" title="3.11 Emojis"></a>3.11 Emojis</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Emojis Unicode directs</span></span><br><span class="line">🔐 🧠 ✨ 📜 🚀 ⚙️ 🛠️ 📚 🎵 🌐</span><br><span class="line"></span><br><span class="line"><span class="section"># Shortcodes (si plugin installé)</span></span><br><span class="line">:rocket: :lock: :book:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-Tag-Plugins-Hexo"><a href="#4-Tag-Plugins-Hexo" class="headerlink" title="4. Tag Plugins Hexo"></a>4. Tag Plugins Hexo</h2><p>Les tag plugins sont des extensions Hexo avec la syntaxe <code>&#123;% tag %&#125;</code>.</p>
+<p>⚠️ <strong>Important</strong>: Ne jamais mixer tag plugins et syntaxe Markdown !<br>❌ <code>[Lien](&#123;% post_path article %&#125;)</code> → Ne fonctionne PAS</p>
+<h3 id="4-1-Citations-Blockquote"><a href="#4-1-Citations-Blockquote" class="headerlink" title="4.1 Citations (Blockquote)"></a>4.1 Citations (Blockquote)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Citation simple sans attribution.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote Auteur %&#125;</span><br><span class="line">Citation avec auteur.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote Auteur, Titre de l&#x27;œuvre %&#125;</span><br><span class="line">Citation avec auteur et source.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote @CyberMindFR https://twitter.com/CyberMindFR %&#125;</span><br><span class="line">Citation depuis Twitter.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote Seth Godin https://seths.blog Seth&#x27;s Blog %&#125;</span><br><span class="line">Citation depuis un blog avec lien.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-Blocs-de-code-avances"><a href="#4-2-Blocs-de-code-avances" class="headerlink" title="4.2 Blocs de code avancés"></a>4.2 Blocs de code avancés</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">Code sans options</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% codeblock lang:python %&#125;</span><br><span class="line">def example():</span><br><span class="line">    return &quot;Hello&quot;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% codeblock script.py lang:python %&#125;</span><br><span class="line"># Avec nom de fichier affiché</span><br><span class="line">print(&quot;CyberMind&quot;)</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% codeblock lang:python line_number:false %&#125;</span><br><span class="line"># Sans numéros de ligne</span><br><span class="line">code here</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% codeblock lang:python mark:2,5-7 %&#125;</span><br><span class="line"># Ligne 1</span><br><span class="line"># Ligne 2 - SURLIGNÉE</span><br><span class="line"># Ligne 3</span><br><span class="line"># Ligne 4</span><br><span class="line"># Ligne 5 - SURLIGNÉE</span><br><span class="line"># Ligne 6 - SURLIGNÉE</span><br><span class="line"># Ligne 7 - SURLIGNÉE</span><br><span class="line"># Ligne 8</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% codeblock Titre https://cybermind.fr Lien %&#125;</span><br><span class="line"># Avec titre et lien source</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-Inclure-du-code-externe"><a href="#4-3-Inclure-du-code-externe" class="headerlink" title="4.3 Inclure du code externe"></a>4.3 Inclure du code externe</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Fichier complet</span><br><span class="line">&#123;% include_code scripts/example.py %&#125;</span><br><span class="line"></span><br><span class="line"># Avec titre et langage</span><br><span class="line">&#123;% include_code Mon Script lang:python scripts/example.py %&#125;</span><br><span class="line"></span><br><span class="line"># Lignes spécifiques</span><br><span class="line">&#123;% include_code lang:python from:5 to:15 scripts/example.py %&#125;</span><br><span class="line"></span><br><span class="line"># Depuis une ligne jusqu&#x27;à la fin</span><br><span class="line">&#123;% include_code lang:bash from:10 scripts/setup.sh %&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>📁 Les fichiers doivent être dans <code>source/downloads/code/</code></p>
+</blockquote>
+<h3 id="4-4-Liens-vers-d’autres-articles"><a href="#4-4-Liens-vers-d’autres-articles" class="headerlink" title="4.4 Liens vers d’autres articles"></a>4.4 Liens vers d’autres articles</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Lien avec titre automatique de l&#x27;article</span><br><span class="line">&#123;% post_link mon-autre-article %&#125;</span><br><span class="line"></span><br><span class="line"># Lien avec texte personnalisé</span><br><span class="line">&#123;% post_link mon-autre-article &quot;Cliquez ici pour voir l&#x27;article&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># Sans échappement HTML du titre</span><br><span class="line">&#123;% post_link mon-autre-article &quot;Titre &lt;em&gt;stylé&lt;/em&gt;&quot; false %&#125;</span><br><span class="line"></span><br><span class="line"># Obtenir juste le chemin (sans lien)</span><br><span class="line">&#123;% post_path mon-autre-article %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-Images-et-assets"><a href="#4-5-Images-et-assets" class="headerlink" title="4.5 Images et assets"></a>4.5 Images et assets</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Image depuis le dossier asset du post</span><br><span class="line">&#123;% asset_img image.png %&#125;</span><br><span class="line"></span><br><span class="line"># Avec titre</span><br><span class="line">&#123;% asset_img image.png &quot;Titre de l&#x27;image&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># Avec alt et title</span><br><span class="line">&#123;% asset_img image.png &quot;Title text&quot; &quot;Alt text&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># Avec classes CSS et dimensions</span><br><span class="line">&#123;% asset_img classe1 classe2 image.png 400 300 &quot;Title&quot; &quot;Alt&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># Chemin vers un asset (retourne l&#x27;URL)</span><br><span class="line">&#123;% asset_path document.pdf %&#125;</span><br><span class="line"></span><br><span class="line"># Lien vers un asset</span><br><span class="line">&#123;% asset_link document.pdf &quot;Télécharger le PDF&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># Lien sans échappement</span><br><span class="line">&#123;% asset_link document.pdf &quot;Doc &lt;strong&gt;important&lt;/strong&gt;&quot; false %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-Videos-integrees"><a href="#4-6-Videos-integrees" class="headerlink" title="4.6 Vidéos intégrées"></a>4.6 Vidéos intégrées</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># YouTube (juste l&#x27;ID de la vidéo)</span><br><span class="line">&#123;% youtube dQw4w9WgXcQ %&#125;</span><br><span class="line"></span><br><span class="line"># YouTube avec type (video ou playlist)</span><br><span class="line">&#123;% youtube PLplaylist123 &#x27;playlist&#x27; %&#125;</span><br><span class="line"></span><br><span class="line"># Vimeo</span><br><span class="line">&#123;% vimeo 123456789 %&#125;</span><br><span class="line"></span><br><span class="line"># Vimeo avec dimensions</span><br><span class="line">&#123;% vimeo 123456789 640 480 %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-7-URLs-et-liens"><a href="#4-7-URLs-et-liens" class="headerlink" title="4.7 URLs et liens"></a>4.7 URLs et liens</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL avec préfixe racine du site</span><br><span class="line">&#123;% url_for /about/ %&#125;</span><br><span class="line"># Résultat: /about/</span><br><span class="line"></span><br><span class="line"># URL absolue complète</span><br><span class="line">&#123;% full_url_for /about/ %&#125;</span><br><span class="line"># Résultat: https://cybermind.fr/about/</span><br><span class="line"></span><br><span class="line"># Lien externe avec target=&quot;_blank&quot;</span><br><span class="line">&#123;% link CyberMind https://cybermind.fr %&#125;</span><br><span class="line"></span><br><span class="line"># Lien externe avec titre</span><br><span class="line">&#123;% link &quot;Voir le site&quot; https://cybermind.fr %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-8-Extrait-d’article-crucial"><a href="#4-8-Extrait-d’article-crucial" class="headerlink" title="4.8 Extrait d’article (crucial!)"></a>4.8 Extrait d’article (crucial!)</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Introduction de l&#x27;article qui apparaît dans les listes,</span><br><span class="line">sur la page d&#x27;accueil et dans les flux RSS.</span><br><span class="line"></span><br><span class="line">Vous pouvez mettre plusieurs paragraphes ici.</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">⬆️ Tout ce qui est AU-DESSUS de &lt;!-- more --&gt; = extrait</span><br><span class="line">⬇️ Tout ce qui est EN-DESSOUS = visible uniquement sur la page complète</span><br><span class="line"></span><br><span class="line">Suite détaillée de l&#x27;article...</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-9-Gist-GitHub"><a href="#4-9-Gist-GitHub" class="headerlink" title="4.9 Gist GitHub"></a>4.9 Gist GitHub</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Gist complet</span><br><span class="line">&#123;% gist abc123def456 %&#125;</span><br><span class="line"></span><br><span class="line"># Fichier spécifique d&#x27;un gist</span><br><span class="line">&#123;% gist abc123def456 example.py %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-10-jsFiddle-CodePen"><a href="#4-10-jsFiddle-CodePen" class="headerlink" title="4.10 jsFiddle &#x2F; CodePen"></a>4.10 jsFiddle &#x2F; CodePen</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># jsFiddle</span><br><span class="line">&#123;% jsfiddle username/fiddle_id %&#125;</span><br><span class="line">&#123;% jsfiddle username/fiddle_id js,html,css %&#125;</span><br><span class="line">&#123;% jsfiddle username/fiddle_id js,html,css dark %&#125;</span><br><span class="line"></span><br><span class="line"># iframe générique</span><br><span class="line">&#123;% iframe https://codepen.io/user/pen/xyz 100% 400 %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-11-Images-simples"><a href="#4-11-Images-simples" class="headerlink" title="4.11 Images simples"></a>4.11 Images simples</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Image avec classes et dimensions</span><br><span class="line">&#123;% img [class1 class2] /path/to/image.jpg [width] [height] &#x27;&quot;title&quot; &quot;alt&quot;&#x27; %&#125;</span><br><span class="line"></span><br><span class="line"># Exemples</span><br><span class="line">&#123;% img /images/photo.jpg %&#125;</span><br><span class="line">&#123;% img center /images/photo.jpg 400 300 %&#125;</span><br><span class="line">&#123;% img /images/photo.jpg &#x27;&quot;Mon titre&quot; &quot;Description&quot;&#x27; %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-12-Raw-contenu-non-traite"><a href="#4-12-Raw-contenu-non-traite" class="headerlink" title="4.12 Raw (contenu non traité)"></a>4.12 Raw (contenu non traité)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">Ce contenu ne sera PAS traité par Nunjucks.</span><br><span class="line">Les &#123;&#123; variables &#125;&#125; et &#123;% tags %&#125; restent tels quels.</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-Gestion-des-assets"><a href="#5-Gestion-des-assets" class="headerlink" title="5. Gestion des assets"></a>5. Gestion des assets</h2><h3 id="5-1-Methode-1-Dossier-global"><a href="#5-1-Methode-1-Dossier-global" class="headerlink" title="5.1 Méthode 1: Dossier global"></a>5.1 Méthode 1: Dossier global</h3><p>Structure:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">source/</span><br><span class="line">├── images/</span><br><span class="line">│   ├── logo.png</span><br><span class="line">│   └── photos/</span><br><span class="line">│       └── photo1.jpg</span><br><span class="line">├── uploads/</span><br><span class="line">│   ├── images/</span><br><span class="line">│   │   └── avatar.jpg</span><br><span class="line">│   └── documents/</span><br><span class="line">│       └── guide.pdf</span><br><span class="line">└── _posts/</span><br><span class="line">    └── mon-article.md</span><br></pre></td></tr></table></figure>
+
+<p>Utilisation:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">/images/logo.png</span>)</span><br><span class="line">![<span class="string">Photo</span>](<span class="link">/images/photos/photo1.jpg</span>)</span><br><span class="line">![<span class="string">Avatar</span>](<span class="link">/uploads/images/avatar.jpg</span>)</span><br><span class="line">[<span class="string">PDF</span>](<span class="link">/uploads/documents/guide.pdf</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-Methode-2-Dossier-par-article-recommande"><a href="#5-2-Methode-2-Dossier-par-article-recommande" class="headerlink" title="5.2 Méthode 2: Dossier par article (recommandé)"></a>5.2 Méthode 2: Dossier par article (recommandé)</h3><p>Configuration <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>Structure créée automatiquement:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">source/_posts/</span><br><span class="line">├── mon-super-article.md</span><br><span class="line">└── mon-super-article/        # Créé automatiquement</span><br><span class="line">    ├── screenshot.png</span><br><span class="line">    ├── diagram.svg</span><br><span class="line">    └── data.json</span><br></pre></td></tr></table></figure>
+
+<p>Utilisation avec tag plugins:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img screenshot.png &quot;Capture d&#x27;écran&quot; %&#125;</span><br><span class="line">&#123;% asset_link data.json &quot;Données JSON&quot; %&#125;</span><br><span class="line">&#123;% asset_path diagram.svg %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-Methode-3-Markdown-natif-avec-hexo-renderer-marked-3-1"><a href="#5-3-Methode-3-Markdown-natif-avec-hexo-renderer-marked-3-1" class="headerlink" title="5.3 Méthode 3: Markdown natif avec hexo-renderer-marked 3.1+"></a>5.3 Méthode 3: Markdown natif avec hexo-renderer-marked 3.1+</h3><p>Configuration <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>Utilisation Markdown standard:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Screenshot</span>](<span class="link">screenshot.png</span>)</span><br><span class="line">![<span class="string">Diagram</span>](<span class="link">diagram.svg &quot;Mon diagramme&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-Plugin-hexo-asset-link"><a href="#5-4-Plugin-hexo-asset-link" class="headerlink" title="5.4 Plugin hexo-asset-link"></a>5.4 Plugin hexo-asset-link</h3><p>Installation:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-link --save</span><br></pre></td></tr></table></figure>
+
+<p>Permet la syntaxe avec chemin relatif:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">./mon-article/image.png &quot;Title&quot;</span>)</span><br><span class="line">![<span class="string">Alt</span>](<span class="link">mon-article/image.png</span>)</span><br><span class="line">[<span class="string">Document</span>](<span class="link">./mon-article/doc.pdf</span>)</span><br></pre></td></tr></table></figure>
+
+<p>✅ Compatible avec la prévisualisation VS Code et autres éditeurs Markdown.</p>
+<hr>
+<h2 id="6-Commandes-Hexo"><a href="#6-Commandes-Hexo" class="headerlink" title="6. Commandes Hexo"></a>6. Commandes Hexo</h2><h3 id="6-1-Creer-du-contenu"><a href="#6-1-Creer-du-contenu" class="headerlink" title="6.1 Créer du contenu"></a>6.1 Créer du contenu</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nouveau post (article publié)</span></span><br><span class="line">hexo new <span class="string">&quot;Mon Titre d&#x27;Article&quot;</span></span><br><span class="line">hexo new post <span class="string">&quot;Mon Titre&quot;</span></span><br><span class="line">hexo n <span class="string">&quot;Mon Titre&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Nouveau brouillon</span></span><br><span class="line">hexo new draft <span class="string">&quot;Mon Brouillon&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Nouvelle page statique</span></span><br><span class="line">hexo new page <span class="string">&quot;about&quot;</span></span><br><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Avec un layout personnalisé</span></span><br><span class="line">hexo new photo <span class="string">&quot;Ma Galerie&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Publier un brouillon (déplace vers _posts)</span></span><br><span class="line">hexo publish <span class="string">&quot;Mon Brouillon&quot;</span></span><br><span class="line">hexo publish draft <span class="string">&quot;Mon Brouillon&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-Generer-le-site"><a href="#6-2-Generer-le-site" class="headerlink" title="6.2 Générer le site"></a>6.2 Générer le site</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Générer les fichiers statiques</span></span><br><span class="line">hexo generate</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># Générer en mode watch (surveille les changements)</span></span><br><span class="line">hexo generate --watch</span><br><span class="line">hexo g -w</span><br><span class="line"></span><br><span class="line"><span class="comment"># Générer seulement les fichiers modifiés</span></span><br><span class="line">hexo generate --bail</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forcer la régénération complète</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-Previsualisation-locale"><a href="#6-3-Previsualisation-locale" class="headerlink" title="6.3 Prévisualisation locale"></a>6.3 Prévisualisation locale</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Démarrer le serveur local</span></span><br><span class="line">hexo server</span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># Serveur sur un port spécifique</span></span><br><span class="line">hexo server -p 4001</span><br><span class="line"></span><br><span class="line"><span class="comment"># Serveur avec les brouillons visibles</span></span><br><span class="line">hexo server --draft</span><br><span class="line">hexo s -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Serveur avec IP personnalisée</span></span><br><span class="line">hexo server -i 192.168.1.100</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode statique (depuis public/)</span></span><br><span class="line">hexo server -s</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-Deploiement"><a href="#6-4-Deploiement" class="headerlink" title="6.4 Déploiement"></a>6.4 Déploiement</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Déployer vers le serveur configuré</span></span><br><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Générer ET déployer</span></span><br><span class="line">hexo generate --deploy</span><br><span class="line">hexo g -d</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-Nettoyage-et-maintenance"><a href="#6-5-Nettoyage-et-maintenance" class="headerlink" title="6.5 Nettoyage et maintenance"></a>6.5 Nettoyage et maintenance</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nettoyer le cache et les fichiers générés</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># Lister les routes générées</span></span><br><span class="line">hexo list post</span><br><span class="line">hexo list page</span><br><span class="line">hexo list route</span><br><span class="line">hexo list tag</span><br><span class="line">hexo list category</span><br><span class="line"></span><br><span class="line"><span class="comment"># Afficher la configuration</span></span><br><span class="line">hexo config</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode debug</span></span><br><span class="line">hexo --debug</span><br><span class="line">hexo s --debug</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-6-Workflow-typique"><a href="#6-6-Workflow-typique" class="headerlink" title="6.6 Workflow typique"></a>6.6 Workflow typique</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Créer un brouillon</span></span><br><span class="line">hexo new draft <span class="string">&quot;Nouvel Article&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Éditer le fichier source/_drafts/nouvel-article.md</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Prévisualiser avec brouillons</span></span><br><span class="line">hexo s --draft</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. Publier le brouillon</span></span><br><span class="line">hexo publish <span class="string">&quot;Nouvel Article&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. Générer et déployer</span></span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-Bonnes-pratiques"><a href="#7-Bonnes-pratiques" class="headerlink" title="7. Bonnes pratiques"></a>7. Bonnes pratiques</h2><h3 id="7-1-Nommage-des-fichiers"><a href="#7-1-Nommage-des-fichiers" class="headerlink" title="7.1 Nommage des fichiers"></a>7.1 Nommage des fichiers</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ✅ Recommandé: kebab-case</span></span><br><span class="line">mon-super-article.md</span><br><span class="line">tutoriel-openwrt-2025.md</span><br><span class="line">guide-armbian-espressobin.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># ❌ À éviter</span></span><br><span class="line">Mon Super Article.md</span><br><span class="line">mon_super_article.md</span><br><span class="line">MonSuperArticle.md</span><br></pre></td></tr></table></figure>
+
+<p>Configuration pour nommage automatique (<code>_config.yml</code>):</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Format: année-mois-jour-titre.md</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year-:month-:day-:title.md</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ou juste le titre</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span></span><br></pre></td></tr></table></figure>
+
+<p>Placeholders disponibles:</p>
+<ul>
+<li><code>:title</code> - Titre (slugifié)</li>
+<li><code>:year</code> - Année (4 chiffres)</li>
+<li><code>:month</code> - Mois (2 chiffres)</li>
+<li><code>:day</code> - Jour (2 chiffres)</li>
+<li><code>:i_month</code> - Mois sans zéro</li>
+<li><code>:i_day</code> - Jour sans zéro</li>
+</ul>
+<h3 id="7-2-Structure-de-categories-CyberMind"><a href="#7-2-Structure-de-categories-CyberMind" class="headerlink" title="7.2 Structure de catégories CyberMind"></a>7.2 Structure de catégories CyberMind</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Catégorie principale seule</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cyber</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Avec sous-catégorie</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cyber</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Mood</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Chemin hiérarchique complet</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tutoriels</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Embedded-Systems</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Development</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cartes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-Tags-efficaces"><a href="#7-3-Tags-efficaces" class="headerlink" title="7.3 Tags efficaces"></a>7.3 Tags efficaces</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="comment"># Technologies</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">OpenWrt</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ARM64</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Linux</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Outils</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">CrowdSec</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Armbian</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Docker</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Types de contenu</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Tutorial</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Guide</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Fiche</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Thèmes</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Cybersécurité</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Embedded</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Poésie</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-Excerpts-optimises-pour-SEO"><a href="#7-4-Excerpts-optimises-pour-SEO" class="headerlink" title="7.4 Excerpts optimisés pour SEO"></a>7.4 Excerpts optimisés pour SEO</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Mon</span> <span class="string">Article</span></span><br><span class="line"><span class="attr">excerpt:</span> <span class="string">Description</span> <span class="string">concise</span> <span class="string">et</span> <span class="string">accrocheuse</span> <span class="string">de</span> <span class="number">150</span><span class="number">-160</span> <span class="string">caractères</span> <span class="string">pour</span> <span class="string">un</span> <span class="string">affichage</span> <span class="string">optimal</span> <span class="string">dans</span> <span class="string">les</span> <span class="string">résultats</span> <span class="string">de</span> <span class="string">recherche</span> <span class="string">et</span> <span class="string">les</span> <span class="string">previews</span> <span class="string">sociaux.</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>Alternative dans le contenu:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Première phrase accrocheuse qui résume l&#x27;essentiel de l&#x27;article.</span><br><span class="line">Cette introduction apparaîtra dans les listes et flux RSS.</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">Contenu détaillé qui n&#x27;apparaît que sur la page complète...</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-5-Images-optimisees"><a href="#7-5-Images-optimisees" class="headerlink" title="7.5 Images optimisées"></a>7.5 Images optimisées</h3><table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Recommandation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Format</strong></td>
+<td>WebP ou JPEG (photos), PNG (captures, schémas)</td>
+</tr>
+<tr>
+<td><strong>Largeur max</strong></td>
+<td>1920px</td>
+</tr>
+<tr>
+<td><strong>Poids</strong></td>
+<td>&lt; 200KB idéalement</td>
+</tr>
+<tr>
+<td><strong>Nommage</strong></td>
+<td><code>description-YYYY-MM.ext</code></td>
+</tr>
+<tr>
+<td><strong>Alt text</strong></td>
+<td>Toujours renseigner</td>
+</tr>
+</tbody></table>
+<h3 id="7-6-Accessibilite"><a href="#7-6-Accessibilite" class="headerlink" title="7.6 Accessibilité"></a>7.6 Accessibilité</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># ✅ Bon</span></span><br><span class="line">![<span class="string">Schéma d&#x27;architecture réseau montrant les flux entre le firewall et les serveurs</span>](<span class="link">/images/architecture.png &quot;Architecture réseau CyberMind&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="section"># ❌ À éviter</span></span><br><span class="line">![](<span class="link">/images/img1.png</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">image.png</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="8-Templates-d’articles"><a href="#8-Templates-d’articles" class="headerlink" title="8. Templates d’articles"></a>8. Templates d’articles</h2><h3 id="8-1-Template-Article-Technique"><a href="#8-1-Template-Article-Technique" class="headerlink" title="8.1 Template Article Technique"></a>8.1 Template Article Technique</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Titre du Tutoriel Technique</span><br><span class="line">date: 2025-12-12 10:00:00</span><br><span class="line">updated: 2025-12-12 10:00:00</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> Tutoriels</span><br><span class="line"><span class="bullet">  -</span> Catégorie-Technique</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  -</span> Tag1</span><br><span class="line"><span class="bullet">  -</span> Tag2</span><br><span class="line"><span class="bullet">  -</span> Tag3</span><br><span class="line">excerpt: Description courte du tutoriel (150-200 caractères) pour le SEO et les previews.</span><br><span class="line">comments: true</span><br><span class="line"><span class="section">lang: fr</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># 🚀 Titre du Tutoriel</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 📖 Introduction</span></span><br><span class="line"></span><br><span class="line">Présentation du contexte et objectifs du tutoriel.</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 🔧 Prérequis</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Prérequis 1</span><br><span class="line"><span class="bullet">-</span> Prérequis 2</span><br><span class="line"><span class="bullet">-</span> Prérequis 3</span><br><span class="line"></span><br><span class="line"><span class="section">## 📦 Installation</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code"># Commandes d&#x27;installation</span></span><br><span class="line"><span class="code">sudo apt update</span></span><br><span class="line"><span class="code">sudo apt install package</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="⚙️-Configuration"><a href="#⚙️-Configuration" class="headerlink" title="⚙️ Configuration"></a>⚙️ Configuration</h2><p>Explication de la configuration…</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fichier de configuration</span></span><br><span class="line"><span class="attr">option1:</span> <span class="string">valeur1</span></span><br><span class="line"><span class="attr">option2:</span> <span class="string">valeur2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🧪-Test"><a href="#🧪-Test" class="headerlink" title="🧪 Test"></a>🧪 Test</h2><p>Comment vérifier que tout fonctionne…</p>
+<h2 id="🐛-Depannage"><a href="#🐛-Depannage" class="headerlink" title="🐛 Dépannage"></a>🐛 Dépannage</h2><table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erreur X</td>
+<td>Faire Y</td>
+</tr>
+<tr>
+<td>Erreur Z</td>
+<td>Faire W</td>
+</tr>
+</tbody></table>
+<h2 id="📚-Ressources"><a href="#📚-Ressources" class="headerlink" title="📚 Ressources"></a>📚 Ressources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://example.com/">Lien 1</a></li>
+<li><a target="_blank" rel="noopener" href="https://example.com/">Lien 2</a></li>
+</ul>
+<hr>
+<p><em>Article mis à jour le 2025-12-12</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 8.2 Template Article Poétique</span><br><span class="line"></span><br><span class="line">```markdown</span><br><span class="line">---</span><br><span class="line">title: Titre du Poème</span><br><span class="line">date: 2025-12-12 20:00:00</span><br><span class="line">categories:</span><br><span class="line">  - Poèmes</span><br><span class="line">tags:</span><br><span class="line">  - Poésie</span><br><span class="line">  - Thème1</span><br><span class="line">  - Thème2</span><br><span class="line">excerpt: Première ligne ou description courte du poème.</span><br><span class="line">comments: true</span><br><span class="line">lang: fr</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># Titre du Poème</span><br><span class="line"></span><br><span class="line">*Sous-titre ou dédicace*</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">*Couplet 1*</span><br><span class="line"></span><br><span class="line">Premier vers du poème  </span><br><span class="line">Deuxième vers avec rime  </span><br><span class="line">Troisième vers qui s&#x27;exprime  </span><br><span class="line">Quatrième vers qui aime</span><br><span class="line"></span><br><span class="line">*Refrain*</span><br><span class="line"></span><br><span class="line">Vers du refrain répété  </span><br><span class="line">Avec sa mélodie...</span><br><span class="line"></span><br><span class="line">*Couplet 2*</span><br><span class="line"></span><br><span class="line">Suite du poème...</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">🎵 *Écoutez ce poème en chanson sur [Suno](https://suno.ai)*</span><br><span class="line"></span><br><span class="line">📅 *Écrit le 12 décembre 2025*</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-Template-Fiche-Technique"><a href="#8-3-Template-Fiche-Technique" class="headerlink" title="8.3 Template Fiche Technique"></a>8.3 Template Fiche Technique</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Fiche - Nom du Sujet</span><br><span class="line">date: 2025-12-12 09:00:00</span><br><span class="line">updated: 2025-12-12 09:00:00</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> contrib</span><br><span class="line"><span class="bullet">  -</span> Fiches</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  -</span> Fiche</span><br><span class="line"><span class="bullet">  -</span> Tag1</span><br><span class="line"><span class="bullet">  -</span> Tag2</span><br><span class="line">excerpt: Fiche de référence rapide sur le sujet X.</span><br><span class="line">comments: true</span><br><span class="line"><span class="section">lang: fr</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># 📋 Fiche - Nom du Sujet</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 🎯 Objectif</span></span><br><span class="line"></span><br><span class="line">Description de l&#x27;objectif en une phrase.</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 📊 Caractéristiques</span></span><br><span class="line"></span><br><span class="line">| Paramètre | Valeur |</span><br><span class="line">|-----------|--------|</span><br><span class="line">| Param 1 | Valeur 1 |</span><br><span class="line">| Param 2 | Valeur 2 |</span><br><span class="line">| Param 3 | Valeur 3 |</span><br><span class="line"></span><br><span class="line"><span class="section">## 🔧 Configuration rapide</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code"># Commande principale</span></span><br><span class="line"><span class="code">commande --option valeur</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="⚠️-Points-d’attention"><a href="#⚠️-Points-d’attention" class="headerlink" title="⚠️ Points d’attention"></a>⚠️ Points d’attention</h2><ul>
+<li>Point important 1</li>
+<li>Point important 2</li>
+<li>Point important 3</li>
+</ul>
+<h2 id="🔗-Liens-utiles"><a href="#🔗-Liens-utiles" class="headerlink" title="🔗 Liens utiles"></a>🔗 Liens utiles</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://example.com/">Documentation officielle</a></li>
+<li><a target="_blank" rel="noopener" href="https://cybermind.fr/article">Article connexe</a></li>
+</ul>
+<hr>
+<p><em>Fiche créée le 2025-12-12</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 8.4 Template Article Projet/Hardware</span><br><span class="line"></span><br><span class="line">```markdown</span><br><span class="line">---</span><br><span class="line">title: Nom du Projet - Version X.X</span><br><span class="line">date: 2025-12-12 14:00:00</span><br><span class="line">updated: 2025-12-12 14:00:00</span><br><span class="line">categories:</span><br><span class="line">  - Hardware</span><br><span class="line">  - Projets-DIY</span><br><span class="line">tags:</span><br><span class="line">  - Projet</span><br><span class="line">  - Hardware</span><br><span class="line">  - DIY</span><br><span class="line">  - Tag-Spécifique</span><br><span class="line">excerpt: Description courte du projet hardware et ses fonctionnalités principales.</span><br><span class="line">comments: true</span><br><span class="line">lang: fr</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 🔧 Nom du Projet vX.X</span><br><span class="line"></span><br><span class="line">&gt; 🎯 **Résumé**: Description en une ligne du projet.</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">## 📸 Aperçu</span><br><span class="line"></span><br><span class="line">&#123;% asset_img projet-photo.jpg &quot;Photo du projet assemblé&quot; %&#125;</span><br><span class="line"></span><br><span class="line">## 🎯 Fonctionnalités</span><br><span class="line"></span><br><span class="line">- ✅ Fonctionnalité 1</span><br><span class="line">- ✅ Fonctionnalité 2</span><br><span class="line">- ✅ Fonctionnalité 3</span><br><span class="line">- 🔄 En développement: Fonctionnalité 4</span><br><span class="line"></span><br><span class="line">## 📦 Matériel requis</span><br><span class="line"></span><br><span class="line">| Composant | Quantité | Prix approx. |</span><br><span class="line">|-----------|----------|--------------|</span><br><span class="line">| Composant 1 | 1 | 10€ |</span><br><span class="line">| Composant 2 | 2 | 5€ |</span><br><span class="line">| **Total** | - | **~15€** |</span><br><span class="line"></span><br><span class="line">## 🔌 Schéma de câblage</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>┌─────────────┐     ┌─────────────┐<br>│ Composant A │────▶│ Composant B │<br>└─────────────┘     └─────────────┘<br>        │<br>        ▼<br>┌─────────────┐<br>│ Composant C │<br>└─────────────┘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 🛠️ Assemblage</span><br><span class="line"></span><br><span class="line">### Étape 1: Préparation</span><br><span class="line"></span><br><span class="line">Instructions...</span><br><span class="line"></span><br><span class="line">### Étape 2: Câblage</span><br><span class="line"></span><br><span class="line">Instructions...</span><br><span class="line"></span><br><span class="line">### Étape 3: Test</span><br><span class="line"></span><br><span class="line">Instructions...</span><br><span class="line"></span><br><span class="line">## 💻 Code source</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># Code principal</span><br><span class="line">def main():</span><br><span class="line">    print(&quot;Projet CyberMind&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>📁 <strong>Repository</strong>: <a target="_blank" rel="noopener" href="https://github.com/CyberMind-FR/projet">GitHub</a></p>
+<h2 id="📋-Changelog"><a href="#📋-Changelog" class="headerlink" title="📋 Changelog"></a>📋 Changelog</h2><ul>
+<li><strong>v1.0</strong> (2025-12-12): Version initiale</li>
+<li><strong>v1.1</strong> (2025-12-15): Ajout fonctionnalité X</li>
+</ul>
+<h2 id="🔗-Ressources"><a href="#🔗-Ressources" class="headerlink" title="🔗 Ressources"></a>🔗 Ressources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cybermind.fr/docs">Documentation complète</a></li>
+<li><a target="_blank" rel="noopener" href="https://cybermind.fr/files">Fichiers 3D</a></li>
+</ul>
+<hr>
+<p><em>Projet développé par Gandalf @ CyberMind</em></p>
+<pre><code>
+---
+
+## 📎 Références
+
+- [Documentation officielle Hexo](https://hexo.io/docs/)
+- [Front-matter Hexo](https://hexo.io/docs/front-matter)
+- [Tag Plugins Hexo](https://hexo.io/docs/tag-plugins)
+- [Asset Folders Hexo](https://hexo.io/docs/asset-folders)
+- [Writing Posts](https://hexo.io/docs/writing)
+- [Plugins Hexo](https://hexo.io/plugins/)
+- [Themes Hexo](https://hexo.io/themes/)
+
+---
+
+*Documentation générée pour CyberMind.FR - Décembre 2025*
+</code></pre>
+
+  </div>
+  
+  <footer class="post-footer">
+    
+    
+    <div class="post-nav">
+      
+      <a href="/philosophy/uncategorized/mara/" class="nav-link prev">
+        <span class="nav-label">← Précédent</span>
+        <span class="nav-title">Mārā, Lilith et les Forces d’Obstruction : étude comparative bouddhisme–kabbale</span>
+      </a>
+      
+      
+      <a href="/embedded/Outils/Python/photo_cloud_article/" class="nav-link next">
+        <span class="nav-label">Suivant →</span>
+        <span class="nav-title">Photo Cloud Generator - Créez des nuages de photos artistiques</span>
+      </a>
+      
+    </div>
+  </footer>
+</article>
+
+<style>
+.post-article { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+.post-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.post-category { margin-bottom: 0.75rem; }
+.post-category a {
+  display: inline-block; padding: 0.3rem 0.8rem;
+  background: rgba(255,255,255,0.05); border-radius: 20px;
+  text-decoration: none; font-size: 0.85rem; font-weight: 500;
+}
+.post-category a:hover { background: rgba(255,255,255,0.1); }
+
+.post-title { font-size: 2rem; color: #e8e8ed; margin: 0 0 0.75rem; line-height: 1.3; }
+.post-meta { font-size: 0.9rem; color: #6a6a7a; margin-bottom: 0.75rem; }
+.post-updated { font-style: italic; }
+
+.post-tags-header { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.post-tags-header .tag {
+  font-size: 0.8rem; color: var(--post-color); text-decoration: none; opacity: 0.8;
+}
+.post-tags-header .tag:hover { opacity: 1; text-decoration: underline; }
+
+.post-content { line-height: 1.8; color: #c8c8d0; }
+.post-content h2 { color: var(--post-color); margin: 2rem 0 1rem; }
+.post-content h3 { color: #e8e8ed; margin: 1.5rem 0 0.75rem; }
+.post-content a { color: var(--post-color); }
+.post-content code { background: rgba(255,255,255,0.05); padding: 0.2rem 0.4rem; border-radius: 4px; }
+.post-content pre { background: #0d0d12; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+.post-content img { max-width: 100%; height: auto; border-radius: 8px; }
+.post-content blockquote {
+  border-left: 3px solid var(--post-color); margin: 1.5rem 0;
+  padding: 0.5rem 1rem; background: rgba(255,255,255,0.02); color: #9898a6;
+}
+
+.post-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.post-tags-footer { margin-bottom: 1.5rem; }
+.post-tags-footer .label { color: #6a6a7a; margin-right: 0.5rem; }
+.post-tags-footer .tag-link {
+  display: inline-block; margin-right: 0.5rem;
+  color: var(--post-color); text-decoration: none;
+}
+.post-tags-footer .tag-link:hover { text-decoration: underline; }
+
+.post-nav { display: flex; justify-content: space-between; gap: 1rem; }
+.nav-link {
+  flex: 1; padding: 1rem; text-decoration: none;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; transition: border-color 0.2s;
+}
+.nav-link:hover { border-color: var(--post-color); }
+.nav-link.next { text-align: right; }
+.nav-label { display: block; font-size: 0.8rem; color: #6a6a7a; margin-bottom: 0.25rem; }
+.nav-title { display: block; color: #e8e8ed; font-weight: 500; }
+
+@media (max-width: 600px) {
+  .post-title { font-size: 1.5rem; }
+  .post-nav { flex-direction: column; }
+}
+
+[data-theme="light"] .post-article { background: #fff; }
+[data-theme="light"] .post-title, [data-theme="light"] .nav-title { color: #2a2a3a; }
+[data-theme="light"] .post-content { color: #4a4a5a; }
+[data-theme="light"] .nav-link { background: #f8f9fa; border-color: #e0e0e0; }
+</style>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

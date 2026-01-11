@@ -57,579 +57,1544 @@
     <div class="bg-pattern"></div>
     <div class="main-wrapper">
 
-<nav>
-    <a href="/" class="logo">CyberMind_</a>
-    <ul class="nav-links">
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
         
-        <li><a href="/">Accueil</a></li>
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
         
-        <li><a href="/services/">Services</a></li>
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
         
-        <li><a href="/archives/">Blog</a></li>
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
         
-        <li><a href="/categories/">Catégories</a></li>
         
-        <li><a href="/about/">À propos</a></li>
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
         
-        <li><a href="/contact/">Contact</a></li>
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
         
     </ul>
 </nav>
 
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
 
 
-<section class="category-section">
-    <div class="category-hero">
-        <div class="category-icon" style="background: linear-gradient(135deg, #f9731633, #f9731611);">
-            <span style="font-size: 4rem;">📁</span>
-        </div>
-        <h1 class="category-title">Cyber</h1>
-        <p class="category-count">10 article(s)</p>
-    </div>
 
-    <div class="articles-grid">
-        
-            
 
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/18/fr/Livret-Grimoire_Cyber_Opera/">Grimoire CyberMind – Livret Officiel du Tarot</a>
-    </h3>
-    
-    
-    <p>Grimoire CyberMind – Livret Officiel du TarotSous-titre : Le Guide des 12 Glyphes et de la Sphère PrimordialePhrase d’Ouverture (Ultra-courte)« Le Tarot CyberMind révèle en un instant l’énergie qui di...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-18T08:57:00.000Z">
-                18 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
-            
-            <span class="article-tag">Mood</span>
-            
-            <span class="article-tag">Cartes</span>
-            
-            <span class="article-tag">Histoire</span>
-            
-            <span class="article-tag">Lunettes</span>
-            
-            <span class="article-tag">PassaVia</span>
-            
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/18/fr/Livret-Grimoire_Cyber_Opera/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
 
-        
-            
+<div class="category-page">
+  
+  <header class="cat-header" style="--cat-color: #888888">
+    <span class="cat-icon">📁</span>
+    <h1>cyber</h1>
+    
+    <p class="cat-count">18 articles</p>
+    <nav class="breadcrumb">
+      <a href="/">Accueil</a> / <a href="/blog/">Blog</a> / <span>cyber</span>
+    </nav>
+  </header>
 
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/18/fr/Carte_Astrodynamique_1972_Gemeaux_Poissons_Verseau/">Cartes - 🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55</a>
-    </h3>
-    
-    
-    <p>🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55Dialogue entre les forces du ciel et l’âme humaine
+  
 
-☀️ Soleil en Gémeaux ♊Élément : AirMots-clés : curiosité • dialogue • intelligence mobile  
+  
 
-« La pa...</p>
+  <section class="posts-section">
+    <h2>📝 Articles</h2>
     
     
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-18T08:52:00.000Z">
-                18 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+    <div class="posts-list">
+      
+      <article class="post-item">
+        <a href="/tutorials/Cyber/Mood/workflow-avs-plantwave-kasina-spooky2-dreammachine/">
+          <span class="post-date">26/11/2025</span>
+          <h3>Workflow complet AVS — PlantWave → Kasina → Spooky2 → DreamMachine</h3>
+          <p>Workflow complet AVSPlantWave → Kasina → Spooky² → DreamMachineCe workflow décrit un pipeline multisensoriel reliant quatre technologies complémentair</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">Mood</span>
+            <span class="tag">#kasina</span>
             
-            <span class="article-tag">Cartes</span>
+            <span class="tag">#spooky2</span>
             
-            <span class="article-tag">Histoire</span>
+            <span class="tag">#plantwave</span>
             
-            <span class="article-tag">Lunettes</span>
+            <span class="tag">#avs</span>
             
-            <span class="article-tag">PassaVia</span>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/tutorials/Cyber/Mood/Pipeline%20Holistique/">
+          <span class="post-date">24/11/2025</span>
+          <h3>Pipeline Holistique — Kasina + Spooky2 + PlantWave + LED DIY</h3>
+          <p>GOOD MOOD HOLISTICUMPipeline Multisensoriel Complet</p>
+          
+          <div class="post-tags">
             
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/18/fr/Carte_Astrodynamique_1972_Gemeaux_Poissons_Verseau/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
+            <span class="tag">#kasina</span>
+            
+            <span class="tag">#holistique</span>
+            
+            <span class="tag">#spooky2</span>
+            
+            <span class="tag">#plantwave</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/tychos_vs_heliocentrique_presentation/">
+          <span class="post-date">20/11/2025</span>
+          <h3>Le modèle TYCHOS vs le modèle héliocentrique standard</h3>
+          <p>
+Présentation pédagogique : comparaison critique entre le modèle TYCHOS et le modèle héliocentrique standard.
 
-        
+—</p>
+          
+          <div class="post-tags">
             
+            <span class="tag">#astronomie</span>
+            
+            <span class="tag">#cosmologie</span>
+            
+            <span class="tag">#modèle-tychos</span>
+            
+            <span class="tag">#héliocentrisme</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/Livret-Grimoire_Cyber_Opera/">
+          <span class="post-date">18/11/2025</span>
+          <h3>Grimoire CyberMind – Livret Officiel du Tarot</h3>
+          <p>Grimoire CyberMind – Livret Officiel du TarotSous-titre : Le Guide des 12 Glyphes et de la Sphère PrimordialePhrase d’Ouverture (Ultra-courte)« Le Tar</p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#Mood</span>
+            
+            <span class="tag">#Cartes</span>
+            
+            <span class="tag">#Histoire</span>
+            
+            <span class="tag">#Lunettes</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/creative/Cyber/Mood/Carte_Astrodynamique_1972_Gemeaux_Poissons_Verseau/">
+          <span class="post-date">18/11/2025</span>
+          <h3>Cartes - 🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55</h3>
+          <p>🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55Dialogue entre les forces du ciel et l’âme humaine
 
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/17/fr/grimoire_cyber_opera/">Grimoire Cyber Opera - jeu de cartes maison</a>
-    </h3>
-    
-    
-    <p>📖 Grimoire Cyber OperaUn jeu de cartes maison pour raconter des scènes, explorer des situations et monter ton propre Opéra Cyber.
-https://kragzouy.maegia.tv &amp;&amp; https://kragzouy.streamlit.app/...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-17T06:58:00.000Z">
-                17 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+☀️ Soleil en Gémeaux ♊Élément : AirMots-clés : cur</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">contribute</span>
+            <span class="tag">#Mood</span>
             
-            <span class="article-tag">CyberMind</span>
+            <span class="tag">#Cartes</span>
             
-            <span class="article-tag">SpiritualCept</span>
+            <span class="tag">#Histoire</span>
             
-            <span class="article-tag">Astuces</span>
+            <span class="tag">#Lunettes</span>
             
-            <span class="article-tag">KragZouy</span>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/grimoire_cyber_opera/">
+          <span class="post-date">17/11/2025</span>
+          <h3>Grimoire Cyber Opera - jeu de cartes maison</h3>
+          <p>📖 Grimoire Cyber OperaUn jeu de cartes maison pour raconter des scènes, explorer des situations et monter ton propre Opéra Cyber.
+https://kragzouy.ma</p>
+          
+          <div class="post-tags">
             
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/17/fr/grimoire_cyber_opera/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
-
-        
+            <span class="tag">#contribute</span>
             
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/16/fr/legende_spheres_de_vie/">Légende officielle — Sphères de vie</a>
-    </h3>
-    
-    
-    <p>🧿 Légende officielle – Sphères de vie🔢 Code en haut de la page
+            <span class="tag">#CyberMind</span>
+            
+            <span class="tag">#SpiritualCept</span>
+            
+            <span class="tag">#Astuces</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/legende_spheres_de_vie/">
+          <span class="post-date">16/11/2025</span>
+          <h3>Légende officielle — Sphères de vie</h3>
+          <p>🧿 Légende officielle – Sphères de vie🔢 Code en haut de la page
 31 → nombre de jours max dans un mois  
-15–16 → objectif : nourrir une sphère 15 à 16 fois dans le mois  
-12回 → répéter ça sur 12 mois
-...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-16T08:38:00.000Z">
-                16 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+15–16 → objectif : nourrir une sphère 15 à 16</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">contribute</span>
+            <span class="tag">#contribute</span>
             
-            <span class="article-tag">CyberMind</span>
+            <span class="tag">#CyberMind</span>
             
-            <span class="article-tag">SpiritualCept</span>
+            <span class="tag">#SpiritualCept</span>
             
-            <span class="article-tag">Astuces</span>
+            <span class="tag">#Astuces</span>
             
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/16/fr/legende_spheres_de_vie/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/creative/Cyber/Mood/Codex%20AstroDynamique%20%E2%80%94%20Livre%20II%20-%20Cycle%20du%20Feu%20Int%C3%A9rieur/">
+          <span class="post-date">11/11/2025</span>
+          <h3>Codex AstroDynamique — Livre II - Cycle du Feu Intérieur</h3>
+          <p>☉ LIVRE II — DE LA VIBRATION À LA TRANSMUTATIONCodex AstroDynamique × ANOS✺ Cycle de la Transformation – Tome du Feu Intérieur
 
-        
+« Tout ce qui vibre se</p>
+          
+          <div class="post-tags">
             
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/11/fr/Codex%20AstroDynamique%20%E2%80%94%20Livre%20II%20-%20Cycle%20du%20Feu%20Int%C3%A9rieur/">Codex AstroDynamique — Livre II - Cycle du Feu Intérieur</a>
-    </h3>
-    
-    
-    <p>☉ LIVRE II — DE LA VIBRATION À LA TRANSMUTATIONCodex AstroDynamique × ANOS✺ Cycle de la Transformation – Tome du Feu Intérieur
-
-« Tout ce qui vibre se transforme ;tout ce qui se transforme s’élève ;to...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-11T18:02:00.000Z">
-                11 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+            <span class="tag">#Mood</span>
             
-            <span class="article-tag">contribute</span>
+            <span class="tag">#Codex</span>
             
-            <span class="article-tag">Mood</span>
+            <span class="tag">#contribute</span>
             
-            <span class="article-tag">Codex</span>
+            <span class="tag">#Spiritualcept</span>
             
-            <span class="article-tag">Spiritualcept</span>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/Livre_I_Les_Fondations_du_Code_Cosmique_Emojis/">
+          <span class="post-date">11/11/2025</span>
+          <h3>LIVRE I — LES FONDATIONS DU CODE COSMIQUE</h3>
+          <p>☉ LIVRE I — LES FONDATIONS DU CODE COSMIQUEVersion Cyberharmonique – AstroDynamique × ANOS ✴️
+⚛️ PROLOGUE — LE VERBE DU VIDEAvant la forme, il y eut l</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">Livre</span>
+            <span class="tag">#Mood</span>
             
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/11/fr/Codex%20AstroDynamique%20%E2%80%94%20Livre%20II%20-%20Cycle%20du%20Feu%20Int%C3%A9rieur/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
-
-        
+            <span class="tag">#Livre</span>
             
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/11/fr/Livre_I_Les_Fondations_du_Code_Cosmique_Emojis/">LIVRE I — LES FONDATIONS DU CODE COSMIQUE</a>
-    </h3>
-    
-    
-    <p>☉ LIVRE I — LES FONDATIONS DU CODE COSMIQUEVersion Cyberharmonique – AstroDynamique × ANOS ✴️
-⚛️ PROLOGUE — LE VERBE DU VIDEAvant la forme, il y eut le souffle 🌬️.Avant la lumière, il y eut le rythme...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-11T15:05:00.000Z">
-                11 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+            <span class="tag">#Recettes</span>
             
-            <span class="article-tag">Mood</span>
+            <span class="tag">#Mind</span>
             
-            <span class="article-tag">Livre</span>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/meditation_quatrieme_dimension/">
+          <span class="post-date">11/11/2025</span>
+          <h3>Fiche - Méditation sur le quatrième espace ($4th D)</h3>
+          <p>🌌 Entre l’ombre et la dimension : Méditation sur le quatrième espace🪞 I. Le miroir du planImaginons une créature à deux dimensions.Elle vit sur une </p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">Recettes</span>
+            <span class="tag">#contribute</span>
             
-            <span class="article-tag">Mind</span>
+            <span class="tag">#Fiche</span>
             
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/11/fr/Livre_I_Les_Fondations_du_Code_Cosmique_Emojis/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
-
-        
+            <span class="tag">#CyberMind</span>
             
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/11/fr/meditation_quatrieme_dimension/">Fiche - Méditation sur le quatrième espace ($4th D)</a>
-    </h3>
-    
-    
-    <p>🌌 Entre l’ombre et la dimension : Méditation sur le quatrième espace🪞 I. Le miroir du planImaginons une créature à deux dimensions.Elle vit sur une feuille, prisonnière de sa surface, ignorant tout ...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-11T10:52:00.000Z">
-                11 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+            <span class="tag">#Meditation</span>
             
-            <span class="article-tag">contribute</span>
-            
-            <span class="article-tag">CyberMind</span>
-            
-            <span class="article-tag">Fiche</span>
-            
-            <span class="article-tag">Meditation</span>
-            
-            <span class="article-tag">CyberMood</span>
-            
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/11/fr/meditation_quatrieme_dimension/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
-
-        
-            
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/07/fr/Recette%20%E2%80%93%20G%C3%A2teau%20De%20Lima%20Psych%C3%A9d%C3%A9lique/">Fiche Recette – Gâteau De Lima Psychédélique</a>
-    </h3>
-    
-    
-    <p>🍞 Recette – Gâteau De Lima Psychédélique📘 Sommaire
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/tutorials/Cyber/Mood/Recette%20%E2%80%93%20G%C3%A2teau%20De%20Lima%20Psych%C3%A9d%C3%A9lique/">
+          <span class="post-date">07/11/2025</span>
+          <h3>Fiche Recette – Gâteau De Lima Psychédélique</h3>
+          <p>🍞 Recette – Gâteau De Lima Psychédélique📘 Sommaire
 🍰 Gâteau de Lima Psychédélique – Recette Complète et Inspirée
-🧠 Contexte &amp; Esprit CYBERM00D
-🌾 Ingrédients Principaux
-🔥 Mode Éco &amp; Cuiss...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-07T16:20:00.000Z">
-                07 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+🧠 Contexte &amp;amp; Esprit CYBERM00D</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">contribute</span>
+            <span class="tag">#Mood</span>
             
-            <span class="article-tag">Mood</span>
+            <span class="tag">#contribute</span>
             
-            <span class="article-tag">Recettes</span>
+            <span class="tag">#Fiche</span>
             
-            <span class="article-tag">Fiche</span>
+            <span class="tag">#Recettes</span>
             
-            <span class="article-tag">Cuisine</span>
-            
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/07/fr/Recette%20%E2%80%93%20G%C3%A2teau%20De%20Lima%20Psych%C3%A9d%C3%A9lique/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
-
-        
-            
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
-    </div>
-    
-    
-    <h3>
-        <a href="/2025/11/07/fr/Recette_Pain_Magazine_Emojis/">Fiche Recette — Pain Maison</a>
-    </h3>
-    
-    
-    <p>🍞 Pain Maison
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/tutorials/Cyber/Mood/Recette_Pain_Magazine_Emojis/">
+          <span class="post-date">07/11/2025</span>
+          <h3>Fiche Recette — Pain Maison</h3>
+          <p>🍞 Pain Maison
 Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commencez avec de la vapeur pour une croûte 😍.
 
 
 🧾 Fiche express
-📦 Donne : 1 gros pain
-🎯 Difficulté : ★★☆☆☆ (faci...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-07T16:10:00.000Z">
-                07 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
+</p>
+          
+          <div class="post-tags">
             
-            <span class="article-tag">contribute</span>
+            <span class="tag">#Mood</span>
             
-            <span class="article-tag">Mood</span>
+            <span class="tag">#contribute</span>
             
-            <span class="article-tag">Recettes</span>
+            <span class="tag">#Fiche</span>
             
-            <span class="article-tag">Fiche</span>
+            <span class="tag">#Recettes</span>
             
-            <span class="article-tag">Cuisine</span>
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/analyse_lumiere_lunaire_rosee_ascii_emojis_v2/">
+          <span class="post-date">07/11/2025</span>
+          <h3>Analyse complète — Impact de la lumière lunaire sur l’eau matinale / rosée</h3>
+          <p>cat &amp;gt; analyse_lumiere_lunaire_rosee_ascii_emojis_v2.md &amp;lt;&amp;lt;’MD’
+🌕✨ Impact de la lumière lunaire sur l’eau matinale &amp;#x2F; rosée — Analyse comp</p>
+          
+          <div class="post-tags">
             
-        </div>
-        
+            <span class="tag">#contribute</span>
+            
+            <span class="tag">#CLOUD</span>
+            
+            <span class="tag">#SpiritualCept</span>
+            
+            <span class="tag">#Atuces</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/tutorials/Cyber/Mood/cnc_linux_tutoriel/">
+          <span class="post-date">06/11/2025</span>
+          <h3>Tutoriel - Utiliser des logiciels open source pour CNC sous Linux</h3>
+          <p>🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧Voici un guide pour t’aider à démarrer avec des logiciels open source compatib</p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#Mood</span>
+            
+            <span class="tag">#contribute</span>
+            
+            <span class="tag">#FabLab</span>
+            
+            <span class="tag">#Cyber</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/LIVREE2025-001/">
+          <span class="post-date">01/11/2025</span>
+          <h3>La Livrée d’Hermès (signé Aníbal Edelberto Amiot)</h3>
+          <p>  Merci pour La Livrée d’Hermès, signé Aníbal Edelberto Amiot.Ce travail combine des éléments hermétiques, géométriques, numérologiques, et symbolique</p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#contribute</span>
+            
+            <span class="tag">#The Conjurers</span>
+            
+            <span class="tag">#Alchimie</span>
+            
+            <span class="tag">#Invisibles</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/creative/Cyber/Mood/Memo-netiquette-rfc1855/">
+          <span class="post-date">30/10/2025</span>
+          <h3>Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)</h3>
+          <p>🧭 Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)💡 Principe général
+« Traitez les autres en ligne comme vous voudriez être traité hors ligne. »
+
+L</p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#contribute</span>
+            
+            <span class="tag">#CLOUD</span>
+            
+            <span class="tag">#CyberSecurity</span>
+            
+            <span class="tag">#RFC</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/creative/Cyber/Mind/welcome/">
+          <span class="post-date">19/02/2022</span>
+          <h3>welcome</h3>
+          <p>Still in progress…
+Stay tune!
+Héllo all 👋About @ CyberMind
+Contact @ CyberMind
+Here are some ideas you must know about CyberMind’s rules:
+🙋‍♀️ A sho</p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#contribute</span>
+            
+            <span class="tag">#news</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
+      <article class="post-item">
+        <a href="/philosophy/Cyber/Mood/abeille_savoyenne/">
+          <span class="post-date">01/05/1917</span>
+          <h3>Folklore savoyen : Note sur le deuil des abeilles</h3>
+          <p>FOLKLORE SAVOYENNOTE SUR LE DEUIL DES ABEILLESQuand on est possédé de l’amour de la lecture et qu’à l’âge d’homme la tendance de l’esprit vous pousse </p>
+          
+          <div class="post-tags">
+            
+            <span class="tag">#Savoie</span>
+            
+            <span class="tag">#deuil</span>
+            
+            <span class="tag">#Patrimoine</span>
+            
+            <span class="tag">#folklore</span>
+            
+          </div>
+          
+        </a>
+      </article>
+      
     </div>
     
-    <a href="/2025/11/07/fr/Recette_Pain_Magazine_Emojis/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
+  </section>
 
-        
-            
-
-<article class="article-card Cyber">
-    
-    <div class="article-category">
-        
-        
-            Cyber
-        
+  
+  <section class="other-categories">
+    <h2>📁 Autres catégories</h2>
+    <div class="cat-nav">
+      
+      <a href="/blog/cybersecurity/" class="cat-nav-item" style="--nav-color: #00ff88">
+        <span>🛡️</span>
+        <span>Cybersécurité</span>
+        <span class="nav-count">40</span>
+      </a>
+      
+      <a href="/blog/embedded/" class="cat-nav-item" style="--nav-color: #ff6600">
+        <span>⚙️</span>
+        <span>Embarqué</span>
+        <span class="nav-count">6</span>
+      </a>
+      
+      <a href="/blog/linux/" class="cat-nav-item" style="--nav-color: #ffcc00">
+        <span>🐧</span>
+        <span>Linux</span>
+        <span class="nav-count">2</span>
+      </a>
+      
+      <a href="/blog/creative/" class="cat-nav-item" style="--nav-color: #ff6699">
+        <span>🎨</span>
+        <span>Créativité</span>
+        <span class="nav-count">6</span>
+      </a>
+      
+      <a href="/blog/philosophy/" class="cat-nav-item" style="--nav-color: #9966ff">
+        <span>🧘</span>
+        <span>Philosophie</span>
+        <span class="nav-count">10</span>
+      </a>
+      
+      <a href="/blog/tutorials/" class="cat-nav-item" style="--nav-color: #66ccff">
+        <span>📖</span>
+        <span>Tutoriels</span>
+        <span class="nav-count">0</span>
+      </a>
+      
+      <a href="/blog/projects/" class="cat-nav-item" style="--nav-color: #06b6d4">
+        <span>🚀</span>
+        <span>Projets</span>
+        <span class="nav-count">2</span>
+      </a>
+      
+      <a href="/blog/divers/" class="cat-nav-item" style="--nav-color: #06b6d4">
+        <span>🚀</span>
+        <span>Divers</span>
+        <span class="nav-count">4</span>
+      </a>
+      
     </div>
-    
-    
-    <h3>
-        <a href="/2025/11/07/fr/analyse_lumiere_lunaire_rosee_ascii_emojis_v2/">Analyse complète — Impact de la lumière lunaire sur l’eau matinale / rosée</a>
-    </h3>
-    
-    
-    <p>cat &gt; analyse_lumiere_lunaire_rosee_ascii_emojis_v2.md &lt;&lt;’MD’
-🌕✨ Impact de la lumière lunaire sur l’eau matinale &#x2F; rosée — Analyse complète 🌊💎
-Analyse complète : physique, calculs, pr...</p>
-    
-    
-    <div class="article-meta">
-        <span class="article-date">
-            <time datetime="2025-11-07T14:22:00.000Z">
-                07 November 2025
-            </time>
-        </span>
-        
-        
-        <div class="article-tags">
-            
-            <span class="article-tag">contribute</span>
-            
-            <span class="article-tag">CLOUD</span>
-            
-            <span class="article-tag">SpiritualCept</span>
-            
-            <span class="article-tag">Atuces</span>
-            
-        </div>
-        
-    </div>
-    
-    <a href="/2025/11/07/fr/analyse_lumiere_lunaire_rosee_ascii_emojis_v2/" class="article-link">
-        Lire la suite → →
-    </a>
-</article>
+  </section>
+  
 
-        
-    </div>
+</div>
 
-    
-    <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/categories/Cyber/">← Précédent</a><a class="page-number" href="/categories/Cyber/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/Cyber/page/3/">3</a><a class="page-number" href="/categories/Cyber/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Cyber/page/6/">6</a><a class="extend next" rel="next" href="/categories/Cyber/page/3/">Suivant →</a>
-    </nav>
-    
-</section>
+<style>
+.category-page { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+.cat-header {
+  text-align: center; padding: 2rem 0; margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.cat-header .cat-icon { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.cat-header h1 { font-size: 2rem; color: var(--cat-color); margin: 0 0 0.5rem; }
+.cat-header .cat-desc { color: #9898a6; margin: 0 0 0.5rem; }
+.cat-header .cat-count { color: #6a6a7a; font-size: 0.9rem; margin: 0 0 0.5rem; }
+.breadcrumb { font-size: 0.85rem; color: #6a6a7a; }
+.breadcrumb a { color: var(--cat-color); text-decoration: none; }
+
+.resources {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 1.5rem;
+}
+.res-group h3 { font-size: 0.9rem; color: #9898a6; margin: 0 0 0.5rem; }
+.res-link {
+  display: inline-block; padding: 0.3rem 0.6rem; margin-right: 0.5rem;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; color: #e8e8ed; text-decoration: none; font-size: 0.85rem;
+}
+.res-link:hover { border-color: var(--cat-color); color: var(--cat-color); }
+
+.cat-content {
+  padding: 1.5rem; margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px;
+  border-left: 3px solid var(--cat-color);
+}
+
+.posts-section h2 { color: var(--cat-color, #e8e8ed); margin-bottom: 1rem; }
+
+.posts-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.post-item {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; transition: border-color 0.2s, transform 0.2s;
+}
+.post-item:hover { border-color: var(--cat-color); transform: translateX(4px); }
+.post-item a { display: block; padding: 1rem; text-decoration: none; color: inherit; }
+.post-item .post-date { font-size: 0.8rem; color: #6a6a7a; }
+.post-item h3 { margin: 0.3rem 0 0.5rem; font-size: 1.05rem; color: #e8e8ed; }
+.post-item p { margin: 0 0 0.5rem; font-size: 0.9rem; color: #9898a6; }
+.post-item .post-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.post-item .tag { font-size: 0.75rem; color: var(--cat-color); opacity: 0.7; }
+
+.no-posts {
+  text-align: center; padding: 2rem;
+  background: rgba(255,255,255,0.03); border-radius: 8px; color: #6a6a7a;
+}
+.no-posts a { color: var(--cat-color); }
+
+.other-categories { margin-top: 2rem; }
+.other-categories h2 { color: #9898a6; font-size: 1rem; margin-bottom: 1rem; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cat-nav-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;
+  text-decoration: none; color: #c8c8d0; font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.cat-nav-item:hover { border-color: var(--nav-color); color: var(--nav-color); }
+.cat-nav-item .nav-count {
+  background: rgba(255,255,255,0.1); padding: 0.1rem 0.4rem;
+  border-radius: 4px; font-size: 0.7rem;
+}
+
+@media (max-width: 600px) { .cat-header h1 { font-size: 1.5rem; } }
+[data-theme="light"] .category-page { background: #fff; }
+[data-theme="light"] .post-item, [data-theme="light"] .resources, 
+[data-theme="light"] .cat-content { background: #f8f9fa; border-color: #e0e0e0; }
+[data-theme="light"] .post-item h3, [data-theme="light"] h2 { color: #2a2a3a; }
+</style>
 
         <footer>
-            <div class="footer-copy">
-                © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
-            </div>
-            <div class="footer-links">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
                 
-                <a href="#">Mentions légales</a>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
                 
-                <a href="#">Confidentialité</a>
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
                 
-                <a target="_blank" rel="noopener" href="https://cybermind.fr">Blog</a>
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
                 
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
             </div>
         </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
     </div><!-- .main-wrapper -->
     
     

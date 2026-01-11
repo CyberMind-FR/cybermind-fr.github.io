@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/apps/netifyd/demo.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-20T05:49:53.410Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/apps/netifyd/demo.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netifyd Dashboard Demo - Network Intelligence</title>
+    <meta name="description" content="Démo interactive du dashboard Netifyd - Deep Packet Inspection pour OpenWrt">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nf-bg-primary: #0a0f1a;
+            --nf-bg-secondary: #111827;
+            --nf-bg-tertiary: #1f2937;
+            --nf-border: #374151;
+            --nf-text-primary: #f9fafb;
+            --nf-text-secondary: #9ca3af;
+            --nf-text-muted: #6b7280;
+            --nf-accent-purple: #8b5cf6;
+            --nf-accent-blue: #3b82f6;
+            --nf-accent-cyan: #06b6d4;
+            --nf-accent-green: #10b981;
+            --nf-accent-yellow: #f59e0b;
+            --nf-accent-red: #ef4444;
+            --nf-accent-pink: #ec4899;
+            --nf-font-mono: 'JetBrains Mono', monospace;
+            --nf-font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--nf-font-sans);
+            background: var(--nf-bg-primary);
+            color: var(--nf-text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .demo-banner {
+            background: linear-gradient(90deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .demo-banner a { color: white; text-decoration: underline; }
+
+        .nav-container {
+            background: var(--nf-bg-secondary);
+            border-bottom: 1px solid var(--nf-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 32px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 0;
+            text-decoration: none;
+            color: var(--nf-text-primary);
+        }
+
+        .nav-brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .nav-brand-text { font-size: 20px; font-weight: 700; }
+        .nav-brand-text span { color: var(--nf-accent-purple); }
+
+        .nav-tabs { display: flex; gap: 4px; }
+
+        .nav-tab {
+            padding: 16px 20px;
+            color: var(--nf-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-tab:hover { color: var(--nf-text-primary); }
+
+        .nav-tab.active {
+            color: var(--nf-accent-purple);
+            border-bottom-color: var(--nf-accent-purple);
+        }
+
+        .nav-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--nf-accent-green);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        .version {
+            font-family: var(--nf-font-mono);
+            font-size: 11px;
+            color: var(--nf-text-muted);
+            padding: 4px 10px;
+            background: var(--nf-bg-tertiary);
+            border-radius: 12px;
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quick-stat {
+            background: var(--nf-bg-secondary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .quick-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--stat-color);
+        }
+
+        .quick-stat:hover {
+            border-color: var(--nf-accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .quick-stat-icon { font-size: 24px; margin-bottom: 8px; }
+
+        .quick-stat-value {
+            font-family: var(--nf-font-mono);
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+            color: var(--stat-color);
+        }
+
+        .quick-stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--nf-text-muted);
+        }
+
+        .quick-stat-sub {
+            font-size: 10px;
+            color: var(--nf-text-muted);
+            margin-top: 4px;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card */
+        .card {
+            background: var(--nf-bg-secondary);
+            border: 1px solid var(--nf-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--nf-border);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-title-icon { font-size: 18px; }
+
+        .card-badge {
+            font-family: var(--nf-font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: var(--nf-accent-purple);
+            color: white;
+        }
+
+        .card-body { padding: 18px; }
+
+        /* Donut */
+        .donut-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .donut {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+
+        .donut-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .donut-value {
+            font-family: var(--nf-font-mono);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .donut-label {
+            font-size: 11px;
+            color: var(--nf-text-muted);
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+        }
+
+        .legend-name {
+            color: var(--nf-text-secondary);
+            flex: 1;
+        }
+
+        .legend-value {
+            font-family: var(--nf-font-mono);
+            font-weight: 600;
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bar-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 70px;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .bar-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--nf-text-secondary);
+        }
+
+        .bar-label-icon { font-size: 16px; }
+
+        .bar-track {
+            height: 10px;
+            background: var(--nf-bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .bar-value {
+            font-family: var(--nf-font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .table th {
+            text-align: left;
+            padding: 12px 14px;
+            background: var(--nf-bg-tertiary);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--nf-text-muted);
+            position: sticky;
+            top: 0;
+        }
+
+        .table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--nf-border);
+        }
+
+        .table tr:last-child td { border-bottom: none; }
+        .table tr:hover td { background: rgba(139, 92, 246, 0.05); }
+
+        .mono { font-family: var(--nf-font-mono); font-size: 11px; }
+
+        .app-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .app-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: var(--nf-bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .category.web { background: rgba(59, 130, 246, 0.2); color: var(--nf-accent-blue); }
+        .category.streaming { background: rgba(236, 72, 153, 0.2); color: var(--nf-accent-pink); }
+        .category.social { background: rgba(6, 182, 212, 0.2); color: var(--nf-accent-cyan); }
+        .category.gaming { background: rgba(139, 92, 246, 0.2); color: var(--nf-accent-purple); }
+        .category.voip { background: rgba(16, 185, 129, 0.2); color: var(--nf-accent-green); }
+        .category.network { background: rgba(245, 158, 11, 0.2); color: var(--nf-accent-yellow); }
+
+        .proto {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--nf-font-mono);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .proto.tcp { background: rgba(59, 130, 246, 0.2); color: var(--nf-accent-blue); }
+        .proto.udp { background: rgba(16, 185, 129, 0.2); color: var(--nf-accent-green); }
+
+        .traffic { display: flex; align-items: center; gap: 4px; }
+        .traffic-rx { color: var(--nf-accent-green); }
+        .traffic-tx { color: var(--nf-accent-blue); }
+
+        /* Device Grid */
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .device-card {
+            background: var(--nf-bg-tertiary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            padding: 14px;
+            transition: all 0.2s;
+        }
+
+        .device-card:hover { border-color: var(--nf-accent-purple); }
+
+        .device-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .device-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--nf-accent-purple), var(--nf-accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .device-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 2px 0;
+        }
+
+        .device-info p {
+            font-size: 11px;
+            color: var(--nf-text-muted);
+            margin: 0;
+        }
+
+        .device-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .device-detail { display: flex; flex-direction: column; gap: 2px; }
+
+        .device-detail-label {
+            color: var(--nf-text-muted);
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .device-detail-value {
+            font-family: var(--nf-font-mono);
+            color: var(--nf-text-secondary);
+        }
+
+        /* Search */
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--nf-bg-tertiary);
+            border: 1px solid var(--nf-border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .search input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--nf-text-primary);
+            font-size: 13px;
+            outline: none;
+        }
+
+        .search input::placeholder { color: var(--nf-text-muted); }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--nf-border);
+            margin-top: 40px;
+            color: var(--nf-text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--nf-accent-purple); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--nf-bg-tertiary); }
+        ::-webkit-scrollbar-thumb { background: var(--nf-border); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🔍 <strong>Démo interactive</strong> — Deep Packet Inspection simulé.
+        <a href="https://github.com/gkerma/luci-app-netifyd-dashboard" target="_blank">Voir sur GitHub</a>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">🔍</div>
+                <div class="nav-brand-text">Netif<span>yd</span></div>
+            </a>
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-view="overview">Overview</div>
+                <div class="nav-tab" data-view="flows">Flows</div>
+                <div class="nav-tab" data-view="applications">Applications</div>
+                <div class="nav-tab" data-view="devices">Devices</div>
+                <div class="nav-tab" data-view="talkers">Top Talkers</div>
+                <div class="nav-tab" data-view="risks">Risks</div>
+            </div>
+            <div class="nav-status">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    DPI Active
+                </div>
+                <span class="version">v4.4.1</span>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Overview -->
+        <div id="overview" class="view active">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #8b5cf6">
+                    <div class="quick-stat-icon">🔄</div>
+                    <div class="quick-stat-value" id="total-flows">342</div>
+                    <div class="quick-stat-label">Active Flows</div>
+                    <div class="quick-stat-sub">245 TCP / 97 UDP</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #3b82f6">
+                    <div class="quick-stat-icon">📱</div>
+                    <div class="quick-stat-value">24</div>
+                    <div class="quick-stat-label">Applications</div>
+                    <div class="quick-stat-sub">Detected by DPI</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #06b6d4">
+                    <div class="quick-stat-icon">💻</div>
+                    <div class="quick-stat-value">12</div>
+                    <div class="quick-stat-label">Devices</div>
+                    <div class="quick-stat-sub">On network</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-icon">📥</div>
+                    <div class="quick-stat-value">2.4 GB</div>
+                    <div class="quick-stat-label">Downloaded</div>
+                    <div class="quick-stat-sub">Total RX</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #f59e0b">
+                    <div class="quick-stat-icon">📤</div>
+                    <div class="quick-stat-value">856 MB</div>
+                    <div class="quick-stat-label">Uploaded</div>
+                    <div class="quick-stat-sub">Total TX</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #ec4899">
+                    <div class="quick-stat-icon">🏷️</div>
+                    <div class="quick-stat-value">8</div>
+                    <div class="quick-stat-label">Categories</div>
+                    <div class="quick-stat-sub">Traffic types</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">📊</span>
+                            Protocol Distribution
+                        </div>
+                        <div class="card-badge">342 flows</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="donut-container">
+                            <div class="donut">
+                                <svg width="160" height="160" viewBox="0 0 160 160">
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#8b5cf6" stroke-width="24" 
+                                            stroke-dasharray="270 377" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#3b82f6" stroke-width="24" 
+                                            stroke-dasharray="85 377" stroke-dashoffset="-270" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="60" fill="none" stroke="#06b6d4" stroke-width="24" 
+                                            stroke-dasharray="22 377" stroke-dashoffset="-355" transform="rotate(-90 80 80)"/>
+                                    <circle cx="80" cy="80" r="35" fill="#111827"/>
+                                </svg>
+                                <div class="donut-center">
+                                    <div class="donut-value">342</div>
+                                    <div class="donut-label">Flows</div>
+                                </div>
+                            </div>
+                            <div class="legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#8b5cf6"></div>
+                                    <span class="legend-name">TCP</span>
+                                    <span class="legend-value">245</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#3b82f6"></div>
+                                    <span class="legend-name">UDP</span>
+                                    <span class="legend-value">78</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:#06b6d4"></div>
+                                    <span class="legend-name">QUIC</span>
+                                    <span class="legend-value">19</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">📱</span>
+                            Top Applications
+                        </div>
+                        <div class="card-badge">24 detected</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">🔒</span> HTTPS</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+                                <span class="bar-value">1.2 GB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📺</span> YouTube</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+                                <span class="bar-value">780 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">🎬</span> Netflix</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>
+                                <span class="bar-value">504 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📹</span> Zoom</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>
+                                <span class="bar-value">336 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">💬</span> Discord</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:15%"></div></div>
+                                <span class="bar-value">180 MB</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label"><span class="bar-label-icon">📋</span> DNS</div>
+                                <div class="bar-track"><div class="bar-fill" style="width:8%"></div></div>
+                                <span class="bar-value">96 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flows -->
+        <div id="flows" class="view">
+            <div class="search">
+                <span>🔍</span>
+                <input type="text" placeholder="Search by IP, port, or application...">
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📋</span>
+                        Active Connections
+                    </div>
+                    <div class="card-badge">342 flows</div>
+                </div>
+                <div class="card-body" style="padding:0">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Protocol</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Application</th>
+                                    <th>Category</th>
+                                    <th>Traffic</th>
+                                </tr>
+                            </thead>
+                            <tbody id="flows-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications -->
+        <div id="applications" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #8b5cf6">
+                    <div class="quick-stat-icon">📱</div>
+                    <div class="quick-stat-value">24</div>
+                    <div class="quick-stat-label">Applications</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #3b82f6">
+                    <div class="quick-stat-icon">🔄</div>
+                    <div class="quick-stat-value">342</div>
+                    <div class="quick-stat-label">Total Flows</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-icon">📊</div>
+                    <div class="quick-stat-value">3.2 GB</div>
+                    <div class="quick-stat-label">Total Traffic</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📋</span>
+                        Detected Applications
+                    </div>
+                </div>
+                <div class="card-body" style="padding:0">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Application</th>
+                                    <th>Category</th>
+                                    <th>Flows</th>
+                                    <th>Traffic</th>
+                                    <th>% Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="apps-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devices -->
+        <div id="devices" class="view">
+            <div class="search">
+                <span>🔍</span>
+                <input type="text" placeholder="Search by hostname, IP, or MAC...">
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">📡</span>
+                        Discovered Devices
+                    </div>
+                    <div class="card-badge">12 devices</div>
+                </div>
+                <div class="card-body">
+                    <div class="device-grid" id="devices-grid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Talkers View -->
+        <div id="talkers" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🏠</span>
+                        <span class="quick-stat-label">Active Hosts</span>
+                    </div>
+                    <div class="quick-stat-value">15</div>
+                    <div class="quick-stat-sub">Generating traffic</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">📈</span>
+                        <span class="quick-stat-label">Total Traffic</span>
+                    </div>
+                    <div class="quick-stat-value">4.2 GB</div>
+                    <div class="quick-stat-sub">All hosts combined</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🥇</span>
+                        <span class="quick-stat-label">Top Host</span>
+                    </div>
+                    <div class="quick-stat-value" style="font-size:18px">gaming-pc</div>
+                    <div class="quick-stat-sub">1.8 GB</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🏆</span>
+                        Bandwidth Leaders
+                    </div>
+                    <div class="card-badge">Top 10</div>
+                </div>
+                <div class="card-body">
+                    <div id="talkers-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risks View -->
+        <div id="risks" class="view">
+            <div class="quick-stats">
+                <div class="quick-stat" style="--stat-color: #ef4444">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🔴</span>
+                        <span class="quick-stat-label">High Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#ef4444">1</div>
+                    <div class="quick-stat-sub">Immediate attention</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #f59e0b">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🟠</span>
+                        <span class="quick-stat-label">Medium Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#f59e0b">2</div>
+                    <div class="quick-stat-sub">Review recommended</div>
+                </div>
+                <div class="quick-stat" style="--stat-color: #10b981">
+                    <div class="quick-stat-header">
+                        <span class="quick-stat-icon">🟢</span>
+                        <span class="quick-stat-label">Low Risk</span>
+                    </div>
+                    <div class="quick-stat-value" style="color:#10b981">3</div>
+                    <div class="quick-stat-sub">Informational</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🛡️</span>
+                        Security Findings
+                    </div>
+                    <div class="card-badge">6 issues</div>
+                </div>
+                <div class="card-body">
+                    <div id="risks-list"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <strong>luci-app-netifyd-dashboard</strong> — Deep Packet Inspection for OpenWrt<br>
+            Créé par <a href="https://cybermind.fr" target="_blank">Gandalf @ CyberMind.fr</a> |
+            <a href="https://github.com/gkerma/luci-app-netifyd-dashboard" target="_blank">GitHub</a> |
+            Licence Apache-2.0
+        </p>
+    </footer>
+
+    <script>
+        // Mock data
+        const mockFlows = [
+            { proto: 'TCP', src: '192.168.1.105', sport: 52341, dst: '142.250.185.206', dport: 443, app: 'YouTube', category: 'Streaming', bytes: 45678000, packets: 34521 },
+            { proto: 'TCP', src: '192.168.1.108', sport: 49234, dst: '52.96.166.194', dport: 443, app: 'Microsoft 365', category: 'Web', bytes: 12340000, packets: 8765 },
+            { proto: 'UDP', src: '192.168.1.112', sport: 51234, dst: '162.125.66.6', dport: 443, app: 'Zoom', category: 'VoIP', bytes: 8900000, packets: 12345 },
+            { proto: 'TCP', src: '192.168.1.105', sport: 53421, dst: '151.101.1.140', dport: 443, app: 'Reddit', category: 'Social', bytes: 5670000, packets: 4532 },
+            { proto: 'TCP', src: '192.168.1.120', sport: 48765, dst: '44.240.131.89', dport: 443, app: 'Discord', category: 'Social', bytes: 3450000, packets: 2341 },
+            { proto: 'UDP', src: '192.168.1.1', sport: 53, dst: '8.8.8.8', dport: 53, app: 'DNS', category: 'Network', bytes: 234000, packets: 1234 },
+            { proto: 'TCP', src: '192.168.1.108', sport: 55123, dst: '54.239.28.85', dport: 443, app: 'Netflix', category: 'Streaming', bytes: 89000000, packets: 67890 },
+            { proto: 'QUIC', src: '192.168.1.105', sport: 443, dst: '172.217.14.110', dport: 443, app: 'Google', category: 'Web', bytes: 2340000, packets: 1890 },
+            { proto: 'TCP', src: '192.168.1.115', sport: 49876, dst: '104.16.249.249', dport: 443, app: 'Cloudflare', category: 'Network', bytes: 1230000, packets: 876 },
+            { proto: 'UDP', src: '192.168.1.112', sport: 3478, dst: '52.114.77.34', dport: 3478, app: 'Teams', category: 'VoIP', bytes: 4560000, packets: 3456 }
+        ];
+
+        const mockApps = [
+            { name: 'HTTPS', icon: '🔒', category: 'Web', flows: 156, bytes: 1200000000, pct: 37.5 },
+            { name: 'YouTube', icon: '📺', category: 'Streaming', flows: 24, bytes: 780000000, pct: 24.4 },
+            { name: 'Netflix', icon: '🎬', category: 'Streaming', flows: 12, bytes: 504000000, pct: 15.8 },
+            { name: 'Zoom', icon: '📹', category: 'VoIP', flows: 8, bytes: 336000000, pct: 10.5 },
+            { name: 'Discord', icon: '💬', category: 'Social', flows: 15, bytes: 180000000, pct: 5.6 },
+            { name: 'DNS', icon: '📋', category: 'Network', flows: 89, bytes: 96000000, pct: 3.0 },
+            { name: 'SSH', icon: '💻', category: 'Network', flows: 3, bytes: 45000000, pct: 1.4 },
+            { name: 'Spotify', icon: '🎵', category: 'Streaming', flows: 6, bytes: 58000000, pct: 1.8 }
+        ];
+
+        const mockDevices = [
+            { hostname: 'MacBook-Pro', vendor: 'Apple', ip: '192.168.1.105', mac: 'F8:FF:C2:12:34:56', iface: 'br-lan' },
+            { hostname: 'iPhone-Jean', vendor: 'Apple', ip: '192.168.1.108', mac: 'D4:61:9D:AB:CD:EF', iface: 'br-lan' },
+            { hostname: 'PC-Bureau', vendor: 'Intel', ip: '192.168.1.112', mac: 'B0:BE:83:11:22:33', iface: 'br-lan' },
+            { hostname: 'Samsung-TV', vendor: 'Samsung', ip: '192.168.1.115', mac: '5C:8A:38:44:55:66', iface: 'br-lan' },
+            { hostname: 'Raspberry-Pi', vendor: 'Raspberry Pi', ip: '192.168.1.120', mac: 'B8:27:EB:77:88:99', iface: 'br-lan' },
+            { hostname: 'Echo-Dot', vendor: 'Amazon', ip: '192.168.1.125', mac: 'AC:DE:48:AA:BB:CC', iface: 'br-lan' },
+            { hostname: 'Nest-Hub', vendor: 'Google', ip: '192.168.1.130', mac: '54:60:09:DD:EE:FF', iface: 'br-lan' },
+            { hostname: 'HP-Printer', vendor: 'HP', ip: '192.168.1.200', mac: '3C:2C:30:12:34:56', iface: 'br-lan' }
+        ];
+
+        // Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.view).classList.add('active');
+            });
+        });
+
+        // Populate flows table
+        function populateFlows() {
+            const tbody = document.getElementById('flows-table');
+            tbody.innerHTML = mockFlows.map(f => `
+                <tr>
+                    <td><span class="proto ${f.proto.toLowerCase()}">${f.proto}</span></td>
+                    <td class="mono">${f.src}:${f.sport}</td>
+                    <td class="mono">${f.dst}:${f.dport}</td>
+                    <td><div class="app-name"><span class="app-icon">${getAppIcon(f.app)}</span>${f.app}</div></td>
+                    <td><span class="category ${getCategoryClass(f.category)}">${f.category}</span></td>
+                    <td class="mono"><span class="traffic"><span class="traffic-rx">↓${formatBytes(f.bytes)}</span> <span class="traffic-tx">${f.packets.toLocaleString()} pkts</span></span></td>
+                </tr>
+            `).join('');
+        }
+
+        // Populate apps table
+        function populateApps() {
+            const tbody = document.getElementById('apps-table');
+            tbody.innerHTML = mockApps.map(a => `
+                <tr>
+                    <td><div class="app-name"><span class="app-icon">${a.icon}</span><strong>${a.name}</strong></div></td>
+                    <td><span class="category ${getCategoryClass(a.category)}">${a.category}</span></td>
+                    <td class="mono">${a.flows}</td>
+                    <td class="mono">${formatBytes(a.bytes)}</td>
+                    <td>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <div style="width:60px;height:6px;background:#1f2937;border-radius:3px;overflow:hidden">
+                                <div style="height:100%;width:${a.pct}%;background:linear-gradient(90deg,#8b5cf6,#3b82f6);border-radius:3px"></div>
+                            </div>
+                            <span class="mono" style="font-size:11px">${a.pct}%</span>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Populate devices grid
+        function populateDevices() {
+            const grid = document.getElementById('devices-grid');
+            grid.innerHTML = mockDevices.map(d => `
+                <div class="device-card">
+                    <div class="device-header">
+                        <div class="device-icon">${getDeviceIcon(d.vendor)}</div>
+                        <div class="device-info">
+                            <h4>${d.hostname}</h4>
+                            <p>${d.vendor}</p>
+                        </div>
+                    </div>
+                    <div class="device-details">
+                        <div class="device-detail">
+                            <span class="device-detail-label">IP Address</span>
+                            <span class="device-detail-value">${d.ip}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">MAC Address</span>
+                            <span class="device-detail-value">${d.mac}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">Interface</span>
+                            <span class="device-detail-value">${d.iface}</span>
+                        </div>
+                        <div class="device-detail">
+                            <span class="device-detail-label">Last Seen</span>
+                            <span class="device-detail-value">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function formatBytes(bytes) {
+            if (bytes >= 1e9) return (bytes / 1e9).toFixed(1) + ' GB';
+            if (bytes >= 1e6) return (bytes / 1e6).toFixed(1) + ' MB';
+            if (bytes >= 1e3) return (bytes / 1e3).toFixed(1) + ' KB';
+            return bytes + ' B';
+        }
+
+        function getAppIcon(app) {
+            const icons = { 'HTTPS': '🔒', 'YouTube': '📺', 'Netflix': '🎬', 'Zoom': '📹', 'Discord': '💬', 'DNS': '📋', 'SSH': '💻', 'Reddit': '🔴', 'Microsoft 365': '📊', 'Google': '🔍', 'Cloudflare': '☁️', 'Teams': '👥', 'Spotify': '🎵' };
+            return icons[app] || '📦';
+        }
+
+        function getDeviceIcon(vendor) {
+            const icons = { 'Apple': '🍎', 'Samsung': '📱', 'Raspberry Pi': '🍓', 'Intel': '💻', 'Amazon': '📦', 'Google': '🔍', 'HP': '🖨️' };
+            return icons[vendor] || '💻';
+        }
+
+        function getCategoryClass(cat) {
+            const classes = { 'Web': 'web', 'Streaming': 'streaming', 'Social': 'social', 'Gaming': 'gaming', 'VoIP': 'voip', 'Network': 'network' };
+            return classes[cat] || 'network';
+        }
+
+        // Live update simulation
+        function updateStats() {
+            const flows = 342 + Math.floor(Math.random() * 20) - 10;
+            document.getElementById('total-flows').textContent = flows;
+        }
+
+        // Top Talkers data and rendering
+        const mockTalkers = [
+            { hostname: 'gaming-pc', ip: '192.168.1.105', connections: 47, rx: 1200000000, tx: 600000000, topApp: 'Steam' },
+            { hostname: 'macbook-pro', ip: '192.168.1.110', connections: 32, rx: 800000000, tx: 200000000, topApp: 'YouTube' },
+            { hostname: 'iphone-sarah', ip: '192.168.1.115', connections: 28, rx: 500000000, tx: 100000000, topApp: 'TikTok' },
+            { hostname: 'smart-tv', ip: '192.168.1.120', connections: 15, rx: 400000000, tx: 50000000, topApp: 'Netflix' },
+            { hostname: 'work-laptop', ip: '192.168.1.125', connections: 42, rx: 300000000, tx: 150000000, topApp: 'Teams' },
+            { hostname: 'raspberry-pi', ip: '192.168.1.200', connections: 8, rx: 100000000, tx: 50000000, topApp: 'SSH' },
+            { hostname: 'android-tablet', ip: '192.168.1.130', connections: 12, rx: 200000000, tx: 30000000, topApp: 'Chrome' },
+            { hostname: 'nas-server', ip: '192.168.1.50', connections: 25, rx: 150000000, tx: 400000000, topApp: 'SMB' }
+        ];
+
+        function populateTalkers() {
+            const totalBytes = mockTalkers.reduce((sum, t) => sum + t.rx + t.tx, 0);
+            document.getElementById('talkers-list').innerHTML = `
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    ${mockTalkers.map((t, i) => {
+                        const total = t.rx + t.tx;
+                        const pct = ((total / totalBytes) * 100).toFixed(1);
+                        return `
+                        <div style="display:flex;align-items:center;gap:16px;padding:12px;background:var(--nf-bg-tertiary);border-radius:10px;">
+                            <div style="width:30px;text-align:center;font-weight:700;color:var(--nf-accent-purple)">#${i+1}</div>
+                            <div style="flex:1">
+                                <div style="font-weight:600">${t.hostname}</div>
+                                <div style="font-size:11px;color:var(--nf-text-muted)">${t.ip} • ${t.connections} connections</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div style="font-family:var(--nf-font-mono);font-size:13px">${formatBytes(total)}</div>
+                                <div style="font-size:10px;color:var(--nf-text-muted)">↓${formatBytes(t.rx)} ↑${formatBytes(t.tx)}</div>
+                            </div>
+                            <div style="width:100px">
+                                <div style="height:8px;background:var(--nf-bg-primary);border-radius:4px;overflow:hidden;">
+                                    <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#8b5cf6,#3b82f6);border-radius:4px;"></div>
+                                </div>
+                                <div style="text-align:center;font-size:10px;margin-top:2px">${pct}%</div>
+                            </div>
+                        </div>`;
+                    }).join('')}
+                </div>`;
+        }
+
+        // Risks data and rendering
+        const mockRisks = [
+            { severity: 'high', title: 'Telnet Traffic Detected', desc: 'Unencrypted remote access on port 23', src: '192.168.1.105', dst: '10.0.0.50:23', rec: 'Use SSH instead of Telnet for secure remote access' },
+            { severity: 'medium', title: 'SMB Shares Exposed', desc: 'Windows file sharing detected on multiple hosts', src: '192.168.1.110', dst: '192.168.1.50:445', rec: 'Restrict SMB access to trusted networks only' },
+            { severity: 'medium', title: 'High Connection Count', desc: '192.168.1.105 has 47 active connections', src: '192.168.1.105', dst: 'Multiple', rec: 'Investigate for potential scanning or malware activity' },
+            { severity: 'low', title: 'P2P Traffic: BitTorrent', desc: '3 active P2P connections detected', src: '192.168.1.105', dst: 'Various', rec: 'Monitor bandwidth usage and ensure compliance with policies' },
+            { severity: 'low', title: 'DNS over HTTPS Detected', desc: 'Some devices bypassing local DNS', src: '192.168.1.115', dst: '1.1.1.1:443', rec: 'Consider network-wide DNS policy' },
+            { severity: 'low', title: 'IoT Device Communication', desc: 'Smart TV communicating with cloud services', src: '192.168.1.120', dst: 'Various', rec: 'Review IoT device network permissions' }
+        ];
+
+        function populateRisks() {
+            document.getElementById('risks-list').innerHTML = mockRisks.map(r => {
+                const icon = r.severity === 'high' ? '🔴' : r.severity === 'medium' ? '🟠' : '🟢';
+                const borderColor = r.severity === 'high' ? '#ef4444' : r.severity === 'medium' ? '#f59e0b' : '#10b981';
+                return `
+                <div style="background:var(--nf-bg-tertiary);border:1px solid var(--nf-border);border-left:4px solid ${borderColor};border-radius:10px;padding:16px;margin-bottom:12px;">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+                        <span style="font-size:24px">${icon}</span>
+                        <div style="flex:1">
+                            <h4 style="margin:0 0 4px 0;font-size:15px">${r.title}</h4>
+                            <span style="font-size:10px;font-weight:700;padding:2px 8px;background:rgba(255,255,255,0.1);border-radius:10px">${r.severity.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <p style="color:var(--nf-text-secondary);font-size:13px;margin:0 0 10px 0">${r.desc}</p>
+                    <div style="font-size:12px;margin:4px 0"><span style="color:var(--nf-text-muted)">Source:</span> <code style="background:var(--nf-bg-primary);padding:2px 6px;border-radius:4px">${r.src}</code></div>
+                    <div style="font-size:12px;margin:4px 0"><span style="color:var(--nf-text-muted)">Destination:</span> <code style="background:var(--nf-bg-primary);padding:2px 6px;border-radius:4px">${r.dst}</code></div>
+                    <div style="margin-top:10px;padding:10px;background:rgba(139,92,246,0.1);border-radius:6px;font-size:12px;color:var(--nf-text-secondary)">
+                        <strong>💡 Recommendation:</strong> ${r.rec}
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        populateFlows();
+        populateApps();
+        populateDevices();
+        populateTalkers();
+        populateRisks();
+        setInterval(updateStats, 3000);
+    </script>
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

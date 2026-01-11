@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/apps/cdn-cache/demo.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2025-12-21T13:31:31.215Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/apps/cdn-cache/demo.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDN Cache Dashboard - SecuBox Module | CyberMind.fr</title>
+  <meta name="description" content="Proxy cache local pour OpenWrt. Réduisez votre bande passante de 40-60% avec le module CDN Cache de SecuBox.">
+  <meta name="keywords" content="cdn, cache, proxy, openwrt, luci, secubox, bandwidth, optimization, nginx">
+  <meta property="og:title" content="CDN Cache Dashboard - SecuBox">
+  <meta property="og:description" content="Optimisez votre bande passante avec un proxy cache local intelligent.">
+  <meta property="og:image" content="https://cybermind.fr/images/cdn-cache-og.png">
+  <link rel="canonical" href="https://cybermind.fr/apps/cdn-cache">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --primary: #06b6d4;
+  --primary-dark: #0891b2;
+  --primary-light: #22d3ee;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #0a0a12;
+  --bg-card: #1a1a24;
+  --bg-section: #0f1019;
+  --border: #2a2a3a;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Navigation */
+.nav {
+  background: rgba(10,10,18,0.9); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border); padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-size: 20px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+.nav-links a:hover { color: var(--primary); text-decoration: none; }
+
+/* Hero */
+.hero {
+  padding: 100px 0 80px;
+  background: radial-gradient(ellipse at 30% 0%, rgba(6,182,212,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 100%, rgba(6,182,212,0.08) 0%, transparent 50%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+  background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.3);
+  border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 24px;
+}
+.hero-title { font-size: 56px; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
+.hero-title span { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-desc { font-size: 20px; color: var(--text-muted); max-width: 600px; margin-bottom: 32px; }
+.hero-stats { display: flex; gap: 40px; margin-bottom: 40px; }
+.hero-stat-value { font-size: 36px; font-weight: 800; color: var(--success); font-family: 'JetBrains Mono', monospace; }
+.hero-stat-label { font-size: 14px; color: var(--text-dim); }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+  border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.3s;
+}
+.btn-primary { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(6,182,212,0.3); text-decoration: none; }
+.btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--primary); text-decoration: none; }
+
+/* Sections */
+.section { padding: 80px 0; }
+.section-alt { background: var(--bg-section); }
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+.section-badge { display: inline-block; padding: 6px 14px; background: rgba(6,182,212,0.15); border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+.section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+.section-desc { font-size: 17px; color: var(--text-muted); }
+
+/* Features Grid */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px; transition: all 0.3s;
+}
+.feature-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+.feature-icon { font-size: 36px; margin-bottom: 16px; }
+.feature-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.feature-desc { font-size: 14px; color: var(--text-muted); }
+
+/* How It Works */
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.how-step {
+  text-align: center; padding: 24px; position: relative;
+}
+.how-step::after {
+  content: '→'; position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%); color: var(--primary); font-size: 24px;
+}
+.how-step:last-child::after { display: none; }
+.how-number {
+  width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 700; margin: 0 auto 16px;
+}
+.how-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.how-desc { font-size: 13px; color: var(--text-muted); }
+
+/* Policies */
+.policies-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.policy-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; display: flex; gap: 16px;
+}
+.policy-icon { font-size: 32px; flex-shrink: 0; }
+.policy-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.policy-details { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+.policy-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.policy-tag { padding: 3px 8px; background: rgba(6,182,212,0.15); color: var(--primary); border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+
+/* Screenshots */
+.screenshots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.screenshot {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.screenshot-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.screenshot-dot { width: 10px; height: 10px; border-radius: 50%; }
+.screenshot-title { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.screenshot-body { padding: 20px; min-height: 200px; background: var(--bg); }
+
+/* Code Block */
+.code-block {
+  background: #0d1117; border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin: 24px 0;
+}
+.code-header { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-dim); display: flex; justify-content: space-between; }
+.code-content { padding: 20px; overflow-x: auto; }
+.code-content pre { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: #e6edf3; }
+.code-comment { color: #8b949e; }
+.code-keyword { color: #ff7b72; }
+.code-string { color: #a5d6ff; }
+.code-number { color: #79c0ff; }
+
+/* Specs Table */
+.specs-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 12px; overflow: hidden; }
+.specs-table th, .specs-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+.specs-table th { background: var(--bg-section); font-weight: 600; font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
+.specs-table td { font-size: 14px; }
+.specs-table tr:last-child td { border-bottom: none; }
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(6,182,212,0.05));
+  border: 1px solid rgba(6,182,212,0.2); border-radius: 24px; padding: 60px; text-align: center;
+}
+.cta-title { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+.cta-desc { font-size: 17px; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* Footer */
+.footer { padding: 60px 0 40px; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.footer-desc { font-size: 14px; color: var(--text-muted); }
+.footer-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: var(--text-muted); font-size: 14px; }
+.footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-step::after { display: none; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; }
+  .hero-stats { flex-direction: column; gap: 20px; }
+  .features-grid, .policies-grid, .screenshots { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta { padding: 40px 24px; }
+}
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container nav-content">
+    <a href="/" class="nav-brand">
+      <span>🛡️</span> CyberMind.fr
+    </a>
+    <div class="nav-links">
+      <a href="/apps">Apps</a>
+      <a href="/secubox">SecuBox</a>
+      <a href="/blog">Blog</a>
+      <a target="_blank" rel="noopener" href="https://github.com/gkerma">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">📦 SecuBox Module #8</span>
+    <h1 class="hero-title"><span>CDN Cache</span> Dashboard</h1>
+    <p class="hero-desc">Transformez votre routeur OpenWrt en proxy cache intelligent. Réduisez votre consommation de bande passante et accélérez les téléchargements répétitifs.</p>
+    
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">40-60%</div>
+        <div class="hero-stat-label">Économies bande passante</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">73%</div>
+        <div class="hero-stat-label">Hit ratio moyen</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">~10 MB</div>
+        <div class="hero-stat-label">Empreinte RAM</div>
+      </div>
+    </div>
+    
+    <div class="hero-actions">
+      <a target="_blank" rel="noopener" href="https://github.com/gkerma/luci-app-cdn-cache" class="btn btn-primary">
+        <span>📥</span> Télécharger
+      </a>
+      <a href="/apps/cdn-cache/demo" class="btn btn-secondary">
+        <span>🎮</span> Démo Interactive
+      </a>
+      <a href="#documentation" class="btn btn-secondary">
+        <span>📖</span> Documentation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">✨ Fonctionnalités</span>
+      <h2 class="section-title">Un Cache Intelligent et Complet</h2>
+      <p class="section-desc">Tout ce dont vous avez besoin pour optimiser votre bande passante réseau.</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Dashboard Temps Réel</h3>
+        <p class="feature-desc">Statistiques de hit ratio, économies de bande passante, et visualisation du cache en temps réel.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3 class="feature-title">Policies Configurables</h3>
+        <p class="feature-desc">Règles de cache par domaine, extension de fichier, durée et priorité. Policies préconfigurées incluses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">Graphiques Statistiques</h3>
+        <p class="feature-desc">Évolution du hit ratio et des économies sur 24h, 7 jours ou 30 jours.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3 class="feature-title">Top Domaines</h3>
+        <p class="feature-desc">Identifiez quels sites bénéficient le plus du cache et optimisez vos policies.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <h3 class="feature-title">Outils Maintenance</h3>
+        <p class="feature-desc">Purge sélective, préchargement d'URLs, nettoyage des expirés, logs détaillés.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚫</div>
+        <h3 class="feature-title">Exclusions Intelligentes</h3>
+        <p class="feature-desc">Excluez automatiquement les sites bancaires, streaming et contenus sensibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">⚙️ Fonctionnement</span>
+      <h2 class="section-title">Comment Ça Marche</h2>
+    </div>
+    
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-number">1</div>
+        <h4 class="how-title">Requête Client</h4>
+        <p class="how-desc">Un appareil demande un fichier (mise à jour, ressource web...)</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">2</div>
+        <h4 class="how-title">Vérification Cache</h4>
+        <p class="how-desc">SecuBox vérifie si le fichier est déjà en cache local</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">3</div>
+        <h4 class="how-title">Réponse Optimisée</h4>
+        <p class="how-desc">HIT: servi depuis le cache. MISS: téléchargé et stocké</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">4</div>
+        <h4 class="how-title">Économies</h4>
+        <p class="how-desc">Les prochaines requêtes identiques sont servies instantanément</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Policies -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">📋 Policies</span>
+      <h2 class="section-title">Règles de Cache Préconfigurées</h2>
+      <p class="section-desc">Optimisé pour les cas d'usage les plus courants. Entièrement personnalisable.</p>
+    </div>
+    
+    <div class="policies-grid">
+      <div class="policy-card">
+        <div class="policy-icon">🪟</div>
+        <div>
+          <h4 class="policy-name">Windows Update</h4>
+          <p class="policy-details">windowsupdate.com, download.microsoft.com • 7 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.exe</span>
+            <span class="policy-tag">.msu</span>
+            <span class="policy-tag">.cab</span>
+            <span class="policy-tag">.msi</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🐧</div>
+        <div>
+          <h4 class="policy-name">Linux Repositories</h4>
+          <p class="policy-details">ubuntu.com, debian.org, kernel.org • 3 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.deb</span>
+            <span class="policy-tag">.rpm</span>
+            <span class="policy-tag">.pkg.tar.zst</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🤖</div>
+        <div>
+          <h4 class="policy-name">Android Apps</h4>
+          <p class="policy-details">play.googleapis.com • 7 jours</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.apk</span>
+            <span class="policy-tag">.obb</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🌐</div>
+        <div>
+          <h4 class="policy-name">Contenu Web Statique</h4>
+          <p class="policy-details">Tous domaines • 1 jour</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.js</span>
+            <span class="policy-tag">.css</span>
+            <span class="policy-tag">.woff2</span>
+            <span class="policy-tag">.png</span>
+            <span class="policy-tag">.jpg</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🎮</div>
+        <div>
+          <h4 class="policy-name">Steam Games</h4>
+          <p class="policy-details">steamcontent.com • 30 jours (désactivé par défaut)</p>
+          <div class="policy-tags">
+            <span class="policy-tag">.zip</span>
+            <span class="policy-tag">.pak</span>
+            <span class="policy-tag">.vpk</span>
+          </div>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🚫</div>
+        <div>
+          <h4 class="policy-name">Exclusions par Défaut</h4>
+          <p class="policy-details">Sites sensibles jamais cachés</p>
+          <div class="policy-tags">
+            <span class="policy-tag">bank*</span>
+            <span class="policy-tag">paypal</span>
+            <span class="policy-tag">netflix</span>
+            <span class="policy-tag">youtube</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Installation -->
+<section class="section section-alt" id="documentation">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">📥 Installation</span>
+      <h2 class="section-title">Démarrage Rapide</h2>
+    </div>
+    
+    <div class="code-block">
+      <div class="code-header">
+        <span>Terminal</span>
+        <span>Installation OpenWrt</span>
+      </div>
+      <div class="code-content">
+<pre><span class="code-comment"># Installation depuis les packages SecuBox</span>
+opkg update
+opkg install luci-app-cdn-cache
+
+<span class="code-comment"># Recharger RPCD</span>
+/etc/init.d/rpcd reload
+
+<span class="code-comment"># Activer et configurer</span>
+uci set cdn-cache.main.enabled=<span class="code-number">1</span>
+uci set cdn-cache.main.cache_size=<span class="code-number">2048</span>  <span class="code-comment"># 2 GB</span>
+uci set cdn-cache.main.listen_port=<span class="code-number">3128</span>
+uci commit cdn-cache
+
+<span class="code-comment"># Démarrer le service</span>
+/etc/init.d/cdn-cache start
+/etc/init.d/cdn-cache enable</pre>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 20px; margin: 40px 0 20px;">Spécifications Techniques</h3>
+    
+    <table class="specs-table">
+      <tr>
+        <th>Composant</th>
+        <th>Détail</th>
+      </tr>
+      <tr>
+        <td>Moteur de cache</td>
+        <td>Nginx avec proxy_cache</td>
+      </tr>
+      <tr>
+        <td>Interface</td>
+        <td>LuCI JavaScript (client-side rendering)</td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>RPCD (ubus)</td>
+      </tr>
+      <tr>
+        <td>Configuration</td>
+        <td>UCI (/etc/config/cdn-cache)</td>
+      </tr>
+      <tr>
+        <td>Dépendances</td>
+        <td>luci-base, nginx-ssl, rpcd, coreutils-stat</td>
+      </tr>
+      <tr>
+        <td>RAM requise</td>
+        <td>~10-20 MB (Nginx + cache metadata)</td>
+      </tr>
+      <tr>
+        <td>Espace disque</td>
+        <td>Configurable (recommandé: 1-4 GB)</td>
+      </tr>
+      <tr>
+        <td>OpenWrt</td>
+        <td>23.05+ avec LuCI</td>
+      </tr>
+      <tr>
+        <td>Licence</td>
+        <td>Apache-2.0</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- API -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">🔌 API</span>
+      <h2 class="section-title">API RPCD</h2>
+      <p class="section-desc">Intégrez CDN Cache dans vos scripts et automatisations.</p>
+    </div>
+    
+    <div class="code-block">
+      <div class="code-header">
+        <span>Shell</span>
+        <span>Exemples d'appels ubus</span>
+      </div>
+      <div class="code-content">
+<pre><span class="code-comment"># Statut du service</span>
+ubus call luci.cdn-cache status
+
+<span class="code-comment"># Statistiques globales</span>
+ubus call luci.cdn-cache stats
+
+<span class="code-comment"># Liste des objets en cache</span>
+ubus call luci.cdn-cache cache_list
+
+<span class="code-comment"># Top domaines par utilisation</span>
+ubus call luci.cdn-cache top_domains
+
+<span class="code-comment"># Économies de bande passante (24h)</span>
+ubus call luci.cdn-cache bandwidth_savings <span class="code-string">'{"period":"24h"}'</span>
+
+<span class="code-comment"># Purger tout le cache</span>
+ubus call luci.cdn-cache purge_cache
+
+<span class="code-comment"># Purger un domaine spécifique</span>
+ubus call luci.cdn-cache purge_domain <span class="code-string">'{"domain":"example.com"}'</span>
+
+<span class="code-comment"># Précharger une URL</span>
+ubus call luci.cdn-cache preload_url <span class="code-string">'{"url":"https://example.com/file.exe"}'</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta">
+      <h2 class="cta-title">Prêt à Optimiser votre Réseau ?</h2>
+      <p class="cta-desc">Installez CDN Cache Dashboard et commencez à économiser de la bande passante dès aujourd'hui.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a target="_blank" rel="noopener" href="https://github.com/gkerma/luci-app-cdn-cache" class="btn btn-primary">
+          <span>📥</span> Télécharger sur GitHub
+        </a>
+        <a href="/secubox" class="btn btn-secondary">
+          <span>🛡️</span> Découvrir SecuBox
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🛡️ CyberMind.fr</div>
+        <p class="footer-desc">Cybersécurité Open Source pour OpenWrt. Modules LuCI professionnels pour protéger et optimiser votre réseau.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">SecuBox Modules</h4>
+        <ul class="footer-links">
+          <li><a href="/apps/crowdsec">CrowdSec Dashboard</a></li>
+          <li><a href="/apps/netdata">Netdata Dashboard</a></li>
+          <li><a href="/apps/wireguard">WireGuard Dashboard</a></li>
+          <li><a href="/apps/cdn-cache">CDN Cache</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Ressources</h4>
+        <ul class="footer-links">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a target="_blank" rel="noopener" href="https://github.com/gkerma">GitHub</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Projet</h4>
+        <ul class="footer-links">
+          <li><a href="/secubox">SecuBox</a></li>
+          <li><a href="/secubox/campaign">Campagne</a></li>
+          <li><a href="/about">À propos</a></li>
+          <li><a href="/license">Licence</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 CyberMind.fr — Open Source Apache-2.0 — 🇫🇷 Made in France with ❤️
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+
