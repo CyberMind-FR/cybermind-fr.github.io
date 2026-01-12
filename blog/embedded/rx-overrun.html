@@ -23,7 +23,7 @@
 
 
 
-<meta property="article:modified_time" content="2026-01-12T10:47:34.741Z">
+<meta property="article:modified_time" content="2026-01-12T10:52:29.035Z">
 
 
 
@@ -863,6 +863,85 @@
 <p>Une machine équilibrée est une machine discrète.</p>
 <h3 id="Verifier-le-monde-physique"><a href="#Verifier-le-monde-physique" class="headerlink" title="Vérifier le monde physique"></a>Vérifier le monde physique</h3><p>Changer de câble.<br>Changer de port de switch.<br>Vérifier duplex et négociation.</p>
 <p>Le bug le plus abstrait<br>disparaît parfois avec un geste très concret.</p>
+<h2 id="Commandes-OpenWrt-diagnostic-remedes"><a href="#Commandes-OpenWrt-diagnostic-remedes" class="headerlink" title="Commandes OpenWrt : diagnostic &amp; remèdes"></a>Commandes OpenWrt : diagnostic &amp; remèdes</h2><blockquote>
+<p><em>Outils de terrain. Rien de magique : on mesure, on ajuste, on confirme.</em></p>
+</blockquote>
+<h3 id="Pre-requis-si-necessaire"><a href="#Pre-requis-si-necessaire" class="headerlink" title="Pré-requis (si nécessaire)"></a>Pré-requis (si nécessaire)</h3><p>Sur OpenWrt, certains outils ne sont pas installés par défaut :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install ethtool ip-full kmod-sched-core</span><br><span class="line"><span class="comment"># optionnel selon le besoin</span></span><br><span class="line">opkg install irqbalance</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Si <code>ethtool</code> n’existe pas sur ta cible (build minimal), utilise au moins <code>ip</code>, <code>logread</code> et <code>/proc</code>.</p>
+</blockquote>
+<h3 id="1-Confirmer-les-symptomes"><a href="#1-Confirmer-les-symptomes" class="headerlink" title="1) Confirmer les symptômes"></a>1) Confirmer les symptômes</h3><p>Voir l’état du lien et les compteurs d’erreurs :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip -s <span class="built_in">link</span> show dev eth0</span><br><span class="line">ip -d <span class="built_in">link</span> show dev eth0</span><br></pre></td></tr></table></figure>
+
+<p>Chercher les messages noyau associés :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logread -k | grep -iE <span class="string">&#x27;mvneta|eth0|overrun|bad rx status&#x27;</span></span><br><span class="line">dmesg | grep -iE <span class="string">&#x27;mvneta|eth0|overrun|bad rx status&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Si <code>ethtool</code> est disponible, récupérer les statistiques du pilote (très parlant) :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ethtool eth0</span><br><span class="line">ethtool -S eth0 | egrep -i <span class="string">&#x27;rx|drop|over|err|fifo|miss|buf&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Regarder-la-charge-IRQ-et-softirq"><a href="#2-Regarder-la-charge-IRQ-et-softirq" class="headerlink" title="2) Regarder la charge IRQ et softirq"></a>2) Regarder la charge IRQ et softirq</h3><p>Le RX overrun est souvent un “CPU trop lent pour avaler”.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/interrupts | grep -iE <span class="string">&#x27;eth|mvneta&#x27;</span></span><br><span class="line">top -H   <span class="comment"># surveille ksoftirqd, sirq et la saturation d’un seul cœur</span></span><br><span class="line"><span class="built_in">cat</span> /proc/softirqs | <span class="built_in">head</span> -n 30</span><br></pre></td></tr></table></figure>
+
+<p><strong>Indice</strong> : si une seule CPU concentre les IRQ réseau, les overruns montent sous rafale.</p>
+<p>Optionnel : activer <code>irqbalance</code> (si pertinent sur ta plateforme SMP) :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/irqbalance <span class="built_in">enable</span></span><br><span class="line">/etc/init.d/irqbalance start</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Augmenter-les-rings-RX-TX-buffers-DMA"><a href="#3-Augmenter-les-rings-RX-TX-buffers-DMA" class="headerlink" title="3) Augmenter les rings RX&#x2F;TX (buffers DMA)"></a>3) Augmenter les rings RX&#x2F;TX (buffers DMA)</h3><p>Afficher les valeurs actuelles :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethtool -g eth0</span><br></pre></td></tr></table></figure>
+
+<p>Tenter d’augmenter (valeurs à adapter à ce que le driver accepte) :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethtool -G eth0 rx 1024 tx 1024</span><br></pre></td></tr></table></figure>
+
+<p>Re-tester trafic + compteurs.</p>
+<h3 id="4-Tester-en-desactivant-les-offloads-GRO-GSO-TSO…"><a href="#4-Tester-en-desactivant-les-offloads-GRO-GSO-TSO…" class="headerlink" title="4) Tester en désactivant les offloads (GRO&#x2F;GSO&#x2F;TSO…)"></a>4) Tester en désactivant les offloads (GRO&#x2F;GSO&#x2F;TSO…)</h3><p>C’est une étape de diagnostic rapide : si les erreurs chutent, tu as trouvé un levier.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ethtool -k eth0</span><br><span class="line">ethtool -K eth0 gro off gso off tso off rx off tx off sg off</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Si ta perf baisse mais que la stabilité revient, garde une config “mixte” : réactive un offload à la fois pour trouver le coupable.</p>
+</blockquote>
+<h3 id="5-Flow-control-pause-frames"><a href="#5-Flow-control-pause-frames" class="headerlink" title="5) Flow control (pause frames)"></a>5) Flow control (pause frames)</h3><p>Vérifier puis activer RX&#x2F;TX pause :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ethtool -a eth0</span><br><span class="line">ethtool -A eth0 rx on tx on</span><br></pre></td></tr></table></figure>
+
+<p>Utile quand un équipement en amont “arrose” trop vite (NAS, switch, backbone).</p>
+<h3 id="6-EEE-Energy-Efficient-Ethernet-et-negociation-du-lien"><a href="#6-EEE-Energy-Efficient-Ethernet-et-negociation-du-lien" class="headerlink" title="6) EEE (Energy Efficient Ethernet) et négociation du lien"></a>6) EEE (Energy Efficient Ethernet) et négociation du lien</h3><p>EEE peut provoquer des latences ou micro-coupures sur certains combos matériel&#x2F;switch.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ethtool --show-eee eth0 2&gt;/dev/null</span><br><span class="line">ethtool --set-eee eth0 eee off 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>Vérifier vitesse&#x2F;duplex :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethtool eth0</span><br></pre></td></tr></table></figure>
+
+<p>Et, pour tester, forcer temporairement (à utiliser prudemment) :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># exemple : forcer 1G full duplex (si supporté)</span></span><br><span class="line">ethtool -s eth0 speed 1000 duplex full autoneg off</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-MTU-et-trames-“jumbo”"><a href="#7-MTU-et-trames-“jumbo”" class="headerlink" title="7) MTU et trames “jumbo”"></a>7) MTU et trames “jumbo”</h3><p>S’assurer que tout le segment LAN parle la même langue (1500 vs 9000).</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip <span class="built_in">link</span> show dev eth0</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> dev eth0 mtu 1500</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-RPS-RFS-repartir-la-reception-sur-plusieurs-coeurs"><a href="#8-RPS-RFS-repartir-la-reception-sur-plusieurs-coeurs" class="headerlink" title="8) RPS&#x2F;RFS (répartir la réception sur plusieurs cœurs)"></a>8) RPS&#x2F;RFS (répartir la réception sur plusieurs cœurs)</h3><p>Sur systèmes multi-cœurs, RPS aide parfois beaucoup.</p>
+<p>Lister les queues RX :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -1 /sys/class/net/eth0/queues/ | grep rx</span><br></pre></td></tr></table></figure>
+
+<p>Exemple : activer RPS sur <code>rx-0</code> pour CPU0-CPU1 (masque <code>3</code> &#x3D; binaire <code>11</code>) :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 3 &gt; /sys/class/net/eth0/queues/rx-0/rps_cpus</span><br><span class="line"><span class="built_in">cat</span> /sys/class/net/eth0/queues/rx-0/rps_cpus</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Adapte le masque à ton nombre de CPU. (CPU0-CPU3 &#x3D;&gt; masque <code>f</code>)</p>
+</blockquote>
+<h3 id="9-Capturer-le-moment-ou-ca-casse"><a href="#9-Capturer-le-moment-ou-ca-casse" class="headerlink" title="9) Capturer le moment où ça casse"></a>9) Capturer le moment où ça casse</h3><p>Si l’erreur arrive sous charge, lance un petit stress test et observe :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># depuis un autre hôte : iperf3 -c &lt;IP_DU_ROUTEUR&gt; -P 4 -t 30</span></span><br><span class="line"><span class="comment"># côté routeur :</span></span><br><span class="line">logread -f | grep -iE <span class="string">&#x27;mvneta|overrun|bad rx&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-Rendre-les-reglages-persistants"><a href="#10-Rendre-les-reglages-persistants" class="headerlink" title="10) Rendre les réglages persistants"></a>10) Rendre les réglages persistants</h3><p>OpenWrt n’applique pas forcément ces réglages au reboot.<br>Deux approches simples :</p>
+<p><strong>A. &#x2F;etc&#x2F;rc.local</strong> (rapide)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/rc.local (avant &#x27;exit 0&#x27;)</span></span><br><span class="line">ethtool -G eth0 rx 1024 tx 1024</span><br><span class="line">ethtool -K eth0 gro off gso off tso off rx off tx off sg off</span><br><span class="line">ethtool -A eth0 rx on tx on</span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>B. Hotplug net</strong> (propre quand l’interface monte)</p>
+<p>Créer <code>/etc/hotplug.d/net/99-eth0-tuning</code> :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">[ <span class="string">&quot;<span class="variable">$ACTION</span>&quot;</span> = <span class="string">&quot;ifup&quot;</span> ] || <span class="built_in">exit</span> 0</span><br><span class="line">[ <span class="string">&quot;<span class="variable">$INTERFACE</span>&quot;</span> = <span class="string">&quot;lan&quot;</span> ] || <span class="built_in">exit</span> 0</span><br><span class="line"></span><br><span class="line"><span class="comment"># Adapter si ton eth0 est bien derrière &#x27;lan&#x27;</span></span><br><span class="line">ethtool -G eth0 rx 1024 tx 1024 2&gt;/dev/null</span><br><span class="line">ethtool -K eth0 gro off gso off tso off rx off tx off sg off 2&gt;/dev/null</span><br><span class="line">ethtool -A eth0 rx on tx on 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>Puis :</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /etc/hotplug.d/net/99-eth0-tuning</span><br></pre></td></tr></table></figure>
+
+<hr>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Le RX overrun n’est pas une panne brutale.<br>C’est un avertissement.</p>
 <p>Il rappelle que le réseau reste<br>une affaire de temps,<br>de buffers,<br>et de discipline.</p>
 <p>Dans un monde de couches abstraites,<br>ce message noyau nous ramène<br>à une vérité ancienne :</p>
