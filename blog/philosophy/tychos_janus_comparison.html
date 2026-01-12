@@ -15,13 +15,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="CyberMind.fr">
 <meta property="og:description" content="Articles sur la cybersécurité et Linux">
-<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/categories/Cyber/index.html">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/tychos_janus_comparison.html">
 <meta property="og:site_name" content="CyberMind.fr">
 <meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
 <meta property="og:locale" content="fr">
 
 
 
+
+<meta property="article:modified_time" content="2026-01-12T15:22:28.492Z">
 
 
 
@@ -33,7 +35,7 @@
 <meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/categories/Cyber/index.html">
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/tychos_janus_comparison.html">
 
 <!-- RSS Feed -->
 
@@ -807,810 +809,859 @@
 </script>
 
 
-
-
-
-<div class="category-page">
-  
-  <header class="cat-header" style="--cat-color: #888888">
-    <span class="cat-icon">📁</span>
-    <h1>cyber</h1>
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
     
-    <p class="cat-count">29 articles</p>
-    <nav class="breadcrumb">
-      <a href="/">Accueil</a> / <a href="/blog/">Blog</a> / <span>cyber</span>
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYCHOS vs JANUS - Comparaison de Modèles Cosmologiques</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tychos-primary: #E8A838;
+            --tychos-secondary: #C75B12;
+            --tychos-dark: #1a0f05;
+            --janus-primary: #4ECDC4;
+            --janus-secondary: #7B68EE;
+            --janus-dark: #0a1628;
+            --text-light: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --bg-dark: #0d0d12;
+            --card-bg: rgba(255,255,255,0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated starfield background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(180deg, rgba(13,13,18,0.9) 0%, transparent 100%);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--tychos-primary) 0%, var(--janus-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        /* Navigation tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tab-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card-bg);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .tab-btn:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active-tychos {
+            border-color: var(--tychos-primary);
+            color: var(--tychos-primary);
+            box-shadow: 0 0 30px rgba(232,168,56,0.2);
+        }
+
+        .tab-btn.active-janus {
+            border-color: var(--janus-primary);
+            color: var(--janus-primary);
+            box-shadow: 0 0 30px rgba(78,205,196,0.2);
+        }
+
+        .tab-btn.active-compare {
+            border-color: #fff;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        /* Main content */
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .panel {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Model cards */
+        .model-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card.tychos {
+            border-left: 4px solid var(--tychos-primary);
+        }
+
+        .model-card.janus {
+            border-left: 4px solid var(--janus-primary);
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top left, rgba(255,255,255,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .model-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tychos .model-title { color: var(--tychos-primary); }
+        .janus .model-title { color: var(--janus-primary); }
+
+        .model-author {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Diagram containers */
+        .diagram-container {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem;
+            margin: 2rem 0;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* TYCHOS Solar System Animation */
+        .tychos-system {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .earth-center {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 30% 30%, #4a90d9, #1a4a7a);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(74,144,217,0.5);
+        }
+
+        .sun-orbit {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px dashed rgba(232,168,56,0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sun {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle at 30% 30%, #FFD700, #E8A838);
+            border-radius: 50%;
+            top: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 40px rgba(232,168,56,0.8);
+            animation: orbitSun 10s linear infinite;
+        }
+
+        .mars-orbit {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px dashed rgba(199,91,18,0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mars {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 30% 30%, #E57373, #C75B12);
+            border-radius: 50%;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(199,91,18,0.6);
+            animation: orbitMars 21.3s linear infinite;
+        }
+
+        @keyframes orbitSun {
+            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        @keyframes orbitMars {
+            from { transform: rotate(0deg) translateX(125px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(125px) rotate(-360deg); }
+        }
+
+        /* JANUS Bimetric Animation */
+        .janus-system {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .positive-matter {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 2px solid var(--janus-primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-positive 3s ease-in-out infinite;
+        }
+
+        .negative-matter {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed var(--janus-secondary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-negative 3s ease-in-out infinite reverse;
+        }
+
+        .metric-g-plus, .metric-g-minus {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .metric-g-plus {
+            color: var(--janus-primary);
+            top: 50%;
+            left: calc(50% + 85px);
+            transform: translateY(-50%);
+        }
+
+        .metric-g-minus {
+            color: var(--janus-secondary);
+            top: 50%;
+            left: calc(50% + 115px);
+            transform: translateY(-50%);
+        }
+
+        .barycentre {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255,255,255,0.8);
+        }
+
+        @keyframes pulse-positive {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes pulse-negative {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.9; }
+        }
+
+        /* Key concepts */
+        .concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .concept {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-left: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tychos .concept:hover {
+            border-left-color: var(--tychos-primary);
+            background: rgba(232,168,56,0.05);
+        }
+
+        .janus .concept:hover {
+            border-left-color: var(--janus-primary);
+            background: rgba(78,205,196,0.05);
+        }
+
+        .concept h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .concept p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Comparison table */
+        .comparison-grid {
+            display: grid;
+            gap: 0;
+            margin: 2rem 0;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comparison-row.header {
+            background: rgba(255,255,255,0.03);
+            position: sticky;
+            top: 0;
+        }
+
+        .comparison-cell {
+            padding: 1.5rem;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comparison-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-cell.aspect {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .comparison-cell.tychos-col {
+            background: rgba(232,168,56,0.03);
+        }
+
+        .comparison-cell.janus-col {
+            background: rgba(78,205,196,0.03);
+        }
+
+        .comparison-cell h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tychos-col h3 { color: var(--tychos-primary); }
+        .janus-col h3 { color: var(--janus-primary); }
+
+        /* Equations */
+        .equation {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .link-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .link-btn:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+        }
+
+        .tychos .link-btn:hover {
+            border-color: var(--tychos-primary);
+            color: var(--tychos-primary);
+        }
+
+        .janus .link-btn:hover {
+            border-color: var(--janus-primary);
+            color: var(--janus-primary);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-cell.aspect {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            z-index: 100;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Starfield background -->
+    <div class="starfield" id="starfield"></div>
+
+    <header>
+        <h1>TYCHOS ⟷ JANUS</h1>
+        <p class="subtitle">Deux visions alternatives du cosmos</p>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-btn active-tychos" data-panel="tychos" data-active="active-tychos">TYCHOS</button>
+        <button class="tab-btn" data-panel="janus" data-active="active-janus">JANUS</button>
+        <button class="tab-btn" data-panel="compare" data-active="active-compare">Comparaison</button>
     </nav>
-  </header>
 
-  
+    <main>
+        <!-- TYCHOS Panel -->
+        <section class="panel active" id="tychos">
+            <article class="model-card tychos">
+                <h2 class="model-title">Le Modèle TYCHOS</h2>
+                <p class="model-author">Simon Shack — Perfectionné par Patrik Holmqvist (Tychosium)</p>
 
-  
+                <div class="diagram-container">
+                    <div class="tychos-system">
+                        <div class="mars-orbit">
+                            <div class="mars"></div>
+                        </div>
+                        <div class="sun-orbit">
+                            <div class="sun"></div>
+                        </div>
+                        <div class="earth-center"></div>
+                    </div>
+                    <div style="position: absolute; bottom: 1rem; left: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">
+                        Système binaire Soleil-Mars<br>
+                        Terre au barycentre
+                    </div>
+                </div>
 
-  <section class="posts-section">
-    <h2>📝 Articles</h2>
-    
-    
-    <div class="posts-list">
-      
-      <article class="post-item">
-        <a href="/tutorials/Cyber/Mood/workflow-avs-plantwave-kasina-spooky2-dreammachine/">
-          <span class="post-date">26/11/2025</span>
-          <h3>Workflow complet AVS — PlantWave → Kasina → Spooky2 → DreamMachine</h3>
-          <p>Workflow complet AVSPlantWave → Kasina → Spooky² → DreamMachineCe workflow décrit un pipeline multisensoriel reliant quatre technologies complémentair</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#kasina</span>
-            
-            <span class="tag">#avs</span>
-            
-            <span class="tag">#spooky2</span>
-            
-            <span class="tag">#plantwave</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/tutorials/Mood/Cyber/sessions_kasina_pack/">
-          <span class="post-date">26/11/2025</span>
-          <h3>Sessions Kasina – Pack Complet (Énergisant, Psychédélique Doux, Sommeil, Voyage)</h3>
-          <p>Pack complet de sessions Kasina (.KBS)Voici quatre sessions entièrement personnalisées pour appareilsKasina &amp;#x2F; Limina, chacune avec plusieurs segm</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#kasina</span>
-            
-            <span class="tag">#cybermind</span>
-            
-            <span class="tag">#neurotech</span>
-            
-            <span class="tag">#kbs</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/tutorials/Cyber/Mood/Pipeline%20Holistique/">
-          <span class="post-date">24/11/2025</span>
-          <h3>Pipeline Holistique — Kasina + Spooky2 + PlantWave + LED DIY</h3>
-          <p>GOOD MOOD HOLISTICUMPipeline Multisensoriel Complet</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#kasina</span>
-            
-            <span class="tag">#holistique</span>
-            
-            <span class="tag">#spooky2</span>
-            
-            <span class="tag">#plantwave</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/research/Cyber/Mood/cordeliers_rescue/">
-          <span class="post-date">20/11/2025</span>
-          <h3>Préservons les œuvres du Couvent des Cordeliers</h3>
-          <p>Sauvons un trésor oublié des CordeliersVersion courte – idéale pour flyers et réseaux sociauxUne statue franciscaine du XVIIe siècle, probablement iss</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Patrimoine</span>
-            
-            <span class="tag">#Livres</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/tychos_vs_heliocentrique_presentation/">
-          <span class="post-date">20/11/2025</span>
-          <h3>Le modèle TYCHOS vs le modèle héliocentrique standard</h3>
-          <p>
-Présentation pédagogique : comparaison critique entre le modèle TYCHOS et le modèle héliocentrique standard.
+                <div class="concepts">
+                    <div class="concept">
+                        <h4>Configuration géo-héliocentrique</h4>
+                        <p>Hérite du modèle de Tycho Brahe (1583) et Longomontanus (1622). La Terre est au centre, mais les planètes orbitent autour du Soleil.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Système binaire Soleil-Mars</h4>
+                        <p>Le Soleil et Mars forment une paire binaire avec des orbites croisées, similaire aux proportions observées dans le système Sirius A/B.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>La Grande Année PVP</h4>
+                        <p>La Terre orbite en ~25 344 ans (Polaris→Véga→Polaris) à seulement 1,6 km/h, expliquant la précession des équinoxes.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Orbites trochoïdales</h4>
+                        <p>Les trajectoires spirographiques expliquent naturellement les mouvements rétrogrades sans recourir aux ellipses de Kepler.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Vénus & Mercure</h4>
+                        <p>Ce ne sont pas des planètes mais des lunes du Soleil, en rotation synchrone avec leur hôte stellaire.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Rejet de l'héliocentrisme</h4>
+                        <p>La vitesse terrestre de 107 226 km/h n'a jamais été détectée expérimentalement malgré des siècles de tentatives.</p>
+                    </div>
+                </div>
 
-—</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#astronomie</span>
-            
-            <span class="tag">#cosmologie</span>
-            
-            <span class="tag">#modèle-tychos</span>
-            
-            <span class="tag">#héliocentrisme</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/research/Cyber/Mood/ressources_cordeliers/">
-          <span class="post-date">19/11/2025</span>
-          <h3>Ressources documentaires – Ordre des Cordeliers</h3>
-          <p>PROJET SAUVER NOTRE PATRIMOINE LOCAL (PPTX)
-PROJET SAUVER NOTRE PATRIMOINE LOCAL (PDF)
-Ressources documentaires – Ordre des CordeliersFrance, Savoie, </p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#architecture</span>
-            
-            <span class="tag">#Patrimoine</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/cruet/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Dossier - Notre-Dame-du-Cruet &amp; Chapelle du Cuchet</h3>
-          <p>Notre-Dame-du-Cruet &amp;amp; Chapelle du CuchetDossier historique et patrimonial complet
-0. Présentation généraleLa commune de Notre-Dame-du-Cruet, voisi</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Patrimoine</span>
-            
-            <span class="tag">#Livres</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/research/Cyber/Mood/cordeliers/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Etudes - Les Cordeliers de La Chambre</h3>
-          <p>Les Cordeliers de La Chambreet Notre-Dame du CruetSynthèse patrimoniale enrichie
-1. Les Cordeliers de La Chambre1.1. Présence et rôle historiqueLes Co</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Patrimoine</span>
-            
-            <span class="tag">#Livres</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/cybersecurity/Cyber/Mood/Cyber-Opera-System/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Système Personnel — Cyber-Opéra</h3>
-          <p>Système Personnel — Cyber-OpéraActive System Space Operahttps://cybermind.fr/fr/Cyber/Mood/Cartes/Cyber-Opera-System/
-https://cybermind.fr/fr/Cyber/Mo</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CyberMind</span>
-            
-            <span class="tag">#SpiritualCept</span>
-            
-            <span class="tag">#Astuces</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/cybersecurity/Cyber/Mood/systeme_cyber_opera_full/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Fiches - Système Personnel Cyber-Opéra --- Version Intégrale</h3>
-          <p>Système Personnel Cyber-Opéra — Version Intégrale (Full Options + Défauts + Extensions)Active System Space Operahttps://cybermind.fr/fr/Cyber/Mood/Car</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Cartes</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Lunettes</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/Livret-Grimoire_Cyber_Opera/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Grimoire CyberMind – Livret Officiel du Tarot</h3>
-          <p>Grimoire CyberMind – Livret Officiel du TarotSous-titre : Le Guide des 12 Glyphes et de la Sphère PrimordialePhrase d’Ouverture (Ultra-courte)« Le Tar</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Cartes</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Lunettes</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/creative/Cyber/Mood/Carte_Astrodynamique_1972_Gemeaux_Poissons_Verseau/">
-          <span class="post-date">18/11/2025</span>
-          <h3>Cartes - 🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55</h3>
-          <p>🌌 Carte Astrodynamique du 4 juin 1972 — 00 h 55Dialogue entre les forces du ciel et l’âme humaine
+                <div class="links">
+                    <a href="https://ts.tychos.space/" target="_blank" class="link-btn">
+                        ⟳ Simulateur Tychosium
+                    </a>
+                    <a href="https://www.tychos.space/" target="_blank" class="link-btn">
+                        📖 Site officiel TYCHOS
+                    </a>
+                    <a href="https://forum.tychos.space/" target="_blank" class="link-btn">
+                        💬 Forum TYCHOS
+                    </a>
+                </div>
+            </article>
+        </section>
 
-☀️ Soleil en Gémeaux ♊Élément : AirMots-clés : cur</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Cartes</span>
-            
-            <span class="tag">#Histoire</span>
-            
-            <span class="tag">#Lunettes</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/grimoire_cyber_opera/">
-          <span class="post-date">17/11/2025</span>
-          <h3>Grimoire Cyber Opera - jeu de cartes maison</h3>
-          <p>📖 Grimoire Cyber OperaUn jeu de cartes maison pour raconter des scènes, explorer des situations et monter ton propre Opéra Cyber.
-https://kragzouy.ma</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CyberMind</span>
-            
-            <span class="tag">#SpiritualCept</span>
-            
-            <span class="tag">#Astuces</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/legende_spheres_de_vie/">
-          <span class="post-date">16/11/2025</span>
-          <h3>Légende officielle — Sphères de vie</h3>
-          <p>🧿 Légende officielle – Sphères de vie🔢 Code en haut de la page
-31 → nombre de jours max dans un mois  
-15–16 → objectif : nourrir une sphère 15 à 16</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CyberMind</span>
-            
-            <span class="tag">#SpiritualCept</span>
-            
-            <span class="tag">#Astuces</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/creative/Cyber/Mood/Codex%20AstroDynamique%20%E2%80%94%20Livre%20II%20-%20Cycle%20du%20Feu%20Int%C3%A9rieur/">
-          <span class="post-date">11/11/2025</span>
-          <h3>Codex AstroDynamique — Livre II - Cycle du Feu Intérieur</h3>
-          <p>☉ LIVRE II — DE LA VIBRATION À LA TRANSMUTATIONCodex AstroDynamique × ANOS✺ Cycle de la Transformation – Tome du Feu Intérieur
+        <!-- JANUS Panel -->
+        <section class="panel" id="janus">
+            <article class="model-card janus">
+                <h2 class="model-title">Le Modèle JANUS</h2>
+                <p class="model-author">Jean-Pierre Petit — Cosmologie bimétrique</p>
 
-« Tout ce qui vibre se</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Codex</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#Spiritualcept</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/Livre_I_Les_Fondations_du_Code_Cosmique_Emojis/">
-          <span class="post-date">11/11/2025</span>
-          <h3>LIVRE I — LES FONDATIONS DU CODE COSMIQUE</h3>
-          <p>☉ LIVRE I — LES FONDATIONS DU CODE COSMIQUEVersion Cyberharmonique – AstroDynamique × ANOS ✴️
-⚛️ PROLOGUE — LE VERBE DU VIDEAvant la forme, il y eut l</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#Livre</span>
-            
-            <span class="tag">#Recettes</span>
-            
-            <span class="tag">#Mind</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/meditation_quatrieme_dimension/">
-          <span class="post-date">11/11/2025</span>
-          <h3>Fiche - Méditation sur le quatrième espace ($4th D)</h3>
-          <p>🌌 Entre l’ombre et la dimension : Méditation sur le quatrième espace🪞 I. Le miroir du planImaginons une créature à deux dimensions.Elle vit sur une </p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#Fiche</span>
-            
-            <span class="tag">#CyberMind</span>
-            
-            <span class="tag">#Meditation</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/tutorials/Cyber/Mood/Recette%20%E2%80%93%20G%C3%A2teau%20De%20Lima%20Psych%C3%A9d%C3%A9lique/">
-          <span class="post-date">07/11/2025</span>
-          <h3>Fiche Recette – Gâteau De Lima Psychédélique</h3>
-          <p>🍞 Recette – Gâteau De Lima Psychédélique📘 Sommaire
-🍰 Gâteau de Lima Psychédélique – Recette Complète et Inspirée
-🧠 Contexte &amp;amp; Esprit CYBERM00D</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#Fiche</span>
-            
-            <span class="tag">#Recettes</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/tutorials/Cyber/Mood/Recette_Pain_Magazine_Emojis/">
-          <span class="post-date">07/11/2025</span>
-          <h3>Fiche Recette — Pain Maison</h3>
-          <p>🍞 Pain Maison
-Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commencez avec de la vapeur pour une croûte 😍.
+                <div class="diagram-container">
+                    <div class="janus-system">
+                        <div class="negative-matter"></div>
+                        <div class="positive-matter"></div>
+                        <div class="barycentre"></div>
+                        <span class="metric-g-plus">g<sub>(+)</sub></span>
+                        <span class="metric-g-minus">g<sub>(−)</sub></span>
+                    </div>
+                    <div style="position: absolute; bottom: 1rem; left: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">
+                        Univers bimétrique<br>
+                        Deux métriques couplées
+                    </div>
+                </div>
 
+                <div class="concepts">
+                    <div class="concept">
+                        <h4>Extension de la Relativité Générale</h4>
+                        <p>Le modèle étend les équations d'Einstein avec deux métriques couplées g<sub>(+)</sub> et g<sub>(−)</sub> décrivant deux secteurs de l'univers.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Matière négative invisible</h4>
+                        <p>Le secteur "jumeau" contient de la matière à masse négative, invisible depuis notre secteur, qui se repousse elle-même gravitationnellement.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Matière noire expliquée</h4>
+                        <p>Les anomalies de rotation galactique s'expliquent par l'interaction gravitationnelle avec le secteur négatif, sans particules exotiques.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Énergie noire expliquée</h4>
+                        <p>L'expansion accélérée de l'univers résulte de la répulsion entre les deux secteurs, sans constante cosmologique arbitraire.</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Équations de champ couplées</h4>
+                        <p class="equation">R<sub>μν</sub> − ½g<sub>μν</sub>R = χ(T<sub>μν</sub><sup>(+)</sup> + T<sub>μν</sub><sup>(−)</sup>)</p>
+                    </div>
+                    <div class="concept">
+                        <h4>Publications scientifiques</h4>
+                        <p>Modèle publié dans des revues à comité de lecture, compatible avec les observations CMB et les données cosmologiques.</p>
+                    </div>
+                </div>
 
-🧾 Fiche express
-</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#Fiche</span>
-            
-            <span class="tag">#Recettes</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/analyse_lumiere_lunaire_rosee_ascii_emojis_v2/">
-          <span class="post-date">07/11/2025</span>
-          <h3>Analyse complète — Impact de la lumière lunaire sur l’eau matinale / rosée</h3>
-          <p>cat &amp;gt; analyse_lumiere_lunaire_rosee_ascii_emojis_v2.md &amp;lt;&amp;lt;’MD’
-🌕✨ Impact de la lumière lunaire sur l’eau matinale &amp;#x2F; rosée — Analyse comp</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#SpiritualCept</span>
-            
-            <span class="tag">#Atuces</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/tutorials/Cyber/Mood/cnc_linux_tutoriel/">
-          <span class="post-date">06/11/2025</span>
-          <h3>Tutoriel - Utiliser des logiciels open source pour CNC sous Linux</h3>
-          <p>🛠️ Tutoriel : Utiliser des logiciels open source pour CNC sous Linux 🐧Voici un guide pour t’aider à démarrer avec des logiciels open source compatib</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Mood</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#FabLab</span>
-            
-            <span class="tag">#Cyber</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/embedded/Cyber/EspressoBin_UEFI_Boot_Guide/">
-          <span class="post-date">05/11/2025</span>
-          <h3>ARM64 — EspressoBin — UEFI + eMMC Complete Guide (2022 → 2025) 🚀</h3>
-          <p>⚙️ EspressoBin — UEFI + eMMC Complete Guide (2022 → 2025) 🚀📘 Projet : OMNI SUITE | Cyber &amp;#x2F; Embedded Labs🧠 Auteur : KuBoX Studio @ CyberMind # </p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#ARM</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#Aramada</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/LIVREE2025-001/">
-          <span class="post-date">01/11/2025</span>
-          <h3>La Livrée d’Hermès (signé Aníbal Edelberto Amiot)</h3>
-          <p>  Merci pour La Livrée d’Hermès, signé Aníbal Edelberto Amiot.Ce travail combine des éléments hermétiques, géométriques, numérologiques, et symbolique</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#The Conjurers</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#Alchimie</span>
-            
-            <span class="tag">#Invisibles</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/creative/Cyber/Mood/Memo-netiquette-rfc1855/">
-          <span class="post-date">30/10/2025</span>
-          <h3>Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)</h3>
-          <p>🧭 Fiche Mémo — Nétiquette Internet (RFC 1855, 1995)💡 Principe général
-« Traitez les autres en ligne comme vous voudriez être traité hors ligne. »
+                <div class="links">
+                    <a href="https://www.jp-petit.org/" target="_blank" class="link-btn">
+                        📖 Site J-P. Petit
+                    </a>
+                    <a href="https://www.youtube.com/user/Savoir1science" target="_blank" class="link-btn">
+                        🎬 Chaîne YouTube
+                    </a>
+                </div>
+            </article>
+        </section>
 
-L</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#CyberSecurity</span>
-            
-            <span class="tag">#RFC</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/cybersecurity/Cyber/Mood/BREF-netiquette_1995/">
-          <span class="post-date">30/10/2025</span>
-          <h3>RFC 1855 — Nétiquette (1995) en bref</h3>
-          <p>&amp;#x3D; RFC 1855 — Nétiquette (1995) en bref &amp;#x3D;
-RFC 1855 — Nétiquette (1995) en brefL’idée centraleSoyez prévenant, clair et économe en ressources.</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#CyberSecurity</span>
-            
-            <span class="tag">#RFC</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/creative/Cyber/Mind/welcome/">
-          <span class="post-date">19/02/2022</span>
-          <h3>welcome</h3>
-          <p>Still in progress…
-Stay tune!
-Héllo all 👋About @ CyberMind
-Contact @ CyberMind
-Here are some ideas you must know about CyberMind’s rules:
-🙋‍♀️ A sho</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#news</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/embedded/Cyber/OpenWrt_ARM64_LXC_Quick_Guide/">
-          <span class="post-date">07/06/2021</span>
-          <h3>OpenWrt ARM64 — LXC QUICK GUIDE</h3>
-          <p>⚙️ OpenWrt ARM64 — LXC QUICK GUIDETested on: EspressoBin &amp;#x2F; EspressoBin Ultra (MVEBU ARM64)Base version: OpenWrt 21.02-RCGoal: Run lightweight Deb</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#ARM</span>
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#Aramada</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/cybersecurity/Cyber/CDN-Local/">
-          <span class="post-date">11/11/2014</span>
-          <h3>CDN Local</h3>
-          <p>&amp;#x3D; CDN Local &amp;#x3D;
-À l’origine le billet suivant m’a beaucoup interpelé :Héberger son propre CDN local
+        <!-- Comparison Panel -->
+        <section class="panel" id="compare">
+            <div class="comparison-grid">
+                <div class="comparison-row header">
+                    <div class="comparison-cell aspect">
+                        <h3 style="color: var(--text-light);">Critère</h3>
+                    </div>
+                    <div class="comparison-cell tychos-col">
+                        <h3>TYCHOS</h3>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Simon Shack</span>
+                    </div>
+                    <div class="comparison-cell janus-col">
+                        <h3>JANUS</h3>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Jean-Pierre Petit</span>
+                    </div>
+                </div>
 
-Dernièrement, je vous parlais d’une petit</p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#contribute</span>
-            
-            <span class="tag">#CLOUD</span>
-            
-            <span class="tag">#CyberSecurity</span>
-            
-            <span class="tag">#SECUBOX</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
-      <article class="post-item">
-        <a href="/philosophy/Cyber/Mood/abeille_savoyenne/">
-          <span class="post-date">01/05/1917</span>
-          <h3>Folklore savoyen : Note sur le deuil des abeilles</h3>
-          <p>FOLKLORE SAVOYENNOTE SUR LE DEUIL DES ABEILLESQuand on est possédé de l’amour de la lecture et qu’à l’âge d’homme la tendance de l’esprit vous pousse </p>
-          
-          <div class="post-tags">
-            
-            <span class="tag">#Savoie</span>
-            
-            <span class="tag">#deuil</span>
-            
-            <span class="tag">#folklore</span>
-            
-            <span class="tag">#abeilles</span>
-            
-          </div>
-          
-        </a>
-      </article>
-      
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Échelle d'application</div>
+                    <div class="comparison-cell tychos-col">Système solaire local uniquement</div>
+                    <div class="comparison-cell janus-col">Cosmologique — univers entier</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Problème adressé</div>
+                    <div class="comparison-cell tychos-col">Incohérences géométriques du modèle copernicien, mouvements rétrogrades</div>
+                    <div class="comparison-cell janus-col">Matière noire, énergie noire, rotation galactique</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Fondement théorique</div>
+                    <div class="comparison-cell tychos-col">Géométrie euclidienne classique, observations de Tycho Brahe</div>
+                    <div class="comparison-cell janus-col">Relativité générale étendue, calcul tensoriel</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Position de la Terre</div>
+                    <div class="comparison-cell tychos-col">Au barycentre du système binaire Soleil-Mars</div>
+                    <div class="comparison-cell janus-col">Position standard (héliocentrique)</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Mouvement terrestre</div>
+                    <div class="comparison-cell tychos-col">Orbite lente de 25 344 ans à 1,6 km/h</div>
+                    <div class="comparison-cell janus-col">Orbite héliocentrique standard</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Rapport à Einstein/Newton</div>
+                    <div class="comparison-cell tychos-col">Rejet explicite — considérés comme inadéquats</div>
+                    <div class="comparison-cell janus-col">Extension — reste dans le cadre relativiste</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Outils mathématiques</div>
+                    <div class="comparison-cell tychos-col">Trigonométrie, géométrie classique</div>
+                    <div class="comparison-cell janus-col">Géométrie différentielle, variétés riemanniennes</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Validation</div>
+                    <div class="comparison-cell tychos-col">Simulateur Tychosium, conjonctions observées</div>
+                    <div class="comparison-cell janus-col">Publications peer-reviewed, simulations numériques</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Prédictions clés</div>
+                    <div class="comparison-cell tychos-col">Cycles de Mars (79 ans), triple conjonction 2050</div>
+                    <div class="comparison-cell janus-col">Courbes de rotation, expansion accélérée</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell aspect">Compatibilité mutuelle</div>
+                    <div class="comparison-cell tychos-col" colspan="2" style="grid-column: span 2; text-align: center;">
+                        <em>Les deux modèles opèrent sur des échelles différentes et ne s'excluent pas nécessairement</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-card" style="border-left: 4px solid white; margin-top: 2rem;">
+                <h2 class="model-title" style="background: linear-gradient(135deg, var(--tychos-primary), var(--janus-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Synthèse</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                    Ces deux modèles représentent des approches radicalement différentes de la remise en question de la cosmologie standard. 
+                    <strong style="color: var(--tychos-primary);">TYCHOS</strong> propose une reconfiguration géométrique du système solaire, 
+                    s'appuyant sur les données observationnelles et rejetant la physique post-newtonienne. 
+                    <strong style="color: var(--janus-primary);">JANUS</strong> étend au contraire la relativité générale pour résoudre 
+                    les problèmes de la cosmologie moderne à l'échelle de l'univers.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                    Le modèle TYCHOS, avec son approche géométrique "accessible", et le modèle JANUS, avec sa rigueur mathématique, 
+                    illustrent deux façons de challenger l'orthodoxie scientifique : l'une par le retour aux fondamentaux observationnels, 
+                    l'autre par l'extension sophistiquée des cadres théoriques existants.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Comparaison réalisée à des fins éducatives — Janvier 2026</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+            Sources: <em>The TYCHOS - Our Geoaxial Binary Solar System</em> (Simon Shack, 2025) 
+            & Publications de Jean-Pierre Petit
+        </p>
+    </footer>
+
+    <script>
+        // Generate starfield
+        const starfield = document.getElementById('starfield');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = star.style.height = Math.random() * 2 + 1 + 'px';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starfield.appendChild(star);
+        }
+
+        // Tab navigation
+        const tabs = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove all active states
+                tabs.forEach(t => {
+                    t.classList.remove('active-tychos', 'active-janus', 'active-compare');
+                });
+                panels.forEach(p => p.classList.remove('active'));
+
+                // Add active state to clicked tab
+                tab.classList.add(tab.dataset.active);
+
+                // Show corresponding panel
+                document.getElementById(tab.dataset.panel).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
     </div>
-    
-  </section>
-
-  
-  <section class="other-categories">
-    <h2>📁 Autres catégories</h2>
-    <div class="cat-nav">
-      
-      <a href="/blog/cybersecurity/" class="cat-nav-item" style="--nav-color: #00ff88">
-        <span>🛡️</span>
-        <span>Cybersécurité</span>
-        <span class="nav-count">40</span>
-      </a>
-      
-      <a href="/blog/embedded/" class="cat-nav-item" style="--nav-color: #ff6600">
-        <span>⚙️</span>
-        <span>Embarqué</span>
-        <span class="nav-count">7</span>
-      </a>
-      
-      <a href="/blog/linux/" class="cat-nav-item" style="--nav-color: #ffcc00">
-        <span>🐧</span>
-        <span>Linux</span>
-        <span class="nav-count">2</span>
-      </a>
-      
-      <a href="/blog/creative/" class="cat-nav-item" style="--nav-color: #ff6699">
-        <span>🎨</span>
-        <span>Créativité</span>
-        <span class="nav-count">6</span>
-      </a>
-      
-      <a href="/blog/philosophy/" class="cat-nav-item" style="--nav-color: #9966ff">
-        <span>🧘</span>
-        <span>Philosophie</span>
-        <span class="nav-count">12</span>
-      </a>
-      
-      <a href="/blog/tutorials/" class="cat-nav-item" style="--nav-color: #66ccff">
-        <span>📖</span>
-        <span>Tutoriels</span>
-        <span class="nav-count">0</span>
-      </a>
-      
-      <a href="/blog/projects/" class="cat-nav-item" style="--nav-color: #06b6d4">
-        <span>🚀</span>
-        <span>Projets</span>
-        <span class="nav-count">4</span>
-      </a>
-      
-      <a href="/blog/divers/" class="cat-nav-item" style="--nav-color: #06b6d4">
-        <span>🚀</span>
-        <span>Divers</span>
-        <span class="nav-count">5</span>
-      </a>
-      
-    </div>
-  </section>
-  
-
-</div>
-
-<style>
-.category-page { max-width: 900px; margin: 0 auto; padding: 2rem; }
-
-.cat-header {
-  text-align: center; padding: 2rem 0; margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.cat-header .cat-icon { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
-.cat-header h1 { font-size: 2rem; color: var(--cat-color); margin: 0 0 0.5rem; }
-.cat-header .cat-desc { color: #9898a6; margin: 0 0 0.5rem; }
-.cat-header .cat-count { color: #6a6a7a; font-size: 0.9rem; margin: 0 0 0.5rem; }
-.breadcrumb { font-size: 0.85rem; color: #6a6a7a; }
-.breadcrumb a { color: var(--cat-color); text-decoration: none; }
-
-.resources {
-  display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem;
-  background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 1.5rem;
-}
-.res-group h3 { font-size: 0.9rem; color: #9898a6; margin: 0 0 0.5rem; }
-.res-link {
-  display: inline-block; padding: 0.3rem 0.6rem; margin-right: 0.5rem;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px; color: #e8e8ed; text-decoration: none; font-size: 0.85rem;
-}
-.res-link:hover { border-color: var(--cat-color); color: var(--cat-color); }
-
-.cat-content {
-  padding: 1.5rem; margin-bottom: 1.5rem;
-  background: rgba(255,255,255,0.03); border-radius: 8px;
-  border-left: 3px solid var(--cat-color);
-}
-
-.posts-section h2 { color: var(--cat-color, #e8e8ed); margin-bottom: 1rem; }
-
-.posts-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.post-item {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px; transition: border-color 0.2s, transform 0.2s;
-}
-.post-item:hover { border-color: var(--cat-color); transform: translateX(4px); }
-.post-item a { display: block; padding: 1rem; text-decoration: none; color: inherit; }
-.post-item .post-date { font-size: 0.8rem; color: #6a6a7a; }
-.post-item h3 { margin: 0.3rem 0 0.5rem; font-size: 1.05rem; color: #e8e8ed; }
-.post-item p { margin: 0 0 0.5rem; font-size: 0.9rem; color: #9898a6; }
-.post-item .post-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.post-item .tag { font-size: 0.75rem; color: var(--cat-color); opacity: 0.7; }
-
-.no-posts {
-  text-align: center; padding: 2rem;
-  background: rgba(255,255,255,0.03); border-radius: 8px; color: #6a6a7a;
-}
-.no-posts a { color: var(--cat-color); }
-
-.other-categories { margin-top: 2rem; }
-.other-categories h2 { color: #9898a6; font-size: 1rem; margin-bottom: 1rem; }
-.cat-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.cat-nav-item {
-  display: flex; align-items: center; gap: 0.4rem;
-  padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;
-  text-decoration: none; color: #c8c8d0; font-size: 0.85rem;
-  transition: all 0.2s;
-}
-.cat-nav-item:hover { border-color: var(--nav-color); color: var(--nav-color); }
-.cat-nav-item .nav-count {
-  background: rgba(255,255,255,0.1); padding: 0.1rem 0.4rem;
-  border-radius: 4px; font-size: 0.7rem;
-}
-
-@media (max-width: 600px) { .cat-header h1 { font-size: 1.5rem; } }
-[data-theme="light"] .category-page { background: #fff; }
-[data-theme="light"] .post-item, [data-theme="light"] .resources, 
-[data-theme="light"] .cat-content { background: #f8f9fa; border-color: #e0e0e0; }
-[data-theme="light"] .post-item h3, [data-theme="light"] h2 { color: #2a2a3a; }
-</style>
+</section>
 
         <footer>
             <div class="footer-content">
