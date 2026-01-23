@@ -818,7 +818,7 @@
             <span style="color: #3b82f6">#ChatGPT</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.1rem;">
-            2 articles avec ce tag
+            3 articles avec ce tag
         </p>
     </div>
 
@@ -826,7 +826,7 @@
         
             
 
-<article class="article-card gui-window Engineering" style="--article-color: #f97316;" id="art-cuidGqySSnMDD2OkyEmBK4d9o">
+<article class="article-card gui-window Engineering" style="--article-color: #f97316;" id="art-cuidU8mKzwWkKJdvISK0vTZMc">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -879,12 +879,12 @@
                         🏷️ChatGPT
                     </a>
                     
-                    <a href="/tags/IA/" class="status-tag">
-                        🏷️IA
+                    <a href="/tags/Automation/" class="status-tag">
+                        🏷️Automation
                     </a>
                     
-                    <a href="/tags/Fullstack/" class="status-tag">
-                        🏷️Fullstack
+                    <a href="/tags/CI-CD/" class="status-tag">
+                        🏷️CI/CD
                     </a>
                     
                 </div>
@@ -1252,7 +1252,7 @@
         
             
 
-<article class="article-card gui-window Engineering" style="--article-color: #f97316;" id="art-cuidGxKKyJ-9UIJ22QYaDQkMZ">
+<article class="article-card gui-window Engineering" style="--article-color: #f97316;" id="art-cuidohVTmGefrp2phHBEil-m5">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1306,12 +1306,12 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
                         🏷️ChatGPT
                     </a>
                     
-                    <a href="/tags/IA/" class="status-tag">
-                        🏷️IA
+                    <a href="/tags/Automation/" class="status-tag">
+                        🏷️Automation
                     </a>
                     
-                    <a href="/tags/TypeScript/" class="status-tag">
-                        🏷️TypeScript
+                    <a href="/tags/DevOps/" class="status-tag">
+                        🏷️DevOps
                     </a>
                     
                 </div>
@@ -1321,6 +1321,430 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
         
         <!-- Bouton action -->
         <a href="/cybersecurity/Engineering/Fullstack/ChatGPT%20Exporter%20Pro/" class="window-action-btn" style="background: #f97316;">
+            <span class="action-icon">▶</span>
+            <span class="action-text">Lire la suite →</span>
+            <span class="action-arrow">→</span>
+        </a>
+    </div>
+</article>
+
+<style>
+/* Style fenêtre GUI */
+.article-card.gui-window {
+    position: relative;
+    background: var(--bg-primary);
+    border: 2px solid var(--article-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.article-card.gui-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.5),
+        0 0 30px var(--article-color)30,
+        inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Barre de titre */
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--article-color);
+    color: #000;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    min-height: 36px;
+}
+
+/* Boutons de fenêtre */
+.window-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.window-btn.close {
+    background: #ff5f57;
+    color: #ff5f57;
+}
+
+.window-btn.minimize {
+    background: #ffbd2e;
+    color: #ffbd2e;
+}
+
+.window-btn.maximize {
+    background: #28ca42;
+    color: #28ca42;
+}
+
+.window-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Titre de la fenêtre */
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.window-emojis {
+    display: flex;
+    gap: 2px;
+    animation: emojiPulse 2s ease-in-out infinite;
+}
+
+@keyframes emojiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.window-category {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.window-separator {
+    opacity: 0.5;
+}
+
+.window-filename {
+    opacity: 0.7;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Lettrines dans la barre */
+.window-lettrines {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.window-lettrines .lettrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.window-lettrines .lettrine:hover {
+    background: rgba(0,0,0,0.4);
+    transform: scale(1.15);
+}
+
+/* Contenu de la fenêtre */
+.window-content {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.article-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+}
+
+.article-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-title a:hover {
+    color: var(--article-color);
+}
+
+.article-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+/* Barre de status */
+.window-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -1.25rem;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-separator {
+    opacity: 0.3;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0.15rem 0.4rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+}
+
+.status-tag:hover {
+    background: var(--article-color);
+    color: #000;
+    border-color: var(--article-color);
+}
+
+/* Bouton action */
+.window-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--article-color);
+    color: #000;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.window-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.window-action-btn:hover::before {
+    left: 100%;
+}
+
+.window-action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px var(--article-color)50;
+}
+
+.action-icon {
+    font-size: 0.7rem;
+}
+
+.action-arrow {
+    transition: transform 0.3s ease;
+}
+
+.window-action-btn:hover .action-arrow {
+    transform: translateX(5px);
+}
+
+/* Animation scanlines effet CRT */
+.article-card.gui-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article-card.gui-window:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .window-titlebar {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+        flex-wrap: wrap;
+    }
+    
+    .window-filename {
+        display: none;
+    }
+    
+    .window-separator {
+        display: none;
+    }
+    
+    .window-lettrines {
+        display: none;
+    }
+    
+    .window-content {
+        padding: 1rem;
+    }
+    
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .window-statusbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        margin: 0 -1rem;
+    }
+    
+    .status-tags {
+        margin-top: 0.25rem;
+    }
+}
+</style>
+
+        
+            
+
+<article class="article-card gui-window creative" style="--article-color: #10b981;" id="art-cuidpeKtp_m3HJRM_j2UHckB7">
+    <!-- Barre de titre style fenêtre GUI -->
+    <div class="window-titlebar" style="background: #10b981;">
+        <div class="window-buttons">
+            <span class="window-btn close" title="Fermer">●</span>
+            <span class="window-btn minimize" title="Réduire">●</span>
+            <span class="window-btn maximize" title="Agrandir">●</span>
+        </div>
+        <div class="window-title">
+            <span class="window-emojis">
+                📝
+            </span>
+            <span class="window-category">Creative</span>
+            <span class="window-separator">—</span>
+            <span class="window-filename">L&#39;Oracle du Prompt - Générateu...</span>
+        </div>
+        <div class="window-lettrines">
+            
+            
+        </div>
+    </div>
+    
+    <!-- Contenu de la fenêtre -->
+    <div class="window-content">
+        <h3 class="article-title">
+            <a href="/research/creative/tutorials/prompt-oracle-article/">L&#39;Oracle du Prompt - Générateur Initiatique</a>
+        </h3>
+        
+        
+        <p class="article-excerpt">Un outil interactif pour apprendre et générer des prompts optimisés pour Claude et ChatGPT, avec une approche pédagogique par niveaux d&#39;initiation.</p>
+        
+        
+        <!-- Barre de status style terminal -->
+        <div class="window-statusbar">
+            <div class="status-left">
+                <span class="status-date">
+                    📅 23/01/2025
+                </span>
+                <span class="status-separator">|</span>
+                <span class="status-time">
+                    🕐 00:00
+                </span>
+            </div>
+            <div class="status-right">
+                
+                <div class="status-tags">
+                    
+                    <a href="/tags/ChatGPT/" class="status-tag">
+                        🏷️ChatGPT
+                    </a>
+                    
+                    <a href="/tags/prompt-engineering/" class="status-tag">
+                        🏷️prompt-engineering
+                    </a>
+                    
+                    <a href="/tags/LLM/" class="status-tag">
+                        🏷️LLM
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Bouton action -->
+        <a href="/research/creative/tutorials/prompt-oracle-article/" class="window-action-btn" style="background: #10b981;">
             <span class="action-icon">▶</span>
             <span class="action-text">Lire la suite →</span>
             <span class="action-arrow">→</span>
@@ -1832,7 +2256,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">10</span>
         </a>
         
-        <a href="/tags/openwrt/" 
+        <a href="/tags/MOCHAbin/" 
            class="tag-item" 
            style="
                font-size: 1.85rem;
@@ -1849,7 +2273,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#f59e0b25'; this.style.borderColor='#f59e0b'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #f59e0b15, #f59e0b08)'; this.style.borderColor='#f59e0b30'; this.style.transform='translateY(0)';">
-            #openwrt
+            #MOCHAbin
             <span style="
                 background: #f59e0b25;
                 padding: 0.2rem 0.5rem;
@@ -1859,7 +2283,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">10</span>
         </a>
         
-        <a href="/tags/MOCHAbin/" 
+        <a href="/tags/openwrt/" 
            class="tag-item" 
            style="
                font-size: 1.85rem;
@@ -1876,7 +2300,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#ef444425'; this.style.borderColor='#ef4444'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #ef444415, #ef444408)'; this.style.borderColor='#ef444430'; this.style.transform='translateY(0)';">
-            #MOCHAbin
+            #openwrt
             <span style="
                 background: #ef444425;
                 padding: 0.2rem 0.5rem;
@@ -1913,7 +2337,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">9</span>
         </a>
         
-        <a href="/tags/The-Conjurers/" 
+        <a href="/tags/Armada/" 
            class="tag-item" 
            style="
                font-size: 1.75rem;
@@ -1930,7 +2354,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#06b6d425'; this.style.borderColor='#06b6d4'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #06b6d415, #06b6d408)'; this.style.borderColor='#06b6d430'; this.style.transform='translateY(0)';">
-            #The Conjurers
+            #Armada
             <span style="
                 background: #06b6d425;
                 padding: 0.2rem 0.5rem;
@@ -1940,7 +2364,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">9</span>
         </a>
         
-        <a href="/tags/Armada/" 
+        <a href="/tags/The-Conjurers/" 
            class="tag-item" 
            style="
                font-size: 1.75rem;
@@ -1957,7 +2381,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#84cc1625'; this.style.borderColor='#84cc16'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #84cc1615, #84cc1608)'; this.style.borderColor='#84cc1630'; this.style.transform='translateY(0)';">
-            #Armada
+            #The Conjurers
             <span style="
                 background: #84cc1625;
                 padding: 0.2rem 0.5rem;
@@ -2102,7 +2526,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">6</span>
         </a>
         
-        <a href="/tags/enigmabox/" 
+        <a href="/tags/NAS/" 
            class="tag-item" 
            style="
                font-size: 1.4500000000000002rem;
@@ -2119,7 +2543,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#f59e0b25'; this.style.borderColor='#f59e0b'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #f59e0b15, #f59e0b08)'; this.style.borderColor='#f59e0b30'; this.style.transform='translateY(0)';">
-            #enigmabox
+            #NAS
             <span style="
                 background: #f59e0b25;
                 padding: 0.2rem 0.5rem;
@@ -2129,7 +2553,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">6</span>
         </a>
         
-        <a href="/tags/NAS/" 
+        <a href="/tags/enigmabox/" 
            class="tag-item" 
            style="
                font-size: 1.4500000000000002rem;
@@ -2146,7 +2570,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#ef444425'; this.style.borderColor='#ef4444'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #ef444415, #ef444408)'; this.style.borderColor='#ef444430'; this.style.transform='translateY(0)';">
-            #NAS
+            #enigmabox
             <span style="
                 background: #ef444425;
                 padding: 0.2rem 0.5rem;
@@ -2156,7 +2580,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">6</span>
         </a>
         
-        <a href="/tags/Alerte/" 
+        <a href="/tags/FAST-BACK/" 
            class="tag-item" 
            style="
                font-size: 1.35rem;
@@ -2173,7 +2597,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#ec489925'; this.style.borderColor='#ec4899'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #ec489915, #ec489908)'; this.style.borderColor='#ec489930'; this.style.transform='translateY(0)';">
-            #Alerte
+            #FAST BACK
             <span style="
                 background: #ec489925;
                 padding: 0.2rem 0.5rem;
@@ -2183,7 +2607,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">5</span>
         </a>
         
-        <a href="/tags/LASER/" 
+        <a href="/tags/Alerte/" 
            class="tag-item" 
            style="
                font-size: 1.35rem;
@@ -2200,7 +2624,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#06b6d425'; this.style.borderColor='#06b6d4'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #06b6d415, #06b6d408)'; this.style.borderColor='#06b6d430'; this.style.transform='translateY(0)';">
-            #LASER
+            #Alerte
             <span style="
                 background: #06b6d425;
                 padding: 0.2rem 0.5rem;
@@ -2210,7 +2634,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
             ">5</span>
         </a>
         
-        <a href="/tags/Creativity/" 
+        <a href="/tags/LASER/" 
            class="tag-item" 
            style="
                font-size: 1.35rem;
@@ -2227,7 +2651,7 @@ Ce guide couvre l’intégralité du projet professionnel ChatGPT Exporter Pro, 
            "
            onmouseover="this.style.background='#84cc1625'; this.style.borderColor='#84cc16'; this.style.transform='translateY(-2px)';"
            onmouseout="this.style.background='linear-gradient(135deg, #84cc1615, #84cc1608)'; this.style.borderColor='#84cc1630'; this.style.transform='translateY(0)';">
-            #Creativity
+            #LASER
             <span style="
                 background: #84cc1625;
                 padding: 0.2rem 0.5rem;
