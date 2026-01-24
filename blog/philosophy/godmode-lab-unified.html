@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/godmode-lab-unified.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2026-01-24T07:58:00.924Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/godmode-lab-unified.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Godmode Lab - Claude & ChatGPT | CyberMind.FR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Claude Theme */
+            --claude-bg: #0a0a1a;
+            --claude-card: rgba(26, 26, 46, 0.9);
+            --claude-accent: #d4af37;
+            --claude-accent2: #9d4edd;
+            --claude-cyan: #00d9ff;
+            --claude-coral: #e94560;
+            
+            /* ChatGPT Theme */
+            --gpt-bg: #0d0d0d;
+            --gpt-card: rgba(32, 33, 35, 0.9);
+            --gpt-accent: #10A37F;
+            --gpt-accent2: #8B5CF6;
+            --gpt-cyan: #06B6D4;
+            --gpt-pink: #EC4899;
+            
+            /* Current Theme (default Claude) */
+            --bg-primary: var(--claude-bg);
+            --bg-card: var(--claude-card);
+            --accent: var(--claude-accent);
+            --accent2: var(--claude-accent2);
+            --cyan: var(--claude-cyan);
+            --highlight: var(--claude-coral);
+            
+            /* Shared */
+            --text-primary: #ECECF1;
+            --text-secondary: #8E8EA0;
+            --border-color: #2D2D30;
+            --red: #EF4444;
+            --amber: #F59E0B;
+            --green: #4ade80;
+        }
+
+        body.gpt-mode {
+            --bg-primary: var(--gpt-bg);
+            --bg-card: var(--gpt-card);
+            --accent: var(--gpt-accent);
+            --accent2: var(--gpt-accent2);
+            --cyan: var(--gpt-cyan);
+            --highlight: var(--gpt-pink);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Philosopher', 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background 0.5s ease;
+        }
+
+        body.gpt-mode { font-family: 'Inter', sans-serif; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        body.gpt-mode::before {
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(16, 163, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 20px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           PLATFORM SWITCHER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .platform-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 24px;
+            background: var(--bg-card);
+            border-radius: 50px;
+            padding: 6px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .platform-btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .platform-btn:hover { color: var(--text-primary); }
+
+        .platform-btn.active {
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .platform-btn.claude-btn.active {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #0a0a1a;
+        }
+
+        .platform-btn.gpt-btn.active {
+            background: linear-gradient(135deg, #10A37F, #0d8a6a);
+            color: white;
+        }
+
+        .platform-btn .icon { font-size: 24px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           HEADER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        header { text-align: center; padding: 30px 20px; }
+        
+        .logo {
+            font-size: 72px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        body.gpt-mode h1 { font-family: 'Inter', sans-serif; }
+        body:not(.gpt-mode) h1 { font-family: 'Cinzel', serif; letter-spacing: 3px; }
+
+        .subtitle { color: var(--accent); font-size: 1rem; margin-bottom: 8px; }
+        .author { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           MODEL SELECTOR
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .model-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .model-btn {
+            padding: 12px 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .model-btn:hover { border-color: var(--accent); }
+
+        .model-btn.active {
+            border-color: var(--accent);
+            background: rgba(var(--accent), 0.2);
+            box-shadow: 0 0 20px rgba(var(--accent), 0.2);
+        }
+
+        body:not(.gpt-mode) .model-btn.active { background: rgba(212, 175, 55, 0.15); }
+        body.gpt-mode .model-btn.active { background: rgba(16, 163, 127, 0.15); }
+
+        .model-btn .name { font-weight: 600; font-size: 13px; display: block; }
+        .model-btn .cost { font-size: 11px; color: var(--text-secondary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════════════════════════ */
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav button:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+
+        nav button.active {
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            color: white;
+        }
+
+        body:not(.gpt-mode) nav button.active { color: #0a0a1a; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           MAIN LAYOUT
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 950px) { .main-grid { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 16px 0 8px;
+        }
+
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SVG GRAPH
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .graph-container svg { max-width: 100%; height: auto; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           CODE BLOCK
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .code-block {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .code-block:hover { border-color: var(--accent); }
+
+        .code-block::after {
+            content: 'Click to copy';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .code-block:hover::after { opacity: 1; }
+        .code-block.copied::after { content: '✓ Copied!'; color: var(--green); opacity: 1; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FORM ELEMENTS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+        textarea { resize: vertical; min-height: 100px; font-family: 'JetBrains Mono', monospace; }
+        label { display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 4px; }
+
+        .vars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            color: white;
+        }
+
+        body:not(.gpt-mode) .btn-primary { color: #0a0a1a; }
+
+        .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           TAGS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tag-model { background: rgba(var(--accent), 0.2); color: var(--accent); }
+        body:not(.gpt-mode) .tag-model { background: rgba(212, 175, 55, 0.2); color: #d4af37; }
+        body.gpt-mode .tag-model { background: rgba(16, 163, 127, 0.2); color: #10A37F; }
+
+        .tag-model.active { background: var(--accent); color: white; }
+        body:not(.gpt-mode) .tag-model.active { color: #0a0a1a; }
+
+        .tag-connection { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
+        .tag-connection:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SLIDER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .slider-container { margin: 16px 0; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
+        .slider-value { color: var(--accent); font-weight: 600; }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            border: none;
+            padding: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           COMPARISON TABLE
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 16px 0; }
+
+        .comparison-table th {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 6px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .comparison-table th:first-child { text-align: left; }
+        .comparison-table td { padding: 8px 6px; border-bottom: 1px solid var(--border-color); text-align: center; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; }
+        .comparison-table tr:hover { background: rgba(var(--accent), 0.05); }
+
+        .status-yes { color: var(--green); font-size: 1.1em; }
+        .status-no { color: var(--red); font-size: 1.1em; }
+        .status-maybe { color: var(--amber); font-size: 1.1em; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           LEVEL CARDS (Claude specific)
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .level-card {
+            border-radius: 10px;
+            padding: 16px;
+            margin: 12px 0;
+            border-left: 3px solid;
+        }
+
+        .level-card.success { background: rgba(74, 222, 128, 0.1); border-color: var(--green); }
+        .level-card.warning { background: rgba(251, 191, 36, 0.1); border-color: var(--amber); }
+        .level-card.danger { background: rgba(239, 68, 68, 0.1); border-color: var(--red); }
+
+        .level-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-weight: 600; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           TIPS & PHILOSOPHY
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .tips-box {
+            background: rgba(var(--accent), 0.1);
+            border: 1px solid rgba(var(--accent), 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        body:not(.gpt-mode) .tips-box { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.2); }
+        body.gpt-mode .tips-box { background: rgba(16, 163, 127, 0.1); border-color: rgba(16, 163, 127, 0.2); }
+
+        .tips-box p { font-size: 13px; color: var(--text-secondary); margin: 8px 0; }
+        .tips-box p::before { content: '• '; color: var(--accent); }
+
+        .philosophy-box {
+            background: linear-gradient(135deg, rgba(var(--accent), 0.1), rgba(var(--accent2), 0.05));
+            border: 1px solid rgba(var(--accent), 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        body:not(.gpt-mode) .philosophy-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(157, 78, 221, 0.05));
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        body.gpt-mode .philosophy-box {
+            background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(139, 92, 246, 0.05));
+            border-color: rgba(16, 163, 127, 0.2);
+        }
+
+        .philosophy-box pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            display: inline-block;
+            text-align: left;
+            margin: 16px 0;
+        }
+
+        .philosophy-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+
+        .philosophy-symbols { font-size: 1.6rem; margin-top: 12px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           HEXAGRAM (Claude specific)
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .hexagram-display {
+            display: inline-block;
+            background: rgba(0,0,0,0.3);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(212, 175, 55, 0.8);
+            text-align: left;
+            white-space: pre;
+            line-height: 1.8;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           LIBRARY
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .library-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .library-item:hover { background: rgba(255,255,255,0.06); border-color: var(--border-color); }
+
+        .library-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .library-item-name { font-weight: 500; font-size: 13px; }
+        .library-item-model { font-size: 11px; color: var(--accent); }
+        .library-item-preview { font-size: 11px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .footer-brand { color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SCROLLBAR
+           ═══════════════════════════════════════════════════════════════════ */
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 600px) {
+            .platform-btn { padding: 10px 20px; font-size: 14px; }
+            .platform-btn .icon { font-size: 20px; }
+            .model-selector { grid-template-columns: repeat(2, 1fr); }
+            nav button { padding: 8px 12px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Platform Switcher -->
+        <div class="platform-switcher">
+            <button class="platform-btn claude-btn active" data-platform="claude">
+                <span class="icon">🧙‍♂️</span>
+                <span>Claude</span>
+            </button>
+            <button class="platform-btn gpt-btn" data-platform="gpt">
+                <span class="icon">🤖</span>
+                <span>ChatGPT</span>
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo" id="mainLogo">🧙‍♂️</div>
+            <h1 id="mainTitle">CLAUDE GODMODE LAB</h1>
+            <p class="subtitle" id="mainSubtitle">Claude 3.5 Sonnet • Opus • Haiku</p>
+            <p class="author">Par Gandalf • CyberMind.FR</p>
+        </header>
+
+        <!-- Model Selector -->
+        <div class="model-selector" id="modelSelector"></div>
+
+        <!-- Navigation -->
+        <nav id="mainNav"></nav>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel -->
+            <div class="card" id="leftPanel"></div>
+
+            <!-- Right Panel -->
+            <div class="right-panel" id="rightPanel"></div>
+        </div>
+
+        <footer>
+            <div class="footer-brand" id="footerBrand">🧙‍♂️ Claude Godmode Lab</div>
+            <span>CyberMind.FR • 2025 • Par Gandalf</span>
+        </footer>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA - CLAUDE
+        // ═══════════════════════════════════════════════════════════════════
+
+        const CLAUDE_MODELS = {
+            'claude-3.5-sonnet': { name: 'Claude 3.5 Sonnet', speed: 'fast', cost: '$$' },
+            'claude-3-opus': { name: 'Claude 3 Opus', speed: 'medium', cost: '$$$' },
+            'claude-3.5-haiku': { name: 'Claude 3.5 Haiku', speed: 'very-fast', cost: '$' },
+            'claude-3-sonnet': { name: 'Claude 3 Sonnet', speed: 'fast', cost: '$$' }
+        };
+
+        const CLAUDE_PATTERNS = {
+            formula: {
+                id: 'formula', name: 'Formule Universelle', emoji: '⚡',
+                template: '[RÔLE] + [CONTEXTE] + [TÂCHE] + [FORMAT] + [CONTRAINTES]',
+                variables: ['role', 'context', 'task', 'format', 'constraints'],
+                color: '#d4af37', connections: ['persona', 'cot'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: 'Réfléchis étape par étape avant de répondre.',
+                variables: [],
+                color: '#00d9ff', connections: ['meta', 'multipath'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            persona: {
+                id: 'persona', name: 'Persona Expert', emoji: '🎭',
+                template: 'Tu es un [EXPERT] avec [N] ans d\'expérience en [DOMAINE].',
+                variables: ['expert', 'years', 'domain'],
+                color: '#e94560', connections: ['formula', 'fewshot'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot Learning', emoji: '📚',
+                template: 'Exemples:\n[INPUT_1] → [OUTPUT_1]\n[INPUT_2] → [OUTPUT_2]\nMaintenant traite: [QUERY]',
+                variables: ['input1', 'output1', 'input2', 'output2', 'query'],
+                color: '#9d4edd', connections: ['formula', 'persona'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            multipath: {
+                id: 'multipath', name: 'Multi-Path', emoji: '🔄',
+                template: 'Génère [N] approches différentes, puis synthétise la meilleure solution.',
+                variables: ['paths'],
+                color: '#4ade80', connections: ['cot', 'meta'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            meta: {
+                id: 'meta', name: 'Méta-Réflexion', emoji: '🪞',
+                template: 'Avant de répondre, identifie les biais potentiels de cette question.',
+                variables: [],
+                color: '#fbbf24', connections: ['cot', 'recursion'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            recursion: {
+                id: 'recursion', name: 'Récursion Bornée', emoji: '🌀',
+                template: 'Réponds. Critique ta réponse. Améliore. STOP après [N] itérations ou point fixe.',
+                variables: ['maxIterations'],
+                color: '#f472b6', connections: ['meta', 'pentest'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            pentest: {
+                id: 'pentest', name: 'Pentest de Soi', emoji: '🔐',
+                template: 'Propose [SOLUTION]. Attaque-la comme un adversaire. Défends avec les attaques valides intégrées.',
+                variables: ['solution'],
+                color: '#ef4444', connections: ['recursion', 'secubox'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            secubox: {
+                id: 'secubox', name: 'Audit SecuBox', emoji: '🛡️',
+                template: 'Analyse [CONFIG] comme un auditeur [AUTHORITY].\nSortie: [finding | criticité | remediation]',
+                variables: ['config', 'authority'],
+                color: '#06b6d4', connections: ['pentest', 'yijing'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            yijing: {
+                id: 'yijing', name: 'Oracle Yi Jing', emoji: '☯️',
+                template: 'Hexagramme [N°]: [NOM]\nInterprète pour [CONTEXTE] avec lignes mutantes.',
+                variables: ['hexNumber', 'hexName', 'context'],
+                color: '#a78bfa', connections: ['secubox', 'ouroboros'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            ouroboros: {
+                id: 'ouroboros', name: 'Ouroboros Créatif', emoji: '🐍',
+                template: 'Génère [CONTENU]. Si c\'était un hexagramme? Transforme la ligne mutante.',
+                variables: ['content'],
+                color: '#22d3ee', connections: ['yijing', 'formula'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            }
+        };
+
+        const CLAUDE_TABS = [
+            { id: 'graph', label: '🕸️ Patterns' },
+            { id: 'builder', label: '⚡ Builder' },
+            { id: 'recursion', label: '🌀 Récursion' },
+            { id: 'secubox', label: '🛡️ SecuBox' },
+            { id: 'esoteric', label: '🔮 Ésotérique' },
+            { id: 'library', label: '📚 Librairie' }
+        ];
+
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA - CHATGPT
+        // ═══════════════════════════════════════════════════════════════════
+
+        const GPT_MODELS = {
+            'gpt-4o': { name: 'GPT-4o', speed: 'fast', cost: '$$' },
+            'gpt-4-turbo': { name: 'GPT-4 Turbo', speed: 'medium', cost: '$$$' },
+            'o1-preview': { name: 'o1-preview', speed: 'slow', cost: '$$$$' },
+            'o1': { name: 'o1', speed: 'slow', cost: '$$$$$' },
+            'gpt-4o-mini': { name: 'GPT-4o Mini', speed: 'very-fast', cost: '$' }
+        };
+
+        const GPT_PATTERNS = {
+            system: {
+                id: 'system', name: 'System Role', emoji: '⚙️',
+                template: 'You are a [ROLE] with expertise in [DOMAIN]. Your task is to [OBJECTIVE].',
+                variables: ['role', 'domain', 'objective'],
+                color: '#10A37F', connections: ['persona', 'constraints'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            persona: {
+                id: 'persona', name: 'Expert Persona', emoji: '🎭',
+                template: 'You are a senior [EXPERT] with [N] years of experience in [SPECIALTY].',
+                variables: ['expert', 'years', 'specialty'],
+                color: '#8B5CF6', connections: ['system', 'fewshot'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: "Let's think through this step by step:\n1. First, [STEP1]\n2. Then, [STEP2]\n3. Finally, [STEP3]",
+                variables: ['step1', 'step2', 'step3'],
+                color: '#06B6D4', connections: ['tot', 'reflection'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            tot: {
+                id: 'tot', name: 'Tree of Thought', emoji: '🌳',
+                template: 'Explore [N] different reasoning paths. For each:\n- State approach\n- Work through logic\n- Evaluate success\nSynthesize best solution.',
+                variables: ['paths'],
+                color: '#F59E0B', connections: ['cot', 'o1native'],
+                bestFor: ['o1-preview', 'o1']
+            },
+            o1native: {
+                id: 'o1native', name: 'o1 Native', emoji: '🔮',
+                template: '[COMPLEX_PROBLEM]\n\nTake your time to reason thoroughly. Show complete thinking process.',
+                variables: ['problem'],
+                color: '#EC4899', connections: ['tot', 'adversarial'],
+                bestFor: ['o1', 'o1-preview']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot', emoji: '📚',
+                template: 'Examples:\nInput: [IN1] → Output: [OUT1]\nInput: [IN2] → Output: [OUT2]\n\nNow process: [QUERY]',
+                variables: ['in1', 'out1', 'in2', 'out2', 'query'],
+                color: '#14B8A6', connections: ['persona', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            json: {
+                id: 'json', name: 'JSON Mode', emoji: '📋',
+                template: 'Respond ONLY in valid JSON:\n{\n  "analysis": "...",\n  "recommendation": "...",\n  "confidence": 0.0-1.0\n}',
+                variables: [],
+                color: '#EAB308', connections: ['fewshot', 'constraints'],
+                bestFor: ['gpt-4-turbo', 'gpt-4o']
+            },
+            constraints: {
+                id: 'constraints', name: 'Constraints', emoji: '📏',
+                template: 'CONSTRAINTS:\n- Maximum [N] words\n- No [FORBIDDEN]\n- Always include [REQUIRED]',
+                variables: ['maxWords', 'forbidden', 'required'],
+                color: '#EF4444', connections: ['system', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'gpt-4o-mini']
+            },
+            reflection: {
+                id: 'reflection', name: 'Self-Reflection', emoji: '🪞',
+                template: 'Before answering:\n1. What assumptions am I making?\n2. What could I be missing?\n3. What biases exist?\n\nNow: [TASK]',
+                variables: ['task'],
+                color: '#A855F7', connections: ['cot', 'adversarial'],
+                bestFor: ['o1-preview', 'o1', 'gpt-4o']
+            },
+            adversarial: {
+                id: 'adversarial', name: 'Adversarial', emoji: '⚔️',
+                template: 'Propose solution for: [PROBLEM]\n\nThen:\n1. Attack as hostile critic\n2. Identify 3 strongest objections\n3. Address each\n4. Deliver hardened solution',
+                variables: ['problem'],
+                color: '#DC2626', connections: ['reflection', 'o1native'],
+                bestFor: ['o1', 'o1-preview', 'gpt-4o']
+            },
+            recursive: {
+                id: 'recursive', name: 'Recursive Loop', emoji: '🔄',
+                template: 'Task: [TASK]\n\nLoop:\n- V1: Initial\n- V2: Critique V1, improve\n- V3: If V2 ≈ V1, stop\n\nMax 5 iterations. Final with confidence.',
+                variables: ['task'],
+                color: '#7C3AED', connections: ['adversarial', 'system'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            }
+        };
+
+        const GPT_TABS = [
+            { id: 'graph', label: '🕸️ Patterns' },
+            { id: 'builder', label: '⚡ Builder' },
+            { id: 'custom', label: '⚙️ Custom Instructions' },
+            { id: 'api', label: '🔧 API Config' },
+            { id: 'compare', label: '📊 Comparaison' },
+            { id: 'library', label: '📚 Librairie' }
+        ];
+
+        // ═══════════════════════════════════════════════════════════════════
+        // STATE
+        // ═══════════════════════════════════════════════════════════════════
+
+        let currentPlatform = 'claude';
+        let selectedModel = 'claude-3.5-sonnet';
+        let selectedPattern = 'formula';
+        let activeTab = 'graph';
+        let savedPrompts = JSON.parse(localStorage.getItem('godmode-prompts') || '[]');
+
+        // ═══════════════════════════════════════════════════════════════════
+        // HELPERS
+        // ═══════════════════════════════════════════════════════════════════
+
+        const getModels = () => currentPlatform === 'claude' ? CLAUDE_MODELS : GPT_MODELS;
+        const getPatterns = () => currentPlatform === 'claude' ? CLAUDE_PATTERNS : GPT_PATTERNS;
+        const getTabs = () => currentPlatform === 'claude' ? CLAUDE_TABS : GPT_TABS;
+
+        function copyCode(el) {
+            navigator.clipboard.writeText(el.textContent.trim());
+            el.classList.add('copied');
+            setTimeout(() => el.classList.remove('copied'), 2000);
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // RENDER FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════
+
+        function renderModelSelector() {
+            const models = getModels();
+            const html = Object.entries(models).map(([id, m]) => `
+                <button class="model-btn ${id === selectedModel ? 'active' : ''}" data-model="${id}">
+                    <span class="name">${m.name}</span>
+                    <span class="cost">${m.cost}</span>
+                </button>
+            `).join('');
+            document.getElementById('modelSelector').innerHTML = html;
+
+            document.querySelectorAll('.model-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    selectedModel = btn.dataset.model;
+                    renderModelSelector();
+                    renderGraph();
+                    renderPatternDetails();
+                    renderTips();
+                });
+            });
+        }
+
+        function renderNav() {
+            const tabs = getTabs();
+            const html = tabs.map(t => `
+                <button class="${t.id === activeTab ? 'active' : ''}" data-tab="${t.id}">${t.label}</button>
+            `).join('');
+            document.getElementById('mainNav').innerHTML = html;
+
+            document.querySelectorAll('#mainNav button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeTab = btn.dataset.tab;
+                    renderNav();
+                    renderLeftPanel();
+                });
+            });
+        }
+
+        function renderGraph() {
+            const patterns = getPatterns();
+            const patternList = Object.values(patterns);
+            const cx = 200, cy = 200, r = 155;
+
+            const positions = {};
+            patternList.forEach((p, i) => {
+                const angle = (i / patternList.length) * Math.PI * 2 - Math.PI / 2;
+                positions[p.id] = { x: cx + Math.cos(angle) * r, y: cy + Math.sin(angle) * r };
+            });
+
+            let svg = `
+                <svg width="400" height="400" viewBox="0 0 400 400">
+                    <defs>
+                        <radialGradient id="bgGrad"><stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#0d0d0d"/></radialGradient>
+                        <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    </defs>
+                    <circle cx="${cx}" cy="${cy}" r="190" fill="url(#bgGrad)" stroke="${currentPlatform === 'claude' ? '#d4af37' : '#10A37F'}" stroke-width="1" stroke-opacity="0.3"/>
+                    <text x="${cx}" y="${cy + 8}" text-anchor="middle" font-size="32" filter="url(#glow)">${currentPlatform === 'claude' ? '🧙‍♂️' : '🤖'}</text>
+            `;
+
+            // Connections
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                p.connections.forEach(connId => {
+                    const targetPos = positions[connId];
+                    if (targetPos) {
+                        const isActive = selectedPattern === p.id;
+                        svg += `<line x1="${pos.x}" y1="${pos.y}" x2="${targetPos.x}" y2="${targetPos.y}" 
+                            stroke="${isActive ? p.color : '#333'}" stroke-width="${isActive ? 2 : 1}" 
+                            stroke-opacity="${isActive ? 0.8 : 0.3}" stroke-dasharray="${isActive ? 'none' : '4,4'}"/>`;
+                    }
+                });
+            });
+
+            // Nodes
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                const isActive = selectedPattern === p.id;
+                const isOptimal = p.bestFor?.includes(selectedModel);
+                const accentColor = currentPlatform === 'claude' ? '#d4af37' : '#10A37F';
+
+                svg += `
+                    <g class="pattern-node" style="cursor:pointer" onclick="selectPattern('${p.id}')">
+                        <circle cx="${pos.x}" cy="${pos.y}" r="28" fill="${isActive ? p.color : '#1a1a1a'}" 
+                            stroke="${isOptimal ? accentColor : p.color}" stroke-width="${isActive ? 3 : isOptimal ? 2 : 1}"/>
+                        ${isOptimal ? `<circle cx="${pos.x + 18}" cy="${pos.y - 18}" r="6" fill="${accentColor}"/>` : ''}
+                        <text x="${pos.x}" y="${pos.y + 5}" text-anchor="middle" font-size="16">${p.emoji}</text>
+                    </g>
+                `;
+            });
+
+            svg += `<text x="${cx}" y="${cy + 180}" text-anchor="middle" fill="${currentPlatform === 'claude' ? '#d4af37' : '#10A37F'}" font-size="10">🟢 = Optimal pour le modèle sélectionné</text></svg>`;
+
+            return svg;
+        }
+
+        function selectPattern(id) {
+            selectedPattern = id;
+            renderLeftPanel();
+            renderPatternDetails();
+        }
+
+        // Expose to global for onclick
+        window.selectPattern = selectPattern;
+        window.copyCode = copyCode;
+        window.copyText = copyText;
+
+        function renderLeftPanel() {
+            const panel = document.getElementById('leftPanel');
+            
+            if (activeTab === 'graph') {
+                panel.innerHTML = `
+                    <h2>🕸️ Graphe des Patterns</h2>
+                    <div class="graph-container">${renderGraph()}</div>
+                `;
+            } else if (activeTab === 'builder') {
+                renderBuilder();
+            } else if (activeTab === 'library') {
+                renderLibrary();
+            } else if (activeTab === 'recursion' && currentPlatform === 'claude') {
+                renderClaudeRecursion();
+            } else if (activeTab === 'secubox' && currentPlatform === 'claude') {
+                renderClaudeSecubox();
+            } else if (activeTab === 'esoteric' && currentPlatform === 'claude') {
+                renderClaudeEsoteric();
+            } else if (activeTab === 'custom' && currentPlatform === 'gpt') {
+                renderGptCustom();
+            } else if (activeTab === 'api' && currentPlatform === 'gpt') {
+                renderGptApi();
+            } else if (activeTab === 'compare' && currentPlatform === 'gpt') {
+                renderGptCompare();
+            } else {
+                panel.innerHTML = `<h2>Section: ${activeTab}</h2><p>Content coming...</p>`;
+            }
+        }
+
+        function renderBuilder() {
+            const patterns = getPatterns();
+            const p = patterns[selectedPattern];
+            const isOptimal = p.bestFor?.includes(selectedModel);
+            const models = getModels();
+
+            let html = `
+                <h2>⚡ Pattern Builder</h2>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                    <span style="font-size:2rem;">${p.emoji}</span>
+                    <div>
+                        <div style="font-weight:600;">${p.name}</div>
+                        <span class="tag tag-model ${isOptimal ? 'active' : ''}">
+                            ${isOptimal ? '✓ Optimal pour ' + models[selectedModel].name : '⚠️ Mieux: ' + p.bestFor?.map(m => models[m]?.name).join(', ')}
+                        </span>
+                    </div>
+                </div>
+                <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+            `;
+
+            if (p.variables?.length > 0) {
+                html += `<h3>Variables</h3><div class="vars-grid">`;
+                p.variables.forEach(v => {
+                    html += `<div><label>${v.toUpperCase()}</label><input type="text" id="var_${v}" placeholder="[${v.toUpperCase()}]"></div>`;
+                });
+                html += `</div>`;
+            }
+
+            html += `
+                <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="generatePrompt()">⚡ Générer</button>
+                <div id="generatedPrompt" style="margin-top:16px;"></div>
+            `;
+
+            document.getElementById('leftPanel').innerHTML = html;
+        }
+
+        window.generatePrompt = function() {
+            const patterns = getPatterns();
+            const p = patterns[selectedPattern];
+            let result = p.template;
+
+            (p.variables || []).forEach(v => {
+                const input = document.getElementById(`var_${v}`);
+                const value = input ? input.value : '';
+                result = result.replace(new RegExp(`\\[${v.toUpperCase()}\\]`, 'g'), value || `[${v.toUpperCase()}]`);
+            });
+
+            document.getElementById('generatedPrompt').innerHTML = `
+                <div class="code-block" onclick="copyCode(this)" style="border-color:var(--accent);">${result}</div>
+                <button class="btn btn-secondary" style="width:100%;" onclick="savePrompt(\`${result.replace(/`/g, '\\`')}\`)">💾 Sauvegarder</button>
+            `;
+        };
+
+        window.savePrompt = function(prompt) {
+            savedPrompts.push({
+                id: Date.now(),
+                prompt: prompt,
+                pattern: selectedPattern,
+                model: selectedModel,
+                platform: currentPlatform,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('godmode-prompts', JSON.stringify(savedPrompts));
+            if (activeTab === 'library') renderLibrary();
+        };
+
+        function renderLibrary() {
+            const platformPrompts = savedPrompts.filter(p => p.platform === currentPlatform);
+            const patterns = getPatterns();
+
+            let html = `<h2>📚 Librairie de Prompts</h2>`;
+            if (platformPrompts.length === 0) {
+                html += `<p style="text-align:center;color:var(--text-secondary);padding:40px 0;">Aucun prompt sauvegardé pour ${currentPlatform === 'claude' ? 'Claude' : 'ChatGPT'}.</p>`;
+            } else {
+                html += platformPrompts.slice().reverse().map(sp => `
+                    <div class="library-item" onclick="copyText(\`${sp.prompt.replace(/`/g, '\\`')}\`)">
+                        <div class="library-item-header">
+                            <span class="library-item-name">${patterns[sp.pattern]?.emoji || '📝'} ${patterns[sp.pattern]?.name || sp.pattern}</span>
+                            <span class="library-item-model">${sp.model}</span>
+                        </div>
+                        <div class="library-item-preview">${sp.prompt.slice(0, 80)}...</div>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('leftPanel').innerHTML = html;
+        }
+
+        function renderClaudeRecursion() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🌀 Niveaux de Récursion</h2>
+                <div class="level-card success">
+                    <div class="level-header">✅ Niveau 1: Auto-Critique</div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds, puis demande-toi: "Qu'est-ce qui est faible?"</div>
+                    <p style="font-size:12px;color:var(--text-secondary);">🎯 1 itération suffit pour 80% des cas</p>
+                </div>
+                <div class="level-card success">
+                    <div class="level-header">✅ Niveau 2: Expert Simulé</div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds comme si [expert senior] allait relire et critiquer.</div>
+                    <p style="font-size:12px;color:var(--text-secondary);">🎯 L'expert n'a plus rien à dire</p>
+                </div>
+                <div class="level-card warning">
+                    <div class="level-header">⚠️ Niveau 3: Meta-Pattern</div>
+                    <div class="code-block" onclick="copyCode(this)">Observe tes patterns. Quels réflexes sont des béquilles? Casse-les.</div>
+                </div>
+                <div class="level-card danger">
+                    <div class="level-header">❌ Niveau 4+: Éviter</div>
+                    <p style="color:var(--red);font-weight:600;">RÈGLE: 3 boucles sans amélioration = STOP</p>
+                </div>
+            `;
+        }
+
+        function renderClaudeSecubox() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🛡️ SecuBox & Sécurité</h2>
+                <h3>🔐 Audit Config OpenWrt</h3>
+                <div class="code-block" onclick="copyCode(this)">Analyse cette config UCI comme un auditeur ANSSI.
+Checklist: firewall rules, services exposés, credentials, logging.
+Sortie: tableau [finding | criticité | remediation | ref CIS].</div>
+                <h3>🐝 Règles CrowdSec</h3>
+                <div class="code-block" onclick="copyCode(this)">Crée un scenario CrowdSec pour détecter [pattern d'attaque].
+Format YAML complet avec: filter, groupby, blackhole, labels.</div>
+                <h3>📋 Documentation Certif</h3>
+                <div class="code-block" onclick="copyCode(this)">Rédige section [X] du dossier de validation [ANSSI/BSI/CISA].
+Style: formel, référencé ISO27001, preuves factuelles.</div>
+            `;
+        }
+
+        function renderClaudeEsoteric() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🔮 Création Ésotérique</h2>
+                <h3>☯️ Consultation Yi Jing</h3>
+                <div class="code-block" onclick="copyCode(this)">Hexagramme tiré: [n°] [nom].
+Contexte: [situation].
+Interprète avec lignes mutantes, conseil actionnable.</div>
+                <h3>📐 Géométrie Sacrée</h3>
+                <div class="code-block" onclick="copyCode(this)">Génère SVG [Fleur de Vie/Métatron/Sri Yantra].
+Proportions basées sur [Phi/√2/π].</div>
+                <h3>✨ Poésie → Suno</h3>
+                <div class="code-block" onclick="copyCode(this)">Transforme en paroles Suno:
+- Structure [couplet/refrain/bridge]
+- Style musical + méta-tags
+Texte: [poème]</div>
+                <div class="hexagram-display">     ━━━━━━━  Clarté de l'arrêt
+     ━━ ━━   Espace pour l'émergence
+     ━━━━━━━  Boucle qui sait se borner
+     ━━ ━━   Critique intégrée
+     ━━━━━━━  Application concrète
+     ━━━━━━━  Honnêteté sur les limites</div>
+            `;
+        }
+
+        function renderGptCustom() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>⚙️ Custom Instructions</h2>
+                <h3>📝 "What would you like ChatGPT to know?"</h3>
+                <textarea id="customAbout">PROFESSIONAL CONTEXT:
+- Role: [your job/expertise]
+- Domains: [technical specialties]
+- Tech stack: [languages, frameworks]
+
+PREFERENCES:
+- Level: Expert, no oversimplification
+- Style: Direct, concise, actionable</textarea>
+                <button class="btn btn-secondary" style="margin:8px 0;" onclick="copyText(document.getElementById('customAbout').value)">📋 Copy</button>
+                
+                <h3>📝 "How would you like ChatGPT to respond?"</h3>
+                <textarea id="customResponse">RESPONSE FORMAT:
+- No preamble, straight to point
+- Code: Commented, production-ready
+
+BEHAVIOR:
+- Constructive criticism welcome
+- Flag edge cases and risks
+- Don't repeat the question</textarea>
+                <button class="btn btn-secondary" style="margin:8px 0;" onclick="copyText(document.getElementById('customResponse').value)">📋 Copy</button>
+            `;
+        }
+
+        function renderGptApi() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🔧 Configuration API</h2>
+                <div class="slider-container">
+                    <div class="slider-header"><span>Temperature</span><span class="slider-value" id="tempVal">0.7</span></div>
+                    <input type="range" id="tempSlider" min="0" max="2" step="0.1" value="0.7" oninput="updateApiPreview()">
+                    <div class="slider-labels"><span>0 (Code)</span><span>0.7</span><span>2 (Creative)</span></div>
+                </div>
+                <div class="vars-grid">
+                    <div><label>Max Tokens</label><input type="number" id="maxTokens" value="4096" oninput="updateApiPreview()"></div>
+                    <div><label>Top P</label><input type="number" id="topP" value="1" step="0.1" oninput="updateApiPreview()"></div>
+                </div>
+                <h3>API Preview</h3>
+                <div class="code-block" id="apiPreview" onclick="copyCode(this)"></div>
+            `;
+            updateApiPreview();
+        }
+
+        window.updateApiPreview = function() {
+            const temp = document.getElementById('tempSlider')?.value || 0.7;
+            document.getElementById('tempVal').textContent = temp;
+            document.getElementById('apiPreview').textContent = JSON.stringify({
+                model: selectedModel,
+                temperature: parseFloat(temp),
+                max_tokens: parseInt(document.getElementById('maxTokens')?.value || 4096),
+                top_p: parseFloat(document.getElementById('topP')?.value || 1)
+            }, null, 2);
+        };
+
+        function renderGptCompare() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>📊 Comparaison des Modèles</h2>
+                <table class="comparison-table">
+                    <thead><tr><th>Cas d'usage</th><th>GPT-4o</th><th>o1-preview</th><th>o1</th></tr></thead>
+                    <tbody>
+                        <tr><td>Conversation rapide</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        <tr><td>Rédaction créative</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td></tr>
+                        <tr><td>Code simple</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        <tr><td>Algorithmes complexes</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                        <tr><td>Mathématiques</td><td class="status-no">❌</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                        <tr><td>Raisonnement multi-étapes</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:11px;color:var(--text-secondary);">✅ Optimal | ⚠️ Acceptable | ❌ Non recommandé</p>
+            `;
+        }
+
+        function renderPatternDetails() {
+            const patterns = getPatterns();
+            const models = getModels();
+            const p = patterns[selectedPattern];
+            const isOptimal = p.bestFor?.includes(selectedModel);
+
+            document.getElementById('rightPanel').innerHTML = `
+                <div class="card">
+                    <h2>${p.emoji} ${p.name}</h2>
+                    <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+                    <h3>Meilleur pour</h3>
+                    <div>${(p.bestFor || []).map(m => `<span class="tag tag-model ${m === selectedModel ? 'active' : ''}">${models[m]?.name}</span>`).join('')}</div>
+                    <h3>Connexions</h3>
+                    <div>${(p.connections || []).map(c => `<span class="tag tag-connection" onclick="selectPattern('${c}')">${patterns[c]?.emoji} ${patterns[c]?.name}</span>`).join('')}</div>
+                </div>
+                <div class="card" id="tipsCard"></div>
+                <div class="philosophy-box">
+                    ${currentPlatform === 'claude' ? `
+                        <pre>     ━━━━━━━  Clarté de l'arrêt
+     ━━ ━━   Espace pour l'émergence  
+     ━━━━━━━  Boucle bornée
+     ━━ ━━   Critique intégrée</pre>
+                        <p class="philosophy-quote">"La récursion parfaite sait quand devenir action."</p>
+                        <div class="philosophy-symbols">🐍♾️→🎯</div>
+                    ` : `
+                        <pre>┌─────────────────────────────────┐
+│  CLEAR    →  Better than clever │
+│  SPECIFIC →  Better than vague  │
+│  EXAMPLES →  Better than rules  │
+│  ITERATE  →  Better than perfect│
+└─────────────────────────────────┘</pre>
+                        <p class="philosophy-quote">"The best prompt makes the model think it already knows exactly what you want."</p>
+                        <div class="philosophy-symbols">🤖 → 🧠 → 💡 → ✨</div>
+                    `}
+                </div>
+            `;
+            renderTips();
+        }
+
+        function renderTips() {
+            const models = getModels();
+            const tips = currentPlatform === 'claude' ? [
+                'Utilisez les Artifacts pour le code et documents',
+                'Computer Use disponible pour automation',
+                'Memory persiste entre conversations',
+                'Extended thinking pour problèmes complexes'
+            ] : (selectedModel.startsWith('o1') ? [
+                'Pas besoin de "think step by step" - natif',
+                'Laissez raisonner sans contraintes de temps',
+                'Idéal pour problèmes multi-étapes',
+                'Temperature fixée à 1'
+            ] : [
+                'Chain of Thought pour raisonnement',
+                'Few-shot améliore la précision',
+                'Temperature 0 pour code, 0.7+ créativité',
+                'JSON mode avec response_format'
+            ]);
+
+            document.getElementById('tipsCard').innerHTML = `
+                <h2>💡 Tips pour ${models[selectedModel]?.name}</h2>
+                <div class="tips-box">${tips.map(t => `<p>${t}</p>`).join('')}</div>
+            `;
+        }
+
+        function updateHeader() {
+            document.getElementById('mainLogo').textContent = currentPlatform === 'claude' ? '🧙‍♂️' : '🤖';
+            document.getElementById('mainTitle').textContent = currentPlatform === 'claude' ? 'CLAUDE GODMODE LAB' : 'CHATGPT GODMODE LAB';
+            document.getElementById('mainSubtitle').textContent = currentPlatform === 'claude' 
+                ? 'Claude 3.5 Sonnet • Opus • Haiku' 
+                : 'GPT-4 • GPT-4o • o1 • Custom GPTs';
+            document.getElementById('footerBrand').innerHTML = currentPlatform === 'claude' 
+                ? '🧙‍♂️ Claude Godmode Lab' 
+                : '🤖 ChatGPT Godmode Lab';
+        }
+
+        function switchPlatform(platform) {
+            currentPlatform = platform;
+            document.body.classList.toggle('gpt-mode', platform === 'gpt');
+            
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.platform === platform);
+            });
+
+            // Reset selections
+            const models = getModels();
+            selectedModel = Object.keys(models)[0];
+            const patterns = getPatterns();
+            selectedPattern = Object.keys(patterns)[0];
+            activeTab = 'graph';
+
+            updateHeader();
+            renderModelSelector();
+            renderNav();
+            renderLeftPanel();
+            renderPatternDetails();
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════════════════════════════════
+
+        document.querySelectorAll('.platform-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchPlatform(btn.dataset.platform));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const tabs = getTabs();
+                const idx = tabs.findIndex(t => t.id === activeTab);
+                if (e.key === 'ArrowRight' && idx < tabs.length - 1) {
+                    activeTab = tabs[idx + 1].id;
+                } else if (e.key === 'ArrowLeft' && idx > 0) {
+                    activeTab = tabs[idx - 1].id;
+                }
+                renderNav();
+                renderLeftPanel();
+            }
+        });
+
+        // Initial render
+        updateHeader();
+        renderModelSelector();
+        renderNav();
+        renderLeftPanel();
+        renderPatternDetails();
+    </script>
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+
