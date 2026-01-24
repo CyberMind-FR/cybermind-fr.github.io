@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Articles sur la cybersécurité et Linux">
+<meta name="keywords" content="">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CyberMind.fr">
+<meta property="og:description" content="Articles sur la cybersécurité et Linux">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/chatgpt-godmode-lab.html">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+<meta property="og:locale" content="fr">
+
+
+
+
+<meta property="article:modified_time" content="2026-01-24T07:33:14.353Z">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyberMind.fr">
+<meta name="twitter:description" content="Articles sur la cybersécurité et Linux">
+<meta name="twitter:image" content="https://cybermind-fr.github.io/cybermind-fr/images/default-og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/blog/philosophy/chatgpt-godmode-lab.html">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+<section class="page-section">
+    <div class="page-header">
+        <h1 class="page-title"></h1>
+        
+    </div>
+    
+    <div class="page-content">
+        <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 ChatGPT Godmode Lab - CyberMind.FR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: rgba(32, 33, 35, 0.9);
+            --accent-green: #10A37F;
+            --accent-green-light: #1ED49A;
+            --accent-purple: #8B5CF6;
+            --accent-cyan: #06B6D4;
+            --accent-red: #EF4444;
+            --accent-amber: #F59E0B;
+            --accent-pink: #EC4899;
+            --accent-teal: #14B8A6;
+            --text-primary: #ECECF1;
+            --text-secondary: #8E8EA0;
+            --border-color: #2D2D30;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(16, 163, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        header { text-align: center; padding: 40px 20px; }
+        .logo { font-size: 64px; margin-bottom: 16px; }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .subtitle { color: var(--accent-green); font-size: 1rem; margin-bottom: 8px; }
+        .author { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* Model Selector */
+        .model-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .model-btn {
+            padding: 12px 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .model-btn:hover { border-color: var(--accent-green); }
+        .model-btn.active {
+            border-color: var(--accent-green);
+            background: rgba(16, 163, 127, 0.2);
+            box-shadow: 0 0 20px rgba(16, 163, 127, 0.2);
+        }
+        .model-btn .name { font-weight: 600; font-size: 13px; display: block; }
+        .model-btn .cost { font-size: 11px; color: var(--text-secondary); }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+        nav button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        nav button:hover { color: var(--text-primary); background: var(--bg-secondary); }
+        nav button.active { background: var(--accent-green); color: white; }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin: 16px 0 8px;
+        }
+
+        /* Sections */
+        .section { display: none; }
+        .section.active { display: block; }
+
+        /* SVG Graph Container */
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .graph-container svg { max-width: 100%; height: auto; }
+
+        /* Pattern Node in SVG */
+        .pattern-node { cursor: pointer; transition: all 0.3s ease; }
+        .pattern-node:hover circle { r: 38; }
+        .pattern-node.optimal circle { stroke-width: 3; }
+
+        /* Code Block */
+        .code-block {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-green-light);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .code-block:hover { border-color: var(--accent-green); }
+        .code-block::after {
+            content: 'Click to copy';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .code-block:hover::after { opacity: 1; }
+        .code-block.copied::after { content: '✓ Copied!'; color: var(--accent-green); opacity: 1; }
+
+        /* Form Elements */
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+        textarea { resize: vertical; min-height: 120px; font-family: 'JetBrains Mono', monospace; }
+        label { display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 4px; }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            color: white;
+        }
+        .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover { border-color: var(--accent-green); }
+
+        /* Variables Grid */
+        .vars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        /* Pattern Tags */
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tag-model { background: rgba(16, 163, 127, 0.2); color: var(--accent-green-light); }
+        .tag-model.active { background: var(--accent-green); color: white; }
+        .tag-connection { background: var(--bg-secondary); color: var(--text-secondary); }
+        .tag-connection:hover { background: var(--border-color); color: var(--text-primary); }
+
+        /* Slider */
+        .slider-container { margin: 16px 0; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
+        .slider-value { color: var(--accent-green); font-weight: 600; }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            border: none;
+            padding: 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+        .comparison-table th {
+            background: var(--bg-secondary);
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+        }
+        .comparison-table th:first-child { text-align: left; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid var(--border-color); text-align: center; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; }
+        .comparison-table tr:hover { background: rgba(16, 163, 127, 0.05); }
+        .status-yes { color: var(--accent-green); font-size: 1.2em; }
+        .status-no { color: var(--accent-red); font-size: 1.2em; }
+        .status-maybe { color: var(--accent-amber); font-size: 1.2em; }
+
+        /* Tips Box */
+        .tips-box {
+            background: rgba(16, 163, 127, 0.1);
+            border: 1px solid rgba(16, 163, 127, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .tips-box p { font-size: 13px; color: var(--text-secondary); margin: 8px 0; }
+        .tips-box p::before { content: '• '; color: var(--accent-green); }
+
+        /* Philosophy Box */
+        .philosophy-box {
+            background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(16, 163, 127, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        .philosophy-box pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-green);
+            display: inline-block;
+            text-align: left;
+            margin: 16px 0;
+        }
+        .philosophy-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+        .philosophy-symbols { font-size: 1.8rem; margin-top: 12px; }
+
+        /* Library Items */
+        .library-item {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .library-item:hover { background: var(--border-color); }
+        .library-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .library-item-name { font-weight: 500; font-size: 13px; }
+        .library-item-model { font-size: 11px; color: var(--accent-green); }
+        .library-item-preview { font-size: 11px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section.active { animation: fadeIn 0.3s ease; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🤖</div>
+            <h1>CHATGPT GODMODE LAB</h1>
+            <p class="subtitle">GPT-4 • GPT-4o • o1 • Custom GPTs</p>
+            <p class="author">Par Gandalf • CyberMind.FR</p>
+        </header>
+
+        <!-- Model Selector -->
+        <div class="model-selector" id="modelSelector">
+            <button class="model-btn active" data-model="gpt-4o">
+                <span class="name">GPT-4o</span>
+                <span class="cost">$$</span>
+            </button>
+            <button class="model-btn" data-model="gpt-4-turbo">
+                <span class="name">GPT-4 Turbo</span>
+                <span class="cost">$$$</span>
+            </button>
+            <button class="model-btn" data-model="o1-preview">
+                <span class="name">o1-preview</span>
+                <span class="cost">$$$$</span>
+            </button>
+            <button class="model-btn" data-model="o1">
+                <span class="name">o1</span>
+                <span class="cost">$$$$$</span>
+            </button>
+            <button class="model-btn" data-model="gpt-4o-mini">
+                <span class="name">GPT-4o Mini</span>
+                <span class="cost">$</span>
+            </button>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="mainNav">
+            <button class="active" data-section="graph">🕸️ Patterns</button>
+            <button data-section="builder">⚡ Builder</button>
+            <button data-section="custom">⚙️ Custom Instructions</button>
+            <button data-section="api">🔧 API Config</button>
+            <button data-section="compare">📊 Comparaison</button>
+            <button data-section="library">📚 Librairie</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel -->
+            <div class="card" id="leftPanel">
+                <!-- Graph Section -->
+                <div class="section active" id="graph">
+                    <h2>🕸️ Graphe des Patterns</h2>
+                    <div class="graph-container">
+                        <svg width="420" height="420" viewBox="0 0 420 420" id="patternGraph">
+                            <defs>
+                                <radialGradient id="bgGrad">
+                                    <stop offset="0%" stop-color="#1a1a1a"/>
+                                    <stop offset="100%" stop-color="#0d0d0d"/>
+                                </radialGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle cx="210" cy="210" r="200" fill="url(#bgGrad)" stroke="#10A37F" stroke-width="1" stroke-opacity="0.3"/>
+                            <text x="210" y="218" text-anchor="middle" font-size="32" filter="url(#glow)">🤖</text>
+                            <!-- Nodes will be drawn by JS -->
+                            <g id="connections"></g>
+                            <g id="nodes"></g>
+                        </svg>
+                    </div>
+                    <p style="text-align: center; font-size: 12px; color: var(--text-secondary);">
+                        🟢 = Optimal pour le modèle sélectionné | Cliquez sur un pattern pour le détailler
+                    </p>
+                </div>
+
+                <!-- Builder Section -->
+                <div class="section" id="builder">
+                    <h2>⚡ Pattern Builder</h2>
+                    <div id="builderContent">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Custom Instructions Section -->
+                <div class="section" id="custom">
+                    <h2>⚙️ Custom Instructions</h2>
+                    <h3>📝 "What would you like ChatGPT to know?"</h3>
+                    <textarea id="customAbout">PROFESSIONAL CONTEXT:
+- Role: [your job/expertise]
+- Domains: [technical specialties]
+- Current projects: [active work]
+- Tech stack: [languages, frameworks, tools]
+
+PREFERENCES:
+- Language: French (technical terms in English if relevant)
+- Level: Expert, no oversimplification
+- Style: Direct, concise, actionable</textarea>
+                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                        <button class="btn btn-secondary" onclick="copyText(document.getElementById('customAbout').value)">📋 Copy</button>
+                    </div>
+
+                    <h3>📝 "How would you like ChatGPT to respond?"</h3>
+                    <textarea id="customResponse">RESPONSE FORMAT:
+- No preamble, straight to the point
+- Code: Commented, production-ready
+- Length: Concise unless complexity requires more
+
+BEHAVIOR:
+- Constructive criticism welcome
+- Flag edge cases and risks
+- Suggest alternatives when relevant
+- Don't repeat the question in response</textarea>
+                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                        <button class="btn btn-secondary" onclick="copyText(document.getElementById('customResponse').value)">📋 Copy</button>
+                    </div>
+
+                    <div class="tips-box">
+                        <p>Ces instructions persistent à travers toutes vos conversations ChatGPT</p>
+                        <p>Accédez-y via Settings → Personalization → Custom Instructions</p>
+                    </div>
+                </div>
+
+                <!-- API Config Section -->
+                <div class="section" id="api">
+                    <h2>🔧 Configuration API</h2>
+                    
+                    <div class="slider-container">
+                        <div class="slider-header">
+                            <span>Temperature</span>
+                            <span class="slider-value" id="tempValue">0.7</span>
+                        </div>
+                        <input type="range" id="tempSlider" min="0" max="2" step="0.1" value="0.7">
+                        <div class="slider-labels">
+                            <span>0 (Code)</span>
+                            <span>0.7 (Default)</span>
+                            <span>2 (Creative)</span>
+                        </div>
+                    </div>
+
+                    <div class="vars-grid">
+                        <div>
+                            <label>Max Tokens</label>
+                            <input type="number" id="maxTokens" value="4096">
+                        </div>
+                        <div>
+                            <label>Top P</label>
+                            <input type="number" id="topP" value="1" step="0.1" min="0" max="1">
+                        </div>
+                    </div>
+
+                    <h3>API Preview</h3>
+                    <div class="code-block" id="apiPreview" onclick="copyCode(this)"></div>
+
+                    <h3>🌡️ Guide Temperature</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr><th>Temperature</th><th>Usage</th><th>Exemple</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>Déterministe</td><td>Code, extraction</td></tr>
+                            <tr><td>0.3-0.5</td><td>Équilibré</td><td>Rédaction technique</td></tr>
+                            <tr><td>0.7-1.0</td><td>Créatif</td><td>Brainstorming</td></tr>
+                            <tr><td>1.5-2.0</td><td>Très créatif</td><td>Poésie, idéation</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Compare Section -->
+                <div class="section" id="compare">
+                    <h2>📊 Comparaison des Modèles</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Cas d'usage</th>
+                                <th>GPT-4o</th>
+                                <th>GPT-4 Turbo</th>
+                                <th>o1-preview</th>
+                                <th>o1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Conversation rapide</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                            <tr><td>Rédaction créative</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td></tr>
+                            <tr><td>Code simple</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                            <tr><td>Algorithmes complexes</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Mathématiques</td><td class="status-no">❌</td><td class="status-no">❌</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Raisonnement multi-étapes</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Latence < 5s</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
+                        ✅ Optimal | ⚠️ Acceptable | ❌ Non recommandé
+                    </p>
+                </div>
+
+                <!-- Library Section -->
+                <div class="section" id="library">
+                    <h2>📚 Librairie de Prompts</h2>
+                    <div id="libraryContent">
+                        <p style="text-align: center; color: var(--text-secondary); padding: 40px 0;">
+                            Aucun prompt sauvegardé.<br>
+                            Utilisez le Builder pour créer et sauvegarder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Pattern Details -->
+                <div class="card" id="patternDetails">
+                    <h2 id="patternTitle">⚙️ System Role</h2>
+                    <div class="code-block" id="patternTemplate" onclick="copyCode(this)"></div>
+                    
+                    <h3>Meilleur pour</h3>
+                    <div id="patternBestFor"></div>
+
+                    <h3>Connexions</h3>
+                    <div id="patternConnections"></div>
+                </div>
+
+                <!-- Tips -->
+                <div class="card" id="tipsCard">
+                    <h2>💡 Tips pour <span id="tipsModel">GPT-4o</span></h2>
+                    <div id="tipsContent" class="tips-box"></div>
+                </div>
+
+                <!-- Philosophy -->
+                <div class="philosophy-box">
+                    <pre>┌─────────────────────────────────┐
+│  CLEAR    →  Better than clever │
+│  SPECIFIC →  Better than vague  │
+│  EXAMPLES →  Better than rules  │
+│  ITERATE  →  Better than perfect│
+└─────────────────────────────────┘</pre>
+                    <p class="philosophy-quote">"The best prompt makes the model think<br>it already knows exactly what you want."</p>
+                    <div class="philosophy-symbols">🤖 → 🧠 → 💡 → ✨</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            🤖 ChatGPT Godmode Lab • CyberMind.FR • 2025<br>
+            <span style="font-size: 11px;">Par Gandalf • Consultant Cybersécurité</span>
+        </footer>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA
+        // ═══════════════════════════════════════════════════════════════════
+
+        const MODELS = {
+            'gpt-4o': { name: 'GPT-4o', speed: 'fast', reasoning: 'good', creative: 'excellent', cost: '$$' },
+            'gpt-4-turbo': { name: 'GPT-4 Turbo', speed: 'medium', reasoning: 'good', creative: 'excellent', cost: '$$$' },
+            'o1-preview': { name: 'o1-preview', speed: 'slow', reasoning: 'excellent', creative: 'good', cost: '$$$$' },
+            'o1': { name: 'o1', speed: 'slow', reasoning: 'superior', creative: 'good', cost: '$$$$$' },
+            'gpt-4o-mini': { name: 'GPT-4o Mini', speed: 'very-fast', reasoning: 'moderate', creative: 'good', cost: '$' }
+        };
+
+        const PATTERNS = {
+            system: {
+                id: 'system', name: 'System Role', emoji: '⚙️',
+                template: 'You are a [ROLE] with expertise in [DOMAIN]. Your task is to [OBJECTIVE].',
+                variables: ['role', 'domain', 'objective'],
+                color: '#10A37F', connections: ['persona', 'constraints'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            persona: {
+                id: 'persona', name: 'Expert Persona', emoji: '🎭',
+                template: 'You are a senior [EXPERT] with [N] years of experience. You specialize in [SPECIALTY]. Your communication style is [STYLE].',
+                variables: ['expert', 'years', 'specialty', 'style'],
+                color: '#8B5CF6', connections: ['system', 'fewshot'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: "Let's think through this step by step:\n1. First, [STEP1]\n2. Then, [STEP2]\n3. Finally, [STEP3]",
+                variables: ['step1', 'step2', 'step3'],
+                color: '#06B6D4', connections: ['tot', 'reflection'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'o1-preview']
+            },
+            tot: {
+                id: 'tot', name: 'Tree of Thought', emoji: '🌳',
+                template: 'Explore [N] different reasoning paths for this problem. For each path:\n- State the approach\n- Work through the logic\n- Evaluate likelihood of success\nThen synthesize the best solution.',
+                variables: ['paths'],
+                color: '#F59E0B', connections: ['cot', 'o1native'],
+                bestFor: ['o1-preview', 'o1']
+            },
+            o1native: {
+                id: 'o1native', name: 'o1 Native Reasoning', emoji: '🔮',
+                template: '[COMPLEX_PROBLEM]\n\nTake your time to reason through this thoroughly. Show your complete thinking process.',
+                variables: ['problem'],
+                color: '#EC4899', connections: ['tot', 'adversarial'],
+                bestFor: ['o1', 'o1-preview']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot Examples', emoji: '📚',
+                template: 'Here are examples of the expected format:\n\nExample 1:\nInput: [IN1]\nOutput: [OUT1]\n\nExample 2:\nInput: [IN2]\nOutput: [OUT2]\n\nNow process:\nInput: [QUERY]',
+                variables: ['in1', 'out1', 'in2', 'out2', 'query'],
+                color: '#14B8A6', connections: ['persona', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            json: {
+                id: 'json', name: 'JSON Mode', emoji: '📋',
+                template: 'Respond ONLY with valid JSON in this exact structure:\n{\n  "analysis": "...",\n  "recommendation": "...",\n  "confidence": 0.0-1.0,\n  "next_steps": ["..."]\n}\nNo markdown outside JSON.',
+                variables: [],
+                color: '#EAB308', connections: ['fewshot', 'constraints'],
+                bestFor: ['gpt-4-turbo', 'gpt-4o']
+            },
+            constraints: {
+                id: 'constraints', name: 'Constraints & Rules', emoji: '📏',
+                template: 'CONSTRAINTS:\n- Maximum [N] words\n- No [FORBIDDEN]\n- Always include [REQUIRED]\n- Format: [FORMAT]\n- Tone: [TONE]',
+                variables: ['maxWords', 'forbidden', 'required', 'format', 'tone'],
+                color: '#EF4444', connections: ['system', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'gpt-4o-mini']
+            },
+            reflection: {
+                id: 'reflection', name: 'Self-Reflection', emoji: '🪞',
+                template: 'Before answering:\n1. What assumptions am I making?\n2. What could I be missing?\n3. What are potential biases?\n\nNow, with these considerations in mind: [TASK]',
+                variables: ['task'],
+                color: '#A855F7', connections: ['cot', 'adversarial'],
+                bestFor: ['o1-preview', 'o1', 'gpt-4o']
+            },
+            adversarial: {
+                id: 'adversarial', name: 'Adversarial Review', emoji: '⚔️',
+                template: 'Propose a solution for: [PROBLEM]\n\nThen:\n1. Attack your solution as a hostile critic\n2. Identify the 3 strongest objections\n3. Address each objection\n4. Deliver the hardened solution',
+                variables: ['problem'],
+                color: '#DC2626', connections: ['reflection', 'o1native'],
+                bestFor: ['o1', 'o1-preview', 'gpt-4o']
+            },
+            recursive: {
+                id: 'recursive', name: 'Recursive Improvement', emoji: '🔄',
+                template: 'Task: [TASK]\n\nExecute this loop:\n- V1: Initial attempt\n- V2: Critique V1, improve\n- V3: If V2 ≈ V1, stop. Else improve.\n\nMax 5 iterations. Show only final with confidence score.',
+                variables: ['task'],
+                color: '#7C3AED', connections: ['adversarial', 'system'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            }
+        };
+
+        // ═══════════════════════════════════════════════════════════════════
+        // STATE
+        // ═══════════════════════════════════════════════════════════════════
+
+        let selectedModel = 'gpt-4o';
+        let selectedPattern = 'system';
+        let savedPrompts = JSON.parse(localStorage.getItem('chatgpt-prompts') || '[]');
+
+        // ═══════════════════════════════════════════════════════════════════
+        // FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════
+
+        function copyCode(el) {
+            navigator.clipboard.writeText(el.textContent.trim());
+            el.classList.add('copied');
+            setTimeout(() => el.classList.remove('copied'), 2000);
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        function drawGraph() {
+            const svg = document.getElementById('patternGraph');
+            const nodesG = document.getElementById('nodes');
+            const connsG = document.getElementById('connections');
+            
+            nodesG.innerHTML = '';
+            connsG.innerHTML = '';
+
+            const patternList = Object.values(PATTERNS);
+            const cx = 210, cy = 210, r = 160;
+
+            // Calculate positions
+            const positions = {};
+            patternList.forEach((p, i) => {
+                const angle = (i / patternList.length) * Math.PI * 2 - Math.PI / 2;
+                positions[p.id] = {
+                    x: cx + Math.cos(angle) * r,
+                    y: cy + Math.sin(angle) * r
+                };
+            });
+
+            // Draw connections
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                p.connections.forEach(connId => {
+                    const targetPos = positions[connId];
+                    if (targetPos) {
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        line.setAttribute('x1', pos.x);
+                        line.setAttribute('y1', pos.y);
+                        line.setAttribute('x2', targetPos.x);
+                        line.setAttribute('y2', targetPos.y);
+                        line.setAttribute('stroke', selectedPattern === p.id ? p.color : '#333');
+                        line.setAttribute('stroke-width', selectedPattern === p.id ? '2' : '1');
+                        line.setAttribute('stroke-opacity', selectedPattern === p.id ? '0.8' : '0.3');
+                        line.setAttribute('stroke-dasharray', selectedPattern === p.id ? 'none' : '4,4');
+                        connsG.appendChild(line);
+                    }
+                });
+            });
+
+            // Draw nodes
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                const isActive = selectedPattern === p.id;
+                const isOptimal = p.bestFor.includes(selectedModel);
+
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                g.setAttribute('class', 'pattern-node' + (isOptimal ? ' optimal' : ''));
+                g.style.cursor = 'pointer';
+                g.onclick = () => selectPattern(p.id);
+
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', pos.x);
+                circle.setAttribute('cy', pos.y);
+                circle.setAttribute('r', '30');
+                circle.setAttribute('fill', isActive ? p.color : '#1a1a1a');
+                circle.setAttribute('stroke', isOptimal ? '#10A37F' : p.color);
+                circle.setAttribute('stroke-width', isActive ? '3' : isOptimal ? '2' : '1');
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', pos.x);
+                text.setAttribute('y', pos.y + 6);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('font-size', '18');
+                text.textContent = p.emoji;
+
+                g.appendChild(circle);
+                g.appendChild(text);
+
+                if (isOptimal) {
+                    const indicator = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    indicator.setAttribute('cx', pos.x + 20);
+                    indicator.setAttribute('cy', pos.y - 20);
+                    indicator.setAttribute('r', '6');
+                    indicator.setAttribute('fill', '#10A37F');
+                    g.appendChild(indicator);
+                }
+
+                nodesG.appendChild(g);
+            });
+        }
+
+        function selectPattern(id) {
+            selectedPattern = id;
+            updatePatternDetails();
+            drawGraph();
+            updateBuilder();
+        }
+
+        function updatePatternDetails() {
+            const p = PATTERNS[selectedPattern];
+            document.getElementById('patternTitle').innerHTML = `${p.emoji} ${p.name}`;
+            document.getElementById('patternTemplate').textContent = p.template;
+
+            // Best for
+            const bestForEl = document.getElementById('patternBestFor');
+            bestForEl.innerHTML = p.bestFor.map(m => 
+                `<span class="tag tag-model ${m === selectedModel ? 'active' : ''}">${MODELS[m].name}</span>`
+            ).join('');
+
+            // Connections
+            const connsEl = document.getElementById('patternConnections');
+            connsEl.innerHTML = p.connections.map(c => 
+                `<span class="tag tag-connection" onclick="selectPattern('${c}')">${PATTERNS[c].emoji} ${PATTERNS[c].name}</span>`
+            ).join('');
+        }
+
+        function updateTips() {
+            const model = MODELS[selectedModel];
+            document.getElementById('tipsModel').textContent = model.name;
+            
+            const tips = selectedModel.startsWith('o1') ? [
+                'Pas besoin de "think step by step" - c\'est natif',
+                'Laissez le modèle raisonner sans contraintes de temps',
+                'Idéal pour problèmes complexes multi-étapes',
+                'Temperature fixée à 1, pas modifiable'
+            ] : [
+                'Utilisez Chain of Thought pour raisonnement complexe',
+                'Few-shot examples améliorent la précision du format',
+                'Temperature 0 pour code, 0.7+ pour créativité',
+                'JSON mode disponible avec response_format'
+            ];
+
+            document.getElementById('tipsContent').innerHTML = tips.map(t => `<p>${t}</p>`).join('');
+        }
+
+        function updateBuilder() {
+            const p = PATTERNS[selectedPattern];
+            const isOptimal = p.bestFor.includes(selectedModel);
+
+            let html = `
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <span style="font-size: 2rem;">${p.emoji}</span>
+                    <div>
+                        <div style="font-weight: 600;">${p.name}</div>
+                        <span class="tag ${isOptimal ? 'tag-model active' : ''}" style="margin-top: 4px;">
+                            ${isOptimal ? '✓ Optimal pour ' : '⚠️ Mieux pour '} ${isOptimal ? MODELS[selectedModel].name : p.bestFor.map(m => MODELS[m].name).join(', ')}
+                        </span>
+                    </div>
+                </div>
+                <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+            `;
+
+            if (p.variables.length > 0) {
+                html += `<h3>Variables</h3><div class="vars-grid">`;
+                p.variables.forEach(v => {
+                    html += `
+                        <div>
+                            <label>${v.toUpperCase()}</label>
+                            <input type="text" id="var_${v}" placeholder="[${v.toUpperCase()}]">
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            html += `
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="generatePrompt()">
+                    ⚡ Générer le Prompt
+                </button>
+                <div id="generatedPrompt" style="margin-top: 16px;"></div>
+            `;
+
+            document.getElementById('builderContent').innerHTML = html;
+        }
+
+        function generatePrompt() {
+            const p = PATTERNS[selectedPattern];
+            let result = p.template;
+
+            p.variables.forEach(v => {
+                const input = document.getElementById(`var_${v}`);
+                const value = input ? input.value : '';
+                const placeholder = new RegExp(`\\[${v.toUpperCase()}\\]`, 'g');
+                result = result.replace(placeholder, value || `[${v.toUpperCase()}]`);
+            });
+
+            document.getElementById('generatedPrompt').innerHTML = `
+                <div class="code-block" onclick="copyCode(this)" style="border-color: var(--accent-green);">${result}</div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="savePrompt('${result.replace(/'/g, "\\'")}')">💾 Sauvegarder</button>
+            `;
+        }
+
+        function savePrompt(prompt) {
+            savedPrompts.push({
+                id: Date.now(),
+                prompt: prompt,
+                pattern: selectedPattern,
+                model: selectedModel,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('chatgpt-prompts', JSON.stringify(savedPrompts));
+            updateLibrary();
+        }
+
+        function updateLibrary() {
+            const el = document.getElementById('libraryContent');
+            if (savedPrompts.length === 0) {
+                el.innerHTML = `<p style="text-align: center; color: var(--text-secondary); padding: 40px 0;">
+                    Aucun prompt sauvegardé.<br>Utilisez le Builder pour créer et sauvegarder.
+                </p>`;
+            } else {
+                el.innerHTML = savedPrompts.slice().reverse().map(sp => `
+                    <div class="library-item" onclick="copyText('${sp.prompt.replace(/'/g, "\\'")}')">
+                        <div class="library-item-header">
+                            <span class="library-item-name">${PATTERNS[sp.pattern]?.emoji} ${PATTERNS[sp.pattern]?.name}</span>
+                            <span class="library-item-model">${sp.model}</span>
+                        </div>
+                        <div class="library-item-preview">${sp.prompt.slice(0, 100)}...</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateApiPreview() {
+            const temp = document.getElementById('tempSlider').value;
+            const maxTokens = document.getElementById('maxTokens').value;
+            const topP = document.getElementById('topP').value;
+
+            document.getElementById('tempValue').textContent = temp;
+            document.getElementById('apiPreview').textContent = JSON.stringify({
+                model: selectedModel,
+                temperature: parseFloat(temp),
+                max_tokens: parseInt(maxTokens),
+                top_p: parseFloat(topP)
+            }, null, 2);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // EVENT LISTENERS
+        // ═══════════════════════════════════════════════════════════════════
+
+        // Model selector
+        document.querySelectorAll('.model-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedModel = btn.dataset.model;
+                drawGraph();
+                updatePatternDetails();
+                updateTips();
+                updateBuilder();
+                updateApiPreview();
+            });
+        });
+
+        // Navigation
+        document.querySelectorAll('#mainNav button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#mainNav button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(btn.dataset.section).classList.add('active');
+            });
+        });
+
+        // API sliders
+        document.getElementById('tempSlider').addEventListener('input', updateApiPreview);
+        document.getElementById('maxTokens').addEventListener('input', updateApiPreview);
+        document.getElementById('topP').addEventListener('input', updateApiPreview);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const btns = Array.from(document.querySelectorAll('#mainNav button'));
+            const idx = btns.findIndex(b => b.classList.contains('active'));
+            if (e.key === 'ArrowRight' && idx < btns.length - 1) btns[idx + 1].click();
+            if (e.key === 'ArrowLeft' && idx > 0) btns[idx - 1].click();
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════════════════════════════════
+
+        drawGraph();
+        updatePatternDetails();
+        updateTips();
+        updateBuilder();
+        updateApiPreview();
+        updateLibrary();
+    </script>
+</body>
+</html>
+
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+
