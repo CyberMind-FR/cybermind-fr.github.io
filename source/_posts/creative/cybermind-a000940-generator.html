@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CYBERMIND • A000940 • Générateur Polygones</title>
+
+  <style>
+    :root{
+      --bg0:#05060a;
+      --bg1:#070a12;
+      --txt:#e9f1ff;
+      --muted: rgba(233,241,255,.72);
+      --red:#ff2a6d;
+      --green:#00ff9a;
+      --amber:#ffb000;
+      --cyan:#00d4ff;
+      --purple:#a855f7;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 16px 46px rgba(0,0,0,.62);
+      --r:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: var(--sans);
+      color: var(--txt);
+      background:
+        radial-gradient(1100px 760px at 14% 12%, color-mix(in srgb, var(--green) 18%, transparent), transparent 60%),
+        radial-gradient(900px 680px at 88% 18%, color-mix(in srgb, var(--red) 14%, transparent), transparent 60%),
+        radial-gradient(900px 900px at 50% 110%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      background:repeating-linear-gradient(to bottom,rgba(255,255,255,.04) 0px,rgba(255,255,255,.015) 1px,transparent 3px,transparent 7px);
+      mix-blend-mode:overlay;opacity:.14;z-index:0;
+    }
+
+    .wrap{max-width:1400px;margin:0 auto;padding:20px 16px 40px;position:relative;z-index:1;}
+
+    header{text-align:center;margin-bottom:20px}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 18px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(11,16,32,.64);
+      box-shadow:var(--shadow);
+      font-weight:900;letter-spacing:.3px;
+      position:relative;
+    }
+    .badge::after{
+      content:"";position:absolute;inset:-1px;border-radius:999px;padding:1px;
+      background:linear-gradient(90deg,rgba(0,255,154,.7),rgba(255,176,0,.6),rgba(255,42,109,.7));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.88;
+    }
+    h1{margin:12px 0 6px;font-size:26px}
+    .sub{color:var(--muted);margin:0}
+
+    .main-grid{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:16px;
+    }
+    @media(max-width:900px){.main-grid{grid-template-columns:1fr}}
+
+    .panel{
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";position:absolute;inset:-2px;
+      background:
+        radial-gradient(400px 150px at 20% 0%,rgba(0,255,154,.14),transparent 60%),
+        radial-gradient(400px 150px at 80% 0%,rgba(255,42,109,.10),transparent 60%);
+      pointer-events:none;opacity:.9;
+    }
+    .panel>*{position:relative}
+
+    .panel-title{
+      font-size:14px;font-weight:900;text-transform:uppercase;
+      letter-spacing:.5px;margin:0 0 12px;
+      display:flex;align-items:center;gap:8px;
+    }
+
+    /* Controls */
+    .control-group{margin-bottom:16px}
+    .control-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    
+    .slider-row{display:flex;align-items:center;gap:12px}
+    .slider-row input[type="range"]{flex:1;accent-color:var(--green)}
+    .slider-val{
+      min-width:40px;text-align:center;
+      padding:6px 10px;border-radius:8px;
+      background:rgba(0,0,0,.3);border:1px solid var(--line);
+      font-family:var(--mono);font-weight:bold;color:var(--green);
+    }
+
+    /* Switch toggle */
+    .switch-row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 12px;margin-bottom:8px;
+      border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--line);
+    }
+    .switch-row span{font-size:13px}
+    .switch{
+      position:relative;width:44px;height:24px;
+    }
+    .switch input{opacity:0;width:0;height:0}
+    .switch .slider{
+      position:absolute;cursor:pointer;inset:0;
+      background:rgba(255,255,255,.15);border-radius:24px;
+      transition:background .2s;
+    }
+    .switch .slider::before{
+      content:"";position:absolute;
+      width:18px;height:18px;left:3px;bottom:3px;
+      background:#fff;border-radius:50%;
+      transition:transform .2s;
+    }
+    .switch input:checked + .slider{background:var(--green)}
+    .switch input:checked + .slider::before{transform:translateX(20px)}
+
+    /* Buttons */
+    .btn{
+      cursor:pointer;width:100%;
+      padding:12px 16px;margin-top:8px;
+      border-radius:12px;border:1px solid var(--line);
+      background:rgba(11,16,32,.6);color:var(--txt);
+      font-weight:900;font-size:14px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      transition:transform .1s,background .2s;
+    }
+    .btn:hover{background:rgba(0,255,154,.15);transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn.primary{background:linear-gradient(135deg,rgba(0,255,154,.25),rgba(255,176,0,.15));border-color:var(--green)}
+
+    /* Canvas area */
+    .canvas-wrap{
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      min-height:500px;
+    }
+    #canvas{
+      background:radial-gradient(circle,rgba(20,30,50,.8),rgba(5,6,10,.95));
+      border-radius:16px;border:1px solid var(--line);
+      box-shadow:0 0 60px rgba(0,255,154,.08),var(--shadow);
+    }
+
+    /* Info panel */
+    .info-bar{
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-top:12px;justify-content:center;
+    }
+    .info-chip{
+      padding:8px 14px;border-radius:999px;
+      background:rgba(0,0,0,.35);border:1px solid var(--line);
+      font-family:var(--mono);font-size:13px;
+      display:flex;align-items:center;gap:6px;
+    }
+    .info-chip .val{color:var(--green);font-weight:bold}
+    .info-chip.amber .val{color:var(--amber)}
+    .info-chip.red .val{color:var(--red)}
+    .info-chip.cyan .val{color:var(--cyan)}
+
+    /* Polygons list */
+    .poly-list{
+      max-height:200px;overflow-y:auto;
+      margin-top:12px;padding:8px;
+      background:rgba(0,0,0,.25);border-radius:12px;border:1px solid var(--line);
+    }
+    .poly-item{
+      display:flex;align-items:center;gap:8px;
+      padding:6px 10px;margin-bottom:4px;
+      border-radius:8px;cursor:pointer;
+      font-family:var(--mono);font-size:12px;
+      background:rgba(255,255,255,.03);border:1px solid transparent;
+      transition:all .15s;
+    }
+    .poly-item:hover{background:rgba(0,255,154,.1);border-color:var(--green)}
+    .poly-item.active{background:rgba(0,255,154,.2);border-color:var(--green)}
+    .poly-item .idx{
+      width:24px;height:24px;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:6px;background:rgba(255,255,255,.1);
+      font-weight:bold;font-size:11px;
+    }
+    .poly-item .seq{color:var(--muted);flex:1}
+    .poly-item .type{
+      padding:2px 8px;border-radius:999px;font-size:10px;font-weight:bold;
+    }
+    .type-convex{background:rgba(0,255,154,.2);color:var(--green)}
+    .type-star{background:rgba(255,176,0,.2);color:var(--amber)}
+    .type-crossed{background:rgba(255,42,109,.2);color:var(--red)}
+
+    /* Color picker row */
+    .color-row{
+      display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;
+    }
+    .color-btn{
+      width:28px;height:28px;border-radius:8px;
+      border:2px solid transparent;cursor:pointer;
+      transition:transform .1s,border-color .2s;
+    }
+    .color-btn:hover{transform:scale(1.1)}
+    .color-btn.active{border-color:#fff}
+
+    /* Navigation */
+    .nav-row{
+      display:flex;gap:8px;margin-top:12px;
+    }
+    .nav-btn{
+      flex:1;padding:10px;
+      border-radius:10px;border:1px solid var(--line);
+      background:rgba(11,16,32,.5);color:var(--txt);
+      font-weight:bold;cursor:pointer;
+      transition:background .2s;
+    }
+    .nav-btn:hover{background:rgba(0,255,154,.15)}
+    .nav-btn:disabled{opacity:.4;cursor:not-allowed}
+
+    footer{
+      margin-top:20px;padding:12px 16px;
+      border-radius:var(--r);border:1px dashed rgba(255,255,255,.15);
+      background:rgba(0,0,0,.15);color:var(--muted);
+      text-align:center;font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">🧿 CYBERMIND • <span style="color:var(--green)">A000940</span> • Générateur</div>
+      <h1>Polygones Hamiltoniens Inscrits 🌐</h1>
+      <p class="sub">Visualise tous les cycles distincts sur n sommets d'un cercle</p>
+    </header>
+
+    <div class="main-grid">
+      <!-- Left Panel: Controls -->
+      <div class="panel">
+        <div class="panel-title">⚙️ Paramètres</div>
+
+        <div class="control-group">
+          <label>Nombre de sommets (n)</label>
+          <div class="slider-row">
+            <input type="range" id="nSlider" min="3" max="9" value="5">
+            <div class="slider-val" id="nVal">5</div>
+          </div>
+        </div>
+
+        <div class="panel-title" style="margin-top:16px">🎨 Affichage</div>
+
+        <div class="switch-row">
+          <span>🔵 Cercle inscrit</span>
+          <label class="switch">
+            <input type="checkbox" id="showCircle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="switch-row">
+          <span>⚫ Sommets</span>
+          <label class="switch">
+            <input type="checkbox" id="showVertices" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="switch-row">
+          <span>🔢 Numéros</span>
+          <label class="switch">
+            <input type="checkbox" id="showLabels" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="switch-row">
+          <span>➡️ Direction (flèches)</span>
+          <label class="switch">
+            <input type="checkbox" id="showArrows">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="switch-row">
+          <span>🌈 Dégradé couleur</span>
+          <label class="switch">
+            <input type="checkbox" id="useGradient">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="switch-row">
+          <span>✨ Glow effect</span>
+          <label class="switch">
+            <input type="checkbox" id="useGlow" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="control-group" style="margin-top:12px">
+          <label>Couleur du tracé</label>
+          <div class="color-row" id="colorPicker"></div>
+        </div>
+
+        <div class="control-group">
+          <label>Épaisseur du trait</label>
+          <div class="slider-row">
+            <input type="range" id="strokeSlider" min="1" max="8" value="3">
+            <div class="slider-val" id="strokeVal">3</div>
+          </div>
+        </div>
+
+        <button class="btn primary" id="randomBtn">🎲 Polygone aléatoire</button>
+        <button class="btn" id="exportBtn">💾 Exporter PNG</button>
+
+        <div class="panel-title" style="margin-top:20px">📋 Liste des polygones</div>
+        <div class="poly-list" id="polyList"></div>
+
+        <div class="nav-row">
+          <button class="nav-btn" id="prevBtn">◀ Précédent</button>
+          <button class="nav-btn" id="nextBtn">Suivant ▶</button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Canvas -->
+      <div class="panel">
+        <div class="panel-title">🎯 Visualisation</div>
+        <div class="canvas-wrap">
+          <canvas id="canvas" width="600" height="600"></canvas>
+        </div>
+        <div class="info-bar" id="infoBar"></div>
+      </div>
+    </div>
+
+    <footer>
+      ⚡ CYBERMIND • A000940 = cycles hamiltoniens distincts sur Kₙ = polygones inscrits (étoilés inclus)
+    </footer>
+  </div>
+
+  <script>
+    // ============ MATH: Generate all distinct Hamiltonian cycles ============
+    
+    function permutations(arr) {
+      if (arr.length <= 1) return [arr];
+      const result = [];
+      for (let i = 0; i < arr.length; i++) {
+        const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        for (const perm of permutations(rest)) {
+          result.push([arr[i], ...perm]);
+        }
+      }
+      return result;
+    }
+
+    function normalize(cycle) {
+      // Normalize: start from 0, pick lexicographically smallest between forward and reverse
+      const n = cycle.length;
+      
+      // Find rotation starting with 0
+      const idx0 = cycle.indexOf(0);
+      const rotated = [...cycle.slice(idx0), ...cycle.slice(0, idx0)];
+      
+      // Reverse version (also starting with 0)
+      const reversed = [0, ...rotated.slice(1).reverse()];
+      
+      // Return lexicographically smallest
+      const fwd = rotated.join(',');
+      const rev = reversed.join(',');
+      return fwd <= rev ? rotated : reversed;
+    }
+
+    function generateAllCycles(n) {
+      if (n < 3) return [];
+      
+      // Generate all permutations of [1, 2, ..., n-1] (0 is fixed as start)
+      const others = Array.from({length: n - 1}, (_, i) => i + 1);
+      const perms = permutations(others);
+      
+      const seen = new Set();
+      const cycles = [];
+      
+      for (const perm of perms) {
+        const cycle = [0, ...perm];
+        const norm = normalize(cycle);
+        const key = norm.join(',');
+        
+        if (!seen.has(key)) {
+          seen.add(key);
+          cycles.push(norm);
+        }
+      }
+      
+      return cycles;
+    }
+
+    // Classify cycle type
+    function classifyCycle(cycle) {
+      const n = cycle.length;
+      
+      // Check if constant step (star polygon {n/k})
+      const steps = [];
+      for (let i = 0; i < n; i++) {
+        const diff = (cycle[(i + 1) % n] - cycle[i] + n) % n;
+        steps.push(diff);
+      }
+      
+      const allSame = steps.every(s => s === steps[0]);
+      if (allSame) {
+        const k = steps[0];
+        if (k === 1 || k === n - 1) {
+          return { type: 'convex', label: 'Convexe', k: 1 };
+        }
+        return { type: 'star', label: `{${n}/${Math.min(k, n-k)}}`, k: Math.min(k, n-k) };
+      }
+      
+      // Check for self-intersections
+      const hasIntersection = checkIntersections(cycle, n);
+      if (hasIntersection) {
+        return { type: 'crossed', label: 'Croisé', k: null };
+      }
+      
+      return { type: 'convex', label: 'Convexe', k: null };
+    }
+
+    function checkIntersections(cycle, n) {
+      const points = getVertices(n, 0, 0, 1);
+      const edges = [];
+      for (let i = 0; i < n; i++) {
+        edges.push([cycle[i], cycle[(i + 1) % n]]);
+      }
+      
+      for (let i = 0; i < edges.length; i++) {
+        for (let j = i + 2; j < edges.length; j++) {
+          if (i === 0 && j === edges.length - 1) continue; // Adjacent
+          const [a, b] = edges[i];
+          const [c, d] = edges[j];
+          if (segmentsIntersect(points[a], points[b], points[c], points[d])) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function segmentsIntersect(p1, p2, p3, p4) {
+      const ccw = (A, B, C) => (C.y - A.y) * (B.x - A.x) > (B.y - A.y) * (C.x - A.x);
+      const a = {x: p1[0], y: p1[1]};
+      const b = {x: p2[0], y: p2[1]};
+      const c = {x: p3[0], y: p3[1]};
+      const d = {x: p4[0], y: p4[1]};
+      return ccw(a,c,d) !== ccw(b,c,d) && ccw(a,b,c) !== ccw(a,b,d);
+    }
+
+    function getVertices(n, cx, cy, r) {
+      const verts = [];
+      for (let i = 0; i < n; i++) {
+        const angle = -Math.PI / 2 + (2 * Math.PI * i) / n;
+        verts.push([cx + r * Math.cos(angle), cy + r * Math.sin(angle)]);
+      }
+      return verts;
+    }
+
+    // ============ APP STATE ============
+    
+    const colors = [
+      '#00ff9a', '#ffb000', '#ff2a6d', '#00d4ff', '#a855f7', 
+      '#ff6b6b', '#4ecdc4', '#ffe66d', '#95e1d3', '#f38181'
+    ];
+
+    let state = {
+      n: 5,
+      cycles: [],
+      currentIndex: 0,
+      color: colors[0],
+      stroke: 3,
+      showCircle: true,
+      showVertices: true,
+      showLabels: true,
+      showArrows: false,
+      useGradient: false,
+      useGlow: true
+    };
+
+    // ============ UI ============
+    
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function init() {
+      // Setup color picker
+      const colorPicker = document.getElementById('colorPicker');
+      colors.forEach((c, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'color-btn' + (i === 0 ? ' active' : '');
+        btn.style.background = c;
+        btn.onclick = () => {
+          document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.color = c;
+          draw();
+        };
+        colorPicker.appendChild(btn);
+      });
+
+      // Slider events
+      document.getElementById('nSlider').oninput = (e) => {
+        state.n = parseInt(e.target.value);
+        document.getElementById('nVal').textContent = state.n;
+        regenerate();
+      };
+
+      document.getElementById('strokeSlider').oninput = (e) => {
+        state.stroke = parseInt(e.target.value);
+        document.getElementById('strokeVal').textContent = state.stroke;
+        draw();
+      };
+
+      // Switch events
+      document.getElementById('showCircle').onchange = (e) => { state.showCircle = e.target.checked; draw(); };
+      document.getElementById('showVertices').onchange = (e) => { state.showVertices = e.target.checked; draw(); };
+      document.getElementById('showLabels').onchange = (e) => { state.showLabels = e.target.checked; draw(); };
+      document.getElementById('showArrows').onchange = (e) => { state.showArrows = e.target.checked; draw(); };
+      document.getElementById('useGradient').onchange = (e) => { state.useGradient = e.target.checked; draw(); };
+      document.getElementById('useGlow').onchange = (e) => { state.useGlow = e.target.checked; draw(); };
+
+      // Buttons
+      document.getElementById('randomBtn').onclick = () => {
+        state.currentIndex = Math.floor(Math.random() * state.cycles.length);
+        updateList();
+        draw();
+      };
+
+      document.getElementById('exportBtn').onclick = () => {
+        const link = document.createElement('a');
+        link.download = `polygon-n${state.n}-${state.currentIndex + 1}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      };
+
+      document.getElementById('prevBtn').onclick = () => {
+        if (state.currentIndex > 0) {
+          state.currentIndex--;
+          updateList();
+          draw();
+        }
+      };
+
+      document.getElementById('nextBtn').onclick = () => {
+        if (state.currentIndex < state.cycles.length - 1) {
+          state.currentIndex++;
+          updateList();
+          draw();
+        }
+      };
+
+      regenerate();
+    }
+
+    function regenerate() {
+      state.cycles = generateAllCycles(state.n);
+      state.currentIndex = 0;
+      updateList();
+      draw();
+    }
+
+    function updateList() {
+      const list = document.getElementById('polyList');
+      list.innerHTML = '';
+
+      state.cycles.forEach((cycle, i) => {
+        const info = classifyCycle(cycle);
+        const item = document.createElement('div');
+        item.className = 'poly-item' + (i === state.currentIndex ? ' active' : '');
+        item.innerHTML = `
+          <div class="idx">${i + 1}</div>
+          <div class="seq">${cycle.join('→')}</div>
+          <div class="type type-${info.type}">${info.label}</div>
+        `;
+        item.onclick = () => {
+          state.currentIndex = i;
+          updateList();
+          draw();
+        };
+        list.appendChild(item);
+      });
+
+      // Scroll to active
+      const active = list.querySelector('.active');
+      if (active) active.scrollIntoView({ block: 'nearest' });
+
+      // Update nav buttons
+      document.getElementById('prevBtn').disabled = state.currentIndex === 0;
+      document.getElementById('nextBtn').disabled = state.currentIndex === state.cycles.length - 1;
+
+      // Update info bar
+      updateInfoBar();
+    }
+
+    function updateInfoBar() {
+      const cycle = state.cycles[state.currentIndex];
+      const info = classifyCycle(cycle);
+      
+      const countByType = { convex: 0, star: 0, crossed: 0 };
+      state.cycles.forEach(c => {
+        const t = classifyCycle(c).type;
+        countByType[t]++;
+      });
+
+      document.getElementById('infoBar').innerHTML = `
+        <div class="info-chip">n = <span class="val">${state.n}</span></div>
+        <div class="info-chip amber">a(${state.n}) = <span class="val">${state.cycles.length}</span></div>
+        <div class="info-chip cyan">#<span class="val">${state.currentIndex + 1}</span> / ${state.cycles.length}</div>
+        <div class="info-chip">Type: <span class="val">${info.label}</span></div>
+        <div class="info-chip">🟩 <span class="val">${countByType.convex}</span></div>
+        <div class="info-chip amber">⭐ <span class="val">${countByType.star}</span></div>
+        <div class="info-chip red">✖ <span class="val">${countByType.crossed}</span></div>
+      `;
+    }
+
+    // ============ DRAWING ============
+
+    function draw() {
+      const W = canvas.width;
+      const H = canvas.height;
+      const cx = W / 2;
+      const cy = H / 2;
+      const radius = Math.min(W, H) * 0.38;
+
+      // Clear
+      ctx.clearRect(0, 0, W, H);
+
+      // Background gradient
+      const bgGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.5);
+      bgGrad.addColorStop(0, 'rgba(20, 35, 60, 0.9)');
+      bgGrad.addColorStop(1, 'rgba(5, 6, 10, 0.98)');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Circle
+      if (state.showCircle) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Inner circles for decoration
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * 0.15, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.stroke();
+      }
+
+      const cycle = state.cycles[state.currentIndex];
+      if (!cycle) return;
+
+      const verts = getVertices(state.n, cx, cy, radius);
+
+      // Glow effect
+      if (state.useGlow) {
+        ctx.shadowColor = state.color;
+        ctx.shadowBlur = 20;
+      }
+
+      // Draw polygon edges
+      ctx.beginPath();
+      const startVert = verts[cycle[0]];
+      ctx.moveTo(startVert[0], startVert[1]);
+
+      for (let i = 1; i <= state.n; i++) {
+        const v = verts[cycle[i % state.n]];
+        ctx.lineTo(v[0], v[1]);
+      }
+
+      if (state.useGradient) {
+        const grad = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
+        grad.addColorStop(0, colors[0]);
+        grad.addColorStop(0.5, colors[1]);
+        grad.addColorStop(1, colors[2]);
+        ctx.strokeStyle = grad;
+      } else {
+        ctx.strokeStyle = state.color;
+      }
+      ctx.lineWidth = state.stroke;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+
+      // Reset shadow
+      ctx.shadowBlur = 0;
+
+      // Draw arrows
+      if (state.showArrows) {
+        for (let i = 0; i < state.n; i++) {
+          const from = verts[cycle[i]];
+          const to = verts[cycle[(i + 1) % state.n]];
+          drawArrow(from, to);
+        }
+      }
+
+      // Draw vertices
+      if (state.showVertices) {
+        for (let i = 0; i < state.n; i++) {
+          const [x, y] = verts[i];
+          
+          // Outer glow
+          ctx.beginPath();
+          ctx.arc(x, y, 14, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 255, 154, 0.15)';
+          ctx.fill();
+
+          // Main circle
+          ctx.beginPath();
+          ctx.arc(x, y, 10, 0, Math.PI * 2);
+          ctx.fillStyle = '#0b1020';
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+
+          // Labels
+          if (state.showLabels) {
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 12px ui-monospace, monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(i.toString(), x, y);
+          }
+        }
+      }
+
+      // Draw cycle sequence at bottom
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.font = '14px ui-monospace, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(`Cycle: ${cycle.join(' → ')} → ${cycle[0]}`, cx, H - 25);
+    }
+
+    function drawArrow(from, to) {
+      const [x1, y1] = from;
+      const [x2, y2] = to;
+      
+      const midX = (x1 + x2) / 2;
+      const midY = (y1 + y2) / 2;
+      
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const arrowLen = 10;
+      const arrowAngle = Math.PI / 6;
+
+      ctx.beginPath();
+      ctx.moveTo(
+        midX - arrowLen * Math.cos(angle - arrowAngle),
+        midY - arrowLen * Math.sin(angle - arrowAngle)
+      );
+      ctx.lineTo(midX, midY);
+      ctx.lineTo(
+        midX - arrowLen * Math.cos(angle + arrowAngle),
+        midY - arrowLen * Math.sin(angle + arrowAngle)
+      );
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // ============ INIT ============
+    init();
+  </script>
+</body>
+</html>

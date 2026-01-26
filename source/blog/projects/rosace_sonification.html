@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suite Hamiltonienne A000940 - Sonification φ^π</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #e8e8e8;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .phi-display {
+            font-size: 1.4em;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        canvas {
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(100, 150, 255, 0.3);
+        }
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-family: inherit;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        #playBtn {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+        }
+        #playBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(0, 184, 148, 0.5);
+        }
+        #stopBtn {
+            background: linear-gradient(45deg, #d63031, #e17055);
+            color: white;
+        }
+        #stopBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(214, 48, 49, 0.5);
+        }
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .info span {
+            color: #74b9ff;
+            font-weight: bold;
+        }
+        .legend {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #b2bec3;
+            max-width: 500px;
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suite Hamiltonienne A000940</h1>
+    <div class="phi-display">Φ<sup>π</sup> ≈ 4.5347572</div>
+    
+    <div class="container">
+        <canvas id="visualizer" width="500" height="500"></canvas>
+        
+        <div class="controls">
+            <button id="playBtn">▶ Play</button>
+            <button id="stopBtn">■ Stop</button>
+        </div>
+        
+        <div class="info">
+            n = <span id="nValue">3</span> | 
+            a(n) = <span id="anValue">1</span> |
+            f = <span id="freqValue">196</span> Hz
+        </div>
+        
+        <div class="legend">
+            Sonification : chaque valeur n génère a(n) harmoniques<br>
+            Fréquence de base : 432 × Φ<sup>π</sup> / 10 ≈ 196 Hz<br>
+            Durée des notes : Φ<sup>π</sup> / 4 ≈ 1.13s
+        </div>
+    </div>
+
+    <script>
+        // Constantes φ^π
+        const PHI = (1 + Math.sqrt(5)) / 2;
+        const PHI_PI = Math.pow(PHI, Math.PI);
+        
+        // Suite A000940
+        const A000940 = {
+            3: 1, 4: 2, 5: 4, 6: 12, 7: 39, 8: 202, 9: 1219, 10: 9468,
+            11: 83435, 12: 836017, 13: 9223092, 14: 111255228, 15: 1453132944,
+            16: 20433309147, 17: 307690667072, 18: 4940118795869,
+            19: 84241805734539, 20: 1520564059349452, 21: 28963120073957838,
+            22: 580578894859915650, 23: 12217399235411398127,
+            24: 269291841184184374868, 25: 6204484017822892034404,
+            26: 149175438649578753498456, 27: 3733710671378025371498480,
+            28: 97089429796971170322763840n
+        };
+        
+        // Couleurs résistances
+        const RESISTOR_COLORS = [
+            '#000000', '#8B4513', '#FF0000', '#FF8C00', '#FFD700',
+            '#228B22', '#0000FF', '#8B008B', '#808080', '#FFFFFF'
+        ];
+        
+        // Séquence n=3 à n=28 aller-retour
+        const nValues = [];
+        for (let i = 3; i <= 28; i++) nValues.push(i);
+        const sequence = [...nValues, ...nValues.slice(0, -1).reverse()];
+        
+        // Audio context
+        let audioCtx = null;
+        let isPlaying = false;
+        let currentStep = 0;
+        let timeoutId = null;
+        let oscillators = [];
+        
+        // Canvas
+        const canvas = document.getElementById('visualizer');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const maxRadius = 230;
+        
+        // Fréquence de base
+        const BASE_FREQ = 432 * PHI_PI / 10;
+        
+        // Durée d'une note (basée sur φ^π)
+        const NOTE_DURATION = PHI_PI / 4;
+        
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+        
+        function stopAllOscillators() {
+            oscillators.forEach(osc => {
+                try {
+                    osc.stop();
+                    osc.disconnect();
+                } catch(e) {}
+            });
+            oscillators = [];
+        }
+        
+        function playNote(n) {
+            stopAllOscillators();
+            
+            const an = A000940[n];
+            // Nombre d'harmoniques basé sur log de a(n), limité
+            const numHarmonics = Math.min(Math.max(Math.floor(Math.log10(Number(an)) + 1), 1), 16);
+            
+            // Fréquence fondamentale basée sur n
+            const fundamental = BASE_FREQ * (n / 3);
+            
+            // Master gain
+            const masterGain = audioCtx.createGain();
+            masterGain.gain.setValueAtTime(0.3 / numHarmonics, audioCtx.currentTime);
+            masterGain.connect(audioCtx.destination);
+            
+            // Créer les harmoniques
+            for (let h = 1; h <= numHarmonics; h++) {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                // Fréquence harmonique avec légère désaccord basé sur φ
+                const freq = fundamental * h * (1 + (h - 1) * 0.001 * PHI);
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                // Type d'onde basé sur l'harmonique
+                const waveTypes = ['sine', 'triangle', 'sine', 'triangle'];
+                osc.type = waveTypes[h % 4];
+                
+                // Envelope ADSR
+                const now = audioCtx.currentTime;
+                const attackTime = 0.05;
+                const decayTime = 0.1;
+                const sustainLevel = 0.6 / h;
+                const releaseTime = NOTE_DURATION * 0.3;
+                
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(1 / h, now + attackTime);
+                gain.gain.linearRampToValueAtTime(sustainLevel, now + attackTime + decayTime);
+                gain.gain.setValueAtTime(sustainLevel, now + NOTE_DURATION - releaseTime);
+                gain.gain.linearRampToValueAtTime(0, now + NOTE_DURATION);
+                
+                osc.connect(gain);
+                gain.connect(masterGain);
+                
+                osc.start(now);
+                osc.stop(now + NOTE_DURATION + 0.1);
+                
+                oscillators.push(osc);
+            }
+            
+            // Ajouter un sub-bass basé sur φ^π
+            const subOsc = audioCtx.createOscillator();
+            const subGain = audioCtx.createGain();
+            subOsc.type = 'sine';
+            subOsc.frequency.setValueAtTime(fundamental / PHI_PI, audioCtx.currentTime);
+            subGain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            subGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + NOTE_DURATION);
+            subOsc.connect(subGain);
+            subGain.connect(masterGain);
+            subOsc.start();
+            subOsc.stop(audioCtx.currentTime + NOTE_DURATION + 0.1);
+            oscillators.push(subOsc);
+            
+            // Update display
+            document.getElementById('nValue').textContent = n;
+            document.getElementById('anValue').textContent = an.toLocaleString();
+            document.getElementById('freqValue').textContent = fundamental.toFixed(1);
+        }
+        
+        function drawVisualization(n, an) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Fond avec gradient radial
+            const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+            gradient.addColorStop(0, 'rgba(26, 26, 46, 0.8)');
+            gradient.addColorStop(1, 'rgba(15, 52, 96, 0.9)');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius + 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Cercle global
+            ctx.strokeStyle = '#e8e8e8';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // Cercle φ
+            ctx.strokeStyle = 'rgba(255, 215, 0, 0.5)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius / PHI, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // Cercle φ^π
+            ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius / PHI_PI, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Cercles concentriques (basés sur n)
+            ctx.lineWidth = 0.8;
+            for (let i = 1; i <= n; i++) {
+                const r = (i / 28) * maxRadius * 0.4;
+                ctx.strokeStyle = RESISTOR_COLORS[(i - 1) % 10];
+                ctx.globalAlpha = 0.6;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+            
+            // Rosace (limité pour la visualisation)
+            const numCircles = Math.min(Number(an), 200);
+            const rRosace = maxRadius / PHI_PI;
+            const rotation = currentStep * PHI_PI * 0.1;
+            
+            ctx.lineWidth = numCircles > 50 ? 0.5 : 1;
+            
+            for (let i = 0; i < numCircles; i++) {
+                const angle = (i * 2 * Math.PI / numCircles) - Math.PI / 2 + rotation;
+                const cx = centerX + rRosace * Math.cos(angle);
+                const cy = centerY + rRosace * Math.sin(angle);
+                
+                ctx.strokeStyle = RESISTOR_COLORS[i % 10];
+                ctx.beginPath();
+                ctx.arc(cx, cy, rRosace, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+        
+        function playStep() {
+            if (!isPlaying) return;
+            
+            const n = sequence[currentStep];
+            const an = A000940[n];
+            
+            playNote(n);
+            drawVisualization(n, an);
+            
+            currentStep = (currentStep + 1) % sequence.length;
+            
+            timeoutId = setTimeout(playStep, NOTE_DURATION * 1000);
+        }
+        
+        document.getElementById('playBtn').addEventListener('click', () => {
+            initAudio();
+            if (!isPlaying) {
+                isPlaying = true;
+                playStep();
+            }
+        });
+        
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            isPlaying = false;
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            stopAllOscillators();
+        });
+        
+        // Dessiner l'état initial
+        drawVisualization(3, 1);
+    </script>
+</body>
+</html>

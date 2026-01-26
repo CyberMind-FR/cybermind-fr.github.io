@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amandier — Recette Complète</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sepia-dark: #5D4037;
+            --sepia-medium: #8D6E63;
+            --sepia-light: #D7CCC8;
+            --parchment: #F5E6D3;
+            --cream: #FFF8E1;
+            --background: #FFFDF5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--background);
+            color: var(--sepia-dark);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            background: linear-gradient(to bottom, var(--background), #FDF8F0);
+        }
+
+        /* En-tête */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px double var(--sepia-light);
+        }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: var(--sepia-medium);
+            letter-spacing: 10px;
+            margin: 15px 0;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--sepia-dark);
+            letter-spacing: 8px;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--sepia-medium);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--sepia-medium);
+            margin-top: 15px;
+        }
+
+        /* Introduction */
+        .intro {
+            font-style: italic;
+            text-align: justify;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+            background: var(--parchment);
+            border-left: 4px solid var(--sepia-medium);
+        }
+
+        /* Titres de section */
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            text-align: center;
+            color: var(--sepia-dark);
+            margin: 40px 0 25px;
+        }
+
+        h2::before, h2::after {
+            content: " — ";
+            color: var(--sepia-medium);
+        }
+
+        h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--sepia-dark);
+            background: var(--parchment);
+            padding: 10px 15px;
+            margin: 25px 0 15px;
+        }
+
+        /* Tableau comparatif */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .compare-table th {
+            background: var(--parchment);
+            padding: 12px 10px;
+            font-weight: 600;
+            border-top: 3px double var(--sepia-medium);
+            border-bottom: 3px double var(--sepia-medium);
+            font-size: 0.95rem;
+        }
+
+        .compare-table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px dotted var(--sepia-light);
+        }
+
+        .compare-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .compare-table .highlight {
+            background: var(--cream);
+            font-weight: 600;
+        }
+
+        .compare-table .muted {
+            color: var(--sepia-medium);
+        }
+
+        /* Infos temps/cuisson */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: var(--parchment);
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        /* Étapes */
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            display: flex;
+            margin: 12px 0;
+            padding-left: 10px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step) ".";
+            font-weight: 700;
+            color: var(--sepia-medium);
+            min-width: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Astuce */
+        .tip {
+            background: var(--cream);
+            border: 1px solid var(--sepia-light);
+            padding: 15px 20px;
+            margin: 25px 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .tip strong {
+            color: var(--sepia-dark);
+        }
+
+        /* Section glaçage */
+        .glaze-section {
+            margin-top: 40px;
+        }
+
+        .glaze-royal {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+            background: var(--parchment);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .glaze-royal h4 {
+            grid-column: 1 / -1;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .glaze-royal ul {
+            list-style: none;
+        }
+
+        .glaze-royal li {
+            padding: 5px 0;
+        }
+
+        .glaze-royal .instructions {
+            font-style: italic;
+            color: var(--sepia-dark);
+            line-height: 1.5;
+        }
+
+        .glaze-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .glaze-card {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .glaze-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .glaze-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .glaze-card li {
+            padding: 4px 0;
+        }
+
+        .glaze-card .decor {
+            font-style: italic;
+            color: var(--sepia-medium);
+        }
+
+        .glaze-note {
+            text-align: center;
+            font-style: italic;
+            color: var(--sepia-medium);
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px double var(--sepia-light);
+        }
+
+        .enjoy {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--sepia-dark);
+        }
+
+        .fleuron {
+            font-size: 2.5rem;
+            color: var(--sepia-medium);
+            margin: 20px 0;
+        }
+
+        .credits {
+            font-style: italic;
+            color: var(--sepia-medium);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            h1 { font-size: 2.5rem; letter-spacing: 4px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .glaze-grid { grid-template-columns: 1fr; }
+            .glaze-royal { grid-template-columns: 1fr; }
+            .compare-table { font-size: 0.85rem; }
+            .compare-table th, .compare-table td { padding: 8px 5px; }
+        }
+
+        /* Print */
+        @media print {
+            body { background: white; }
+            .container { max-width: 100%; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="ornament">✦ ❧ ✦</div>
+            <h1>AMANDIER</h1>
+            <p class="subtitle">Gâteau Fondant aux Amandes</p>
+            <p class="tagline">— Recette classique & variantes —</p>
+            <div class="ornament">✦ ❧ ✦</div>
+        </header>
+
+        <p class="intro">
+            L'amandier est un gâteau fondant à base de poudre d'amandes, naturellement sans gluten. 
+            Contrairement au gâteau Nantais qui est un quatre-quarts, l'amandier ne contient pas de farine, 
+            ce qui lui confère sa texture si particulière. Voici la recette originale et ses déclinaisons.
+        </p>
+
+        <h2>Les trois versions</h2>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Ingrédient</th>
+                    <th>Originale<br>(5 pers.)</th>
+                    <th>Variante Gandalf<br>(10 pers.)</th>
+                    <th>Version Végane<br>(5 pers.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Œufs</td>
+                    <td>3</td>
+                    <td class="highlight">6</td>
+                    <td class="muted">—</td>
+                </tr>
+                <tr>
+                    <td>Sucre en poudre</td>
+                    <td>100 g</td>
+                    <td class="highlight">150 g</td>
+                    <td>100 g</td>
+                </tr>
+                <tr>
+                    <td>Poudre d'amande</td>
+                    <td>150 g</td>
+                    <td class="highlight">250 g</td>
+                    <td>150 g</td>
+                </tr>
+                <tr>
+                    <td>Extrait amande amère</td>
+                    <td>5 ml</td>
+                    <td class="highlight">1 c.c.</td>
+                    <td>5 ml</td>
+                </tr>
+                <tr>
+                    <td>Beurre doux</td>
+                    <td>75 g</td>
+                    <td class="highlight">—</td>
+                    <td class="muted">—</td>
+                </tr>
+                <tr>
+                    <td>Huile de coco</td>
+                    <td class="muted">—</td>
+                    <td class="highlight">100 g</td>
+                    <td>50 ml</td>
+                </tr>
+                <tr>
+                    <td>Lait d'amande</td>
+                    <td class="muted">—</td>
+                    <td class="highlight">—</td>
+                    <td>100 ml</td>
+                </tr>
+                <tr>
+                    <td>Maïzena</td>
+                    <td class="muted">—</td>
+                    <td class="highlight">—</td>
+                    <td>20 g</td>
+                </tr>
+                <tr>
+                    <td>Amandes effilées</td>
+                    <td>oui</td>
+                    <td class="highlight">oui</td>
+                    <td>oui</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="text-align: center; font-style: italic; color: var(--sepia-medium); margin-top: 15px;">
+            La version végane remplace les œufs par du lait d'amande et de la maïzena comme liant.
+        </p>
+
+        <h2>Temps & Cuisson</h2>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <strong>Préparation</strong>
+                25 minutes
+            </div>
+            <div class="info-box">
+                <strong>Cuisson originale</strong>
+                45-50 min à 180°C
+            </div>
+            <div class="info-box">
+                <strong>Cuisson variante</strong>
+                35 min à 180°C
+            </div>
+            <div class="info-box">
+                <strong>Moule original</strong>
+                15 cm Ø
+            </div>
+            <div class="info-box">
+                <strong>Moule variante</strong>
+                22-24 cm Ø
+            </div>
+            <div class="info-box">
+                <strong>Difficulté</strong>
+                Facile
+            </div>
+        </div>
+
+        <h2>Préparation</h2>
+
+        <h3>Version classique (avec œufs et beurre)</h3>
+        <div class="steps">
+            <p class="step">Préchauffer le four à 180°C.</p>
+            <p class="step">Beurrer et fariner légèrement le moule.</p>
+            <p class="step">Faire fondre le beurre à feu doux et mettre de côté.</p>
+            <p class="step">Fouetter les œufs entiers et le sucre jusqu'à ce que le mélange blanchisse et double de volume.</p>
+            <p class="step">Tamiser la poudre d'amandes et incorporer délicatement en ajoutant l'extrait d'amande amère.</p>
+            <p class="step">Ajouter le beurre fondu refroidi et mélanger délicatement.</p>
+            <p class="step">Verser dans le moule, disposer les amandes effilées sur le dessus.</p>
+            <p class="step">Enfourner selon la taille du moule. Si le gâteau dore trop vite, couvrir d'aluminium.</p>
+        </div>
+
+        <h3>Variante sans lactose (huile de coco)</h3>
+        <p style="padding-left: 20px;">
+            Suivre la même méthode en remplaçant le beurre par l'huile de coco fondue. 
+            L'huile de coco apporte un côté fondant légèrement différent et une subtile note exotique.
+        </p>
+
+        <h3>Version végane (avec maïzena)</h3>
+        <div class="steps">
+            <p class="step">Préchauffer le four à 180°C. Huiler le moule.</p>
+            <p class="step">Dans un saladier, mélanger la poudre d'amandes, le sucre et la maïzena.</p>
+            <p class="step">Ajouter le lait d'amande progressivement en mélangeant bien.</p>
+            <p class="step">Incorporer l'huile végétale et l'extrait d'amande amère.</p>
+            <p class="step">Verser dans le moule, disposer les amandes effilées.</p>
+            <p class="step">Enfourner 40-45 minutes. Le gâteau sera légèrement plus dense mais tout aussi savoureux.</p>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Astuce :</strong> La maïzena sert de liant en remplacement des œufs. 
+            Pour un résultat encore plus aérien, vous pouvez ajouter ½ c.c. de bicarbonate de soude.
+        </div>
+
+        <section class="glaze-section">
+            <h2>Glaçage (optionnel)</h2>
+
+            <div class="glaze-royal">
+                <h4>✨ Glaçage Royal (blanc d'œuf) — le plus brillant</h4>
+                <ul>
+                    <li>1 blanc d'œuf</li>
+                    <li>150-200 g de sucre glace</li>
+                    <li>Quelques gouttes de jus de citron</li>
+                </ul>
+                <p class="instructions">
+                    Fouetter le blanc d'œuf légèrement. Incorporer le sucre glace progressivement 
+                    jusqu'à obtenir une texture lisse et brillante. Ajouter le citron. 
+                    Napper le gâteau refroidi. Ce glaçage durcit en séchant.
+                </p>
+            </div>
+
+            <h3 style="text-align: center; background: none;">Glaçages simples (sans œuf)</h3>
+
+            <div class="glaze-grid">
+                <div class="glaze-card">
+                    <h4>🍋 Glaçage Citron</h4>
+                    <ul>
+                        <li>100 g de sucre glace</li>
+                        <li>2 c.s. de jus de citron frais</li>
+                        <li class="decor">Zestes pour décorer</li>
+                    </ul>
+                </div>
+                <div class="glaze-card">
+                    <h4>🌸 Glaçage Fleur d'Oranger</h4>
+                    <ul>
+                        <li>100 g de sucre glace</li>
+                        <li>1-2 c.s. d'eau de fleur d'oranger</li>
+                        <li class="decor">Amandes torréfiées pour décorer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="glaze-note">
+                Mélanger sucre glace et liquide jusqu'à consistance nappante. Verser sur gâteau refroidi.
+            </p>
+        </section>
+
+        <footer>
+            <div class="ornament">✦ ❧ ✦</div>
+            <p class="enjoy">Dégustez !</p>
+            <p class="fleuron">❦</p>
+            <p class="credits">Recette originale : Culture Crunch • Adaptations : Gandalf</p>
+        </footer>
+    </div>
+</body>
+</html>

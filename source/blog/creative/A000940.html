@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A000940 • Cycle → Polygone • {n/k}</title>
+  <style>
+    :root{
+      --bg:#0A0A0F;
+      --card:#121225;
+      --muted:#9aa3b2;
+      --txt:#e9ecf4;
+      --cyan:#39d5ff;
+      --amber:#ffb84a;
+      --violet:#b38cff;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.45);
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(57,213,255,.18), transparent 60%),
+                  radial-gradient(900px 700px at 85% 20%, rgba(255,184,74,.15), transparent 60%),
+                  radial-gradient(900px 900px at 50% 110%, rgba(179,140,255,.12), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
+      line-height:1.35;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 48px}
+    header{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+      padding:18px 18px 10px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      font-weight:700;
+    }
+    h1{margin:10px 0 6px;font-size:28px}
+    .sub{color:var(--muted);max-width:70ch}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .title{
+      display:flex; align-items:center; gap:10px;
+      font-size:16px; font-weight:800; margin:0 0 8px;
+    }
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      padding:6px 10px; border-radius:999px; border:1px solid var(--line);
+      background: rgba(10,10,15,.35);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .accent{
+      border-color: rgba(57,213,255,.35);
+      box-shadow: 0 0 0 2px rgba(57,213,255,.08) inset;
+    }
+    .amber{
+      border-color: rgba(255,184,74,.35);
+      box-shadow: 0 0 0 2px rgba(255,184,74,.08) inset;
+    }
+    .violet{
+      border-color: rgba(179,140,255,.35);
+      box-shadow: 0 0 0 2px rgba(179,140,255,.08) inset;
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(0,0,0,.25);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+      overflow:auto;
+      color:#dfe7ff;
+    }
+    .kpi{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:12px;
+    }
+    @media (max-width: 700px){ .kpi{grid-template-columns:1fr} }
+    .k{
+      padding:12px; border-radius:16px; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .k b{font-size:18px}
+    .k small{color:var(--muted);display:block;margin-top:4px}
+    .arrow{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      margin:12px 0 6px;
+    }
+    .step{
+      flex:1;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(18,18,37,.55);
+      min-width: 240px;
+    }
+    .step h3{margin:0 0 6px;font-size:15px}
+    .muted{color:var(--muted)}
+    footer{
+      margin-top:18px; padding:14px 16px;
+      border-radius:var(--r);
+      border:1px dashed rgba(255,255,255,.18);
+      color:var(--muted);
+      background: rgba(0,0,0,.18);
+    }
+    .mini{font-size:13px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="badge">🧿 Suite <span style="color:var(--cyan)">A000940</span> • cycles & polygones</div>
+        <h1>Du chemin hamiltonien au polygone (et aux étoiles {n/k})</h1>
+        <p class="sub">
+          Même objet, deux costumes : théorie des graphes 🎛️ et géométrie sur un cercle 🧭.
+          Les croisements sont autorisés (polygones étoilés / auto-intersectants).
+        </p>
+      </div>
+      <div class="card" style="max-width:360px">
+        <div class="title">📈 Valeurs (exemples)</div>
+        <div class="mono">
+a(3)=1
+a(4)=2
+a(5)=4
+a(6)=12
+a(7)=39
+a(8)=202
+a(9)=1219
+        </div>
+        <div class="pillrow">
+          <span class="pill accent">rotation ↺ identifiée</span>
+          <span class="pill amber">sens ↔ identifié</span>
+          <span class="pill violet">croisements OK ✴️</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="title">🧩 1) Définition “graphes” (Kₙ)</div>
+        <p class="muted mini">
+          Graphe complet Kₙ : chaque sommet est relié à tous les autres.
+        </p>
+
+        <div class="mono">
+Cycle hamiltonien :
+C = (v0, v1, …, v(n-1))
+avec {vi} = {0…n-1}
++ fermeture (v(n-1) → v0)
+
+Identifications (même forme) :
+• rotation du point de départ
+• inversion du sens
+        </div>
+
+        <div class="kpi">
+          <div class="k accent">
+            <b>🔁 Cycle</b>
+            <small>visite tous les sommets 1× et revient au départ</small>
+          </div>
+          <div class="k amber">
+            <b>↺ Rotation</b>
+            <small>le choix de v0 ne change pas la forme</small>
+          </div>
+          <div class="k violet">
+            <b>↔ Inversion</b>
+            <small>parcours horaire/anti-horaire identifiés</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🧭 2) Définition “géométrie” (cercle)</div>
+        <p class="muted mini">
+          On place n points équidistants sur un cercle, puis on relie selon l’ordre du cycle.
+        </p>
+
+        <div class="mono">
+Points :
+pi = (cos(2πi/n), sin(2πi/n))
+
+Polygone associé :
+Γ(C) = segments [p(v_i), p(v_{i+1})]
+avec v_n = v_0
+
+➡️ Croisements autorisés
+        </div>
+
+        <div class="pillrow">
+          <span class="pill">🟦 convexes</span>
+          <span class="pill">✴️ étoilés</span>
+          <span class="pill">🧵 auto-intersectants</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🪄 3) Passage “cycle → polygone”</div>
+
+        <div class="arrow">
+          <div class="step">
+            <h3>🧾 Donnée</h3>
+            <div class="muted mini">un cycle C = (v0,…,v(n−1))</div>
+          </div>
+          <div class="step">
+            <h3>🧭 Placement</h3>
+            <div class="muted mini">p0…p(n−1) sur un cercle (équidistants)</div>
+          </div>
+          <div class="step">
+            <h3>🧵 Tracé</h3>
+            <div class="muted mini">relier p(v_i) → p(v_{i+1}), fermer</div>
+          </div>
+        </div>
+
+        <div class="mono">
+Même forme ⇔ mêmes arêtes “cylindrées” :
+C ~ rotation(C) ~ reverse(C)
+
+Intuition :
+un cycle = un ordre de visite
+un polygone = cet ordre dessiné
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🌟 4) Les étoiles régulières {n/k}</div>
+        <p class="muted mini">
+          {n/k} = “pas constant” : on avance de k sommets modulo n.
+        </p>
+
+        <div class="mono">
+Cycle de pas k :
+C(n,k) = (0, k, 2k, 3k, …) mod n
+
+Condition étoile “pure” :
+gcd(n,k) = 1  ✅  (cycle hamiltonien)
+
+Symétrie :
+{n/k} = {n/(n−k)}  (même dessin, sens inverse)
+        </div>
+
+        <div class="pillrow">
+          <span class="pill accent">ex: {5/1} pentagone</span>
+          <span class="pill amber">ex: {5/2} étoile</span>
+          <span class="pill violet">ex: {7/2}, {7/3}</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="mini">
+        🧠 Mémo : A000940 compte des <b>formes distinctes</b> (cycles hamiltoniens) sur n sommets,
+        dessinées sur un cercle, croisements inclus. Les étoiles {n/k} sont le sous-cas “pas constant”.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

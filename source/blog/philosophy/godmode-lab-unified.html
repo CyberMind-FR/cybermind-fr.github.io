@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Godmode Lab - Claude & ChatGPT | CyberMind.FR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Claude Theme */
+            --claude-bg: #0a0a1a;
+            --claude-card: rgba(26, 26, 46, 0.9);
+            --claude-accent: #d4af37;
+            --claude-accent2: #9d4edd;
+            --claude-cyan: #00d9ff;
+            --claude-coral: #e94560;
+            
+            /* ChatGPT Theme */
+            --gpt-bg: #0d0d0d;
+            --gpt-card: rgba(32, 33, 35, 0.9);
+            --gpt-accent: #10A37F;
+            --gpt-accent2: #8B5CF6;
+            --gpt-cyan: #06B6D4;
+            --gpt-pink: #EC4899;
+            
+            /* Current Theme (default Claude) */
+            --bg-primary: var(--claude-bg);
+            --bg-card: var(--claude-card);
+            --accent: var(--claude-accent);
+            --accent2: var(--claude-accent2);
+            --cyan: var(--claude-cyan);
+            --highlight: var(--claude-coral);
+            
+            /* Shared */
+            --text-primary: #ECECF1;
+            --text-secondary: #8E8EA0;
+            --border-color: #2D2D30;
+            --red: #EF4444;
+            --amber: #F59E0B;
+            --green: #4ade80;
+        }
+
+        body.gpt-mode {
+            --bg-primary: var(--gpt-bg);
+            --bg-card: var(--gpt-card);
+            --accent: var(--gpt-accent);
+            --accent2: var(--gpt-accent2);
+            --cyan: var(--gpt-cyan);
+            --highlight: var(--gpt-pink);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Philosopher', 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background 0.5s ease;
+        }
+
+        body.gpt-mode { font-family: 'Inter', sans-serif; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        body.gpt-mode::before {
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(16, 163, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 20px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           PLATFORM SWITCHER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .platform-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 24px;
+            background: var(--bg-card);
+            border-radius: 50px;
+            padding: 6px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .platform-btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .platform-btn:hover { color: var(--text-primary); }
+
+        .platform-btn.active {
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .platform-btn.claude-btn.active {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #0a0a1a;
+        }
+
+        .platform-btn.gpt-btn.active {
+            background: linear-gradient(135deg, #10A37F, #0d8a6a);
+            color: white;
+        }
+
+        .platform-btn .icon { font-size: 24px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           HEADER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        header { text-align: center; padding: 30px 20px; }
+        
+        .logo {
+            font-size: 72px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        body.gpt-mode h1 { font-family: 'Inter', sans-serif; }
+        body:not(.gpt-mode) h1 { font-family: 'Cinzel', serif; letter-spacing: 3px; }
+
+        .subtitle { color: var(--accent); font-size: 1rem; margin-bottom: 8px; }
+        .author { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           MODEL SELECTOR
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .model-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .model-btn {
+            padding: 12px 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .model-btn:hover { border-color: var(--accent); }
+
+        .model-btn.active {
+            border-color: var(--accent);
+            background: rgba(var(--accent), 0.2);
+            box-shadow: 0 0 20px rgba(var(--accent), 0.2);
+        }
+
+        body:not(.gpt-mode) .model-btn.active { background: rgba(212, 175, 55, 0.15); }
+        body.gpt-mode .model-btn.active { background: rgba(16, 163, 127, 0.15); }
+
+        .model-btn .name { font-weight: 600; font-size: 13px; display: block; }
+        .model-btn .cost { font-size: 11px; color: var(--text-secondary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════════════════════════ */
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav button:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+
+        nav button.active {
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            color: white;
+        }
+
+        body:not(.gpt-mode) nav button.active { color: #0a0a1a; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           MAIN LAYOUT
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 950px) { .main-grid { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 16px 0 8px;
+        }
+
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SVG GRAPH
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .graph-container svg { max-width: 100%; height: auto; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           CODE BLOCK
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .code-block {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .code-block:hover { border-color: var(--accent); }
+
+        .code-block::after {
+            content: 'Click to copy';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .code-block:hover::after { opacity: 1; }
+        .code-block.copied::after { content: '✓ Copied!'; color: var(--green); opacity: 1; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FORM ELEMENTS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+        textarea { resize: vertical; min-height: 100px; font-family: 'JetBrains Mono', monospace; }
+        label { display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 4px; }
+
+        .vars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            color: white;
+        }
+
+        body:not(.gpt-mode) .btn-primary { color: #0a0a1a; }
+
+        .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           TAGS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tag-model { background: rgba(var(--accent), 0.2); color: var(--accent); }
+        body:not(.gpt-mode) .tag-model { background: rgba(212, 175, 55, 0.2); color: #d4af37; }
+        body.gpt-mode .tag-model { background: rgba(16, 163, 127, 0.2); color: #10A37F; }
+
+        .tag-model.active { background: var(--accent); color: white; }
+        body:not(.gpt-mode) .tag-model.active { color: #0a0a1a; }
+
+        .tag-connection { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
+        .tag-connection:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SLIDER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .slider-container { margin: 16px 0; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
+        .slider-value { color: var(--accent); font-weight: 600; }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            border: none;
+            padding: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           COMPARISON TABLE
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 16px 0; }
+
+        .comparison-table th {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 6px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .comparison-table th:first-child { text-align: left; }
+        .comparison-table td { padding: 8px 6px; border-bottom: 1px solid var(--border-color); text-align: center; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; }
+        .comparison-table tr:hover { background: rgba(var(--accent), 0.05); }
+
+        .status-yes { color: var(--green); font-size: 1.1em; }
+        .status-no { color: var(--red); font-size: 1.1em; }
+        .status-maybe { color: var(--amber); font-size: 1.1em; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           LEVEL CARDS (Claude specific)
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .level-card {
+            border-radius: 10px;
+            padding: 16px;
+            margin: 12px 0;
+            border-left: 3px solid;
+        }
+
+        .level-card.success { background: rgba(74, 222, 128, 0.1); border-color: var(--green); }
+        .level-card.warning { background: rgba(251, 191, 36, 0.1); border-color: var(--amber); }
+        .level-card.danger { background: rgba(239, 68, 68, 0.1); border-color: var(--red); }
+
+        .level-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-weight: 600; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           TIPS & PHILOSOPHY
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .tips-box {
+            background: rgba(var(--accent), 0.1);
+            border: 1px solid rgba(var(--accent), 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        body:not(.gpt-mode) .tips-box { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.2); }
+        body.gpt-mode .tips-box { background: rgba(16, 163, 127, 0.1); border-color: rgba(16, 163, 127, 0.2); }
+
+        .tips-box p { font-size: 13px; color: var(--text-secondary); margin: 8px 0; }
+        .tips-box p::before { content: '• '; color: var(--accent); }
+
+        .philosophy-box {
+            background: linear-gradient(135deg, rgba(var(--accent), 0.1), rgba(var(--accent2), 0.05));
+            border: 1px solid rgba(var(--accent), 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        body:not(.gpt-mode) .philosophy-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(157, 78, 221, 0.05));
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        body.gpt-mode .philosophy-box {
+            background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(139, 92, 246, 0.05));
+            border-color: rgba(16, 163, 127, 0.2);
+        }
+
+        .philosophy-box pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            display: inline-block;
+            text-align: left;
+            margin: 16px 0;
+        }
+
+        .philosophy-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+
+        .philosophy-symbols { font-size: 1.6rem; margin-top: 12px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           HEXAGRAM (Claude specific)
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .hexagram-display {
+            display: inline-block;
+            background: rgba(0,0,0,0.3);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(212, 175, 55, 0.8);
+            text-align: left;
+            white-space: pre;
+            line-height: 1.8;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           LIBRARY
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .library-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .library-item:hover { background: rgba(255,255,255,0.06); border-color: var(--border-color); }
+
+        .library-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .library-item-name { font-weight: 500; font-size: 13px; }
+        .library-item-model { font-size: 11px; color: var(--accent); }
+        .library-item-preview { font-size: 11px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .footer-brand { color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           SCROLLBAR
+           ═══════════════════════════════════════════════════════════════════ */
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 600px) {
+            .platform-btn { padding: 10px 20px; font-size: 14px; }
+            .platform-btn .icon { font-size: 20px; }
+            .model-selector { grid-template-columns: repeat(2, 1fr); }
+            nav button { padding: 8px 12px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Platform Switcher -->
+        <div class="platform-switcher">
+            <button class="platform-btn claude-btn active" data-platform="claude">
+                <span class="icon">🧙‍♂️</span>
+                <span>Claude</span>
+            </button>
+            <button class="platform-btn gpt-btn" data-platform="gpt">
+                <span class="icon">🤖</span>
+                <span>ChatGPT</span>
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo" id="mainLogo">🧙‍♂️</div>
+            <h1 id="mainTitle">CLAUDE GODMODE LAB</h1>
+            <p class="subtitle" id="mainSubtitle">Claude 3.5 Sonnet • Opus • Haiku</p>
+            <p class="author">Par Gandalf • CyberMind.FR</p>
+        </header>
+
+        <!-- Model Selector -->
+        <div class="model-selector" id="modelSelector"></div>
+
+        <!-- Navigation -->
+        <nav id="mainNav"></nav>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel -->
+            <div class="card" id="leftPanel"></div>
+
+            <!-- Right Panel -->
+            <div class="right-panel" id="rightPanel"></div>
+        </div>
+
+        <footer>
+            <div class="footer-brand" id="footerBrand">🧙‍♂️ Claude Godmode Lab</div>
+            <span>CyberMind.FR • 2025 • Par Gandalf</span>
+        </footer>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA - CLAUDE
+        // ═══════════════════════════════════════════════════════════════════
+
+        const CLAUDE_MODELS = {
+            'claude-3.5-sonnet': { name: 'Claude 3.5 Sonnet', speed: 'fast', cost: '$$' },
+            'claude-3-opus': { name: 'Claude 3 Opus', speed: 'medium', cost: '$$$' },
+            'claude-3.5-haiku': { name: 'Claude 3.5 Haiku', speed: 'very-fast', cost: '$' },
+            'claude-3-sonnet': { name: 'Claude 3 Sonnet', speed: 'fast', cost: '$$' }
+        };
+
+        const CLAUDE_PATTERNS = {
+            formula: {
+                id: 'formula', name: 'Formule Universelle', emoji: '⚡',
+                template: '[RÔLE] + [CONTEXTE] + [TÂCHE] + [FORMAT] + [CONTRAINTES]',
+                variables: ['role', 'context', 'task', 'format', 'constraints'],
+                color: '#d4af37', connections: ['persona', 'cot'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: 'Réfléchis étape par étape avant de répondre.',
+                variables: [],
+                color: '#00d9ff', connections: ['meta', 'multipath'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            persona: {
+                id: 'persona', name: 'Persona Expert', emoji: '🎭',
+                template: 'Tu es un [EXPERT] avec [N] ans d\'expérience en [DOMAINE].',
+                variables: ['expert', 'years', 'domain'],
+                color: '#e94560', connections: ['formula', 'fewshot'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot Learning', emoji: '📚',
+                template: 'Exemples:\n[INPUT_1] → [OUTPUT_1]\n[INPUT_2] → [OUTPUT_2]\nMaintenant traite: [QUERY]',
+                variables: ['input1', 'output1', 'input2', 'output2', 'query'],
+                color: '#9d4edd', connections: ['formula', 'persona'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            multipath: {
+                id: 'multipath', name: 'Multi-Path', emoji: '🔄',
+                template: 'Génère [N] approches différentes, puis synthétise la meilleure solution.',
+                variables: ['paths'],
+                color: '#4ade80', connections: ['cot', 'meta'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            meta: {
+                id: 'meta', name: 'Méta-Réflexion', emoji: '🪞',
+                template: 'Avant de répondre, identifie les biais potentiels de cette question.',
+                variables: [],
+                color: '#fbbf24', connections: ['cot', 'recursion'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            recursion: {
+                id: 'recursion', name: 'Récursion Bornée', emoji: '🌀',
+                template: 'Réponds. Critique ta réponse. Améliore. STOP après [N] itérations ou point fixe.',
+                variables: ['maxIterations'],
+                color: '#f472b6', connections: ['meta', 'pentest'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            pentest: {
+                id: 'pentest', name: 'Pentest de Soi', emoji: '🔐',
+                template: 'Propose [SOLUTION]. Attaque-la comme un adversaire. Défends avec les attaques valides intégrées.',
+                variables: ['solution'],
+                color: '#ef4444', connections: ['recursion', 'secubox'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            secubox: {
+                id: 'secubox', name: 'Audit SecuBox', emoji: '🛡️',
+                template: 'Analyse [CONFIG] comme un auditeur [AUTHORITY].\nSortie: [finding | criticité | remediation]',
+                variables: ['config', 'authority'],
+                color: '#06b6d4', connections: ['pentest', 'yijing'],
+                bestFor: ['claude-3.5-sonnet', 'claude-3-opus']
+            },
+            yijing: {
+                id: 'yijing', name: 'Oracle Yi Jing', emoji: '☯️',
+                template: 'Hexagramme [N°]: [NOM]\nInterprète pour [CONTEXTE] avec lignes mutantes.',
+                variables: ['hexNumber', 'hexName', 'context'],
+                color: '#a78bfa', connections: ['secubox', 'ouroboros'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            },
+            ouroboros: {
+                id: 'ouroboros', name: 'Ouroboros Créatif', emoji: '🐍',
+                template: 'Génère [CONTENU]. Si c\'était un hexagramme? Transforme la ligne mutante.',
+                variables: ['content'],
+                color: '#22d3ee', connections: ['yijing', 'formula'],
+                bestFor: ['claude-3-opus', 'claude-3.5-sonnet']
+            }
+        };
+
+        const CLAUDE_TABS = [
+            { id: 'graph', label: '🕸️ Patterns' },
+            { id: 'builder', label: '⚡ Builder' },
+            { id: 'recursion', label: '🌀 Récursion' },
+            { id: 'secubox', label: '🛡️ SecuBox' },
+            { id: 'esoteric', label: '🔮 Ésotérique' },
+            { id: 'library', label: '📚 Librairie' }
+        ];
+
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA - CHATGPT
+        // ═══════════════════════════════════════════════════════════════════
+
+        const GPT_MODELS = {
+            'gpt-4o': { name: 'GPT-4o', speed: 'fast', cost: '$$' },
+            'gpt-4-turbo': { name: 'GPT-4 Turbo', speed: 'medium', cost: '$$$' },
+            'o1-preview': { name: 'o1-preview', speed: 'slow', cost: '$$$$' },
+            'o1': { name: 'o1', speed: 'slow', cost: '$$$$$' },
+            'gpt-4o-mini': { name: 'GPT-4o Mini', speed: 'very-fast', cost: '$' }
+        };
+
+        const GPT_PATTERNS = {
+            system: {
+                id: 'system', name: 'System Role', emoji: '⚙️',
+                template: 'You are a [ROLE] with expertise in [DOMAIN]. Your task is to [OBJECTIVE].',
+                variables: ['role', 'domain', 'objective'],
+                color: '#10A37F', connections: ['persona', 'constraints'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            persona: {
+                id: 'persona', name: 'Expert Persona', emoji: '🎭',
+                template: 'You are a senior [EXPERT] with [N] years of experience in [SPECIALTY].',
+                variables: ['expert', 'years', 'specialty'],
+                color: '#8B5CF6', connections: ['system', 'fewshot'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: "Let's think through this step by step:\n1. First, [STEP1]\n2. Then, [STEP2]\n3. Finally, [STEP3]",
+                variables: ['step1', 'step2', 'step3'],
+                color: '#06B6D4', connections: ['tot', 'reflection'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            tot: {
+                id: 'tot', name: 'Tree of Thought', emoji: '🌳',
+                template: 'Explore [N] different reasoning paths. For each:\n- State approach\n- Work through logic\n- Evaluate success\nSynthesize best solution.',
+                variables: ['paths'],
+                color: '#F59E0B', connections: ['cot', 'o1native'],
+                bestFor: ['o1-preview', 'o1']
+            },
+            o1native: {
+                id: 'o1native', name: 'o1 Native', emoji: '🔮',
+                template: '[COMPLEX_PROBLEM]\n\nTake your time to reason thoroughly. Show complete thinking process.',
+                variables: ['problem'],
+                color: '#EC4899', connections: ['tot', 'adversarial'],
+                bestFor: ['o1', 'o1-preview']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot', emoji: '📚',
+                template: 'Examples:\nInput: [IN1] → Output: [OUT1]\nInput: [IN2] → Output: [OUT2]\n\nNow process: [QUERY]',
+                variables: ['in1', 'out1', 'in2', 'out2', 'query'],
+                color: '#14B8A6', connections: ['persona', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            json: {
+                id: 'json', name: 'JSON Mode', emoji: '📋',
+                template: 'Respond ONLY in valid JSON:\n{\n  "analysis": "...",\n  "recommendation": "...",\n  "confidence": 0.0-1.0\n}',
+                variables: [],
+                color: '#EAB308', connections: ['fewshot', 'constraints'],
+                bestFor: ['gpt-4-turbo', 'gpt-4o']
+            },
+            constraints: {
+                id: 'constraints', name: 'Constraints', emoji: '📏',
+                template: 'CONSTRAINTS:\n- Maximum [N] words\n- No [FORBIDDEN]\n- Always include [REQUIRED]',
+                variables: ['maxWords', 'forbidden', 'required'],
+                color: '#EF4444', connections: ['system', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'gpt-4o-mini']
+            },
+            reflection: {
+                id: 'reflection', name: 'Self-Reflection', emoji: '🪞',
+                template: 'Before answering:\n1. What assumptions am I making?\n2. What could I be missing?\n3. What biases exist?\n\nNow: [TASK]',
+                variables: ['task'],
+                color: '#A855F7', connections: ['cot', 'adversarial'],
+                bestFor: ['o1-preview', 'o1', 'gpt-4o']
+            },
+            adversarial: {
+                id: 'adversarial', name: 'Adversarial', emoji: '⚔️',
+                template: 'Propose solution for: [PROBLEM]\n\nThen:\n1. Attack as hostile critic\n2. Identify 3 strongest objections\n3. Address each\n4. Deliver hardened solution',
+                variables: ['problem'],
+                color: '#DC2626', connections: ['reflection', 'o1native'],
+                bestFor: ['o1', 'o1-preview', 'gpt-4o']
+            },
+            recursive: {
+                id: 'recursive', name: 'Recursive Loop', emoji: '🔄',
+                template: 'Task: [TASK]\n\nLoop:\n- V1: Initial\n- V2: Critique V1, improve\n- V3: If V2 ≈ V1, stop\n\nMax 5 iterations. Final with confidence.',
+                variables: ['task'],
+                color: '#7C3AED', connections: ['adversarial', 'system'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            }
+        };
+
+        const GPT_TABS = [
+            { id: 'graph', label: '🕸️ Patterns' },
+            { id: 'builder', label: '⚡ Builder' },
+            { id: 'custom', label: '⚙️ Custom Instructions' },
+            { id: 'api', label: '🔧 API Config' },
+            { id: 'compare', label: '📊 Comparaison' },
+            { id: 'library', label: '📚 Librairie' }
+        ];
+
+        // ═══════════════════════════════════════════════════════════════════
+        // STATE
+        // ═══════════════════════════════════════════════════════════════════
+
+        let currentPlatform = 'claude';
+        let selectedModel = 'claude-3.5-sonnet';
+        let selectedPattern = 'formula';
+        let activeTab = 'graph';
+        let savedPrompts = JSON.parse(localStorage.getItem('godmode-prompts') || '[]');
+
+        // ═══════════════════════════════════════════════════════════════════
+        // HELPERS
+        // ═══════════════════════════════════════════════════════════════════
+
+        const getModels = () => currentPlatform === 'claude' ? CLAUDE_MODELS : GPT_MODELS;
+        const getPatterns = () => currentPlatform === 'claude' ? CLAUDE_PATTERNS : GPT_PATTERNS;
+        const getTabs = () => currentPlatform === 'claude' ? CLAUDE_TABS : GPT_TABS;
+
+        function copyCode(el) {
+            navigator.clipboard.writeText(el.textContent.trim());
+            el.classList.add('copied');
+            setTimeout(() => el.classList.remove('copied'), 2000);
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // RENDER FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════
+
+        function renderModelSelector() {
+            const models = getModels();
+            const html = Object.entries(models).map(([id, m]) => `
+                <button class="model-btn ${id === selectedModel ? 'active' : ''}" data-model="${id}">
+                    <span class="name">${m.name}</span>
+                    <span class="cost">${m.cost}</span>
+                </button>
+            `).join('');
+            document.getElementById('modelSelector').innerHTML = html;
+
+            document.querySelectorAll('.model-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    selectedModel = btn.dataset.model;
+                    renderModelSelector();
+                    renderGraph();
+                    renderPatternDetails();
+                    renderTips();
+                });
+            });
+        }
+
+        function renderNav() {
+            const tabs = getTabs();
+            const html = tabs.map(t => `
+                <button class="${t.id === activeTab ? 'active' : ''}" data-tab="${t.id}">${t.label}</button>
+            `).join('');
+            document.getElementById('mainNav').innerHTML = html;
+
+            document.querySelectorAll('#mainNav button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeTab = btn.dataset.tab;
+                    renderNav();
+                    renderLeftPanel();
+                });
+            });
+        }
+
+        function renderGraph() {
+            const patterns = getPatterns();
+            const patternList = Object.values(patterns);
+            const cx = 200, cy = 200, r = 155;
+
+            const positions = {};
+            patternList.forEach((p, i) => {
+                const angle = (i / patternList.length) * Math.PI * 2 - Math.PI / 2;
+                positions[p.id] = { x: cx + Math.cos(angle) * r, y: cy + Math.sin(angle) * r };
+            });
+
+            let svg = `
+                <svg width="400" height="400" viewBox="0 0 400 400">
+                    <defs>
+                        <radialGradient id="bgGrad"><stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#0d0d0d"/></radialGradient>
+                        <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    </defs>
+                    <circle cx="${cx}" cy="${cy}" r="190" fill="url(#bgGrad)" stroke="${currentPlatform === 'claude' ? '#d4af37' : '#10A37F'}" stroke-width="1" stroke-opacity="0.3"/>
+                    <text x="${cx}" y="${cy + 8}" text-anchor="middle" font-size="32" filter="url(#glow)">${currentPlatform === 'claude' ? '🧙‍♂️' : '🤖'}</text>
+            `;
+
+            // Connections
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                p.connections.forEach(connId => {
+                    const targetPos = positions[connId];
+                    if (targetPos) {
+                        const isActive = selectedPattern === p.id;
+                        svg += `<line x1="${pos.x}" y1="${pos.y}" x2="${targetPos.x}" y2="${targetPos.y}" 
+                            stroke="${isActive ? p.color : '#333'}" stroke-width="${isActive ? 2 : 1}" 
+                            stroke-opacity="${isActive ? 0.8 : 0.3}" stroke-dasharray="${isActive ? 'none' : '4,4'}"/>`;
+                    }
+                });
+            });
+
+            // Nodes
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                const isActive = selectedPattern === p.id;
+                const isOptimal = p.bestFor?.includes(selectedModel);
+                const accentColor = currentPlatform === 'claude' ? '#d4af37' : '#10A37F';
+
+                svg += `
+                    <g class="pattern-node" style="cursor:pointer" onclick="selectPattern('${p.id}')">
+                        <circle cx="${pos.x}" cy="${pos.y}" r="28" fill="${isActive ? p.color : '#1a1a1a'}" 
+                            stroke="${isOptimal ? accentColor : p.color}" stroke-width="${isActive ? 3 : isOptimal ? 2 : 1}"/>
+                        ${isOptimal ? `<circle cx="${pos.x + 18}" cy="${pos.y - 18}" r="6" fill="${accentColor}"/>` : ''}
+                        <text x="${pos.x}" y="${pos.y + 5}" text-anchor="middle" font-size="16">${p.emoji}</text>
+                    </g>
+                `;
+            });
+
+            svg += `<text x="${cx}" y="${cy + 180}" text-anchor="middle" fill="${currentPlatform === 'claude' ? '#d4af37' : '#10A37F'}" font-size="10">🟢 = Optimal pour le modèle sélectionné</text></svg>`;
+
+            return svg;
+        }
+
+        function selectPattern(id) {
+            selectedPattern = id;
+            renderLeftPanel();
+            renderPatternDetails();
+        }
+
+        // Expose to global for onclick
+        window.selectPattern = selectPattern;
+        window.copyCode = copyCode;
+        window.copyText = copyText;
+
+        function renderLeftPanel() {
+            const panel = document.getElementById('leftPanel');
+            
+            if (activeTab === 'graph') {
+                panel.innerHTML = `
+                    <h2>🕸️ Graphe des Patterns</h2>
+                    <div class="graph-container">${renderGraph()}</div>
+                `;
+            } else if (activeTab === 'builder') {
+                renderBuilder();
+            } else if (activeTab === 'library') {
+                renderLibrary();
+            } else if (activeTab === 'recursion' && currentPlatform === 'claude') {
+                renderClaudeRecursion();
+            } else if (activeTab === 'secubox' && currentPlatform === 'claude') {
+                renderClaudeSecubox();
+            } else if (activeTab === 'esoteric' && currentPlatform === 'claude') {
+                renderClaudeEsoteric();
+            } else if (activeTab === 'custom' && currentPlatform === 'gpt') {
+                renderGptCustom();
+            } else if (activeTab === 'api' && currentPlatform === 'gpt') {
+                renderGptApi();
+            } else if (activeTab === 'compare' && currentPlatform === 'gpt') {
+                renderGptCompare();
+            } else {
+                panel.innerHTML = `<h2>Section: ${activeTab}</h2><p>Content coming...</p>`;
+            }
+        }
+
+        function renderBuilder() {
+            const patterns = getPatterns();
+            const p = patterns[selectedPattern];
+            const isOptimal = p.bestFor?.includes(selectedModel);
+            const models = getModels();
+
+            let html = `
+                <h2>⚡ Pattern Builder</h2>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                    <span style="font-size:2rem;">${p.emoji}</span>
+                    <div>
+                        <div style="font-weight:600;">${p.name}</div>
+                        <span class="tag tag-model ${isOptimal ? 'active' : ''}">
+                            ${isOptimal ? '✓ Optimal pour ' + models[selectedModel].name : '⚠️ Mieux: ' + p.bestFor?.map(m => models[m]?.name).join(', ')}
+                        </span>
+                    </div>
+                </div>
+                <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+            `;
+
+            if (p.variables?.length > 0) {
+                html += `<h3>Variables</h3><div class="vars-grid">`;
+                p.variables.forEach(v => {
+                    html += `<div><label>${v.toUpperCase()}</label><input type="text" id="var_${v}" placeholder="[${v.toUpperCase()}]"></div>`;
+                });
+                html += `</div>`;
+            }
+
+            html += `
+                <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="generatePrompt()">⚡ Générer</button>
+                <div id="generatedPrompt" style="margin-top:16px;"></div>
+            `;
+
+            document.getElementById('leftPanel').innerHTML = html;
+        }
+
+        window.generatePrompt = function() {
+            const patterns = getPatterns();
+            const p = patterns[selectedPattern];
+            let result = p.template;
+
+            (p.variables || []).forEach(v => {
+                const input = document.getElementById(`var_${v}`);
+                const value = input ? input.value : '';
+                result = result.replace(new RegExp(`\\[${v.toUpperCase()}\\]`, 'g'), value || `[${v.toUpperCase()}]`);
+            });
+
+            document.getElementById('generatedPrompt').innerHTML = `
+                <div class="code-block" onclick="copyCode(this)" style="border-color:var(--accent);">${result}</div>
+                <button class="btn btn-secondary" style="width:100%;" onclick="savePrompt(\`${result.replace(/`/g, '\\`')}\`)">💾 Sauvegarder</button>
+            `;
+        };
+
+        window.savePrompt = function(prompt) {
+            savedPrompts.push({
+                id: Date.now(),
+                prompt: prompt,
+                pattern: selectedPattern,
+                model: selectedModel,
+                platform: currentPlatform,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('godmode-prompts', JSON.stringify(savedPrompts));
+            if (activeTab === 'library') renderLibrary();
+        };
+
+        function renderLibrary() {
+            const platformPrompts = savedPrompts.filter(p => p.platform === currentPlatform);
+            const patterns = getPatterns();
+
+            let html = `<h2>📚 Librairie de Prompts</h2>`;
+            if (platformPrompts.length === 0) {
+                html += `<p style="text-align:center;color:var(--text-secondary);padding:40px 0;">Aucun prompt sauvegardé pour ${currentPlatform === 'claude' ? 'Claude' : 'ChatGPT'}.</p>`;
+            } else {
+                html += platformPrompts.slice().reverse().map(sp => `
+                    <div class="library-item" onclick="copyText(\`${sp.prompt.replace(/`/g, '\\`')}\`)">
+                        <div class="library-item-header">
+                            <span class="library-item-name">${patterns[sp.pattern]?.emoji || '📝'} ${patterns[sp.pattern]?.name || sp.pattern}</span>
+                            <span class="library-item-model">${sp.model}</span>
+                        </div>
+                        <div class="library-item-preview">${sp.prompt.slice(0, 80)}...</div>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('leftPanel').innerHTML = html;
+        }
+
+        function renderClaudeRecursion() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🌀 Niveaux de Récursion</h2>
+                <div class="level-card success">
+                    <div class="level-header">✅ Niveau 1: Auto-Critique</div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds, puis demande-toi: "Qu'est-ce qui est faible?"</div>
+                    <p style="font-size:12px;color:var(--text-secondary);">🎯 1 itération suffit pour 80% des cas</p>
+                </div>
+                <div class="level-card success">
+                    <div class="level-header">✅ Niveau 2: Expert Simulé</div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds comme si [expert senior] allait relire et critiquer.</div>
+                    <p style="font-size:12px;color:var(--text-secondary);">🎯 L'expert n'a plus rien à dire</p>
+                </div>
+                <div class="level-card warning">
+                    <div class="level-header">⚠️ Niveau 3: Meta-Pattern</div>
+                    <div class="code-block" onclick="copyCode(this)">Observe tes patterns. Quels réflexes sont des béquilles? Casse-les.</div>
+                </div>
+                <div class="level-card danger">
+                    <div class="level-header">❌ Niveau 4+: Éviter</div>
+                    <p style="color:var(--red);font-weight:600;">RÈGLE: 3 boucles sans amélioration = STOP</p>
+                </div>
+            `;
+        }
+
+        function renderClaudeSecubox() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🛡️ SecuBox & Sécurité</h2>
+                <h3>🔐 Audit Config OpenWrt</h3>
+                <div class="code-block" onclick="copyCode(this)">Analyse cette config UCI comme un auditeur ANSSI.
+Checklist: firewall rules, services exposés, credentials, logging.
+Sortie: tableau [finding | criticité | remediation | ref CIS].</div>
+                <h3>🐝 Règles CrowdSec</h3>
+                <div class="code-block" onclick="copyCode(this)">Crée un scenario CrowdSec pour détecter [pattern d'attaque].
+Format YAML complet avec: filter, groupby, blackhole, labels.</div>
+                <h3>📋 Documentation Certif</h3>
+                <div class="code-block" onclick="copyCode(this)">Rédige section [X] du dossier de validation [ANSSI/BSI/CISA].
+Style: formel, référencé ISO27001, preuves factuelles.</div>
+            `;
+        }
+
+        function renderClaudeEsoteric() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🔮 Création Ésotérique</h2>
+                <h3>☯️ Consultation Yi Jing</h3>
+                <div class="code-block" onclick="copyCode(this)">Hexagramme tiré: [n°] [nom].
+Contexte: [situation].
+Interprète avec lignes mutantes, conseil actionnable.</div>
+                <h3>📐 Géométrie Sacrée</h3>
+                <div class="code-block" onclick="copyCode(this)">Génère SVG [Fleur de Vie/Métatron/Sri Yantra].
+Proportions basées sur [Phi/√2/π].</div>
+                <h3>✨ Poésie → Suno</h3>
+                <div class="code-block" onclick="copyCode(this)">Transforme en paroles Suno:
+- Structure [couplet/refrain/bridge]
+- Style musical + méta-tags
+Texte: [poème]</div>
+                <div class="hexagram-display">     ━━━━━━━  Clarté de l'arrêt
+     ━━ ━━   Espace pour l'émergence
+     ━━━━━━━  Boucle qui sait se borner
+     ━━ ━━   Critique intégrée
+     ━━━━━━━  Application concrète
+     ━━━━━━━  Honnêteté sur les limites</div>
+            `;
+        }
+
+        function renderGptCustom() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>⚙️ Custom Instructions</h2>
+                <h3>📝 "What would you like ChatGPT to know?"</h3>
+                <textarea id="customAbout">PROFESSIONAL CONTEXT:
+- Role: [your job/expertise]
+- Domains: [technical specialties]
+- Tech stack: [languages, frameworks]
+
+PREFERENCES:
+- Level: Expert, no oversimplification
+- Style: Direct, concise, actionable</textarea>
+                <button class="btn btn-secondary" style="margin:8px 0;" onclick="copyText(document.getElementById('customAbout').value)">📋 Copy</button>
+                
+                <h3>📝 "How would you like ChatGPT to respond?"</h3>
+                <textarea id="customResponse">RESPONSE FORMAT:
+- No preamble, straight to point
+- Code: Commented, production-ready
+
+BEHAVIOR:
+- Constructive criticism welcome
+- Flag edge cases and risks
+- Don't repeat the question</textarea>
+                <button class="btn btn-secondary" style="margin:8px 0;" onclick="copyText(document.getElementById('customResponse').value)">📋 Copy</button>
+            `;
+        }
+
+        function renderGptApi() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>🔧 Configuration API</h2>
+                <div class="slider-container">
+                    <div class="slider-header"><span>Temperature</span><span class="slider-value" id="tempVal">0.7</span></div>
+                    <input type="range" id="tempSlider" min="0" max="2" step="0.1" value="0.7" oninput="updateApiPreview()">
+                    <div class="slider-labels"><span>0 (Code)</span><span>0.7</span><span>2 (Creative)</span></div>
+                </div>
+                <div class="vars-grid">
+                    <div><label>Max Tokens</label><input type="number" id="maxTokens" value="4096" oninput="updateApiPreview()"></div>
+                    <div><label>Top P</label><input type="number" id="topP" value="1" step="0.1" oninput="updateApiPreview()"></div>
+                </div>
+                <h3>API Preview</h3>
+                <div class="code-block" id="apiPreview" onclick="copyCode(this)"></div>
+            `;
+            updateApiPreview();
+        }
+
+        window.updateApiPreview = function() {
+            const temp = document.getElementById('tempSlider')?.value || 0.7;
+            document.getElementById('tempVal').textContent = temp;
+            document.getElementById('apiPreview').textContent = JSON.stringify({
+                model: selectedModel,
+                temperature: parseFloat(temp),
+                max_tokens: parseInt(document.getElementById('maxTokens')?.value || 4096),
+                top_p: parseFloat(document.getElementById('topP')?.value || 1)
+            }, null, 2);
+        };
+
+        function renderGptCompare() {
+            document.getElementById('leftPanel').innerHTML = `
+                <h2>📊 Comparaison des Modèles</h2>
+                <table class="comparison-table">
+                    <thead><tr><th>Cas d'usage</th><th>GPT-4o</th><th>o1-preview</th><th>o1</th></tr></thead>
+                    <tbody>
+                        <tr><td>Conversation rapide</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        <tr><td>Rédaction créative</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td></tr>
+                        <tr><td>Code simple</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        <tr><td>Algorithmes complexes</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                        <tr><td>Mathématiques</td><td class="status-no">❌</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                        <tr><td>Raisonnement multi-étapes</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:11px;color:var(--text-secondary);">✅ Optimal | ⚠️ Acceptable | ❌ Non recommandé</p>
+            `;
+        }
+
+        function renderPatternDetails() {
+            const patterns = getPatterns();
+            const models = getModels();
+            const p = patterns[selectedPattern];
+            const isOptimal = p.bestFor?.includes(selectedModel);
+
+            document.getElementById('rightPanel').innerHTML = `
+                <div class="card">
+                    <h2>${p.emoji} ${p.name}</h2>
+                    <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+                    <h3>Meilleur pour</h3>
+                    <div>${(p.bestFor || []).map(m => `<span class="tag tag-model ${m === selectedModel ? 'active' : ''}">${models[m]?.name}</span>`).join('')}</div>
+                    <h3>Connexions</h3>
+                    <div>${(p.connections || []).map(c => `<span class="tag tag-connection" onclick="selectPattern('${c}')">${patterns[c]?.emoji} ${patterns[c]?.name}</span>`).join('')}</div>
+                </div>
+                <div class="card" id="tipsCard"></div>
+                <div class="philosophy-box">
+                    ${currentPlatform === 'claude' ? `
+                        <pre>     ━━━━━━━  Clarté de l'arrêt
+     ━━ ━━   Espace pour l'émergence  
+     ━━━━━━━  Boucle bornée
+     ━━ ━━   Critique intégrée</pre>
+                        <p class="philosophy-quote">"La récursion parfaite sait quand devenir action."</p>
+                        <div class="philosophy-symbols">🐍♾️→🎯</div>
+                    ` : `
+                        <pre>┌─────────────────────────────────┐
+│  CLEAR    →  Better than clever │
+│  SPECIFIC →  Better than vague  │
+│  EXAMPLES →  Better than rules  │
+│  ITERATE  →  Better than perfect│
+└─────────────────────────────────┘</pre>
+                        <p class="philosophy-quote">"The best prompt makes the model think it already knows exactly what you want."</p>
+                        <div class="philosophy-symbols">🤖 → 🧠 → 💡 → ✨</div>
+                    `}
+                </div>
+            `;
+            renderTips();
+        }
+
+        function renderTips() {
+            const models = getModels();
+            const tips = currentPlatform === 'claude' ? [
+                'Utilisez les Artifacts pour le code et documents',
+                'Computer Use disponible pour automation',
+                'Memory persiste entre conversations',
+                'Extended thinking pour problèmes complexes'
+            ] : (selectedModel.startsWith('o1') ? [
+                'Pas besoin de "think step by step" - natif',
+                'Laissez raisonner sans contraintes de temps',
+                'Idéal pour problèmes multi-étapes',
+                'Temperature fixée à 1'
+            ] : [
+                'Chain of Thought pour raisonnement',
+                'Few-shot améliore la précision',
+                'Temperature 0 pour code, 0.7+ créativité',
+                'JSON mode avec response_format'
+            ]);
+
+            document.getElementById('tipsCard').innerHTML = `
+                <h2>💡 Tips pour ${models[selectedModel]?.name}</h2>
+                <div class="tips-box">${tips.map(t => `<p>${t}</p>`).join('')}</div>
+            `;
+        }
+
+        function updateHeader() {
+            document.getElementById('mainLogo').textContent = currentPlatform === 'claude' ? '🧙‍♂️' : '🤖';
+            document.getElementById('mainTitle').textContent = currentPlatform === 'claude' ? 'CLAUDE GODMODE LAB' : 'CHATGPT GODMODE LAB';
+            document.getElementById('mainSubtitle').textContent = currentPlatform === 'claude' 
+                ? 'Claude 3.5 Sonnet • Opus • Haiku' 
+                : 'GPT-4 • GPT-4o • o1 • Custom GPTs';
+            document.getElementById('footerBrand').innerHTML = currentPlatform === 'claude' 
+                ? '🧙‍♂️ Claude Godmode Lab' 
+                : '🤖 ChatGPT Godmode Lab';
+        }
+
+        function switchPlatform(platform) {
+            currentPlatform = platform;
+            document.body.classList.toggle('gpt-mode', platform === 'gpt');
+            
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.platform === platform);
+            });
+
+            // Reset selections
+            const models = getModels();
+            selectedModel = Object.keys(models)[0];
+            const patterns = getPatterns();
+            selectedPattern = Object.keys(patterns)[0];
+            activeTab = 'graph';
+
+            updateHeader();
+            renderModelSelector();
+            renderNav();
+            renderLeftPanel();
+            renderPatternDetails();
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════════════════════════════════
+
+        document.querySelectorAll('.platform-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchPlatform(btn.dataset.platform));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const tabs = getTabs();
+                const idx = tabs.findIndex(t => t.id === activeTab);
+                if (e.key === 'ArrowRight' && idx < tabs.length - 1) {
+                    activeTab = tabs[idx + 1].id;
+                } else if (e.key === 'ArrowLeft' && idx > 0) {
+                    activeTab = tabs[idx - 1].id;
+                }
+                renderNav();
+                renderLeftPanel();
+            }
+        });
+
+        // Initial render
+        updateHeader();
+        renderModelSelector();
+        renderNav();
+        renderLeftPanel();
+        renderPatternDetails();
+    </script>
+</body>
+</html>

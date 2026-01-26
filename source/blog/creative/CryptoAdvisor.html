@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoAdvisor - Conseil IA Temps Réel</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #0f1419;
+      --bg-card: rgba(15, 23, 42, 0.6);
+      --accent-green: #10B981;
+      --accent-purple: #8B5CF6;
+      --accent-orange: #F59E0B;
+      --accent-red: #EF4444;
+      --text-primary: #e0e6ed;
+      --text-secondary: #6b7280;
+      --border-color: rgba(16, 185, 129, 0.15);
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #0a0f14 100%);
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .grid-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-effects {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ==========================================
+       HEADER
+    ========================================== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      font-size: 20px;
+    }
+
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #10B981, #34D399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text span {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .connection-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-green);
+    }
+
+    .pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .last-update {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       MAIN LAYOUT - CONSEIL EN PREMIER
+    ========================================== */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ==========================================
+       AI ADVICE CARD - TOUJOURS VISIBLE EN PREMIER
+    ========================================== */
+    .ai-advice-section {
+      order: 1; /* Toujours en premier */
+    }
+
+    .ai-advice-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .ai-advice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ai-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .ai-refresh-btn {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      color: var(--accent-purple);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.3s ease;
+    }
+
+    .ai-refresh-btn:hover {
+      background: rgba(139, 92, 246, 0.3);
+      transform: scale(1.02);
+    }
+
+    .ai-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sentiment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: fit-content;
+      color: white;
+    }
+
+    .sentiment-badge.bullish { background: linear-gradient(135deg, var(--accent-green), #059669); }
+    .sentiment-badge.bearish { background: linear-gradient(135deg, var(--accent-red), #DC2626); }
+    .sentiment-badge.neutral { background: linear-gradient(135deg, var(--accent-orange), #D97706); }
+
+    .ai-analysis {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+
+    .ai-recommendations {
+      margin-top: 4px;
+    }
+
+    .ai-recommendations h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 1px;
+    }
+
+    .ai-recommendations ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ai-recommendations li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #d1d5db;
+      padding: 10px 14px;
+      background: rgba(16, 185, 129, 0.08);
+      border-radius: 10px;
+      border-left: 3px solid var(--accent-green);
+    }
+
+    .ai-alert {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--accent-orange);
+    }
+
+    .ai-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .ai-placeholder p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       TOP PICKS - RÉSUMÉ RAPIDE
+    ========================================== */
+    .top-picks-section {
+      order: 2;
+    }
+
+    .top-picks-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 16px;
+      padding: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .top-picks-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .top-picks-title {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .top-pick-item {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(107, 114, 128, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .top-pick-item:hover {
+      border-color: var(--accent-green);
+      transform: translateY(-2px);
+    }
+
+    .top-pick-item.strong-buy { border-left: 3px solid var(--accent-green); }
+    .top-pick-item.buy { border-left: 3px solid #34D399; }
+    .top-pick-item.hold { border-left: 3px solid var(--accent-orange); }
+
+    .top-pick-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .top-pick-symbol {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .top-pick-signal {
+      font-size: 9px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .top-pick-signal.strong-buy { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+    .top-pick-signal.buy { background: rgba(52, 211, 153, 0.2); color: #34D399; }
+    .top-pick-signal.hold { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+
+    .top-pick-price {
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 4px;
+    }
+
+    .top-pick-upside {
+      font-size: 11px;
+      color: var(--accent-green);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .top-pick-score {
+      margin-top: 8px;
+      height: 4px;
+      background: rgba(107, 114, 128, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .top-pick-score-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    /* ==========================================
+       RISK SELECTOR - COMPACT
+    ========================================== */
+    .risk-section {
+      order: 3;
+    }
+
+    .risk-selector {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    .risk-selector h3 {
+      font-size: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+    }
+
+    .risk-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .risk-option {
+      flex: 1;
+      min-width: 90px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px solid rgba(107, 114, 128, 0.2);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .risk-option:hover {
+      border-color: rgba(107, 114, 128, 0.4);
+    }
+
+    .risk-option.selected {
+      border-color: var(--risk-color);
+      background: rgba(var(--risk-rgb), 0.1);
+    }
+
+    .risk-option .icon-wrapper {
+      font-size: 16px;
+    }
+
+    .risk-option .label h4 {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       PRICE TICKERS - COMPACT SCROLL
+    ========================================== */
+    .tickers-section {
+      order: 4;
+    }
+
+    .tickers-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 0;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .tickers-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .tickers-scroll::-webkit-scrollbar-track {
+      background: rgba(107, 114, 128, 0.1);
+      border-radius: 2px;
+    }
+
+    .tickers-scroll::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.3);
+      border-radius: 2px;
+    }
+
+    .ticker-mini {
+      flex-shrink: 0;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(107, 114, 128, 0.2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-width: 120px;
+      transition: all 0.3s ease;
+    }
+
+    .ticker-mini:hover {
+      border-color: var(--accent-green);
+    }
+
+    .ticker-mini.flash-up { animation: flashGreen 0.5s ease; }
+    .ticker-mini.flash-down { animation: flashRed 0.5s ease; }
+
+    @keyframes flashGreen {
+      50% { background: rgba(16, 185, 129, 0.2); }
+    }
+
+    @keyframes flashRed {
+      50% { background: rgba(239, 68, 68, 0.2); }
+    }
+
+    .ticker-mini-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .ticker-mini-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .ticker-mini-symbol {
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .ticker-mini-price {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 2px;
+    }
+
+    .ticker-mini-change {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .ticker-mini-change.positive { color: var(--accent-green); }
+    .ticker-mini-change.negative { color: var(--accent-red); }
+
+    /* ==========================================
+       DETAILED RECOMMENDATIONS - EXPANDABLE
+    ========================================== */
+    .recommendations-section {
+      order: 5;
+    }
+
+    .recommendations-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .recommendations-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .recommendations-header:hover {
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .recommendations-title {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .recommendations-toggle {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .recommendations-toggle.expanded {
+      transform: rotate(180deg);
+    }
+
+    .recommendations-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .recommendations-content.expanded {
+      max-height: 2000px;
+    }
+
+    .recommendations-inner {
+      padding: 0 16px 16px;
+    }
+
+    .picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .pick-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(107, 114, 128, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pick-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .pick-card.strong-buy::before { background: var(--accent-green); }
+    .pick-card.buy::before { background: #34D399; }
+    .pick-card.hold::before { background: var(--accent-orange); }
+    .pick-card.sell::before { background: var(--accent-red); }
+
+    .pick-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .pick-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .pick-crypto {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pick-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .pick-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pick-info span {
+      font-size: 10px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pick-signal {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .pick-signal.strong-buy { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+    .pick-signal.buy { background: rgba(52, 211, 153, 0.2); color: #34D399; }
+    .pick-signal.hold { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+    .pick-signal.sell { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+
+    .pick-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .metric {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .metric-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-value.positive { color: var(--accent-green); }
+    .metric-value.negative { color: var(--accent-red); }
+
+    .pick-score-bar {
+      height: 6px;
+      background: rgba(107, 114, 128, 0.2);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .pick-score-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .pick-rationale {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #9ca3af;
+      padding-top: 10px;
+      border-top: 1px solid rgba(107, 114, 128, 0.2);
+    }
+
+    /* ==========================================
+       ALLOCATION SUGGESTION
+    ========================================== */
+    .allocation-card {
+      margin-top: 14px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(16, 185, 129, 0.08));
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .allocation-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .allocation-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .allocation-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .allocation-crypto {
+      min-width: 45px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .allocation-bar-container {
+      flex: 1;
+      height: 20px;
+      background: rgba(107, 114, 128, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .allocation-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .allocation-percent {
+      min-width: 35px;
+      text-align: right;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+    .footer {
+      margin-top: 24px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .footer a { color: var(--accent-green); text-decoration: none; }
+    .disclaimer { margin-top: 8px; font-size: 10px; opacity: 0.7; }
+
+    /* ==========================================
+       RESPONSIVE - MOBILE & EMBEDDED
+    ========================================== */
+    @media (max-width: 768px) {
+      .app-container { padding: 12px; }
+      .header { padding: 12px 0; margin-bottom: 16px; }
+      .logo-icon { width: 36px; height: 36px; font-size: 18px; }
+      .logo-text h1 { font-size: 18px; }
+      
+      .ai-advice-card { padding: 16px; }
+      .ai-title { font-size: 14px; }
+      .ai-analysis { font-size: 14px; }
+      
+      .risk-options { flex-direction: column; }
+      .risk-option { min-width: 100%; }
+      
+      .picks-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .app-container { padding: 10px; }
+      .header { padding: 10px 0; margin-bottom: 12px; gap: 8px; }
+      .status-bar { width: 100%; justify-content: space-between; }
+      
+      .ai-advice-card { padding: 14px; border-radius: 12px; }
+      .ai-recommendations li { padding: 8px 10px; font-size: 12px; }
+      
+      .top-picks-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      .footer { display: none; }
+    }
+
+    /* ==========================================
+       ANIMATIONS
+    ========================================== */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .spinning { animation: spin 1s linear infinite; display: inline-block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { animation: fadeIn 0.4s ease; }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow-effects"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">📊</div>
+        <div class="logo-text">
+          <h1>CryptoAdvisor</h1>
+          <span>Conseil IA • Temps Réel</span>
+        </div>
+      </div>
+      <div class="status-bar">
+        <div class="connection-status">
+          <div class="pulse"></div>
+          <span>LIVE</span>
+        </div>
+        <span class="last-update" id="lastUpdate">--:--:--</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      
+      <!-- 1. AI ADVICE - ALWAYS FIRST & VISIBLE -->
+      <section class="ai-advice-section">
+        <div class="ai-advice-card">
+          <div class="ai-advice-header">
+            <div class="ai-title">🧠 Conseil IA Génératif</div>
+            <button class="ai-refresh-btn" id="generateAdvice">
+              ✨ Générer
+            </button>
+          </div>
+          <div class="ai-content" id="aiContent">
+            <div class="ai-placeholder">
+              <p>Cliquez sur <strong>"Générer"</strong> pour obtenir une analyse personnalisée basée sur les données temps réel et votre profil de risque.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TOP PICKS SUMMARY -->
+      <section class="top-picks-section">
+        <div class="top-picks-card">
+          <div class="top-picks-header">
+            <div class="top-picks-title">🎯 Top Recommandations</div>
+          </div>
+          <div class="top-picks-grid" id="topPicksGrid"></div>
+        </div>
+      </section>
+
+      <!-- 3. RISK PROFILE -->
+      <section class="risk-section">
+        <div class="risk-selector">
+          <h3>⚖️ Profil de Risque</h3>
+          <div class="risk-options" id="riskOptions"></div>
+        </div>
+      </section>
+
+      <!-- 4. PRICE TICKERS -->
+      <section class="tickers-section">
+        <div class="tickers-scroll" id="tickersScroll"></div>
+      </section>
+
+      <!-- 5. DETAILED RECOMMENDATIONS - EXPANDABLE -->
+      <section class="recommendations-section">
+        <div class="recommendations-card">
+          <div class="recommendations-header" id="recsToggle">
+            <div class="recommendations-title">📈 Analyse Détaillée</div>
+            <span class="recommendations-toggle" id="recsArrow">▼</span>
+          </div>
+          <div class="recommendations-content" id="recsContent">
+            <div class="recommendations-inner">
+              <div class="picks-grid" id="picksGrid"></div>
+              <div class="allocation-card" id="allocationCard"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by <a href="#">CyberMind.FR</a></p>
+      <p class="disclaimer">⚠️ Ceci n'est pas un conseil financier.</p>
+    </footer>
+  </div>
+
+  <script>
+    // ============================================
+    // CONFIGURATION - Prix réels 17/01/2026
+    // ============================================
+    const CRYPTOS = [
+      { symbol: 'BTC', name: 'Bitcoin', color: '#F7931A', price: 95176.10, change: -0.0057,
+        forecast: { target1m: 105000, target3m: 120000, support: 88000 },
+        fundamentals: { adoption: 95, tech: 85, team: 90, liquidity: 100 }, category: 'blue-chip' },
+      { symbol: 'ETH', name: 'Ethereum', color: '#627EEA', price: 3293.15, change: -0.0077,
+        forecast: { target1m: 3800, target3m: 4500, support: 2800 },
+        fundamentals: { adoption: 92, tech: 95, team: 90, liquidity: 98 }, category: 'blue-chip' },
+      { symbol: 'DOT', name: 'Polkadot', color: '#E6007A', price: 2.1706, change: 0.0112,
+        forecast: { target1m: 2.80, target3m: 4.50, support: 1.80 },
+        fundamentals: { adoption: 75, tech: 92, team: 88, liquidity: 80 }, category: 'utility' },
+      { symbol: 'SOL', name: 'Solana', color: '#00FFA3', price: 143.83, change: 0.0038,
+        forecast: { target1m: 170, target3m: 220, support: 120 },
+        fundamentals: { adoption: 85, tech: 90, team: 82, liquidity: 88 }, category: 'high-growth' },
+      { symbol: 'XRP', name: 'Ripple', color: '#23292F', price: 2.0598, change: -0.0095,
+        forecast: { target1m: 2.50, target3m: 3.20, support: 1.70 },
+        fundamentals: { adoption: 78, tech: 75, team: 70, liquidity: 90 }, category: 'utility' },
+      { symbol: 'ADA', name: 'Cardano', color: '#0033AD', price: 0.39629, change: 0.0074,
+        forecast: { target1m: 0.50, target3m: 0.75, support: 0.32 },
+        fundamentals: { adoption: 70, tech: 88, team: 85, liquidity: 82 }, category: 'utility' },
+      { symbol: 'LINK', name: 'Chainlink', color: '#375BD2', price: 13.744, change: -0.0065,
+        forecast: { target1m: 18, target3m: 25, support: 11 },
+        fundamentals: { adoption: 88, tech: 92, team: 85, liquidity: 85 }, category: 'defi' },
+      { symbol: 'AVAX', name: 'Avalanche', color: '#E84142', price: 13.689, change: -0.0113,
+        forecast: { target1m: 18, target3m: 28, support: 10 },
+        fundamentals: { adoption: 72, tech: 88, team: 80, liquidity: 78 }, category: 'high-growth' },
+    ];
+
+    const RISK_PROFILES = [
+      { id: 'conservative', label: 'Prudent', icon: '🛡️', color: '#10B981', rgb: '16,185,129' },
+      { id: 'balanced', label: 'Équilibré', icon: '⚖️', color: '#F59E0B', rgb: '245,158,11' },
+      { id: 'aggressive', label: 'Agressif', icon: '🚀', color: '#EF4444', rgb: '239,68,68' },
+    ];
+
+    // State
+    let marketData = {};
+    let previousPrices = {};
+    let selectedRisk = 'balanced';
+    let autoRefresh = true;
+    let refreshInterval = null;
+    let recsExpanded = false;
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    (function init() {
+      CRYPTOS.forEach(c => {
+        marketData[c.symbol] = { price: c.price, change: c.change, volume: Math.random() * 5e8 + 1e8 };
+        previousPrices[c.symbol] = c.price;
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', onReady);
+      } else {
+        onReady();
+      }
+    })();
+
+    function onReady() {
+      renderRiskOptions();
+      renderTickers();
+      renderTopPicks();
+      renderDetailedPicks();
+      renderAllocation();
+      updateUI();
+      setupEventListeners();
+      startAutoRefresh();
+      // Auto-generate advice on load
+      setTimeout(generateAdvice, 500);
+    }
+
+    // ============================================
+    // RENDER FUNCTIONS
+    // ============================================
+    function renderRiskOptions() {
+      document.getElementById('riskOptions').innerHTML = RISK_PROFILES.map(p => `
+        <div class="risk-option ${p.id === selectedRisk ? 'selected' : ''}" data-risk="${p.id}"
+             style="--risk-color: ${p.color}; --risk-rgb: ${p.rgb}">
+          <span class="icon-wrapper">${p.icon}</span>
+          <div class="label"><h4>${p.label}</h4></div>
+        </div>
+      `).join('');
+    }
+
+    function renderTickers() {
+      document.getElementById('tickersScroll').innerHTML = CRYPTOS.map(c => `
+        <div class="ticker-mini" id="ticker-${c.symbol}">
+          <div class="ticker-mini-header">
+            <div class="ticker-mini-dot" style="background: ${c.color}"></div>
+            <span class="ticker-mini-symbol" style="color: ${c.color}">${c.symbol}</span>
+          </div>
+          <div class="ticker-mini-price" id="price-${c.symbol}">${formatPrice(marketData[c.symbol].price)}</div>
+          <div class="ticker-mini-change ${marketData[c.symbol].change >= 0 ? 'positive' : 'negative'}" id="change-${c.symbol}">
+            ${marketData[c.symbol].change >= 0 ? '▲' : '▼'} ${(marketData[c.symbol].change * 100).toFixed(2)}%
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderTopPicks() {
+      const picks = getScoredPicks().slice(0, 4);
+      document.getElementById('topPicksGrid').innerHTML = picks.map(p => `
+        <div class="top-pick-item ${p.signal.class}">
+          <div class="top-pick-header">
+            <span class="top-pick-symbol" style="color: ${p.color}">${p.symbol}</span>
+            <span class="top-pick-signal ${p.signal.class}">${p.signal.label}</span>
+          </div>
+          <div class="top-pick-price">${formatPrice(p.currentPrice)}</div>
+          <div class="top-pick-upside">▲ +${p.score.upside3m}% (3M)</div>
+          <div class="top-pick-score">
+            <div class="top-pick-score-fill" style="width: ${p.score.total}%; background: ${getScoreColor(p.score.total)}"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderDetailedPicks() {
+      const picks = getScoredPicks();
+      document.getElementById('picksGrid').innerHTML = picks.map(p => `
+        <div class="pick-card ${p.signal.class}">
+          <div class="pick-header">
+            <div class="pick-crypto">
+              <div class="pick-icon" style="background: ${p.color}22; color: ${p.color}">${p.symbol.charAt(0)}</div>
+              <div class="pick-info">
+                <h4>${p.name}</h4>
+                <span>${p.category}</span>
+              </div>
+            </div>
+            <span class="pick-signal ${p.signal.class}">${p.signal.label}</span>
+          </div>
+          <div class="pick-metrics">
+            <div class="metric">
+              <div class="metric-label">Prix</div>
+              <div class="metric-value">${formatPrice(p.currentPrice)}</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">24h</div>
+              <div class="metric-value ${p.currentChange >= 0 ? 'positive' : 'negative'}">
+                ${p.currentChange >= 0 ? '+' : ''}${(p.currentChange * 100).toFixed(2)}%
+              </div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Target 1M</div>
+              <div class="metric-value positive">+${p.score.upside1m}%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Target 3M</div>
+              <div class="metric-value positive">+${p.score.upside3m}%</div>
+            </div>
+          </div>
+          <div class="pick-score-bar">
+            <div class="pick-score-fill" style="width: ${p.score.total}%; background: ${getScoreColor(p.score.total)}"></div>
+          </div>
+          <div class="pick-rationale">${p.rationale}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderAllocation() {
+      const allocations = getAllocations();
+      document.getElementById('allocationCard').innerHTML = `
+        <div class="allocation-title">💼 Allocation ${RISK_PROFILES.find(p => p.id === selectedRisk).label}</div>
+        <div class="allocation-bars">
+          ${allocations.map(a => `
+            <div class="allocation-item">
+              <span class="allocation-crypto" style="color: ${a.color}">${a.symbol}</span>
+              <div class="allocation-bar-container">
+                <div class="allocation-bar-fill" style="width: ${a.percent}%; background: ${a.color}">${a.percent >= 15 ? a.percent + '%' : ''}</div>
+              </div>
+              <span class="allocation-percent">${a.percent}%</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ============================================
+    // SCORING SYSTEM
+    // ============================================
+    function calculateScore(crypto) {
+      const data = marketData[crypto.symbol];
+      const f = crypto.fundamentals;
+      const fundamentalScore = f.adoption * 0.3 + f.tech * 0.3 + f.team * 0.2 + f.liquidity * 0.2;
+      const momentum = data.change * 100;
+      const technicalScore = Math.min(100, Math.max(0, 50 + momentum * 10));
+      const upside1m = ((crypto.forecast.target1m - data.price) / data.price) * 100;
+      const upside3m = ((crypto.forecast.target3m - data.price) / data.price) * 100;
+      const potentialScore = Math.min(100, Math.max(0, 40 + upside1m * 0.5 + upside3m * 0.3));
+      const total = fundamentalScore * 0.4 + technicalScore * 0.3 + potentialScore * 0.3;
+      return { total: Math.round(total), upside1m: upside1m.toFixed(1), upside3m: upside3m.toFixed(1) };
+    }
+
+    function getSignal(score) {
+      if (score >= 80) return { label: 'ACHAT FORT', class: 'strong-buy' };
+      if (score >= 65) return { label: 'ACHAT', class: 'buy' };
+      if (score >= 45) return { label: 'CONSERVER', class: 'hold' };
+      return { label: 'VENDRE', class: 'sell' };
+    }
+
+    function getScoreColor(score) {
+      if (score >= 70) return 'linear-gradient(90deg, #10B981, #34D399)';
+      if (score >= 50) return 'linear-gradient(90deg, #F59E0B, #FBBF24)';
+      return 'linear-gradient(90deg, #EF4444, #F87171)';
+    }
+
+    function getScoredPicks() {
+      return CRYPTOS.map(c => {
+        const score = calculateScore(c);
+        const signal = getSignal(score.total);
+        const data = marketData[c.symbol];
+        const rationale = getRationale(c, score, signal);
+        return { ...c, currentPrice: data.price, currentChange: data.change, score, signal, rationale };
+      }).sort((a, b) => b.score.total - a.score.total);
+    }
+
+    function getRationale(crypto, score, signal) {
+      const upside = score.upside3m;
+      if (signal.class === 'strong-buy') return `${crypto.name} affiche un potentiel de +${upside}% à 3M. Fondamentaux solides, point d'entrée optimal.`;
+      if (signal.class === 'buy') return `${crypto.name}: bon rapport risque/rendement (+${upside}% potentiel). Accumulation progressive recommandée.`;
+      if (signal.class === 'hold') return `${crypto.name} en consolidation. Maintenir les positions, attendre confirmation.`;
+      return `${crypto.name} sous-performe. Considérer un allègement des positions.`;
+    }
+
+    function getAllocations() {
+      const allocs = {
+        conservative: [
+          { symbol: 'BTC', percent: 50, color: '#F7931A' },
+          { symbol: 'ETH', percent: 30, color: '#627EEA' },
+          { symbol: 'LINK', percent: 10, color: '#375BD2' },
+          { symbol: 'DOT', percent: 10, color: '#E6007A' },
+        ],
+        balanced: [
+          { symbol: 'BTC', percent: 35, color: '#F7931A' },
+          { symbol: 'ETH', percent: 25, color: '#627EEA' },
+          { symbol: 'SOL', percent: 15, color: '#00FFA3' },
+          { symbol: 'DOT', percent: 10, color: '#E6007A' },
+          { symbol: 'LINK', percent: 10, color: '#375BD2' },
+          { symbol: 'ADA', percent: 5, color: '#0033AD' },
+        ],
+        aggressive: [
+          { symbol: 'SOL', percent: 25, color: '#00FFA3' },
+          { symbol: 'BTC', percent: 20, color: '#F7931A' },
+          { symbol: 'ETH', percent: 15, color: '#627EEA' },
+          { symbol: 'DOT', percent: 15, color: '#E6007A' },
+          { symbol: 'AVAX', percent: 15, color: '#E84142' },
+          { symbol: 'LINK', percent: 10, color: '#375BD2' },
+        ]
+      };
+      return allocs[selectedRisk];
+    }
+
+    // ============================================
+    // AI ADVICE GENERATION
+    // ============================================
+    async function generateAdvice() {
+      const btn = document.getElementById('generateAdvice');
+      const content = document.getElementById('aiContent');
+      btn.innerHTML = '<span class="spinning">⏳</span> Analyse...';
+      btn.disabled = true;
+      content.innerHTML = '<div class="ai-placeholder fade-in"><p>🔄 Analyse des données en cours...</p></div>';
+
+      await new Promise(r => setTimeout(r, 1000));
+
+      const picks = getScoredPicks();
+      const top3 = picks.slice(0, 3);
+      const avgChange = Object.values(marketData).reduce((s, d) => s + d.change, 0) / CRYPTOS.length;
+
+      let sentiment, analysis, recommendations, alert;
+      const profile = RISK_PROFILES.find(p => p.id === selectedRisk).label;
+
+      if (avgChange > 0.003) {
+        sentiment = 'bullish';
+        analysis = `<strong>Tendance haussière</strong> (+${(avgChange * 100).toFixed(2)}% moyenne). ${top3[0].name} et ${top3[1].name} en tête avec des scores de ${top3[0].score.total}/100 et ${top3[1].score.total}/100. Momentum favorable pour votre profil <em>${profile}</em>.`;
+        recommendations = [
+          `🥇 <strong>${top3[0].symbol}</strong> — Achat prioritaire (+${top3[0].score.upside3m}% potentiel 3M)`,
+          `🥈 <strong>${top3[1].symbol}</strong> — Renforcer (+${top3[1].score.upside3m}% potentiel)`,
+          `📊 Respecter l'allocation ${profile.toLowerCase()} suggérée`
+        ];
+      } else if (avgChange < -0.003) {
+        sentiment = 'bearish';
+        analysis = `<strong>Correction en cours</strong> (${(avgChange * 100).toFixed(2)}%). Opportunité d'accumulation sur ${top3[0].name} (score: ${top3[0].score.total}) et ${top3[1].name}. Phase de consolidation naturelle.`;
+        recommendations = [
+          `💎 <strong>${top3[0].symbol}</strong> — Accumuler sur repli`,
+          `⏳ Patience — éviter les achats impulsifs`,
+          `💰 Garder 20% de liquidités pour DCA`
+        ];
+        alert = 'Volatilité accrue — Respecter strictement votre allocation cible.';
+      } else {
+        sentiment = 'neutral';
+        analysis = `<strong>Consolidation latérale</strong>. ${top3[0].name} reste le meilleur pick (${top3[0].score.total}/100, +${top3[0].score.upside3m}% potentiel). Accumulation institutionnelle probable avant le prochain mouvement.`;
+        recommendations = [
+          `🎯 <strong>${top3[0].symbol}</strong> — Position core à maintenir`,
+          `📈 <strong>${top3[1].symbol}</strong> — Opportunité de renforcement`,
+          `⚖️ Rééquilibrer selon profil ${profile}`
+        ];
+      }
+
+      content.innerHTML = `
+        <div class="fade-in">
+          <div class="sentiment-badge ${sentiment}">
+            ${sentiment === 'bullish' ? '📈 HAUSSIER' : sentiment === 'bearish' ? '📉 BAISSIER' : '➡️ NEUTRE'}
+          </div>
+          <p class="ai-analysis">${analysis}</p>
+          <div class="ai-recommendations">
+            <h4>Recommandations</h4>
+            <ul>${recommendations.map(r => `<li>${r}</li>`).join('')}</ul>
+          </div>
+          ${alert ? `<div class="ai-alert">⚠️ ${alert}</div>` : ''}
+        </div>
+      `;
+
+      btn.innerHTML = '✨ Actualiser';
+      btn.disabled = false;
+    }
+
+    // ============================================
+    // UPDATE & REFRESH
+    // ============================================
+    function updateUI() {
+      CRYPTOS.forEach(c => {
+        const data = marketData[c.symbol];
+        const priceEl = document.getElementById(`price-${c.symbol}`);
+        const changeEl = document.getElementById(`change-${c.symbol}`);
+        const ticker = document.getElementById(`ticker-${c.symbol}`);
+
+        if (priceEl) priceEl.textContent = formatPrice(data.price);
+        if (changeEl) {
+          changeEl.className = `ticker-mini-change ${data.change >= 0 ? 'positive' : 'negative'}`;
+          changeEl.textContent = `${data.change >= 0 ? '▲' : '▼'} ${(data.change * 100).toFixed(2)}%`;
+        }
+
+        // Flash animation
+        if (ticker && previousPrices[c.symbol]) {
+          const diff = data.price - previousPrices[c.symbol];
+          if (Math.abs(diff) > 0.0001 * data.price) {
+            ticker.classList.remove('flash-up', 'flash-down');
+            void ticker.offsetWidth;
+            ticker.classList.add(diff > 0 ? 'flash-up' : 'flash-down');
+          }
+        }
+        previousPrices[c.symbol] = data.price;
+      });
+
+      document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString('fr-FR');
+    }
+
+    function refreshData() {
+      CRYPTOS.forEach(c => {
+        const current = marketData[c.symbol];
+        const variation = (Math.random() - 0.5) * 0.02;
+        const newPrice = current.price * (1 + variation);
+        marketData[c.symbol] = {
+          price: newPrice,
+          change: (newPrice - c.price) / c.price,
+          volume: current.volume * (0.9 + Math.random() * 0.2)
+        };
+      });
+      updateUI();
+      renderTopPicks();
+    }
+
+    function startAutoRefresh() {
+      if (refreshInterval) clearInterval(refreshInterval);
+      refreshInterval = setInterval(refreshData, 5000);
+    }
+
+    // ============================================
+    // EVENT LISTENERS
+    // ============================================
+    function setupEventListeners() {
+      document.getElementById('generateAdvice').addEventListener('click', generateAdvice);
+
+      document.getElementById('riskOptions').addEventListener('click', e => {
+        const opt = e.target.closest('.risk-option');
+        if (opt) {
+          selectedRisk = opt.dataset.risk;
+          document.querySelectorAll('.risk-option').forEach(o => o.classList.toggle('selected', o.dataset.risk === selectedRisk));
+          renderAllocation();
+          generateAdvice();
+        }
+      });
+
+      document.getElementById('recsToggle').addEventListener('click', () => {
+        recsExpanded = !recsExpanded;
+        document.getElementById('recsContent').classList.toggle('expanded', recsExpanded);
+        document.getElementById('recsArrow').classList.toggle('expanded', recsExpanded);
+        if (recsExpanded) {
+          renderDetailedPicks();
+          renderAllocation();
+        }
+      });
+    }
+
+    // ============================================
+    // HELPERS
+    // ============================================
+    function formatPrice(price) {
+      if (price >= 1000) return '$' + price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (price >= 1) return '$' + price.toFixed(2);
+      return '$' + price.toFixed(4);
+    }
+  </script>
+</body>
+</html>

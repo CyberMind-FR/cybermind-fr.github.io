@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b0e14" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlJvc2FjZSBIUlRGIM6mz4AiLAogICJzaG9ydF9uYW1lIjogIlJvc2FjZSDOhs+AIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYjBlMTQiLAogICJ0aGVtZV9jb2xvciI6ICIjMGIwZTE0IiwKICAiaWNvbnMiOiBbXQp9" />
+<title>🎧 Rosace HRTF Φ^π (A000940) · PWA</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #0b0e14; color: #d6d6d6;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    display: flex; min-height: 100vh; align-items: center; justify-content: center;
+    overflow-x: hidden;
+  }
+  .wrap { width: min(960px, 96vw); padding: 18px; }
+  h1 { font-size: 19px; margin: 0 0 6px; font-weight: 650; }
+  h1 span { color: #ffd700; }
+  .sub { margin: 0 0 14px; opacity: .75; font-size: 12px; line-height: 1.4; }
+  
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 10px 0 14px; }
+  button {
+    background: linear-gradient(135deg, #1a2232, #243044); color: #e8e8e8;
+    border: 1px solid #2c3b57; padding: 11px 18px; border-radius: 14px;
+    font-size: 14px; cursor: pointer; transition: all .15s;
+  }
+  button:hover:not(:disabled) { filter: brightness(1.12); transform: translateY(-1px); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.active { background: linear-gradient(135deg, #00b894, #00a085); border-color: #00d9a0; }
+  
+  .sliders { display: flex; flex-wrap: wrap; gap: 18px; font-size: 12px; opacity: .9; }
+  .sliders label { display: flex; align-items: center; gap: 8px; }
+  .sliders input[type="range"] { width: 130px; accent-color: #ffd700; }
+  .sliders code { min-width: 38px; text-align: right; }
+  
+  .panel {
+    border: 1px solid #1e2a40; border-radius: 18px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
+  }
+  .hud {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    padding: 10px 14px; border-bottom: 1px solid #1e2a40; font-size: 11px; opacity: .85;
+  }
+  .hud code { color: #ffd700; }
+  
+  svg { display: block; width: 100%; height: auto; background: radial-gradient(ellipse at center, #0d1118 0%, #080a0f 100%); }
+  
+  .hint { font-size: 11px; opacity: .6; margin-top: 10px; line-height: 1.45; }
+  
+  /* Mode selector */
+  .modes { display: flex; gap: 6px; }
+  .modes button { padding: 8px 14px; font-size: 12px; }
+  .modes button.active { background: linear-gradient(135deg, #6c5ce7, #a29bfe); border-color: #a29bfe; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎧 Rosace HRTF <span>Φ<sup>π</sup></span> · A000940</h1>
+  <p class="sub">
+    Spatialisation 3D (HRTF) · Chaque cercle = une voix positionnée dans l'espace.<br>
+    La rotation visuelle est synchronisée avec la position binaurale.
+  </p>
+
+  <div class="row">
+    <button id="start">▶ Activer</button>
+    <button id="stop" disabled>■ Stop</button>
+    <div class="modes">
+      <button id="modeCircle" class="active" title="Rotation circulaire">◯ Circulaire</button>
+      <button id="modeSphere" title="Rotation sphérique 3D">◉ Sphère</button>
+      <button id="modeSpiral" title="Spirale ascendante">⌀ Spirale</button>
+    </div>
+  </div>
+
+  <div class="sliders">
+    <label>Master <input id="master" type="range" min="0" max="1" step="0.01" value="0.55" /><code id="masterVal">0.55</code></label>
+    <label>Vitesse <input id="speed" type="range" min="0.1" max="3" step="0.05" value="1" /><code id="speedVal">1.00</code></label>
+    <label>Rayon 3D <input id="radius3d" type="range" min="1" max="12" step="0.5" value="5" /><code id="radius3dVal">5.0</code></label>
+    <label>Réverb <input id="reverb" type="range" min="0" max="1" step="0.01" value="0.25" /><code id="reverbVal">0.25</code></label>
+  </div>
+
+  <div class="panel" style="margin-top:14px;">
+    <div class="hud">
+      <div>ω = Φ<sup>π</sup> ≈ <code id="omegaTxt"></code></div>
+      <div>n = 3..28 · <code id="voiceCount">26</code> voix HRTF</div>
+      <div>Mode: <code id="modeTxt">Circulaire</code></div>
+    </div>
+    <svg id="rosace" viewBox="-130 -130 260 260" aria-label="Rosace HRTF synchronisée"></svg>
+  </div>
+
+  <p class="hint">
+    💡 Utilise un casque pour l'effet HRTF complet. Laisse tourner 60–120s pour percevoir la structure spatiale.<br>
+    Les couleurs suivent le code résistances (0-9). L'intensité visuelle = log(A000940(n)).
+  </p>
+</div>
+
+<script>
+(() => {
+  // ═══════════════════════════════════════════════════════════════════
+  // CONSTANTES Φ^π
+  // ═══════════════════════════════════════════════════════════════════
+  const PHI = (1 + Math.sqrt(5)) / 2;
+  const OMEGA = Math.pow(PHI, Math.PI);
+  document.getElementById("omegaTxt").textContent = OMEGA.toFixed(7);
+
+  // A000940(n) pour n=3..28 - cycles hamiltoniens
+  const A000940 = {
+    3:1, 4:2, 5:4, 6:12, 7:39, 8:202, 9:1219, 10:9468,
+    11:83435, 12:836017, 13:9223092, 14:111255228,
+    15:1453132944, 16:20433309147, 17:307690667072,
+    18:4940118795869, 19:84241805734539, 20:1520564059349452,
+    21:28963120073957838, 22:580578894859915650,
+    23:12217399235411398127, 24:269291841184184374868,
+    25:6204484017822892034404, 26:149175438649578753498456,
+    27:3733710671378025371498480, 28:97089429796971170322763840n
+  };
+
+  // Couleurs résistances
+  const RESISTOR_COLORS = [
+    '#1a1a1a', '#8B4513', '#FF0000', '#FF8C00', '#FFD700',
+    '#228B22', '#0066FF', '#8B008B', '#707070', '#F5F5F5'
+  ];
+
+  const ns = Object.keys(A000940).map(Number).sort((a,b) => a-b);
+  const weights = ns.map(n => Math.log1p(Number(A000940[n] || A000940[n].toString())));
+  const maxW = Math.max(...weights);
+  const norm = weights.map(w => w / maxW);
+
+  document.getElementById("voiceCount").textContent = ns.length;
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SVG ROSACE
+  // ═══════════════════════════════════════════════════════════════════
+  const svg = document.getElementById("rosace");
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  // Cercles structurants
+  const R_OUTER = 100;
+  const R_PHI = R_OUTER / PHI;
+  const R_PHI_PI = R_OUTER / OMEGA;
+
+  // Cercle extérieur
+  const outer = document.createElementNS(svgNS, "circle");
+  outer.setAttribute("cx", "0"); outer.setAttribute("cy", "0"); outer.setAttribute("r", R_OUTER);
+  outer.setAttribute("fill", "none"); outer.setAttribute("stroke", "rgba(150,190,255,0.5)");
+  outer.setAttribute("stroke-width", "1.8");
+  svg.appendChild(outer);
+
+  // Cercle φ
+  const phiCircle = document.createElementNS(svgNS, "circle");
+  phiCircle.setAttribute("cx", "0"); phiCircle.setAttribute("cy", "0"); phiCircle.setAttribute("r", R_PHI);
+  phiCircle.setAttribute("fill", "none"); phiCircle.setAttribute("stroke", "rgba(255,215,0,0.35)");
+  phiCircle.setAttribute("stroke-width", "0.8"); phiCircle.setAttribute("stroke-dasharray", "5 4");
+  svg.appendChild(phiCircle);
+
+  // Cercle φ^π
+  const phiPiCircle = document.createElementNS(svgNS, "circle");
+  phiPiCircle.setAttribute("cx", "0"); phiPiCircle.setAttribute("cy", "0"); phiPiCircle.setAttribute("r", R_PHI_PI);
+  phiPiCircle.setAttribute("fill", "none"); phiPiCircle.setAttribute("stroke", "rgba(255,215,0,0.2)");
+  phiPiCircle.setAttribute("stroke-width", "0.6"); phiPiCircle.setAttribute("stroke-dasharray", "2 3");
+  svg.appendChild(phiPiCircle);
+
+  // Voix visuelles
+  const circles = [];
+  const N = ns.length;
+
+  function radiusSpectral(i) {
+    const rmax = 88;
+    return rmax * Math.pow((i + 1) / N, 1 / PHI);
+  }
+
+  for (let i = 0; i < N; i++) {
+    const n = ns[i];
+    const v = norm[i];
+    const r = radiusSpectral(i);
+    const color = RESISTOR_COLORS[(n - 3) % 10];
+
+    // Anneau orbital
+    const ring = document.createElementNS(svgNS, "circle");
+    ring.setAttribute("cx", "0"); ring.setAttribute("cy", "0"); ring.setAttribute("r", r.toFixed(2));
+    ring.setAttribute("fill", "none"); ring.setAttribute("stroke", color);
+    ring.setAttribute("stroke-opacity", (0.15 + 0.5 * v).toFixed(3));
+    ring.setAttribute("stroke-width", (0.4 + 1.4 * v).toFixed(2));
+
+    // Glow
+    const glow = document.createElementNS(svgNS, "circle");
+    glow.setAttribute("cx", "0"); glow.setAttribute("cy", "0"); glow.setAttribute("r", r.toFixed(2));
+    glow.setAttribute("fill", "none"); glow.setAttribute("stroke", color);
+    glow.setAttribute("stroke-opacity", (0.04 + 0.08 * v).toFixed(3));
+    glow.setAttribute("stroke-width", (2 + 5 * v).toFixed(2));
+
+    // Point (source sonore)
+    const dot = document.createElementNS(svgNS, "circle");
+    dot.setAttribute("r", (1.2 + 2.2 * v).toFixed(2));
+    dot.setAttribute("fill", color);
+    dot.setAttribute("fill-opacity", (0.4 + 0.6 * v).toFixed(3));
+
+    // Indicateur d'élévation (pour mode sphère)
+    const elev = document.createElementNS(svgNS, "line");
+    elev.setAttribute("stroke", color);
+    elev.setAttribute("stroke-opacity", "0.3");
+    elev.setAttribute("stroke-width", "0.5");
+    elev.setAttribute("stroke-dasharray", "1 2");
+
+    svg.appendChild(glow);
+    svg.appendChild(ring);
+    svg.appendChild(elev);
+    svg.appendChild(dot);
+
+    circles.push({ n, r, v, ringEl: ring, dotEl: dot, glowEl: glow, elevEl: elev });
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  // WEB AUDIO + HRTF
+  // ═══════════════════════════════════════════════════════════════════
+  let ctx = null;
+  let masterGain = null;
+  let convolver = null;
+  let dryGain = null;
+  let wetGain = null;
+  let raf = null;
+  const voices = [];
+
+  let currentMode = 'circle'; // 'circle', 'sphere', 'spiral'
+  let speedMult = 1;
+  let radius3D = 5;
+
+  // Sliders
+  const masterSlider = document.getElementById("master");
+  const speedSlider = document.getElementById("speed");
+  const radius3dSlider = document.getElementById("radius3d");
+  const reverbSlider = document.getElementById("reverb");
+
+  masterSlider.oninput = () => {
+    document.getElementById("masterVal").textContent = (+masterSlider.value).toFixed(2);
+    if (masterGain) masterGain.gain.setTargetAtTime(+masterSlider.value, ctx.currentTime, 0.05);
+  };
+  speedSlider.oninput = () => {
+    speedMult = +speedSlider.value;
+    document.getElementById("speedVal").textContent = speedMult.toFixed(2);
+  };
+  radius3dSlider.oninput = () => {
+    radius3D = +radius3dSlider.value;
+    document.getElementById("radius3dVal").textContent = radius3D.toFixed(1);
+  };
+  reverbSlider.oninput = () => {
+    const rv = +reverbSlider.value;
+    document.getElementById("reverbVal").textContent = rv.toFixed(2);
+    if (dryGain && wetGain) {
+      dryGain.gain.setTargetAtTime(1 - rv * 0.5, ctx.currentTime, 0.05);
+      wetGain.gain.setTargetAtTime(rv, ctx.currentTime, 0.05);
+    }
+  };
+
+  // Mode buttons
+  document.getElementById("modeCircle").onclick = () => setMode('circle');
+  document.getElementById("modeSphere").onclick = () => setMode('sphere');
+  document.getElementById("modeSpiral").onclick = () => setMode('spiral');
+
+  function setMode(m) {
+    currentMode = m;
+    document.querySelectorAll('.modes button').forEach(b => b.classList.remove('active'));
+    document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
+    document.getElementById("modeTxt").textContent = 
+      m === 'circle' ? 'Circulaire' : m === 'sphere' ? 'Sphère 3D' : 'Spirale';
+  }
+
+  // Générer une réponse impulsionnelle simple (réverb synthétique)
+  function createImpulseResponse(duration = 2.5, decay = 2.5) {
+    const length = ctx.sampleRate * duration;
+    const impulse = ctx.createBuffer(2, length, ctx.sampleRate);
+    for (let ch = 0; ch < 2; ch++) {
+      const data = impulse.getChannelData(ch);
+      for (let i = 0; i < length; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, decay);
+      }
+    }
+    return impulse;
+  }
+
+  const basePanHz = OMEGA * 0.012;
+
+  function createVoice(i) {
+    const n = circles[i].n;
+    const v = circles[i].v;
+
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const panner = ctx.createPanner();
+
+    // Config HRTF
+    panner.panningModel = 'HRTF';
+    panner.distanceModel = 'inverse';
+    panner.refDistance = 1;
+    panner.maxDistance = 20;
+    panner.rolloffFactor = 1;
+    panner.coneInnerAngle = 360;
+    panner.coneOuterAngle = 360;
+    panner.coneOuterGain = 0;
+
+    // Fréquence basée sur φ
+    const baseFreq = 55; // A1
+    const freq = baseFreq * Math.pow(PHI, n / 5);
+    osc.frequency.value = freq;
+
+    // Timbre progressif
+    osc.type = n < 8 ? 'sine' : n < 16 ? 'triangle' : n < 22 ? 'square' : 'sawtooth';
+
+    // Amplitude pondérée
+    const amp = 0.008 + 0.04 * v;
+    gain.gain.value = amp;
+
+    // Phase et vitesse de rotation
+    const phase0 = (i * PHI * 0.7) % (2 * Math.PI);
+    const fPan = basePanHz * (0.4 + 0.9 * v);
+
+    osc.connect(gain).connect(panner).connect(dryGain);
+    panner.connect(wetGain);
+
+    osc.start(ctx.currentTime + i * 0.02);
+
+    return { osc, gain, panner, fPan, baseAmp: amp, v, phase0, n, freq };
+  }
+
+  function start() {
+    if (ctx) return;
+    ctx = new AudioContext();
+
+    // Master chain
+    masterGain = ctx.createGain();
+    masterGain.gain.value = +masterSlider.value;
+    masterGain.connect(ctx.destination);
+
+    // Reverb
+    convolver = ctx.createConvolver();
+    convolver.buffer = createImpulseResponse(2.5, 2.8);
+
+    dryGain = ctx.createGain();
+    wetGain = ctx.createGain();
+    const rv = +reverbSlider.value;
+    dryGain.gain.value = 1 - rv * 0.5;
+    wetGain.gain.value = rv;
+
+    dryGain.connect(masterGain);
+    wetGain.connect(convolver).connect(masterGain);
+
+    // Créer les voix
+    voices.length = 0;
+    for (let i = 0; i < circles.length; i++) {
+      voices.push(createVoice(i));
+    }
+
+    document.getElementById("start").disabled = true;
+    document.getElementById("stop").disabled = false;
+
+    const t0 = ctx.currentTime;
+
+    // Animation loop
+    const tick = () => {
+      const t = (ctx.currentTime - t0) * speedMult;
+
+      for (let i = 0; i < voices.length; i++) {
+        const V = voices[i];
+        const C = circles[i];
+
+        // Phase commune
+        const theta = 2 * Math.PI * V.fPan * t + V.phase0;
+
+        // Position 3D selon le mode
+        let x3d, y3d, z3d;
+        const R = radius3D * (0.5 + 0.5 * C.v);
+
+        switch (currentMode) {
+          case 'circle':
+            x3d = R * Math.cos(theta);
+            y3d = 0;
+            z3d = R * Math.sin(theta);
+            break;
+          case 'sphere':
+            const elevation = Math.sin(theta * PHI) * Math.PI * 0.4;
+            x3d = R * Math.cos(theta) * Math.cos(elevation);
+            y3d = R * Math.sin(elevation);
+            z3d = R * Math.sin(theta) * Math.cos(elevation);
+            break;
+          case 'spiral':
+            const spiralY = Math.sin(theta * 0.3) * 3;
+            const spiralR = R * (0.7 + 0.3 * Math.sin(theta * 0.5));
+            x3d = spiralR * Math.cos(theta);
+            y3d = spiralY;
+            z3d = spiralR * Math.sin(theta);
+            break;
+        }
+
+        V.panner.positionX.setValueAtTime(x3d, ctx.currentTime);
+        V.panner.positionY.setValueAtTime(y3d, ctx.currentTime);
+        V.panner.positionZ.setValueAtTime(z3d, ctx.currentTime);
+
+        // Pulse d'amplitude
+        const pulse = 0.7 + 0.3 * (0.5 + 0.5 * Math.cos(theta));
+        V.gain.gain.value = V.baseAmp * pulse;
+
+        // Visuel 2D (projection)
+        const xVis = C.r * Math.cos(theta);
+        const yVis = C.r * Math.sin(theta);
+        C.dotEl.setAttribute("cx", xVis.toFixed(2));
+        C.dotEl.setAttribute("cy", yVis.toFixed(2));
+
+        // Ligne d'élévation (mode sphère/spirale)
+        if (currentMode !== 'circle') {
+          const elevScale = y3d * 4;
+          C.elevEl.setAttribute("x1", xVis.toFixed(2));
+          C.elevEl.setAttribute("y1", yVis.toFixed(2));
+          C.elevEl.setAttribute("x2", xVis.toFixed(2));
+          C.elevEl.setAttribute("y2", (yVis - elevScale).toFixed(2));
+          C.elevEl.setAttribute("stroke-opacity", "0.4");
+        } else {
+          C.elevEl.setAttribute("stroke-opacity", "0");
+        }
+
+        // Opacité pulsée
+        const ringOp = 0.15 + 0.55 * C.v;
+        C.ringEl.setAttribute("stroke-opacity", (ringOp * pulse).toFixed(3));
+        C.glowEl.setAttribute("stroke-opacity", ((0.03 + 0.1 * C.v) * (0.6 + 0.4 * pulse)).toFixed(3));
+      }
+
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+  }
+
+  function stop() {
+    if (!ctx) return;
+    if (raf) cancelAnimationFrame(raf);
+
+    masterGain.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.1);
+
+    setTimeout(() => {
+      voices.forEach(v => { try { v.osc.stop(); } catch(e) {} });
+      ctx.close();
+      ctx = null;
+      masterGain = null;
+      convolver = null;
+      dryGain = null;
+      wetGain = null;
+      document.getElementById("start").disabled = false;
+      document.getElementById("stop").disabled = true;
+    }, 250);
+  }
+
+  document.getElementById("start").onclick = start;
+  document.getElementById("stop").onclick = stop;
+
+  // PWA install prompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+})();
+</script>
+</body>
+</html>

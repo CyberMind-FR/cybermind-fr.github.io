@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 ChatGPT Godmode Lab - CyberMind.FR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: rgba(32, 33, 35, 0.9);
+            --accent-green: #10A37F;
+            --accent-green-light: #1ED49A;
+            --accent-purple: #8B5CF6;
+            --accent-cyan: #06B6D4;
+            --accent-red: #EF4444;
+            --accent-amber: #F59E0B;
+            --accent-pink: #EC4899;
+            --accent-teal: #14B8A6;
+            --text-primary: #ECECF1;
+            --text-secondary: #8E8EA0;
+            --border-color: #2D2D30;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(16, 163, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        header { text-align: center; padding: 40px 20px; }
+        .logo { font-size: 64px; margin-bottom: 16px; }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .subtitle { color: var(--accent-green); font-size: 1rem; margin-bottom: 8px; }
+        .author { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* Model Selector */
+        .model-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .model-btn {
+            padding: 12px 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .model-btn:hover { border-color: var(--accent-green); }
+        .model-btn.active {
+            border-color: var(--accent-green);
+            background: rgba(16, 163, 127, 0.2);
+            box-shadow: 0 0 20px rgba(16, 163, 127, 0.2);
+        }
+        .model-btn .name { font-weight: 600; font-size: 13px; display: block; }
+        .model-btn .cost { font-size: 11px; color: var(--text-secondary); }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+        nav button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        nav button:hover { color: var(--text-primary); background: var(--bg-secondary); }
+        nav button.active { background: var(--accent-green); color: white; }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin: 16px 0 8px;
+        }
+
+        /* Sections */
+        .section { display: none; }
+        .section.active { display: block; }
+
+        /* SVG Graph Container */
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .graph-container svg { max-width: 100%; height: auto; }
+
+        /* Pattern Node in SVG */
+        .pattern-node { cursor: pointer; transition: all 0.3s ease; }
+        .pattern-node:hover circle { r: 38; }
+        .pattern-node.optimal circle { stroke-width: 3; }
+
+        /* Code Block */
+        .code-block {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-green-light);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .code-block:hover { border-color: var(--accent-green); }
+        .code-block::after {
+            content: 'Click to copy';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .code-block:hover::after { opacity: 1; }
+        .code-block.copied::after { content: '✓ Copied!'; color: var(--accent-green); opacity: 1; }
+
+        /* Form Elements */
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+        textarea { resize: vertical; min-height: 120px; font-family: 'JetBrains Mono', monospace; }
+        label { display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 4px; }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            color: white;
+        }
+        .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover { border-color: var(--accent-green); }
+
+        /* Variables Grid */
+        .vars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        /* Pattern Tags */
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tag-model { background: rgba(16, 163, 127, 0.2); color: var(--accent-green-light); }
+        .tag-model.active { background: var(--accent-green); color: white; }
+        .tag-connection { background: var(--bg-secondary); color: var(--text-secondary); }
+        .tag-connection:hover { background: var(--border-color); color: var(--text-primary); }
+
+        /* Slider */
+        .slider-container { margin: 16px 0; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
+        .slider-value { color: var(--accent-green); font-weight: 600; }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            border: none;
+            padding: 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+        .comparison-table th {
+            background: var(--bg-secondary);
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+        }
+        .comparison-table th:first-child { text-align: left; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid var(--border-color); text-align: center; }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; }
+        .comparison-table tr:hover { background: rgba(16, 163, 127, 0.05); }
+        .status-yes { color: var(--accent-green); font-size: 1.2em; }
+        .status-no { color: var(--accent-red); font-size: 1.2em; }
+        .status-maybe { color: var(--accent-amber); font-size: 1.2em; }
+
+        /* Tips Box */
+        .tips-box {
+            background: rgba(16, 163, 127, 0.1);
+            border: 1px solid rgba(16, 163, 127, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .tips-box p { font-size: 13px; color: var(--text-secondary); margin: 8px 0; }
+        .tips-box p::before { content: '• '; color: var(--accent-green); }
+
+        /* Philosophy Box */
+        .philosophy-box {
+            background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(16, 163, 127, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        .philosophy-box pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-green);
+            display: inline-block;
+            text-align: left;
+            margin: 16px 0;
+        }
+        .philosophy-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+        .philosophy-symbols { font-size: 1.8rem; margin-top: 12px; }
+
+        /* Library Items */
+        .library-item {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .library-item:hover { background: var(--border-color); }
+        .library-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .library-item-name { font-weight: 500; font-size: 13px; }
+        .library-item-model { font-size: 11px; color: var(--accent-green); }
+        .library-item-preview { font-size: 11px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section.active { animation: fadeIn 0.3s ease; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🤖</div>
+            <h1>CHATGPT GODMODE LAB</h1>
+            <p class="subtitle">GPT-4 • GPT-4o • o1 • Custom GPTs</p>
+            <p class="author">Par Gandalf • CyberMind.FR</p>
+        </header>
+
+        <!-- Model Selector -->
+        <div class="model-selector" id="modelSelector">
+            <button class="model-btn active" data-model="gpt-4o">
+                <span class="name">GPT-4o</span>
+                <span class="cost">$$</span>
+            </button>
+            <button class="model-btn" data-model="gpt-4-turbo">
+                <span class="name">GPT-4 Turbo</span>
+                <span class="cost">$$$</span>
+            </button>
+            <button class="model-btn" data-model="o1-preview">
+                <span class="name">o1-preview</span>
+                <span class="cost">$$$$</span>
+            </button>
+            <button class="model-btn" data-model="o1">
+                <span class="name">o1</span>
+                <span class="cost">$$$$$</span>
+            </button>
+            <button class="model-btn" data-model="gpt-4o-mini">
+                <span class="name">GPT-4o Mini</span>
+                <span class="cost">$</span>
+            </button>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="mainNav">
+            <button class="active" data-section="graph">🕸️ Patterns</button>
+            <button data-section="builder">⚡ Builder</button>
+            <button data-section="custom">⚙️ Custom Instructions</button>
+            <button data-section="api">🔧 API Config</button>
+            <button data-section="compare">📊 Comparaison</button>
+            <button data-section="library">📚 Librairie</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel -->
+            <div class="card" id="leftPanel">
+                <!-- Graph Section -->
+                <div class="section active" id="graph">
+                    <h2>🕸️ Graphe des Patterns</h2>
+                    <div class="graph-container">
+                        <svg width="420" height="420" viewBox="0 0 420 420" id="patternGraph">
+                            <defs>
+                                <radialGradient id="bgGrad">
+                                    <stop offset="0%" stop-color="#1a1a1a"/>
+                                    <stop offset="100%" stop-color="#0d0d0d"/>
+                                </radialGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle cx="210" cy="210" r="200" fill="url(#bgGrad)" stroke="#10A37F" stroke-width="1" stroke-opacity="0.3"/>
+                            <text x="210" y="218" text-anchor="middle" font-size="32" filter="url(#glow)">🤖</text>
+                            <!-- Nodes will be drawn by JS -->
+                            <g id="connections"></g>
+                            <g id="nodes"></g>
+                        </svg>
+                    </div>
+                    <p style="text-align: center; font-size: 12px; color: var(--text-secondary);">
+                        🟢 = Optimal pour le modèle sélectionné | Cliquez sur un pattern pour le détailler
+                    </p>
+                </div>
+
+                <!-- Builder Section -->
+                <div class="section" id="builder">
+                    <h2>⚡ Pattern Builder</h2>
+                    <div id="builderContent">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Custom Instructions Section -->
+                <div class="section" id="custom">
+                    <h2>⚙️ Custom Instructions</h2>
+                    <h3>📝 "What would you like ChatGPT to know?"</h3>
+                    <textarea id="customAbout">PROFESSIONAL CONTEXT:
+- Role: [your job/expertise]
+- Domains: [technical specialties]
+- Current projects: [active work]
+- Tech stack: [languages, frameworks, tools]
+
+PREFERENCES:
+- Language: French (technical terms in English if relevant)
+- Level: Expert, no oversimplification
+- Style: Direct, concise, actionable</textarea>
+                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                        <button class="btn btn-secondary" onclick="copyText(document.getElementById('customAbout').value)">📋 Copy</button>
+                    </div>
+
+                    <h3>📝 "How would you like ChatGPT to respond?"</h3>
+                    <textarea id="customResponse">RESPONSE FORMAT:
+- No preamble, straight to the point
+- Code: Commented, production-ready
+- Length: Concise unless complexity requires more
+
+BEHAVIOR:
+- Constructive criticism welcome
+- Flag edge cases and risks
+- Suggest alternatives when relevant
+- Don't repeat the question in response</textarea>
+                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                        <button class="btn btn-secondary" onclick="copyText(document.getElementById('customResponse').value)">📋 Copy</button>
+                    </div>
+
+                    <div class="tips-box">
+                        <p>Ces instructions persistent à travers toutes vos conversations ChatGPT</p>
+                        <p>Accédez-y via Settings → Personalization → Custom Instructions</p>
+                    </div>
+                </div>
+
+                <!-- API Config Section -->
+                <div class="section" id="api">
+                    <h2>🔧 Configuration API</h2>
+                    
+                    <div class="slider-container">
+                        <div class="slider-header">
+                            <span>Temperature</span>
+                            <span class="slider-value" id="tempValue">0.7</span>
+                        </div>
+                        <input type="range" id="tempSlider" min="0" max="2" step="0.1" value="0.7">
+                        <div class="slider-labels">
+                            <span>0 (Code)</span>
+                            <span>0.7 (Default)</span>
+                            <span>2 (Creative)</span>
+                        </div>
+                    </div>
+
+                    <div class="vars-grid">
+                        <div>
+                            <label>Max Tokens</label>
+                            <input type="number" id="maxTokens" value="4096">
+                        </div>
+                        <div>
+                            <label>Top P</label>
+                            <input type="number" id="topP" value="1" step="0.1" min="0" max="1">
+                        </div>
+                    </div>
+
+                    <h3>API Preview</h3>
+                    <div class="code-block" id="apiPreview" onclick="copyCode(this)"></div>
+
+                    <h3>🌡️ Guide Temperature</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr><th>Temperature</th><th>Usage</th><th>Exemple</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>Déterministe</td><td>Code, extraction</td></tr>
+                            <tr><td>0.3-0.5</td><td>Équilibré</td><td>Rédaction technique</td></tr>
+                            <tr><td>0.7-1.0</td><td>Créatif</td><td>Brainstorming</td></tr>
+                            <tr><td>1.5-2.0</td><td>Très créatif</td><td>Poésie, idéation</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Compare Section -->
+                <div class="section" id="compare">
+                    <h2>📊 Comparaison des Modèles</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Cas d'usage</th>
+                                <th>GPT-4o</th>
+                                <th>GPT-4 Turbo</th>
+                                <th>o1-preview</th>
+                                <th>o1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Conversation rapide</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                            <tr><td>Rédaction créative</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td></tr>
+                            <tr><td>Code simple</td><td class="status-yes">✅</td><td class="status-yes">✅</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                            <tr><td>Algorithmes complexes</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Mathématiques</td><td class="status-no">❌</td><td class="status-no">❌</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Raisonnement multi-étapes</td><td class="status-maybe">⚠️</td><td class="status-maybe">⚠️</td><td class="status-yes">✅</td><td class="status-yes">✅</td></tr>
+                            <tr><td>Latence < 5s</td><td class="status-yes">✅</td><td class="status-maybe">⚠️</td><td class="status-no">❌</td><td class="status-no">❌</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
+                        ✅ Optimal | ⚠️ Acceptable | ❌ Non recommandé
+                    </p>
+                </div>
+
+                <!-- Library Section -->
+                <div class="section" id="library">
+                    <h2>📚 Librairie de Prompts</h2>
+                    <div id="libraryContent">
+                        <p style="text-align: center; color: var(--text-secondary); padding: 40px 0;">
+                            Aucun prompt sauvegardé.<br>
+                            Utilisez le Builder pour créer et sauvegarder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Pattern Details -->
+                <div class="card" id="patternDetails">
+                    <h2 id="patternTitle">⚙️ System Role</h2>
+                    <div class="code-block" id="patternTemplate" onclick="copyCode(this)"></div>
+                    
+                    <h3>Meilleur pour</h3>
+                    <div id="patternBestFor"></div>
+
+                    <h3>Connexions</h3>
+                    <div id="patternConnections"></div>
+                </div>
+
+                <!-- Tips -->
+                <div class="card" id="tipsCard">
+                    <h2>💡 Tips pour <span id="tipsModel">GPT-4o</span></h2>
+                    <div id="tipsContent" class="tips-box"></div>
+                </div>
+
+                <!-- Philosophy -->
+                <div class="philosophy-box">
+                    <pre>┌─────────────────────────────────┐
+│  CLEAR    →  Better than clever │
+│  SPECIFIC →  Better than vague  │
+│  EXAMPLES →  Better than rules  │
+│  ITERATE  →  Better than perfect│
+└─────────────────────────────────┘</pre>
+                    <p class="philosophy-quote">"The best prompt makes the model think<br>it already knows exactly what you want."</p>
+                    <div class="philosophy-symbols">🤖 → 🧠 → 💡 → ✨</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            🤖 ChatGPT Godmode Lab • CyberMind.FR • 2025<br>
+            <span style="font-size: 11px;">Par Gandalf • Consultant Cybersécurité</span>
+        </footer>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════
+        // DATA
+        // ═══════════════════════════════════════════════════════════════════
+
+        const MODELS = {
+            'gpt-4o': { name: 'GPT-4o', speed: 'fast', reasoning: 'good', creative: 'excellent', cost: '$$' },
+            'gpt-4-turbo': { name: 'GPT-4 Turbo', speed: 'medium', reasoning: 'good', creative: 'excellent', cost: '$$$' },
+            'o1-preview': { name: 'o1-preview', speed: 'slow', reasoning: 'excellent', creative: 'good', cost: '$$$$' },
+            'o1': { name: 'o1', speed: 'slow', reasoning: 'superior', creative: 'good', cost: '$$$$$' },
+            'gpt-4o-mini': { name: 'GPT-4o Mini', speed: 'very-fast', reasoning: 'moderate', creative: 'good', cost: '$' }
+        };
+
+        const PATTERNS = {
+            system: {
+                id: 'system', name: 'System Role', emoji: '⚙️',
+                template: 'You are a [ROLE] with expertise in [DOMAIN]. Your task is to [OBJECTIVE].',
+                variables: ['role', 'domain', 'objective'],
+                color: '#10A37F', connections: ['persona', 'constraints'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            persona: {
+                id: 'persona', name: 'Expert Persona', emoji: '🎭',
+                template: 'You are a senior [EXPERT] with [N] years of experience. You specialize in [SPECIALTY]. Your communication style is [STYLE].',
+                variables: ['expert', 'years', 'specialty', 'style'],
+                color: '#8B5CF6', connections: ['system', 'fewshot'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            cot: {
+                id: 'cot', name: 'Chain of Thought', emoji: '🧠',
+                template: "Let's think through this step by step:\n1. First, [STEP1]\n2. Then, [STEP2]\n3. Finally, [STEP3]",
+                variables: ['step1', 'step2', 'step3'],
+                color: '#06B6D4', connections: ['tot', 'reflection'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'o1-preview']
+            },
+            tot: {
+                id: 'tot', name: 'Tree of Thought', emoji: '🌳',
+                template: 'Explore [N] different reasoning paths for this problem. For each path:\n- State the approach\n- Work through the logic\n- Evaluate likelihood of success\nThen synthesize the best solution.',
+                variables: ['paths'],
+                color: '#F59E0B', connections: ['cot', 'o1native'],
+                bestFor: ['o1-preview', 'o1']
+            },
+            o1native: {
+                id: 'o1native', name: 'o1 Native Reasoning', emoji: '🔮',
+                template: '[COMPLEX_PROBLEM]\n\nTake your time to reason through this thoroughly. Show your complete thinking process.',
+                variables: ['problem'],
+                color: '#EC4899', connections: ['tot', 'adversarial'],
+                bestFor: ['o1', 'o1-preview']
+            },
+            fewshot: {
+                id: 'fewshot', name: 'Few-Shot Examples', emoji: '📚',
+                template: 'Here are examples of the expected format:\n\nExample 1:\nInput: [IN1]\nOutput: [OUT1]\n\nExample 2:\nInput: [IN2]\nOutput: [OUT2]\n\nNow process:\nInput: [QUERY]',
+                variables: ['in1', 'out1', 'in2', 'out2', 'query'],
+                color: '#14B8A6', connections: ['persona', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            },
+            json: {
+                id: 'json', name: 'JSON Mode', emoji: '📋',
+                template: 'Respond ONLY with valid JSON in this exact structure:\n{\n  "analysis": "...",\n  "recommendation": "...",\n  "confidence": 0.0-1.0,\n  "next_steps": ["..."]\n}\nNo markdown outside JSON.',
+                variables: [],
+                color: '#EAB308', connections: ['fewshot', 'constraints'],
+                bestFor: ['gpt-4-turbo', 'gpt-4o']
+            },
+            constraints: {
+                id: 'constraints', name: 'Constraints & Rules', emoji: '📏',
+                template: 'CONSTRAINTS:\n- Maximum [N] words\n- No [FORBIDDEN]\n- Always include [REQUIRED]\n- Format: [FORMAT]\n- Tone: [TONE]',
+                variables: ['maxWords', 'forbidden', 'required', 'format', 'tone'],
+                color: '#EF4444', connections: ['system', 'json'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo', 'gpt-4o-mini']
+            },
+            reflection: {
+                id: 'reflection', name: 'Self-Reflection', emoji: '🪞',
+                template: 'Before answering:\n1. What assumptions am I making?\n2. What could I be missing?\n3. What are potential biases?\n\nNow, with these considerations in mind: [TASK]',
+                variables: ['task'],
+                color: '#A855F7', connections: ['cot', 'adversarial'],
+                bestFor: ['o1-preview', 'o1', 'gpt-4o']
+            },
+            adversarial: {
+                id: 'adversarial', name: 'Adversarial Review', emoji: '⚔️',
+                template: 'Propose a solution for: [PROBLEM]\n\nThen:\n1. Attack your solution as a hostile critic\n2. Identify the 3 strongest objections\n3. Address each objection\n4. Deliver the hardened solution',
+                variables: ['problem'],
+                color: '#DC2626', connections: ['reflection', 'o1native'],
+                bestFor: ['o1', 'o1-preview', 'gpt-4o']
+            },
+            recursive: {
+                id: 'recursive', name: 'Recursive Improvement', emoji: '🔄',
+                template: 'Task: [TASK]\n\nExecute this loop:\n- V1: Initial attempt\n- V2: Critique V1, improve\n- V3: If V2 ≈ V1, stop. Else improve.\n\nMax 5 iterations. Show only final with confidence score.',
+                variables: ['task'],
+                color: '#7C3AED', connections: ['adversarial', 'system'],
+                bestFor: ['gpt-4o', 'gpt-4-turbo']
+            }
+        };
+
+        // ═══════════════════════════════════════════════════════════════════
+        // STATE
+        // ═══════════════════════════════════════════════════════════════════
+
+        let selectedModel = 'gpt-4o';
+        let selectedPattern = 'system';
+        let savedPrompts = JSON.parse(localStorage.getItem('chatgpt-prompts') || '[]');
+
+        // ═══════════════════════════════════════════════════════════════════
+        // FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════
+
+        function copyCode(el) {
+            navigator.clipboard.writeText(el.textContent.trim());
+            el.classList.add('copied');
+            setTimeout(() => el.classList.remove('copied'), 2000);
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        function drawGraph() {
+            const svg = document.getElementById('patternGraph');
+            const nodesG = document.getElementById('nodes');
+            const connsG = document.getElementById('connections');
+            
+            nodesG.innerHTML = '';
+            connsG.innerHTML = '';
+
+            const patternList = Object.values(PATTERNS);
+            const cx = 210, cy = 210, r = 160;
+
+            // Calculate positions
+            const positions = {};
+            patternList.forEach((p, i) => {
+                const angle = (i / patternList.length) * Math.PI * 2 - Math.PI / 2;
+                positions[p.id] = {
+                    x: cx + Math.cos(angle) * r,
+                    y: cy + Math.sin(angle) * r
+                };
+            });
+
+            // Draw connections
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                p.connections.forEach(connId => {
+                    const targetPos = positions[connId];
+                    if (targetPos) {
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        line.setAttribute('x1', pos.x);
+                        line.setAttribute('y1', pos.y);
+                        line.setAttribute('x2', targetPos.x);
+                        line.setAttribute('y2', targetPos.y);
+                        line.setAttribute('stroke', selectedPattern === p.id ? p.color : '#333');
+                        line.setAttribute('stroke-width', selectedPattern === p.id ? '2' : '1');
+                        line.setAttribute('stroke-opacity', selectedPattern === p.id ? '0.8' : '0.3');
+                        line.setAttribute('stroke-dasharray', selectedPattern === p.id ? 'none' : '4,4');
+                        connsG.appendChild(line);
+                    }
+                });
+            });
+
+            // Draw nodes
+            patternList.forEach(p => {
+                const pos = positions[p.id];
+                const isActive = selectedPattern === p.id;
+                const isOptimal = p.bestFor.includes(selectedModel);
+
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                g.setAttribute('class', 'pattern-node' + (isOptimal ? ' optimal' : ''));
+                g.style.cursor = 'pointer';
+                g.onclick = () => selectPattern(p.id);
+
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', pos.x);
+                circle.setAttribute('cy', pos.y);
+                circle.setAttribute('r', '30');
+                circle.setAttribute('fill', isActive ? p.color : '#1a1a1a');
+                circle.setAttribute('stroke', isOptimal ? '#10A37F' : p.color);
+                circle.setAttribute('stroke-width', isActive ? '3' : isOptimal ? '2' : '1');
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', pos.x);
+                text.setAttribute('y', pos.y + 6);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('font-size', '18');
+                text.textContent = p.emoji;
+
+                g.appendChild(circle);
+                g.appendChild(text);
+
+                if (isOptimal) {
+                    const indicator = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    indicator.setAttribute('cx', pos.x + 20);
+                    indicator.setAttribute('cy', pos.y - 20);
+                    indicator.setAttribute('r', '6');
+                    indicator.setAttribute('fill', '#10A37F');
+                    g.appendChild(indicator);
+                }
+
+                nodesG.appendChild(g);
+            });
+        }
+
+        function selectPattern(id) {
+            selectedPattern = id;
+            updatePatternDetails();
+            drawGraph();
+            updateBuilder();
+        }
+
+        function updatePatternDetails() {
+            const p = PATTERNS[selectedPattern];
+            document.getElementById('patternTitle').innerHTML = `${p.emoji} ${p.name}`;
+            document.getElementById('patternTemplate').textContent = p.template;
+
+            // Best for
+            const bestForEl = document.getElementById('patternBestFor');
+            bestForEl.innerHTML = p.bestFor.map(m => 
+                `<span class="tag tag-model ${m === selectedModel ? 'active' : ''}">${MODELS[m].name}</span>`
+            ).join('');
+
+            // Connections
+            const connsEl = document.getElementById('patternConnections');
+            connsEl.innerHTML = p.connections.map(c => 
+                `<span class="tag tag-connection" onclick="selectPattern('${c}')">${PATTERNS[c].emoji} ${PATTERNS[c].name}</span>`
+            ).join('');
+        }
+
+        function updateTips() {
+            const model = MODELS[selectedModel];
+            document.getElementById('tipsModel').textContent = model.name;
+            
+            const tips = selectedModel.startsWith('o1') ? [
+                'Pas besoin de "think step by step" - c\'est natif',
+                'Laissez le modèle raisonner sans contraintes de temps',
+                'Idéal pour problèmes complexes multi-étapes',
+                'Temperature fixée à 1, pas modifiable'
+            ] : [
+                'Utilisez Chain of Thought pour raisonnement complexe',
+                'Few-shot examples améliorent la précision du format',
+                'Temperature 0 pour code, 0.7+ pour créativité',
+                'JSON mode disponible avec response_format'
+            ];
+
+            document.getElementById('tipsContent').innerHTML = tips.map(t => `<p>${t}</p>`).join('');
+        }
+
+        function updateBuilder() {
+            const p = PATTERNS[selectedPattern];
+            const isOptimal = p.bestFor.includes(selectedModel);
+
+            let html = `
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <span style="font-size: 2rem;">${p.emoji}</span>
+                    <div>
+                        <div style="font-weight: 600;">${p.name}</div>
+                        <span class="tag ${isOptimal ? 'tag-model active' : ''}" style="margin-top: 4px;">
+                            ${isOptimal ? '✓ Optimal pour ' : '⚠️ Mieux pour '} ${isOptimal ? MODELS[selectedModel].name : p.bestFor.map(m => MODELS[m].name).join(', ')}
+                        </span>
+                    </div>
+                </div>
+                <div class="code-block" onclick="copyCode(this)">${p.template}</div>
+            `;
+
+            if (p.variables.length > 0) {
+                html += `<h3>Variables</h3><div class="vars-grid">`;
+                p.variables.forEach(v => {
+                    html += `
+                        <div>
+                            <label>${v.toUpperCase()}</label>
+                            <input type="text" id="var_${v}" placeholder="[${v.toUpperCase()}]">
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            html += `
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="generatePrompt()">
+                    ⚡ Générer le Prompt
+                </button>
+                <div id="generatedPrompt" style="margin-top: 16px;"></div>
+            `;
+
+            document.getElementById('builderContent').innerHTML = html;
+        }
+
+        function generatePrompt() {
+            const p = PATTERNS[selectedPattern];
+            let result = p.template;
+
+            p.variables.forEach(v => {
+                const input = document.getElementById(`var_${v}`);
+                const value = input ? input.value : '';
+                const placeholder = new RegExp(`\\[${v.toUpperCase()}\\]`, 'g');
+                result = result.replace(placeholder, value || `[${v.toUpperCase()}]`);
+            });
+
+            document.getElementById('generatedPrompt').innerHTML = `
+                <div class="code-block" onclick="copyCode(this)" style="border-color: var(--accent-green);">${result}</div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="savePrompt('${result.replace(/'/g, "\\'")}')">💾 Sauvegarder</button>
+            `;
+        }
+
+        function savePrompt(prompt) {
+            savedPrompts.push({
+                id: Date.now(),
+                prompt: prompt,
+                pattern: selectedPattern,
+                model: selectedModel,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('chatgpt-prompts', JSON.stringify(savedPrompts));
+            updateLibrary();
+        }
+
+        function updateLibrary() {
+            const el = document.getElementById('libraryContent');
+            if (savedPrompts.length === 0) {
+                el.innerHTML = `<p style="text-align: center; color: var(--text-secondary); padding: 40px 0;">
+                    Aucun prompt sauvegardé.<br>Utilisez le Builder pour créer et sauvegarder.
+                </p>`;
+            } else {
+                el.innerHTML = savedPrompts.slice().reverse().map(sp => `
+                    <div class="library-item" onclick="copyText('${sp.prompt.replace(/'/g, "\\'")}')">
+                        <div class="library-item-header">
+                            <span class="library-item-name">${PATTERNS[sp.pattern]?.emoji} ${PATTERNS[sp.pattern]?.name}</span>
+                            <span class="library-item-model">${sp.model}</span>
+                        </div>
+                        <div class="library-item-preview">${sp.prompt.slice(0, 100)}...</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateApiPreview() {
+            const temp = document.getElementById('tempSlider').value;
+            const maxTokens = document.getElementById('maxTokens').value;
+            const topP = document.getElementById('topP').value;
+
+            document.getElementById('tempValue').textContent = temp;
+            document.getElementById('apiPreview').textContent = JSON.stringify({
+                model: selectedModel,
+                temperature: parseFloat(temp),
+                max_tokens: parseInt(maxTokens),
+                top_p: parseFloat(topP)
+            }, null, 2);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // EVENT LISTENERS
+        // ═══════════════════════════════════════════════════════════════════
+
+        // Model selector
+        document.querySelectorAll('.model-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedModel = btn.dataset.model;
+                drawGraph();
+                updatePatternDetails();
+                updateTips();
+                updateBuilder();
+                updateApiPreview();
+            });
+        });
+
+        // Navigation
+        document.querySelectorAll('#mainNav button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#mainNav button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(btn.dataset.section).classList.add('active');
+            });
+        });
+
+        // API sliders
+        document.getElementById('tempSlider').addEventListener('input', updateApiPreview);
+        document.getElementById('maxTokens').addEventListener('input', updateApiPreview);
+        document.getElementById('topP').addEventListener('input', updateApiPreview);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const btns = Array.from(document.querySelectorAll('#mainNav button'));
+            const idx = btns.findIndex(b => b.classList.contains('active'));
+            if (e.key === 'ArrowRight' && idx < btns.length - 1) btns[idx + 1].click();
+            if (e.key === 'ArrowLeft' && idx > 0) btns[idx - 1].click();
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════════════════════════════════
+
+        drawGraph();
+        updatePatternDetails();
+        updateTips();
+        updateBuilder();
+        updateApiPreview();
+        updateLibrary();
+    </script>
+</body>
+</html>

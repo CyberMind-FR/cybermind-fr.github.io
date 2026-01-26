@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Janus — Cosmologie Bimétrique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #4a9eff, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.3rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            gap: 1rem;
+            min-height: 0;
+        }
+
+        .simulation-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #canvas-container {
+            flex: 1;
+            background: radial-gradient(ellipse at center, #0f0f2a 0%, #050510 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #simulation {
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+        }
+
+        .controls-panel {
+            width: 320px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .control-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 0.8rem;
+        }
+
+        .control-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-section h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .btn-positive {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: white;
+        }
+
+        .btn-positive:hover {
+            background: linear-gradient(135deg, #3a6ab8, #2e4c82);
+            transform: translateY(-1px);
+        }
+
+        .btn-negative {
+            background: linear-gradient(135deg, #8b2a4a, #5c1a32);
+            color: white;
+        }
+
+        .btn-negative:hover {
+            background: linear-gradient(135deg, #ab3a5a, #7c2a42);
+            transform: translateY(-1px);
+        }
+
+        .btn-neutral {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .btn-neutral:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .btn-active {
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .slider-group {
+            margin: 0.5rem 0;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .slider-group input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.1);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4a9eff;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            padding: 0.6rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-box .value {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .stat-box .label {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .stat-positive .value { color: #4a9eff; }
+        .stat-negative .value { color: #ff6b9d; }
+        .stat-energy .value { color: #50fa7b; }
+        .stat-time .value { color: #f1fa8c; }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.positive {
+            background: radial-gradient(circle at 30% 30%, #6ab4ff, #2a5298);
+            box-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
+        }
+
+        .legend-dot.negative {
+            background: radial-gradient(circle at 30% 30%, #ff8ab5, #8b2a4a);
+            box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+        }
+
+        .info-text {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            line-height: 1.4;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            border-left: 3px solid #4a9eff;
+        }
+
+        .mode-indicator {
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(74, 158, 255, 0.2);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .scenario-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .scenario-buttons button {
+            text-align: left;
+            padding: 0.5rem 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .controls-panel {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .control-section {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌌 Simulation Janus</h1>
+            <p>Cosmologie bimétrique de Jean-Pierre Petit — Matière positive & négative</p>
+        </header>
+
+        <div class="main-content">
+            <div class="simulation-panel">
+                <div id="canvas-container">
+                    <canvas id="simulation"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot positive"></div>
+                        <span>Masse positive (M+)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot negative"></div>
+                        <span>Masse négative (M−)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="stats">
+                    <div class="stat-box stat-positive">
+                        <div class="value" id="count-positive">0</div>
+                        <div class="label">Particules M+</div>
+                    </div>
+                    <div class="stat-box stat-negative">
+                        <div class="value" id="count-negative">0</div>
+                        <div class="label">Particules M−</div>
+                    </div>
+                    <div class="stat-box stat-energy">
+                        <div class="value" id="total-energy">0</div>
+                        <div class="label">Énergie totale</div>
+                    </div>
+                    <div class="stat-box stat-time">
+                        <div class="value" id="sim-time">0.0</div>
+                        <div class="label">Temps (s)</div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Mode de placement</h3>
+                    <div class="button-group">
+                        <button class="btn-positive btn-active" id="btn-add-positive">+ Masse positive</button>
+                        <button class="btn-negative" id="btn-add-negative">+ Masse négative</button>
+                    </div>
+                    <div class="mode-indicator" id="mode-indicator">
+                        Cliquez sur le canvas pour ajouter une particule M+
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Paramètres physiques</h3>
+                    <div class="slider-group">
+                        <label>
+                            <span>Constante gravitationnelle</span>
+                            <span id="g-value">1.0</span>
+                        </label>
+                        <input type="range" id="gravity" min="0.1" max="5" step="0.1" value="1">
+                    </div>
+                    <div class="slider-group">
+                        <label>
+                            <span>Masse des particules</span>
+                            <span id="mass-value">10</span>
+                        </label>
+                        <input type="range" id="mass" min="1" max="50" step="1" value="10">
+                    </div>
+                    <div class="slider-group">
+                        <label>
+                            <span>Vitesse simulation</span>
+                            <span id="speed-value">1.0x</span>
+                        </label>
+                        <input type="range" id="speed" min="0.1" max="3" step="0.1" value="1">
+                    </div>
+                    <div class="slider-group">
+                        <label>
+                            <span>Amortissement</span>
+                            <span id="damping-value">0.999</span>
+                        </label>
+                        <input type="range" id="damping" min="0.95" max="1" step="0.001" value="0.999">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Scénarios prédéfinis</h3>
+                    <div class="scenario-buttons">
+                        <button class="btn-neutral" onclick="scenarios.galaxy()">🌀 Formation galactique</button>
+                        <button class="btn-neutral" onclick="scenarios.binary()">⚛️ Système binaire M+/M−</button>
+                        <button class="btn-neutral" onclick="scenarios.expansion()">💥 Expansion cosmique</button>
+                        <button class="btn-neutral" onclick="scenarios.confinement()">🔲 Confinement M−</button>
+                        <button class="btn-neutral" onclick="scenarios.collision()">💫 Collision d'amas</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Contrôles</h3>
+                    <div class="button-group">
+                        <button class="btn-neutral" id="btn-pause">⏸ Pause</button>
+                        <button class="btn-neutral" id="btn-clear">🗑 Effacer</button>
+                        <button class="btn-neutral" id="btn-trails">✨ Traces</button>
+                    </div>
+                </div>
+
+                <div class="info-text">
+                    <strong>Théorie Janus :</strong> Les masses positives s'attirent entre elles, 
+                    les masses négatives s'attirent entre elles, mais masses positives et négatives 
+                    se repoussent mutuellement. Observez comment cette dynamique asymétrique 
+                    crée des structures émergentes.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== CONFIGURATION ==========
+        const config = {
+            G: 1.0,
+            particleMass: 10,
+            timeScale: 1.0,
+            damping: 0.999,
+            softening: 20,
+            maxParticles: 500,
+            trailLength: 50,
+            showTrails: false
+        };
+
+        // ========== PARTICLE CLASS ==========
+        class Particle {
+            constructor(x, y, mass, vx = 0, vy = 0) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.mass = mass; // positive or negative
+                this.ax = 0;
+                this.ay = 0;
+                this.trail = [];
+                this.radius = Math.abs(mass) * 0.3 + 3;
+            }
+
+            get isPositive() {
+                return this.mass > 0;
+            }
+
+            updateTrail() {
+                if (config.showTrails) {
+                    this.trail.push({ x: this.x, y: this.y });
+                    if (this.trail.length > config.trailLength) {
+                        this.trail.shift();
+                    }
+                }
+            }
+        }
+
+        // ========== SIMULATION ENGINE ==========
+        class JanusSimulation {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.isPaused = false;
+                this.simTime = 0;
+                this.placementMode = 'positive';
+                
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+                
+                this.canvas.addEventListener('click', (e) => this.handleClick(e));
+                
+                this.animate();
+            }
+
+            resize() {
+                const container = this.canvas.parentElement;
+                this.canvas.width = container.clientWidth;
+                this.canvas.height = container.clientHeight;
+            }
+
+            handleClick(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const mass = this.placementMode === 'positive' 
+                    ? config.particleMass 
+                    : -config.particleMass;
+                
+                if (this.particles.length < config.maxParticles) {
+                    this.particles.push(new Particle(x, y, mass));
+                }
+            }
+
+            addParticle(x, y, mass, vx = 0, vy = 0) {
+                if (this.particles.length < config.maxParticles) {
+                    this.particles.push(new Particle(x, y, mass, vx, vy));
+                }
+            }
+
+            clear() {
+                this.particles = [];
+                this.simTime = 0;
+            }
+
+            computeForces() {
+                // Reset accelerations
+                for (let p of this.particles) {
+                    p.ax = 0;
+                    p.ay = 0;
+                }
+
+                // Compute gravitational interactions (Janus rules)
+                for (let i = 0; i < this.particles.length; i++) {
+                    for (let j = i + 1; j < this.particles.length; j++) {
+                        const p1 = this.particles[i];
+                        const p2 = this.particles[j];
+
+                        const dx = p2.x - p1.x;
+                        const dy = p2.y - p1.y;
+                        const distSq = dx * dx + dy * dy + config.softening * config.softening;
+                        const dist = Math.sqrt(distSq);
+
+                        // Janus interaction rules:
+                        // Same sign masses: attractive (like Newton)
+                        // Opposite sign masses: repulsive
+                        const sameSign = (p1.mass > 0) === (p2.mass > 0);
+                        const sign = sameSign ? 1 : -1;
+
+                        // Force magnitude: F = G * |m1| * |m2| / r²
+                        const forceMag = config.G * Math.abs(p1.mass) * Math.abs(p2.mass) / distSq;
+                        
+                        // Direction (normalized)
+                        const fx = sign * forceMag * dx / dist;
+                        const fy = sign * forceMag * dy / dist;
+
+                        // Apply accelerations (a = F/|m|)
+                        p1.ax += fx / Math.abs(p1.mass);
+                        p1.ay += fy / Math.abs(p1.mass);
+                        p2.ax -= fx / Math.abs(p2.mass);
+                        p2.ay -= fy / Math.abs(p2.mass);
+                    }
+                }
+            }
+
+            integrate(dt) {
+                for (let p of this.particles) {
+                    // Velocity Verlet integration
+                    p.vx += p.ax * dt;
+                    p.vy += p.ay * dt;
+                    
+                    // Damping
+                    p.vx *= config.damping;
+                    p.vy *= config.damping;
+                    
+                    // Position update
+                    p.x += p.vx * dt;
+                    p.y += p.vy * dt;
+
+                    // Boundary wrapping
+                    if (p.x < 0) p.x += this.canvas.width;
+                    if (p.x > this.canvas.width) p.x -= this.canvas.width;
+                    if (p.y < 0) p.y += this.canvas.height;
+                    if (p.y > this.canvas.height) p.y -= this.canvas.height;
+
+                    p.updateTrail();
+                }
+            }
+
+            update(dt) {
+                if (this.isPaused) return;
+                
+                const scaledDt = dt * config.timeScale;
+                this.simTime += scaledDt;
+                
+                this.computeForces();
+                this.integrate(scaledDt);
+            }
+
+            drawParticle(p) {
+                const ctx = this.ctx;
+                
+                // Draw trail
+                if (config.showTrails && p.trail.length > 1) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.trail[0].x, p.trail[0].y);
+                    for (let i = 1; i < p.trail.length; i++) {
+                        ctx.lineTo(p.trail[i].x, p.trail[i].y);
+                    }
+                    ctx.strokeStyle = p.isPositive 
+                        ? `rgba(74, 158, 255, ${0.3})` 
+                        : `rgba(255, 107, 157, ${0.3})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+
+                // Draw glow
+                const gradient = ctx.createRadialGradient(
+                    p.x, p.y, 0,
+                    p.x, p.y, p.radius * 3
+                );
+                
+                if (p.isPositive) {
+                    gradient.addColorStop(0, 'rgba(74, 158, 255, 0.8)');
+                    gradient.addColorStop(0.5, 'rgba(74, 158, 255, 0.2)');
+                    gradient.addColorStop(1, 'rgba(74, 158, 255, 0)');
+                } else {
+                    gradient.addColorStop(0, 'rgba(255, 107, 157, 0.8)');
+                    gradient.addColorStop(0.5, 'rgba(255, 107, 157, 0.2)');
+                    gradient.addColorStop(1, 'rgba(255, 107, 157, 0)');
+                }
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Draw particle core
+                const coreGradient = ctx.createRadialGradient(
+                    p.x - p.radius * 0.3, p.y - p.radius * 0.3, 0,
+                    p.x, p.y, p.radius
+                );
+                
+                if (p.isPositive) {
+                    coreGradient.addColorStop(0, '#9ed4ff');
+                    coreGradient.addColorStop(1, '#2a5298');
+                } else {
+                    coreGradient.addColorStop(0, '#ffb8d0');
+                    coreGradient.addColorStop(1, '#8b2a4a');
+                }
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = coreGradient;
+                ctx.fill();
+            }
+
+            render() {
+                const ctx = this.ctx;
+                
+                // Clear with slight fade for trail effect
+                ctx.fillStyle = 'rgba(5, 5, 16, 0.3)';
+                ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                // Draw particles
+                for (let p of this.particles) {
+                    this.drawParticle(p);
+                }
+
+                // Update stats
+                this.updateStats();
+            }
+
+            updateStats() {
+                const positive = this.particles.filter(p => p.isPositive).length;
+                const negative = this.particles.length - positive;
+                
+                let totalEnergy = 0;
+                for (let p of this.particles) {
+                    totalEnergy += 0.5 * Math.abs(p.mass) * (p.vx * p.vx + p.vy * p.vy);
+                }
+
+                document.getElementById('count-positive').textContent = positive;
+                document.getElementById('count-negative').textContent = negative;
+                document.getElementById('total-energy').textContent = totalEnergy.toFixed(0);
+                document.getElementById('sim-time').textContent = this.simTime.toFixed(1);
+            }
+
+            animate() {
+                const dt = 0.016; // ~60fps
+                this.update(dt);
+                this.render();
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // ========== SCENARIOS ==========
+        const scenarios = {
+            galaxy: () => {
+                sim.clear();
+                const cx = sim.canvas.width / 2;
+                const cy = sim.canvas.height / 2;
+                
+                // Central massive positive core
+                sim.addParticle(cx, cy, 50, 0, 0);
+                
+                // Orbiting positive particles
+                for (let i = 0; i < 60; i++) {
+                    const r = 80 + Math.random() * 150;
+                    const angle = Math.random() * Math.PI * 2;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    
+                    // Orbital velocity
+                    const v = Math.sqrt(config.G * 50 / r) * 0.8;
+                    const vx = -v * Math.sin(angle) + (Math.random() - 0.5) * 0.5;
+                    const vy = v * Math.cos(angle) + (Math.random() - 0.5) * 0.5;
+                    
+                    sim.addParticle(x, y, 5 + Math.random() * 5, vx, vy);
+                }
+                
+                // Surrounding negative matter halo
+                for (let i = 0; i < 30; i++) {
+                    const r = 250 + Math.random() * 100;
+                    const angle = Math.random() * Math.PI * 2;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    sim.addParticle(x, y, -8, 0, 0);
+                }
+            },
+
+            binary: () => {
+                sim.clear();
+                const cx = sim.canvas.width / 2;
+                const cy = sim.canvas.height / 2;
+                
+                // Binary system: positive and negative mass
+                sim.addParticle(cx - 80, cy, 30, 0, 1.5);
+                sim.addParticle(cx + 80, cy, -30, 0, -1.5);
+            },
+
+            expansion: () => {
+                sim.clear();
+                const cx = sim.canvas.width / 2;
+                const cy = sim.canvas.height / 2;
+                
+                // Mixed matter in center
+                for (let i = 0; i < 40; i++) {
+                    const r = Math.random() * 50;
+                    const angle = Math.random() * Math.PI * 2;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    const mass = Math.random() > 0.5 ? 10 : -10;
+                    sim.addParticle(x, y, mass, 0, 0);
+                }
+            },
+
+            confinement: () => {
+                sim.clear();
+                const cx = sim.canvas.width / 2;
+                const cy = sim.canvas.height / 2;
+                
+                // Positive matter shell
+                for (let i = 0; i < 40; i++) {
+                    const angle = (i / 40) * Math.PI * 2;
+                    const r = 180;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    sim.addParticle(x, y, 15, 0, 0);
+                }
+                
+                // Negative matter in center (should be confined)
+                for (let i = 0; i < 20; i++) {
+                    const r = Math.random() * 80;
+                    const angle = Math.random() * Math.PI * 2;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    sim.addParticle(x, y, -10, (Math.random()-0.5)*2, (Math.random()-0.5)*2);
+                }
+            },
+
+            collision: () => {
+                sim.clear();
+                const cy = sim.canvas.height / 2;
+                
+                // Left cluster (positive)
+                for (let i = 0; i < 25; i++) {
+                    const x = 150 + (Math.random() - 0.5) * 80;
+                    const y = cy + (Math.random() - 0.5) * 80;
+                    sim.addParticle(x, y, 8, 2, 0);
+                }
+                
+                // Right cluster (mixed)
+                for (let i = 0; i < 15; i++) {
+                    const x = sim.canvas.width - 150 + (Math.random() - 0.5) * 80;
+                    const y = cy + (Math.random() - 0.5) * 80;
+                    sim.addParticle(x, y, 8, -2, 0);
+                }
+                for (let i = 0; i < 10; i++) {
+                    const x = sim.canvas.width - 150 + (Math.random() - 0.5) * 100;
+                    const y = cy + (Math.random() - 0.5) * 100;
+                    sim.addParticle(x, y, -8, -2, 0);
+                }
+            }
+        };
+
+        // ========== INITIALIZATION ==========
+        const canvas = document.getElementById('simulation');
+        const sim = new JanusSimulation(canvas);
+
+        // UI Controls
+        document.getElementById('btn-add-positive').addEventListener('click', function() {
+            sim.placementMode = 'positive';
+            this.classList.add('btn-active');
+            document.getElementById('btn-add-negative').classList.remove('btn-active');
+            document.getElementById('mode-indicator').textContent = 
+                'Cliquez sur le canvas pour ajouter une particule M+';
+        });
+
+        document.getElementById('btn-add-negative').addEventListener('click', function() {
+            sim.placementMode = 'negative';
+            this.classList.add('btn-active');
+            document.getElementById('btn-add-positive').classList.remove('btn-active');
+            document.getElementById('mode-indicator').textContent = 
+                'Cliquez sur le canvas pour ajouter une particule M−';
+        });
+
+        document.getElementById('btn-pause').addEventListener('click', function() {
+            sim.isPaused = !sim.isPaused;
+            this.textContent = sim.isPaused ? '▶ Reprendre' : '⏸ Pause';
+        });
+
+        document.getElementById('btn-clear').addEventListener('click', () => sim.clear());
+
+        document.getElementById('btn-trails').addEventListener('click', function() {
+            config.showTrails = !config.showTrails;
+            this.classList.toggle('btn-active');
+            if (!config.showTrails) {
+                sim.particles.forEach(p => p.trail = []);
+            }
+        });
+
+        // Sliders
+        document.getElementById('gravity').addEventListener('input', function() {
+            config.G = parseFloat(this.value);
+            document.getElementById('g-value').textContent = this.value;
+        });
+
+        document.getElementById('mass').addEventListener('input', function() {
+            config.particleMass = parseInt(this.value);
+            document.getElementById('mass-value').textContent = this.value;
+        });
+
+        document.getElementById('speed').addEventListener('input', function() {
+            config.timeScale = parseFloat(this.value);
+            document.getElementById('speed-value').textContent = this.value + 'x';
+        });
+
+        document.getElementById('damping').addEventListener('input', function() {
+            config.damping = parseFloat(this.value);
+            document.getElementById('damping-value').textContent = this.value;
+        });
+
+        // Start with galaxy scenario
+        setTimeout(() => scenarios.galaxy(), 500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A000940 • Cyberpunk Infographie</title>
+  <style>
+    :root{
+      --bg0:#05060a;
+      --bg1:#0b0f14;
+      --card:#0e131b;
+      --txt:#e8f0ff;
+      --muted: rgba(232,240,255,.70);
+
+      /* Cyberpunk palette */
+      --red:#ff2a6d;
+      --green:#00ff9a;
+      --amber:#ffb000;
+
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 14px 40px rgba(0,0,0,.55);
+      --r:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--txt);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, color-mix(in srgb, var(--green) 22%, transparent), transparent 60%),
+        radial-gradient(900px 700px at 85% 20%, color-mix(in srgb, var(--red) 18%, transparent), transparent 60%),
+        radial-gradient(900px 900px at 50% 110%, color-mix(in srgb, var(--amber) 16%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* subtle scanlines + noise */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,.05) 0px,
+          rgba(255,255,255,.02) 1px,
+          rgba(0,0,0,0) 3px,
+          rgba(0,0,0,0) 6px
+        );
+      mix-blend-mode: overlay;
+      opacity:.15;
+    }
+    body::after{
+      content:"";
+      position:fixed; inset:-40px;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity:.09;
+      transform: rotate(2deg);
+    }
+
+    .wrap{max-width:1150px;margin:0 auto;padding:26px 16px 44px}
+
+    header{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+      padding:14px 6px 6px;
+    }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(14,19,27,.55);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      font-weight:800;
+      letter-spacing:.2px;
+      position:relative;
+    }
+    .badge::after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:999px;
+      padding:1px;
+      background: linear-gradient(90deg, rgba(0,255,154,.65), rgba(255,176,0,.55), rgba(255,42,109,.65));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      opacity:.85;
+    }
+
+    h1{margin:10px 0 6px;font-size:28px}
+    .sub{color:var(--muted);max-width:78ch;margin:0}
+
+    .toolbar{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+    }
+    .btn{
+      cursor:pointer;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(14,19,27,.65);
+      color: var(--txt);
+      padding:10px 12px;
+      font-weight:800;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
+    .btn small{color:var(--muted);font-weight:700}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      position:relative;
+      border-radius: var(--r);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding:16px;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 180px at 20% 0%, rgba(0,255,154,.14), transparent 60%),
+        radial-gradient(600px 180px at 80% 0%, rgba(255,42,109,.12), transparent 60%),
+        radial-gradient(600px 220px at 50% 120%, rgba(255,176,0,.10), transparent 60%);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .card > *{position:relative}
+
+    .title{
+      display:flex; align-items:center; gap:10px;
+      font-size:16px; font-weight:900; margin:0 0 8px;
+      letter-spacing:.2px;
+    }
+
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(5,6,10,.35);
+      color: var(--muted);
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .mono{
+      font-family: var(--mono);
+      background: rgba(0,0,0,.28);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      overflow:auto;
+      color:#dfe7ff;
+    }
+
+    .kpi{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    @media (max-width: 720px){ .kpi{grid-template-columns:1fr} }
+
+    .k{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(14,19,27,.45);
+    }
+    .k b{font-size:18px}
+    .k small{color:var(--muted);display:block;margin-top:4px}
+
+    .glow-green{box-shadow: 0 0 0 2px rgba(0,255,154,.10) inset}
+    .glow-amber{box-shadow: 0 0 0 2px rgba(255,176,0,.10) inset}
+    .glow-red{box-shadow: 0 0 0 2px rgba(255,42,109,.10) inset}
+
+    .arrow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin:12px 0 6px;
+      align-items:stretch;
+    }
+    .step{
+      flex:1;
+      min-width: 240px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(14,19,27,.55);
+    }
+    .step h3{margin:0 0 6px;font-size:15px}
+    .mini{font-size:13px}
+    .muted{color:var(--muted)}
+
+    footer{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius: var(--r);
+      border: 1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+    }
+
+    /* Embed box */
+    details{
+      margin-top:12px;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background: rgba(14,19,27,.40);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:12px 14px;
+      font-weight:900;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .embed{
+      padding:0 14px 14px;
+    }
+    textarea{
+      width:100%;
+      min-height:120px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.25);
+      color: var(--txt);
+      font-family: var(--mono);
+      padding:10px;
+      resize:vertical;
+    }
+    .tag{
+      color: var(--amber);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="page">
+    <header>
+      <div>
+        <div class="badge">🧿 Suite <span style="color:var(--green)">A000940</span> • infographie cyberpunk</div>
+        <h1>Cycle → Polygone → Étoile {n/k} 🌐</h1>
+        <p class="sub">
+          Même objet mathématique sous trois lampes néon : graphes 🕸️, géométrie 🧭, et étoiles régulières ✴️.
+          Croisements autorisés.
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn" id="downloadBtn" title="Télécharger ce fichier HTML">
+          ⬇️ Télécharger
+          <small>(.html)</small>
+        </button>
+        <button class="btn" id="copyEmbedBtn" title="Copier un iframe d'embed">
+          📎 Copier embed
+          <small>(iframe)</small>
+        </button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="title">📈 Valeurs (exemples)</div>
+        <div class="mono">
+a(3)=1
+a(4)=2
+a(5)=4
+a(6)=12
+a(7)=39
+a(8)=202
+a(9)=1219
+        </div>
+        <div class="pillrow">
+          <span class="pill glow-green">↺ rotation identifiée</span>
+          <span class="pill glow-amber">↔ sens identifié</span>
+          <span class="pill glow-red">✴️ croisements OK</span>
+        </div>
+
+        <details>
+          <summary>🧩 Formule (cycles distincts sur Kₙ)</summary>
+          <div class="embed">
+            <div class="mono">
+a(n) = (n−1)! / 2
+(modulo rotation + inversion)
+            </div>
+            <p class="mini muted">
+              Interprétation : nombre de <b>cycles hamiltoniens distincts</b> sur le graphe complet Kₙ,
+              donc le même comptage que les polygones (étoilés inclus) sur n points d’un cercle.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="title">🕸️ 1) Version “graphes” : cycle hamiltonien</div>
+        <p class="mini muted">Kₙ : tout est connecté à tout.</p>
+        <div class="mono">
+Cycle C = (v0, v1, …, v(n−1))
+avec {vi} = {0…n−1}
++ fermeture (v(n−1) → v0)
+
+Même forme ⇔
+• rotation du point de départ
+• inversion du sens
+        </div>
+
+        <div class="kpi">
+          <div class="k glow-green">
+            <b>🔁 Cycle</b>
+            <small>visite chaque sommet 1×</small>
+          </div>
+          <div class="k glow-amber">
+            <b>↺ Rotation</b>
+            <small>départ arbitraire</small>
+          </div>
+          <div class="k glow-red">
+            <b>↔ Inversion</b>
+            <small>sens identifié</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🧭 2) Version “cercle” : polygone (croisé ou non)</div>
+        <p class="mini muted">On place n points équidistants sur un cercle, puis on trace selon l’ordre du cycle.</p>
+        <div class="mono">
+Points :
+p_i = (cos(2πi/n), sin(2πi/n))
+
+Polygone Γ(C) :
+segments [p(v_i), p(v_{i+1})]
+avec v_n = v_0
+        </div>
+
+        <div class="pillrow">
+          <span class="pill">🟩 convexe</span>
+          <span class="pill">🟥 auto-intersections</span>
+          <span class="pill">🟨 même cycle → même forme (rot+rev)</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🪄 3) Passage “cycle → polygone”</div>
+
+        <div class="arrow">
+          <div class="step glow-green">
+            <h3>🧾 Donnée</h3>
+            <div class="mini muted">C = (v0,…,v(n−1))</div>
+          </div>
+          <div class="step glow-amber">
+            <h3>🧭 Placement</h3>
+            <div class="mini muted">p0…p(n−1) sur un cercle</div>
+          </div>
+          <div class="step glow-red">
+            <h3>🧵 Tracé</h3>
+            <div class="mini muted">relier p(v_i) → p(v_{i+1}), fermer</div>
+          </div>
+        </div>
+
+        <div class="mono">
+Γ(C) = ⋃ [ p(v_i), p(v_{i+1}) ]
+Le “dessin” dépend de l’ordre cyclique,
+pas du point de départ ni du sens.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🌟 4) Notation {n/k} : étoiles régulières</div>
+        <p class="mini muted">Sous-cas “pas constant” : on avance de k modulo n.</p>
+        <div class="mono">
+Cycle de pas k :
+C(n,k) = (0, k, 2k, 3k, …) mod n
+
+Condition étoile “pure” :
+gcd(n,k) = 1 ✅
+
+Symétrie :
+{n/k} = {n/(n−k)}
+        </div>
+
+        <div class="pillrow">
+          <span class="pill glow-green">ex: {5/1} pentagone</span>
+          <span class="pill glow-amber">ex: {5/2} étoile</span>
+          <span class="pill glow-red">ex: {7/2}, {7/3}</span>
+        </div>
+
+        <details>
+          <summary>🧠 Mini-check : “mon cycle est-il un {n/k} ?”</summary>
+          <div class="embed">
+            <div class="mono">
+Après rotation/sens :
+v_{i+1} − v_i ≡ k (mod n) pour tout i
+            </div>
+            <p class="mini muted">
+              Si le “pas” est constant, tu es sur une étoile régulière {n/k}. Sinon, c’est un cycle hamiltonien général
+              (toujours compté par A000940).
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <details>
+      <summary>📎 Embed HTML (iframe) pour blog / site</summary>
+      <div class="embed">
+        <p class="mini muted">
+          Option A : héberge ce fichier et utilise un iframe classique. <span class="tag">(recommandé)</span><br/>
+          Option B : embed via <code>srcdoc</code> (utile si tu veux tout coller dans une page, mais c’est plus lourd).
+        </p>
+        <textarea readonly id="embedBox"></textarea>
+      </div>
+    </details>
+
+    <footer>
+      <div class="mini">
+        ⚡ Mémo : A000940 = cycles hamiltoniens distincts sur Kₙ = polygones sur un cercle (étoiles incluses).
+        {n/k} = cas “pas constant”.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Download as .html (self-contained)
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const html = "<!doctype html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "a000940-cyberpunk-infographie.html";
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    });
+
+    // Build an iframe embed snippet (classic, plus srcdoc variant)
+    const embedSnippet =
+`<!-- Option A (recommandée) : fichier hébergé -->
+<iframe
+  src="a000940-cyberpunk-infographie.html"
+  style="width:100%;height:920px;border:0;border-radius:18px;overflow:hidden;"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+></iframe>
+
+<!-- Option B : embed inline avec srcdoc (copie/colle tout) -->
+<iframe
+  style="width:100%;height:920px;border:0;border-radius:18px;overflow:hidden;"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+  srcdoc="${document.documentElement.outerHTML
+    .replaceAll("&","&amp;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")}">
+</iframe>`;
+
+    const box = document.getElementById("embedBox");
+    box.value = embedSnippet;
+
+    document.getElementById("copyEmbedBtn").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(embedSnippet);
+        const btn = document.getElementById("copyEmbedBtn");
+        const old = btn.innerHTML;
+        btn.innerHTML = "✅ Embed copié <small>(presse-papiers)</small>";
+        setTimeout(()=> btn.innerHTML = old, 1200);
+      }catch(e){
+        alert("Copie impossible (droits navigateur). Tu peux sélectionner le texte dans la zone 'Embed HTML'.");
+      }
+    });
+  </script>
+</body>
+</html>

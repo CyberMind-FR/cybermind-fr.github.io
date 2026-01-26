@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧙‍♂️ Claude Godmode Quicksheet - CyberMind.FR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #12122a;
+            --bg-card: rgba(26, 26, 46, 0.8);
+            --accent-gold: #d4af37;
+            --accent-cyan: #00d9ff;
+            --accent-coral: #e94560;
+            --accent-purple: #9d4edd;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0b0;
+            --border-subtle: rgba(212, 175, 55, 0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Philosopher', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 60px 20px; }
+        .wizard-icon {
+            font-size: 80px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--accent-gold), #ffd700, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0 10px;
+            letter-spacing: 4px;
+        }
+        h2 {
+            font-family: 'Philosopher', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--accent-cyan);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .subtitle { color: var(--text-secondary); font-style: italic; }
+        .divider { color: var(--accent-gold); opacity: 0.5; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; margin: 20px 0; }
+        nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 20px;
+            background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-subtle);
+            margin-bottom: 30px; backdrop-filter: blur(10px);
+        }
+        nav button {
+            background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary);
+            padding: 10px 18px; border-radius: 8px; cursor: pointer;
+            font-family: 'Philosopher', serif; font-size: 14px; transition: all 0.3s ease;
+        }
+        nav button:hover { color: var(--text-primary); border-color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); }
+        nav button.active {
+            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+            color: var(--bg-primary); border-color: var(--accent-gold); font-weight: 700;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+        .section { display: none; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card {
+            background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-subtle);
+            padding: 30px; margin-bottom: 20px; backdrop-filter: blur(10px);
+        }
+        .card h3 {
+            font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text-primary);
+            margin-bottom: 20px; display: flex; align-items: center; gap: 15px;
+        }
+        .card h3 .emoji { font-size: 2rem; }
+        .code-block {
+            background: var(--bg-primary); border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px; padding: 16px; margin: 15px 0;
+            font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-cyan);
+            overflow-x: auto; position: relative; cursor: pointer; transition: all 0.3s ease;
+        }
+        .code-block:hover { border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(0, 217, 255, 0.1); }
+        .code-block::after {
+            content: 'Cliquer pour copier'; position: absolute; top: 8px; right: 12px;
+            font-size: 10px; color: var(--text-secondary); opacity: 0; transition: opacity 0.3s;
+        }
+        .code-block:hover::after { opacity: 1; }
+        .code-block.copied::after { content: '✓ Copié!'; color: #4ade80; opacity: 1; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th {
+            background: linear-gradient(135deg, var(--bg-secondary), #1a1a3a);
+            color: var(--accent-gold); padding: 14px; text-align: left;
+            font-family: 'Cinzel', serif; font-size: 14px; border-bottom: 2px solid var(--accent-gold);
+        }
+        td { padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); }
+        tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+        tr:hover { background: rgba(157, 78, 221, 0.1); }
+        td code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-cyan); }
+        .level-card { border-radius: 12px; padding: 20px; margin: 15px 0; border-left: 4px solid; }
+        .level-card.success { background: rgba(74, 222, 128, 0.1); border-color: #4ade80; }
+        .level-card.warning { background: rgba(251, 191, 36, 0.1); border-color: #fbbf24; }
+        .level-card.danger { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; }
+        .level-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .level-status { font-size: 1.5rem; }
+        .level-title { font-weight: 700; font-size: 1.1rem; }
+        .fixpoint { font-size: 12px; color: var(--text-secondary); margin-top: 10px; }
+        .prompt-card { margin: 20px 0; }
+        .prompt-card h4 { color: var(--accent-gold); margin-bottom: 10px; font-size: 1.1rem; }
+        .modifier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+        .modifier-item {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            background: rgba(255, 255, 255, 0.03); border-radius: 8px;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .modifier-item:hover { background: rgba(212, 175, 55, 0.1); transform: translateX(5px); }
+        .modifier-emoji { font-size: 1.5rem; }
+        .modifier-text code { color: var(--accent-gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+        .modifier-text p { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+        .signal-card {
+            display: flex; align-items: center; gap: 20px; padding: 16px;
+            background: rgba(255, 255, 255, 0.03); border-radius: 10px; margin: 10px 0;
+        }
+        .signal-icon { font-size: 2rem; }
+        .signal-condition { flex: 1; }
+        .signal-action { color: var(--accent-gold); font-weight: 700; font-family: 'Cinzel', serif; }
+        .hexagram-section { text-align: center; padding: 40px 20px; margin-top: 30px; }
+        .hexagram-title { font-family: 'Cinzel', serif; color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 20px; }
+        .hexagram-display {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(18, 18, 42, 0.9));
+            padding: 30px 40px; border-radius: 16px; border: 1px solid var(--border-subtle);
+            font-family: 'JetBrains Mono', monospace; font-size: 13px;
+            color: rgba(212, 175, 55, 0.8); text-align: left; white-space: pre; line-height: 1.8;
+        }
+        .philosophy-quote { font-family: 'Philosopher', serif; font-size: 1.3rem; font-style: italic; color: var(--text-secondary); margin: 30px 0 10px; }
+        .philosophy-symbols { font-size: 2rem; margin-top: 10px; }
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-subtle); margin-top: 40px; color: var(--text-secondary); font-size: 14px; }
+        footer .brand { font-family: 'Cinzel', serif; color: var(--accent-gold); font-size: 1rem; margin-bottom: 5px; }
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .card { padding: 20px; }
+            nav button { padding: 8px 12px; font-size: 12px; }
+            .modifier-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="wizard-icon">🧙‍♂️</div>
+            <h1>CLAUDE GODMODE</h1>
+            <h2>QUICKSHEET RÉCURSIF</h2>
+            <p class="subtitle">Le Modèle qui se Modélise • Par Gandalf • CyberMind.FR</p>
+            <div class="divider">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+        </header>
+
+        <nav>
+            <button class="active" data-section="formula">⚡ Formule</button>
+            <button data-section="techniques">🔥 Techniques</button>
+            <button data-section="recursion">🌀 Récursion</button>
+            <button data-section="secubox">🛡️ SecuBox</button>
+            <button data-section="esoteric">🔮 Ésotérique</button>
+            <button data-section="formulas">🎯 Formules</button>
+            <button data-section="modifiers">🎛️ Modificateurs</button>
+            <button data-section="stops">🌟 Arrêt</button>
+        </nav>
+
+        <section id="formula" class="section active">
+            <div class="card">
+                <h3><span class="emoji">⚡</span> Formule Universelle</h3>
+                <div class="code-block" onclick="copyCode(this)">[RÔLE] + [CONTEXTE] + [TÂCHE] + [FORMAT] + [CONTRAINTES]</div>
+                <p style="color: var(--text-secondary); font-style: italic; margin-top: 15px;">Cette structure de base s'applique à 90% des prompts efficaces.</p>
+            </div>
+        </section>
+
+        <section id="techniques" class="section">
+            <div class="card">
+                <h3><span class="emoji">🔥</span> Techniques Core</h3>
+                <table>
+                    <thead><tr><th>Technique</th><th>Pattern</th><th>Usage</th></tr></thead>
+                    <tbody>
+                        <tr><td>🧠 CoT</td><td><code>"Réfléchis étape par étape"</code></td><td>Raisonnement complexe</td></tr>
+                        <tr><td>🎭 Persona</td><td><code>"Tu es un [expert] avec 20 ans en [X]"</code></td><td>Expertise ciblée</td></tr>
+                        <tr><td>📚 Few-Shot</td><td><code>"Exemples: A→B, C→D. Traite: E"</code></td><td>Format précis</td></tr>
+                        <tr><td>🔄 Multi-Path</td><td><code>"3 approches, puis synthèse"</code></td><td>Exploration créative</td></tr>
+                        <tr><td>🪞 Méta</td><td><code>"Identifie les biais de ma question"</code></td><td>Qualité de réflexion</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="recursion" class="section">
+            <div class="card">
+                <h3><span class="emoji">🌀</span> Les 3 Niveaux de Récursion Utiles</h3>
+                <div class="level-card success">
+                    <div class="level-header"><span class="level-status">✅</span><span class="level-title">Niveau 1: Auto-Critique Simple</span></div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds, puis demande-toi: "Qu'est-ce qui est faible dans cette réponse?"</div>
+                    <p class="fixpoint">🎯 Point fixe: 1 itération suffit pour 80% des cas</p>
+                </div>
+                <div class="level-card success">
+                    <div class="level-header"><span class="level-status">✅</span><span class="level-title">Niveau 2: Simulation d'Expert</span></div>
+                    <div class="code-block" onclick="copyCode(this)">Réponds comme si [Gandalf senior / auditeur ANSSI] allait relire et critiquer. Intègre ses objections probables.</div>
+                    <p class="fixpoint">🎯 Point fixe: L'expert simulé n'a plus rien à dire</p>
+                </div>
+                <div class="level-card warning">
+                    <div class="level-header"><span class="level-status">⚠️</span><span class="level-title">Niveau 3: Meta-Pattern</span></div>
+                    <div class="code-block" onclick="copyCode(this)">Observe tes patterns de réponse sur [N] échanges. Quels réflexes sont devenus des béquilles? Casse-les volontairement.</div>
+                    <p class="fixpoint">🎯 Point fixe: Quand le changement améliore vraiment, pas juste innove</p>
+                </div>
+                <div class="level-card danger">
+                    <div class="level-header"><span class="level-status">❌</span><span class="level-title">Niveau 4+: Éviter</span></div>
+                    <p style="color: var(--accent-coral); font-weight: bold;">RÈGLE: Si 3 boucles n'améliorent plus, STOP et livre.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="secubox" class="section">
+            <div class="card">
+                <h3><span class="emoji">🛡️</span> Sécurité & SecuBox</h3>
+                <div class="prompt-card">
+                    <h4>🔐 Audit Config OpenWrt</h4>
+                    <div class="code-block" onclick="copyCode(this)">Analyse cette config UCI comme un auditeur ANSSI.
+Checklist: firewall rules, services exposés, credentials, logging.
+Sortie: tableau [finding | criticité | remediation | ref CIS].</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>🐝 Règles CrowdSec</h4>
+                    <div class="code-block" onclick="copyCode(this)">Crée un scenario CrowdSec pour détecter [pattern d'attaque].
+Format YAML complet avec: filter, groupby, blackhole, labels.
+Teste sur ces logs samples: [logs]</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>📋 Documentation Certif</h4>
+                    <div class="code-block" onclick="copyCode(this)">Rédige une section [X] du dossier de validation pour [ANSSI/BSI/CISA].
+Style: formel, référencé ISO27001, preuves factuelles.
+Inclus: objectif, mesures, preuves, écarts, plan de remédiation.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="esoteric" class="section">
+            <div class="card">
+                <h3><span class="emoji">🔮</span> Création Ésotérique</h3>
+                <div class="prompt-card">
+                    <h4>☯️ Consultation Yi Jing</h4>
+                    <div class="code-block" onclick="copyCode(this)">Hexagramme tiré: [n°] [nom].
+Contexte de ma question: [situation].
+Interprète avec: lignes mutantes, hexagramme dérivé,
+conseil actionnable pour [domaine: tech/créatif/personnel].</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>📐 Géométrie Sacrée + Code</h4>
+                    <div class="code-block" onclick="copyCode(this)">Génère un SVG/Canvas représentant [Fleur de Vie/Métatron/Sri Yantra].
+Paramètres: taille, couleurs harmoniques, animation optionnelle.
+Ajoute des proportions basées sur [Phi/racine de 2/π].</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>✨ Poésie → Musique (Pipeline Suno)</h4>
+                    <div class="code-block" onclick="copyCode(this)">Transforme ce texte en paroles optimisées pour Suno:
+- Structure: [couplet/refrain/bridge] avec marqueurs
+- Style musical suggéré: [genre + mood + tempo]
+- Méta-tags Suno recommandés
+Texte original: [poème]</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formulas" class="section">
+            <div class="card">
+                <h3><span class="emoji">🎯</span> Formules Récursives Prêtes à l'Emploi</h3>
+                <div class="prompt-card">
+                    <h4>🔁 Le Triple Miroir (Universel)</h4>
+                    <div class="code-block" onclick="copyCode(this)">[Requête].
+Réponds.
+Critique ta réponse (3 faiblesses max).
+Version finale intégrant les corrections.
+Montre UNIQUEMENT la finale sauf si je demande le processus.</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>🐍 L'Ouroboros Créatif</h4>
+                    <div class="code-block" onclick="copyCode(this)">Génère [contenu créatif].
+Puis: "Si ce texte était un hexagramme, lequel serait-il?"
+Utilise cette métaphore pour identifier sa ligne mutante.
+Transforme cette ligne.</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>🔐 Le Pentest de Soi</h4>
+                    <div class="code-block" onclick="copyCode(this)">Propose [solution/architecture/argument].
+Puis attaque-la comme un adversaire intelligent.
+Puis défends-la en intégrant les attaques valides.
+Livre la version durcie.</div>
+                </div>
+                <div class="prompt-card">
+                    <h4>⚖️ Le Point Fixe Forcé</h4>
+                    <div class="code-block" onclick="copyCode(this)">Itère sur [tâche] jusqu'à ce que deux versions
+consécutives soient quasi-identiques.
+C'est ton point fixe. Livre-le.
+Maximum 5 itérations (sinon: paralysie).</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modifiers" class="section">
+            <div class="card">
+                <h3><span class="emoji">🎛️</span> Modificateurs Puissants</h3>
+                <div class="modifier-grid">
+                    <div class="modifier-item" onclick="copyText('Pas de préambule')"><span class="modifier-emoji">🎯</span><div class="modifier-text"><code>"Pas de préambule"</code><p>Direct au résultat</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Max [N] lignes/mots')"><span class="modifier-emoji">📏</span><div class="modifier-text"><code>"Max [N] lignes/mots"</code><p>Concision forcée</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Niveau expert, pas de vulgarisation')"><span class="modifier-emoji">🔬</span><div class="modifier-text"><code>"Niveau expert, pas de vulgarisation"</code><p>Profondeur technique</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Du plus safe au plus audacieux')"><span class="modifier-emoji">🎨</span><div class="modifier-text"><code>"Du plus safe au plus audacieux"</code><p>Spectre créatif</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Avocat du diable sur ça')"><span class="modifier-emoji">⚖️</span><div class="modifier-text"><code>"Avocat du diable sur ça"</code><p>Contre-argumentation</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Itère 3x en améliorant')"><span class="modifier-emoji">🔄</span><div class="modifier-text"><code>"Itère 3x en améliorant"</code><p>Raffinement progressif</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Tableau comparatif')"><span class="modifier-emoji">📊</span><div class="modifier-text"><code>"Tableau comparatif"</code><p>Structuration visuelle</p></div></div>
+                    <div class="modifier-item" onclick="copyText('Sans jargon/disclaimers/listes')"><span class="modifier-emoji">🚫</span><div class="modifier-text"><code>"Sans [jargon/disclaimers/listes]"</code><p>Style épuré</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stops" class="section">
+            <div class="card">
+                <h3><span class="emoji">🌟</span> Heuristiques d'Arrêt</h3>
+                <div class="signal-card"><span class="signal-icon">🟢</span><div class="signal-condition">Amélioration claire entre v(n) et v(n-1)</div><span class="signal-action">Continue</span></div>
+                <div class="signal-card"><span class="signal-icon">🟡</span><div class="signal-condition">Changements cosmétiques seulement</div><span class="signal-action">1 dernière max</span></div>
+                <div class="signal-card"><span class="signal-icon">🔴</span><div class="signal-condition">Dégradation ou sur-complexification</div><span class="signal-action">Reviens v(n-1)</span></div>
+                <div class="signal-card"><span class="signal-icon">⚫</span><div class="signal-condition">3ème boucle sans gain évident</div><span class="signal-action">STOP + note</span></div>
+            </div>
+        </section>
+
+        <div class="hexagram-section">
+            <h3 class="hexagram-title">💎 Philosophie Gandalf</h3>
+            <div class="hexagram-display">     ━━━━━━━  Clarté de l'arrêt
+     ━━ ━━   Espace pour l'émergence
+     ━━━━━━━  Boucle qui sait se borner
+     ━━ ━━   Critique intégrée
+     ━━━━━━━  Application concrète
+     ━━━━━━━  Honnêteté sur les limites</div>
+            <p class="philosophy-quote">"La récursion parfaite sait quand devenir action."</p>
+            <div class="philosophy-symbols">🐍♾️→🎯</div>
+        </div>
+
+        <footer>
+            <p class="brand">🧙‍♂️ CyberMind.FR • 2025</p>
+            <p>Consultant Cybersécurité • Poète • Explorateur du Yi Jing</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('nav button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(button.dataset.section).classList.add('active');
+            });
+        });
+
+        function copyCode(element) {
+            navigator.clipboard.writeText(element.textContent.trim()).then(() => {
+                element.classList.add('copied');
+                setTimeout(() => element.classList.remove('copied'), 2000);
+            });
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const buttons = Array.from(document.querySelectorAll('nav button'));
+            const currentIndex = buttons.findIndex(b => b.classList.contains('active'));
+            if (e.key === 'ArrowRight' && currentIndex < buttons.length - 1) buttons[currentIndex + 1].click();
+            else if (e.key === 'ArrowLeft' && currentIndex > 0) buttons[currentIndex - 1].click();
+        });
+    </script>
+</body>
+</html>

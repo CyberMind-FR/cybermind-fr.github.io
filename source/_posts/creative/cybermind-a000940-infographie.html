@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CYBERMIND • A000940 • Infographie</title>
+
+  <style>
+    :root{
+      /* Cybermind / terminal vibe */
+      --bg0:#05060a;
+      --bg1:#070a12;
+      --panel:#0b1020;
+      --panel2:#0a0f1a;
+
+      --txt:#e9f1ff;
+      --muted: rgba(233,241,255,.72);
+
+      --red:#ff2a6d;
+      --green:#00ff9a;
+      --amber:#ffb000;
+
+      --line: rgba(255,255,255,.12);
+      --line2: rgba(0,255,154,.18);
+
+      --shadow: 0 16px 46px rgba(0,0,0,.62);
+      --r:18px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--txt);
+      background:
+        radial-gradient(1100px 760px at 14% 12%, color-mix(in srgb, var(--green) 20%, transparent), transparent 60%),
+        radial-gradient(900px 680px at 88% 18%, color-mix(in srgb, var(--red) 16%, transparent), transparent 60%),
+        radial-gradient(900px 900px at 50% 110%, color-mix(in srgb, var(--amber) 14%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* scanlines */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,.045) 0px,
+          rgba(255,255,255,.018) 1px,
+          rgba(0,0,0,0) 3px,
+          rgba(0,0,0,0) 7px
+        );
+      mix-blend-mode: overlay;
+      opacity:.16;
+      z-index:0;
+    }
+
+    /* noise */
+    body::after{
+      content:"";
+      position:fixed; inset:-40px;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity:.08;
+      transform: rotate(1.5deg);
+      z-index:0;
+    }
+
+    .wrap{max-width:1180px;margin:0 auto;padding:22px 16px 44px; position:relative; z-index:1;}
+
+    /* Watermark sigil (pure SVG via background) */
+    .sigil{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.10;
+      background-repeat:no-repeat;
+      background-position: 86% 18%;
+      background-size: 540px 540px;
+      filter: drop-shadow(0 0 18px rgba(0,255,154,.12));
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' stop-color='%2300ff9a' stop-opacity='.75'/%3E%3Cstop offset='55%25' stop-color='%23ffb000' stop-opacity='.35'/%3E%3Cstop offset='100%25' stop-color='%23ff2a6d' stop-opacity='.25'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='256' cy='256' r='208' fill='none' stroke='url(%23g)' stroke-width='2.5'/%3E%3Ccircle cx='256' cy='256' r='156' fill='none' stroke='%23ffffff' stroke-opacity='.35' stroke-width='1.6'/%3E%3Cpath d='M256 92 L256 420' stroke='%23ffffff' stroke-opacity='.35' stroke-width='1.4'/%3E%3Cpath d='M92 256 L420 256' stroke='%23ffffff' stroke-opacity='.22' stroke-width='1.2'/%3E%3Cpath d='M256 150 C220 190 220 230 256 256 C292 230 292 190 256 150 Z' fill='none' stroke='%23ffb000' stroke-opacity='.65' stroke-width='2.2'/%3E%3Cpath d='M220 270 C230 320 250 350 256 360 C262 350 282 320 292 270' fill='none' stroke='%2300ff9a' stroke-opacity='.55' stroke-width='2.2'/%3E%3Cpath d='M196 300 C226 292 244 288 256 288 C268 288 286 292 316 300' fill='none' stroke='%23ff2a6d' stroke-opacity='.45' stroke-width='2.0'/%3E%3Cpath d='M148 336 C196 310 240 300 256 300 C272 300 316 310 364 336' fill='none' stroke='%23ffffff' stroke-opacity='.20' stroke-width='1.4'/%3E%3Cpath d='M170 190 C206 214 236 230 256 230 C276 230 306 214 342 190' fill='none' stroke='%23ffffff' stroke-opacity='.18' stroke-width='1.2'/%3E%3C/svg%3E");
+    }
+
+    header{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+      padding:12px 6px 6px;
+    }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.64);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+      font-weight:900;
+      letter-spacing:.3px;
+      position:relative;
+    }
+
+    .badge::after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:999px;
+      padding:1px;
+      background: linear-gradient(90deg, rgba(0,255,154,.70), rgba(255,176,0,.60), rgba(255,42,109,.70));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      opacity:.88;
+    }
+
+    .mast h1{margin:10px 0 6px;font-size:28px}
+    .sub{color:var(--muted);max-width:80ch;margin:0}
+    .sub .tag{font-family:var(--mono); color: rgba(0,255,154,.9)}
+    .sub .tag2{font-family:var(--mono); color: rgba(255,176,0,.95)}
+
+    .toolbar{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+    }
+    .btn{
+      cursor:pointer;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.68);
+      color: var(--txt);
+      padding:10px 12px;
+      font-weight:900;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transform: translateZ(0);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
+    .btn small{color:var(--muted);font-weight:800}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      position:relative;
+      border-radius: var(--r);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding:16px;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 180px at 18% 0%, rgba(0,255,154,.16), transparent 60%),
+        radial-gradient(520px 180px at 82% 0%, rgba(255,42,109,.12), transparent 60%),
+        radial-gradient(520px 240px at 50% 120%, rgba(255,176,0,.10), transparent 60%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .card > *{position:relative}
+
+    .title{
+      display:flex; align-items:center; gap:10px;
+      font-size:16px; font-weight:1000; margin:0 0 8px;
+      letter-spacing:.2px;
+      text-transform: uppercase;
+    }
+
+    .mono{
+      font-family: var(--mono);
+      background: rgba(0,0,0,.30);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      overflow:auto;
+      color:#dfe7ff;
+    }
+
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(5,6,10,.35);
+      color: var(--muted);
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .kpi{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    @media (max-width: 740px){ .kpi{grid-template-columns:1fr} }
+
+    .k{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.45);
+    }
+    .k b{font-size:18px}
+    .k small{color:var(--muted);display:block;margin-top:4px}
+
+    .glow-green{box-shadow: 0 0 0 2px rgba(0,255,154,.10) inset}
+    .glow-amber{box-shadow: 0 0 0 2px rgba(255,176,0,.10) inset}
+    .glow-red{box-shadow: 0 0 0 2px rgba(255,42,109,.10) inset}
+
+    .arrow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin:12px 0 6px;
+      align-items:stretch;
+    }
+    .step{
+      flex:1;
+      min-width: 240px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.55);
+    }
+    .step h3{margin:0 0 6px;font-size:15px}
+    .mini{font-size:13px}
+    .muted{color:var(--muted)}
+
+    /* Terminal header strip */
+    .termbar{
+      margin-top:10px;
+      border-radius: var(--r);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .termbar .top{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:10px 12px;
+      background: linear-gradient(90deg, rgba(0,255,154,.10), rgba(255,176,0,.08), rgba(255,42,109,.10));
+      border-bottom:1px solid rgba(255,255,255,.10);
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(233,241,255,.86);
+    }
+    .dots{display:flex;gap:8px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:999px;opacity:.9}
+    .dot.r{background:var(--red)}
+    .dot.g{background:var(--green)}
+    .dot.a{background:var(--amber)}
+    .termbar pre{
+      margin:0; padding:12px;
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(233,241,255,.86);
+      white-space: pre-wrap;
+    }
+    .hlg{color: rgba(0,255,154,.95)}
+    .hla{color: rgba(255,176,0,.95)}
+    .hlr{color: rgba(255,42,109,.95)}
+
+    details{
+      margin-top:12px;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background: rgba(11,16,32,.40);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:12px 14px;
+      font-weight:1000;
+      list-style:none;
+      letter-spacing:.2px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .embed{padding:0 14px 14px}
+
+    textarea{
+      width:100%;
+      min-height:140px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.28);
+      color: var(--txt);
+      font-family: var(--mono);
+      padding:10px;
+      resize:vertical;
+    }
+    .tagx{
+      color: rgba(255,176,0,.95);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    footer{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius: var(--r);
+      border: 1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sigil" aria-hidden="true"></div>
+
+  <div class="wrap" id="page">
+    <header>
+      <div class="mast">
+        <div class="badge">🧿 CYBERMIND • <span style="color:var(--green)">A000940</span> • infographie terminal</div>
+        <h1>Cycle → Polygone → Étoile {n/k} 🌐</h1>
+        <p class="sub">
+          Trois vues d'un même artefact : <span class="tag">Kₙ</span> (graphes), cercle (géométrie), et
+          <span class="tag2">{n/k}</span> (étoiles). Croisements autorisés. ✴️
+        </p>
+
+        <div class="termbar" role="region" aria-label="Résumé terminal">
+          <div class="top">
+            <div class="dots">
+              <span class="dot r"></span><span class="dot a"></span><span class="dot g"></span>
+            </div>
+            <div>secubox@cybermind:~/math$ <span class="hlg">explain</span> A000940</div>
+            <div class="tagx">v1.0</div>
+          </div>
+          <pre>
+<span class="hlg">A000940</span> = nombre de cycles hamiltoniens distincts sur <span class="hla">Kₙ</span>
+= nombre de polygones (étoilés inclus) sur n points d'un cercle.
+
+Identifications :
+  ↺ rotation du départ
+  ↔ inversion du sens
+
+Sous-cas "pas constant" :
+  {n/k} si gcd(n,k)=1
+          </pre>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn" id="downloadBtn" title="Télécharger ce fichier HTML">
+          ⬇️ Télécharger <small>(.html)</small>
+        </button>
+        <button class="btn" id="copyEmbedBtn" title="Copier un iframe d'embed">
+          📎 Copier embed <small>(iframe)</small>
+        </button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="title">📈 Suite A000940 • Valeurs</div>
+        <div class="mono">
+a(3)=1
+a(4)=2
+a(5)=4
+a(6)=12
+a(7)=39
+a(8)=202
+a(9)=1219
+        </div>
+        <div class="pillrow">
+          <span class="pill glow-green">↺ rotation</span>
+          <span class="pill glow-amber">↔ sens</span>
+          <span class="pill glow-red">✴️ croisements</span>
+        </div>
+
+        <details>
+          <summary>🧩 Formule</summary>
+          <div class="embed">
+            <div class="mono">
+a(n) = (n−1)! / 2
+(modulo rotation + inversion)
+            </div>
+            <p class="mini muted">
+              Interprétation : comptage des <b>cycles hamiltoniens distincts</b> dans le graphe complet Kₙ,
+              équivalent au comptage des "formes" polygonales sur n sommets d'un cercle.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="title">🕸️ Graphes • Cycle hamiltonien</div>
+        <p class="mini muted">Kₙ : chaque sommet est relié à tous les autres.</p>
+        <div class="mono">
+Cycle C = (v0, v1, …, v(n−1))
+avec {vi} = {0…n−1}
++ fermeture (v(n−1) → v0)
+
+Même forme ⇔
+• rotation(C)
+• reverse(C)
+        </div>
+
+        <div class="kpi">
+          <div class="k glow-green">
+            <b>🔁 Cycle</b>
+            <small>visite unique de tous les sommets</small>
+          </div>
+          <div class="k glow-amber">
+            <b>↺ Rotation</b>
+            <small>le départ ne compte pas</small>
+          </div>
+          <div class="k glow-red">
+            <b>↔ Inversion</b>
+            <small>sens horaire/anti-horaire identifiés</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🧭 Géométrie • Polygone Γ(C)</div>
+        <p class="mini muted">On place n points équidistants sur un cercle, puis on trace selon l'ordre du cycle.</p>
+        <div class="mono">
+Points :
+p_i = (cos(2πi/n), sin(2πi/n))
+
+Polygone associé :
+Γ(C) = ⋃ [ p(v_i), p(v_{i+1}) ]
+avec v_n = v_0
+        </div>
+
+        <div class="pillrow">
+          <span class="pill glow-green">🟩 convexe</span>
+          <span class="pill glow-red">🟥 auto-intersections</span>
+          <span class="pill glow-amber">🟨 même "forme" = rot + rev</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🪄 Pipeline • Cycle → Polygone</div>
+        <div class="arrow">
+          <div class="step glow-green">
+            <h3>🧾 Entrée</h3>
+            <div class="mini muted">C = (v0,…,v(n−1))</div>
+          </div>
+          <div class="step glow-amber">
+            <h3>🧭 Placement</h3>
+            <div class="mini muted">p0…p(n−1) sur un cercle</div>
+          </div>
+          <div class="step glow-red">
+            <h3>🧵 Tracé</h3>
+            <div class="mini muted">p(v_i) → p(v_{i+1}), fermer</div>
+          </div>
+        </div>
+
+        <div class="mono">
+Γ(C) dépend de l'ordre cyclique.
+Le point de départ et le sens ne changent pas la "forme".
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">🌟 Étoiles régulières • {n/k}</div>
+        <p class="mini muted">Sous-cas "pas constant" : on avance de k modulo n.</p>
+        <div class="mono">
+Cycle de pas k :
+C(n,k) = (0, k, 2k, 3k, …) mod n
+
+Étoile "pure" ⇔ gcd(n,k)=1 ✅
+Symétrie : {n/k} = {n/(n−k)}
+        </div>
+
+        <details>
+          <summary>🧠 Test : "mon cycle est-il un {n/k} ?"</summary>
+          <div class="embed">
+            <div class="mono">
+Après rotation/sens :
+v_{i+1} − v_i ≡ k (mod n) pour tout i
+            </div>
+            <p class="mini muted">
+              Pas constant = étoile régulière. Sinon : cycle hamiltonien général (quand même compté par A000940).
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="title">🧰 Snippet • embed (blog/site)</div>
+        <p class="mini muted">
+          Héberge le fichier et utilise un iframe. (Simple, propre, et compatible partout.)
+        </p>
+        <div class="mono" id="iframeSnippet"></div>
+
+        <details>
+          <summary>📦 Variante inline (srcdoc)</summary>
+          <div class="embed">
+            <p class="mini muted">
+              Utile si tu veux coller tout dans une page sans fichier externe, mais c'est plus lourd.
+            </p>
+            <textarea readonly id="embedBox"></textarea>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      <div class="mini">
+        ⚡ CYBERMIND memo : <b>A000940</b> compte des cycles hamiltoniens distincts sur Kₙ, dessinables en polygones sur un cercle.
+        Le cas <b>{n/k}</b> = pas constant avec gcd(n,k)=1.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Download as .html (self-contained)
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const html = "<!doctype html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "cybermind-a000940-infographie.html";
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    });
+
+    // Recommended hosted iframe snippet
+    const hosted = `<!-- Recommandé : fichier hébergé -->
+<iframe
+  src="cybermind-a000940-infographie.html"
+  style="width:100%;height:980px;border:0;border-radius:18px;overflow:hidden;background:transparent;"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+></iframe>`;
+
+    document.getElementById("iframeSnippet").textContent = hosted;
+
+    // srcdoc embed (escape the full HTML)
+    const escaped = document.documentElement.outerHTML
+      .replaceAll("&","&amp;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;");
+
+    const srcdoc = `<!-- Inline : srcdoc -->
+<iframe
+  style="width:100%;height:980px;border:0;border-radius:18px;overflow:hidden;background:transparent;"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+  srcdoc="${escaped}">
+</iframe>`;
+
+    document.getElementById("embedBox").value = hosted + "\n\n" + srcdoc;
+
+    document.getElementById("copyEmbedBtn").addEventListener("click", async () => {
+      const payload = hosted + "\n\n" + srcdoc;
+      try{
+        await navigator.clipboard.writeText(payload);
+        const btn = document.getElementById("copyEmbedBtn");
+        const old = btn.innerHTML;
+        btn.innerHTML = "✅ Embed copié <small>(presse-papiers)</small>";
+        setTimeout(()=> btn.innerHTML = old, 1200);
+      }catch(e){
+        alert("Copie impossible (droits navigateur). Tu peux sélectionner le texte dans la zone embed.");
+      }
+    });
+  </script>
+</body>
+</html>

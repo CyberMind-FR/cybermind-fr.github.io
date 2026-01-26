@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Phases Lunaires</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #f5f6fa;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Étoiles animées */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(24px, 5vw, 44px);
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #ffeaa7;
+            text-shadow: 0 0 30px rgba(255, 234, 167, 0.5);
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 234, 167, 0.2);
+        }
+
+        .panel h3 {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            color: #ffeaa7;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        /* Phase actuelle */
+        .current-phase {
+            min-width: 280px;
+            max-width: 350px;
+        }
+
+        .moon-display {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .phase-name {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 22px;
+            color: #ffeaa7;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 234, 167, 0.5);
+        }
+
+        .phase-type {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+
+        .badge-montante {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.5);
+            color: #2ecc71;
+        }
+
+        .badge-descendante {
+            background: rgba(155, 89, 182, 0.2);
+            border: 1px solid rgba(155, 89, 182, 0.5);
+            color: #9b59b6;
+        }
+
+        .badge-pleine {
+            background: rgba(255, 234, 167, 0.2);
+            border: 1px solid rgba(255, 234, 167, 0.5);
+            color: #ffeaa7;
+        }
+
+        .badge-nouvelle {
+            background: rgba(52, 73, 94, 0.3);
+            border: 1px solid rgba(52, 73, 94, 0.5);
+            color: #95a5a6;
+        }
+
+        .phase-description {
+            text-align: center;
+            line-height: 1.7;
+            opacity: 0.9;
+            font-size: 15px;
+            font-style: italic;
+        }
+
+        .illumination-bar {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .illumination-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .illumination-label {
+            opacity: 0.7;
+        }
+
+        .illumination-value {
+            color: #ffeaa7;
+        }
+
+        .illumination-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .illumination-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffeaa7, #fff);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* Contrôles */
+        .controls {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, rgba(255, 234, 167, 0.2) 0%, rgba(255, 200, 100, 0.1) 100%);
+            border: 2px solid #ffeaa7;
+            color: #ffeaa7;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 234, 167, 0.3);
+            box-shadow: 0 0 25px rgba(255, 234, 167, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Sélecteur de phases */
+        .phase-selector {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phase-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 234, 167, 0.3);
+            color: #f5f6fa;
+            padding: 12px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phase-btn:hover {
+            background: rgba(255, 234, 167, 0.1);
+            border-color: rgba(255, 234, 167, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .phase-btn.active {
+            background: rgba(255, 234, 167, 0.2);
+            border-color: #ffeaa7;
+            box-shadow: 0 0 20px rgba(255, 234, 167, 0.3);
+        }
+
+        .phase-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Explications */
+        .explanations {
+            margin-top: 35px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .explanation-item h4 {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .explanation-item p {
+            line-height: 1.7;
+            opacity: 0.85;
+            font-size: 14px;
+        }
+
+        .tip-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 234, 167, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid #ffeaa7;
+        }
+
+        .tip-box p {
+            line-height: 1.8;
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .tip-box strong {
+            color: #ffeaa7;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .phase-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .phase-btn {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <header>
+            <h1>☽ LES PHASES LUNAIRES ☾</h1>
+            <p>Le cycle éternel de notre satellite</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Vue orbitale -->
+            <div class="panel">
+                <h3>VUE ORBITALE</h3>
+                <svg id="orbitalView" width="400" height="400" viewBox="0 0 400 400">
+                    <defs>
+                        <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fff7ae" />
+                            <stop offset="50%" stop-color="#ffd700" />
+                            <stop offset="100%" stop-color="#ff8c00" />
+                        </radialGradient>
+                        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+                        </radialGradient>
+                        <radialGradient id="earthGradient" cx="30%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#87ceeb" />
+                            <stop offset="50%" stop-color="#228b22" />
+                            <stop offset="100%" stop-color="#006400" />
+                        </radialGradient>
+                        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffeaa7" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#ffeaa7" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+
+                    <!-- Rayons solaires -->
+                    <g opacity="0.12">
+                        <line x1="50" y1="140" x2="380" y2="100" stroke="#ffd700" stroke-width="1" stroke-dasharray="5,10"/>
+                        <line x1="50" y1="170" x2="380" y2="150" stroke="#ffd700" stroke-width="1" stroke-dasharray="5,10"/>
+                        <line x1="50" y1="200" x2="380" y2="200" stroke="#ffd700" stroke-width="1" stroke-dasharray="5,10"/>
+                        <line x1="50" y1="230" x2="380" y2="250" stroke="#ffd700" stroke-width="1" stroke-dasharray="5,10"/>
+                        <line x1="50" y1="260" x2="380" y2="300" stroke="#ffd700" stroke-width="1" stroke-dasharray="5,10"/>
+                    </g>
+
+                    <!-- Orbite lunaire -->
+                    <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255, 234, 167, 0.25)" stroke-width="1" stroke-dasharray="5,5"/>
+
+                    <!-- Soleil -->
+                    <g transform="translate(30, 200)" style="animation: pulse 4s ease-in-out infinite;">
+                        <circle r="70" fill="url(#sunGlow)" />
+                        <circle r="32" fill="url(#sunGradient)" />
+                    </g>
+                    <text x="30" y="250" text-anchor="middle" fill="#ffeaa7" font-size="11" font-family="Cinzel">SOLEIL</text>
+
+                    <!-- Terre -->
+                    <circle cx="200" cy="200" r="22" fill="url(#earthGradient)" />
+                    <ellipse cx="200" cy="200" rx="22" ry="7" fill="none" stroke="rgba(135, 206, 235, 0.3)" stroke-width="1" transform="rotate(-23, 200, 200)" />
+                    <text x="200" y="240" text-anchor="middle" fill="#87ceeb" font-size="11" font-family="Cinzel">TERRE</text>
+
+                    <!-- Lune (positionnée dynamiquement) -->
+                    <g id="moonOrbit">
+                        <circle id="moonGlowOrbit" r="22" fill="url(#moonGlow)" />
+                        <g id="moonPhaseOrbit"></g>
+                    </g>
+                    <text id="moonLabel" text-anchor="middle" fill="#f5f6fa" font-size="10" font-family="Cinzel">LUNE</text>
+
+                    <!-- Marqueurs de position -->
+                    <g id="phaseMarkers"></g>
+
+                    <!-- Légende -->
+                    <text x="200" y="380" text-anchor="middle" fill="rgba(255, 234, 167, 0.5)" font-size="11" font-family="Cormorant Garamond" font-style="italic">← Lumière solaire</text>
+                </svg>
+            </div>
+
+            <!-- Panneau d'information -->
+            <div class="panel current-phase">
+                <h3>PHASE ACTUELLE</h3>
+                
+                <div class="moon-display">
+                    <svg id="moonDisplay" width="130" height="130" viewBox="-65 -65 130 130">
+                        <defs>
+                            <radialGradient id="bigMoonGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ffeaa7" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#ffeaa7" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                        <circle r="58" fill="url(#bigMoonGlow)" />
+                        <g id="moonPhaseBig"></g>
+                    </svg>
+                </div>
+
+                <h2 class="phase-name" id="phaseName">Nouvelle Lune</h2>
+
+                <div class="phase-type">
+                    <span class="phase-badge badge-nouvelle" id="phaseBadge">● Renouveau</span>
+                </div>
+
+                <p class="phase-description" id="phaseDescription">
+                    La Lune est entre la Terre et le Soleil. Face éclairée invisible depuis la Terre.
+                </p>
+
+                <div class="illumination-bar">
+                    <div class="illumination-header">
+                        <span class="illumination-label">Illumination</span>
+                        <span class="illumination-value" id="illuminationValue">0%</span>
+                    </div>
+                    <div class="illumination-track">
+                        <div class="illumination-fill" id="illuminationFill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contrôles -->
+        <div class="controls">
+            <button class="control-btn" id="animateBtn" onclick="toggleAnimation()">▶ Animer le cycle</button>
+        </div>
+
+        <!-- Sélecteur de phases -->
+        <div class="phase-selector" id="phaseSelector"></div>
+
+        <!-- Explications -->
+        <div class="panel explanations">
+            <h3>COMPRENDRE LE PHÉNOMÈNE</h3>
+            
+            <div class="explanation-grid">
+                <div class="explanation-item">
+                    <h4 style="color: #95a5a6;">🌑 Nouvelle Lune</h4>
+                    <p>La Lune se trouve entre la Terre et le Soleil. Sa face éclairée est tournée vers le Soleil, invisible depuis la Terre. C'est le début du cycle lunaire.</p>
+                </div>
+                
+                <div class="explanation-item">
+                    <h4 style="color: #2ecc71;">↗ Lune Montante (Croissante)</h4>
+                    <p>La partie éclairée visible augmente jour après jour. On dit que la Lune "croît". La lumière apparaît d'abord à droite et s'étend progressivement.</p>
+                </div>
+                
+                <div class="explanation-item">
+                    <h4 style="color: #ffeaa7;">🌕 Pleine Lune</h4>
+                    <p>La Terre se trouve entre le Soleil et la Lune. Toute la face visible de la Lune est éclairée. C'est le milieu du cycle lunaire (~14,75 jours).</p>
+                </div>
+                
+                <div class="explanation-item">
+                    <h4 style="color: #9b59b6;">↘ Lune Descendante (Décroissante)</h4>
+                    <p>La partie éclairée diminue progressivement. On dit que la Lune "décroît". L'ombre gagne depuis la droite jusqu'au retour à la nouvelle lune.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>Astuce mnémotechnique :</strong> Dans l'hémisphère Nord, quand la Lune forme un <strong>D</strong>, elle est en <strong>D</strong>ébut de cycle (croissante). Quand elle forme un <strong>C</strong>, elle est en phase de <strong>C</strong>hute (décroissante).</p>
+            </div>
+        </div>
+
+        <footer>
+            Le cycle synodique lunaire dure en moyenne 29 jours, 12 heures, 44 minutes et 2,9 secondes
+        </footer>
+    </div>
+
+    <script>
+        // Données des phases
+        const phases = [
+            { name: 'Nouvelle Lune', angle: 0, description: 'La Lune est entre la Terre et le Soleil. Face éclairée invisible depuis la Terre.', type: 'nouvelle', badge: '● Renouveau' },
+            { name: 'Premier Croissant', angle: 45, description: 'Début de la phase montante. La lumière apparaît à droite.', type: 'montante', badge: '↗ Croissante' },
+            { name: 'Premier Quartier', angle: 90, description: 'La moitié droite est éclairée. Lune montante.', type: 'montante', badge: '↗ Croissante' },
+            { name: 'Gibbeuse Croissante', angle: 135, description: 'Plus de la moitié est éclairée. Vers la plénitude.', type: 'montante', badge: '↗ Croissante' },
+            { name: 'Pleine Lune', angle: 180, description: 'La Terre est entre le Soleil et la Lune. Face complètement éclairée.', type: 'pleine', badge: '○ Plénitude' },
+            { name: 'Gibbeuse Décroissante', angle: 225, description: 'Début de la phase descendante. La lumière diminue à droite.', type: 'descendante', badge: '↘ Décroissante' },
+            { name: 'Dernier Quartier', angle: 270, description: 'La moitié gauche est éclairée. Lune descendante.', type: 'descendante', badge: '↘ Décroissante' },
+            { name: 'Dernier Croissant', angle: 315, description: 'Fin du cycle. Retour vers la nouvelle lune.', type: 'descendante', badge: '↘ Décroissante' },
+        ];
+
+        let currentPhase = 0;
+        let isAnimating = false;
+        let animationProgress = 0;
+        let animationId = null;
+
+        // Générer les étoiles
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 120; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = star.style.height = (Math.random() * 2.5 + 0.5) + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Créer le SVG d'une phase lunaire
+        function createMoonPhaseSVG(angle, size = 15) {
+            // Normaliser l'angle entre 0 et 360
+            angle = ((angle % 360) + 360) % 360;
+            
+            // Calculer l'illumination (0 = nouvelle lune, 1 = pleine lune)
+            let illumination;
+            if (angle <= 180) {
+                illumination = angle / 180;
+            } else {
+                illumination = (360 - angle) / 180;
+            }
+
+            const lightColor = '#f5f6fa';
+            const darkColor = '#1a1a2e';
+            const r = size;
+
+            // Créer le groupe SVG
+            let svg = '';
+            
+            // Cercle de base (côté sombre)
+            svg += `<circle r="${r}" fill="${darkColor}" />`;
+            
+            // Dessiner la partie éclairée selon la phase
+            if (angle === 0 || angle === 360) {
+                // Nouvelle lune - tout sombre (déjà fait)
+            } else if (angle === 180) {
+                // Pleine lune - tout éclairé
+                svg += `<circle r="${r}" fill="${lightColor}" />`;
+            } else if (angle < 180) {
+                // Lune croissante - lumière vient de la droite
+                // D'abord dessiner la moitié droite éclairée
+                svg += `<path d="M 0 -${r} A ${r} ${r} 0 0 1 0 ${r} L 0 -${r}" fill="${lightColor}" />`;
+                
+                // Puis ajuster avec une ellipse pour le terminateur
+                const k = Math.abs(Math.cos(angle * Math.PI / 180));
+                const ellipseRx = r * k;
+                
+                if (angle < 90) {
+                    // Premier croissant - ajouter de l'ombre sur la droite
+                    svg += `<path d="M 0 -${r} A ${ellipseRx} ${r} 0 0 1 0 ${r} A ${r} ${r} 0 0 1 0 -${r}" fill="${darkColor}" />`;
+                } else {
+                    // Gibbeuse croissante - la lumière dépasse la moitié
+                    svg += `<path d="M 0 -${r} A ${ellipseRx} ${r} 0 0 0 0 ${r} A ${r} ${r} 0 0 0 0 -${r}" fill="${lightColor}" />`;
+                }
+            } else {
+                // Lune décroissante - lumière reste à gauche
+                // D'abord dessiner la moitié gauche éclairée
+                svg += `<path d="M 0 -${r} A ${r} ${r} 0 0 0 0 ${r} L 0 -${r}" fill="${lightColor}" />`;
+                
+                // Puis ajuster avec une ellipse pour le terminateur
+                const k = Math.abs(Math.cos(angle * Math.PI / 180));
+                const ellipseRx = r * k;
+                
+                if (angle < 270) {
+                    // Gibbeuse décroissante - la lumière dépasse la moitié
+                    svg += `<path d="M 0 -${r} A ${ellipseRx} ${r} 0 0 1 0 ${r} A ${r} ${r} 0 0 1 0 -${r}" fill="${lightColor}" />`;
+                } else {
+                    // Dernier croissant - ajouter de l'ombre sur la gauche
+                    svg += `<path d="M 0 -${r} A ${ellipseRx} ${r} 0 0 0 0 ${r} A ${r} ${r} 0 0 0 0 -${r}" fill="${darkColor}" />`;
+                }
+            }
+            
+            // Ajouter une légère texture
+            svg += `<circle r="${r}" fill="rgba(255,255,255,0.03)" />`;
+            
+            return svg;
+        }
+
+        // Calculer la position de la lune sur l'orbite
+        function getMoonPosition(angle) {
+            const radians = (angle - 90) * Math.PI / 180;
+            const orbitRadius = 120;
+            return {
+                x: 200 + orbitRadius * Math.cos(radians),
+                y: 200 + orbitRadius * Math.sin(radians)
+            };
+        }
+
+        // Calculer le pourcentage d'illumination
+        function getIllumination(angle) {
+            angle = ((angle % 360) + 360) % 360;
+            if (angle <= 180) {
+                return angle / 180;
+            } else {
+                return (360 - angle) / 180;
+            }
+        }
+
+        // Obtenir le type de phase
+        function getPhaseType(angle) {
+            angle = ((angle % 360) + 360) % 360;
+            if (angle < 10 || angle > 350) return 'nouvelle';
+            if (angle > 170 && angle < 190) return 'pleine';
+            if (angle <= 180) return 'montante';
+            return 'descendante';
+        }
+
+        // Mettre à jour l'affichage
+        function updateDisplay(angle, phaseName, description) {
+            const pos = getMoonPosition(angle);
+            const illumination = getIllumination(angle);
+            const type = getPhaseType(angle);
+
+            // Mettre à jour la lune orbitale
+            const moonOrbit = document.getElementById('moonOrbit');
+            moonOrbit.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+            document.getElementById('moonPhaseOrbit').innerHTML = createMoonPhaseSVG(angle, 14);
+            
+            // Mettre à jour le label de la lune
+            const moonLabel = document.getElementById('moonLabel');
+            moonLabel.setAttribute('x', pos.x);
+            moonLabel.setAttribute('y', pos.y + 28);
+
+            // Mettre à jour la grande lune
+            document.getElementById('moonPhaseBig').innerHTML = createMoonPhaseSVG(angle, 45);
+
+            // Mettre à jour les textes
+            document.getElementById('phaseName').textContent = phaseName;
+            document.getElementById('phaseDescription').textContent = description;
+
+            // Mettre à jour le badge
+            const badge = document.getElementById('phaseBadge');
+            badge.className = 'phase-badge badge-' + type;
+            if (type === 'nouvelle') badge.textContent = '● Renouveau';
+            else if (type === 'pleine') badge.textContent = '○ Plénitude';
+            else if (type === 'montante') badge.textContent = '↗ Croissante';
+            else badge.textContent = '↘ Décroissante';
+
+            // Mettre à jour l'illumination
+            const percent = Math.round(illumination * 100);
+            document.getElementById('illuminationValue').textContent = percent + '%';
+            document.getElementById('illuminationFill').style.width = percent + '%';
+        }
+
+        // Sélectionner une phase
+        function selectPhase(index) {
+            currentPhase = index;
+            isAnimating = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            document.getElementById('animateBtn').textContent = '▶ Animer le cycle';
+
+            // Mettre à jour les boutons
+            document.querySelectorAll('.phase-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+
+            // Mettre à jour les marqueurs
+            updateMarkers();
+
+            const phase = phases[index];
+            updateDisplay(phase.angle, phase.name, phase.description);
+        }
+
+        // Mettre à jour les marqueurs de phase
+        function updateMarkers() {
+            const markers = document.getElementById('phaseMarkers');
+            markers.innerHTML = '';
+            phases.forEach((phase, i) => {
+                const pos = getMoonPosition(phase.angle);
+                const isActive = !isAnimating && currentPhase === i;
+                markers.innerHTML += `
+                    <circle 
+                        cx="${pos.x}" cy="${pos.y}" r="4"
+                        fill="${isActive ? '#ffeaa7' : 'transparent'}"
+                        stroke="#ffeaa7"
+                        stroke-width="1"
+                        opacity="${isActive ? 1 : 0.3}"
+                    />
+                `;
+            });
+        }
+
+        // Animation
+        function toggleAnimation() {
+            isAnimating = !isAnimating;
+            const btn = document.getElementById('animateBtn');
+            
+            if (isAnimating) {
+                btn.textContent = '⏸ Pause';
+                animationProgress = phases[currentPhase].angle;
+                animate();
+            } else {
+                btn.textContent = '▶ Animer le cycle';
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            }
+
+            // Désélectionner les boutons pendant l'animation
+            document.querySelectorAll('.phase-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            updateMarkers();
+        }
+
+        function animate() {
+            if (!isAnimating) return;
+
+            animationProgress = (animationProgress + 0.5) % 360;
+            
+            const type = getPhaseType(animationProgress);
+            let phaseName;
+            if (type === 'nouvelle') phaseName = 'Nouvelle Lune';
+            else if (type === 'pleine') phaseName = 'Pleine Lune';
+            else if (type === 'montante') phaseName = 'Lune Montante';
+            else phaseName = 'Lune Descendante';
+
+            updateDisplay(
+                animationProgress, 
+                phaseName,
+                'Le cycle lunaire dure environ 29,5 jours, de nouvelle lune à nouvelle lune.'
+            );
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        // Créer les boutons de sélection
+        function createPhaseButtons() {
+            const container = document.getElementById('phaseSelector');
+            phases.forEach((phase, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'phase-btn' + (i === 0 ? ' active' : '');
+                btn.onclick = () => selectPhase(i);
+                
+                // Mini lune SVG
+                const miniSvg = `<svg width="24" height="24" viewBox="-12 -12 24 24">${createMoonPhaseSVG(phase.angle, 10)}</svg>`;
+                btn.innerHTML = miniSvg + phase.name;
+                
+                container.appendChild(btn);
+            });
+        }
+
+        // Initialisation
+        function init() {
+            generateStars();
+            createPhaseButtons();
+            updateMarkers();
+            selectPhase(0);
+        }
+
+        init();
+    </script>
+</body>
+</html>

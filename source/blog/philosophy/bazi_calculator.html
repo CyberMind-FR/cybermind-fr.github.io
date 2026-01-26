@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaZi 八字 - Calculateur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        /* Formulaire */
+        .form-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #7e57c2;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #7e57c2, #5e35b1);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(126,87,194,0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .today-btn {
+            background: linear-gradient(135deg, #66bb6a, #43a047);
+            margin-bottom: 10px;
+        }
+
+        /* Piliers */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 500px) {
+            .pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .pillar {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pillar-header {
+            background: #e9ecef;
+            padding: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .pillar-header small {
+            display: block;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .stem, .branch {
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .pinyin {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .chinese {
+            font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .nayin {
+            background: #f8f9fa;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.75em;
+            color: #555;
+        }
+
+        /* Couleurs éléments */
+        .metal { background: linear-gradient(135deg, #ffd54f, #ffb300); color: #000; }
+        .wood { background: linear-gradient(135deg, #a5d6a7, #4caf50); color: #000; }
+        .water { background: linear-gradient(135deg, #b39ddb, #7e57c2); color: #fff; }
+        .fire { background: linear-gradient(135deg, #ef9a9a, #e53935); color: #fff; }
+        .earth { background: linear-gradient(135deg, #ffcc80, #ff9800); color: #000; }
+
+        /* Hexagrammes */
+        .hexagrams {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 500px) {
+            .hexagrams {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .hexagram {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .hex-symbol {
+            font-size: clamp(2rem, 8vw, 3rem);
+            line-height: 1;
+        }
+
+        .hex-name {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Analyse */
+        .analysis {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .analysis h3 {
+            margin-bottom: 15px;
+        }
+
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 400px) {
+            .elements-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .element-card {
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .element-card .emoji {
+            font-size: 1.3em;
+        }
+
+        .element-card .count {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .element-card .name {
+            font-size: 0.7em;
+        }
+
+        .day-master {
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .day-master strong {
+            color: #2e7d32;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        #result {
+            display: none;
+        }
+
+        .date-display {
+            text-align: center;
+            font-size: 1.1em;
+            color: #5e35b1;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #ede7f6;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>☯️ BaZi 八字 - Calculateur</h1>
+
+        <!-- Formulaire -->
+        <div class="form-box">
+            <button class="btn today-btn" onclick="setToday()">📅 Aujourd'hui</button>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Heure</label>
+                    <select id="hour">
+                        <option value="0">23:00-01:00 (Zi)</option>
+                        <option value="1">01:00-03:00 (Chou)</option>
+                        <option value="2">03:00-05:00 (Yin)</option>
+                        <option value="3">05:00-07:00 (Mao)</option>
+                        <option value="4">07:00-09:00 (Chen)</option>
+                        <option value="5">09:00-11:00 (Si)</option>
+                        <option value="6">11:00-13:00 (Wu)</option>
+                        <option value="7">13:00-15:00 (Wei)</option>
+                        <option value="8">15:00-17:00 (Shen)</option>
+                        <option value="9">17:00-19:00 (You)</option>
+                        <option value="10">19:00-21:00 (Xu)</option>
+                        <option value="11">21:00-23:00 (Hai)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Jour</label>
+                    <input type="number" id="day" min="1" max="31" value="26">
+                </div>
+                <div class="form-group">
+                    <label>Mois</label>
+                    <input type="number" id="month" min="1" max="12" value="1">
+                </div>
+                <div class="form-group">
+                    <label>Année</label>
+                    <input type="number" id="year" min="1900" max="2100" value="2026">
+                </div>
+            </div>
+            <button class="btn" onclick="calculate()">🔮 Calculer le thème BaZi</button>
+        </div>
+
+        <!-- Résultats -->
+        <div id="result">
+            <div class="date-display" id="dateDisplay"></div>
+
+            <!-- Les 4 Piliers -->
+            <div class="pillars" id="pillars"></div>
+
+            <!-- Hexagrammes -->
+            <div class="hexagrams" id="hexagrams"></div>
+
+            <!-- Analyse -->
+            <div class="analysis">
+                <h3>🔥 Cinq Éléments 五行</h3>
+                <div class="elements-grid" id="elements"></div>
+                <div class="day-master" id="dayMaster"></div>
+            </div>
+        </div>
+
+        <footer>
+            ☯️ BaZi - Les Quatre Piliers du Destin
+        </footer>
+    </div>
+
+    <script>
+        // Données BaZi
+        const STEMS = [
+            { name: "Jia", chinese: "甲", element: "wood", nayin_idx: 0 },
+            { name: "Yi", chinese: "乙", element: "wood", nayin_idx: 1 },
+            { name: "Bing", chinese: "丙", element: "fire", nayin_idx: 2 },
+            { name: "Ding", chinese: "丁", element: "fire", nayin_idx: 3 },
+            { name: "Wu", chinese: "戊", element: "earth", nayin_idx: 4 },
+            { name: "Ji", chinese: "己", element: "earth", nayin_idx: 5 },
+            { name: "Geng", chinese: "庚", element: "metal", nayin_idx: 6 },
+            { name: "Xin", chinese: "辛", element: "metal", nayin_idx: 7 },
+            { name: "Ren", chinese: "壬", element: "water", nayin_idx: 8 },
+            { name: "Gui", chinese: "癸", element: "water", nayin_idx: 9 }
+        ];
+
+        const BRANCHES = [
+            { name: "Zi", chinese: "子", element: "water" },
+            { name: "Chou", chinese: "丑", element: "earth" },
+            { name: "Yin", chinese: "寅", element: "wood" },
+            { name: "Mao", chinese: "卯", element: "wood" },
+            { name: "Chen", chinese: "辰", element: "earth" },
+            { name: "Si", chinese: "巳", element: "fire" },
+            { name: "Wu", chinese: "午", element: "fire" },
+            { name: "Wei", chinese: "未", element: "earth" },
+            { name: "Shen", chinese: "申", element: "metal" },
+            { name: "You", chinese: "酉", element: "metal" },
+            { name: "Xu", chinese: "戌", element: "earth" },
+            { name: "Hai", chinese: "亥", element: "water" }
+        ];
+
+        const NAYIN = [
+            "Or dans la mer", "Feu du fourneau", "Bois de la forêt", "Feu du tonnerre", "Terre du chemin",
+            "Or du sable", "Feu au pied de la montagne", "Bois de l'arbre fruitier", "Eau du grand fleuve", "Terre des remparts",
+            "Or de la cire blanche", "Bois du saule", "Eau du puits", "Terre du toit", "Feu du tonnerre",
+            "Bois de l'arbre sec", "Eau du grand ruisseau", "Terre du sable", "Or de l'épée", "Feu de la montagne",
+            "Bois de l'arbre plat", "Eau des sources", "Terre de la muraille", "Or blanc", "Feu du ciel",
+            "Eau du grand fleuve", "Terre du désert", "Or des ornements", "Feu du foyer", "Bois du cèdre"
+        ];
+
+        const HEXAGRAMS = [
+            { symbol: "䷀", name: "Le Créateur" }, { symbol: "䷁", name: "Le Réceptif" },
+            { symbol: "䷂", name: "La Difficulté initiale" }, { symbol: "䷃", name: "La Folie juvénile" },
+            { symbol: "䷄", name: "L'Attente" }, { symbol: "䷅", name: "Le Conflit" },
+            { symbol: "䷆", name: "L'Armée" }, { symbol: "䷇", name: "L'Union" },
+            { symbol: "䷈", name: "Petit Apprivoisement" }, { symbol: "䷉", name: "La Marche" },
+            { symbol: "䷊", name: "La Paix" }, { symbol: "䷋", name: "La Stagnation" },
+            { symbol: "䷌", name: "Communauté" }, { symbol: "䷍", name: "Grand Avoir" },
+            { symbol: "䷎", name: "L'Humilité" }, { symbol: "䷏", name: "L'Enthousiasme" },
+            { symbol: "䷐", name: "La Suite" }, { symbol: "䷑", name: "Le Travail corrompu" },
+            { symbol: "䷒", name: "L'Approche" }, { symbol: "䷓", name: "La Contemplation" },
+            { symbol: "䷔", name: "Mordre au travers" }, { symbol: "䷕", name: "La Grâce" },
+            { symbol: "䷖", name: "L'Éclatement" }, { symbol: "䷗", name: "Le Retour" },
+            { symbol: "䷘", name: "L'Innocence" }, { symbol: "䷙", name: "Grand Apprivoisement" },
+            { symbol: "䷚", name: "Les Commissures" }, { symbol: "䷛", name: "L'Excès du grand" },
+            { symbol: "䷜", name: "L'Insondable" }, { symbol: "䷝", name: "Le Feu" },
+            { symbol: "䷞", name: "L'Influence" }, { symbol: "䷟", name: "La Durée" },
+            { symbol: "䷠", name: "La Retraite" }, { symbol: "䷡", name: "La Puissance" },
+            { symbol: "䷢", name: "Le Progrès" }, { symbol: "䷣", name: "L'Obscurcissement" },
+            { symbol: "䷤", name: "La Famille" }, { symbol: "䷥", name: "L'Opposition" },
+            { symbol: "䷦", name: "L'Obstacle" }, { symbol: "䷧", name: "La Libération" },
+            { symbol: "䷨", name: "La Diminution" }, { symbol: "䷩", name: "L'Augmentation" },
+            { symbol: "䷪", name: "La Percée" }, { symbol: "䷫", name: "Venir à la rencontre" },
+            { symbol: "䷬", name: "Le Rassemblement" }, { symbol: "䷭", name: "La Poussée" },
+            { symbol: "䷮", name: "L'Accablement" }, { symbol: "䷯", name: "Le Puits" },
+            { symbol: "䷰", name: "La Révolution" }, { symbol: "䷱", name: "Le Chaudron" },
+            { symbol: "䷲", name: "L'Ébranlement" }, { symbol: "䷳", name: "L'Immobilisation" },
+            { symbol: "䷴", name: "Le Développement" }, { symbol: "䷵", name: "L'Épousée" },
+            { symbol: "䷶", name: "L'Abondance" }, { symbol: "䷷", name: "Le Voyageur" },
+            { symbol: "䷸", name: "Le Doux" }, { symbol: "䷹", name: "Le Joyeux" },
+            { symbol: "䷺", name: "La Dissolution" }, { symbol: "䷻", name: "La Limitation" },
+            { symbol: "䷼", name: "Vérité intérieure" }, { symbol: "䷽", name: "Petit Excès" },
+            { symbol: "䷾", name: "Après l'Accomplissement" }, { symbol: "䷿", name: "Avant l'Accomplissement" }
+        ];
+
+        const ELEMENT_NAMES = {
+            wood: { emoji: "🌳", fr: "Bois", cn: "木" },
+            fire: { emoji: "🔥", fr: "Feu", cn: "火" },
+            earth: { emoji: "🏔️", fr: "Terre", cn: "土" },
+            metal: { emoji: "⚙️", fr: "Métal", cn: "金" },
+            water: { emoji: "💧", fr: "Eau", cn: "水" }
+        };
+
+        function setToday() {
+            const now = new Date();
+            document.getElementById('day').value = now.getDate();
+            document.getElementById('month').value = now.getMonth() + 1;
+            document.getElementById('year').value = now.getFullYear();
+            
+            // Sélectionner l'heure chinoise actuelle
+            const hour = now.getHours();
+            let zhiHour = Math.floor(((hour + 1) % 24) / 2);
+            document.getElementById('hour').value = zhiHour;
+            
+            calculate();
+        }
+
+        function getStemBranch(year, month, day) {
+            // Calcul simplifié des piliers
+            // Pilier Année
+            const yearStem = (year - 4) % 10;
+            const yearBranch = (year - 4) % 12;
+            
+            // Pilier Mois (simplifié)
+            const monthBranch = (month + 1) % 12;
+            const monthStem = (yearStem * 2 + month) % 10;
+            
+            // Pilier Jour (formule simplifiée)
+            const baseDate = new Date(1900, 0, 1);
+            const targetDate = new Date(year, month - 1, day);
+            const diffDays = Math.floor((targetDate - baseDate) / (1000 * 60 * 60 * 24));
+            const dayStem = (diffDays + 10) % 10;
+            const dayBranch = (diffDays + 10) % 12;
+            
+            return {
+                year: { stem: yearStem, branch: yearBranch },
+                month: { stem: monthStem, branch: monthBranch },
+                day: { stem: dayStem, branch: dayBranch }
+            };
+        }
+
+        function getHourPillar(dayStem, hourBranch) {
+            const hourStem = (dayStem * 2 + hourBranch) % 10;
+            return { stem: hourStem, branch: hourBranch };
+        }
+
+        function getNayin(stemIdx, branchIdx) {
+            const cycle = Math.floor(stemIdx / 2) + Math.floor(branchIdx / 2) * 5;
+            return NAYIN[cycle % 30];
+        }
+
+        function getHexagram(stemIdx, branchIdx) {
+            const idx = (stemIdx + branchIdx) % 64;
+            return HEXAGRAMS[idx];
+        }
+
+        function calculate() {
+            const hour = parseInt(document.getElementById('hour').value);
+            const day = parseInt(document.getElementById('day').value);
+            const month = parseInt(document.getElementById('month').value);
+            const year = parseInt(document.getElementById('year').value);
+
+            const pillars = getStemBranch(year, month, day);
+            pillars.hour = getHourPillar(pillars.day.stem, hour);
+
+            // Afficher la date
+            const months = ['', 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 
+                           'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            document.getElementById('dateDisplay').innerHTML = 
+                `📅 ${day} ${months[month]} ${year} - ${BRANCHES[hour].name} (${BRANCHES[hour].chinese})`;
+
+            // Générer les piliers
+            const pillarData = [
+                { title: "Heure", data: pillars.hour },
+                { title: "Jour", data: pillars.day },
+                { title: "Mois", data: pillars.month },
+                { title: "Année", data: pillars.year }
+            ];
+
+            let pillarsHTML = '';
+            let hexagramsHTML = '';
+            const elementCount = { wood: 0, fire: 0, earth: 0, metal: 0, water: 0 };
+
+            pillarData.forEach(p => {
+                const stem = STEMS[p.data.stem];
+                const branch = BRANCHES[p.data.branch];
+                const nayin = getNayin(p.data.stem, p.data.branch);
+                const hex = getHexagram(p.data.stem, p.data.branch);
+
+                elementCount[stem.element]++;
+                elementCount[branch.element]++;
+
+                pillarsHTML += `
+                    <div class="pillar">
+                        <div class="pillar-header">${p.title}</div>
+                        <div class="stem ${stem.element}">
+                            <div class="pinyin">${stem.name}</div>
+                            <div class="chinese">${stem.chinese}</div>
+                        </div>
+                        <div class="branch ${branch.element}">
+                            <div class="pinyin">${branch.name}</div>
+                            <div class="chinese">${branch.chinese}</div>
+                        </div>
+                        <div class="nayin">${nayin}</div>
+                    </div>
+                `;
+
+                hexagramsHTML += `
+                    <div class="hexagram">
+                        <div class="hex-symbol">${hex.symbol}</div>
+                        <div class="hex-name">${hex.name}</div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('pillars').innerHTML = pillarsHTML;
+            document.getElementById('hexagrams').innerHTML = hexagramsHTML;
+
+            // Éléments
+            let elementsHTML = '';
+            for (const [key, info] of Object.entries(ELEMENT_NAMES)) {
+                elementsHTML += `
+                    <div class="element-card ${key}">
+                        <div class="emoji">${info.emoji}</div>
+                        <div class="count">${elementCount[key]}</div>
+                        <div class="name">${info.fr} ${info.cn}</div>
+                    </div>
+                `;
+            }
+            document.getElementById('elements').innerHTML = elementsHTML;
+
+            // Maître du Jour
+            const dayStem = STEMS[pillars.day.stem];
+            document.getElementById('dayMaster').innerHTML = `
+                <strong>Maître du Jour 日主:</strong> ${dayStem.chinese} ${dayStem.name} - 
+                ${ELEMENT_NAMES[dayStem.element].fr} ${dayStem.nayin_idx % 2 === 0 ? 'Yang' : 'Yin'}
+            `;
+
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Calculer automatiquement au chargement avec la date du jour
+        window.onload = setToday;
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecuBox - Roadmap v2.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; font-size: 12px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 18px; color: #58a6ff; margin-bottom: 5px; }
+        h2 { font-size: 13px; color: #8b949e; margin: 15px 0 8px; border-bottom: 1px solid #30363d; padding-bottom: 4px; }
+        .subtitle { color: #8b949e; font-size: 11px; margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 11px; }
+        th, td { padding: 6px 8px; text-align: left; border: 1px solid #30363d; }
+        th { background: #161b22; color: #8b949e; font-weight: 600; }
+        .done { color: #3fb950; }
+        .progress { color: #f0883e; }
+        .planned { color: #8b949e; }
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; }
+        .tag-done { background: #238636; color: #fff; }
+        .tag-dev { background: #9e6a03; color: #fff; }
+        .tag-plan { background: #30363d; color: #8b949e; }
+        .progress-bar { background: #30363d; height: 8px; border-radius: 4px; overflow: hidden; margin: 5px 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #3fb950, #f0883e); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px; }
+        .card h3 { font-size: 12px; color: #58a6ff; margin-bottom: 6px; }
+        .small { font-size: 10px; color: #8b949e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ SECUBOX - Roadmap v2.0</h1>
+        <p class="subtitle">Suite de sécurité OpenWrt | Janvier 2026 | v1.0 = 50% | v2.0 = 100%</p>
+
+        <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+        <p class="small" style="text-align: center;">Progression globale : 25% (7 modules v1.0 / 0 modules v2.0)</p>
+
+        <h2>📦 Modules v1.0 (Fonctionnels)</h2>
+        <table>
+            <tr><th>Module</th><th>Version</th><th>Status</th></tr>
+            <tr><td>🛡️ CrowdSec Status</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>📊 Netdata Status</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>🔍 Netifyd Status</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>🔒 WireGuard Dashboard</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>🔀 Network Modes</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>🛡️ Client Guardian</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+            <tr><td>🎛️ System Hub</td><td>v1.0</td><td><span class="tag tag-done">50%</span></td></tr>
+        </table>
+
+        <h2>🔧 Modules en Développement</h2>
+        <table>
+            <tr><th>Module</th><th>Version</th><th>Status</th></tr>
+            <tr><td>🔐 Auth Guardian</td><td>v0.x</td><td><span class="tag tag-dev">30%</span></td></tr>
+            <tr><td>📶 Bandwidth Manager</td><td>v0.x</td><td><span class="tag tag-dev">30%</span></td></tr>
+            <tr><td>🌐 VHost Manager</td><td>v0.x</td><td><span class="tag tag-dev">25%</span></td></tr>
+            <tr><td>🚦 Traffic Shaper</td><td>v0.x</td><td><span class="tag tag-dev">25%</span></td></tr>
+            <tr><td>💾 CDN Cache</td><td>v0.x</td><td><span class="tag tag-dev">20%</span></td></tr>
+            <tr><td>🔑 Key Storage (HSM)</td><td>v0.x</td><td><span class="tag tag-dev">20%</span></td></tr>
+            <tr><td>🎬 Media Flow</td><td>v0.x</td><td><span class="tag tag-plan">15%</span></td></tr>
+        </table>
+
+        <h2>🗓️ Planning</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Phase 2 — Q1-Q2 2026</h3>
+                <p>Tous modules → v1.0 (50%)</p>
+            </div>
+            <div class="card">
+                <h3>Phase 3 — Q3-Q4 2026</h3>
+                <p>Core → v2.0 + Hardware GlobalScale</p>
+            </div>
+            <div class="card">
+                <h3>Phase 4 — Q1-Q2 2027</h3>
+                <p>Tous → v2.0 + Beta 100 testeurs + CE</p>
+            </div>
+            <div class="card">
+                <h3>Phase 5 — Q3 2027</h3>
+                <p>🚀 Crowdfunding 50 000€</p>
+            </div>
+        </div>
+
+        <h2>🎯 Priorités Q1 2026</h2>
+        <table>
+            <tr><th>#</th><th>Tâche</th><th>Objectif</th></tr>
+            <tr><td>1</td><td>Auth Guardian</td><td>→ v1.0</td></tr>
+            <tr><td>2</td><td>Bandwidth Manager</td><td>→ v1.0</td></tr>
+            <tr><td>3</td><td>VHost Manager</td><td>→ v1.0</td></tr>
+        </table>
+
+        <p class="small" style="text-align: center; margin-top: 15px;">CyberMind.FR — SecuBox OpenWrt Security Suite</p>
+    </div>
+</body>
+</html>

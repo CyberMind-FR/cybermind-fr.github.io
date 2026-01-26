@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberMind.FR | Cybersécurité & Sagesse Numérique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #0a0a0f;
+            --deep: #12121a;
+            --surface: #1a1a24;
+            --glyph: #2a2a3a;
+            --mist: #8888aa;
+            --light: #c8c8e0;
+            --gold: #d4af37;
+            --gold-dim: #8b7355;
+            --cyber-green: #00ff88;
+            --cyber-blue: #00d4ff;
+            --mystic-purple: #9966ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--void);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Sacred geometry overlay */
+        .sacred-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sacred-overlay svg {
+            width: 100%;
+            height: 100%;
+            animation: rotate 120s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--void) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-sigil {
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--mist);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--cyber-green);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--cyber-green);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--cyber-green);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cyber-green) 50%, var(--cyber-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--mist);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-top: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--glyph);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 10;
+            padding: 8rem 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-number {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--gold-dim);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, var(--deep) 0%, var(--surface) 100%);
+            border: 1px solid var(--glyph);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-green), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .expertise-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .expertise-card:hover {
+            border-color: var(--cyber-green);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.1);
+        }
+
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .expertise-desc {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--mist);
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.8rem;
+            background: var(--void);
+            border: 1px solid var(--glyph);
+            color: var(--cyber-blue);
+        }
+
+        /* Projects Section */
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+            padding-bottom: 6rem;
+            border-bottom: 1px solid var(--glyph);
+        }
+
+        .project:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .project:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-visual {
+            aspect-ratio: 16/10;
+            background: var(--deep);
+            border: 1px solid var(--glyph);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-visual-inner {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--cyber-green);
+            opacity: 0.6;
+            padding: 2rem;
+            white-space: pre;
+            line-height: 1.4;
+        }
+
+        .project-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-status {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--cyber-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--mist);
+            margin-bottom: 2rem;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .feature {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-dim);
+            color: var(--gold);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--gold), var(--cyber-green), var(--cyber-blue));
+        }
+
+        .timeline-item {
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0.5rem;
+            width: 9px;
+            height: 9px;
+            border: 2px solid var(--gold);
+            background: var(--void);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--cyber-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--mist);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: linear-gradient(135deg, var(--deep) 0%, var(--void) 100%);
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--light);
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-symbols {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .symbol {
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--gold-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .symbol:hover {
+            border-color: var(--gold);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--deep);
+            border: 1px solid var(--glyph);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--cyber-blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-family: 'Cinzel', serif;
+            color: var(--light);
+        }
+
+        .contact-value a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--cyber-green);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid var(--glyph);
+        }
+
+        .footer-sigil {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-text {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--glyph);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--mist);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyber-green);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project:nth-child(even) {
+                direction: ltr;
+            }
+
+            .philosophy-quote {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="sacred-overlay">
+        <svg viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <circle cx="200" cy="200" r="50" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <polygon points="200,50 350,200 200,350 50,200" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <polygon points="200,100 300,200 200,300 100,200" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <line x1="200" y1="50" x2="200" y2="350" stroke="currentColor" stroke-width="0.3"/>
+            <line x1="50" y1="200" x2="350" y2="200" stroke="currentColor" stroke-width="0.3"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <span class="logo-sigil">☿</span>
+            CYBERMIND
+        </a>
+        <nav>
+            <a href="#expertise">Expertise</a>
+            <a href="#projects">Projets</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Consultant Cybersécurité & Open Source</p>
+            <h1 class="hero-title">
+                <span class="highlight">GANDALF</span><br>
+                The Conjurer
+            </h1>
+            <p class="hero-tagline">« Où la sagesse ancestrale rencontre la sécurité numérique »</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">25+</span>
+                    <span class="stat-label">Années d'expérience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">1982</span>
+                    <span class="stat-label">Première ligne de code</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">∞</span>
+                    <span class="stat-label">Open Source Spirit</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Explorer</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <div class="section-header">
+            <p class="section-number">— 01</p>
+            <h2 class="section-title">Domaines d'Expertise</h2>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">⛨</div>
+                <h3 class="expertise-title">Cybersécurité</h3>
+                <p class="expertise-desc">Protection des infrastructures critiques, threat intelligence, et intégration de solutions de sécurité open source. Ambassadeur CrowdSec.</p>
+                <div class="expertise-tags">
+                    <span class="tag">CrowdSec</span>
+                    <span class="tag">Threat Intel</span>
+                    <span class="tag">Firewall</span>
+                    <span class="tag">IDS/IPS</span>
+                </div>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">⚙</div>
+                <h3 class="expertise-title">Systèmes Embarqués</h3>
+                <p class="expertise-desc">Développement Linux embarqué, contributions au noyau Linux (SD/MMC drivers), U-Boot, et architectures ARM.</p>
+                <div class="expertise-tags">
+                    <span class="tag">Linux Kernel</span>
+                    <span class="tag">U-Boot</span>
+                    <span class="tag">ARM</span>
+                    <span class="tag">OpenWrt</span>
+                </div>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">◈</div>
+                <h3 class="expertise-title">Open Source</h3>
+                <p class="expertise-desc">Contributeur actif aux projets majeurs. Développement Armbian pour plateformes MOCHAbin et ESPRESSObin.</p>
+                <div class="expertise-tags">
+                    <span class="tag">Armbian</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">CI/CD</span>
+                </div>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">☯</div>
+                <h3 class="expertise-title">Arts Ésotériques</h3>
+                <p class="expertise-desc">Yi Jing, BaZi, géométrie sacrée. Applications numériques d'oracles traditionnels et générateurs de fréquences.</p>
+                <div class="expertise-tags">
+                    <span class="tag">Yi Jing</span>
+                    <span class="tag">BaZi</span>
+                    <span class="tag">Sacred Geometry</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <p class="section-number">— 02</p>
+            <h2 class="section-title">Projets Phares</h2>
+        </div>
+        <div class="projects-container">
+            <div class="project">
+                <div class="project-visual">
+                    <div class="project-visual-inner">
+┌─────────────────────────────────┐
+│  SecuBox Security Suite v2.0   │
+├─────────────────────────────────┤
+│  [■■■■■■■■■■] Firewall    OK   │
+│  [■■■■■■■■■■] CrowdSec   OK   │
+│  [■■■■■■■■■■] Netdata    OK   │
+│  [■■■■■■□□□□] DPI       75%   │
+├─────────────────────────────────┤
+│  Threats Blocked: 12,847       │
+│  Uptime: 99.97%                │
+└─────────────────────────────────┘
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>SecuBox</h3>
+                    <p class="project-status">● En développement actif</p>
+                    <p class="project-desc">Suite de sécurité complète pour routeurs OpenWrt intégrant CrowdSec threat intelligence, monitoring Netdata, et inspection profonde des paquets. Architecture modulaire avec dashboard LuCI et backends RPCD.</p>
+                    <div class="project-features">
+                        <span class="feature">OpenWrt</span>
+                        <span class="feature">LuCI</span>
+                        <span class="feature">CrowdSec</span>
+                        <span class="feature">Netdata</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-visual">
+                    <div class="project-visual-inner">
+        ═══════════╗
+     ☰ ═══════════╣
+   ═══ ═══════════╣  Yi Jing Oracle
+     ═══════════ ═╣  
+   ═══════════════╣  Hexagram: 乾 Qián
+     ═══════════ ═╣  "The Creative"
+   ═══════════════╣
+        ═══════════╝
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Oracle Yi Jing Interactif</h3>
+                    <p class="project-status">● Application web</p>
+                    <p class="project-desc">Application de divination du Livre des Mutations avec visualisation des hexagrammes, interprétations traditionnelles, et génération de grilles visuelles. Interface contemplative pour la sagesse millénaire.</p>
+                    <div class="project-features">
+                        <span class="feature">JavaScript</span>
+                        <span class="feature">Canvas</span>
+                        <span class="feature">64 Hexagrammes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-visual">
+                    <div class="project-visual-inner">
+  ♪ ════════════════════════ ♪
+  
+    ∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿
+       Frequency: 432 Hz
+       Spatial Audio: ON
+       
+    ◉ PLAY  ⏸ PAUSE  ■ STOP
+    
+  ♪ ════════════════════════ ♪
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Générateur de Fréquences</h3>
+                    <p class="project-status">● Application thérapeutique</p>
+                    <p class="project-desc">Générateur web de fréquences avec audio spatial et ondes binaurales. Exploration sonore pour méditation et bien-être, intégrant les fréquences sacrées et solfèges anciens.</p>
+                    <div class="project-features">
+                        <span class="feature">Web Audio API</span>
+                        <span class="feature">Spatial Audio</span>
+                        <span class="feature">432 Hz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="parcours">
+        <div class="section-header">
+            <p class="section-number">— 03</p>
+            <h2 class="section-title">Parcours</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-year">2020 — PRÉSENT</p>
+                <h4 class="timeline-title">Fondateur CyberMind.FR</h4>
+                <p class="timeline-desc">Consulting en cybersécurité, développement de SecuBox, ambassadeur CrowdSec. Création d'applications mêlant technologie et traditions ésotériques.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-year">2000 — 2020</p>
+                <h4 class="timeline-title">Développeur Senior Systèmes Embarqués</h4>
+                <p class="timeline-desc">Contributions au kernel Linux (drivers SD/MMC), développement U-Boot, expertise ARM. Rôles techniques chez Thales et entreprises tech.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-year">1990 — 2000</p>
+                <h4 class="timeline-title">Ingénieur Logiciel</h4>
+                <p class="timeline-desc">Développement systèmes Unix/Linux, premières contributions open source. Construction d'une expertise solide en systèmes bas niveau.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-year">1982</p>
+                <h4 class="timeline-title">Les Débuts — Commodore 64</h4>
+                <p class="timeline-desc">Naissance de "Gandalf from the Conjurers". Premières lignes de code, début d'une passion pour la programmation qui ne s'est jamais éteinte.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="section-header">
+            <p class="section-number">— 04</p>
+            <h2 class="section-title">Philosophie</h2>
+        </div>
+        <div class="philosophy-content">
+            <p class="philosophy-quote">
+                "La sécurité numérique est un art qui requiert la précision du code et la sagesse des anciens. Dans chaque firewall, un gardien; dans chaque algorithme, un oracle."
+            </p>
+            <div class="philosophy-symbols">
+                <div class="symbol">☯</div>
+                <div class="symbol">⎔</div>
+                <div class="symbol">☿</div>
+                <div class="symbol">⌬</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <p class="section-number">— 05</p>
+            <h2 class="section-title">Contact</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">✉</div>
+                <p class="contact-label">Email</p>
+                <p class="contact-value"><a href="mailto:contact@cybermind.fr">contact@cybermind.fr</a></p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">⌂</div>
+                <p class="contact-label">Localisation</p>
+                <p class="contact-value">Vallée de la Maurienne, France</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">⚡</div>
+                <p class="contact-label">GitHub</p>
+                <p class="contact-value"><a href="#">@gandalf-conjurer</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-sigil">☿</div>
+        <p class="footer-text">© 2025 CYBERMIND.FR — GANDALF THE CONJURER</p>
+        <div class="footer-links">
+            <a href="#">SecuBox</a>
+            <a href="#">Yi Jing Oracle</a>
+            <a href="#">GitHub</a>
+            <a href="#">CrowdSec</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.expertise-card, .project, .timeline-item, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(to bottom, var(--void) 0%, transparent 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
