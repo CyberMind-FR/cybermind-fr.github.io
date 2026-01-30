@@ -821,7 +821,432 @@
         
             
 
-<article class="article-card gui-window fablab" style="--article-color: #f97316;" id="art-cuidrF1xx-meWO9i4xEvaueMU">
+<article class="article-card gui-window Mood" style="--article-color: #f97316;" id="art-cuid1Q3UDnRYVhXw568IcWHgI">
+    <!-- Barre de titre style fenêtre GUI -->
+    <div class="window-titlebar" style="background: #f97316;">
+        <div class="window-buttons">
+            <span class="window-btn close" title="Fermer">●</span>
+            <span class="window-btn minimize" title="Réduire">●</span>
+            <span class="window-btn maximize" title="Agrandir">●</span>
+        </div>
+        <div class="window-title">
+            <span class="window-emojis">
+                📝
+            </span>
+            <span class="window-category">Mood</span>
+            <span class="window-separator">—</span>
+            <span class="window-filename">Lettre - Les Souliers d’Eulali...</span>
+        </div>
+        <div class="window-lettrines">
+            
+            
+        </div>
+    </div>
+    
+    <!-- Contenu de la fenêtre -->
+    <div class="window-content">
+        <h3 class="article-title">
+            <a href="/creative/Mood/Lettre/Les_Souliers_dEulalie_ScriptAudio/">Lettre - Les Souliers d’Eulalie — Script audio complet pour narration Suno</a>
+        </h3>
+        
+        
+        <p class="article-excerpt">Les Souliers d’Eulalie — Script audio complet pour narration Suno(À dire ou générer avec rythme lent, voix grave et douce, ambiance gothique et hivernale.)
+—...</p>
+        
+        
+        <!-- Barre de status style terminal -->
+        <div class="window-statusbar">
+            <div class="status-left">
+                <span class="status-date">
+                    📅 09/11/2025
+                </span>
+                <span class="status-separator">|</span>
+                <span class="status-time">
+                    🕐 19:39
+                </span>
+            </div>
+            <div class="status-right">
+                
+                <div class="status-tags">
+                    
+                    <a href="/tags/The-Conjurers/" class="status-tag">
+                        🏷️The Conjurers
+                    </a>
+                    
+                    <a href="/tags/Magie/" class="status-tag">
+                        🏷️Magie
+                    </a>
+                    
+                    <a href="/tags/Gourou/" class="status-tag">
+                        🏷️Gourou
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Bouton action -->
+        <a href="/creative/Mood/Lettre/Les_Souliers_dEulalie_ScriptAudio/" class="window-action-btn" style="background: #f97316;">
+            <span class="action-icon">▶</span>
+            <span class="action-text">Lire la suite →</span>
+            <span class="action-arrow">→</span>
+        </a>
+    </div>
+</article>
+
+<style>
+/* Style fenêtre GUI */
+.article-card.gui-window {
+    position: relative;
+    background: var(--bg-primary);
+    border: 2px solid var(--article-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.article-card.gui-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.5),
+        0 0 30px var(--article-color)30,
+        inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Barre de titre */
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--article-color);
+    color: #000;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    min-height: 36px;
+}
+
+/* Boutons de fenêtre */
+.window-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.window-btn.close {
+    background: #ff5f57;
+    color: #ff5f57;
+}
+
+.window-btn.minimize {
+    background: #ffbd2e;
+    color: #ffbd2e;
+}
+
+.window-btn.maximize {
+    background: #28ca42;
+    color: #28ca42;
+}
+
+.window-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Titre de la fenêtre */
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.window-emojis {
+    display: flex;
+    gap: 2px;
+    animation: emojiPulse 2s ease-in-out infinite;
+}
+
+@keyframes emojiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.window-category {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.window-separator {
+    opacity: 0.5;
+}
+
+.window-filename {
+    opacity: 0.7;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Lettrines dans la barre */
+.window-lettrines {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.window-lettrines .lettrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.window-lettrines .lettrine:hover {
+    background: rgba(0,0,0,0.4);
+    transform: scale(1.15);
+}
+
+/* Contenu de la fenêtre */
+.window-content {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.article-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+}
+
+.article-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-title a:hover {
+    color: var(--article-color);
+}
+
+.article-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+/* Barre de status */
+.window-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -1.25rem;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-separator {
+    opacity: 0.3;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0.15rem 0.4rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+}
+
+.status-tag:hover {
+    background: var(--article-color);
+    color: #000;
+    border-color: var(--article-color);
+}
+
+/* Bouton action */
+.window-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--article-color);
+    color: #000;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.window-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.window-action-btn:hover::before {
+    left: 100%;
+}
+
+.window-action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px var(--article-color)50;
+}
+
+.action-icon {
+    font-size: 0.7rem;
+}
+
+.action-arrow {
+    transition: transform 0.3s ease;
+}
+
+.window-action-btn:hover .action-arrow {
+    transform: translateX(5px);
+}
+
+/* Animation scanlines effet CRT */
+.article-card.gui-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article-card.gui-window:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .window-titlebar {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+        flex-wrap: wrap;
+    }
+    
+    .window-filename {
+        display: none;
+    }
+    
+    .window-separator {
+        display: none;
+    }
+    
+    .window-lettrines {
+        display: none;
+    }
+    
+    .window-content {
+        padding: 1rem;
+    }
+    
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .window-statusbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        margin: 0 -1rem;
+    }
+    
+    .status-tags {
+        margin-top: 0.25rem;
+    }
+}
+</style>
+
+        
+            
+
+<article class="article-card gui-window fablab" style="--article-color: #f97316;" id="art-cuidwYpJHqi6m77v7IVDXFipu">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1247,7 +1672,7 @@
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidB8jORzUa7frGIkzI7hImD">
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidUSLs6xGcDQoROHENPnz_8">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1298,12 +1723,12 @@
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/Fiche/" class="status-tag">
@@ -1675,7 +2100,7 @@
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidovlFIJ_VSJI6cDIYHQCLO">
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidUd0M5JqaAomHCa01ZvZFw">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1728,12 +2153,12 @@ Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commence
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/Fiche/" class="status-tag">
@@ -2105,7 +2530,7 @@ Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commence
         
             
 
-<article class="article-card gui-window FabLab" style="--article-color: #f97316;" id="art-cuiddSLIUzZNrQwmamFXadPQ5">
+<article class="article-card gui-window FabLab" style="--article-color: #f97316;" id="art-cuidCRmdCT4srCPMvAs11lTaG">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -2154,12 +2579,12 @@ Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commence
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/LASER/" class="status-tag">
@@ -2531,7 +2956,7 @@ Croûte dorée, mie moelleuse — un classique imbattable.Astuce four : commence
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidHHYudo0yV3w7wSQAdAxq9">
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidclFA887vtUTE_KaVn70nD">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -2580,12 +3005,12 @@ Analyse complète : physique, calculs, pr...</p>
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/contribute/" class="status-tag">
-                        🏷️contribute
-                    </a>
-                    
                     <a href="/tags/CLOUD/" class="status-tag">
                         🏷️CLOUD
+                    </a>
+                    
+                    <a href="/tags/contribute/" class="status-tag">
+                        🏷️contribute
                     </a>
                     
                     <a href="/tags/SpiritualCept/" class="status-tag">
@@ -2957,7 +3382,7 @@ Analyse complète : physique, calculs, pr...</p>
         
             
 
-<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidTSlUaIRGV4nvhS05y7gBD">
+<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidGT2VALVTp9EwAmHu7nNBF">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #00d4ff;">
         <div class="window-buttons">
@@ -3006,12 +3431,12 @@ Analyse complète : physique, calculs, pr...</p>
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/Reseau/" class="status-tag">
@@ -3383,7 +3808,7 @@ Analyse complète : physique, calculs, pr...</p>
         
             
 
-<article class="article-card gui-window Mood" style="--article-color: #f97316;" id="art-cuidFYIwPJW0C6C-KoTVg0iEn">
+<article class="article-card gui-window Mood" style="--article-color: #f97316;" id="art-cuid95N1gd3FDVsuinkfXdeWY">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -3810,7 +4235,7 @@ Un...</p>
         
             
 
-<article class="article-card gui-window Mind" style="--article-color: #f97316;" id="art-cuid2B-VOpw3aaKK6CP3QYUzt">
+<article class="article-card gui-window Mind" style="--article-color: #f97316;" id="art-cuidgiyqsGFcI9Hc9CrnFFy49">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -4236,7 +4661,7 @@ voix chantée (MP...</p>
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidAQRBqMtoTwX_62j-hNfLQ">
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidAKeMJwzGEf5mnHBjSMAN5">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -4285,12 +4710,12 @@ voix chantée (MP...</p>
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/FabLab/" class="status-tag">
@@ -4662,7 +5087,7 @@ voix chantée (MP...</p>
         
             
 
-<article class="article-card gui-window spiritualcept" style="--article-color: #f97316;" id="art-cuidcZ5L4Ar8Q-tgpUwf0okwj">
+<article class="article-card gui-window spiritualcept" style="--article-color: #f97316;" id="art-cuidGpJVQSKOFZGJRUxweZ9XJ">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -4712,12 +5137,12 @@ voix chantée (MP...</p>
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/LASER/" class="status-tag">
@@ -5089,7 +5514,7 @@ voix chantée (MP...</p>
         
             
 
-<article class="article-card gui-window embedded" style="--article-color: #9945ff;" id="art-cuidJDxg9o9ZnC5FMUvchrb2m">
+<article class="article-card gui-window embedded" style="--article-color: #9945ff;" id="art-cuid8vlqVnSUQ_Kng0YwJwLMA">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #9945ff;">
         <div class="window-buttons">
@@ -5142,12 +5567,12 @@ voix chantée (MP...</p>
                         🏷️ARM
                     </a>
                     
-                    <a href="/tags/contribute/" class="status-tag">
-                        🏷️contribute
+                    <a href="/tags/Aramada/" class="status-tag">
+                        🏷️Aramada
                     </a>
                     
-                    <a href="/tags/CLOUD/" class="status-tag">
-                        🏷️CLOUD
+                    <a href="/tags/NAS/" class="status-tag">
+                        🏷️NAS
                     </a>
                     
                 </div>
@@ -5157,434 +5582,6 @@ voix chantée (MP...</p>
         
         <!-- Bouton action -->
         <a href="/embedded/Cyber/EspressoBin_UEFI_Boot_Guide/" class="window-action-btn" style="background: #9945ff;">
-            <span class="action-icon">▶</span>
-            <span class="action-text">Lire la suite →</span>
-            <span class="action-arrow">→</span>
-        </a>
-    </div>
-</article>
-
-<style>
-/* Style fenêtre GUI */
-.article-card.gui-window {
-    position: relative;
-    background: var(--bg-primary);
-    border: 2px solid var(--article-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 
-        0 4px 20px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-}
-
-.article-card.gui-window:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 10px 40px rgba(0,0,0,0.5),
-        0 0 30px var(--article-color)30,
-        inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-/* Barre de titre */
-.window-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.75rem;
-    background: var(--article-color);
-    color: #000;
-    font-family: 'JetBrains Mono', 'Consolas', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    gap: 0.5rem;
-    min-height: 36px;
-}
-
-/* Boutons de fenêtre */
-.window-buttons {
-    display: flex;
-    gap: 6px;
-    flex-shrink: 0;
-}
-
-.window-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    font-size: 10px;
-    line-height: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.8;
-}
-
-.window-btn.close {
-    background: #ff5f57;
-    color: #ff5f57;
-}
-
-.window-btn.minimize {
-    background: #ffbd2e;
-    color: #ffbd2e;
-}
-
-.window-btn.maximize {
-    background: #28ca42;
-    color: #28ca42;
-}
-
-.window-btn:hover {
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-/* Titre de la fenêtre */
-.window-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.window-emojis {
-    display: flex;
-    gap: 2px;
-    animation: emojiPulse 2s ease-in-out infinite;
-}
-
-@keyframes emojiPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.window-category {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.window-separator {
-    opacity: 0.5;
-}
-
-.window-filename {
-    opacity: 0.7;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Lettrines dans la barre */
-.window-lettrines {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
-}
-
-.window-lettrines .lettrine {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 4px;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-}
-
-.window-lettrines .lettrine:hover {
-    background: rgba(0,0,0,0.4);
-    transform: scale(1.15);
-}
-
-/* Contenu de la fenêtre */
-.window-content {
-    padding: 1.25rem;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-}
-
-.article-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.4;
-}
-
-.article-title a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.article-title a:hover {
-    color: var(--article-color);
-}
-
-.article-excerpt {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-}
-
-/* Barre de status */
-.window-statusbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    margin: 0 -1.25rem;
-    background: var(--bg-tertiary);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.status-left {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.status-separator {
-    opacity: 0.3;
-}
-
-.status-right {
-    display: flex;
-    align-items: center;
-}
-
-.status-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.status-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    padding: 0.15rem 0.4rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 3px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.65rem;
-    transition: all 0.2s ease;
-}
-
-.status-tag:hover {
-    background: var(--article-color);
-    color: #000;
-    border-color: var(--article-color);
-}
-
-/* Bouton action */
-.window-action-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    background: var(--article-color);
-    color: #000;
-    text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.window-action-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.window-action-btn:hover::before {
-    left: 100%;
-}
-
-.window-action-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 15px var(--article-color)50;
-}
-
-.action-icon {
-    font-size: 0.7rem;
-}
-
-.action-arrow {
-    transition: transform 0.3s ease;
-}
-
-.window-action-btn:hover .action-arrow {
-    transform: translateX(5px);
-}
-
-/* Animation scanlines effet CRT */
-.article-card.gui-window::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,0,0,0.03),
-        rgba(0,0,0,0.03) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.article-card.gui-window:hover::after {
-    opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .window-titlebar {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.7rem;
-        flex-wrap: wrap;
-    }
-    
-    .window-filename {
-        display: none;
-    }
-    
-    .window-separator {
-        display: none;
-    }
-    
-    .window-lettrines {
-        display: none;
-    }
-    
-    .window-content {
-        padding: 1rem;
-    }
-    
-    .article-title {
-        font-size: 1rem;
-    }
-    
-    .article-excerpt {
-        font-size: 0.85rem;
-    }
-    
-    .window-statusbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.5rem;
-        margin: 0 -1rem;
-    }
-    
-    .status-tags {
-        margin-top: 0.25rem;
-    }
-}
-</style>
-
-        
-            
-
-<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidljksbsHJaU9qW4RDvGbhr">
-    <!-- Barre de titre style fenêtre GUI -->
-    <div class="window-titlebar" style="background: #00d4ff;">
-        <div class="window-buttons">
-            <span class="window-btn close" title="Fermer">●</span>
-            <span class="window-btn minimize" title="Réduire">●</span>
-            <span class="window-btn maximize" title="Agrandir">●</span>
-        </div>
-        <div class="window-title">
-            <span class="window-emojis">
-                🔐🛡️
-            </span>
-            <span class="window-category">Cybersécurité</span>
-            <span class="window-separator">—</span>
-            <span class="window-filename">ARM64 — MOCHABIN — EMMC / UEFI...</span>
-        </div>
-        <div class="window-lettrines">
-            
-            <span class="lettrine" title="GUIDE">📚</span>
-            
-            
-        </div>
-    </div>
-    
-    <!-- Contenu de la fenêtre -->
-    <div class="window-content">
-        <h3 class="article-title">
-            <a href="/cybersecurity/cybersecurity/Mochabin_eMMC_UEFI_TowBoot_Guide/">ARM64 — MOCHABIN — EMMC / UEFI Tow-Boot GUIDE</a>
-        </h3>
-        
-        
-        <p class="article-excerpt">⚙️ MOCHABIN — EMMC &#x2F; UEFI Tow-Boot GUIDE 🚀📅 Créé le : 10 octobre 2025💻 Matériel testé : Mochabin (Armada 7040 – MVEBU ARM64)🔗 Référence : Luke Granger-Brown — UEFI Boot for Mochabin  
-
-🧭 Obj...</p>
-        
-        
-        <!-- Barre de status style terminal -->
-        <div class="window-statusbar">
-            <div class="status-left">
-                <span class="status-date">
-                    📅 05/11/2025
-                </span>
-                <span class="status-separator">|</span>
-                <span class="status-time">
-                    🕐 20:00
-                </span>
-            </div>
-            <div class="status-right">
-                
-                <div class="status-tags">
-                    
-                    <a href="/tags/ARM/" class="status-tag">
-                        🏷️ARM
-                    </a>
-                    
-                    <a href="/tags/contribute/" class="status-tag">
-                        🏷️contribute
-                    </a>
-                    
-                    <a href="/tags/CLOUD/" class="status-tag">
-                        🏷️CLOUD
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        <!-- Bouton action -->
-        <a href="/cybersecurity/cybersecurity/Mochabin_eMMC_UEFI_TowBoot_Guide/" class="window-action-btn" style="background: #00d4ff;">
             <span class="action-icon">▶</span>
             <span class="action-text">Lire la suite →</span>
             <span class="action-arrow">→</span>

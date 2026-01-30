@@ -821,7 +821,431 @@
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuid-Uh3BVvPdo2Wf8MV-Fsox">
+<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuid2186j1j9KIvII0axM1dML">
+    <!-- Barre de titre style fenêtre GUI -->
+    <div class="window-titlebar" style="background: #00d4ff;">
+        <div class="window-buttons">
+            <span class="window-btn close" title="Fermer">●</span>
+            <span class="window-btn minimize" title="Réduire">●</span>
+            <span class="window-btn maximize" title="Agrandir">●</span>
+        </div>
+        <div class="window-title">
+            <span class="window-emojis">
+                🔐🛡️
+            </span>
+            <span class="window-category">Cybersécurité</span>
+            <span class="window-separator">—</span>
+            <span class="window-filename">Gk2.COM - Fournisseur Internet...</span>
+        </div>
+        <div class="window-lettrines">
+            
+            
+        </div>
+    </div>
+    
+    <!-- Contenu de la fenêtre -->
+    <div class="window-content">
+        <h3 class="article-title">
+            <a href="/cybersecurity/cybersecurity/Gk2-NET-04-juin-1998/">Gk2.COM - Fournisseur Internet - 04 juin 1998</a>
+        </h3>
+        
+        
+        <p class="article-excerpt">GK2.COM...</p>
+        
+        
+        <!-- Barre de status style terminal -->
+        <div class="window-statusbar">
+            <div class="status-left">
+                <span class="status-date">
+                    📅 04/06/1998
+                </span>
+                <span class="status-separator">|</span>
+                <span class="status-time">
+                    🕐 00:00
+                </span>
+            </div>
+            <div class="status-right">
+                
+                <div class="status-tags">
+                    
+                    <a href="/tags/FAST-BACK/" class="status-tag">
+                        🏷️FAST BACK
+                    </a>
+                    
+                    <a href="/tags/contribute/" class="status-tag">
+                        🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/GK2/" class="status-tag">
+                        🏷️GK2
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Bouton action -->
+        <a href="/cybersecurity/cybersecurity/Gk2-NET-04-juin-1998/" class="window-action-btn" style="background: #00d4ff;">
+            <span class="action-icon">▶</span>
+            <span class="action-text">Lire la suite →</span>
+            <span class="action-arrow">→</span>
+        </a>
+    </div>
+</article>
+
+<style>
+/* Style fenêtre GUI */
+.article-card.gui-window {
+    position: relative;
+    background: var(--bg-primary);
+    border: 2px solid var(--article-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.article-card.gui-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.5),
+        0 0 30px var(--article-color)30,
+        inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Barre de titre */
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--article-color);
+    color: #000;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    min-height: 36px;
+}
+
+/* Boutons de fenêtre */
+.window-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.window-btn.close {
+    background: #ff5f57;
+    color: #ff5f57;
+}
+
+.window-btn.minimize {
+    background: #ffbd2e;
+    color: #ffbd2e;
+}
+
+.window-btn.maximize {
+    background: #28ca42;
+    color: #28ca42;
+}
+
+.window-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Titre de la fenêtre */
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.window-emojis {
+    display: flex;
+    gap: 2px;
+    animation: emojiPulse 2s ease-in-out infinite;
+}
+
+@keyframes emojiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.window-category {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.window-separator {
+    opacity: 0.5;
+}
+
+.window-filename {
+    opacity: 0.7;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Lettrines dans la barre */
+.window-lettrines {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.window-lettrines .lettrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.window-lettrines .lettrine:hover {
+    background: rgba(0,0,0,0.4);
+    transform: scale(1.15);
+}
+
+/* Contenu de la fenêtre */
+.window-content {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.article-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+}
+
+.article-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-title a:hover {
+    color: var(--article-color);
+}
+
+.article-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+/* Barre de status */
+.window-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -1.25rem;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-separator {
+    opacity: 0.3;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0.15rem 0.4rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+}
+
+.status-tag:hover {
+    background: var(--article-color);
+    color: #000;
+    border-color: var(--article-color);
+}
+
+/* Bouton action */
+.window-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--article-color);
+    color: #000;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.window-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.window-action-btn:hover::before {
+    left: 100%;
+}
+
+.window-action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px var(--article-color)50;
+}
+
+.action-icon {
+    font-size: 0.7rem;
+}
+
+.action-arrow {
+    transition: transform 0.3s ease;
+}
+
+.window-action-btn:hover .action-arrow {
+    transform: translateX(5px);
+}
+
+/* Animation scanlines effet CRT */
+.article-card.gui-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article-card.gui-window:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .window-titlebar {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+        flex-wrap: wrap;
+    }
+    
+    .window-filename {
+        display: none;
+    }
+    
+    .window-separator {
+        display: none;
+    }
+    
+    .window-lettrines {
+        display: none;
+    }
+    
+    .window-content {
+        padding: 1rem;
+    }
+    
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .window-statusbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        margin: 0 -1rem;
+    }
+    
+    .status-tags {
+        margin-top: 0.25rem;
+    }
+}
+</style>
+
+        
+            
+
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidcS8D4Tt7DvrCx8WN_8FeO">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -876,8 +1300,8 @@
                         🏷️deuil
                     </a>
                     
-                    <a href="/tags/Patrimoine/" class="status-tag">
-                        🏷️Patrimoine
+                    <a href="/tags/folklore/" class="status-tag">
+                        🏷️folklore
                     </a>
                     
                 </div>
@@ -1245,7 +1669,7 @@
         
             
 
-<article class="article-card gui-window " style="--article-color: #f97316;" id="art-cuid0YmL1KUhzo38bCg8FCAEF">
+<article class="article-card gui-window " style="--article-color: #f97316;" id="art-cuidxg0sqXPhffHai3bzZ2zwC">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">

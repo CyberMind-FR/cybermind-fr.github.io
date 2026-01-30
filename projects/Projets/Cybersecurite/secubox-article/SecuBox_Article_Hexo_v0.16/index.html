@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Article d&#39;avancement du projet SecuBox v0.16 - Plateforme de sécurité réseau unifiée pour OpenWrt avec 38 modules LuCI, intégration CrowdSec/netifyd, et préparation du Hub P2P collaboratif.">
+<meta name="keywords" content="OpenWrt, LuCI, Open Source, SecuBox, CrowdSec, WireGuard, P2P, Cybersécurité">
+<meta name="author" content="G.Kerma">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SecuBox v0.16 — Article d&#39;Avancement &amp; Hub P2P">
+<meta property="og:description" content="Article d&#39;avancement du projet SecuBox v0.16 - Plateforme de sécurité réseau unifiée pour OpenWrt avec 38 modules LuCI, intégration CrowdSec/netifyd, et préparation du Hub P2P collaboratif.">
+<meta property="og:url" content="https://cybermind-fr.github.io/cybermind-fr/projects/Projets/Cybersecurite/secubox-article/SecuBox_Article_Hexo_v0.16/">
+<meta property="og:site_name" content="CyberMind.fr">
+<meta property="og:image" content="/images/secubox/portal_dashboard.png">
+<meta property="og:locale" content="fr">
+
+
+<meta property="article:published_time" content="2026-01-29T23:00:00.000Z">
+
+
+
+<meta property="article:modified_time" content="2026-01-29T23:00:00.000Z">
+
+
+
+
+<meta property="article:tag" content="OpenWrt">
+
+<meta property="article:tag" content="LuCI">
+
+<meta property="article:tag" content="Open Source">
+
+<meta property="article:tag" content="SecuBox">
+
+<meta property="article:tag" content="CrowdSec">
+
+<meta property="article:tag" content="WireGuard">
+
+<meta property="article:tag" content="P2P">
+
+<meta property="article:tag" content="Cybersécurité">
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecuBox v0.16 — Article d&#39;Avancement &amp; Hub P2P">
+<meta name="twitter:description" content="Article d&#39;avancement du projet SecuBox v0.16 - Plateforme de sécurité réseau unifiée pour OpenWrt avec 38 modules LuCI, intégration CrowdSec/netifyd, et préparation du Hub P2P collaboratif.">
+<meta name="twitter:image" content="/images/secubox/portal_dashboard.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cybermind-fr.github.io/cybermind-fr/projects/Projets/Cybersecurite/secubox-article/SecuBox_Article_Hexo_v0.16/">
+
+<!-- RSS Feed -->
+
+
+    
+    <title>SecuBox v0.16 — Article d&#39;Avancement &amp; Hub P2P | CyberMind.fr</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="main-wrapper">
+
+
+
+<nav id="mainNav">
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+        
+        <img src="/images/custom_logo.png" alt="CyberMind_" class="logo-img">
+        
+    </a>
+    
+    <!-- Actions (theme toggle + hamburger) -->
+    <div class="nav-actions">
+        
+        <button id="themeToggle" type="button" aria-label="Changer le thème" title="Mode clair/sombre">
+            <span class="theme-icon sun">☀️</span>
+            <span class="theme-icon moon">🌙</span>
+        </button>
+        
+        
+        <button id="menuToggle" type="button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <!-- Menu -->
+    <ul id="menuList">
+        
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li class="has-submenu">
+                        <a href="/blog/" class="menu-parent">
+                            Blog
+                            <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="submenu">
+                            
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/cybersecurity/">🛡️ Cybersécurité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/embedded/">⚙️ Embarqué</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/linux/">🐧 Linux</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/creative/">🎨 Créativité</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/philosophy/">🧘 Philosophie</a>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                    <a href="/blog/tutorials/">📖 Tutoriels</a>
+                                </li>
+                                
+                            
+                        </ul>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/apps/">Apps</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/services/">Services</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            
+                
+                
+                
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                
+            
+        
+        
+        
+        <li class="mobile-theme-toggle">
+            <button id="themeToggleMobile" type="button">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-label">Mode</span>
+            </button>
+        </li>
+        
+    </ul>
+</nav>
+
+<style>
+/* Variables dynamiques */
+:root {
+    --accent-color: #f97316;
+}
+
+#mainNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: var(--nav-bg, rgba(0, 0, 0, 0.98));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--nav-border, rgba(255,255,255,0.1));
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-logo .logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-logo .logo-symbol {
+    font-size: 1.2rem;
+}
+
+/* Actions container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme Toggle */
+#themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-bg, rgba(255,255,255,0.05));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.1));
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle:hover {
+    background: var(--toggle-bg-hover, rgba(255,255,255,0.1));
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+#themeToggle .theme-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+/* Dark mode: show moon */
+[data-theme="dark"] #themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light mode: show sun */
+[data-theme="light"] #themeToggle .sun { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme="light"] #themeToggle .moon { opacity: 0; transform: rotate(-90deg) scale(0); }
+
+/* Default state (before JS loads) */
+#themeToggle .sun { opacity: 0; transform: rotate(90deg) scale(0); }
+#themeToggle .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Hamburger Menu Toggle */
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+#menuToggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MENU LIST AVEC SUPPORT SOUS-MENUS
+   ══════════════════════════════════════════════════════════════ */
+
+#menuList {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#menuList > li {
+    position: relative;
+}
+
+#menuList > li > a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0;
+}
+
+#menuList > li > a:hover {
+    color: var(--accent-color);
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOUS-MENUS (DROPDOWN)
+   ══════════════════════════════════════════════════════════════ */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    background: var(--submenu-bg, #0a0a0f);
+    border: 1px solid var(--submenu-border, rgba(255,255,255,0.1));
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+
+/* Triangle pointer */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--submenu-border, rgba(255,255,255,0.1));
+}
+
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--submenu-bg, #0a0a0f);
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Submenu items */
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--nav-link, #9898a6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    background: var(--submenu-hover, rgba(249, 115, 22, 0.1));
+    padding-left: 1.5rem;
+}
+
+/* Active state */
+.submenu li.active a {
+    color: var(--accent-color);
+    background: var(--submenu-active, rgba(249, 115, 22, 0.15));
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    #mainNav {
+        padding: 1rem 1.5rem;
+    }
+    
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #menuToggle {
+        display: flex;
+    }
+    
+    #menuList {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--mobile-menu-bg, #0a0a0f);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 2rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 10000;
+        overflow-y: auto;
+        align-items: stretch;
+    }
+    
+    #menuList.open {
+        right: 0;
+    }
+    
+    #menuList > li {
+        width: 100%;
+        border-bottom: 1px solid var(--mobile-menu-border, rgba(255,255,255,0.1));
+    }
+    
+    #menuList > li > a {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+        color: var(--mobile-menu-link, #e8e8ed);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    
+    #menuList > li > a:hover,
+    #menuList > li > a:active {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    /* Mobile submenu - toujours visible, accordéon style */
+    .submenu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: auto;
+        width: 100%;
+        background: var(--mobile-submenu-bg, rgba(0,0,0,0.3));
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .has-submenu.open .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu a {
+        padding: 1rem 2rem 1rem 2.5rem;
+        font-size: 0.9rem;
+        border-left: 3px solid transparent;
+    }
+    
+    .submenu a:hover {
+        padding-left: 2.5rem;
+        border-left-color: var(--accent-color);
+    }
+    
+    /* Dropdown arrow rotation */
+    .dropdown-arrow {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .has-submenu.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile theme toggle dans menu */
+    .mobile-theme-toggle {
+        display: block !important;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-bottom: none !important;
+    }
+    
+    #themeToggleMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--mobile-menu-link, #e8e8ed);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    #themeToggleMobile:hover {
+        background: var(--mobile-menu-hover, rgba(249, 115, 22, 0.15));
+        color: var(--accent-color);
+    }
+    
+    #themeToggleMobile .theme-icon {
+        font-size: 1.2rem;
+    }
+    
+    [data-theme="dark"] #themeToggleMobile .sun { display: none; }
+    [data-theme="dark"] #themeToggleMobile .moon { display: inline; }
+    [data-theme="light"] #themeToggleMobile .sun { display: inline; }
+    [data-theme="light"] #themeToggleMobile .moon { display: none; }
+    
+    /* Hamburger animation */
+    #menuToggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    #menuToggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuToggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Overlay */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#menuOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] #mainNav {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] #menuList > li > a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .submenu::after {
+    border-bottom-color: #ffffff;
+}
+
+[data-theme="light"] .submenu a {
+    color: #4a4a5a;
+}
+
+[data-theme="light"] .submenu a:hover {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="light"] #themeToggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    [data-theme="light"] #menuList {
+        background: #ffffff;
+    }
+    
+    [data-theme="light"] #menuList > li {
+        border-bottom-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="light"] #menuList > li > a {
+        color: #2a2a3a;
+    }
+    
+    [data-theme="light"] .submenu {
+        background: rgba(0,0,0,0.03);
+    }
+    
+    [data-theme="light"] #themeToggleMobile {
+        color: #2a2a3a;
+    }
+}
+</style>
+
+<div id="menuOverlay"></div>
+
+<script>
+(function() {
+    // ═══════════════════════════════════════════════════════════════════════
+    // THEME MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    var STORAGE_KEY = 'cybermind-theme';
+    var DEFAULT_THEME = 'dark';
+    
+    function getStoredTheme() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+    
+    function setStoredTheme(theme) {
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
+    
+    function getPreferredTheme() {
+        var stored = getStoredTheme();
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+        return DEFAULT_THEME;
+    }
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        setStoredTheme(theme);
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
+    }
+    
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    // Apply theme immediately
+    setTheme(getPreferredTheme());
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════
+    // MENU MANAGER
+    // ═══════════════════════════════════════════════════════════════════════
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle buttons
+        var themeToggle = document.getElementById('themeToggle');
+        var themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu
+        var menuToggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('menuList');
+        var overlay = document.getElementById('menuOverlay');
+        
+        if (!menuToggle || !menu) return;
+        
+        function openMenu() {
+            menu.classList.add('open');
+            menuToggle.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+        // ═══════════════════════════════════════════════════════════════════
+        // MOBILE SUBMENU ACCORDÉON
+        // ═══════════════════════════════════════════════════════════════════
+        
+        var submenus = menu.querySelectorAll('.has-submenu');
+        
+        submenus.forEach(function(item) {
+            var parentLink = item.querySelector('.menu-parent');
+            
+            if (parentLink) {
+                parentLink.addEventListener('click', function(e) {
+                    // Sur mobile, toggle le sous-menu
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        
+                        // Fermer les autres sous-menus
+                        submenus.forEach(function(other) {
+                            if (other !== item) other.classList.remove('open');
+                        });
+                        
+                        // Toggle celui-ci
+                        item.classList.toggle('open');
+                    }
+                    // Sur desktop, laisser le lien fonctionner normalement
+                });
+            }
+        });
+        
+        // Close on regular link click
+        var links = menu.querySelectorAll('a:not(.menu-parent)');
+        links.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
+})();
+</script>
+
+
+
+
+
+<article class="post-article" style="--post-color: #f97316">
+  <header class="post-header">
+    
+    <div class="post-category">
+      <a href="/blog/projets/" style="color: #f97316">
+        📝 Projets
+      </a>
+    </div>
+    
+    
+    <h1 class="post-title">SecuBox v0.16 — Article d&#39;Avancement &amp; Hub P2P</h1>
+    
+    <div class="post-meta">
+      <span class="post-date">
+        📅 30 January 2026
+      </span>
+      
+      
+    </div>
+    
+    
+    <div class="post-tags-header">
+      
+      <a href="/tags/OpenWrt/" class="tag">#OpenWrt</a>
+      
+      <a href="/tags/LuCI/" class="tag">#LuCI</a>
+      
+      <a href="/tags/Open-Source/" class="tag">#Open Source</a>
+      
+      <a href="/tags/SecuBox/" class="tag">#SecuBox</a>
+      
+      <a href="/tags/CrowdSec/" class="tag">#CrowdSec</a>
+      
+      <a href="/tags/WireGuard/" class="tag">#WireGuard</a>
+      
+      <a href="/tags/P2P/" class="tag">#P2P</a>
+      
+      <a href="/tags/Cybersecurite/" class="tag">#Cybersécurité</a>
+      
+    </div>
+    
+  </header>
+  
+  <div class="post-content">
+    <h1 id="🛡️-SecuBox-—-Article-d’Avancement-v0-16"><a href="#🛡️-SecuBox-—-Article-d’Avancement-v0-16" class="headerlink" title="🛡️ SecuBox — Article d’Avancement v0.16"></a>🛡️ SecuBox — Article d’Avancement v0.16</h1><p><strong>Unified Network Security Platform for OpenWrt</strong></p>
+<blockquote>
+<p>🚀 <em>L’appliance de cybersécurité 100% open source qui embarque wizard, profils et App Store sur OpenWrt 24.10.</em></p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="📋-Introduction"><a href="#📋-Introduction" class="headerlink" title="📋 Introduction"></a>📋 Introduction</h2><p>SecuBox est une plateforme de sécurité réseau unifiée conçue pour les routeurs OpenWrt. Le projet vise à démocratiser la cybersécurité de niveau professionnel en intégrant des technologies de pointe dans une interface accessible, tout en préparant une <strong>certification ANSSI</strong>.</p>
+<p>Ce document présente l’état d’avancement à la version 0.16, l’évolution de l’architecture, et les perspectives pour le <strong>Hub P2P collaboratif</strong>.</p>
+<h3 id="📊-Statistiques-du-Projet"><a href="#📊-Statistiques-du-Projet" class="headerlink" title="📊 Statistiques du Projet"></a>📊 Statistiques du Projet</h3><table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🏷️ <strong>Version</strong></td>
+<td>0.16.0</td>
+</tr>
+<tr>
+<td>📦 <strong>Modules LuCI</strong></td>
+<td>38 applications</td>
+</tr>
+<tr>
+<td>💾 <strong>Commits</strong></td>
+<td>724+</td>
+</tr>
+<tr>
+<td>🖥️ <strong>Architectures</strong></td>
+<td>10 cibles (ARM64, ARM32, MIPS, x86)</td>
+</tr>
+<tr>
+<td>📜 <strong>Licence</strong></td>
+<td>Apache 2.0</td>
+</tr>
+</tbody></table>
+
+
+<hr>
+<h2 id="📚-Catalogue-des-Modules-38-Applications-LuCI"><a href="#📚-Catalogue-des-Modules-38-Applications-LuCI" class="headerlink" title="📚 Catalogue des Modules (38 Applications LuCI)"></a>📚 Catalogue des Modules (38 Applications LuCI)</h2><h3 id="🎯-SecuBox-Core-5-modules"><a href="#🎯-SecuBox-Core-5-modules" class="headerlink" title="🎯 SecuBox Core (5 modules)"></a>🎯 SecuBox Core (5 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🏠 <strong>luci-app-secubox</strong></td>
+<td>0.7.1</td>
+<td>Central dashboard&#x2F;Hub for all SecuBox modules</td>
+</tr>
+<tr>
+<td>🚪 <strong>luci-app-secubox-portal</strong></td>
+<td>0.7.0</td>
+<td>Unified entry point with tabbed navigation</td>
+</tr>
+<tr>
+<td>⚙️ <strong>luci-app-secubox-admin</strong></td>
+<td>1.0.0</td>
+<td>Admin control center with appstore and monitoring</td>
+</tr>
+<tr>
+<td>📖 <strong>luci-app-secubox-bonus</strong></td>
+<td>0.2.0</td>
+<td>Documentation, local repo, and app store</td>
+</tr>
+<tr>
+<td>🔧 <strong>luci-app-system-hub</strong></td>
+<td>0.5.1</td>
+<td>Central system control with logs and backup</td>
+</tr>
+</tbody></table>
+<h3 id="🔒-Security-Threat-Management-9-modules"><a href="#🔒-Security-Threat-Management-9-modules" class="headerlink" title="🔒 Security &amp; Threat Management (9 modules)"></a>🔒 Security &amp; Threat Management (9 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🛡️ <strong>luci-app-crowdsec-dashboard</strong></td>
+<td>0.7.0</td>
+<td>Real-time CrowdSec security monitoring</td>
+</tr>
+<tr>
+<td>🎯 <strong>luci-app-secubox-security-threats</strong></td>
+<td>1.0.0</td>
+<td>Unified netifyd DPI + CrowdSec intelligence</td>
+</tr>
+<tr>
+<td>👨‍👩‍👧 <strong>luci-app-client-guardian</strong></td>
+<td>0.4.0</td>
+<td>Network access, captive portal, parental controls</td>
+</tr>
+<tr>
+<td>🔐 <strong>luci-app-auth-guardian</strong></td>
+<td>0.4.0</td>
+<td>OAuth2&#x2F;OIDC authentication, voucher system</td>
+</tr>
+<tr>
+<td>🌐 <strong>luci-app-exposure</strong></td>
+<td>1.0.0</td>
+<td>Service exposure manager</td>
+</tr>
+<tr>
+<td>🧅 <strong>luci-app-tor-shield</strong></td>
+<td>1.0.0</td>
+<td>Tor anonymization dashboard</td>
+</tr>
+<tr>
+<td>🔍 <strong>luci-app-mitmproxy</strong></td>
+<td>0.4.0</td>
+<td>HTTPS traffic inspection</td>
+</tr>
+<tr>
+<td>📰 <strong>luci-app-cyberfeed</strong></td>
+<td>0.1.1</td>
+<td>Cyberpunk RSS feed aggregator</td>
+</tr>
+<tr>
+<td>🔑 <strong>luci-app-ksm-manager</strong></td>
+<td>0.4.0</td>
+<td>Cryptographic key&#x2F;HSM management</td>
+</tr>
+</tbody></table>
+<h3 id="🔬-Deep-Packet-Inspection-2-modules"><a href="#🔬-Deep-Packet-Inspection-2-modules" class="headerlink" title="🔬 Deep Packet Inspection (2 modules)"></a>🔬 Deep Packet Inspection (2 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📡 <strong>luci-app-ndpid</strong></td>
+<td>1.1.2</td>
+<td>nDPId deep packet inspection dashboard</td>
+</tr>
+<tr>
+<td>📊 <strong>luci-app-secubox-netifyd</strong></td>
+<td>1.2.1</td>
+<td>netifyd DPI with real-time flow monitoring</td>
+</tr>
+</tbody></table>
+<h3 id="🌐-Network-Connectivity-8-modules"><a href="#🌐-Network-Connectivity-8-modules" class="headerlink" title="🌐 Network &amp; Connectivity (8 modules)"></a>🌐 Network &amp; Connectivity (8 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🔀 <strong>luci-app-vhost-manager</strong></td>
+<td>0.5.0</td>
+<td>Nginx reverse proxy with Let’s Encrypt SSL</td>
+</tr>
+<tr>
+<td>⚖️ <strong>luci-app-haproxy</strong></td>
+<td>1.0.0</td>
+<td>Load balancer with vhosts and SSL</td>
+</tr>
+<tr>
+<td>🔒 <strong>luci-app-wireguard-dashboard</strong></td>
+<td>0.7.0</td>
+<td>WireGuard VPN monitoring</td>
+</tr>
+<tr>
+<td>📶 <strong>luci-app-network-modes</strong></td>
+<td>0.5.0</td>
+<td>Sniffer, AP, Relay, Router modes</td>
+</tr>
+<tr>
+<td>🔧 <strong>luci-app-network-tweaks</strong></td>
+<td>1.0.0</td>
+<td>Auto Proxy DNS &amp; Hosts from vhosts</td>
+</tr>
+<tr>
+<td>📱 <strong>luci-app-mqtt-bridge</strong></td>
+<td>0.4.0</td>
+<td>USB-to-MQTT IoT hub</td>
+</tr>
+<tr>
+<td>💨 <strong>luci-app-cdn-cache</strong></td>
+<td>0.5.0</td>
+<td>Content delivery optimization</td>
+</tr>
+<tr>
+<td>🎬 <strong>luci-app-media-flow</strong></td>
+<td>0.6.4</td>
+<td>Streaming detection (Netflix, YouTube, Spotify)</td>
+</tr>
+</tbody></table>
+<h3 id="📈-Bandwidth-Traffic-Management-2-modules"><a href="#📈-Bandwidth-Traffic-Management-2-modules" class="headerlink" title="📈 Bandwidth &amp; Traffic Management (2 modules)"></a>📈 Bandwidth &amp; Traffic Management (2 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📊 <strong>luci-app-bandwidth-manager</strong></td>
+<td>0.5.0</td>
+<td>QoS rules, client quotas, SQM integration</td>
+</tr>
+<tr>
+<td>🚦 <strong>luci-app-traffic-shaper</strong></td>
+<td>0.4.0</td>
+<td>TC&#x2F;CAKE traffic shaping</td>
+</tr>
+</tbody></table>
+<h3 id="🌍-Content-Web-Platforms-5-modules"><a href="#🌍-Content-Web-Platforms-5-modules" class="headerlink" title="🌍 Content &amp; Web Platforms (5 modules)"></a>🌍 Content &amp; Web Platforms (5 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🐙 <strong>luci-app-gitea</strong></td>
+<td>1.0.0</td>
+<td>Gitea Platform management</td>
+</tr>
+<tr>
+<td>📝 <strong>luci-app-hexojs</strong></td>
+<td>1.0.0</td>
+<td>Hexo static site generator</td>
+</tr>
+<tr>
+<td>⚗️ <strong>luci-app-metabolizer</strong></td>
+<td>1.0.0</td>
+<td>Metabolizer CMS support</td>
+</tr>
+<tr>
+<td>🪞 <strong>luci-app-magicmirror2</strong></td>
+<td>0.4.0</td>
+<td>MagicMirror2 smart display</td>
+</tr>
+<tr>
+<td>📦 <strong>luci-app-mmpm</strong></td>
+<td>0.2.0</td>
+<td>MagicMirror Package Manager</td>
+</tr>
+</tbody></table>
+<h3 id="🤖-AI-LLM-Analytics-4-modules"><a href="#🤖-AI-LLM-Analytics-4-modules" class="headerlink" title="🤖 AI&#x2F;LLM &amp; Analytics (4 modules)"></a>🤖 AI&#x2F;LLM &amp; Analytics (4 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🧠 <strong>luci-app-localai</strong></td>
+<td>0.1.0</td>
+<td>LocalAI LLM management</td>
+</tr>
+<tr>
+<td>🦙 <strong>luci-app-ollama</strong></td>
+<td>0.1.0</td>
+<td>Ollama LLM management</td>
+</tr>
+<tr>
+<td>👁️ <strong>luci-app-glances</strong></td>
+<td>1.0.0</td>
+<td>Glances system monitoring</td>
+</tr>
+<tr>
+<td>📈 <strong>luci-app-netdata-dashboard</strong></td>
+<td>0.5.0</td>
+<td>Real-time Netdata monitoring</td>
+</tr>
+</tbody></table>
+<h3 id="🎛️-Streaming-Data-Processing-2-modules"><a href="#🎛️-Streaming-Data-Processing-2-modules" class="headerlink" title="🎛️ Streaming &amp; Data Processing (2 modules)"></a>🎛️ Streaming &amp; Data Processing (2 modules)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📊 <strong>luci-app-streamlit</strong></td>
+<td>1.0.0</td>
+<td>Streamlit Platform management</td>
+</tr>
+<tr>
+<td>🍺 <strong>luci-app-picobrew</strong></td>
+<td>1.0.0</td>
+<td>PicoBrew Server management</td>
+</tr>
+</tbody></table>
+<h3 id="🏠-IoT-Smart-Devices-1-module"><a href="#🏠-IoT-Smart-Devices-1-module" class="headerlink" title="🏠 IoT &amp; Smart Devices (1 module)"></a>🏠 IoT &amp; Smart Devices (1 module)</h3><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📡 <strong>luci-app-zigbee2mqtt</strong></td>
+<td>1.0.0</td>
+<td>Zigbee2MQTT docker management</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🖥️-Etat-Actuel-—-Instance-C3BOX"><a href="#🖥️-Etat-Actuel-—-Instance-C3BOX" class="headerlink" title="🖥️ État Actuel — Instance C3BOX"></a>🖥️ État Actuel — Instance C3BOX</h2><h3 id="📊-Infrastructure-Deployee"><a href="#📊-Infrastructure-Deployee" class="headerlink" title="📊 Infrastructure Déployée"></a>📊 Infrastructure Déployée</h3><p>L’instance de référence <strong>C3BOX</strong> (Globalscale MOCHAbin) démontre la maturité du projet avec une infrastructure complète opérationnelle :</p>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Statut</th>
+<th>Détails</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⚡ Services actifs</td>
+<td>31 running</td>
+<td>13 publiés via HAProxy</td>
+</tr>
+<tr>
+<td>🌐 Domaines gérés</td>
+<td>11 domaines</td>
+<td>Certificats SSL automatiques (87+ jours)</td>
+</tr>
+<tr>
+<td>🧅 Services Tor</td>
+<td>2 onions</td>
+<td>Privacy-first endpoints</td>
+</tr>
+<tr>
+<td>🚪 Ports exposés</td>
+<td>47 ports</td>
+<td>Firewall CrowdSec actif</td>
+</tr>
+<tr>
+<td>🛡️ Protection</td>
+<td>3 613 paquets</td>
+<td>Bloqués par le firewall</td>
+</tr>
+</tbody></table>
+<h3 id="🚀-Performance-Reseau"><a href="#🚀-Performance-Reseau" class="headerlink" title="🚀 Performance Réseau"></a>🚀 Performance Réseau</h3>
+
+<hr>
+<h2 id="🔒-Security-Stack"><a href="#🔒-Security-Stack" class="headerlink" title="🔒 Security Stack"></a>🔒 Security Stack</h2><h3 id="🎯-Threat-Monitor-v1-0-0"><a href="#🎯-Threat-Monitor-v1-0-0" class="headerlink" title="🎯 Threat Monitor (v1.0.0)"></a>🎯 Threat Monitor (v1.0.0)</h3><p>Intégration <strong>netifyd DPI + CrowdSec</strong> pour détection temps réel avec score de risque 0-100. Le dashboard unifié présente l’état du firewall, les connexions bloquées, et les menaces actives.</p>
+
+
+
+
+<h3 id="🛡️-CrowdSec-Dashboard-v0-7-0"><a href="#🛡️-CrowdSec-Dashboard-v0-7-0" class="headerlink" title="🛡️ CrowdSec Dashboard (v0.7.0)"></a>🛡️ CrowdSec Dashboard (v0.7.0)</h3><p>Gestion complète de l’écosystème CrowdSec : bouncers, alertes, décisions, et threat intelligence communautaire.</p>
+
+
+<h3 id="🔐-WireGuard-Manager-v0-7-0"><a href="#🔐-WireGuard-Manager-v0-7-0" class="headerlink" title="🔐 WireGuard Manager (v0.7.0)"></a>🔐 WireGuard Manager (v0.7.0)</h3><p>Gestion VPN complète avec génération de QR codes, monitoring des peers en temps réel, et statistiques de trafic.</p>
+
+
+
+
+
+
+
+
+<hr>
+<h2 id="🌐-Platform-Services"><a href="#🌐-Platform-Services" class="headerlink" title="🌐 Platform Services"></a>🌐 Platform Services</h2><h3 id="📝-MetaBlogizer-—-Web-Hosting"><a href="#📝-MetaBlogizer-—-Web-Hosting" class="headerlink" title="📝 MetaBlogizer — Web Hosting"></a>📝 MetaBlogizer — Web Hosting</h3><p>Hébergement multi-sites avec uhttpd&#x2F;HAProxy, vérification DNS automatique, et gestion des certificats SSL.</p>
+
+
+<h3 id="📋-Service-Registry"><a href="#📋-Service-Registry" class="headerlink" title="📋 Service Registry"></a>📋 Service Registry</h3><p>Vue unifiée de tous les services avec URL Readiness Checker et gestion HAProxy&#x2F;Tor intégrée.</p>
+
+
+
+
+<h3 id="📊-Streamlit-Platform-v1-0-0"><a href="#📊-Streamlit-Platform-v1-0-0" class="headerlink" title="📊 Streamlit Platform (v1.0.0)"></a>📊 Streamlit Platform (v1.0.0)</h3><p>Hébergement d’applications data&#x2F;ML avec gestion des instances, déploiement et publication HAProxy.</p>
+
+
+
+
+
+
+<h3 id="🧠-LocalAI-Integration-v0-1-0"><a href="#🧠-LocalAI-Integration-v0-1-0" class="headerlink" title="🧠 LocalAI Integration (v0.1.0)"></a>🧠 LocalAI Integration (v0.1.0)</h3><p>LLM local avec llama-cpp, modèles pré-configurés pour inférence embarquée.</p>
+
+
+
+
+<hr>
+<h2 id="🛠️-Workflow-de-Developpement"><a href="#🛠️-Workflow-de-Developpement" class="headerlink" title="🛠️ Workflow de Développement"></a>🛠️ Workflow de Développement</h2><p>Le développement s’appuie sur <strong>Claude Code</strong> pour l’assistance au codage, avec un pipeline de build et déploiement automatisé vers le routeur.</p>
+
+
+<hr>
+<h2 id="🏗️-Evolution-de-l’Architecture"><a href="#🏗️-Evolution-de-l’Architecture" class="headerlink" title="🏗️ Évolution de l’Architecture"></a>🏗️ Évolution de l’Architecture</h2><h3 id="📐-Architecture-Actuelle-v0-16"><a href="#📐-Architecture-Actuelle-v0-16" class="headerlink" title="📐 Architecture Actuelle (v0.16)"></a>📐 Architecture Actuelle (v0.16)</h3><p>L’architecture actuelle suit un modèle centralisé où chaque instance SecuBox fonctionne de manière autonome :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────┐</span><br><span class="line">│              SecuBox Instance (C3BOX)                   │</span><br><span class="line">│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐    │</span><br><span class="line">│  │CrowdSec │  │ Netifyd │  │ HAProxy │  │WireGuard│    │</span><br><span class="line">│  └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘    │</span><br><span class="line">│       └──────────┴──────────┴──────────┘               │</span><br><span class="line">│                      │ LuCI SecuBox                     │</span><br><span class="line">│                      ▼                                  │</span><br><span class="line">│           ┌──────────────────────┐                      │</span><br><span class="line">│           │   SecuBox Portal     │                      │</span><br><span class="line">└───────────┴──────────────────────┴──────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Points-Forts-Actuels"><a href="#✅-Points-Forts-Actuels" class="headerlink" title="✅ Points Forts Actuels"></a>✅ Points Forts Actuels</h3><ul>
+<li>🔋 <strong>Autonomie complète</strong> — Chaque box fonctionne indépendamment</li>
+<li>🎨 <strong>Interface unifiée</strong> — Portal SecuBox + modules LuCI cohérents</li>
+<li>🛡️ <strong>Sécurité intégrée</strong> — CrowdSec + DPI + Firewall synchronisés</li>
+<li>🔄 <strong>Flexibilité</strong> — Modes proxy (Direct, CDN Cache, Tor, MITM)</li>
+</ul>
+<hr>
+<h2 id="🚀-Next-Step-Hub-P2P-Collaboratif"><a href="#🚀-Next-Step-Hub-P2P-Collaboratif" class="headerlink" title="🚀 Next Step : Hub P2P Collaboratif"></a>🚀 Next Step : Hub P2P Collaboratif</h2><h3 id="🎯-Vision"><a href="#🎯-Vision" class="headerlink" title="🎯 Vision"></a>🎯 Vision</h3><p>L’évolution majeure de SecuBox consiste à transformer les instances isolées en un <strong>réseau collaboratif décentralisé</strong>. Le <strong>Hub P2P</strong> permettra aux SecuBox de partager intelligence, ressources et services tout en préservant la souveraineté de chaque nœud.</p>
+<h3 id="🌐-Architecture-Cible"><a href="#🌐-Architecture-Cible" class="headerlink" title="🌐 Architecture Cible"></a>🌐 Architecture Cible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────────┐</span><br><span class="line">│                    SecuBox P2P Network                          │</span><br><span class="line">│                                                                 │</span><br><span class="line">│     ┌──────────┐         ┌──────────┐         ┌──────────┐     │</span><br><span class="line">│     │SecuBox A │◄───────►│SecuBox B │◄───────►│SecuBox C │     │</span><br><span class="line">│     │  (Home)  │         │ (Office) │         │  (Lab)   │     │</span><br><span class="line">│     └────┬─────┘         └────┬─────┘         └────┬─────┘     │</span><br><span class="line">│          │                    │                    │           │</span><br><span class="line">│          └────────────────────┼────────────────────┘           │</span><br><span class="line">│                               │                                │</span><br><span class="line">│                    ┌──────────▼──────────┐                     │</span><br><span class="line">│                    │   P2P Hub Protocol   │                    │</span><br><span class="line">│                    │  ┌────────────────┐  │                    │</span><br><span class="line">│                    │  │ 🎯 Threat Intel │  │                    │</span><br><span class="line">│                    │  │ ⚙️ Config Sync  │  │                    │</span><br><span class="line">│                    │  │ 🔗 Service Mesh │  │                    │</span><br><span class="line">│                    │  └────────────────┘  │                    │</span><br><span class="line">└────────────────────┴──────────────────────┴────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔧-Fonctionnalites-du-Hub-P2P"><a href="#🔧-Fonctionnalites-du-Hub-P2P" class="headerlink" title="🔧 Fonctionnalités du Hub P2P"></a>🔧 Fonctionnalités du Hub P2P</h3><h4 id="🎯-1-Threat-Intelligence-Distribuee"><a href="#🎯-1-Threat-Intelligence-Distribuee" class="headerlink" title="🎯 1. Threat Intelligence Distribuée"></a>🎯 1. Threat Intelligence Distribuée</h4><ul>
+<li>📤 Partage automatique des IOCs (Indicators of Compromise) entre nœuds de confiance</li>
+<li>🔗 Extension du modèle CrowdSec avec intelligence privée inter-SecuBox</li>
+<li>🚫 Blocage préemptif basé sur les détections du réseau</li>
+<li>⭐ Scoring de réputation des nœuds participants</li>
+</ul>
+<h4 id="⚙️-2-Configuration-Synchronisee"><a href="#⚙️-2-Configuration-Synchronisee" class="headerlink" title="⚙️ 2. Configuration Synchronisée"></a>⚙️ 2. Configuration Synchronisée</h4><ul>
+<li>📋 Templates de configuration partagés entre sites</li>
+<li>🚀 Déploiement centralisé avec exécution distribuée</li>
+<li>↩️ Versioning et rollback automatique</li>
+<li>📜 Gestion des politiques de sécurité à l’échelle du réseau</li>
+</ul>
+<h4 id="🔗-3-Service-Mesh-Prive"><a href="#🔗-3-Service-Mesh-Prive" class="headerlink" title="🔗 3. Service Mesh Privé"></a>🔗 3. Service Mesh Privé</h4><ul>
+<li>🔒 Interconnexion WireGuard automatique entre SecuBox</li>
+<li>🔍 Service discovery décentralisé</li>
+<li>⚖️ Load balancing inter-sites</li>
+<li>🔄 Failover automatique</li>
+</ul>
+<h3 id="🛠️-Stack-Technique-Envisagee"><a href="#🛠️-Stack-Technique-Envisagee" class="headerlink" title="🛠️ Stack Technique Envisagée"></a>🛠️ Stack Technique Envisagée</h3><table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Technologie</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🔒 Transport</td>
+<td>WireGuard + Noise Protocol</td>
+<td>Tunnels chiffrés E2E</td>
+</tr>
+<tr>
+<td>🔍 Discovery</td>
+<td>mDNS &#x2F; DHT</td>
+<td>Découverte des pairs</td>
+</tr>
+<tr>
+<td>🤝 Consensus</td>
+<td>CRDT &#x2F; Raft léger</td>
+<td>Sync état distribué</td>
+</tr>
+<tr>
+<td>📨 Messaging</td>
+<td>MQTT &#x2F; ZeroMQ</td>
+<td>Communication asynchrone</td>
+</tr>
+<tr>
+<td>🔑 Identity</td>
+<td>Ed25519 + X.509</td>
+<td>Authentification mutuelle</td>
+</tr>
+<tr>
+<td>💾 Storage</td>
+<td>SQLite + Sync</td>
+<td>Données locales répliquées</td>
+</tr>
+</tbody></table>
+<h3 id="🤝-Modele-de-Confiance"><a href="#🤝-Modele-de-Confiance" class="headerlink" title="🤝 Modèle de Confiance"></a>🤝 Modèle de Confiance</h3><p>Le Hub P2P repose sur un modèle de confiance explicite :</p>
+<ol>
+<li>📨 <strong>Invitation explicite</strong> — Les nœuds rejoignent le réseau uniquement sur invitation cryptographique</li>
+<li>📊 <strong>Niveaux de partage</strong> — Chaque nœud définit ce qu’il partage (threat intel seulement, configs, services…)</li>
+<li>❌ <strong>Révocation instantanée</strong> — Exclusion immédiate d’un nœud compromis</li>
+<li>📝 <strong>Audit trail</strong> — Traçabilité de toutes les interactions</li>
+</ol>
+<hr>
+<h2 id="🗓️-Roadmap"><a href="#🗓️-Roadmap" class="headerlink" title="🗓️ Roadmap"></a>🗓️ Roadmap</h2><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Période</th>
+<th>Objectifs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🏗️ v0.17 - Foundation</td>
+<td>Q1 2026</td>
+<td>Hub daemon, discovery local, pairing initial</td>
+</tr>
+<tr>
+<td>🎯 v0.18 - Threat Sharing</td>
+<td>Q2 2026</td>
+<td>Partage IOCs, scoring réputation, alertes distribuées</td>
+</tr>
+<tr>
+<td>⚙️ v0.19 - Config Sync</td>
+<td>Q3 2026</td>
+<td>Templates partagés, déploiement coordonné</td>
+</tr>
+<tr>
+<td>🔗 v0.20 - Service Mesh</td>
+<td>Q4 2026</td>
+<td>Interconnexion services, load balancing, HA</td>
+</tr>
+<tr>
+<td>🎉 v1.0 - Production</td>
+<td>2027</td>
+<td>Certification ANSSI, documentation complète</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🖥️-Architectures-Supportees"><a href="#🖥️-Architectures-Supportees" class="headerlink" title="🖥️ Architectures Supportées"></a>🖥️ Architectures Supportées</h2><h3 id="💪-ARM-64-bit-AArch64"><a href="#💪-ARM-64-bit-AArch64" class="headerlink" title="💪 ARM 64-bit (AArch64)"></a>💪 ARM 64-bit (AArch64)</h3><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Devices</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>aarch64-cortex-a53</code></td>
+<td>ESPRESSObin, BananaPi R64</td>
+</tr>
+<tr>
+<td><code>aarch64-cortex-a72</code></td>
+<td><strong>MOCHAbin</strong> ⭐, Raspberry Pi 4, NanoPi R4S</td>
+</tr>
+<tr>
+<td><code>mediatek-filogic</code></td>
+<td>GL.iNet MT3000, BananaPi R3</td>
+</tr>
+<tr>
+<td><code>rockchip-armv8</code></td>
+<td>NanoPi R4S&#x2F;R5S, FriendlyARM</td>
+</tr>
+<tr>
+<td><code>bcm27xx-bcm2711</code></td>
+<td>Raspberry Pi 4, Compute Module 4</td>
+</tr>
+</tbody></table>
+<h3 id="🔧-ARM-32-bit"><a href="#🔧-ARM-32-bit" class="headerlink" title="🔧 ARM 32-bit"></a>🔧 ARM 32-bit</h3><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Devices</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>arm-cortex-a7-neon</code></td>
+<td>Orange Pi, BananaPi, Allwinner</td>
+</tr>
+<tr>
+<td><code>arm-cortex-a9-neon</code></td>
+<td>Linksys WRT, Turris Omnia</td>
+</tr>
+<tr>
+<td><code>qualcomm-ipq40xx</code></td>
+<td>Google WiFi, Zyxel NBG6617</td>
+</tr>
+</tbody></table>
+<h3 id="🔌-MIPS-x86"><a href="#🔌-MIPS-x86" class="headerlink" title="🔌 MIPS &amp; x86"></a>🔌 MIPS &amp; x86</h3><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Devices</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mips-24kc</code></td>
+<td>TP-Link Archer, Ubiquiti</td>
+</tr>
+<tr>
+<td><code>mipsel-24kc</code></td>
+<td>Xiaomi, GL.iNet, Netgear</td>
+</tr>
+<tr>
+<td><code>x86-64</code></td>
+<td>PC, VMs, Docker, Proxmox</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📁-Structure-du-Repository"><a href="#📁-Structure-du-Repository" class="headerlink" title="📁 Structure du Repository"></a>📁 Structure du Repository</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">secubox-openwrt/</span><br><span class="line">├── 📦 package/secubox/           <span class="comment"># All 38 SecuBox LuCI packages</span></span><br><span class="line">│   ├── luci-app-secubox/         <span class="comment"># Core hub</span></span><br><span class="line">│   ├── luci-app-secubox-portal/</span><br><span class="line">│   ├── luci-app-crowdsec-dashboard/</span><br><span class="line">│   ├── luci-app-wireguard-dashboard/</span><br><span class="line">│   └── ... (38 modules total)</span><br><span class="line">├── 🛠️ secubox-tools/             <span class="comment"># Build tools and local SDK</span></span><br><span class="line">│   ├── local-build.sh            <span class="comment"># Local package builder</span></span><br><span class="line">│   ├── validate-modules.sh       <span class="comment"># Module validation</span></span><br><span class="line">│   └── sdk/                      <span class="comment"># OpenWrt SDK</span></span><br><span class="line">├── 📚 DOCS/                      <span class="comment"># Documentation</span></span><br><span class="line">├── ⚙️ .github/workflows/         <span class="comment"># CI/CD GitHub Actions</span></span><br><span class="line">├── 🤖 CLAUDE.md                  <span class="comment"># AI coding guidelines</span></span><br><span class="line">└── 📋 CHANGELOG.md               <span class="comment"># Version history</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="📥-Installation"><a href="#📥-Installation" class="headerlink" title="📥 Installation"></a>📥 Installation</h2><h3 id="📦-From-Pre-built-Packages"><a href="#📦-From-Pre-built-Packages" class="headerlink" title="📦 From Pre-built Packages"></a>📦 From Pre-built Packages</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install luci-app-secubox-portal_*.ipk</span><br><span class="line">opkg install luci-app-system-hub_*.ipk</span><br><span class="line">opkg install luci-app-crowdsec-dashboard_*.ipk</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔗-Add-as-OpenWrt-Feed"><a href="#🔗-Add-as-OpenWrt-Feed" class="headerlink" title="🔗 Add as OpenWrt Feed"></a>🔗 Add as OpenWrt Feed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add to feeds.conf.default</span></span><br><span class="line">src-git secubox https://github.com/CyberMind-FR/secubox-openwrt.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install</span></span><br><span class="line">./scripts/feeds update secubox</span><br><span class="line">./scripts/feeds install -a -p secubox</span><br><span class="line">make menuconfig  <span class="comment"># Select under LuCI &gt; Applications</span></span><br><span class="line">make V=s</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🎯-Conclusion"><a href="#🎯-Conclusion" class="headerlink" title="🎯 Conclusion"></a>🎯 Conclusion</h2><p>SecuBox v0.16 marque une étape importante avec une plateforme de sécurité <strong>complète et fonctionnelle</strong>. L’architecture modulaire mise en place permet désormais d’envisager l’évolution vers un réseau collaboratif P2P.</p>
+<p>Le <strong>Hub P2P</strong> représente une innovation significative dans le domaine des appliances de sécurité réseau, combinant la philosophie open-source de CrowdSec avec une approche décentralisée permettant aux organisations de créer leurs propres réseaux de confiance.</p>
+<p>Cette évolution positionne SecuBox comme une solution unique alliant :</p>
+<ul>
+<li>🛡️ <strong>Sécurité professionnelle</strong></li>
+<li>🔒 <strong>Respect de la vie privée</strong></li>
+<li>🤝 <strong>Collaboration communautaire</strong></li>
+</ul>
+<p>… tout en restant accessible aux structures de toute taille grâce à son déploiement sur matériel standard OpenWrt.</p>
+<hr>
+<h2 id="🔗-Ressources"><a href="#🔗-Ressources" class="headerlink" title="🔗 Ressources"></a>🔗 Ressources</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Lien</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🐙 <strong>GitHub</strong></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/CyberMind-FR/secubox-openwrt">github.com&#x2F;CyberMind-FR&#x2F;secubox-openwrt</a></td>
+</tr>
+<tr>
+<td>🔧 <strong>Dev Instance</strong></td>
+<td><a target="_blank" rel="noopener" href="https://devel.cybermind.fr/gandalf/secubox-openwrt">devel.cybermind.fr&#x2F;gandalf&#x2F;secubox-openwrt</a></td>
+</tr>
+<tr>
+<td>📚 <strong>Documentation</strong></td>
+<td><a target="_blank" rel="noopener" href="https://secubox.maegia.tv/">secubox.maegia.tv</a></td>
+</tr>
+<tr>
+<td>🌐 <strong>Website</strong></td>
+<td><a target="_blank" rel="noopener" href="https://secubox.cybermood.eu/">secubox.cybermood.eu</a></td>
+</tr>
+<tr>
+<td>📝 <strong>Blog</strong></td>
+<td><a target="_blank" rel="noopener" href="https://blog.cybermind.fr/">blog.cybermind.fr</a></td>
+</tr>
+<tr>
+<td>🏢 <strong>Publisher</strong></td>
+<td><a target="_blank" rel="noopener" href="https://cybermind.fr/">CyberMind.fr</a></td>
+</tr>
+<tr>
+<td>📧 <strong>Contact</strong></td>
+<td><a href="mailto:&#x67;&#97;&#110;&#x64;&#x61;&#x6c;&#102;&#64;&#99;&#x79;&#x62;&#101;&#x72;&#109;&#x69;&#x6e;&#100;&#x2e;&#x66;&#114;">gandalf@cybermind.fr</a></td>
+</tr>
+<tr>
+<td>💰 <strong>Sponsor</strong></td>
+<td><a target="_blank" rel="noopener" href="https://paypal.me/Kerma">PayPal</a> | <a target="_blank" rel="noopener" href="https://patreon.com/cybermind">Patreon</a></td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p>📜 <em>Apache-2.0 © 2024-2026 CyberMind.fr</em></p>
+<p>🇫🇷 <em>Made with ❤️ in France</em></p>
+</blockquote>
+
+  </div>
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags-footer">
+      <span class="label">Tags:</span>
+      
+      <a href="/tags/OpenWrt/" class="tag-link">OpenWrt</a>
+      
+      <a href="/tags/LuCI/" class="tag-link">LuCI</a>
+      
+      <a href="/tags/Open-Source/" class="tag-link">Open Source</a>
+      
+      <a href="/tags/SecuBox/" class="tag-link">SecuBox</a>
+      
+      <a href="/tags/CrowdSec/" class="tag-link">CrowdSec</a>
+      
+      <a href="/tags/WireGuard/" class="tag-link">WireGuard</a>
+      
+      <a href="/tags/P2P/" class="tag-link">P2P</a>
+      
+      <a href="/tags/Cybersecurite/" class="tag-link">Cybersécurité</a>
+      
+    </div>
+    
+    
+    <div class="post-nav">
+      
+      
+      <a href="/cybersecurity/Securite/OpenWrt/Projets/secubox-analyse-complete/" class="nav-link next">
+        <span class="nav-label">Suivant →</span>
+        <span class="nav-title">SecuBox OpenWrt : Analyse Technique Complète de la Suite de Sécurité</span>
+      </a>
+      
+    </div>
+  </footer>
+</article>
+
+<style>
+.post-article { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+.post-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.post-category { margin-bottom: 0.75rem; }
+.post-category a {
+  display: inline-block; padding: 0.3rem 0.8rem;
+  background: rgba(255,255,255,0.05); border-radius: 20px;
+  text-decoration: none; font-size: 0.85rem; font-weight: 500;
+}
+.post-category a:hover { background: rgba(255,255,255,0.1); }
+
+.post-title { font-size: 2rem; color: #e8e8ed; margin: 0 0 0.75rem; line-height: 1.3; }
+.post-meta { font-size: 0.9rem; color: #6a6a7a; margin-bottom: 0.75rem; }
+.post-updated { font-style: italic; }
+
+.post-tags-header { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.post-tags-header .tag {
+  font-size: 0.8rem; color: var(--post-color); text-decoration: none; opacity: 0.8;
+}
+.post-tags-header .tag:hover { opacity: 1; text-decoration: underline; }
+
+.post-content { line-height: 1.8; color: #c8c8d0; }
+.post-content h2 { color: var(--post-color); margin: 2rem 0 1rem; }
+.post-content h3 { color: #e8e8ed; margin: 1.5rem 0 0.75rem; }
+.post-content a { color: var(--post-color); }
+.post-content code { background: rgba(255,255,255,0.05); padding: 0.2rem 0.4rem; border-radius: 4px; }
+.post-content pre { background: #0d0d12; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+.post-content img { max-width: 100%; height: auto; border-radius: 8px; }
+.post-content blockquote {
+  border-left: 3px solid var(--post-color); margin: 1.5rem 0;
+  padding: 0.5rem 1rem; background: rgba(255,255,255,0.02); color: #9898a6;
+}
+
+.post-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.post-tags-footer { margin-bottom: 1.5rem; }
+.post-tags-footer .label { color: #6a6a7a; margin-right: 0.5rem; }
+.post-tags-footer .tag-link {
+  display: inline-block; margin-right: 0.5rem;
+  color: var(--post-color); text-decoration: none;
+}
+.post-tags-footer .tag-link:hover { text-decoration: underline; }
+
+.post-nav { display: flex; justify-content: space-between; gap: 1rem; }
+.nav-link {
+  flex: 1; padding: 1rem; text-decoration: none;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; transition: border-color 0.2s;
+}
+.nav-link:hover { border-color: var(--post-color); }
+.nav-link.next { text-align: right; }
+.nav-label { display: block; font-size: 0.8rem; color: #6a6a7a; margin-bottom: 0.25rem; }
+.nav-title { display: block; color: #e8e8ed; font-weight: 500; }
+
+@media (max-width: 600px) {
+  .post-title { font-size: 1.5rem; }
+  .post-nav { flex-direction: column; }
+}
+
+[data-theme="light"] .post-article { background: #fff; }
+[data-theme="light"] .post-title, [data-theme="light"] .nav-title { color: #2a2a3a; }
+[data-theme="light"] .post-content { color: #4a4a5a; }
+[data-theme="light"] .nav-link { background: #f8f9fa; border-color: #e0e0e0; }
+</style>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">◆ CyberMind_</span>
+                    <span class="footer-tagline">Cybersécurité • Embarqué • Formation</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/cybermindfr" target="_blank" rel="noopener" title="LinkedIn CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/CyberMind-FR" target="_blank" rel="noopener" title="GitHub CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLOM3KtkUpYguBbTFVc_rUK2qbF0qKxWLd" target="_blank" rel="noopener" title="YouTube CyberMind" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cybermind.fr" title="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copy">
+                    © 2025 CyberMind.fr — Blog • Cybersécurité • Linux
+                </div>
+                
+                <div class="footer-links">
+                    
+                    <a href="#">Mentions légales</a>
+                    
+                    <a href="#">Confidentialité</a>
+                    
+                    <a target="_blank" rel="noopener" href="https://cybermind.fr/about">Blog</a>
+                    
+                </div>
+                
+                <!-- Theme info avec lien GitHub -->
+                <div class="footer-theme">
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind" target="_blank" rel="noopener" class="theme-link">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-name">Theme CyberMind</span>
+                        <span class="theme-version">v4.0</span>
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/releases" target="_blank" rel="noopener" class="releases-link">
+                        📦 Releases
+                    </a>
+                    <span class="theme-separator">•</span>
+                    <a href="https://github.com/CyberMind-FR/hexo-theme-cybermind/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener" class="changelog-link">
+                        📋 Changelog
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+        <style>
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Theme info */
+        .footer-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+        }
+        
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .theme-version {
+            background: var(--accent-orange)20;
+            color: var(--accent-orange);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .theme-separator {
+            color: var(--border-subtle);
+        }
+        
+        .releases-link,
+        .changelog-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .releases-link:hover,
+        .changelog-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.75rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .footer-theme {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .theme-separator {
+                display: none;
+            }
+        }
+        </style>
+    </div><!-- .main-wrapper -->
+    
+    
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+

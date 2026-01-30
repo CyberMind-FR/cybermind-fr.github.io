@@ -821,7 +821,431 @@
         
             
 
-<article class="article-card gui-window Histoire" style="--article-color: #f97316;" id="art-cuidnrw052DecnWovhnlhCYgD">
+<article class="article-card gui-window linux" style="--article-color: #3b82f6;" id="art-cuidJLu7BIjXwl67Y2s94NcYo">
+    <!-- Barre de titre style fenêtre GUI -->
+    <div class="window-titlebar" style="background: #3b82f6;">
+        <div class="window-buttons">
+            <span class="window-btn close" title="Fermer">●</span>
+            <span class="window-btn minimize" title="Réduire">●</span>
+            <span class="window-btn maximize" title="Agrandir">●</span>
+        </div>
+        <div class="window-title">
+            <span class="window-emojis">
+                🐧🖥️
+            </span>
+            <span class="window-category">Linux Kernel</span>
+            <span class="window-separator">—</span>
+            <span class="window-filename">Fiche - Etude - LM Studio, mod...</span>
+        </div>
+        <div class="window-lettrines">
+            
+            
+        </div>
+    </div>
+    
+    <!-- Contenu de la fenêtre -->
+    <div class="window-content">
+        <h3 class="article-title">
+            <a href="/linux/linux/lm_studio/">Fiche - Etude - LM Studio, modèles locaux &amp; linker avec GPT publics (ExoJS / Hexo.js)</a>
+        </h3>
+        
+        
+        <p class="article-excerpt">1. Contexte de l’échangeCet article est une synthèse détaillée d’un échange autour des sujets suivants :...</p>
+        
+        
+        <!-- Barre de status style terminal -->
+        <div class="window-statusbar">
+            <div class="status-left">
+                <span class="status-date">
+                    📅 23/11/2025
+                </span>
+                <span class="status-separator">|</span>
+                <span class="status-time">
+                    🕐 14:00
+                </span>
+            </div>
+            <div class="status-right">
+                
+                <div class="status-tags">
+                    
+                    <a href="/tags/LLM/" class="status-tag">
+                        🏷️LLM
+                    </a>
+                    
+                    <a href="/tags/LM-Studio/" class="status-tag">
+                        🏷️LM Studio
+                    </a>
+                    
+                    <a href="/tags/GPT/" class="status-tag">
+                        🏷️GPT
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Bouton action -->
+        <a href="/linux/linux/lm_studio/" class="window-action-btn" style="background: #3b82f6;">
+            <span class="action-icon">▶</span>
+            <span class="action-text">Lire la suite →</span>
+            <span class="action-arrow">→</span>
+        </a>
+    </div>
+</article>
+
+<style>
+/* Style fenêtre GUI */
+.article-card.gui-window {
+    position: relative;
+    background: var(--bg-primary);
+    border: 2px solid var(--article-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.article-card.gui-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.5),
+        0 0 30px var(--article-color)30,
+        inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Barre de titre */
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--article-color);
+    color: #000;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    min-height: 36px;
+}
+
+/* Boutons de fenêtre */
+.window-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.window-btn.close {
+    background: #ff5f57;
+    color: #ff5f57;
+}
+
+.window-btn.minimize {
+    background: #ffbd2e;
+    color: #ffbd2e;
+}
+
+.window-btn.maximize {
+    background: #28ca42;
+    color: #28ca42;
+}
+
+.window-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Titre de la fenêtre */
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.window-emojis {
+    display: flex;
+    gap: 2px;
+    animation: emojiPulse 2s ease-in-out infinite;
+}
+
+@keyframes emojiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.window-category {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.window-separator {
+    opacity: 0.5;
+}
+
+.window-filename {
+    opacity: 0.7;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Lettrines dans la barre */
+.window-lettrines {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.window-lettrines .lettrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.window-lettrines .lettrine:hover {
+    background: rgba(0,0,0,0.4);
+    transform: scale(1.15);
+}
+
+/* Contenu de la fenêtre */
+.window-content {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.article-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+}
+
+.article-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-title a:hover {
+    color: var(--article-color);
+}
+
+.article-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+/* Barre de status */
+.window-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -1.25rem;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-separator {
+    opacity: 0.3;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0.15rem 0.4rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+}
+
+.status-tag:hover {
+    background: var(--article-color);
+    color: #000;
+    border-color: var(--article-color);
+}
+
+/* Bouton action */
+.window-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--article-color);
+    color: #000;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.window-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.window-action-btn:hover::before {
+    left: 100%;
+}
+
+.window-action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px var(--article-color)50;
+}
+
+.action-icon {
+    font-size: 0.7rem;
+}
+
+.action-arrow {
+    transition: transform 0.3s ease;
+}
+
+.window-action-btn:hover .action-arrow {
+    transform: translateX(5px);
+}
+
+/* Animation scanlines effet CRT */
+.article-card.gui-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article-card.gui-window:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .window-titlebar {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+        flex-wrap: wrap;
+    }
+    
+    .window-filename {
+        display: none;
+    }
+    
+    .window-separator {
+        display: none;
+    }
+    
+    .window-lettrines {
+        display: none;
+    }
+    
+    .window-content {
+        padding: 1rem;
+    }
+    
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .window-statusbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        margin: 0 -1rem;
+    }
+    
+    .status-tags {
+        margin-top: 0.25rem;
+    }
+}
+</style>
+
+        
+            
+
+<article class="article-card gui-window Histoire" style="--article-color: #f97316;" id="art-cuidEJvhypQ6-fjntT-9m-HNP">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1248,7 +1672,7 @@
         
             
 
-<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuid6_d9FqLwbc3ggx_jQpuko">
+<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuid3FM_jfvSFvugCWYLfHT0k">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #00d4ff;">
         <div class="window-buttons">
@@ -1677,7 +2101,7 @@ Core ValueProvides ...</p>
         
             
 
-<article class="article-card gui-window FabLab" style="--article-color: #f97316;" id="art-cuidNnZtCF329la0pflVftkU8">
+<article class="article-card gui-window FabLab" style="--article-color: #f97316;" id="art-cuid6dZKnaTRQHAbuzD8tKh9p">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -1727,12 +2151,12 @@ Pigment ou peinture acrylique : pour colorer le poc...</p>
                 
                 <div class="status-tags">
                     
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
                     <a href="/tags/contribute/" class="status-tag">
                         🏷️contribute
+                    </a>
+                    
+                    <a href="/tags/Mood/" class="status-tag">
+                        🏷️Mood
                     </a>
                     
                     <a href="/tags/LASER/" class="status-tag">
@@ -2104,7 +2528,7 @@ Pigment ou peinture acrylique : pour colorer le poc...</p>
         
             
 
-<article class="article-card gui-window " style="--article-color: #f97316;" id="art-cuidVaHQO7DYY2E1FUivSSGHn">
+<article class="article-card gui-window " style="--article-color: #f97316;" id="art-cuid6qzFpMpSgId2naBDi1t7y">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -2517,7 +2941,7 @@ Le tableau des cartes avec leurs ...</p>
         
             
 
-<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidTF1FKGiIhtbRCWxe0cItU">
+<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidgwP9g-nzaBdBS6DQe79BZ">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #8b5cf6;">
         <div class="window-buttons">
@@ -2572,8 +2996,8 @@ Le tableau des cartes avec leurs ...</p>
                         🏷️Histoire
                     </a>
                     
-                    <a href="/tags/Livres/" class="status-tag">
-                        🏷️Livres
+                    <a href="/tags/Patrimoine/" class="status-tag">
+                        🏷️Patrimoine
                     </a>
                     
                 </div>
@@ -2941,7 +3365,7 @@ Le tableau des cartes avec leurs ...</p>
         
             
 
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidZr37dNkUlAySKBTfdSiej">
+<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidZ_tbqBHlw2Sx44xr2LHzy">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #f97316;">
         <div class="window-buttons">
@@ -3368,7 +3792,7 @@ Présentation pédagogique : comparaison critique entre le modèle TYCHOS et le 
         
             
 
-<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidPCMQzcp5nXSa2zJr5VwSc">
+<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidEmy0iN4URJf9u8ZaPoKIt">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #8b5cf6;">
         <div class="window-buttons">
@@ -3418,16 +3842,16 @@ Ce document rassemble une base ...</p>
                 
                 <div class="status-tags">
                     
+                    <a href="/tags/architecture/" class="status-tag">
+                        🏷️architecture
+                    </a>
+                    
                     <a href="/tags/Mood/" class="status-tag">
                         🏷️Mood
                     </a>
                     
                     <a href="/tags/Histoire/" class="status-tag">
                         🏷️Histoire
-                    </a>
-                    
-                    <a href="/tags/architecture/" class="status-tag">
-                        🏷️architecture
                     </a>
                     
                 </div>
@@ -3795,7 +4219,7 @@ Ce document rassemble une base ...</p>
         
             
 
-<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidMYdQfpC68KKIVniGsi9qY">
+<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidCLIyVqOMh-OX232pQfTli">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #8b5cf6;">
         <div class="window-buttons">
@@ -3851,8 +4275,8 @@ Ce document rassemble une base ...</p>
                         🏷️Histoire
                     </a>
                     
-                    <a href="/tags/Livres/" class="status-tag">
-                        🏷️Livres
+                    <a href="/tags/Patrimoine/" class="status-tag">
+                        🏷️Patrimoine
                     </a>
                     
                 </div>
@@ -4220,7 +4644,7 @@ Ce document rassemble une base ...</p>
         
             
 
-<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidLIshEcQ70bXcGL-H09aWD">
+<article class="article-card gui-window philosophy" style="--article-color: #8b5cf6;" id="art-cuidsPQwzztywzshI8UQLpCh_">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #8b5cf6;">
         <div class="window-buttons">
@@ -4276,8 +4700,8 @@ Ce document rassemble une base ...</p>
                         🏷️Histoire
                     </a>
                     
-                    <a href="/tags/Livres/" class="status-tag">
-                        🏷️Livres
+                    <a href="/tags/Patrimoine/" class="status-tag">
+                        🏷️Patrimoine
                     </a>
                     
                 </div>
@@ -4645,7 +5069,7 @@ Ce document rassemble une base ...</p>
         
             
 
-<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidlFuHgo58iFokZVTKrG5VA">
+<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidyWAohU0CL4pf5mX1uGX1W">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #00d4ff;">
         <div class="window-buttons">
@@ -5071,7 +5495,7 @@ https://space-...</p>
         
             
 
-<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidJQpgdpJ9g9mMTYbgh18yP">
+<article class="article-card gui-window cybersecurity" style="--article-color: #00d4ff;" id="art-cuidsHrV9-Bc-4rp3klfPMxw8">
     <!-- Barre de titre style fenêtre GUI -->
     <div class="window-titlebar" style="background: #00d4ff;">
         <div class="window-buttons">
@@ -5138,430 +5562,6 @@ https://cybermind.fr/fr/Cy...</p>
         
         <!-- Bouton action -->
         <a href="/cybersecurity/Cyber/Mood/systeme_cyber_opera_full/" class="window-action-btn" style="background: #00d4ff;">
-            <span class="action-icon">▶</span>
-            <span class="action-text">Lire la suite →</span>
-            <span class="action-arrow">→</span>
-        </a>
-    </div>
-</article>
-
-<style>
-/* Style fenêtre GUI */
-.article-card.gui-window {
-    position: relative;
-    background: var(--bg-primary);
-    border: 2px solid var(--article-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 
-        0 4px 20px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-}
-
-.article-card.gui-window:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 10px 40px rgba(0,0,0,0.5),
-        0 0 30px var(--article-color)30,
-        inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-/* Barre de titre */
-.window-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.75rem;
-    background: var(--article-color);
-    color: #000;
-    font-family: 'JetBrains Mono', 'Consolas', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    gap: 0.5rem;
-    min-height: 36px;
-}
-
-/* Boutons de fenêtre */
-.window-buttons {
-    display: flex;
-    gap: 6px;
-    flex-shrink: 0;
-}
-
-.window-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    font-size: 10px;
-    line-height: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.8;
-}
-
-.window-btn.close {
-    background: #ff5f57;
-    color: #ff5f57;
-}
-
-.window-btn.minimize {
-    background: #ffbd2e;
-    color: #ffbd2e;
-}
-
-.window-btn.maximize {
-    background: #28ca42;
-    color: #28ca42;
-}
-
-.window-btn:hover {
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-/* Titre de la fenêtre */
-.window-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.window-emojis {
-    display: flex;
-    gap: 2px;
-    animation: emojiPulse 2s ease-in-out infinite;
-}
-
-@keyframes emojiPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.window-category {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.window-separator {
-    opacity: 0.5;
-}
-
-.window-filename {
-    opacity: 0.7;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Lettrines dans la barre */
-.window-lettrines {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
-}
-
-.window-lettrines .lettrine {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 4px;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-}
-
-.window-lettrines .lettrine:hover {
-    background: rgba(0,0,0,0.4);
-    transform: scale(1.15);
-}
-
-/* Contenu de la fenêtre */
-.window-content {
-    padding: 1.25rem;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-}
-
-.article-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.4;
-}
-
-.article-title a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.article-title a:hover {
-    color: var(--article-color);
-}
-
-.article-excerpt {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-}
-
-/* Barre de status */
-.window-statusbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    margin: 0 -1.25rem;
-    background: var(--bg-tertiary);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.status-left {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.status-separator {
-    opacity: 0.3;
-}
-
-.status-right {
-    display: flex;
-    align-items: center;
-}
-
-.status-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.status-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    padding: 0.15rem 0.4rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 3px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.65rem;
-    transition: all 0.2s ease;
-}
-
-.status-tag:hover {
-    background: var(--article-color);
-    color: #000;
-    border-color: var(--article-color);
-}
-
-/* Bouton action */
-.window-action-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    background: var(--article-color);
-    color: #000;
-    text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.window-action-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.window-action-btn:hover::before {
-    left: 100%;
-}
-
-.window-action-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 15px var(--article-color)50;
-}
-
-.action-icon {
-    font-size: 0.7rem;
-}
-
-.action-arrow {
-    transition: transform 0.3s ease;
-}
-
-.window-action-btn:hover .action-arrow {
-    transform: translateX(5px);
-}
-
-/* Animation scanlines effet CRT */
-.article-card.gui-window::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,0,0,0.03),
-        rgba(0,0,0,0.03) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.article-card.gui-window:hover::after {
-    opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .window-titlebar {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.7rem;
-        flex-wrap: wrap;
-    }
-    
-    .window-filename {
-        display: none;
-    }
-    
-    .window-separator {
-        display: none;
-    }
-    
-    .window-lettrines {
-        display: none;
-    }
-    
-    .window-content {
-        padding: 1rem;
-    }
-    
-    .article-title {
-        font-size: 1rem;
-    }
-    
-    .article-excerpt {
-        font-size: 0.85rem;
-    }
-    
-    .window-statusbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.5rem;
-        margin: 0 -1rem;
-    }
-    
-    .status-tags {
-        margin-top: 0.25rem;
-    }
-}
-</style>
-
-        
-            
-
-<article class="article-card gui-window Cyber" style="--article-color: #f97316;" id="art-cuidsCBoErOdd-ViUm7RgGwCt">
-    <!-- Barre de titre style fenêtre GUI -->
-    <div class="window-titlebar" style="background: #f97316;">
-        <div class="window-buttons">
-            <span class="window-btn close" title="Fermer">●</span>
-            <span class="window-btn minimize" title="Réduire">●</span>
-            <span class="window-btn maximize" title="Agrandir">●</span>
-        </div>
-        <div class="window-title">
-            <span class="window-emojis">
-                📝
-            </span>
-            <span class="window-category">Cyber</span>
-            <span class="window-separator">—</span>
-            <span class="window-filename">Grimoire CyberMind – Livret Of...</span>
-        </div>
-        <div class="window-lettrines">
-            
-            
-        </div>
-    </div>
-    
-    <!-- Contenu de la fenêtre -->
-    <div class="window-content">
-        <h3 class="article-title">
-            <a href="/philosophy/Cyber/Mood/Livret-Grimoire_Cyber_Opera/">Grimoire CyberMind – Livret Officiel du Tarot</a>
-        </h3>
-        
-        
-        <p class="article-excerpt">Grimoire CyberMind – Livret Officiel du TarotSous-titre : Le Guide des 12 Glyphes et de la Sphère PrimordialePhrase d’Ouverture (Ultra-courte)« Le Tarot CyberMind révèle en un instant l’énergie qui di...</p>
-        
-        
-        <!-- Barre de status style terminal -->
-        <div class="window-statusbar">
-            <div class="status-left">
-                <span class="status-date">
-                    📅 18/11/2025
-                </span>
-                <span class="status-separator">|</span>
-                <span class="status-time">
-                    🕐 09:57
-                </span>
-            </div>
-            <div class="status-right">
-                
-                <div class="status-tags">
-                    
-                    <a href="/tags/Mood/" class="status-tag">
-                        🏷️Mood
-                    </a>
-                    
-                    <a href="/tags/Cartes/" class="status-tag">
-                        🏷️Cartes
-                    </a>
-                    
-                    <a href="/tags/Histoire/" class="status-tag">
-                        🏷️Histoire
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        <!-- Bouton action -->
-        <a href="/philosophy/Cyber/Mood/Livret-Grimoire_Cyber_Opera/" class="window-action-btn" style="background: #f97316;">
             <span class="action-icon">▶</span>
             <span class="action-text">Lire la suite →</span>
             <span class="action-arrow">→</span>
